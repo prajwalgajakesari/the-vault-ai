@@ -1,28 +1,48 @@
-# The Vault — AI Edition 🤖
+# The Vault — AI Edition
 
-**Your daily curated newsletter on the latest AI trends.**
+Your daily curated intelligence brief on the latest in artificial intelligence.
 
-Covering 15-20 stories daily across:
-- **LLMs & Generative AI** — Models, tools, and breakthroughs
-- **AI Research** — Papers, benchmarks, and lab updates
-- **AI in Business** — Funding, launches, partnerships, adoption
-- **AI Policy & Ethics** — Regulation, safety, and societal impact
+Covering 15-20 stories daily across LLMs, generative AI, research breakthroughs, business moves, and policy shifts.
 
-## 📁 Structure
+## Repository Structure
 
 ```
-newsletters/
-├── 2026/
-│   ├── 03/
-│   │   ├── 2026-03-29.md        # Markdown version
-│   │   ├── 2026-03-29.html      # Styled HTML version
-│   │   └── ...
+the-vault-ai/
+├── editions/
+│   └── YYYY/
+│       └── MM/
+│           └── DD/
+│               ├── index.html            # Full daily edition (styled)
+│               ├── digest.md             # Full daily digest (markdown)
+│               ├── metadata.json         # Edition metadata & story index
+│               └── stories/
+│                   ├── 01-headline-slug.md
+│                   ├── 01-headline-slug.html
+│                   ├── 02-headline-slug.md
+│                   ├── 02-headline-slug.html
+│                   └── ...
+├── assets/
+│   └── template.html                    # Base HTML template
+├── archive/
+│   └── index.md                         # Running archive index
+├── LICENSE
+└── README.md
 ```
 
-## ⚡ Powered by
+## How It Works
 
-This newsletter is auto-generated daily at 8:00 AM using Claude and published here.
+Every morning, the latest AI news from the previous 24 hours is researched, curated, and published here. Each story gets its own dedicated file with a full write-up, source attribution, and a styled HTML version.
+
+## Reading
+
+- **Quick scan**: Open any `digest.md` for a markdown overview
+- **Full experience**: Open `index.html` for the styled daily edition
+- **Deep dive**: Browse individual stories in `stories/`
+
+## License
+
+MIT
 
 ---
 
-*Built with ❤️ by [prajwalgajakesari](https://github.com/prajwalgajakesari)*
+*Curated daily by [prajwalgajakesari](https://github.com/prajwalgajakesari)*
