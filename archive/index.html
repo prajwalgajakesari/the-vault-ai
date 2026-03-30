@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Vault — AI Edition newsletter archive. Access all published editions with comprehensive AI news summaries.">
+    <title>Archive — The Vault AI Edition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: system-ui, -apple-system, 'Inter', sans-serif;
+            background-color: #0a0a0f;
+            color: #e4e4e7;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation & Header */
+        nav {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #e4e4e7;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #a1a1a6;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-back:hover {
+            color: #8b5cf6;
+            transform: translateX(-2px);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .header-section {
+            margin-bottom: 4rem;
+        }
+
+        .logo-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-icon {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '⚡';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            font-size: 24px;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #e4e4e7 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: #a1a1a6;
+            margin-bottom: 1.5rem;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            color: #808087;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        /* Archive Grid */
+        .archive-container {
+            margin-top: 3rem;
+        }
+
+        .editions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Edition Cards */
+        .edition-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(6, 182, 212, 0.03) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .edition-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+        }
+
+        .edition-card:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(6, 182, 212, 0.05) 100%);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+        }
+
+        .edition-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .edition-date {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e4e4e7;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .story-count-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            letter-spacing: 0.05em;
+        }
+
+        .edition-headline {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #e4e4e7;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .edition-headline::before {
+            content: '→ ';
+            color: #8b5cf6;
+            margin-right: 0.25rem;
+        }
+
+        /* Action Links */
+        .edition-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .edition-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 8px;
+            color: #e4e4e7;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .edition-link:hover {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(6, 182, 212, 0.15) 100%);
+            border-color: rgba(139, 92, 246, 0.4);
+            color: #06b6d4;
+            transform: translateX(2px);
+        }
+
+        .edition-link.styled {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-color: rgba(6, 182, 212, 0.2);
+        }
+
+        .edition-link.styled:hover {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+            border-color: rgba(6, 182, 212, 0.4);
+            color: #8b5cf6;
+        }
+
+        /* Footer Note */
+        .footer-note {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(139, 92, 246, 0.1);
+            color: #808087;
+            font-size: 0.9rem;
+        }
+
+        .footer-note strong {
+            color: #a1a1a6;
+            font-weight: 600;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.03) 0%, rgba(6, 182, 212, 0.03) 100%);
+            border: 1px dashed rgba(139, 92, 246, 0.2);
+            border-radius: 12px;
+        }
+
+        .empty-state h2 {
+            color: #a1a1a6;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .empty-state p {
+            color: #808087;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            main {
+                padding: 2rem 1.5rem;
+            }
+
+            .header-section {
+                margin-bottom: 2.5rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .editions-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .edition-date {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding: 1.5rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .edition-card {
+                padding: 1.5rem;
+            }
+
+            .edition-headline {
+                font-size: 0.9rem;
+            }
+
+            .edition-link {
+                font-size: 0.85rem;
+                padding: 0.65rem 0.85rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .edition-card {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .edition-card:nth-child(1) { animation-delay: 0.1s; }
+        .edition-card:nth-child(2) { animation-delay: 0.2s; }
+        .edition-card:nth-child(3) { animation-delay: 0.3s; }
+        .edition-card:nth-child(4) { animation-delay: 0.4s; }
+        .edition-card:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <span class="nav-brand">The Vault — AI Edition</span>
+            <a href="/" class="nav-back">
+                <span>←</span>
+                <span>Back to Home</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Header Section -->
+        <section class="header-section">
+            <div class="logo-container">
+                <div class="logo-icon"></div>
+            </div>
+            <h1>Archive</h1>
+            <p class="subtitle">Browse all published editions</p>
+            <p class="description">Explore our complete collection of AI news summaries and industry insights. Each edition delivers the most important developments in artificial intelligence.</p>
+        </section>
+
+        <!-- Archive Container -->
+        <section class="archive-container">
+            <div class="editions-grid">
+                <!-- Edition Card: March 28, 2026 -->
+                <article class="edition-card">
+                    <div class="edition-header">
+                        <div class="edition-date">
+                            <span>March 28, 2026</span>
+                            <span class="story-count-badge">17 Stories</span>
+                        </div>
+                    </div>
+                    <h2 class="edition-headline">Anthropic's 'Mythos' Model Leaked — Called a 'Step Change' in Capabilities</h2>
+                    <div class="edition-actions">
+                        <a href="/editions/2026/03/28/digest.md" class="edition-link">
+                            Read Digest (MD)
+                        </a>
+                        <a href="/editions/2026/03/28/index.html" class="edition-link styled">
+                            Read Styled Edition
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Footer Note -->
+            <div class="footer-note">
+                <p><strong>New editions are published every morning at 8 AM.</strong></p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
