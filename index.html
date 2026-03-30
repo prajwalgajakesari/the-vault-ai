@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vault — AI Edition | Daily AI Newsletter</title>
+    <meta name="description" content="Your daily intelligence brief on the world of AI. 15-20 deeply researched articles delivered every morning. Free, no spam, unsubscribe anytime.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="The Vault — AI Edition">
+    <meta property="og:description" content="Your daily intelligence brief on the world of AI. 15-20 deeply researched articles delivered every morning.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://news.promtvault.app">
+    <meta property="og:image" content="https://news.promtvault.app/og-image.jpg">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Vault — AI Edition">
+    <meta name="twitter:description" content="Your daily intelligence brief on the world of AI.">
+    <meta name="twitter:image" content="https://news.promtvault.app/og-image.jpg">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #15131d;
+            --bg-tertiary: #1f1d2b;
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1a6;
+            --text-muted: #6b6b76;
+
+            --accent-purple: #8b5cf6;
+            --accent-cyan: #06b6d4;
+            --accent-amber: #f59e0b;
+            --accent-red: #ef4444;
+
+            --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+
+            scroll-behavior: smooth;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Sticky Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(225, 225, 230, 0.1);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        header.scrolled {
+            transform: translateY(0);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .header-logo {
+            font-size: 1.125rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .header-subscribe {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .header-subscribe {
+                display: block;
+            }
+
+            .header-subscribe form {
+                display: flex;
+                gap: 0.5rem;
+            }
+
+            .header-subscribe input {
+                width: 200px;
+                padding: 0.5rem 1rem;
+                background: rgba(225, 225, 230, 0.05);
+                border: 1px solid rgba(225, 225, 230, 0.1);
+                border-radius: 0.375rem;
+                color: var(--text-primary);
+                font-size: 0.875rem;
+                transition: all 0.2s;
+            }
+
+            .header-subscribe input:focus {
+                outline: none;
+                background: rgba(225, 225, 230, 0.1);
+                border-color: var(--accent-purple);
+            }
+
+            .header-subscribe button {
+                padding: 0.5rem 1.5rem;
+                background: var(--gradient-primary);
+                border: none;
+                border-radius: 0.375rem;
+                color: white;
+                font-weight: 600;
+                cursor: pointer;
+                font-size: 0.875rem;
+                transition: all 0.2s;
+            }
+
+            .header-subscribe button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .form-group {
+                flex-direction: row;
+            }
+        }
+
+        .form-group input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: rgba(225, 225, 230, 0.05);
+            border: 1px solid rgba(225, 225, 230, 0.2);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            background: rgba(225, 225, 230, 0.1);
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .form-group button {
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 0.5rem;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+            font-family: inherit;
+        }
+
+        .form-group button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+
+        .form-group button:active {
+            transform: translateY(0);
+        }
+
+        .hero-disclaimer {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Base Styles */
+        section {
+            padding: 5rem 1.5rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            letter-spacing: -0.01em;
+        }
+
+        /* What You Get Section */
+        .what-you-get {
+            background: linear-gradient(180deg, rgba(139, 92, 246, 0.05) 0%, transparent 100%);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(225, 225, 230, 0.1);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: currentColor;
+        }
+
+        .card-category {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card.llm { color: var(--accent-purple); }
+        .card.research { color: var(--accent-cyan); }
+        .card.business { color: var(--accent-amber); }
+        .card.policy { color: var(--accent-red); }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(225, 225, 230, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Latest Edition Section */
+        .latest-edition {
+            background: linear-gradient(180deg, transparent 0%, rgba(6, 182, 212, 0.05) 100%);
+        }
+
+        .edition-card {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(225, 225, 230, 0.1);
+            border-radius: 0.75rem;
+            padding: 3rem 2rem;
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .edition-card {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                align-items: center;
+            }
+        }
+
+        .edition-meta {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .edition-date {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .edition-count {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            background: rgba(139, 92, 246, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+        }
+
+        .edition-content h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .edition-headlines {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .edition-headlines li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(225, 225, 230, 0.05);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .edition-headlines li:last-child {
+            border-bottom: none;
+        }
+
+        .edition-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .edition-cta:hover {
+            gap: 1rem;
+            color: var(--accent-purple);
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background: var(--bg-tertiary);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Archive Section */
+        .archive {
+            background: linear-gradient(180deg, rgba(139, 92, 246, 0.05) 0%, transparent 100%);
+        }
+
+        .archive-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .archive-links {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .archive-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(225, 225, 230, 0.1);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .archive-link:hover {
+            border-color: var(--accent-purple);
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(225, 225, 230, 0.1);
+            padding: 4rem 1.5rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-newsletter {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid rgba(225, 225, 230, 0.1);
+            border-radius: 0.75rem;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .footer-newsletter h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-newsletter p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .footer-newsletter form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 640px) {
+            .footer-newsletter form {
+                flex-direction: row;
+            }
+        }
+
+        .footer-newsletter input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: rgba(225, 225, 230, 0.05);
+            border: 1px solid rgba(225, 225, 230, 0.2);
+            border-radius: 0.375rem;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .footer-newsletter input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .footer-newsletter input:focus {
+            outline: none;
+            background: rgba(225, 225, 230, 0.1);
+            border-color: var(--accent-cyan);
+        }
+
+        .footer-newsletter button {
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 0.375rem;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .footer-newsletter button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h4 {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-purple);
+        }
+
+        .footer-branding {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(225, 225, 230, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .footer-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .card {
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+
+        .step {
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.2s; }
+        .step:nth-child(3) { animation-delay: 0.3s; }
+
+        .edition-card {
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 640px) {
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .section-header {
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero {
+                padding: 2rem 1.5rem;
+                min-height: auto;
+            }
+
+            .cards-grid {
+                gap: 1.5rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .edition-card {
+                padding: 1.5rem;
+            }
+
+            .footer-main {
+                gap: 2rem;
+            }
+
+            .header-container {
+                padding: 0.75rem 0;
+            }
+
+            .header-logo {
+                font-size: 1rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            header {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Header -->
+    <header id="header">
+        <div class="header-container">
+            <a href="#" class="header-logo">The Vault — AI Edition</a>
+            <div class="header-subscribe">
+                <form action="#subscribe" method="post">
+                    <input type="email" placeholder="your@email.com" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Vault — <span class="gradient-text">AI Edition</span></h1>
+            <p class="tagline">Your daily intelligence brief on the world of AI. 15-20 deeply researched articles delivered every morning.</p>
+
+            <form class="hero-form" action="#subscribe" method="post">
+                <div class="form-group">
+                    <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                    <button type="submit">Subscribe</button>
+                </div>
+            </form>
+
+            <p class="hero-disclaimer">Free. No spam. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section class="what-you-get">
+        <h2 class="section-header">What You Get</h2>
+
+        <div class="cards-grid">
+            <div class="card llm">
+                <div class="card-category">
+                    <span>🧠</span> LLMs & GenAI
+                </div>
+                <h3>Model Releases & Tools</h3>
+                <p>Model releases, tool updates, benchmarks, and the race between labs — who's building what and where the frontier is moving.</p>
+            </div>
+
+            <div class="card research">
+                <div class="card-category">
+                    <span>📚</span> Research
+                </div>
+                <h3>Papers & Breakthroughs</h3>
+                <p>Papers, breakthroughs, and the science pushing AI forward — the academic work shaping what's possible next.</p>
+            </div>
+
+            <div class="card business">
+                <div class="card-category">
+                    <span>💼</span> Business
+                </div>
+                <h3>Markets & Moves</h3>
+                <p>Funding rounds, acquisitions, product launches, market moves — the business side of the AI revolution.</p>
+            </div>
+
+            <div class="card policy">
+                <div class="card-category">
+                    <span>⚖️</span> Policy
+                </div>
+                <h3>Regulation & Ethics</h3>
+                <p>Regulation, ethics, safety, and the debates shaping AI's future — the governance layer nobody talks about enough.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Edition Section -->
+    <section class="latest-edition">
+        <h2 class="section-header">Latest Edition</h2>
+
+        <div class="edition-card">
+            <div class="edition-content">
+                <div class="edition-meta">
+                    <span class="edition-date">March 28, 2026</span>
+                    <span class="edition-count">17 stories</span>
+                </div>
+
+                <h4>Top Headlines</h4>
+                <ul class="edition-headlines">
+                    <li>OpenAI releases GPT-4.5 with extended context windows and improved reasoning</li>
+                    <li>Google DeepMind publishes breakthrough research on efficient transformer architectures</li>
+                    <li>Anthropic announces $5B funding round at $20B valuation</li>
+                </ul>
+
+                <a href="editions/2026/03/28/index.html" class="edition-cta">
+                    Read full edition →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <h2 class="section-header">How It Works</h2>
+
+        <div class="steps-grid">
+            <div class="step">
+                <span class="step-icon">📡</span>
+                <h3>Research</h3>
+                <p>Every morning, we scour 50+ sources across the AI ecosystem — research orgs, startups, policy institutions, and industry analysts.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-icon">✍️</span>
+                <h3>Write</h3>
+                <p>Each story gets deep research and a full editorial write-up — not a summary. Context. Analysis. What it means.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-icon">📬</span>
+                <h3>Deliver</h3>
+                <p>Published to the web, your inbox, and your feed by 8 AM — ready when you start your day.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Archive Section -->
+    <section class="archive">
+        <h2 class="section-header">More</h2>
+
+        <div class="archive-links">
+            <a href="archive/index.html" class="archive-link">
+                📖 Browse all editions
+            </a>
+            <a href="feed.xml" class="archive-link">
+                📡 Subscribe to RSS
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <!-- Newsletter Signup in Footer -->
+            <div class="footer-newsletter">
+                <h3>Don't miss an edition</h3>
+                <p>Get The Vault delivered to your inbox every morning</p>
+                <form action="#subscribe" method="post">
+                    <input type="email" placeholder="your@email.com" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="footer-main">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="#latest">Latest Edition</a>
+                    <a href="archive/index.html">Archive</a>
+                    <a href="feed.xml">RSS Feed</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <a href="https://www.promtvault.app">PromptVault</a>
+                    <a href="https://github.com/prajwalgajakesari/the-vault-ai">GitHub Repository</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Community</h4>
+                    <a href="https://twitter.com/promtvault">Twitter</a>
+                    <a href="https://github.com/prajwalgajakesari">GitHub Profile</a>
+                </div>
+            </div>
+
+            <!-- Footer Branding -->
+            <div class="footer-branding">
+                <div class="footer-logo">The Vault — AI Edition</div>
+                <p>A <a href="https://www.promtvault.app" style="color: var(--accent-purple); text-decoration: none; font-weight: 600;">PromptVault</a> project</p>
+                <p>Built by <a href="https://github.com/prajwalgajakesari" style="color: var(--accent-purple); text-decoration: none; font-weight: 600;">prajwalgajakesari</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky header on scroll
+        const header = document.getElementById('header');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        // Form submission handling (placeholder)
+        const forms = document.querySelectorAll('form[action="#subscribe"]');
+        forms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                // Placeholder: In production, this would send to Resend API
+                console.log('Subscribe request for:', email);
+                alert('Thanks for subscribing! Check your email for confirmation.');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
