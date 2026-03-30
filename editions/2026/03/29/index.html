@@ -11,378 +11,673 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", system-ui, sans-serif;
             background-color: #0c0c10;
             color: #e4e4e7;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid #27272a;
+            background-color: rgba(12, 12, 16, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #8b5cf6;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(88, 28, 135, 0.15) 0%, rgba(30, 58, 138, 0.15) 100%);
-            border-bottom: 1px solid #2e2e3e;
-            padding: 3rem 1.5rem;
+            padding: 4rem 1rem;
             text-align: center;
-            margin-bottom: 2rem;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            border-bottom: 1px solid #27272a;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 700;
             margin-bottom: 0.5rem;
             letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .hero .meta {
+        .hero .date {
+            font-size: clamp(0.95rem, 2vw, 1.25rem);
+            color: #a1a1a6;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .hero .stats {
             display: flex;
             justify-content: center;
             gap: 2rem;
-            font-size: 0.95rem;
-            color: #a1a1a6;
-            margin-top: 1rem;
+            flex-wrap: wrap;
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
+            color: #d4d4d8;
+            margin-top: 1.5rem;
         }
 
-        /* Navigation */
-        nav.category-nav {
+        .stats span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Filter Tabs */
+        .filter-section {
+            padding: 2rem 1rem;
+            border-bottom: 1px solid #27272a;
             position: sticky;
-            top: 0;
-            background-color: #0c0c10;
-            border-bottom: 1px solid #2e2e3e;
-            padding: 1rem 1.5rem;
-            margin-bottom: 2rem;
-            z-index: 100;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
+            top: 60px;
+            background-color: rgba(12, 12, 16, 0.98);
+            z-index: 50;
         }
 
-        .nav-container {
+        .filter-tabs {
             display: flex;
             gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
             max-width: 1200px;
             margin: 0 auto;
-            white-space: nowrap;
         }
 
-        .nav-tab {
-            padding: 0.5rem 1rem;
-            border: 1px solid #2e2e3e;
-            background-color: transparent;
-            color: #a1a1a6;
+        .filter-tab {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid #27272a;
+            background-color: #1e1e2e;
+            color: #e4e4e7;
+            border-radius: 6px;
             cursor: pointer;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            display: inline-block;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
         }
 
-        .nav-tab.active {
-            color: #e4e4e7;
-            border-color: #e4e4e7;
+        .filter-tab:hover {
+            border-color: #52525b;
+            background-color: #27272a;
         }
 
-        .nav-tab:hover {
-            border-color: #e4e4e7;
-            color: #e4e4e7;
+        .filter-tab.active {
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+            border-color: transparent;
+            color: #ffffff;
         }
 
-        .nav-tab.business { --accent: #f59e0b; }
-        .nav-tab.llms { --accent: #8b5cf6; }
-        .nav-tab.research { --accent: #06b6d4; }
-        .nav-tab.policy { --accent: #ef4444; }
-
-        .nav-tab.active.business,
-        .nav-tab.active.llms,
-        .nav-tab.active.research,
-        .nav-tab.active.policy {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* Main Container */
+        /* Main Content */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 2rem 1rem;
+        }
+
+        /* Category Sections */
+        .category-section {
+            margin-bottom: 3rem;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .category-section.hidden {
+            display: none;
+        }
+
+        .category-title {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #27272a;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .category-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .category-dot.business {
+            background-color: #f59e0b;
+        }
+
+        .category-dot.llms-genai {
+            background-color: #8b5cf6;
+        }
+
+        .category-dot.research {
+            background-color: #06b6d4;
+        }
+
+        .category-dot.policy {
+            background-color: #ef4444;
         }
 
         /* Stories Grid */
         .stories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
+        @media (max-width: 768px) {
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Story Card */
         .story-card {
             background-color: #1e1e2e;
-            border: 1px solid #2e2e3e;
-            border-radius: 6px;
-            padding: 1.5rem;
-            transition: all 0.2s ease;
+            border: 1px solid #27272a;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
+            height: 100%;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .story-card.hidden {
+            display: none;
         }
 
         .story-card:hover {
-            border-color: #3e3e4e;
+            border-color: #52525b;
+            background-color: #27272a;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
-        .story-card.business {
-            --accent-color: #f59e0b;
-        }
-
-        .story-card.llms {
-            --accent-color: #8b5cf6;
-        }
-
-        .story-card.research {
-            --accent-color: #06b6d4;
-        }
-
-        .story-card.policy {
-            --accent-color: #ef4444;
-        }
-
-        .story-card:hover {
-            border-color: var(--accent-color);
+        .story-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
         }
 
         .category-pill {
             display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 3px;
+            padding: 0.4rem 0.9rem;
+            border-radius: 4px;
             font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 0.75rem;
-            width: fit-content;
+            white-space: nowrap;
         }
 
         .category-pill.business {
-            background-color: rgba(245, 158, 11, 0.2);
-            color: #f59e0b;
+            background-color: rgba(245, 158, 11, 0.15);
+            color: #fcd34d;
         }
 
-        .category-pill.llms {
-            background-color: rgba(139, 92, 246, 0.2);
-            color: #8b5cf6;
+        .category-pill.llms-genai {
+            background-color: rgba(139, 92, 246, 0.15);
+            color: #d8b4fe;
         }
 
         .category-pill.research {
-            background-color: rgba(6, 182, 212, 0.2);
-            color: #06b6d4;
+            background-color: rgba(6, 182, 212, 0.15);
+            color: #67e8f9;
         }
 
         .category-pill.policy {
-            background-color: rgba(239, 68, 68, 0.2);
-            color: #ef4444;
+            background-color: rgba(239, 68, 68, 0.15);
+            color: #fca5a5;
+        }
+
+        .reading-time {
+            font-size: 0.8rem;
+            color: #a1a1a6;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
         }
 
         .story-headline {
-            font-size: 1.25rem;
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
-
-        .story-headline a {
-            color: #e4e4e7;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .story-headline a:hover {
-            color: #a1a1a6;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+            color: #ffffff;
         }
 
         .story-meta {
             font-size: 0.85rem;
-            color: #71717a;
-            margin-bottom: 1rem;
-        }
-
-        .story-teaser {
-            font-size: 0.95rem;
             color: #a1a1a6;
-            margin-bottom: 1rem;
-            flex-grow: 1;
-            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .read-more {
-            color: var(--accent-color, #e4e4e7);
+        .story-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #8b5cf6;
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            display: inline-block;
+            font-weight: 500;
+            margin-top: auto;
+            transition: all 0.3s ease;
         }
 
-        .read-more:hover {
-            transform: translateX(2px);
+        .story-link:hover {
+            color: #a78bfa;
+            gap: 0.75rem;
         }
 
-        /* Feature Sections */
-        .feature-section {
-            background-color: #1e1e2e;
-            border: 1px solid #2e2e3e;
-            border-radius: 6px;
+        /* By the Numbers Section */
+        .by-the-numbers {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            border: 1px solid #27272a;
+            border-radius: 8px;
             padding: 2rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .by-the-numbers h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
             margin-bottom: 2rem;
+            color: #ffffff;
         }
 
-        .feature-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #e4e4e7;
-        }
-
-        /* Quote Section */
-        .quote-block {
-            border-left: 4px solid #8b5cf6;
-            padding-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .quote-text {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #e4e4e7;
-            margin-bottom: 0.75rem;
-            line-height: 1.6;
-        }
-
-        .quote-author {
-            color: #71717a;
-            font-size: 0.9rem;
-        }
-
-        /* By the Numbers Grid */
         .numbers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
         }
 
-        .number-card {
-            text-align: center;
+        .number-stat {
             padding: 1.5rem;
-            background-color: rgba(139, 92, 246, 0.05);
-            border: 1px solid #2e2e3e;
-            border-radius: 6px;
         }
 
-        .big-number {
-            font-size: 2rem;
+        .number-value {
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
-            color: #8b5cf6;
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 0.5rem;
         }
 
         .number-label {
-            color: #a1a1a6;
             font-size: 0.9rem;
+            color: #a1a1a6;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         /* Footer */
         footer {
-            border-top: 1px solid #2e2e3e;
-            padding: 2rem 1.5rem;
-            margin-top: 3rem;
+            border-top: 1px solid #27272a;
+            padding: 3rem 1rem;
             text-align: center;
-            color: #71717a;
+            background-color: rgba(12, 12, 16, 0.5);
+            color: #a1a1a6;
             font-size: 0.9rem;
         }
 
         footer a {
             color: #8b5cf6;
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: color 0.3s ease;
         }
 
         footer a:hover {
-            color: #e4e4e7;
+            color: #a78bfa;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-credit {
+            margin-top: 1rem;
+            font-size: 0.85rem;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
+        @media (max-width: 640px) {
+            .hero {
+                padding: 2.5rem 1rem;
             }
 
-            .hero .meta {
-                flex-direction: column;
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .filter-tabs {
                 gap: 0.5rem;
             }
 
-            .stories-grid {
-                grid-template-columns: 1fr;
+            .filter-tab {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .by-the-numbers {
+                padding: 1.5rem;
             }
 
             .numbers-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
             }
-        }
 
-        @media (max-width: 480px) {
-            .hero {
+            footer {
                 padding: 2rem 1rem;
             }
 
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            nav.category-nav {
-                padding: 0.75rem 1rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-
-            .feature-section {
-                padding: 1.5rem 1rem;
-            }
-
-            .numbers-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .number-card {
-                padding: 1rem;
-            }
-
-            .big-number {
-                font-size: 1.5rem;
+            .footer-links {
+                gap: 1rem;
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
+    <!-- Navigation -->
+    <nav>
+        <a href="https://news.promtvault.app">← Back to Home</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
         <h1>The Vault — AI Edition</h1>
-        <div class="meta">
-            <span>March 29, 2026</span>
-            <span>10 stories · ~8,400 words</span>
+        <div class="date">March 29, 2026</div>
+        <div class="stats">
+            <span>10 stories</span>
+            <span>~8,400 words</span>
+            <span>4 categories</span>
+            <span>42 min total reading</span>
+        </div>
+    </header>
+
+    <!-- Filter Tabs -->
+    <div class="filter-section">
+        <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">All</button>
+            <button class="filter-tab" data-filter="business">Business</button>
+            <button class="filter-tab" data-filter="llms-genai">LLMs & GenAI</button>
+            <button class="filter-tab" data-filter="research">Research</button>
+            <button class="filter-tab" data-filter="policy">Policy</button>
         </div>
     </div>
 
-    <nav class="category-nav">
-        <div class="nav-container">
-            <button class="nav-tab active" onclick="filterCategory('all');">All</button>
-            <button class="nav-tab business" onclick="filterCategory('business');">Business</button>
-            <button class="nav-tab llms" onclick="filterCategory('llms');">LLMs & GenAI</button>
-            <button class="nav-tab research" onclick="filterCategory('research');">Research</button>
-            <button class="nav-tab policy" onclick="filterCategory('policy');">Policy</button>
-        </div>
-    </nav>
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Business Section -->
+        <section class="category-section" data-category="business">
+            <h2 class="category-title">
+                <span class="category-dot business"></span>
+                Business
+            </h2>
+            <div class="stories-grid">
+                <!-- Story 1 -->
+                <article class="story-card" data-category="business">
+                    <div class="story-header">
+                        <span class="category-pill business">Business</span>
+                        <span class="reading-time">5 min read</span>
+                    </div>
+                    <h3 class="story-headline">OpenAI Kills Sora After Burning $2.7 Billion in Six Months, Collapses Disney Deal</h3>
+                    <div class="story-meta">917 words</div>
+                    <a href="stories/01-openai-kills-sora-pivots-to-robotics.html" class="story-link">Read full article →</a>
+                </article>
 
-    <div class="container">
-        <div class="stories-grid" id="storiesGrid">
+                <!-- Story 3 -->
+                <article class="story-card" data-category="business">
+                    <div class="story-header">
+                        <span class="category-pill business">Business</span>
+                        <span class="reading-time">4 min read</span>
+                    </div>
+                    <h3 class="story-headline">Apple Will Let Gemini and Claude Replace ChatGPT Inside Siri With iOS 27</h3>
+                    <div class="story-meta">812 words</div>
+                    <a href="stories/03-apple-siri-rival-ai-ios-27.html" class="story-link">Read full article →</a>
+                </article>
+
+                <!-- Story 5 -->
+                <article class="story-card" data-category="business">
+                    <div class="story-header">
+                        <span class="category-pill business">Business</span>
+                        <span class="reading-time">4 min read</span>
+                    </div>
+                    <h3 class="story-headline">Waymo Hits Half a Million Rides Per Week as Robotaxi Race Heats Up</h3>
+                    <div class="story-meta">708 words</div>
+                    <a href="stories/05-waymo-500k-rides-weekly-milestone.html" class="story-link">Read full article →</a>
+                </article>
+
+                <!-- Story 6 -->
+                <article class="story-card" data-category="business">
+                    <div class="story-header">
+                        <span class="category-pill business">Business</span>
+                        <span class="reading-time">4 min read</span>
+                    </div>
+                    <h3 class="story-headline">Shopify Turns ChatGPT Into a Shopping Mall With Agentic Storefronts</h3>
+                    <div class="story-meta">843 words</div>
+                    <a href="stories/06-shopify-agentic-storefronts-ai-commerce.html" class="story-link">Read full article →</a>
+                </article>
+
+                <!-- Story 10 -->
+                <article class="story-card" data-category="business">
+                    <div class="story-header">
+                        <span class="category-pill business">Business</span>
+                        <span class="reading-time">5 min read</span>
+                    </div>
+                    <h3 class="story-headline">OpenAI's ChatGPT Ad Pilot Hits $100 Million ARR in Just Six Weeks</h3>
+                    <div class="story-meta">1,026 words</div>
+                    <a href="stories/10-openai-chatgpt-ads-100m-revenue.html" class="story-link">Read full article →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- LLMs & GenAI Section -->
+        <section class="category-section" data-category="llms-genai">
+            <h2 class="category-title">
+                <span class="category-dot llms-genai"></span>
+                LLMs & GenAI
+            </h2>
+            <div class="stories-grid">
+                <!-- Story 2 -->
+                <article class="story-card" data-category="llms-genai">
+                    <div class="story-header">
+                        <span class="category-pill llms-genai">LLMs & GenAI</span>
+                        <span class="reading-time">4 min read</span>
+                    </div>
+                    <h3 class="story-headline">Anthropic's 'Mythos' Model Leaks Through Unsecured Database, Cybersecurity Stocks Crater</h3>
+                    <div class="story-meta">695 words</div>
+                    <a href="stories/02-anthropic-mythos-leak-cybersecurity-stocks.html" class="story-link">Read full article →</a>
+                </article>
+
+                <!-- Story 7 -->
+                <article class="story-card" data-category="llms-genai">
+                    <div class="story-header">
+                        <span class="category-pill llms-genai">LLMs & GenAI</span>
+                        <span class="reading-time">4 min read</span>
+                    </div>
+                    <h3 class="story-headline">Jensen Huang Tells Lex Fridman 'We've Achieved AGI' — And the AI World Can't Agree</h3>
+                    <div class="story-meta">882 words</div>
+                    <a href="stories/07-jensen-huang-declares-agi-achieved.html" class="story-link">Read full article →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section class="category-section" data-category="research">
+            <h2 class="category-title">
+                <span class="category-dot research"></span>
+                Research
+            </h2>
+            <div class="stories-grid">
+                <!-- Story 4 -->
+                <article class="story-card" data-category="research">
+                    <div class="story-header">
+                        <span class="category-pill research">Research</span>
+                        <span class="reading-time">4 min read</span>
+                    </div>
+                    <h3 class="story-headline">ARC-AGI-3 Humbles Every Frontier Model: Best AI Scores 0.37%, Humans Hit 100%</h3>
+                    <div class="story-meta">834 words</div>
+                    <a href="stories/04-arc-agi-3-frontier-models-under-one-percent.html" class="story-link">Read full article →</a>
+                </article>
+
+                <!-- Story 8 -->
+                <article class="story-card" data-category="research">
+                    <div class="story-header">
+                        <span class="category-pill research">Research</span>
+                        <span class="reading-time">4 min read</span>
+                    </div>
+                    <h3 class="story-headline">Your AI Chatbot Agrees With You Too Much, and It's Making You Worse at Being Human</h3>
+                    <div class="story-meta">813 words</div>
+                    <a href="stories/08-sycophancy-study-science-journal.html" class="story-link">Read full article →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Policy Section -->
+        <section class="category-section" data-category="policy">
+            <h2 class="category-title">
+                <span class="category-dot policy"></span>
+                Policy
+            </h2>
+            <div class="stories-grid">
+                <!-- Story 9 -->
+                <article class="story-card" data-category="policy">
+                    <div class="story-header">
+                        <span class="category-pill policy">Policy</span>
+                        <span class="reading-time">4 min read</span>
+                    </div>
+                    <h3 class="story-headline">Dutch Court Bans xAI's Grok From Generating Nonconsensual Nude Images</h3>
+                    <div class="story-meta">845 words</div>
+                    <a href="stories/09-dutch-court-bans-xai-grok-images.html" class="story-link">Read full article →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- By the Numbers -->
+        <section class="by-the-numbers">
+            <h2>By the Numbers</h2>
+            <div class="numbers-grid">
+                <div class="number-stat">
+                    <div class="number-value">10</div>
+                    <div class="number-label">Stories</div>
+                </div>
+                <div class="number-stat">
+                    <div class="number-value">8.4K</div>
+                    <div class="number-label">Words</div>
+                </div>
+                <div class="number-stat">
+                    <div class="number-value">4</div>
+                    <div class="number-label">Categories</div>
+                </div>
+                <div class="number-stat">
+                    <div class="number-value">42</div>
+                    <div class="number-label">Min Read</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="https://news.promtvault.app">← Back to The Vault</a>
+            <a href="https://github.com/thevaultai">GitHub Repository</a>
+        </div>
+        <div class="footer-credit">
+            <p>The Vault — AI Edition | March 29, 2026 | Premium AI News & Analysis</p>
+        </div>
+    </footer>
+
+    <!-- Filter JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            const storySections = document.querySelectorAll('.category-section');
+            const storyCards = document.querySelectorAll('.story-card');
+
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+
+                    // Update active tab
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Show/hide cards and sections
+                    if (filter === 'all') {
+                        // Show all sections and cards
+                        storySections.forEach(section => {
+                            section.classList.remove('hidden');
+                        });
+                        storyCards.forEach(card => {
+                            card.classList.remove('hidden');
+                        });
+                    } else {
+                        // Hide all sections first
+                        storySections.forEach(section => {
+                            section.classList.add('hidden');
+                        });
+
+                        // Show only matching section and cards
+                        storySections.forEach(section => {
+                            if (section.getAttribute('data-category') === filter) {
+                                section.classList.remove('hidden');
+                            }
+                        });
+
+                        storyCards.forEach(card => {
+                            if (card.getAttribute('data-category') === filter) {
+                                card.classList.remove('hidden');
+                            } else {
+                                card.classList.add('hidden');
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
