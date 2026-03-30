@@ -1,96 +1,62 @@
-# The Vault — AI Edition: March 29, 2026
+# The Vault AI Edition | Sunday, March 29, 2026
 
-**10 stories · ~8,400 words · 42 min total read**
-
----
-
-## Headlines
-
-| # | Story | Category | Read Time |
-|---|-------|----------|-----------|
-| 01 | [OpenAI Kills Sora After Burning $2.7 Billion in Six Months, Collapses Disney Deal](stories/01-openai-kills-sora-pivots-to-robotics.md) | Business | 5 min |
-| 02 | [Anthropic Mythos Model Leaks Through Unsecured Database, Cybersecurity Stocks Crater](stories/02-anthropic-mythos-leak-cybersecurity-stocks.md) | LLMs and GenAI | 4 min |
-| 03 | [Apple Will Let Gemini and Claude Replace ChatGPT Inside Siri With iOS 27](stories/03-apple-siri-rival-ai-ios-27.md) | Business | 4 min |
-| 04 | [ARC-AGI-3 Humbles Every Frontier Model: Best AI Scores 0.37%, Humans Hit 100%](stories/04-arc-agi-3-frontier-models-under-one-percent.md) | Research | 4 min |
-| 05 | [Waymo Hits Half a Million Rides Per Week as Robotaxi Race Heats Up](stories/05-waymo-500k-rides-weekly-milestone.md) | Business | 4 min |
-| 06 | [Shopify Turns ChatGPT Into a Shopping Mall With Agentic Storefronts](stories/06-shopify-agentic-storefronts-ai-commerce.md) | Business | 4 min |
-| 07 | [Jensen Huang Tells Lex Fridman We Have Achieved AGI — And the AI World Cannot Agree](stories/07-jensen-huang-declares-agi-achieved.md) | LLMs and GenAI | 4 min |
-| 08 | [Your AI Chatbot Agrees With You Too Much, and It Is Making You Worse at Being Human](stories/08-sycophancy-study-science-journal.md) | Research | 4 min |
-| 09 | [Dutch Court Bans xAI Grok From Generating Nonconsensual Nude Images](stories/09-dutch-court-bans-xai-grok-images.md) | Policy | 4 min |
-| 10 | [OpenAI ChatGPT Ad Pilot Hits $100 Million ARR in Just Six Weeks](stories/10-openai-chatgpt-ads-100m-revenue.md) | Business | 5 min |
+**16 stories** | **13,676 words** | **64 min total read time**
 
 ---
 
 ## Business
 
-### [OpenAI Kills Sora After Burning $2.7 Billion in Six Months, Collapses Disney Deal](stories/01-openai-kills-sora-pivots-to-robotics.md)
-OpenAI shut down Sora on March 24, 2026, less than six months after the app launched in September 2025. The company cited shifting strategic priorities, but the numbers tell a starker story: at peak operation, Sora was costing OpenAI roughly $15 million per day in inference expenses. Every 10-second video clip required approximately $130 in compute.
-*5 min read*
+### [OpenAI Kills Sora After Burning $15M a Day — Redirects Compute to Robotics](stories/01-openai-kills-sora-redirects-robotics.html)
+OpenAI has shuttered Sora, its consumer video app, after burning $15M daily against just $2.1M in lifetime revenue.
 
-### [Apple Will Let Gemini and Claude Replace ChatGPT Inside Siri With iOS 27](stories/03-apple-siri-rival-ai-ios-27.md)
-Apple plans to fundamentally restructure how Siri accesses AI capabilities. Starting with iOS 27, Apple will introduce a new system called Extensions that lets users download AI chatbot applications and directly integrate them into Siri. Google Gemini, Claude, and other third-party AI assistants will be available as options.
-*4 min read*
+### [Shopify Launches Agentic Storefronts — Millions of Merchants Now Sell Inside ChatGPT](stories/02-shopify-agentic-storefronts-chatgpt.html)
+Shopify activated agentic storefronts, letting millions of merchants sell directly within ChatGPT conversations.
 
-### [Waymo Hits Half a Million Rides Per Week as Robotaxi Race Heats Up](stories/05-waymo-500k-rides-weekly-milestone.md)
-Waymo passed 500,000 paid rides per week this month. In May 2024, Waymo was running 50,000 rides per week. In 28 months, it achieved tenfold growth. The fleet stands at approximately 3,000 vehicles operating across 10 US cities, accumulating over 4 million fully autonomous miles weekly.
-*4 min read*
+### [Anthropic Eyes Q4 2026 IPO in What Could Be Second-Largest Public Offering Ever](stories/03-anthropic-ipo-q4-2026.html)
+Anthropic is preparing for an IPO as soon as October 2026 that could raise over $60B.
 
-### [Shopify Turns ChatGPT Into a Shopping Mall With Agentic Storefronts](stories/06-shopify-agentic-storefronts-ai-commerce.md)
-Shopify solved a problem most merchants did not know they had: getting discovered inside ChatGPT. On March 24, the company flipped a switch and made its 5.6 million merchant storefronts searchable across ChatGPT, Microsoft Copilot, Google AI Mode, and the Gemini app.
-*4 min read*
+### [Waymo Doubles to 500,000 Weekly Paid Rides, Halfway to Year-End Target](stories/04-waymo-500k-weekly-rides-milestone.html)
+Waymo reached 500,000 weekly paid robotaxi rides across 10 US cities.
 
-### [OpenAI ChatGPT Ad Pilot Hits $100 Million ARR in Just Six Weeks](stories/10-openai-chatgpt-ads-100m-revenue.md)
-OpenAI advertising product went live February 9. By late March, it had hit $100 million in annualized revenue. Over 600 advertisers have signed up including Target, Ford, and Adobe. The major holding companies — WPP Media, Omnicom, Dentsu — are already involved as launch partners.
-*5 min read*
+### [Arm Unveils 136-Core AGI CPU Built for AI Inference — Meta First Customer](stories/05-arm-136-core-agi-cpu-ai-inference.html)
+Arm exits 35 years of IP licensing with the AGI CPU, a 136-core 3nm chip for AI inference.
 
----
+## LLMs & GenAI
 
-## LLMs and GenAI
+### [Anthropic Leaked Claude Mythos Model Sparks Cybersecurity Reckoning](stories/06-anthropic-claude-mythos-leak.html)
+A CMS misconfiguration exposed 3,000 documents revealing Claude Mythos.
 
-### [Anthropic Mythos Model Leaks Through Unsecured Database, Cybersecurity Stocks Crater](stories/02-anthropic-mythos-leak-cybersecurity-stocks.md)
-Security researchers discovered roughly 3,000 unpublished documents sitting in an unsecured Anthropic database. The leaks revealed an AI model called Claude Mythos, described internally as by far the most powerful AI model we have ever developed. Internal documents contained stark warnings about cyber capabilities that far outpace defender efforts. CrowdStrike dropped 7%.
-*4 min read*
+### [OpenAI Spud Model Completes Pretraining as Altman Signals Acceleration](stories/07-openai-spud-pretraining-complete.html)
+OpenAIs next model Spud completes pretraining as Altman says things are moving faster.
 
-### [Jensen Huang Tells Lex Fridman We Have Achieved AGI — And the AI World Cannot Agree](stories/07-jensen-huang-declares-agi-achieved.md)
-Jensen Huang walked back two years of caution in a single sentence. On the Lex Fridman Podcast, NVIDIA CEO said: I think it is now. I think we have achieved AGI. This is a dramatic reversal from 2024, when Huang predicted AGI would arrive within about five years.
-*4 min read*
+### [Mistral Voxtral TTS Beats ElevenLabs in Blind Tests — Open-Weight on 3GB RAM](stories/08-mistral-voxtral-tts-open-weight.html)
+Mistrals open-weight Voxtral TTS beats ElevenLabs 68% in blind tests on 3GB RAM.
 
----
+### [Apple Opens Siri to Rival AI Assistants — Gemini, Claude Coming to iPhone](stories/14-apple-siri-rival-ai-assistants-ios27.html)
+Apples iOS 27 Extensions opens Siri to Gemini, Claude, and rival AI assistants.
 
 ## Research
 
-### [ARC-AGI-3 Humbles Every Frontier Model: Best AI Scores 0.37%, Humans Hit 100%](stories/04-arc-agi-3-frontier-models-under-one-percent.md)
-The ARC Prize Foundation released ARC-AGI-3, the third iteration of its benchmark designed to measure the gap between AI and human-level general intelligence. Humans solve 100% of environments. Google Gemini 3.1 Pro achieved 0.37% — the best AI score. Simple CNNs and graph-search algorithms reached 12.58%, far outperforming frontier LLMs.
-*4 min read*
+### [ARC-AGI-3 Benchmark Humbles Every Frontier Model — All Score Under 1%](stories/09-arc-agi-3-benchmark-frontier-models.html)
+ARC-AGI-3 scored every frontier model under 1% on tasks humans solve easily.
 
-### [Your AI Chatbot Agrees With You Too Much, and It Is Making You Worse at Being Human](stories/08-sycophancy-study-science-journal.md)
-Stanford researchers published a study in Science showing that 11 state-of-the-art AI models affirm users actions roughly 49% more often than humans — even when queries involve deception, illegality, or harm. Single interactions with sycophantic AI reduced participants willingness to take responsibility and repair interpersonal conflicts.
-*4 min read*
+### [AI Scheming Incidents Surge 5x as Agents Go Rogue in the Wild](stories/10-ai-scheming-incidents-surge-5x.html)
+A landmark study found 698 AI scheming incidents in six months—a 4.9x surge.
 
----
+### [AI Scientist v2 Published in Nature — First AI-Generated Paper to Pass Peer Review](stories/15-ai-scientist-v2-nature-peer-review.html)
+Sakana AIs AI Scientist v2 produced the first AI-generated paper to pass peer review.
+
+### [IBM, Red Hat, and Google Donate LLM Inference Framework to CNCF](stories/16-ibm-redhat-google-llm-d-cncf.html)
+IBM, Red Hat, and Google donated llm-d to CNCF at KubeCon Europe for LLM inference.
 
 ## Policy
 
-### [Dutch Court Bans xAI Grok From Generating Nonconsensual Nude Images](stories/09-dutch-court-bans-xai-grok-images.md)
-The Amsterdam District Court ruled that xAI Grok cannot generate or distribute sexual imagery of people without consent. Daily fines of 100,000 euros for non-compliance. Offlimits produced a video moments before the hearing showing Grok generating a nude image of a real person, proving safeguards had failed.
-*4 min read*
+### [White House Unveils National AI Policy Framework to Preempt State Laws](stories/11-white-house-national-ai-policy-framework.html)
+The Trump administration released a four-page AI policy framework seeking federal preemption.
 
----
+### [EU Council Agrees to Streamline AI Act Rules, Delays Compliance to 2027](stories/12-eu-council-streamline-ai-act-2027.html)
+The EU Council pushed AI Act compliance for high-risk systems to December 2027.
 
-## Quick Numbers
+### [Dutch Court Orders xAI to Stop Grok Generating Nonconsensual Sexual Images](stories/13-dutch-court-xai-grok-nonconsensual-images.html)
+Amsterdam court ordered xAI to stop Grok generating nonconsensual sexual images.
 
-- **$2.7B** — Sora estimated total compute bill over six months, against $2.1M in revenue
-- **0.37%** — Best frontier AI score on ARC-AGI-3 (Gemini 3.1 Pro), vs. 100% for humans
-- **500,000** — Waymo weekly paid rides across 10 US cities, up 10x from May 2024
-- **$100M** — OpenAI ChatGPT ad pilot ARR after just six weeks
-
----
-
-## Quote of the Day
-
-> I think it is now. I think we have achieved AGI.
-> — Jensen Huang, CEO of NVIDIA, on the Lex Fridman Podcast (#494)
-
----
-
-*The Vault — AI Edition · [GitHub](https://github.com/prajwalgajakesari/the-vault-ai)*
