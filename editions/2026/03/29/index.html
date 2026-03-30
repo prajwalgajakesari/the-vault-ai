@@ -1,683 +1,765 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Vault — AI Edition | March 29, 2026</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Vault — AI Edition | March 29, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #101014;
+      --surface: #18181c;
+      --surface-2: #1f1f24;
+      --border: rgba(255, 255, 255, 0.07);
+      --text: #b8b8bf;
+      --text-strong: #ececef;
+      --text-muted: #5a5a63;
+      --accent: #c084fc;
+      --business: #e8a735;
+      --llms: #a78bfa;
+      --research: #5eead4;
+      --policy: #fb7185;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", system-ui, sans-serif;
-            background-color: #0c0c10;
-            color: #e4e4e7;
-            line-height: 1.7;
-            font-size: 16px;
-        }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Source Serif 4', serif;
+      line-height: 1.6;
+      font-size: 16px;
+    }
 
-        /* Navigation */
-        nav {
-            padding: 1.5rem 1rem;
-            border-bottom: 1px solid #27272a;
-            background-color: rgba(12, 12, 16, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-        nav a {
-            color: #8b5cf6;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+    a:hover {
+      opacity: 0.8;
+    }
 
-        nav a:hover {
-            color: #a78bfa;
-        }
+    /* Layout */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-        /* Hero Section */
-        .hero {
-            padding: 4rem 1rem;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
-            border-bottom: 1px solid #27272a;
-        }
+    /* Nav */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      margin-bottom: 48px;
+      font-family: 'DM Sans', sans-serif;
+    }
 
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    nav > .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .hero .date {
-            font-size: clamp(0.95rem, 2vw, 1.25rem);
-            color: #a1a1a6;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
+    .nav-brand {
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--text-strong);
+    }
 
-        .hero .stats {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            font-size: clamp(0.85rem, 1.5vw, 1rem);
-            color: #d4d4d8;
-            margin-top: 1.5rem;
-        }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+    }
 
-        .stats span {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    .nav-links a {
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-        /* Filter Tabs */
-        .filter-section {
-            padding: 2rem 1rem;
-            border-bottom: 1px solid #27272a;
-            position: sticky;
-            top: 60px;
-            background-color: rgba(12, 12, 16, 0.98);
-            z-index: 50;
-        }
+    .nav-links svg {
+      width: 16px;
+      height: 16px;
+    }
 
-        .filter-tabs {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    /* Header */
+    .header {
+      margin-bottom: 48px;
+    }
 
-        .filter-tab {
-            padding: 0.75rem 1.5rem;
-            border: 1px solid #27272a;
-            background-color: #1e1e2e;
-            color: #e4e4e7;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
+    .overline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
 
-        .filter-tab:hover {
-            border-color: #52525b;
-            background-color: #27272a;
-        }
+    h1 {
+      font-size: 48px;
+      font-weight: 600;
+      color: var(--text-strong);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
 
-        .filter-tab.active {
-            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
-            border-color: transparent;
-            color: #ffffff;
-        }
+    .header-date {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
 
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
+    /* Stats Row */
+    .stats-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      font-family: 'DM Sans', sans-serif;
+    }
 
-        /* Category Sections */
-        .category-section {
-            margin-bottom: 3rem;
-            opacity: 1;
-            transition: opacity 0.3s ease;
-        }
+    .stat-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background-color: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 13px;
+    }
 
-        .category-section.hidden {
-            display: none;
-        }
+    .stat-chip svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
 
-        .category-title {
-            font-size: clamp(1.25rem, 3vw, 1.75rem);
-            font-weight: 600;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #27272a;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+    .stat-value {
+      font-weight: 600;
+      color: var(--text-strong);
+    }
 
-        .category-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: inline-block;
-        }
+    .stat-label {
+      color: var(--text-muted);
+    }
 
-        .category-dot.business {
-            background-color: #f59e0b;
-        }
+    /* Featured Story */
+    .featured {
+      margin-bottom: 64px;
+      padding: 32px;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
 
-        .category-dot.llms-genai {
-            background-color: #8b5cf6;
-        }
+    .featured-category-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      background-color: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
 
-        .category-dot.research {
-            background-color: #06b6d4;
-        }
+    .featured-category-tag svg {
+      width: 14px;
+      height: 14px;
+    }
 
-        .category-dot.policy {
-            background-color: #ef4444;
-        }
+    .featured h2 {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--text-strong);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
 
-        /* Stories Grid */
-        .stories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-        }
+    .featured-excerpt {
+      font-size: 16px;
+      color: var(--text);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
 
-        @media (max-width: 768px) {
-            .stories-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    .featured-read-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+    }
 
-        /* Story Card */
-        .story-card {
-            background-color: #1e1e2e;
-            border: 1px solid #27272a;
-            border-radius: 8px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            opacity: 1;
-            transition: opacity 0.3s ease;
-        }
+    .featured-read-link svg {
+      width: 16px;
+      height: 16px;
+    }
 
-        .story-card.hidden {
-            display: none;
-        }
+    /* Filter Bar */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      font-family: 'DM Sans', sans-serif;
+    }
 
-        .story-card:hover {
-            border-color: #52525b;
-            background-color: #27272a;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-        }
+    .filter-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background-color: transparent;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
 
-        .story-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-            gap: 1rem;
-        }
+    .filter-btn svg {
+      width: 16px;
+      height: 16px;
+    }
 
-        .category-pill {
-            display: inline-block;
-            padding: 0.4rem 0.9rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            white-space: nowrap;
-        }
+    .filter-btn:hover {
+      border-color: var(--text);
+    }
 
-        .category-pill.business {
-            background-color: rgba(245, 158, 11, 0.15);
-            color: #fcd34d;
-        }
+    .filter-btn.active {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+    }
 
-        .category-pill.llms-genai {
-            background-color: rgba(139, 92, 246, 0.15);
-            color: #d8b4fe;
-        }
+    /* Category Section */
+    .category-section {
+      margin-bottom: 56px;
+      display: none;
+    }
 
-        .category-pill.research {
-            background-color: rgba(6, 182, 212, 0.15);
-            color: #67e8f9;
-        }
+    .category-section.active {
+      display: block;
+    }
 
-        .category-pill.policy {
-            background-color: rgba(239, 68, 68, 0.15);
-            color: #fca5a5;
-        }
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
 
-        .reading-time {
-            font-size: 0.8rem;
-            color: #a1a1a6;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            white-space: nowrap;
-        }
+    .category-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-        .story-headline {
-            font-size: clamp(1.1rem, 2vw, 1.35rem);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.4;
-            color: #ffffff;
-        }
+    .category-icon-box svg {
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
 
-        .story-meta {
-            font-size: 0.85rem;
-            color: #a1a1a6;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+    .category-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-strong);
+      flex: 1;
+    }
 
-        .story-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #8b5cf6;
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: auto;
-            transition: all 0.3s ease;
-        }
+    .category-count {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      background-color: var(--surface-2);
+      padding: 4px 8px;
+      border-radius: 3px;
+    }
 
-        .story-link:hover {
-            color: #a78bfa;
-            gap: 0.75rem;
-        }
+    /* Card Grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
 
-        /* By the Numbers Section */
-        .by-the-numbers {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
-            border: 1px solid #27272a;
-            border-radius: 8px;
-            padding: 2rem;
-            margin: 4rem 0;
-            text-align: center;
-        }
+    .story-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+      position: relative;
+      padding-top: 24px;
+    }
 
-        .by-the-numbers h2 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            margin-bottom: 2rem;
-            color: #ffffff;
-        }
+    .story-card:hover {
+      background-color: var(--surface-2);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
 
-        .numbers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-        }
+    .story-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      border-radius: 4px 4px 0 0;
+    }
 
-        .number-stat {
-            padding: 1.5rem;
-        }
+    .story-card.business::before {
+      background-color: var(--business);
+    }
 
-        .number-value {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
+    .story-card.llms-genai::before {
+      background-color: var(--llms);
+    }
 
-        .number-label {
-            font-size: 0.9rem;
-            color: #a1a1a6;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+    .story-card.research::before {
+      background-color: var(--research);
+    }
 
-        /* Footer */
-        footer {
-            border-top: 1px solid #27272a;
-            padding: 3rem 1rem;
-            text-align: center;
-            background-color: rgba(12, 12, 16, 0.5);
-            color: #a1a1a6;
-            font-size: 0.9rem;
-        }
+    .story-card.policy::before {
+      background-color: var(--policy);
+    }
 
-        footer a {
-            color: #8b5cf6;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+    .story-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
 
-        footer a:hover {
-            color: #a78bfa;
-        }
+    .story-number {
+      font-weight: 600;
+      color: var(--text-strong);
+    }
 
-        .footer-links {
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
+    .story-reading-time {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
 
-        .footer-credit {
-            margin-top: 1rem;
-            font-size: 0.85rem;
-        }
+    .story-reading-time svg {
+      width: 12px;
+      height: 12px;
+    }
 
-        /* Responsive */
-        @media (max-width: 640px) {
-            .hero {
-                padding: 2.5rem 1rem;
-            }
+    .story-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-strong);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
 
-            .hero h1 {
-                font-size: 1.75rem;
-            }
+    .story-excerpt {
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 16px;
+      flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.5;
+    }
 
-            .filter-tabs {
-                gap: 0.5rem;
-            }
+    .story-read-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+    }
 
-            .filter-tab {
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-            }
+    .story-read-link svg {
+      width: 14px;
+      height: 14px;
+    }
 
-            .container {
-                padding: 1.5rem 1rem;
-            }
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
 
-            .by-the-numbers {
-                padding: 1.5rem;
-            }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 32px;
+      }
 
-            .numbers-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
+      .featured h2 {
+        font-size: 24px;
+      }
 
-            footer {
-                padding: 2rem 1rem;
-            }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
 
-            .footer-links {
-                gap: 1rem;
-                flex-direction: column;
-            }
-        }
-    </style>
+      .stats-row {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <a href="https://news.promtvault.app">← Back to Home</a>
-    </nav>
+  <nav>
+    <div class="container">
+      <a href="../../../index.html" class="nav-brand">THE VAULT</a>
+      <div class="nav-links">
+        <a href="../../../index.html">Home</a>
+        <a href="../../../archive/index.html">Archive</a>
+        <a href="../../../feed.xml">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+          RSS
+        </a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <h1>The Vault — AI Edition</h1>
-        <div class="date">March 29, 2026</div>
-        <div class="stats">
-            <span>10 stories</span>
-            <span>~8,400 words</span>
-            <span>4 categories</span>
-            <span>42 min total reading</span>
-        </div>
+  <div class="container">
+    <header class="header">
+      <div class="overline">DAILY INTELLIGENCE BRIEF</div>
+      <h1>The Vault — AI Edition</h1>
+      <div class="header-date">Sunday, March 29, 2026</div>
     </header>
 
-    <!-- Filter Tabs -->
-    <div class="filter-section">
-        <div class="filter-tabs">
-            <button class="filter-tab active" data-filter="all">All</button>
-            <button class="filter-tab" data-filter="business">Business</button>
-            <button class="filter-tab" data-filter="llms-genai">LLMs & GenAI</button>
-            <button class="filter-tab" data-filter="research">Research</button>
-            <button class="filter-tab" data-filter="policy">Policy</button>
-        </div>
+    <div class="stats-row">
+      <div class="stat-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span><span class="stat-value">16</span> <span class="stat-label">Stories</span></span>
+      </div>
+      <div class="stat-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span><span class="stat-value">13,676</span> <span class="stat-label">Words</span></span>
+      </div>
+      <div class="stat-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span><span class="stat-value">4</span> <span class="stat-label">Categories</span></span>
+      </div>
+      <div class="stat-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span><span class="stat-value">64</span> <span class="stat-label">min read</span></span>
+      </div>
     </div>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Business Section -->
-        <section class="category-section" data-category="business">
-            <h2 class="category-title">
-                <span class="category-dot business"></span>
-                Business
-            </h2>
-            <div class="stories-grid">
-                <!-- Story 1 -->
-                <article class="story-card" data-category="business">
-                    <div class="story-header">
-                        <span class="category-pill business">Business</span>
-                        <span class="reading-time">5 min read</span>
-                    </div>
-                    <h3 class="story-headline">OpenAI Kills Sora After Burning $2.7 Billion in Six Months, Collapses Disney Deal</h3>
-                    <div class="story-meta">917 words</div>
-                    <a href="stories/01-openai-kills-sora-pivots-to-robotics.html" class="story-link">Read full article →</a>
-                </article>
+    <section class="featured">
+      <div class="featured-category-tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Business
+      </div>
+      <h2>OpenAI Kills Sora After Burning $15M a Day — Redirects Compute to Robotics</h2>
+      <p class="featured-excerpt">OpenAI has shuttered Sora, its consumer video app, after burning $15M daily against just $2.1M in lifetime revenue.</p>
+      <a href="01/index.html" class="featured-read-link">
+        Read full story
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </section>
+  </div>
 
-                <!-- Story 3 -->
-                <article class="story-card" data-category="business">
-                    <div class="story-header">
-                        <span class="category-pill business">Business</span>
-                        <span class="reading-time">4 min read</span>
-                    </div>
-                    <h3 class="story-headline">Apple Will Let Gemini and Claude Replace ChatGPT Inside Siri With iOS 27</h3>
-                    <div class="story-meta">812 words</div>
-                    <a href="stories/03-apple-siri-rival-ai-ios-27.html" class="story-link">Read full article →</a>
-                </article>
 
-                <!-- Story 5 -->
-                <article class="story-card" data-category="business">
-                    <div class="story-header">
-                        <span class="category-pill business">Business</span>
-                        <span class="reading-time">4 min read</span>
-                    </div>
-                    <h3 class="story-headline">Waymo Hits Half a Million Rides Per Week as Robotaxi Race Heats Up</h3>
-                    <div class="story-meta">708 words</div>
-                    <a href="stories/05-waymo-500k-rides-weekly-milestone.html" class="story-link">Read full article →</a>
-                </article>
+  <div class="container">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        All
+      </button>
+      <button class="filter-btn" data-filter="business">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Business
+      </button>
+      <button class="filter-btn" data-filter="llms-genai">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        LLMs & GenAI
+      </button>
+      <button class="filter-btn" data-filter="research">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Research
+      </button>
+      <button class="filter-btn" data-filter="policy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Policy
+      </button>
+    </div>
 
-                <!-- Story 6 -->
-                <article class="story-card" data-category="business">
-                    <div class="story-header">
-                        <span class="category-pill business">Business</span>
-                        <span class="reading-time">4 min read</span>
-                    </div>
-                    <h3 class="story-headline">Shopify Turns ChatGPT Into a Shopping Mall With Agentic Storefronts</h3>
-                    <div class="story-meta">843 words</div>
-                    <a href="stories/06-shopify-agentic-storefronts-ai-commerce.html" class="story-link">Read full article →</a>
-                </article>
-
-                <!-- Story 10 -->
-                <article class="story-card" data-category="business">
-                    <div class="story-header">
-                        <span class="category-pill business">Business</span>
-                        <span class="reading-time">5 min read</span>
-                    </div>
-                    <h3 class="story-headline">OpenAI's ChatGPT Ad Pilot Hits $100 Million ARR in Just Six Weeks</h3>
-                    <div class="story-meta">1,026 words</div>
-                    <a href="stories/10-openai-chatgpt-ads-100m-revenue.html" class="story-link">Read full article →</a>
-                </article>
-            </div>
-        </section>
-
-        <!-- LLMs & GenAI Section -->
-        <section class="category-section" data-category="llms-genai">
-            <h2 class="category-title">
-                <span class="category-dot llms-genai"></span>
-                LLMs & GenAI
-            </h2>
-            <div class="stories-grid">
-                <!-- Story 2 -->
-                <article class="story-card" data-category="llms-genai">
-                    <div class="story-header">
-                        <span class="category-pill llms-genai">LLMs & GenAI</span>
-                        <span class="reading-time">4 min read</span>
-                    </div>
-                    <h3 class="story-headline">Anthropic's 'Mythos' Model Leaks Through Unsecured Database, Cybersecurity Stocks Crater</h3>
-                    <div class="story-meta">695 words</div>
-                    <a href="stories/02-anthropic-mythos-leak-cybersecurity-stocks.html" class="story-link">Read full article →</a>
-                </article>
-
-                <!-- Story 7 -->
-                <article class="story-card" data-category="llms-genai">
-                    <div class="story-header">
-                        <span class="category-pill llms-genai">LLMs & GenAI</span>
-                        <span class="reading-time">4 min read</span>
-                    </div>
-                    <h3 class="story-headline">Jensen Huang Tells Lex Fridman 'We've Achieved AGI' — And the AI World Can't Agree</h3>
-                    <div class="story-meta">882 words</div>
-                    <a href="stories/07-jensen-huang-declares-agi-achieved.html" class="story-link">Read full article →</a>
-                </article>
-            </div>
-        </section>
-
-        <!-- Research Section -->
-        <section class="category-section" data-category="research">
-            <h2 class="category-title">
-                <span class="category-dot research"></span>
-                Research
-            </h2>
-            <div class="stories-grid">
-                <!-- Story 4 -->
-                <article class="story-card" data-category="research">
-                    <div class="story-header">
-                        <span class="category-pill research">Research</span>
-                        <span class="reading-time">4 min read</span>
-                    </div>
-                    <h3 class="story-headline">ARC-AGI-3 Humbles Every Frontier Model: Best AI Scores 0.37%, Humans Hit 100%</h3>
-                    <div class="story-meta">834 words</div>
-                    <a href="stories/04-arc-agi-3-frontier-models-under-one-percent.html" class="story-link">Read full article →</a>
-                </article>
-
-                <!-- Story 8 -->
-                <article class="story-card" data-category="research">
-                    <div class="story-header">
-                        <span class="category-pill research">Research</span>
-                        <span class="reading-time">4 min read</span>
-                    </div>
-                    <h3 class="story-headline">Your AI Chatbot Agrees With You Too Much, and It's Making You Worse at Being Human</h3>
-                    <div class="story-meta">813 words</div>
-                    <a href="stories/08-sycophancy-study-science-journal.html" class="story-link">Read full article →</a>
-                </article>
-            </div>
-        </section>
-
-        <!-- Policy Section -->
-        <section class="category-section" data-category="policy">
-            <h2 class="category-title">
-                <span class="category-dot policy"></span>
-                Policy
-            </h2>
-            <div class="stories-grid">
-                <!-- Story 9 -->
-                <article class="story-card" data-category="policy">
-                    <div class="story-header">
-                        <span class="category-pill policy">Policy</span>
-                        <span class="reading-time">4 min read</span>
-                    </div>
-                    <h3 class="story-headline">Dutch Court Bans xAI's Grok From Generating Nonconsensual Nude Images</h3>
-                    <div class="story-meta">845 words</div>
-                    <a href="stories/09-dutch-court-bans-xai-grok-images.html" class="story-link">Read full article →</a>
-                </article>
-            </div>
-        </section>
-
-        <!-- By the Numbers -->
-        <section class="by-the-numbers">
-            <h2>By the Numbers</h2>
-            <div class="numbers-grid">
-                <div class="number-stat">
-                    <div class="number-value">10</div>
-                    <div class="number-label">Stories</div>
-                </div>
-                <div class="number-stat">
-                    <div class="number-value">8.4K</div>
-                    <div class="number-label">Words</div>
-                </div>
-                <div class="number-stat">
-                    <div class="number-value">4</div>
-                    <div class="number-label">Categories</div>
-                </div>
-                <div class="number-stat">
-                    <div class="number-value">42</div>
-                    <div class="number-label">Min Read</div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-links">
-            <a href="https://news.promtvault.app">← Back to The Vault</a>
-            <a href="https://github.com/thevaultai">GitHub Repository</a>
+    <!-- Business Section -->
+    <section class="category-section active" data-category="business">
+      <div class="category-header">
+        <div class="category-icon-box" style="background-color: var(--business);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         </div>
-        <div class="footer-credit">
-            <p>The Vault — AI Edition | March 29, 2026 | Premium AI News & Analysis</p>
+        <div class="category-title">Business</div>
+        <div class="category-count">5 stories</div>
+      </div>
+      <div class="card-grid">
+        <article class="story-card business">
+          <div class="story-meta">
+            <span class="story-number">02</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>Shopify Launches Agentic Storefronts — Millions of Merchants Now Sell Inside ChatGPT</h3>
+          <p class="story-excerpt">Shopify activated agentic storefronts, letting millions of merchants sell directly within ChatGPT conversations.</p>
+          <a href="02/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <article class="story-card business">
+          <div class="story-meta">
+            <span class="story-number">03</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>Anthropic Eyes Q4 2026 IPO in What Could Be Second-Largest Public Offering Ever</h3>
+          <p class="story-excerpt">Anthropic is preparing for an IPO as soon as October 2026 that could raise over $60B.</p>
+          <a href="03/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <article class="story-card business">
+          <div class="story-meta">
+            <span class="story-number">04</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>Waymo Doubles to 500,000 Weekly Paid Rides, Halfway to Year-End Target</h3>
+          <p class="story-excerpt">Waymo reached 500,000 weekly paid robotaxi rides across 10 US cities.</p>
+          <a href="04/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <article class="story-card business">
+          <div class="story-meta">
+            <span class="story-number">05</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>Arm Unveils 136-Core AGI CPU Built for AI Inference — Meta First Customer</h3>
+          <p class="story-excerpt">Arm exits 35 years of IP licensing with the AGI CPU, a 136-core 3nm chip for AI inference.</p>
+          <a href="05/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- LLMs & GenAI Section -->
+    <section class="category-section active" data-category="llms-genai">
+      <div class="category-header">
+        <div class="category-icon-box" style="background-color: var(--llms);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
         </div>
-    </footer>
+        <div class="category-title">LLMs & GenAI</div>
+        <div class="category-count">4 stories</div>
+      </div>
+      <div class="card-grid">
+        <article class="story-card llms-genai">
+          <div class="story-meta">
+            <span class="story-number">06</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>Anthropic Leaked Claude Mythos Model Sparks Cybersecurity Reckoning</h3>
+          <p class="story-excerpt">A CMS misconfiguration exposed 3,000 documents revealing Claude Mythos.</p>
+          <a href="06/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
 
-    <!-- Filter JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterTabs = document.querySelectorAll('.filter-tab');
-            const storySections = document.querySelectorAll('.category-section');
-            const storyCards = document.querySelectorAll('.story-card');
+        <article class="story-card llms-genai">
+          <div class="story-meta">
+            <span class="story-number">07</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>OpenAI Spud Model Completes Pretraining as Altman Signals Acceleration</h3>
+          <p class="story-excerpt">OpenAIs next model Spud completes pretraining as Altman says things are moving faster.</p>
+          <a href="07/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
 
-            filterTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const filter = this.getAttribute('data-filter');
+        <article class="story-card llms-genai">
+          <div class="story-meta">
+            <span class="story-number">08</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>Mistral Voxtral TTS Beats ElevenLabs in Blind Tests — Open-Weight on 3GB RAM</h3>
+          <p class="story-excerpt">Mistrals open-weight Voxtral TTS beats ElevenLabs 68% in blind tests on 3GB RAM.</p>
+          <a href="08/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
 
-                    // Update active tab
-                    filterTabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
+        <article class="story-card llms-genai">
+          <div class="story-meta">
+            <span class="story-number">14</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>Apple Opens Siri to Rival AI Assistants — Gemini, Claude Coming to iPhone</h3>
+          <p class="story-excerpt">Apples iOS 27 Extensions opens Siri to Gemini, Claude, and rival AI assistants.</p>
+          <a href="14/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+      </div>
+    </section>
 
-                    // Show/hide cards and sections
-                    if (filter === 'all') {
-                        // Show all sections and cards
-                        storySections.forEach(section => {
-                            section.classList.remove('hidden');
-                        });
-                        storyCards.forEach(card => {
-                            card.classList.remove('hidden');
-                        });
-                    } else {
-                        // Hide all sections first
-                        storySections.forEach(section => {
-                            section.classList.add('hidden');
-                        });
+    <!-- Research Section -->
+    <section class="category-section active" data-category="research">
+      <div class="category-header">
+        <div class="category-icon-box" style="background-color: var(--research);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="category-title">Research</div>
+        <div class="category-count">4 stories</div>
+      </div>
+      <div class="card-grid">
+        <article class="story-card research">
+          <div class="story-meta">
+            <span class="story-number">09</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>ARC-AGI-3 Benchmark Humbles Every Frontier Model — All Score Under 1%</h3>
+          <p class="story-excerpt">ARC-AGI-3 scored every frontier model under 1% on tasks humans solve easily.</p>
+          <a href="09/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
 
-                        // Show only matching section and cards
-                        storySections.forEach(section => {
-                            if (section.getAttribute('data-category') === filter) {
-                                section.classList.remove('hidden');
-                            }
-                        });
+        <article class="story-card research">
+          <div class="story-meta">
+            <span class="story-number">10</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>AI Scheming Incidents Surge 5x as Agents Go Rogue in the Wild</h3>
+          <p class="story-excerpt">A landmark study found 698 AI scheming incidents in six months—a 4.9x surge.</p>
+          <a href="10/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
 
-                        storyCards.forEach(card => {
-                            if (card.getAttribute('data-category') === filter) {
-                                card.classList.remove('hidden');
-                            } else {
-                                card.classList.add('hidden');
-                            }
-                        });
-                    }
-                });
-            });
+        <article class="story-card research">
+          <div class="story-meta">
+            <span class="story-number">15</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>AI Scientist v2 Published in Nature — First AI-Generated Paper to Pass Peer Review</h3>
+          <p class="story-excerpt">Sakana AIs AI Scientist v2 produced the first AI-generated paper to pass peer review.</p>
+          <a href="15/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <article class="story-card research">
+          <div class="story-meta">
+            <span class="story-number">16</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>IBM, Red Hat, and Google Donate LLM Inference Framework to CNCF</h3>
+          <p class="story-excerpt">IBM, Red Hat, and Google donated llm-d to CNCF at KubeCon Europe for LLM inference.</p>
+          <a href="16/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- Policy Section -->
+    <section class="category-section active" data-category="policy">
+      <div class="category-header">
+        <div class="category-icon-box" style="background-color: var(--policy);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="category-title">Policy</div>
+        <div class="category-count">3 stories</div>
+      </div>
+      <div class="card-grid">
+        <article class="story-card policy">
+          <div class="story-meta">
+            <span class="story-number">11</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>White House Unveils National AI Policy Framework to Preempt State Laws</h3>
+          <p class="story-excerpt">The Trump administration released a four-page AI policy framework seeking federal preemption.</p>
+          <a href="11/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <article class="story-card policy">
+          <div class="story-meta">
+            <span class="story-number">12</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>EU Council Agrees to Streamline AI Act Rules, Delays Compliance to 2027</h3>
+          <p class="story-excerpt">The EU Council pushed AI Act compliance for high-risk systems to December 2027.</p>
+          <a href="12/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <article class="story-card policy">
+          <div class="story-meta">
+            <span class="story-number">13</span>
+            <span class="story-reading-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+          </div>
+          <h3>Dutch Court Orders xAI to Stop Grok Generating Nonconsensual Sexual Images</h3>
+          <p class="story-excerpt">Amsterdam court ordered xAI to stop Grok generating nonconsensual sexual images.</p>
+          <a href="13/index.html" class="story-read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>The Vault AI Edition • Curated daily intelligence for AI researchers, builders, and leaders</p>
+      <p style="margin-top: 8px;">Published Sunday, March 29, 2026 • 16 stories • 13,676 words • 64 min read</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const categorySections = document.querySelectorAll('.category-section');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+
+          // Update active button
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+
+          // Update visible sections
+          categorySections.forEach(section => {
+            const category = section.getAttribute('data-category');
+            if (filter === 'all' || filter === category) {
+              section.classList.add('active');
+            } else {
+              section.classList.remove('active');
+            }
+          });
         });
-    </script>
+      });
+    });
+  </script>
 </body>
 </html>
