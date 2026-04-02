@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Vault — AI Edition | April 1, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,0.07);--border-hover:rgba(255,255,255,0.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--business:#e8a735;--llms:#a78bfa;--research:#5eead4;--policy:#fb7185}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh}
+a{color:inherit;text-decoration:none}
+nav{border-bottom:1px solid var(--border);padding:0.75rem 2rem;display:flex;align-items:center;justify-content:space-between}
+nav a,.nav-links a{color:var(--text-muted);font-size:0.85rem;display:flex;align-items:center;gap:0.4rem;transition:color 0.2s}
+nav a:hover,.nav-links a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+.brand{color:var(--text-strong);font-weight:800;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase}
+.nav-links{display:flex;gap:1.2rem}
+.edition-header{text-align:center;padding:3rem 1.5rem 2rem}
+.overline{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
+.edition-header h1{font-size:2rem;font-weight:800;color:var(--text-strong);margin-bottom:0.3rem}
+.date-line{font-size:0.9rem;color:var(--text-muted)}
+.stats-row{display:flex;justify-content:center;gap:0.8rem;padding:0 1.5rem 2rem;flex-wrap:wrap}
+.stat-chip{display:flex;align-items:center;gap:0.4rem;font-size:0.8rem;color:var(--text-muted);background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:0.4rem 0.9rem}
+.stat-chip svg{width:14px;height:14px}
+.stat-chip strong{color:var(--text-strong)}
+.featured-area{max-width:900px;margin:0 auto 2.5rem;padding:0 1.5rem}
+.featured-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:grid;grid-template-columns:1fr 1.5fr;min-height:220px}
+.featured-visual{background:linear-gradient(135deg,#e8a73515,#e8a73505);display:flex;align-items:center;justify-content:center;padding:2rem}
+.mini-bars{display:flex;gap:6px;align-items:flex-end;height:80px}
+.mini-bar{width:16px;border-radius:3px 3px 0 0;background:#e8a735}
+.featured-content{padding:2rem}
+.featured-content .cat-tag{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#e8a735;margin-bottom:0.6rem}
+.featured-content .cat-tag svg{width:12px;height:12px}
+.featured-content h2{font-size:1.3rem;font-weight:800;color:var(--text-strong);line-height:1.25;margin-bottom:0.6rem}
+.featured-content p{font-size:0.85rem;color:var(--text);margin-bottom:1rem;line-height:1.5}
+.featured-content .read-cta{font-size:0.85rem;font-weight:600;color:#e8a735}
+.filter-bar{max-width:900px;margin:0 auto 2rem;padding:0 1.5rem;display:flex;gap:0.5rem;flex-wrap:wrap}
+.filter-btn{padding:0.5rem 1rem;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-size:0.8rem;cursor:pointer;display:flex;align-items:center;gap:0.4rem;transition:all 0.2s}
+.filter-btn:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.filter-btn.active{background:var(--accent);border-color:var(--accent);color:#101014;font-weight:600}
+.filter-btn svg{width:14px;height:14px}
+.cat-section{max-width:900px;margin:0 auto 2.5rem;padding:0 1.5rem}
+.cat-header{display:flex;align-items:center;gap:0.8rem;margin-bottom:1rem}
+.cat-icon-box{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.cat-icon-box svg{width:18px;height:18px}
+.cat-header h2{font-size:1rem;font-weight:700;color:var(--text-strong)}
+.cat-count{font-size:0.75rem;color:var(--text-muted);background:var(--surface);padding:0.15rem 0.6rem;border-radius:10px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.story-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;position:relative;overflow:hidden;transition:border-color 0.2s}
+.story-card:hover{border-color:var(--border-hover)}
+.card-accent{position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity 0.2s}
+.story-card:hover .card-accent{opacity:1}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.6rem}
+.card-num{font-size:0.75rem;font-weight:700;color:var(--text-muted)}
+.card-time{display:flex;align-items:center;gap:0.3rem;font-size:0.72rem;color:var(--text-muted)}
+.story-card h3{font-size:0.92rem;font-weight:700;color:var(--text-strong);line-height:1.3;margin-bottom:0.5rem}
+.story-card h3 a{color:inherit;text-decoration:none}
+.story-card h3 a:hover{color:var(--accent)}
+.card-excerpt{font-size:0.8rem;color:var(--text-muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:0.8rem}
+.card-bottom{display:flex;justify-content:space-between;align-items:center}
+.card-stat{font-size:0.75rem;font-weight:700;color:var(--accent)}
+.read-link{font-size:0.8rem;font-weight:600;color:var(--text-muted);display:flex;align-items:center;gap:0.3rem;transition:color 0.2s}
+.read-link:hover{color:var(--text-strong)}
+footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-size:0.75rem;color:var(--text-muted);margin-top:2rem}
+@media(max-width:640px){.featured-card{grid-template-columns:1fr}.featured-visual{display:none}.card-grid{grid-template-columns:1fr}.edition-header h1{font-size:1.5rem}}
+</style>
+</head>
+<body>
+<nav>
+<a href="../../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Home</a>
+<span class="brand">THE VAULT</span>
+<div class="nav-links">
+<a href="../../archive/index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Archive</a>
+<a href="../../feed.xml"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg> RSS</a>
+</div>
+</nav>
+<header class="edition-header">
+<div class="overline">DAILY INTELLIGENCE BRIEF</div>
+<h1>The Vault &mdash; AI Edition</h1>
+<p class="date-line">Wednesday, April 1, 2026</p>
+</header>
+<div class="stats-row">
+<div class="stat-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> <strong>17</strong> stories</div>
+<div class="stat-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> <strong>14,414</strong> words</div>
+<div class="stat-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> <strong>4</strong> categories</div>
+<div class="stat-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <strong>66</strong> min read</div>
+</div>
+<div class="featured-area">
+<div class="featured-card">
+<div class="featured-visual">
+<div class="mini-bars">
+<div class="mini-bar" style="height:40%"></div>
+<div class="mini-bar" style="height:65%"></div>
+<div class="mini-bar" style="height:90%"></div>
+<div class="mini-bar" style="height:55%"></div>
+<div class="mini-bar" style="height:100%"></div>
+</div>
+</div>
+<div class="featured-content">
+<div class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+<h2>OpenAI Closes Record 22 Billion Funding Round at 52 Billion Valuation</h2>
+<p>OpenAI has completed one of the largest funding rounds in tech history, raising 22 billion at an 52 billion valuation......</p>
+<a href="stories/01-openai-122b-funding-round.html" class="read-cta">Read full story &rarr;</a>
+</div>
+</div>
+</div>
+<div class="filter-bar">
+<button class="filter-btn active" data-filter="all"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> All</button>
+<button class="filter-btn" data-filter="business"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</button>
+<button class="filter-btn" data-filter="llms-genai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs & GenAI</button>
+<button class="filter-btn" data-filter="research"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</button>
+<button class="filter-btn" data-filter="policy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</button>
+</div>
+<section class="cat-section" data-cat="business">
+<div class="cat-header"><div class="cat-icon-box" style="background:#e8a73520;color:#e8a735"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h2>Business</h2><span class="cat-count">5</span></div>
+<div class="card-grid"><div class="story-card" data-cat="business">
+<div class="card-accent" style="background:#e8a735"></div>
+<div class="card-top"><span class="card-num">01</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/01-openai-122b-funding-round.html">OpenAI Closes Record 22 Billion Funding Round at 52 Billion Valuation</a></h3>
+<p class="card-excerpt">OpenAI has completed one of the largest funding rounds in tech history, raising 22 billion at an 52 billion valuation......</p>
+<div class="card-bottom"><span class="card-stat">22B</span><a href="stories/01-openai-122b-funding-round.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div><div class="story-card" data-cat="business">
+<div class="card-accent" style="background:#e8a735"></div>
+<div class="card-top"><span class="card-num">02</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/02-oracle-layoffs-ai-infrastructure.html">Oracle Cuts Up to 30,000 Jobs as AI Infrastructure Spending Accelerates</a></h3>
+<p class="card-excerpt">Oracle eliminated up to 30,000 employees on March 31, roughly 18% of its workforce, to fund a 56 billion AI infrastructure buildout....</p>
+<div class="card-bottom"><span class="card-stat">30,000</span><a href="stories/02-oracle-layoffs-ai-infrastructure.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div><div class="story-card" data-cat="business">
+<div class="card-accent" style="background:#e8a735"></div>
+<div class="card-top"><span class="card-num">03</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/03-anthropic-19b-arr-claude-code.html">Anthropic Revenue Surges to 9 Billion ARR as Claude Code Drives Growth</a></h3>
+<p class="card-excerpt">Anthropic has reached 9 billion in annualized revenue, a near-doubling from  billion at year-end 2025....</p>
+<div class="card-bottom"><span class="card-stat">9B</span><a href="stories/03-anthropic-19b-arr-claude-code.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div><div class="story-card" data-cat="business">
+<div class="card-accent" style="background:#e8a735"></div>
+<div class="card-top"><span class="card-num">04</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/04-q1-2026-venture-funding-records.html">Q1 2026 Venture Funding Shatters Records at 00 Billion, AI Captures 80%</a></h3>
+<p class="card-excerpt">Global investors poured 00 billion into 6,000 startups in Q1 2026, with AI capturing 80% of all capital....</p>
+<div class="card-bottom"><span class="card-stat">00B</span><a href="stories/04-q1-2026-venture-funding-records.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div><div class="story-card" data-cat="business">
+<div class="card-accent" style="background:#e8a735"></div>
+<div class="card-top"><span class="card-num">05</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/05-disney-sora-deal-collapse.html">Disney Scraps  Billion Sora Investment After OpenAI Announces Shutdown</a></h3>
+<p class="card-excerpt">Disney abandons its  billion investment in OpenAI as the company shuts down Sora, exposing AI video economics....</p>
+<div class="card-bottom"><span class="card-stat">B</span><a href="stories/05-disney-sora-deal-collapse.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div></div>
+</section><section class="cat-section" data-cat="llms-genai">
+<div class="cat-header"><div class="cat-icon-box" style="background:#a78bfa20;color:#a78bfa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><h2>LLMs & GenAI</h2><span class="cat-count">5</span></div>
+<div class="card-grid"><div class="story-card" data-cat="llms-genai">
+<div class="card-accent" style="background:#a78bfa"></div>
+<div class="card-top"><span class="card-num">06</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/06-google-veo-31-lite-launch.html">Google Launches Veo 3.1 Lite, Slashes AI Video Costs by 50 Percent</a></h3>
+<p class="card-excerpt">Google enters a new phase of AI democratization with Veo 3.1 Lite, positioning itself as the dominant video generation player....</p>
+<div class="card-bottom"><span class="card-stat">sh.05/sec</span><a href="stories/06-google-veo-31-lite-launch.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div><div class="story-card" data-cat="llms-genai">
+<div class="card-accent" style="background:#a78bfa"></div>
+<div class="card-top"><span class="card-num">07</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/07-openai-sora-shutdown.html">OpenAI Shuts Down Sora After Burning  Million Per Day</a></h3>
+<p class="card-excerpt">OpenAI shuts down Sora just months after launch, revealing the brutal economics of compute-intensive AI products....</p>
+<div class="card-bottom"><span class="card-stat">M/day</span><a href="stories/07-openai-sora-shutdown.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div><div class="story-card" data-cat="llms-genai">
+<div class="card-accent" style="background:#a78bfa"></div>
+<div class="card-top"><span class="card-num">08</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/08-openai-responses-api-agentic.html">OpenAI Extends Responses API With Shell Tool and Agent Loop</a></h3>
+<p class="card-excerpt">OpenAI is fundamentally transforming how developers build autonomous agents with new Responses API capabilities....</p>
+<div class="card-bottom"><span class="card-stat">5</span><a href="stories/08-openai-responses-api-agentic.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div><div class="story-card" data-cat="llms-genai">
+<div class="card-accent" style="background:#a78bfa"></div>
+<div class="card-top"><span class="card-num">09</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/09-google-gemini-31-flash-lite.html">Google Unveils Gemini 3.1 Flash-Lite With 2.5x Faster Response Times</a></h3>
+<p class="card-excerpt">Google launches Gemini 3.1 Flash-Lite, prioritizing speed and affordability for high-volume AI workloads....</p>
+<div class="card-bottom"><span class="card-stat">2.5x</span><a href="stories/09-google-gemini-31-flash-lite.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div><div class="story-card" data-cat="llms-genai">
+<div class="card-accent" style="background:#a78bfa"></div>
+<div class="card-top"><span class="card-num">10</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/10-huawei-950pr-ai-chip.html">Huawei Rolls Out 950PR AI Chip as ByteDance and Alibaba Order</a></h3>
+<p class="card-excerpt">Huawei rolls out its Ascend 950PR AI chip with backing from China's tech heavyweights....</p>
+<div class="card-bottom"><span class="card-stat">750K</span><a href="stories/10-huawei-950pr-ai-chip.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div></div>
+</section><section class="cat-section" data-cat="research">
+<div class="cat-header"><div class="cat-icon-box" style="background:#5eead420;color:#5eead4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><h2>Research</h2><span class="cat-count">4</span></div>
+<div class="card-grid"><div class="story-card" data-cat="research">
+<div class="card-accent" style="background:#5eead4"></div>
+<div class="card-top"><span class="card-num">11</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/11-ai2-theorizer-scientific-theories.html">Allen Institute Theorizer Writes Testable Scientific Theories at 0.90 Precision</a></h3>
+<p class="card-excerpt">The Allen Institute for AI unveiled Theorizer, a multi-LLM framework that transforms scientific theory building....</p>
+<div class="card-bottom"><span class="card-stat">0.90</span><a href="stories/11-ai2-theorizer-scientific-theories.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div><div class="story-card" data-cat="research">
+<div class="card-accent" style="background:#5eead4"></div>
+<div class="card-top"><span class="card-num">12</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/12-physics-informed-ml-climate.html">Physics-Informed ML Breakthrough Advances Climate Modeling Accuracy</a></h3>
+<p class="card-excerpt">Physics-informed neural networks are revolutionizing climate modeling by embedding fundamental physical laws into AI systems....</p>
+<div class="card-bottom"><span class="card-stat">40%</span><a href="stories/12-physics-informed-ml-climate.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div><div class="story-card" data-cat="research">
+<div class="card-accent" style="background:#5eead4"></div>
+<div class="card-top"><span class="card-num">13</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/13-ai-diagnostics-match-radiologists.html">AI Diagnostic Systems Now Match Veteran Radiologists in Imaging Analysis</a></h3>
+<p class="card-excerpt">AI systems have matched the diagnostic accuracy of experienced radiologists across MRI, CT, and X-ray imaging in 2026....</p>
+<div class="card-bottom"><span class="card-stat">0.91 vs 0.86</span><a href="stories/13-ai-diagnostics-match-radiologists.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div><div class="story-card" data-cat="research">
+<div class="card-accent" style="background:#5eead4"></div>
+<div class="card-top"><span class="card-num">14</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/14-chrome-gemini-live-vulnerability.html">Unit 42 Discovers High-Severity Vulnerability in Chrome Gemini Live Panel</a></h3>
+<p class="card-excerpt">Security researchers uncovered a critical flaw allowing malicious extensions to hijack Chrome's Gemini AI panel....</p>
+<div class="card-bottom"><span class="card-stat">8.8</span><a href="stories/14-chrome-gemini-live-vulnerability.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div></div>
+</section><section class="cat-section" data-cat="policy">
+<div class="cat-header"><div class="cat-icon-box" style="background:#fb718520;color:#fb7185"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h2>Policy</h2><span class="cat-count">3</span></div>
+<div class="card-grid"><div class="story-card" data-cat="policy">
+<div class="card-accent" style="background:#fb7185"></div>
+<div class="card-top"><span class="card-num">15</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 3 min</span></div>
+<h3><a href="stories/15-anthropic-government-ban-ruling.html">Federal Judge Rules Trump Anthropic Ban Violates Free Speech</a></h3>
+<p class="card-excerpt">A federal judge blocks the Trump administration's ban on Anthropic AI in government, citing First Amendment violations....</p>
+<div class="card-bottom"><span class="card-stat">March 26</span><a href="stories/15-anthropic-government-ban-ruling.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div><div class="story-card" data-cat="policy">
+<div class="card-accent" style="background:#fb7185"></div>
+<div class="card-top"><span class="card-num">16</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h3><a href="stories/16-white-house-ai-policy-framework.html">White House Issues Seven-Pillar National AI Policy Framework</a></h3>
+<p class="card-excerpt">The Trump administration unveils an AI policy framework establishing seven pillars while pushing federal preemption of state laws....</p>
+<div class="card-bottom"><span class="card-stat">7</span><a href="stories/16-white-house-ai-policy-framework.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div><div class="story-card" data-cat="policy">
+<div class="card-accent" style="background:#fb7185"></div>
+<div class="card-top"><span class="card-num">17</span><span class="card-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 3 min</span></div>
+<h3><a href="stories/17-eu-council-ai-rules-delay.html">EU Council Agrees to Delay High-Risk AI Rules by 16 Months</a></h3>
+<p class="card-excerpt">The EU Council approved a 16-month extension for high-risk AI compliance, pushing deadlines to late 2027-2028....</p>
+<div class="card-bottom"><span class="card-stat">16 months</span><a href="stories/17-eu-council-ai-rules-delay.html" class="read-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+</div></div>
+</section>
+<footer>
+<p>The Vault &mdash; AI Edition &middot; Daily AI Intelligence Brief &middot; <a href="../../index.html" style="color:var(--accent)">news.promtvault.app</a></p>
+</footer>
+<script>
+document.querySelectorAll('.filter-btn').forEach(function(btn){
+btn.addEventListener('click',function(){
+var f=this.dataset.filter;
+document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
+this.classList.add('active');
+document.querySelectorAll('.cat-section').forEach(function(s){
+if(f==='all'||s.dataset.cat===f){s.style.display=''}
+else{s.style.display='none'}
+});
+});
+});
+</script>
+</body>
+</html>
