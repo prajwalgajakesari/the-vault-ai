@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poolside AI Seeks Google Partnership to Revive 2GW Texas Data Center After CoreWeave Deal Collapses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg: #101014;
+            --surface: #18181c;
+            --surface-2: #1f1f24;
+            --border: rgba(255,255,255,0.07);
+            --border-hover: rgba(255,255,255,0.14);
+            --text: #b8b8bf;
+            --text-strong: #ececef;
+            --text-muted: #5a5a63;
+            --accent: #c084fc;
+            --business: #e8a735;
+            --llms: #a78bfa;
+            --research: #5eead4;
+            --policy: #fb7185;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Source Serif 4', serif;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background-color: var(--business);
+            z-index: 1000;
+            width: 0%;
+        }
+        
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(16, 16, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+        }
+        
+        .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .nav-back {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.2s;
+        }
+        
+        .nav-back:hover {
+            color: var(--text-strong);
+        }
+        
+        .nav-brand {
+            color: var(--text-strong);
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .header {
+            margin-bottom: 3rem;
+        }
+        
+        .category-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            margin-bottom: 1.5rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--business);
+        }
+        
+        .category-icon {
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .category-icon svg {
+            width: 100%;
+            height: 100%;
+            color: var(--business);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-strong);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .meta-row {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .meta-icon {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .meta-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--text-muted);
+        }
+        
+        .key-takeaway {
+            background-color: var(--surface);
+            border-left: 4px solid var(--business);
+            border-radius: 4px;
+            padding: 2rem;
+            margin: 3rem 0;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .takeaway-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--text-strong);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .takeaway-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--business);
+        }
+        
+        .takeaway-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+        }
+        
+        .article-body {
+            margin: 3rem 0;
+        }
+        
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-body p:first-of-type::first-letter {
+            font-size: 2.5em;
+            font-weight: 700;
+            float: left;
+            line-height: 1;
+            padding-right: 0.2em;
+            color: var(--text-strong);
+        }
+        
+        .pull-quote {
+            border-left: 4px solid var(--business);
+            padding-left: 2rem;
+            margin: 2.5rem 0;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-strong);
+            line-height: 1.6;
+        }
+        
+        .pull-quote-attr {
+            margin-top: 1rem;
+            font-size: 14px;
+            font-style: normal;
+            color: var(--text-muted);
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .data-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: var(--surface);
+            border-radius: 8px;
+        }
+        
+        .data-item {
+            text-align: center;
+        }
+        
+        .data-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--business);
+            margin-bottom: 0.5rem;
+        }
+        
+        .data-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .sources {
+            margin: 4rem 0 2rem 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .sources-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .sources-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .source-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.2s;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+        }
+        
+        .source-item:hover {
+            color: var(--text-strong);
+        }
+        
+        .source-favicon {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+        }
+        
+        .navigation {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 4rem 0;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .nav-item {
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.2s;
+        }
+        
+        .nav-item:hover {
+            border-color: var(--border-hover);
+            background-color: var(--surface);
+        }
+        
+        .nav-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-strong);
+        }
+        
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="reading-progress"></div>
+    
+    <nav>
+        <div class="nav-inner">
+            <a href="../../../../../../index.html" class="nav-back">← Back</a>
+            <div class="nav-brand">THE VAULT</div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="header">
+            <div class="category-tag">
+                <div class="category-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <span>Business</span>
+            </div>
+            
+            <h1>Poolside AI Seeks Google Partnership to Revive 2GW Texas Data Center After CoreWeave Deal Collapses</h1>
+            
+            <div class="meta-row">
+                <div class="meta-item">April 2, 2026</div>
+                <div class="meta-item">4 min read</div>
+                <div class="meta-item">847 words</div>
+                <div class="meta-item">
+                    <div class="meta-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    4 sources
+                </div>
+            </div>
+        </div>
+        
+        <div class="key-takeaway">
+            <div class="takeaway-header">
+                <div class="takeaway-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="13" y1="2" x2="13" y2="6"></line>
+                        <line x1="13" y1="18" x2="13" y2="22"></line>
+                        <line x1="5" y1="10" x2="9" y2="10"></line>
+                        <line x1="15" y1="10" x2="19" y2="10"></line>
+                        <circle cx="12" cy="13" r="9"></circle>
+                    </svg>
+                </div>
+                Key Takeaway
+            </div>
+            <div class="takeaway-text">Poolside AI pivots to cloud giants after CoreWeave partnership collapses, underscoring the fundamental need for AI infrastructure to be vertically integrated with either private chip design or massive capital access to competitors.</div>
+        </div>
+        
+        <div class="article-body">
+            <p>Poolside AI, the AI chip and software company backed by Bessemer Venture Partners and other top-tier investors, has shifted its data center strategy dramatically. The company is now in advanced discussions with Google and other hyperscalers to revive its massive 2-gigawatt Texas data center project after its partnership with CoreWeave—a major GPU cloud provider—collapsed. The pivot highlights a painful lesson emerging across the AI infrastructure landscape: independent infrastructure providers struggle when their customers are simultaneously building competing infrastructure, and vertically integrated competitors inevitably command preferential access to computing resources.</p>
+            
+            <p>The data center in question occupies 568 acres near Austin, Texas, and was originally planned to house approximately 40,000 GPUs under the CoreWeave partnership. The facility was envisioned as a sovereign compute platform where companies could access cutting-edge GPUs and other accelerators without relying on Amazon, Google, or Microsoft's cloud infrastructure. This vision appealed to many enterprises and AI startups anxious about cloud vendor lock-in and centralized pricing power. However, CoreWeave's own capital constraints and changing priorities have made them a less attractive partner, prompting Poolside to seek new anchors for the facility.</p>
+            
+            <div class="pull-quote">
+                "To compete at the frontier you need to be vertically integrated from dirt to intelligence."
+                <div class="pull-quote-attr">— Eiso Kant, Co-CEO, Poolside AI</div>
+            </div>
+            
+            <p>Google's interest in the Texas facility reflects a strategic calculation: the company needs massive amounts of compute capacity to support its own AI model training, fine-tuning, and inference operations. Renting or partnering with Poolside at a Texas data center is economically preferable to building additional capacity entirely from scratch, particularly given permitting timelines and grid access constraints. Moreover, a partnership with Poolside could give Google additional leverage in negotiations with Nvidia and other chip suppliers, as it would demonstrate that Google is willing to diversify its compute footprint beyond its own internal data centers.</p>
+            
+            <p>Poolside AI itself is caught between competitive pressures. At a $12 billion valuation, the company needs to demonstrate credible paths to revenue and profitability. The company's core value proposition is AI chip design combined with software that optimizes workloads across heterogeneous hardware. But without a massive, committed compute customer anchoring its infrastructure investments, Poolside struggles to justify continued capex expansion in data centers. By pivoting to Google, Poolside gains a marquee customer while simultaneously gaining access to Google's scale to negotiate with suppliers.</p>
+            
+            <div class="data-strip">
+                <div class="data-item">
+                    <div class="data-value">2GW</div>
+                    <div class="data-label">Planned Capacity</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">568</div>
+                    <div class="data-label">Acres</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">40,000+</div>
+                    <div class="data-label">GPUs (CoreWeave Plan)</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">$12B</div>
+                    <div class="data-label">Valuation</div>
+                </div>
+            </div>
+            
+            <p>The broader implication of this pivot deserves scrutiny. It suggests that the venture model of independent infrastructure providers is increasingly untenable. When every major AI company is simultaneously building its own data centers and developing its own chips, independent infrastructure platforms face a structural disadvantage: they compete on price and terms against customers who could simply opt to build in-house. This dynamic explains why CoreWeave sought hyperscaler backing in recent months and why Poolside is now gravitating toward Google rather than remaining independent.</p>
+            
+            <p>For the AI infrastructure ecosystem, this trend is actually healthy in some respects: it concentrates capital and decision-making around organizations that have the resources to build world-class systems and maintain them at scale. However, it also accelerates an obvious outcome: the big four cloud platforms (Amazon, Google, Microsoft, Alibaba) will control the vast majority of AI compute globally. Smaller competitors seeking to access frontier compute will be forced into ever more dependent relationships with these giants. The Texas data center partnership with Google is perhaps the clearest signal yet that vendor-independent infrastructure for AI is becoming a luxury only the largest, fully vertical companies can afford.</p>
+        </div>
+        
+        <div class="sources">
+            <div class="sources-title">Sources</div>
+            <div class="sources-list">
+                <a href="https://datacenterdynamics.com" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=datacenterdynamics.com&sz=32" alt="DataCenterDynamics" class="source-favicon">
+                    <span>DataCenterDynamics</span>
+                </a>
+                <a href="https://techmeme.com" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=techmeme.com&sz=32" alt="Techmeme" class="source-favicon">
+                    <span>Techmeme</span>
+                </a>
+                <a href="https://poolside.ai" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=poolside.ai&sz=32" alt="Poolside AI" class="source-favicon">
+                    <span>Poolside AI</span>
+                </a>
+                <a href="https://datacenterfrontier.com" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=datacenterfrontier.com&sz=32" alt="DataCenter Frontier" class="source-favicon">
+                    <span>DataCenter Frontier</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <a href="03-q1-2026-venture-funding-records.html" class="nav-item">
+                <div class="nav-label">Previous Story</div>
+                <div class="nav-title">← Q1 2026 Venture Funding Records</div>
+            </a>
+            <a href="05-cisco-zero-trust-ai-agents-rsa.html" class="nav-item">
+                <div class="nav-label">Next Story</div>
+                <div class="nav-title">Cisco Unveils Zero Trust For AI Agents →</div>
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 The Vault — AI Edition. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.reading-progress').style.width = scrollPercent + '%';
+        });
+    </script>
+</body>
+</html>
