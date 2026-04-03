@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vault — AI Edition | April 2, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,0.07);--border-hover:rgba(255,255,255,0.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--business:#e8a735;--llms:#a78bfa;--research:#5eead4;--policy:#fb7185}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+nav{position:sticky;top:0;z-index:100;background:rgba(16,16,20,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.75rem 2rem;display:flex;justify-content:space-between;align-items:center}
+nav .brand{font-weight:800;font-size:0.85rem;letter-spacing:0.15em;color:var(--text-strong)}
+nav .nav-links{display:flex;gap:1.25rem;align-items:center;font-size:0.8rem;color:var(--text-muted)}
+nav .nav-links a{color:var(--text-muted);display:flex;align-items:center;gap:0.35rem}
+nav .nav-links a:hover{color:var(--text-strong);text-decoration:none}
+nav svg{width:14px;height:14px}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
+.edition-header{text-align:center;padding:3.5rem 0 2rem}
+.edition-header .overline{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:0.5rem}
+.edition-header h1{font-family:'Source Serif 4',serif;font-size:2.4rem;font-weight:700;color:var(--text-strong);margin-bottom:0.5rem}
+.edition-header .date-line{font-size:0.9rem;color:var(--text-muted)}
+.stats-row{display:flex;justify-content:center;gap:1.5rem;padding:1.25rem 0 2.5rem;flex-wrap:wrap}
+.stat-chip{display:flex;align-items:center;gap:0.4rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0.45rem 0.85rem;font-size:0.78rem;color:var(--text)}
+.stat-chip svg{width:14px;height:14px;color:var(--accent)}
+.stat-chip strong{color:var(--text-strong);font-weight:600}
+.featured{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:2.5rem;display:flex;gap:2rem;align-items:center}
+.featured-visual{flex:0 0 200px;height:140px;background:linear-gradient(135deg,rgba(232,167,53,0.15),rgba(192,132,252,0.1));border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.featured-visual .bars{display:flex;gap:6px;align-items:flex-end;height:80px}
+.featured-visual .bar{width:18px;border-radius:3px 3px 0 0;background:var(--business);opacity:0.7}
+.featured-content{flex:1}
+.cat-tag{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;padding:0.25rem 0.6rem;border-radius:4px;margin-bottom:0.6rem}
+.cat-tag.business{color:var(--business);background:rgba(232,167,53,0.12)}
+.cat-tag.llms-genai{color:var(--llms);background:rgba(167,139,250,0.12)}
+.cat-tag.research{color:var(--research);background:rgba(94,234,212,0.12)}
+.cat-tag.policy{color:var(--policy);background:rgba(251,113,133,0.12)}
+.cat-tag svg{width:12px;height:12px}
+.featured-content h2{font-family:'Source Serif 4',serif;font-size:1.5rem;color:var(--text-strong);margin-bottom:0.6rem;line-height:1.3}
+.featured-content p{font-size:0.88rem;color:var(--text);margin-bottom:1rem;line-height:1.6}
+.featured-content .read-link{font-size:0.82rem;font-weight:600;color:var(--accent)}
+.filter-bar{display:flex;gap:0.5rem;padding:0 0 2rem;flex-wrap:wrap}
+.filter-btn{display:inline-flex;align-items:center;gap:0.35rem;padding:0.4rem 0.85rem;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text-muted);font-size:0.78rem;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.filter-btn:hover{border-color:var(--border-hover);color:var(--text)}
+.filter-btn.active{background:var(--surface-2);border-color:var(--accent);color:var(--text-strong)}
+.filter-btn svg{width:14px;height:14px}
+.cat-section{margin-bottom:2.5rem}
+.cat-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem}
+.cat-icon{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.cat-icon svg{width:16px;height:16px}
+.cat-icon.business{background:rgba(232,167,53,0.15);color:var(--business)}
+.cat-icon.llms-genai{background:rgba(167,139,250,0.15);color:var(--llms)}
+.cat-icon.research{background:rgba(94,234,212,0.15);color:var(--research)}
+.cat-icon.policy{background:rgba(251,113,133,0.15);color:var(--policy)}
+.cat-header h3{font-size:1rem;font-weight:700;color:var(--text-strong)}
+.cat-header .count{font-size:0.78rem;color:var(--text-muted);margin-left:0.25rem}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;position:relative;overflow:hidden;transition:border-color 0.2s}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity 0.2s}
+.card:hover{border-color:var(--border-hover)}
+.card:hover::before{opacity:1}
+.card[data-cat="business"]::before{background:var(--business)}
+.card[data-cat="llms-genai"]::before{background:var(--llms)}
+.card[data-cat="research"]::before{background:var(--research)}
+.card[data-cat="policy"]::before{background:var(--policy)}
+.card-top{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.6rem}
+.card-num{font-size:0.7rem;font-weight:700;color:var(--text-muted);background:var(--surface-2);border-radius:4px;padding:0.15rem 0.4rem}
+.card-time{display:flex;align-items:center;gap:0.25rem;font-size:0.72rem;color:var(--text-muted)}
+.card-time svg{width:12px;height:12px}
+.card h4{font-size:0.92rem;font-weight:600;color:var(--text-strong);margin-bottom:0.5rem;line-height:1.35}
+.card .excerpt{font-size:0.8rem;color:var(--text-muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:0.75rem;line-height:1.5}
+.card .card-bottom{display:flex;justify-content:flex-end}
+.card .read-btn{font-size:0.78rem;font-weight:600;color:var(--accent)}
+footer{border-top:1px solid var(--border);padding:2.5rem 2rem;text-align:center;margin-top:2rem}
+footer .brand{font-weight:800;font-size:0.8rem;letter-spacing:0.15em;color:var(--text-muted);margin-bottom:0.4rem}
+footer p{font-size:0.75rem;color:var(--text-muted)}
+@media(max-width:768px){.featured{flex-direction:column}.featured-visual{flex:none;width:100%;height:100px}.card-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+<a href="/" style="color:var(--text-muted);display:flex;align-items:center;gap:0.4rem;font-size:0.8rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Home</a>
+<div class="brand">THE VAULT</div>
+<div class="nav-links">
+<a href="/archive/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Archive</a>
+<a href="/feed.xml"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg> RSS</a>
+</div>
+</nav>
+<div class="container">
+<header class="edition-header">
+<div class="overline">DAILY INTELLIGENCE BRIEF</div>
+<h1>The Vault &mdash; AI Edition</h1>
+<div class="date-line">Thursday, April 2, 2026</div>
+</header>
+<div class="stats-row">
+<div class="stat-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><strong>17</strong> stories</div>
+<div class="stat-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><strong>~14,500</strong> words</div>
+<div class="stat-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><strong>4</strong> categories</div>
+<div class="stat-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><strong>62</strong> min read</div>
+</div>
+<div class="featured">
+<div class="featured-visual"><div class="bars"><div class="bar" style="height:40px"></div><div class="bar" style="height:65px"></div><div class="bar" style="height:80px"></div><div class="bar" style="height:55px"></div><div class="bar" style="height:70px"></div></div></div>
+<div class="featured-content">
+<div class="cat-tag business"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+<h2>OpenAI Closes Record $122 Billion Funding Round at $852 Billion Valuation, IPO Looms</h2>
+<p>OpenAI has completed the largest funding round in startup history, closing a $122 billion investment led by Amazon, Nvidia, and SoftBank that values the company at $852 billion.</p>
+<a href="stories/01-openai-122b-funding-round-ipo.html" class="read-link">Read full story &rarr;</a>
+</div>
+</div>
+<div class="filter-bar">
+<button class="filter-btn active" data-filter="all"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> All</button>
+<button class="filter-btn" data-filter="business"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</button>
+<button class="filter-btn" data-filter="llms-genai"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</button>
+<button class="filter-btn" data-filter="research"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</button>
+<button class="filter-btn" data-filter="policy"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</button>
+</div>
+<div class="cat-section" data-category="business"><div class="cat-header"><div class="cat-icon business"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Business <span class="count">(5)</span></h3></div><div class="card-grid"><a href="stories/01-openai-122b-funding-round-ipo.html" class="card" data-cat="business" style="text-decoration:none">
+<div class="card-top"><span class="card-num">01</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h4>OpenAI Closes Record $122B Funding Round at $852B Valuation</h4>
+<p class="excerpt">OpenAI has completed the largest funding round in startup history, closing a $122 billion investment...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a><a href="stories/02-intel-fab34-apollo-buyback.html" class="card" data-cat="business" style="text-decoration:none">
+<div class="card-top"><span class="card-num">02</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h4>Intel Buys Back Fab 34 From Apollo for $14.2 Billion, Stock Surges 9%</h4>
+<p class="excerpt">Intel announced a $14.2 billion repurchase of Apollo's 49% stake in its Ireland fabrication facility...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a><a href="stories/03-q1-2026-venture-funding-records.html" class="card" data-cat="business" style="text-decoration:none">
+<div class="card-top"><span class="card-num">03</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h4>Q1 2026 Shatters Venture Records: $300B Invested as AI Captures 80%</h4>
+<p class="excerpt">Investors poured $300 billion into 6,000 startups globally in Q1, with AI capturing 80% of all funding...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a><a href="stories/04-poolside-google-texas-data-center.html" class="card" data-cat="business" style="text-decoration:none">
+<div class="card-top"><span class="card-num">04</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h4>Poolside AI Seeks Google Partnership to Revive 2GW Texas Data Center</h4>
+<p class="excerpt">AI startup Poolside is negotiating with Google to revive its ambitious 2GW Texas data center project...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a><a href="stories/05-cisco-zero-trust-ai-agents-rsa.html" class="card" data-cat="business" style="text-decoration:none">
+<div class="card-top"><span class="card-num">05</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h4>Cisco Unveils Zero Trust and DefenseClaw for AI Agents at RSA 2026</h4>
+<p class="excerpt">Cisco announced DefenseClaw and Zero Trust Access controls for autonomous AI systems at RSA Conference...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a></div></div><div class="cat-section" data-category="llms-genai"><div class="cat-header"><div class="cat-icon llms-genai"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><h3>LLMs &amp; GenAI <span class="count">(5)</span></h3></div><div class="card-grid"><a href="stories/06-alibaba-qwen36-plus-agentic-coding.html" class="card" data-cat="llms-genai" style="text-decoration:none">
+<div class="card-top"><span class="card-num">06</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h4>Alibaba Launches Qwen3.6-Plus With 1M Context and Agentic Coding</h4>
+<p class="excerpt">Alibaba unveiled Qwen3.6-Plus, combining a 1-million-token context window with autonomous coding...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a><a href="stories/07-google-gemini-31-flash-lite-speed.html" class="card" data-cat="llms-genai" style="text-decoration:none">
+<div class="card-top"><span class="card-num">07</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h4>Google Gemini 3.1 Flash-Lite: 2.5x Speed at $0.25 Per Million Tokens</h4>
+<p class="excerpt">Google upended the LLM pricing table with Gemini 3.1 Flash-Lite, delivering 2.5x faster responses...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a><a href="stories/08-openai-responses-api-shell-skills.html" class="card" data-cat="llms-genai" style="text-decoration:none">
+<div class="card-top"><span class="card-num">08</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h4>OpenAI Extends Responses API With Shell Tool, Skills, and Compaction</h4>
+<p class="excerpt">OpenAI expanded its Responses API with shell access, reusable agent skills, and context compaction...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a><a href="stories/09-anthropic-claude-code-source-leak.html" class="card" data-cat="llms-genai" style="text-decoration:none">
+<div class="card-top"><span class="card-num">09</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h4>Anthropic Accidentally Leaks Claude Code Source via npm Packaging Error</h4>
+<p class="excerpt">A missing .npmignore shipped 512,000 lines of Claude Code source to the public npm registry...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a><a href="stories/10-aws-strands-labs-agent-development.html" class="card" data-cat="llms-genai" style="text-decoration:none">
+<div class="card-top"><span class="card-num">10</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h4>AWS Launches Strands Labs for Experimental AI Agent Development</h4>
+<p class="excerpt">AWS unveiled Strands Labs, a GitHub organization for next-generation AI agent experiments...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a></div></div><div class="cat-section" data-category="research"><div class="cat-header"><div class="cat-icon research"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><h3>Research <span class="count">(3)</span></h3></div><div class="card-grid"><a href="stories/11-hawaii-physics-informed-ml-algorithm.html" class="card" data-cat="research" style="text-decoration:none">
+<div class="card-top"><span class="card-num">11</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 3 min</span></div>
+<h4>U of Hawaii Physics-Informed ML Algorithm Forces AI to Obey Nature</h4>
+<p class="excerpt">Researchers developed an algorithm using the Frobenius norm to constrain AI within physical laws...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a><a href="stories/12-ai-molecule-pancreatic-cancer-chemo.html" class="card" data-cat="research" style="text-decoration:none">
+<div class="card-top"><span class="card-num">12</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 3 min</span></div>
+<h4>AI-Designed Molecule Boosts Chemotherapy for Pancreatic Cancer</h4>
+<p class="excerpt">AI identified 307 synergistic drug combinations and designed novel molecules enhancing chemo effectiveness...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a><a href="stories/13-ai-ekg-coronary-microvascular-diagnosis.html" class="card" data-cat="research" style="text-decoration:none">
+<div class="card-top"><span class="card-num">13</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 3 min</span></div>
+<h4>AI Diagnoses Coronary Microvascular Dysfunction From a 10-Second EKG</h4>
+<p class="excerpt">University of Michigan AI detects CMVD from standard EKGs, transforming cardiac care access...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a></div></div><div class="cat-section" data-category="policy"><div class="cat-header"><div class="cat-icon policy"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Policy <span class="count">(4)</span></h3></div><div class="card-grid"><a href="stories/14-california-newsom-ai-executive-order.html" class="card" data-cat="policy" style="text-decoration:none">
+<div class="card-top"><span class="card-num">14</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h4>California Newsom Signs AI Safety Executive Order for State Contracts</h4>
+<p class="excerpt">Governor Newsom signed Executive Order N-5-26 requiring AI vendors to meet safety certifications...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a><a href="stories/15-tennessee-ai-therapy-bot-ban-law.html" class="card" data-cat="policy" style="text-decoration:none">
+<div class="card-top"><span class="card-num">15</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h4>Tennessee Signs AI Therapy Bot Ban Into Law With Unanimous Support</h4>
+<p class="excerpt">Governor Lee signed SB 1580 banning AI from representing as mental health professionals, 32-0 and 94-0...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a><a href="stories/16-federal-ai-regulation-trump-america-act.html" class="card" data-cat="policy" style="text-decoration:none">
+<div class="card-top"><span class="card-num">16</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h4>Federal AI Push: TRUMP AMERICA AI Act and White House Framework</h4>
+<p class="excerpt">Senator Blackburn's 291-page draft and White House framework signal coordinated federal regulation...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a><a href="stories/17-eu-council-streamline-ai-rules-omnibus.html" class="card" data-cat="policy" style="text-decoration:none">
+<div class="card-top"><span class="card-num">17</span><span class="card-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span></div>
+<h4>EU Council Streamlines AI Rules, Delays Compliance to 2027-2028</h4>
+<p class="excerpt">EU Council delays high-risk AI compliance deadlines while targeting 25% burden reduction by 2029...</p>
+<div class="card-bottom"><span class="read-btn">Read &rarr;</span></div>
+</a></div></div></div>
+<footer>
+<div class="brand">THE VAULT &mdash; AI EDITION</div>
+<p>A daily intelligence brief covering the most important developments in artificial intelligence.</p>
+</footer>
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.cat-section').forEach(s=>{
+      s.style.display=(f==='all'||s.dataset.category===f)?'block':'none';
+    });
+  });
+});
+</script>
+</body>
+</html>
