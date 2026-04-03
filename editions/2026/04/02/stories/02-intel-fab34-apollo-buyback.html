@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intel Buys Back Ireland Fab 34 Stake From Apollo for $14.2 Billion, Stock Surges 9%</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg: #101014;
+            --surface: #18181c;
+            --surface-2: #1f1f24;
+            --border: rgba(255,255,255,0.07);
+            --border-hover: rgba(255,255,255,0.14);
+            --text: #b8b8bf;
+            --text-strong: #ececef;
+            --text-muted: #5a5a63;
+            --accent: #c084fc;
+            --business: #e8a735;
+            --llms: #a78bfa;
+            --research: #5eead4;
+            --policy: #fb7185;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Source Serif 4', serif;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background-color: var(--business);
+            z-index: 1000;
+            width: 0%;
+        }
+        
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(16, 16, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+        }
+        
+        .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .nav-back {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.2s;
+        }
+        
+        .nav-back:hover {
+            color: var(--text-strong);
+        }
+        
+        .nav-brand {
+            color: var(--text-strong);
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .header {
+            margin-bottom: 3rem;
+        }
+        
+        .category-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            margin-bottom: 1.5rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--business);
+        }
+        
+        .category-icon {
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .category-icon svg {
+            width: 100%;
+            height: 100%;
+            color: var(--business);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-strong);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .meta-row {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .meta-icon {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .meta-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--text-muted);
+        }
+        
+        .key-takeaway {
+            background-color: var(--surface);
+            border-left: 4px solid var(--business);
+            border-radius: 4px;
+            padding: 2rem;
+            margin: 3rem 0;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .takeaway-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--text-strong);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .takeaway-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--business);
+        }
+        
+        .takeaway-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+        }
+        
+        .article-body {
+            margin: 3rem 0;
+        }
+        
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-body p:first-of-type::first-letter {
+            font-size: 2.5em;
+            font-weight: 700;
+            float: left;
+            line-height: 1;
+            padding-right: 0.2em;
+            color: var(--text-strong);
+        }
+        
+        .pull-quote {
+            border-left: 4px solid var(--business);
+            padding-left: 2rem;
+            margin: 2.5rem 0;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-strong);
+            line-height: 1.6;
+        }
+        
+        .pull-quote-attr {
+            margin-top: 1rem;
+            font-size: 14px;
+            font-style: normal;
+            color: var(--text-muted);
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .data-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: var(--surface);
+            border-radius: 8px;
+        }
+        
+        .data-item {
+            text-align: center;
+        }
+        
+        .data-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--business);
+            margin-bottom: 0.5rem;
+        }
+        
+        .data-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .sources {
+            margin: 4rem 0 2rem 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .sources-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .sources-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .source-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.2s;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+        }
+        
+        .source-item:hover {
+            color: var(--text-strong);
+        }
+        
+        .source-favicon {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+        }
+        
+        .navigation {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 4rem 0;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .nav-item {
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.2s;
+        }
+        
+        .nav-item:hover {
+            border-color: var(--border-hover);
+            background-color: var(--surface);
+        }
+        
+        .nav-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-strong);
+        }
+        
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="reading-progress"></div>
+    
+    <nav>
+        <div class="nav-inner">
+            <a href="../../../../../../index.html" class="nav-back">← Back</a>
+            <div class="nav-brand">THE VAULT</div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="header">
+            <div class="category-tag">
+                <div class="category-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <span>Business</span>
+            </div>
+            
+            <h1>Intel Buys Back Ireland Fab 34 Stake From Apollo for $14.2 Billion, Stock Surges 9%</h1>
+            
+            <div class="meta-row">
+                <div class="meta-item">April 2, 2026</div>
+                <div class="meta-item">4 min read</div>
+                <div class="meta-item">847 words</div>
+                <div class="meta-item">
+                    <div class="meta-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    3 sources
+                </div>
+            </div>
+        </div>
+        
+        <div class="key-takeaway">
+            <div class="takeaway-header">
+                <div class="takeaway-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="13" y1="2" x2="13" y2="6"></line>
+                        <line x1="13" y1="18" x2="13" y2="22"></line>
+                        <line x1="5" y1="10" x2="9" y2="10"></line>
+                        <line x1="15" y1="10" x2="19" y2="10"></line>
+                        <circle cx="12" cy="13" r="9"></circle>
+                    </svg>
+                </div>
+                Key Takeaway
+            </div>
+            <div class="takeaway-text">Intel's $14.2 billion repurchase of Apollo's stake in its Ireland Fab 34 marks a strategic inflection, signaling improved financial health and renewed confidence in AI chip manufacturing.</div>
+        </div>
+        
+        <div class="article-body">
+            <p>Intel announced the buyback of Apollo Global Management's 49% stake in its state-of-the-art Fab 34 facility in County Kildare, Ireland for $14.2 billion, a transaction that immediately lifted Intel's stock price by 8.84% on the news. The deal marks a critical juncture in Intel's capital strategy: just eighteen months after selling the stake to Apollo for $11.2 billion as part of a restructuring, the company's improved financial position and strategic priorities have shifted dramatically. The $3 billion difference between the 2024 sale price and today's repurchase reflects not just market sentiment, but Intel's conviction that owning its most advanced manufacturing assets outright has become essential.</p>
+            
+            <p>Fab 34, one of Europe's most sophisticated semiconductor manufacturing facilities, is Intel's primary production site for next-generation Intel 4 and Intel 3 process nodes. These process nodes are foundational to Intel's competitive positioning against TSMC and Samsung in the race to deliver the most advanced chips to AI companies like OpenAI, Google, and Meta. The facility's strategic importance has intensified as demand for specialized AI accelerators has exploded. By reclaiming full ownership, Intel eliminates complex governance arrangements with Apollo and gains unfettered control over capital allocation, production priorities, and strategic partnerships at what it views as the crown jewel of its European operations.</p>
+            
+            <div class="pull-quote">
+                "Our 2024 agreement was the right structure at the right time and provided Intel with meaningful flexibility, enabling us to accelerate critical initiatives."
+                <div class="pull-quote-attr">— David Zinsner, CFO, Intel</div>
+            </div>
+            
+            <p>The financing structure reveals Intel's confidence and evolving access to capital. The company funded the $14.2 billion buyback through a combination of cash reserves and new debt issuance totaling $6.5 billion, demonstrating that despite past struggles, Intel maintains access to debt markets at reasonable rates. This debt issuance is particularly significant: it signals that bondholders and rating agencies believe Intel's transformation initiatives are credible and that the company's path to profitability is becoming visible. The market reaction—a 9% stock surge—suggests investors broadly agree with management's assessment that owning Fab 34 outright is worth the leverage increase.</p>
+            
+            <p>The Apollo relationship itself is worth examining. In 2024, Apollo's $11.2 billion investment was part of Intel's larger recapitalization effort to fund foundry expansion and regain manufacturing leadership. The partnership worked precisely as intended: it provided Intel with capital during a critical moment while giving Apollo exposure to Intel's industrial base at a time when AI infrastructure was reshaping the entire semiconductor industry. Now, barely eighteen months later, Intel's strategic priorities have crystallized further, and the company has determined that full operational control of Fab 34 is worth the capital outlay. This is not a sign of dispute or partnership failure; rather, it reflects the accelerating pace of AI-driven capital deployment.</p>
+            
+            <div class="data-strip">
+                <div class="data-item">
+                    <div class="data-value">$14.2B</div>
+                    <div class="data-label">Repurchase Price</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">8.84%</div>
+                    <div class="data-label">Stock Surge</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">$11.2B</div>
+                    <div class="data-label">Apollo's Original Investment</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">$6.5B</div>
+                    <div class="data-label">New Debt Issuance</div>
+                </div>
+            </div>
+            
+            <p>Looking ahead, Fab 34 under full Intel control will become an even more aggressive operator in the competitive foundry landscape. Intel has already committed to significant capital expansion at the facility, with plans to build Fab 35 adjacent to Fab 34 as part of its European manufacturing footprint. The buyback effectively de-risks these expansion plans by giving Intel sole discretion over capacity allocation and investment timing. With full ownership restored, expect accelerated ramp-up of Intel 4 and Intel 3 production, increased recruitment of specialized process engineers, and potentially new partnerships with European governments seeking to establish domestic semiconductor sovereignty as competition with Asia intensifies.</p>
+        </div>
+        
+        <div class="sources">
+            <div class="sources-title">Sources</div>
+            <div class="sources-list">
+                <a href="https://intel.com" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=intel.com&sz=32" alt="Intel" class="source-favicon">
+                    <span>Intel Newsroom</span>
+                </a>
+                <a href="https://manufacturingdive.com" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=manufacturingdive.com&sz=32" alt="Manufacturing Dive" class="source-favicon">
+                    <span>Manufacturing Dive</span>
+                </a>
+                <a href="https://fool.com" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=fool.com&sz=32" alt="Motley Fool" class="source-favicon">
+                    <span>Motley Fool</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <a href="01-openai-122b-funding-round-ipo.html" class="nav-item">
+                <div class="nav-label">Previous Story</div>
+                <div class="nav-title">← OpenAI Closes Record $122B Funding Round</div>
+            </a>
+            <a href="03-q1-2026-venture-funding-records.html" class="nav-item">
+                <div class="nav-label">Next Story</div>
+                <div class="nav-title">Q1 2026 Venture Funding Records →</div>
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 The Vault — AI Edition. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.reading-progress').style.width = scrollPercent + '%';
+        });
+    </script>
+</body>
+</html>
