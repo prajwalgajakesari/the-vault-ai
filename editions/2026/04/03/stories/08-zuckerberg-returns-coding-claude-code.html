@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Zuckerberg Returns to Writing Code After 20 Years, Powered by Claude Code</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #101014; --surface: #18181c; --surface-2: #1f1f24;
+            --border: rgba(255,255,255,0.07); --border-hover: rgba(255,255,255,0.14);
+            --text: #b8b8bf; --text-strong: #ececef; --text-muted: #5a5a63;
+            --accent: #c084fc; --business: #e8a735; --llms: #a78bfa;
+            --research: #5eead4; --policy: #fb7185;
+        }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.8; }
+        .reading-progress { position: fixed; top: 0; left: 0; height: 3px; background-color: var(--llms); z-index: 1000; width: 0%; }
+        nav { position: sticky; top: 0; z-index: 100; background-color: rgba(16,16,20,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
+        .nav-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: 'DM Sans', sans-serif; }
+        .nav-back { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s; }
+        .nav-back:hover { color: var(--text-strong); }
+        .nav-brand { color: var(--text-strong); font-size: 14px; font-weight: 800; letter-spacing: 0.08em; }
+        .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+        .header { margin-bottom: 3rem; }
+        .category-tag { display: inline-flex; align-items: center; gap: 0.5rem; background-color: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem 1rem; margin-bottom: 1.5rem; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--llms); }
+        .category-icon { width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; }
+        .category-icon svg { width: 100%; height: 100%; color: var(--llms); }
+        h1 { font-size: 3.5rem; font-weight: 700; color: var(--text-strong); line-height: 1.1; margin-bottom: 1.5rem; }
+        .meta-row { display: flex; gap: 2rem; flex-wrap: wrap; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-muted); margin-bottom: 2rem; }
+        .meta-item { display: flex; align-items: center; gap: 0.5rem; }
+        .meta-icon { width: 16px; height: 16px; }
+        .meta-icon svg { width: 100%; height: 100%; stroke: var(--text-muted); }
+        .key-takeaway { background-color: var(--surface); border-left: 4px solid var(--llms); border-radius: 4px; padding: 2rem; margin: 3rem 0; font-family: 'DM Sans', sans-serif; }
+        .takeaway-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-weight: 700; color: var(--text-strong); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .takeaway-icon { width: 20px; height: 20px; color: var(--llms); }
+        .takeaway-text { font-size: 16px; line-height: 1.6; color: var(--text); }
+        .article-body { margin: 3rem 0; }
+        .article-body p { margin-bottom: 1.5rem; }
+        .article-body p:first-of-type::first-letter { font-size: 2.5em; font-weight: 700; float: left; line-height: 1; padding-right: 0.2em; color: var(--text-strong); }
+        .pull-quote { border-left: 4px solid var(--llms); padding-left: 2rem; margin: 2.5rem 0; font-size: 1.25rem; font-style: italic; color: var(--text-strong); line-height: 1.6; }
+        .pull-quote-attr { margin-top: 1rem; font-size: 14px; font-style: normal; color: var(--text-muted); font-family: 'DM Sans', sans-serif; }
+        .data-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0; padding: 2rem; background-color: var(--surface); border-radius: 8px; }
+        .data-item { text-align: center; }
+        .data-value { font-size: 2rem; font-weight: 700; color: var(--llms); margin-bottom: 0.5rem; }
+        .data-label { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .sources { margin: 4rem 0 2rem 0; padding-top: 2rem; border-top: 1px solid var(--border); }
+        .sources-title { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 1rem; }
+        .sources-list { display: flex; flex-wrap: wrap; gap: 2rem; }
+        .source-item { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); transition: color 0.2s; font-family: 'DM Sans', sans-serif; font-size: 14px; }
+        .source-item:hover { color: var(--text-strong); }
+        .source-favicon { width: 24px; height: 24px; border-radius: 4px; }
+        .navigation { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 4rem 0; font-family: 'DM Sans', sans-serif; }
+        .nav-item { padding: 2rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text); transition: all 0.2s; }
+        .nav-item:hover { border-color: var(--border-hover); background-color: var(--surface); }
+        .nav-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .nav-title { font-size: 16px; font-weight: 600; color: var(--text-strong); }
+        footer { border-top: 1px solid var(--border); padding: 3rem 2rem; margin-top: 4rem; text-align: center; font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <div class="reading-progress"></div>
+    <nav>
+        <div class="nav-inner">
+            <a href="../../../../../../index.html" class="nav-back">&larr; Back</a>
+            <div class="nav-brand">THE VAULT</div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="header">
+            <div class="category-tag">
+                <div class="category-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line>
+                    </svg>
+                </div>
+                <span>LLMs &amp; GenAI</span>
+            </div>
+            <h1>Mark Zuckerberg Returns to Writing Code After 20 Years, Powered by Claude Code</h1>
+            <div class="meta-row">
+                <div class="meta-item">April 3, 2026</div>
+                <div class="meta-item">4 min read</div>
+                <div class="meta-item">227 words</div>
+                <div class="meta-item">
+                    <div class="meta-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    3 sources
+                </div>
+            </div>
+        </div>
+        <div class="key-takeaway">
+            <div class="takeaway-header">
+                <div class="takeaway-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                </div>
+                Key Takeaway
+            </div>
+            <div class="takeaway-text">Zuckerberg ships code at Meta using Claude Code as the company targets 50-80% AI-assisted development.</div>
+        </div>
+        <div class="article-body">
+            <p>In a striking symbol of AI's ascendancy in software development, Mark Zuckerberg—the Meta CEO who hasn't written production code in two decades—is shipping code changes again. And he's doing it with Claude Code.</p>
+
+            <p>According to The Pragmatic Engineer, Zuckerberg has begun landing diffs—shipping code commits—after a two-decade hiatus. The move validates AI-assisted development workflows at the executive level, testing them before mandating company-wide adoption.</p>
+
+            <p>Zuckerberg predicted: &quot;Within 12 to 18 months, most of the code is written by AI. This won't be simple autocomplete, but rather AI agents that can set goals, run tests, find problems, and write better code than top engineers.&quot;</p>
+
+            <div class="data-strip">
+                <div class="data-item">
+                    <div class="data-value">$2.5B</div>
+                    <div class="data-label">Claude Code ARR</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">50-80%</div>
+                    <div class="data-label">AI Code Target</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">75%</div>
+                    <div class="data-label">Engineer AI Threshold</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">20 yrs</div>
+                    <div class="data-label">Since Last Code</div>
+                </div>
+            </div>
+
+            <p>Meta has set aggressive targets: 50 to 80 percent AI-assisted code writing by mid-2026, with 65 percent of engineers required to write more than 75 percent of their committed code using AI assistance. These are tied to compensation and advancement metrics.</p>
+
+            <p>Claude Code, which Zuckerberg uses, has achieved over $2.5 billion in annualized run-rate revenue as of February 2026, reflecting massive enterprise adoption.</p>
+
+            <p>If Meta achieves its targets, a significant portion of mid-level and junior engineering work could be automated. The engineers who thrive will be those who can effectively collaborate with AI agents, directing them toward business goals and handling exceptions.</p>
+
+            <p>Zuckerberg's personal involvement means the executive suite has direct insight into which engineering roles are most vulnerable to automation—and which remain indispensable.</p>
+
+        </div>
+        <div class="sources">
+            <div class="sources-title">Sources</div>
+            <div class="sources-list">
+                <a href="https://pragmaticengineer.com" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=pragmaticengineer.com&amp;sz=32" alt="The Pragmatic Engineer" class="source-favicon">
+                    <span>The Pragmatic Engineer</span>
+                </a>
+                <a href="https://theverge.com" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=theverge.com&amp;sz=32" alt="The Verge" class="source-favicon">
+                    <span>The Verge</span>
+                </a>
+                <a href="https://about.fb.com" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=about.fb.com&amp;sz=32" alt="Meta" class="source-favicon">
+                    <span>Meta</span>
+                </a>
+            </div>
+        </div>
+        <div class="navigation">
+            <a href="07-deepseek-v4-trillion-parameter-moe.html" class="nav-item">
+                <div class="nav-label">Previous Story</div>
+                <div class="nav-title">&larr; DeepSeek Launches V4, a Trillion-Parameter Open-Weight MoE M</div>
+            </a>
+            <a href="09-anthropic-claude-subscription-third-party-cut.html" class="nav-item">
+                <div class="nav-label">Next Story</div>
+                <div class="nav-title">Anthropic Cuts Claude Subscription Access on Third-Party Too &rarr;</div>
+            </a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 The Vault &mdash; AI Edition. All rights reserved.</p>
+    </footer>
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.reading-progress').style.width = scrollPercent + '%';
+        });
+    </script>
+</body>
+</html>
