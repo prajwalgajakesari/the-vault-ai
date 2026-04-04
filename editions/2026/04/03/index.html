@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vault — AI Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg: #101014;
+            --surface: #18181c;
+            --surface-2: #1f1f24;
+            --border: rgba(255,255,255,0.07);
+            --border-hover: rgba(255,255,255,0.14);
+            --text: #b8b8bf;
+            --text-strong: #ececef;
+            --text-muted: #5a5a63;
+            --accent: #c084fc;
+            --business: #e8a735;
+            --llms: #a78bfa;
+            --research: #5eead4;
+            --policy: #fb7185;
+        }
+        
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        nav .nav-left, nav .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        nav .brand {
+            font-weight: 800;
+            font-size: 16px;
+            letter-spacing: -0.5px;
+            color: var(--text-strong);
+            flex: 1;
+            text-align: center;
+        }
+        
+        nav svg {
+            width: 18px;
+            height: 18px;
+            stroke-width: 1.8;
+        }
+        
+        .edition-header {
+            padding: 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .edition-header .overline {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        
+        .edition-header h1 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-strong);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        
+        .edition-header .date {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 32px 40px;
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+        
+        .stat-chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        .stat-chip svg {
+            width: 16px;
+            height: 16px;
+            color: var(--accent);
+        }
+        
+        .featured-area {
+            padding: 40px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .featured-card {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .featured-visual {
+            width: 200px;
+            height: 160px;
+            background: linear-gradient(135deg, var(--business) 0%, var(--accent) 100%);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-visual::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30%;
+            height: 40%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .featured-visual::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 20%;
+            width: 25%;
+            height: 60%;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .featured-content h2 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-strong);
+            margin: 16px 0;
+            line-height: 1.3;
+        }
+        
+        .featured-content .category-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 6px 12px;
+            background: var(--surface-2);
+            color: var(--business);
+            border-radius: 3px;
+            margin-bottom: 12px;
+        }
+        
+        .featured-content p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .featured-content a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+        
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 24px 40px;
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--border-hover);
+            color: var(--text-strong);
+        }
+        
+        .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg);
+        }
+        
+        .filter-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="../../index.html" style="display: flex; align-items: center;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+                </svg>
+            </a>
+        </div>
+        <div class="brand">THE VAULT</div>
+        <div class="nav-right">
+            <a href="../../archive.html">Archive</a>
+            <a href="../../feed.xml">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/>
+                </svg>
+            </a>
+        </div>
+    </nav>
+    
+    <header class="edition-header">
+        <div class="overline">DAILY INTELLIGENCE BRIEF</div>
+        <h1>The Vault — AI Edition</h1>
+        <div class="date">Friday, April 3, 2026</div>
+    </header>
+    
+    <div class="stats-row">
+        <div class="stat-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>
+            </svg>
+            16 stories
+        </div>
+        <div class="stat-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/>
+            </svg>
+            ~13,700 words
+        </div>
+        <div class="stat-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+            </svg>
+            4 categories
+        </div>
+        <div class="stat-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            64 min read
+        </div>
+    </div>
+    
+    <div class="featured-area">
+        <div class="featured-card">
+            <div class="featured-visual"></div>
+            <div class="featured-content">
+                <div class="category-tag">Business</div>
+                <h2>OpenAI Acquires TBPN Tech Talk Show in First-Ever Media Deal</h2>
+                <p>OpenAI's strategic entry into media production marks a pivotal moment in AI company expansion beyond pure software and research.</p>
+                <a href="../../stories/01-openai-acquires-tbpn-media-deal.html">Read full story →</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+            </svg>
+            All
+        </button>
+        <button class="filter-btn" data-filter="business">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+            Business
+        </button>
+        <button class="filter-btn" data-filter="llms">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            </svg>
+            LLMs & GenAI
+        </button>
+        <button class="filter-btn" data-filter="research">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+            Research
+        </button>
+        <button class="filter-btn" data-filter="policy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Policy
+        </button>
+    </div>
+
+    <section class="category-section" data-category="business">
+        <div class="cat-header">
+            <div class="cat-icon" style="background: var(--business);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+            </div>
+            <div>
+                <h2 class="cat-title">Business</h2>
+                <span class="cat-count">5 stories</span>
+            </div>
+        </div>
+        <div class="card-grid">
+            <a href="../../stories/01-openai-acquires-tbpn-media-deal.html" class="story-card business">
+                <div class="story-badge">01</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>OpenAI Acquires TBPN Tech Talk Show in First-Ever Media Deal</h3>
+                <p>OpenAI's strategic entry into media production marks a pivotal moment in AI company expansion beyond pure software and research.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+            
+            <a href="../../stories/02-microsoft-10b-japan-ai-infrastructure.html" class="story-card business">
+                <div class="story-badge">02</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>Microsoft Commits $10 Billion to Japan AI Infrastructure Through 2029</h3>
+                <p>Microsoft's massive investment signals deep commitment to Japan's AI ecosystem and regional tech sovereignty.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+            
+            <a href="../../stories/03-anysphere-cursor-3-agent-workspace.html" class="story-card business">
+                <div class="story-badge">03</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>Anysphere Launches Cursor 3, an Agent-First Coding Workspace</h3>
+                <p>Cursor's new agent-first paradigm represents a fundamental shift in how developers interact with AI-powered development tools.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+            
+            <a href="../../stories/04-stripe-minions-1300-prs-week.html" class="story-card business">
+                <div class="story-badge">04</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>Stripe's AI Minions Now Ship 1,300 Production Pull Requests Every Week</h3>
+                <p>Stripe's autonomous AI agents are delivering production-ready code at unprecedented scale, reshaping software development workflows.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+            
+            <a href="../../stories/05-cognichip-60m-ai-chip-design.html" class="story-card business">
+                <div class="story-badge">05</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>Cognichip Emerges From Stealth With $60M to Let AI Design Computer Chips</h3>
+                <p>Cognichip's approach to AI-driven chip design could accelerate the development of specialized hardware for next-generation applications.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="category-section" data-category="llms">
+        <div class="cat-header">
+            <div class="cat-icon" style="background: var(--llms);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                </svg>
+            </div>
+            <div>
+                <h2 class="cat-title">LLMs & GenAI</h2>
+                <span class="cat-count">5 stories</span>
+            </div>
+        </div>
+        <div class="card-grid">
+            <a href="../../stories/06-google-gemma-4-open-weight-apache.html" class="story-card llms">
+                <div class="story-badge">06</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>Google DeepMind Releases Gemma 4 Open-Weight Models Under Apache 2.0</h3>
+                <p>Google's latest open-weight release advances the accessibility of state-of-the-art models while maintaining research leadership.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+            
+            <a href="../../stories/07-deepseek-v4-trillion-parameter-moe.html" class="story-card llms">
+                <div class="story-badge">07</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>DeepSeek Launches V4, a Trillion-Parameter Open-Weight MoE Model</h3>
+                <p>DeepSeek's trillion-parameter MoE demonstrates how efficient architecture can compete with larger dense models in performance.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+            
+            <a href="../../stories/08-zuckerberg-returns-coding-claude-code.html" class="story-card llms">
+                <div class="story-badge">08</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>Mark Zuckerberg Returns to Writing Code After 20 Years, Powered by Claude Code</h3>
+                <p>Meta's CEO leverages AI-powered development tools to re-engage with coding after two decades, signaling confidence in code generation capabilities.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+            
+            <a href="../../stories/09-anthropic-claude-subscription-third-party-cut.html" class="story-card llms">
+                <div class="story-badge">09</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>Anthropic Cuts Claude Subscription Access on Third-Party Tools</h3>
+                <p>Anthropic's decision to restrict subscription access on third-party platforms signals a shift in distribution and monetization strategy.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+            
+            <a href="../../stories/10-doordash-llm-simulation-flywheel.html" class="story-card llms">
+                <div class="story-badge">10</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>DoorDash Engineers Build Simulation Flywheel to Test LLM Customer Support</h3>
+                <p>DoorDash's simulation approach demonstrates how companies can safely test and iterate on LLM-powered customer interactions at scale.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="category-section" data-category="research">
+        <div class="cat-header">
+            <div class="cat-icon" style="background: var(--research);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                </svg>
+            </div>
+            <div>
+                <h2 class="cat-title">Research</h2>
+                <span class="cat-count">3 stories</span>
+            </div>
+        </div>
+        <div class="card-grid">
+            <a href="../../stories/11-thor-ai-thermodynamics-century-problem.html" class="story-card research">
+                <div class="story-badge">11</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>THOR AI Framework Solves Century-Old Thermodynamics Problem in Seconds</h3>
+                <p>AI's breakthrough application to fundamental physics demonstrates how machine learning can accelerate scientific discovery in classical domains.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+            
+            <a href="../../stories/12-mit-study-ai-reshaping-tasks-not-jobs.html" class="story-card research">
+                <div class="story-badge">12</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>MIT Study Finds AI Is Reshaping Tasks, Not Causing Mass Unemployment</h3>
+                <p>Emerging research suggests AI impacts work composition rather than overall employment, challenging automation doomsday narratives.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+            
+            <a href="../../stories/13-ai-maps-science-predicts-research-trends.html" class="story-card research">
+                <div class="story-badge">13</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>AI Maps Science Papers to Predict Research Trends Two to Three Years Ahead</h3>
+                <p>AI systems can now forecast emerging research directions by analyzing publication patterns, enabling strategic foresight in science.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="category-section" data-category="policy">
+        <div class="cat-header">
+            <div class="cat-icon" style="background: var(--policy);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+            </div>
+            <div>
+                <h2 class="cat-title">Policy</h2>
+                <span class="cat-count">3 stories</span>
+            </div>
+        </div>
+        <div class="card-grid">
+            <a href="../../stories/14-anthropic-anthropac-employee-pac.html" class="story-card policy">
+                <div class="story-badge">14</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>Anthropic Forms AnthroPAC, an Employee-Funded Bipartisan PAC</h3>
+                <p>Anthropic's PAC signals the company's commitment to bipartisan engagement on AI policy at federal and state levels.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+            
+            <a href="../../stories/15-match-act-ban-ai-chipmaking-china.html" class="story-card policy">
+                <div class="story-badge">15</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>Bipartisan MATCH Act Would Ban AI Chipmaking Equipment Sales to China</h3>
+                <p>Congressional legislation reflects growing consensus on restricting AI semiconductor technology flows to geopolitical competitors.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+            
+            <a href="../../stories/16-states-race-ai-laws-idaho-georgia-nebraska.html" class="story-card policy">
+                <div class="story-badge">16</div>
+                <div class="story-meta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    4 min
+                </div>
+                <h3>States Race Ahead on AI Laws as Idaho, Georgia, and Nebraska Advance Bills</h3>
+                <p>State-level AI regulation efforts are accelerating, creating a patchwork of compliance requirements across the US.</p>
+                <div class="story-footer">
+                    <span>Read →</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 The Vault — AI Edition</p>
+        <p>Curated daily for builders, researchers, and decision-makers.</p>
+    </footer>
+    
+    <style>
+        .category-section {
+            padding: 40px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .cat-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .cat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg);
+            flex-shrink: 0;
+        }
+        
+        .cat-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .cat-title {
+            font-family: 'Source Serif 4', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-strong);
+            margin-bottom: 4px;
+        }
+        
+        .cat-count {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .story-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 20px;
+            position: relative;
+            transition: all 0.2s;
+            border-top: 2px solid transparent;
+            overflow: hidden;
+        }
+        
+        .story-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+        
+        .story-card.business {
+            border-top-color: var(--business);
+        }
+        
+        .story-card.business:hover {
+            background: linear-gradient(to bottom, rgba(232, 167, 53, 0.05), transparent);
+        }
+        
+        .story-card.llms {
+            border-top-color: var(--llms);
+        }
+        
+        .story-card.llms:hover {
+            background: linear-gradient(to bottom, rgba(167, 139, 250, 0.05), transparent);
+        }
+        
+        .story-card.research {
+            border-top-color: var(--research);
+        }
+        
+        .story-card.research:hover {
+            background: linear-gradient(to bottom, rgba(94, 234, 212, 0.05), transparent);
+        }
+        
+        .story-card.policy {
+            border-top-color: var(--policy);
+        }
+        
+        .story-card.policy:hover {
+            background: linear-gradient(to bottom, rgba(251, 113, 133, 0.05), transparent);
+        }
+        
+        .story-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            background: var(--surface-2);
+            color: var(--text-muted);
+            padding: 4px 8px;
+            border-radius: 2px;
+            margin-bottom: 12px;
+        }
+        
+        .story-meta {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        
+        .story-meta svg {
+            width: 14px;
+            height: 14px;
+        }
+        
+        .story-card h3 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-strong);
+            margin-bottom: 12px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .story-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .story-footer {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        footer {
+            background: var(--surface);
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        
+        footer p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 4px 0;
+        }
+        
+        footer p:first-child {
+            color: var(--text-strong);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+    </style>
+    
+    <script>
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const categoryButtons = {
+            all: document.querySelector('[data-filter="all"]'),
+            business: document.querySelector('[data-filter="business"]'),
+            llms: document.querySelector('[data-filter="llms"]'),
+            research: document.querySelector('[data-filter="research"]'),
+            policy: document.querySelector('[data-filter="policy"]')
+        };
+        
+        const categorySections = {
+            business: document.querySelector('[data-category="business"]'),
+            llms: document.querySelector('[data-category="llms"]'),
+            research: document.querySelector('[data-category="research"]'),
+            policy: document.querySelector('[data-category="policy"]')
+        };
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filter = button.dataset.filter;
+                
+                if (filter === 'all') {
+                    Object.values(categorySections).forEach(section => {
+                        section.style.display = 'block';
+                    });
+                } else {
+                    Object.entries(categorySections).forEach(([key, section]) => {
+                        section.style.display = key === filter ? 'block' : 'none';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
