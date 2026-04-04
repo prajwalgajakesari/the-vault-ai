@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Maps Science Papers to Predict Research Trends Two to Three Years Ahead</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #101014; --surface: #18181c; --surface-2: #1f1f24;
+            --border: rgba(255,255,255,0.07); --border-hover: rgba(255,255,255,0.14);
+            --text: #b8b8bf; --text-strong: #ececef; --text-muted: #5a5a63;
+            --accent: #c084fc; --business: #e8a735; --llms: #a78bfa;
+            --research: #5eead4; --policy: #fb7185;
+        }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.8; }
+        .reading-progress { position: fixed; top: 0; left: 0; height: 3px; background-color: var(--research); z-index: 1000; width: 0%; }
+        nav { position: sticky; top: 0; z-index: 100; background-color: rgba(16,16,20,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
+        .nav-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: 'DM Sans', sans-serif; }
+        .nav-back { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s; }
+        .nav-back:hover { color: var(--text-strong); }
+        .nav-brand { color: var(--text-strong); font-size: 14px; font-weight: 800; letter-spacing: 0.08em; }
+        .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+        .header { margin-bottom: 3rem; }
+        .category-tag { display: inline-flex; align-items: center; gap: 0.5rem; background-color: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem 1rem; margin-bottom: 1.5rem; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--research); }
+        .category-icon { width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; }
+        .category-icon svg { width: 100%; height: 100%; color: var(--research); }
+        h1 { font-size: 3.5rem; font-weight: 700; color: var(--text-strong); line-height: 1.1; margin-bottom: 1.5rem; }
+        .meta-row { display: flex; gap: 2rem; flex-wrap: wrap; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-muted); margin-bottom: 2rem; }
+        .meta-item { display: flex; align-items: center; gap: 0.5rem; }
+        .meta-icon { width: 16px; height: 16px; }
+        .meta-icon svg { width: 100%; height: 100%; stroke: var(--text-muted); }
+        .key-takeaway { background-color: var(--surface); border-left: 4px solid var(--research); border-radius: 4px; padding: 2rem; margin: 3rem 0; font-family: 'DM Sans', sans-serif; }
+        .takeaway-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-weight: 700; color: var(--text-strong); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .takeaway-icon { width: 20px; height: 20px; color: var(--research); }
+        .takeaway-text { font-size: 16px; line-height: 1.6; color: var(--text); }
+        .article-body { margin: 3rem 0; }
+        .article-body p { margin-bottom: 1.5rem; }
+        .article-body p:first-of-type::first-letter { font-size: 2.5em; font-weight: 700; float: left; line-height: 1; padding-right: 0.2em; color: var(--text-strong); }
+        .pull-quote { border-left: 4px solid var(--research); padding-left: 2rem; margin: 2.5rem 0; font-size: 1.25rem; font-style: italic; color: var(--text-strong); line-height: 1.6; }
+        .pull-quote-attr { margin-top: 1rem; font-size: 14px; font-style: normal; color: var(--text-muted); font-family: 'DM Sans', sans-serif; }
+        .data-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0; padding: 2rem; background-color: var(--surface); border-radius: 8px; }
+        .data-item { text-align: center; }
+        .data-value { font-size: 2rem; font-weight: 700; color: var(--research); margin-bottom: 0.5rem; }
+        .data-label { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .sources { margin: 4rem 0 2rem 0; padding-top: 2rem; border-top: 1px solid var(--border); }
+        .sources-title { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 1rem; }
+        .sources-list { display: flex; flex-wrap: wrap; gap: 2rem; }
+        .source-item { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); transition: color 0.2s; font-family: 'DM Sans', sans-serif; font-size: 14px; }
+        .source-item:hover { color: var(--text-strong); }
+        .source-favicon { width: 24px; height: 24px; border-radius: 4px; }
+        .navigation { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 4rem 0; font-family: 'DM Sans', sans-serif; }
+        .nav-item { padding: 2rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text); transition: all 0.2s; }
+        .nav-item:hover { border-color: var(--border-hover); background-color: var(--surface); }
+        .nav-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .nav-title { font-size: 16px; font-weight: 600; color: var(--text-strong); }
+        footer { border-top: 1px solid var(--border); padding: 3rem 2rem; margin-top: 4rem; text-align: center; font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <div class="reading-progress"></div>
+    <nav>
+        <div class="nav-inner">
+            <a href="../../../../../../index.html" class="nav-back">&larr; Back</a>
+            <div class="nav-brand">THE VAULT</div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="header">
+            <div class="category-tag">
+                <div class="category-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"></path><path d="M8.5 2h7"></path><path d="M7 16.5h10"></path>
+                    </svg>
+                </div>
+                <span>Research</span>
+            </div>
+            <h1>AI Maps Science Papers to Predict Research Trends Two to Three Years Ahead</h1>
+            <div class="meta-row">
+                <div class="meta-item">April 3, 2026</div>
+                <div class="meta-item">4 min read</div>
+                <div class="meta-item">226 words</div>
+                <div class="meta-item">
+                    <div class="meta-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    3 sources
+                </div>
+            </div>
+        </div>
+        <div class="key-takeaway">
+            <div class="takeaway-header">
+                <div class="takeaway-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                </div>
+                Key Takeaway
+            </div>
+            <div class="takeaway-text">KIT researchers use LLMs and concept graphs to forecast emerging research directions years in advance.</div>
+        </div>
+        <div class="article-body">
+            <p>Scientists at the Karlsruhe Institute of Technology have developed an AI system that analyzes millions of scientific papers to forecast research trends two to three years in advance. Published in Nature Machine Intelligence, the breakthrough combines large language models with machine learning to create dynamic maps of scientific knowledge.</p>
+
+            <p>Led by Professor Pascal Friederich, the team deployed a two-stage process. First, LLMs extract key terminology from journal articles, creating nodes in a concept graph. Second, machine learning tracks how relationships between concepts shift over time—when terms like &quot;perovskite&quot; and &quot;solar cell&quot; appear more frequently together, the algorithm identifies an emerging trend.</p>
+
+            <div class="pull-quote">
+                Our goal is to support researchers in their creative thought processes by shedding light on new avenues of research,
+                <div class="pull-quote-attr">— Source</div>
+            </div>
+
+            <p>&quot;Our goal is to support researchers in their creative thought processes by shedding light on new avenues of research,&quot; Friederich said.</p>
+
+            <div class="data-strip">
+                <div class="data-item">
+                    <div class="data-value">2-3 yrs</div>
+                    <div class="data-label">Ahead Prediction</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">Millions</div>
+                    <div class="data-label">Papers Analyzed</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">4</div>
+                    <div class="data-label">Research Areas</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">Nature</div>
+                    <div class="data-label">Published In</div>
+                </div>
+            </div>
+
+            <p>Applied initially to materials science, the AI identified promising directions in battery technology, solar cells, electronic components, and medical applications. When experts reviewed the suggestions, they validated them as genuinely innovative and promising.</p>
+
+            <p>The underlying technology—LLMs combined with concept graphs and trend analysis—can adapt to virtually any scientific field. As information overload becomes a genuine research bottleneck, tools that distill millions of papers into actionable insights address a critical need.</p>
+
+            <p>Institutions adopting such predictive tools gain clear advantage—positioning research ahead of mainstream interest rather than reacting after trends become obvious. The system may fundamentally change how researchers plan careers and how institutions allocate resources.</p>
+
+        </div>
+        <div class="sources">
+            <div class="sources-title">Sources</div>
+            <div class="sources-list">
+                <a href="https://nature.com" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=nature.com&amp;sz=32" alt="Nature Machine Intelligence" class="source-favicon">
+                    <span>Nature Machine Intelligence</span>
+                </a>
+                <a href="https://kit.edu" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=kit.edu&amp;sz=32" alt="KIT" class="source-favicon">
+                    <span>KIT</span>
+                </a>
+                <a href="https://sciencedaily.com" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=sciencedaily.com&amp;sz=32" alt="Science Daily" class="source-favicon">
+                    <span>Science Daily</span>
+                </a>
+            </div>
+        </div>
+        <div class="navigation">
+            <a href="12-mit-study-ai-reshaping-tasks-not-jobs.html" class="nav-item">
+                <div class="nav-label">Previous Story</div>
+                <div class="nav-title">&larr; MIT Study Finds AI Is Reshaping Tasks, Not Causing Mass Unem</div>
+            </a>
+            <a href="14-anthropic-anthropac-employee-pac.html" class="nav-item">
+                <div class="nav-label">Next Story</div>
+                <div class="nav-title">Anthropic Forms AnthroPAC, an Employee-Funded Bipartisan Pol &rarr;</div>
+            </a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 The Vault &mdash; AI Edition. All rights reserved.</p>
+    </footer>
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.reading-progress').style.width = scrollPercent + '%';
+        });
+    </script>
+</body>
+</html>
