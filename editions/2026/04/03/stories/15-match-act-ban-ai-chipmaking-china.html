@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bipartisan MATCH Act Would Ban AI Chipmaking Equipment Sales to China</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #101014; --surface: #18181c; --surface-2: #1f1f24;
+            --border: rgba(255,255,255,0.07); --border-hover: rgba(255,255,255,0.14);
+            --text: #b8b8bf; --text-strong: #ececef; --text-muted: #5a5a63;
+            --accent: #c084fc; --business: #e8a735; --llms: #a78bfa;
+            --research: #5eead4; --policy: #fb7185;
+        }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.8; }
+        .reading-progress { position: fixed; top: 0; left: 0; height: 3px; background-color: var(--policy); z-index: 1000; width: 0%; }
+        nav { position: sticky; top: 0; z-index: 100; background-color: rgba(16,16,20,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
+        .nav-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: 'DM Sans', sans-serif; }
+        .nav-back { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s; }
+        .nav-back:hover { color: var(--text-strong); }
+        .nav-brand { color: var(--text-strong); font-size: 14px; font-weight: 800; letter-spacing: 0.08em; }
+        .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+        .header { margin-bottom: 3rem; }
+        .category-tag { display: inline-flex; align-items: center; gap: 0.5rem; background-color: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem 1rem; margin-bottom: 1.5rem; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--policy); }
+        .category-icon { width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; }
+        .category-icon svg { width: 100%; height: 100%; color: var(--policy); }
+        h1 { font-size: 3.5rem; font-weight: 700; color: var(--text-strong); line-height: 1.1; margin-bottom: 1.5rem; }
+        .meta-row { display: flex; gap: 2rem; flex-wrap: wrap; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-muted); margin-bottom: 2rem; }
+        .meta-item { display: flex; align-items: center; gap: 0.5rem; }
+        .meta-icon { width: 16px; height: 16px; }
+        .meta-icon svg { width: 100%; height: 100%; stroke: var(--text-muted); }
+        .key-takeaway { background-color: var(--surface); border-left: 4px solid var(--policy); border-radius: 4px; padding: 2rem; margin: 3rem 0; font-family: 'DM Sans', sans-serif; }
+        .takeaway-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-weight: 700; color: var(--text-strong); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .takeaway-icon { width: 20px; height: 20px; color: var(--policy); }
+        .takeaway-text { font-size: 16px; line-height: 1.6; color: var(--text); }
+        .article-body { margin: 3rem 0; }
+        .article-body p { margin-bottom: 1.5rem; }
+        .article-body p:first-of-type::first-letter { font-size: 2.5em; font-weight: 700; float: left; line-height: 1; padding-right: 0.2em; color: var(--text-strong); }
+        .pull-quote { border-left: 4px solid var(--policy); padding-left: 2rem; margin: 2.5rem 0; font-size: 1.25rem; font-style: italic; color: var(--text-strong); line-height: 1.6; }
+        .pull-quote-attr { margin-top: 1rem; font-size: 14px; font-style: normal; color: var(--text-muted); font-family: 'DM Sans', sans-serif; }
+        .data-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0; padding: 2rem; background-color: var(--surface); border-radius: 8px; }
+        .data-item { text-align: center; }
+        .data-value { font-size: 2rem; font-weight: 700; color: var(--policy); margin-bottom: 0.5rem; }
+        .data-label { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .sources { margin: 4rem 0 2rem 0; padding-top: 2rem; border-top: 1px solid var(--border); }
+        .sources-title { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 1rem; }
+        .sources-list { display: flex; flex-wrap: wrap; gap: 2rem; }
+        .source-item { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text); transition: color 0.2s; font-family: 'DM Sans', sans-serif; font-size: 14px; }
+        .source-item:hover { color: var(--text-strong); }
+        .source-favicon { width: 24px; height: 24px; border-radius: 4px; }
+        .navigation { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 4rem 0; font-family: 'DM Sans', sans-serif; }
+        .nav-item { padding: 2rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text); transition: all 0.2s; }
+        .nav-item:hover { border-color: var(--border-hover); background-color: var(--surface); }
+        .nav-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .nav-title { font-size: 16px; font-weight: 600; color: var(--text-strong); }
+        footer { border-top: 1px solid var(--border); padding: 3rem 2rem; margin-top: 4rem; text-align: center; font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <div class="reading-progress"></div>
+    <nav>
+        <div class="nav-inner">
+            <a href="../../../../../../index.html" class="nav-back">&larr; Back</a>
+            <div class="nav-brand">THE VAULT</div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="header">
+            <div class="category-tag">
+                <div class="category-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <span>Policy</span>
+            </div>
+            <h1>Bipartisan MATCH Act Would Ban AI Chipmaking Equipment Sales to China</h1>
+            <div class="meta-row">
+                <div class="meta-item">April 3, 2026</div>
+                <div class="meta-item">4 min read</div>
+                <div class="meta-item">217 words</div>
+                <div class="meta-item">
+                    <div class="meta-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    3 sources
+                </div>
+            </div>
+        </div>
+        <div class="key-takeaway">
+            <div class="takeaway-header">
+                <div class="takeaway-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                </div>
+                Key Takeaway
+            </div>
+            <div class="takeaway-text">MATCH Act targets five Chinese chipmakers and bans DUV lithography equipment exports and servicing.</div>
+        </div>
+        <div class="article-body">
+            <p>A bipartisan group of U.S. lawmakers is moving to dramatically tighten export controls on semiconductor manufacturing equipment destined for China. The Multilateral Alignment of Technology Controls on Hardware (MATCH) Act would prohibit sales and servicing of critical chipmaking tools to five major Chinese firms: SMIC, Hua Hong, Huawei, CXMT, and YMTC.</p>
+
+            <p>&quot;China has made it abundantly clear that it intends to dominate the technologies that underpin both our economy and our national defense,&quot; said lead sponsor Rep. Michael Baumgartner (R-Wash.).</p>
+
+            <div class="pull-quote">
+                China has made it abundantly clear that it intends to dominate the technologies that underpin both our economy and our national defense,
+                <div class="pull-quote-attr">— lead sponsor Rep</div>
+            </div>
+
+            <p>The Act specifically targets immersion deep ultraviolet (DUV) lithography systems, closing a significant gap in existing restrictions that only cover the most advanced EUV equipment. China's equipment imports grew from $10.7 billion in 2016 to $51.1 billion in 2024. ASML generated approximately 36% of its net system sales from China in Q4 2025.</p>
+
+            <div class="data-strip">
+                <div class="data-item">
+                    <div class="data-value">5</div>
+                    <div class="data-label">Chinese Firms Targeted</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">$51.1B</div>
+                    <div class="data-label">China Chip Imports 2024</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">36%</div>
+                    <div class="data-label">ASML China Sales</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-value">DUV</div>
+                    <div class="data-label">Key Technology Banned</div>
+                </div>
+            </div>
+
+            <p>The legislation also bans after-sales servicing and maintenance, eliminating a workaround that allowed manufacturers to maintain restricted equipment.</p>
+
+            <p>The MATCH Act directs U.S. diplomacy toward Japan and the Netherlands to implement matching restrictions, preventing Chinese companies from circumventing U.S. rules through allied nations.</p>
+
+            <p>Industry observers will monitor whether the bill gains traction this session and whether it prompts responses from ASML and allied governments. China's chipmaking industry lags more than five years behind Western manufacturers, and this legislation aims to keep it that way.</p>
+
+        </div>
+        <div class="sources">
+            <div class="sources-title">Sources</div>
+            <div class="sources-list">
+                <a href="https://reuters.com" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=reuters.com&amp;sz=32" alt="Reuters" class="source-favicon">
+                    <span>Reuters</span>
+                </a>
+                <a href="https://bloomberg.com" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=bloomberg.com&amp;sz=32" alt="Bloomberg" class="source-favicon">
+                    <span>Bloomberg</span>
+                </a>
+                <a href="https://thehill.com" class="source-item">
+                    <img src="https://www.google.com/s2/favicons?domain=thehill.com&amp;sz=32" alt="The Hill" class="source-favicon">
+                    <span>The Hill</span>
+                </a>
+            </div>
+        </div>
+        <div class="navigation">
+            <a href="14-anthropic-anthropac-employee-pac.html" class="nav-item">
+                <div class="nav-label">Previous Story</div>
+                <div class="nav-title">&larr; Anthropic Forms AnthroPAC, an Employee-Funded Bipartisan Pol</div>
+            </a>
+            <a href="16-states-race-ai-laws-idaho-georgia-nebraska.html" class="nav-item">
+                <div class="nav-label">Next Story</div>
+                <div class="nav-title">States Race Ahead on AI Laws as Idaho, Georgia, and Nebraska &rarr;</div>
+            </a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 The Vault &mdash; AI Edition. All rights reserved.</p>
+    </footer>
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.reading-progress').style.width = scrollPercent + '%';
+        });
+    </script>
+</body>
+</html>
