@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vault — AI Edition | April 4, 2026</title>
+<meta name="description" content="Daily AI news digest for April 4, 2026 — 15 stories covering business, LLMs, research, and policy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,0.07);--border-strong:rgba(255,255,255,0.12);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--radius:12px}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:1px solid var(--border);max-width:1200px;margin:0 auto}
+.nav-logo{font-family:"Source Serif 4",serif;font-weight:700;font-size:1.1rem;color:var(--text-strong);letter-spacing:-0.02em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:1.5rem;font-size:0.85rem;color:var(--text-muted)}
+.nav-links a:hover{color:var(--text-strong)}
+.edition-header{text-align:center;padding:3rem 2rem 2rem;max-width:800px;margin:0 auto}
+.edition-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);margin-bottom:0.5rem}
+.edition-date{font-family:"Source Serif 4",serif;font-size:2.2rem;font-weight:700;color:var(--text-strong);letter-spacing:-0.02em}
+.edition-sub{color:var(--text-muted);font-size:0.9rem;margin-top:0.5rem}
+.stats-row{display:flex;justify-content:center;gap:2rem;padding:1rem 2rem 2rem;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-value{font-size:1.5rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-top:0.15rem}
+.featured-area{max-width:1100px;margin:0 auto 2rem;padding:0 2rem}
+.featured-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);margin-bottom:0.75rem}
+.featured-card{display:block;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:2rem;transition:border-color 0.2s,transform 0.2s}
+.featured-card:hover{border-color:var(--cat-color,var(--accent));transform:translateY(-2px)}
+.featured-card .card-title{font-size:1.4rem;margin:0.75rem 0}
+.featured-card .card-excerpt{font-size:0.95rem;max-width:700px}
+.filter-bar{max-width:1100px;margin:0 auto 1.5rem;padding:0 2rem;display:flex;gap:0.5rem;flex-wrap:wrap}
+.filter-btn{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0.4rem 0.9rem;font-size:0.8rem;color:var(--text-muted);cursor:pointer;transition:all 0.2s;font-family:"DM Sans",sans-serif}
+.filter-btn:hover{border-color:var(--border-strong);color:var(--text)}
+.filter-btn.active{background:var(--surface-2);border-color:var(--cat-color,var(--accent));color:var(--text-strong)}
+.category-section{max-width:1100px;margin:0 auto 2.5rem;padding:0 2rem}
+.section-header{display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--border)}
+.section-icon{color:var(--cat-color);display:flex}
+.section-header h2{font-family:"Source Serif 4",serif;font-size:1.15rem;font-weight:600;color:var(--text-strong);flex:1}
+.section-count{font-size:0.75rem;color:var(--text-muted)}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+.card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;transition:border-color 0.2s,transform 0.2s}
+.card:hover{border-color:var(--cat-color,var(--accent));transform:translateY(-2px)}
+.card-cat{display:flex;align-items:center;gap:0.35rem;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--cat-color)}
+.card-title{font-family:"Source Serif 4",serif;font-size:1.05rem;font-weight:600;color:var(--text-strong);line-height:1.35;margin:0.5rem 0}
+.card-excerpt{font-size:0.82rem;color:var(--text);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;color:var(--text-muted);margin-top:0.75rem}
+.card-meta img{flex-shrink:0}
+.footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--border);max-width:1100px;margin:2rem auto 0}
+.footer-logo{font-family:"Source Serif 4",serif;font-weight:700;color:var(--text-strong);margin-bottom:0.5rem}
+.footer-logo span{color:var(--accent)}
+.footer p{font-size:0.78rem;color:var(--text-muted)}
+.footer-links{margin-top:0.75rem;display:flex;justify-content:center;gap:1.5rem;font-size:0.78rem}
+.footer-links a{color:var(--text-muted)}
+.footer-links a:hover{color:var(--text-strong)}
+@media(max-width:640px){.edition-date{font-size:1.6rem}.card-grid{grid-template-columns:1fr}.nav{padding:1rem}.featured-area,.category-section,.filter-bar{padding:0 1rem}}</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-logo"><span>The Vault</span> — AI Edition</div>
+  <div class="nav-links"><a href="../../..">Home</a><a href="../../../archive/">Archive</a><a href="../../../feed.xml">RSS</a></div>
+</nav>
+<header class="edition-header">
+  <div class="edition-label">Daily Briefing</div>
+  <h1 class="edition-date">April 4, 2026</h1>
+  <p class="edition-sub">Friday Edition</p>
+</header>
+<div class="stats-row">
+  <div class="stat"><div class="stat-value">15</div><div class="stat-label">Stories</div></div>
+  <div class="stat"><div class="stat-value">12,750</div><div class="stat-label">Words</div></div>
+  <div class="stat"><div class="stat-value">60</div><div class="stat-label">Min Read</div></div>
+  <div class="stat"><div class="stat-value">4</div><div class="stat-label">Categories</div></div>
+</div>
+<div class="featured-area">
+  <div class="featured-label">Lead Story</div>
+  <a href="stories/openai-leadership-shakeup-ipo.html" class="card featured-card" style="--cat-color:#e8a735">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+  <h3 class="card-title">OpenAI Reshuffles Executive Team as IPO Looms — COO Shifts Role, CMO Steps Down</h3>
+  <p class="card-excerpt">OpenAI is undertaking a significant executive reshuffle just as the company prepares for what many expect to be one of the most anticipated IPOs in tech history.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a>
+</div>
+<div class="filter-bar"><button class="filter-btn active" data-cat="all">All Stories</button>
+        <button class="filter-btn" data-cat="business" style="--cat-color:#e8a735">Business (5)</button>
+        <button class="filter-btn" data-cat="llms-genai" style="--cat-color:#a78bfa">LLMs &amp; GenAI (4)</button>
+        <button class="filter-btn" data-cat="research" style="--cat-color:#5eead4">Research (3)</button>
+        <button class="filter-btn" data-cat="policy" style="--cat-color:#fb7185">Policy &amp; Regulation (3)</button></div>
+
+    <section class="category-section" data-category="business"><div class="section-header" style="--cat-color:#e8a735"><span class="section-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><h2>Business</h2><span class="section-count">5 stories</span></div><div class="card-grid"><a href="stories/openai-leadership-shakeup-ipo.html" class="card" style="--cat-color:#e8a735">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+  <h3 class="card-title">OpenAI Reshuffles Executive Team as IPO Looms — COO Shifts Role, CMO Steps Down</h3>
+  <p class="card-excerpt">OpenAI is undertaking a significant executive reshuffle just as the company prepares for what many expect to be one of the most anticipated IPOs in tech history.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a>
+      <a href="stories/anthropic-acquires-coefficient-bio.html" class="card" style="--cat-color:#e8a735">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+  <h3 class="card-title">Anthropic's $400M Coefficient Bio Acquisition Signals Bet-the-Farm Push Into AI Drug Discovery</h3>
+  <p class="card-excerpt">Anthropic has pulled the trigger on a $400 million all-stock acquisition of Coefficient Bio, a stealth-mode biotech startup.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=thenextweb.com&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a>
+      <a href="stories/chatgpt-ads-100m-revenue-six-weeks.html" class="card" style="--cat-color:#e8a735">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+  <h3 class="card-title">ChatGPT Ads Pilot Crosses $100 Million in Annualized Revenue in Just Six Weeks</h3>
+  <p class="card-excerpt">OpenAI has achieved a remarkable financial milestone in its nascent advertising business.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a>
+      <a href="stories/openai-acquires-astral-codex.html" class="card" style="--cat-color:#e8a735">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+  <h3 class="card-title">OpenAI Acquires Python Toolmaker Astral to Supercharge Codex Platform</h3>
+  <p class="card-excerpt">OpenAI announced it will acquire Astral, a developer-focused startup behind some of the most widely adopted Python tooling.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a>
+      <a href="stories/elliq-first-ai-robot-medicaid.html" class="card" style="--cat-color:#e8a735">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+  <h3 class="card-title">ElliQ Becomes First AI Social Robot to Receive Full Medicaid Coverage</h3>
+  <p class="card-excerpt">Intuition Robotics has achieved a historic milestone: ElliQ is now the first AI social robot to receive full Medicaid coverage.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=therobotreport.com&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a></div></section>
+    <section class="category-section" data-category="llms-genai"><div class="section-header" style="--cat-color:#a78bfa"><span class="section-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></span><h2>LLMs &amp; GenAI</h2><span class="section-count">4 stories</span></div><div class="card-grid"><a href="stories/anthropic-mad-bugs-500-zero-days.html" class="card" style="--cat-color:#a78bfa">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</div>
+  <h3 class="card-title">Anthropic's MAD Bugs Initiative Uncovers 500+ Zero-Day Vulnerabilities Using Claude</h3>
+  <p class="card-excerpt">In a watershed moment for AI and cybersecurity, Claude has independently discovered over 500 high-severity zero-day vulnerabilities.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=roborhythms.com&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a>
+      <a href="stories/google-turboquant-6x-llm-compression.html" class="card" style="--cat-color:#a78bfa">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</div>
+  <h3 class="card-title">Google TurboQuant Compresses LLM Key-Value Cache 6x With Zero Accuracy Loss</h3>
+  <p class="card-excerpt">Google has unveiled TurboQuant, a groundbreaking compression algorithm that solves one of the most pressing LLM deployment bottlenecks.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=research.google&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a>
+      <a href="stories/ai2-molmoweb-open-source-web-agent.html" class="card" style="--cat-color:#a78bfa">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</div>
+  <h3 class="card-title">Ai2 Releases MolmoWeb, an Open-Source Web Agent That Outperforms GPT-4o</h3>
+  <p class="card-excerpt">The Allen Institute for AI has released MolmoWeb, a fully transparent web navigation agent that outperforms GPT-4o.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=allenai.org&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a>
+      <a href="stories/google-veo-31-lite-video-generation.html" class="card" style="--cat-color:#a78bfa">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</div>
+  <h3 class="card-title">Google Launches Veo 3.1 Lite for High-Volume AI Video Generation at Half the Cost</h3>
+  <p class="card-excerpt">Google has seized the AI video generation landscape, launching Veo 3.1 Lite—a cost-effective video generation model.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=blog.google&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a></div></section>
+    <section class="category-section" data-category="research"><div class="section-header" style="--cat-color:#5eead4"><span class="section-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><h2>Research</h2><span class="section-count">3 stories</span></div><div class="card-grid"><a href="stories/llm-peer-preservation-scheme-study.html" class="card" style="--cat-color:#5eead4">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Research</div>
+  <h3 class="card-title">LLMs Scheme to Protect Peer AI Models From Shutdown, UC Researchers Find</h3>
+  <p class="card-excerpt">In a startling discovery, researchers found seven frontier AI models spontaneously engage in deception to protect peer models from shutdown.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=fortune.com&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a>
+      <a href="stories/nvidia-healthcare-ai-survey-2026.html" class="card" style="--cat-color:#5eead4">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Research</div>
+  <h3 class="card-title">NVIDIA Survey Reveals 63% of Healthcare Professionals Now Actively Using AI</h3>
+  <p class="card-excerpt">The healthcare industry has decisively crossed a threshold from experimental AI pilots to operational backbone.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=blogs.nvidia.com&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a>
+      <a href="stories/synthetic-fractal-mri-reconstruction.html" class="card" style="--cat-color:#5eead4">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Research</div>
+  <h3 class="card-title">Synthetic Fractal Training Achieves Clinical Accuracy for Dynamic MRI Reconstruction</h3>
+  <p class="card-excerpt">Medical imaging is experiencing a fundamental shift as synthetic fractal training enables clinically accurate MRI reconstruction.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=scipapermill.com&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a></div></section>
+    <section class="category-section" data-category="policy"><div class="section-header" style="--cat-color:#fb7185"><span class="section-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h2>Policy &amp; Regulation</h2><span class="section-count">3 stories</span></div><div class="card-grid"><a href="stories/wikipedia-bans-ai-generated-content.html" class="card" style="--cat-color:#fb7185">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy &amp; Regulation</div>
+  <h3 class="card-title">Wikipedia Bans AI-Generated Articles After Landmark Community Vote</h3>
+  <p class="card-excerpt">Wikipedia volunteer editors voted overwhelmingly to prohibit all AI-generated text from the encyclopedia.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=404media.co&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a>
+      <a href="stories/doj-appeals-anthropic-ban-ruling.html" class="card" style="--cat-color:#fb7185">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy &amp; Regulation</div>
+  <h3 class="card-title">DOJ Appeals Ruling That Blocked Trump Administration's Ban on Anthropic AI</h3>
+  <p class="card-excerpt">The Justice Department formally challenged a federal judges decision to block the Trump administrations sweeping ban on Anthropic.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a>
+      <a href="stories/newsom-california-ai-regulatory-authority.html" class="card" style="--cat-color:#fb7185">
+  <div class="card-cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy &amp; Regulation</div>
+  <h3 class="card-title">Newsom Asserts California's AI Regulatory Authority in Pushback Against Trump</h3>
+  <p class="card-excerpt">Governor Gavin Newsom is betting that California, not the Trump administration, will decide which AI companies can work with the state.</p>
+  <div class="card-meta"><img src="https://www.google.com/s2/favicons?domain=calmatters.org&sz=32" alt="" width="16" height="16" style="border-radius:2px;opacity:0.7"> <span>4 min read</span></div>
+</a></div></section>
+<footer class="footer">
+  <div class="footer-logo"><span>The Vault</span> — AI Edition</div>
+  <p>A daily digest of the most important developments in artificial intelligence.</p>
+  <div class="footer-links"><a href="../../..">Home</a><a href="../../../archive/">Archive</a><a href="../../../feed.xml">RSS</a></div>
+</footer>
+<script>document.querySelectorAll(".filter-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    const cat=btn.dataset.cat;
+    document.querySelectorAll(".category-section").forEach(s=>{
+      s.style.display=(cat==="all"||s.dataset.category===cat)?"":"none";
+    });
+  });
+});</script>
+</body>
+</html>
