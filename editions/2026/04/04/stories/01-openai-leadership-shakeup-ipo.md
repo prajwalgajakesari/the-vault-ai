@@ -1,0 +1,9 @@
+OpenAI is undertaking a significant executive reshuffle just as the company prepares for what many expect to be one of the most anticipated initial public offerings in tech history. The moves signal both strategic realignment ahead of a potential 2026 IPO and the human toll that leading one of the world's most demanding companies can exact on its leaders.
+
+Chief Operating Officer Brad Lightcap is transitioning from his operational oversight role to lead OpenAI's special projects, including complex deals and investments. Lightcap will report directly to CEO Sam Altman. His departure from day-to-day operations opens the door for new leadership dynamics: Denise Dresser, the former Slack CEO who recently joined OpenAI as chief revenue officer, will assume several of Lightcap's commercial responsibilities.
+
+Fidji Simo, who leads OpenAI's product division as CEO of AGI, announced she is taking several weeks of medical leave due to complications from POTS, a neuroimmune condition. During her absence, OpenAI President Greg Brockman will oversee product strategy and development.
+
+Kate Rouch, OpenAI's Chief Marketing Officer, is stepping down to focus on recovery from breast cancer. At a certain point, you have to be honest about your limits. I've reached mine, she said. The company has indicated Rouch may return to a different, more narrowly scoped role when her health allows.
+
+These changes arrive as OpenAI recently completed a massive $122 billion funding round valued at $852 billion. The leadership transitions raise important questions about institutional knowledge and continuity at a critical juncture for the company's IPO preparations.
