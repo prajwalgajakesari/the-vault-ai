@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Vault — AI Edition | April 12, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..150&family=Source+Serif+4:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #101014; --surface: #18181c; --surface-2: #1f1f24;
+      --border: rgba(255, 255, 255, 0.07); --border-hover: rgba(255, 255, 255, 0.14);
+      --text: #b8b8bf; --text-strong: #ececef; --text-muted: #5a5a63;
+      --accent: #c084fc; --business: #e8a735; --llms: #a78bfa; --research: #5eead4; --policy: #fb7185;
+    }
+    body { background-color: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; line-height: 1.6; font-size: 14px; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+    .nav-left { display: flex; align-items: center; gap: 12px; }
+    .nav-left a { display: flex; align-items: center; gap: 8px; color: var(--text-muted); transition: color 0.2s; }
+    .nav-left a:hover { color: var(--text); }
+    .nav-brand { font-size: 16px; font-weight: 600; letter-spacing: 0.1em; color: var(--text-strong); }
+    .nav-right { display: flex; gap: 24px; }
+    .nav-right a { color: var(--text-muted); transition: color 0.2s; }
+    .nav-right a:hover { color: var(--text); }
+    .edition-header { margin-bottom: 40px; }
+    .edition-overline { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+    .edition-header h1 { font-size: 48px; font-weight: 600; margin-bottom: 16px; color: var(--text-strong); font-family: 'Source Serif 4', serif; line-height: 1.2; }
+    .edition-date { font-size: 16px; color: var(--text-muted); }
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 60px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+    .stat-item { padding-right: 20px; }
+    .stat-number { font-size: 28px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
+    .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+    .featured-area { margin-bottom: 60px; }
+    .featured-card { background-color: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 32px; position: relative; }
+    .featured-card .card-accent { position: absolute; left: 0; top: 0; width: 4px; height: 100%; background-color: var(--business); border-radius: 8px 0 0 8px; }
+    .featured-card .card-num { display: inline-block; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .featured-card .card-time { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; display: block; }
+    .featured-card h3 { font-size: 24px; font-weight: 600; margin-bottom: 16px; color: var(--text-strong); font-family: 'Source Serif 4', serif; line-height: 1.3; }
+    .featured-card p { font-size: 14px; color: var(--text); margin-bottom: 20px; line-height: 1.6; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; }
+    .card-stat { font-size: 14px; font-weight: 600; color: var(--accent); }
+    .read-link { font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.2s; }
+    .read-link:hover { color: var(--text-strong); }
+    .filter-bar { display: flex; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
+    .filter-btn { display: flex; align-items: center; gap: 8px; padding: 8px 16px; background-color: transparent; border: 1px solid var(--border); border-radius: 6px; color: var(--text); cursor: pointer; transition: all 0.2s; font-size: 13px; font-family: 'DM Sans', sans-serif; }
+    .filter-btn:hover { border-color: var(--border-hover); color: var(--text-strong); }
+    .filter-btn.active { background-color: var(--surface); border-color: var(--accent); color: var(--accent); }
+    .filter-btn svg { width: 16px; height: 16px; }
+    .category-section { margin-bottom: 60px; display: none; }
+    .category-section.active { display: block; }
+    .cat-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .cat-icon-box { width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .cat-icon-box svg { width: 18px; height: 18px; color: white; }
+    .cat-header h2 { font-size: 20px; font-weight: 600; color: var(--text-strong); margin-right: auto; font-family: 'Source Serif 4', serif; }
+    .cat-count { font-size: 12px; color: var(--text-muted); background-color: var(--surface); padding: 4px 8px; border-radius: 4px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+    .card { background-color: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; position: relative; transition: border-color 0.2s; }
+    .card:hover { border-color: var(--border-hover); }
+    .card.business .card-accent { background-color: var(--business); }
+    .card.llms .card-accent { background-color: var(--llms); }
+    .card.research .card-accent { background-color: var(--research); }
+    .card.policy .card-accent { background-color: var(--policy); }
+    .card-accent { position: absolute; left: 0; top: 0; width: 4px; height: 100%; border-radius: 8px 0 0 8px; }
+    .card-num { display: block; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .card-time { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; display: block; }
+    .card h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--text-strong); font-family: 'Source Serif 4', serif; line-height: 1.4; transition: color 0.2s; }
+    .card a:hover h3 { color: var(--accent); }
+    .card p { font-size: 13px; color: var(--text); margin-bottom: 16px; line-height: 1.5; }
+    footer { border-top: 1px solid var(--border); padding: 40px 0; margin-top: 60px; text-align: center; color: var(--text-muted); font-size: 12px; }
+    @media (max-width: 768px) { .stats-row { grid-template-columns: repeat(2, 1fr); } .edition-header h1 { font-size: 32px; } .card-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div class="nav-left">
+        <a href="/"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
+        <span class="nav-brand">THE VAULT</span>
+      </div>
+      <div class="nav-right"><a href="/archive">Archive</a><a href="/rss">RSS</a></div>
+    </nav>
+    <div class="edition-header">
+      <div class="edition-overline">DAILY INTELLIGENCE BRIEF</div>
+      <h1>The Vault — AI Edition</h1>
+      <div class="edition-date">Sunday, April 12, 2026</div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-number">16</div><div class="stat-label">Stories</div></div>
+      <div class="stat-item"><div class="stat-number">13,500</div><div class="stat-label">Words</div></div>
+      <div class="stat-item"><div class="stat-number">4</div><div class="stat-label">Categories</div></div>
+      <div class="stat-item"><div class="stat-number">64</div><div class="stat-label">Min Read</div></div>
+    </div>
+    <div class="featured-area">
+      <a href="/story/anthropic-30b-revenue-run-rate">
+        <div class="featured-card">
+          <div class="card-accent"></div>
+          <div class="card-num">Story 01</div>
+          <span class="card-time">April 12, 2026</span>
+          <h3>Anthropic Revenue Hits \$30 Billion Run Rate, Tripling in Four Months</h3>
+          <p>Anthropic announced \$30 billion annual run rate as of April 2026.</p>
+          <div class="card-footer"><span class="card-stat">\$30B</span><span class="read-link">Read More →</span></div>
+        </div>
+      </a>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="business"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>Business</button>
+      <button class="filter-btn" data-filter="llms-genai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>LLMs &amp; GenAI</button>
+      <button class="filter-btn" data-filter="research"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>Research</button>
+      <button class="filter-btn" data-filter="policy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Policy</button>
+    </div>
+    <div class="category-section active" data-category="business">
+      <div class="cat-header">
+        <div class="cat-icon-box" style="background-color: var(--business);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+        <h2>Business</h2><span class="cat-count">5</span>
+      </div>
+      <div class="card-grid">
+        <a href="/story/anthropic-30b-revenue-run-rate"><div class="card business"><div class="card-accent"></div><span class="card-num">Story 01</span><span class="card-time">April 12, 2026</span><h3>Anthropic Revenue Hits \$30 Billion Run Rate, Tripling in Four Months</h3><p>Anthropic announced \$30 billion annual run rate as of April 2026.</p><div class="card-footer"><span class="card-stat">\$30B</span><span class="read-link">Read →</span></div></div></a>
+        <a href="/story/coreweave-anthropic-multiyear-deal"><div class="card business"><div class="card-accent"></div><span class="card-num">Story 02</span><span class="card-time">April 12, 2026</span><h3>CoreWeave Signs Multiyear Deal to Power Anthropic&apos;s Claude, Stock Surges 11%</h3><p>CoreWeave announced multiyear agreement with Anthropic on April 10, 2026.</p><div class="card-footer"><span class="card-stat">11%</span><span class="read-link">Read →</span></div></div></a>
+        <a href="/story/accenture-invests-replit-ai-development"><div class="card business"><div class="card-accent"></div><span class="card-num">Story 03</span><span class="card-time">April 12, 2026</span><h3>Accenture Invests in Replit to Scale AI-Driven Software Development</h3><p>Accenture invests in Replit, cloud-based agentic software creation platform.</p><div class="card-footer"><span class="card-stat">50M</span><span class="read-link">Read →</span></div></div></a>
+        <a href="/story/sarvam-ai-350m-funding-india-unicorn"><div class="card business"><div class="card-accent"></div><span class="card-num">Story 04</span><span class="card-time">April 12, 2026</span><h3>Sarvam AI Nears \$350 Million Raise at \$1.5 Billion Valuation</h3><p>Sarvam AI closes \$300-350 million Series B round.</p><div class="card-footer"><span class="card-stat">\$1.5B</span><span class="read-link">Read →</span></div></div></a>
+        <a href="/story/spirit-ai-420m-embodied-robotics-funding"><div class="card business"><div class="card-accent"></div><span class="card-num">Story 05</span><span class="card-time">April 12, 2026</span><h3>Spirit AI Raises \$420 Million for Embodied Robotics</h3><p>Spirit AI secured \$420 million across two funding rounds in 30 days.</p><div class="card-footer"><span class="card-stat">\$420M</span><span class="read-link">Read →</span></div></div></a>
+      </div>
+    </div>
+    <div class="category-section" data-category="llms-genai">
+      <div class="cat-header">
+        <div class="cat-icon-box" style="background-color: var(--llms);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></div>
+        <h2>LLMs &amp; GenAI</h2><span class="cat-count">5</span>
+      </div>
+      <div class="card-grid">
+        <a href="/story/anthropic-claude-for-word-beta-launch"><div class="card llms"><div class="card-accent"></div><span class="card-num">Story 06</span><span class="card-time">April 12, 2026</span><h3>Anthropic Launches Claude for Word Beta</h3><p>Anthropic unveiled Claude for Word in public beta.</p><div class="card-footer"><span class="card-stat">\$25/seat</span><span class="read-link">Read →</span></div></div></a>
+        <a href="/story/openai-discontinues-sora-video-platform"><div class="card llms"><div class="card-accent"></div><span class="card-num">Story 07</span><span class="card-time">April 12, 2026</span><h3>OpenAI Discontinues Sora, Ending AI Video Push</h3><p>OpenAI discontinuing Sora after six months.</p><div class="card-footer"><span class="card-stat">\$1M/day</span><span class="read-link">Read →</span></div></div></a>
+        <a href="/story/arcee-trinity-large-thinking-open-source"><div class="card llms"><div class="card-accent"></div><span class="card-num">Story 08</span><span class="card-time">April 12, 2026</span><h3>Arcee Ships Trinity-Large-Thinking, 399B Open Model</h3><p>Arcee released 399B parameter open-weight model.</p><div class="card-footer"><span class="card-stat">399B</span><span class="read-link">Read →</span></div></div></a>
+        <a href="/story/google-ai-mode-agentic-booking-expansion"><div class="card llms"><div class="card-accent"></div><span class="card-num">Story 09</span><span class="card-time">April 12, 2026</span><h3>Google AI Mode Expands Agentic Booking to 8 Countries</h3><p>Google rolling out restaurant booking across eight new markets.</p><div class="card-footer"><span class="card-stat">8</span><span class="read-link">Read →</span></div></div></a>
+        <a href="/story/anthropic-mythos-project-glasswing-cyber-defense"><div class="card llms"><div class="card-accent"></div><span class="card-num">Story 10</span><span class="card-time">April 12, 2026</span><h3>Anthropic Deploys Mythos Preview via Project Glasswing</h3><p>Anthropic withholding Mythos from public access.</p><div class="card-footer"><span class="card-stat">\$100M</span><span class="read-link">Read →</span></div></div></a>
+      </div>
+    </div>
+    <div class="category-section" data-category="research">
+      <div class="cat-header">
+        <div class="cat-icon-box" style="background-color: var(--research);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
+        <h2>Research</h2><span class="cat-count">3</span>
+      </div>
+      <div class="card-grid">
+        <a href="/story/gen-z-workers-sabotaging-ai-rollouts"><div class="card research"><div class="card-accent"></div><span class="card-num">Story 11</span><span class="card-time">April 12, 2026</span><h3>Survey: 44% of Gen Z Workers Sabotaging Employer AI</h3><p>Survey finds generational divide in workplace AI acceptance.</p><div class="card-footer"><span class="card-stat">44%</span><span class="read-link">Read →</span></div></div></a>
+        <a href="/story/global-semiconductor-revenue-1-3-trillion-ai"><div class="card research"><div class="card-accent"></div><span class="card-num">Story 12</span><span class="card-time">April 12, 2026</span><h3>Global Semiconductor Revenue to Surpass \$1.3 Trillion</h3><p>Global chip revenues projected to reach \$1.32 trillion by 2026.</p><div class="card-footer"><span class="card-stat">\$1.32T</span><span class="read-link">Read →</span></div></div></a>
+        <a href="/story/china-2d-semiconductor-1000x-growth-speed"><div class="card research"><div class="card-accent"></div><span class="card-num">Story 13</span><span class="card-time">April 12, 2026</span><h3>Chinese Scientists Achieve 1,000x Faster 2D Chip Growth</h3><p>Chinese researchers overcome critical manufacturing bottleneck.</p><div class="card-footer"><span class="card-stat">1,000x</span><span class="read-link">Read →</span></div></div></a>
+      </div>
+    </div>
+    <div class="category-section" data-category="policy">
+      <div class="cat-header">
+        <div class="cat-icon-box" style="background-color: var(--policy);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+        <h2>Policy</h2><span class="cat-count">3</span>
+      </div>
+      <div class="card-grid">
+        <a href="/story/powell-bessent-bank-ceos-ai-cyber-meeting"><div class="card policy"><div class="card-accent"></div><span class="card-num">Story 14</span><span class="card-time">April 12, 2026</span><h3>Powell and Bessent Summon Bank CEOs for AI Cyber Briefing</h3><p>Powell and Bessent convened emergency meeting with bank CEOs.</p><div class="card-footer"><span class="card-stat">5</span><span class="read-link">Read →</span></div></div></a>
+        <a href="/story/utah-first-ai-prescription-drug-renewals"><div class="card policy"><div class="card-accent"></div><span class="card-num">Story 15</span><span class="card-time">April 12, 2026</span><h3>Utah First State to Allow AI to Renew Prescriptions</h3><p>Utah allows AI to autonomously renew routine prescriptions.</p><div class="card-footer"><span class="card-stat">99.2%</span><span class="read-link">Read →</span></div></div></a>
+        <a href="/story/india-sovereign-ai-infrastructure-national-labs"><div class="card policy"><div class="card-accent"></div><span class="card-num">Story 16</span><span class="card-time">April 12, 2026</span><h3>India Builds Sovereign AI Infrastructure With 12 Labs</h3><p>India channeling billions into sovereign AI capabilities.</p><div class="card-footer"><span class="card-stat">\$1B+</span><span class="read-link">Read →</span></div></div></a>
+      </div>
+    </div>
+    <footer><p>&copy; 2026 The Vault. All rights reserved.</p></footer>
+  </div>
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        document.querySelectorAll('.category-section').forEach(section => { section.classList.remove('active'); });
+        if (filter === 'all') {
+          document.querySelectorAll('.category-section').forEach(section => { section.classList.add('active'); });
+        } else {
+          const section = document.querySelector('[data-category="' + filter + '"]');
+          if (section) section.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
