@@ -1,0 +1,27 @@
+# Digital Health Funding Rebounds to $7.4 Billion in Q1 2026, Driven by AI Drug Discovery Mega-Rounds
+
+Digital health's long funding winter is over—at least for the companies with the right three letters in their pitch deck. Venture investment in the sector climbed to **$7.4 billion in the first quarter of 2026**, up from $5.9 billion in Q4 2025 and the highest quarterly total since Q2 2022, according to CB Insights' *State of Digital Health Q1'26* report. The rebound was neither broad nor democratic. Nineteen mega-rounds of $100 million or more hoovered up roughly **60% of all capital** deployed, while the average deal size jumped to **$29.6 million, a 46% leap year over year**.
+
+The quarter's defining trade was AI-native drug discovery. **Earendil Labs**, a Boston- and Shanghai-based biologics platform, raised **$787 million**—the largest digital health financing of the quarter and one of the biggest single raises ever for an AI-first drugmaker. "AI is at the core of everything we do—not as a research tool, but as a production engine for real therapeutic programs," founder and CEO Jian Peng said in announcing the round. "This financing allows us to operate at a fundamentally different scale, advancing multiple programs toward the clinic while building an R&D organization designed for long-term impact."
+
+Earendil was not alone. San Diego-based **Iambic Therapeutics** locked in a technology and discovery pact with **Takeda** worth up to **$1.7 billion** in milestones, covering small-molecule programs in oncology, gastrointestinal disease and inflammation. Iambic CEO Tom Miller framed the deal as validation rather than hype. "As you think about the AI space…it is not about AI hype. We are showing in patients that these drugs are better, creating validation," Miller told reporters. "With Takeda, we are in it for the long haul to create some great medicines."
+
+## M&A roars back
+
+If Q1 was kind to founders of AI biotechs, it was even kinder to bankers. **Fifty-six digital health M&A deals closed**, a 47% jump quarter over quarter, headlined by **Abbott's $23 billion acquisition of Exact Sciences** and radiology-AI consolidator **DeepHealth's $269 million purchase of Gleamer**. Eight companies earned unicorn status—the highest single-quarter count in nearly four years.
+
+Rock Health's parallel tracker, which focuses on U.S. venture activity and logged a narrower **$4.0 billion across 110 deals**, reached the same conclusion about concentration. "The companies successfully raising are those moving earliest into complex, workflow-embedded use cases: from Doctronic's prescribing pilot in Utah, to OpenEvidence integrating with health system EHRs," Rock Health researchers **Ashwini Nagappan, Madelyn Knowles and Jason Lei** wrote. The firm is retiring its long-running "AI deal" designation altogether, arguing the label has lost meaning. "For organizations operating in an AI-as-table-stakes environment, expectations are shifting around how care is accessed and delivered," the authors added, "and the rest of the year will clarify where momentum is durable and where it's just temporary."
+
+## Anthropic plants a flag
+
+The foundation-model layer is racing to meet that demand. **Anthropic grew headcount more than 200% over the past year** and used the J.P. Morgan Healthcare Conference in January to launch **Claude for Healthcare**, a HIPAA-ready toolkit with native connectors to the CMS Coverage Database, ICD-10 and PubMed. Early enterprise customers include AstraZeneca, Sanofi, Genmab, Banner Health, Flatiron Health and Veeva. Nvidia, for its part, inked six new digital health partnerships in the quarter, and Hippocratic AI—fresh off acquiring clinical-communications startup Grove—led hiring among model developers.
+
+## Why the money is bunching up
+
+The concentration story has a supply-side explanation: most healthcare data still isn't usable by modern AI systems. CB Insights notes that **fewer than 20% of enterprise healthcare datasets are AI-ready** without substantial preparation, hamstrung by inconsistent formats and diagnostic coding built for billing rather than prediction. That moat rewards companies that bring both proprietary data pipelines and production-grade models—precisely the profile of Earendil, Iambic and the late-stage platforms pulling in nine-figure checks (late-stage median deal size more than doubled to **$108 million** from $48 million in Q4).
+
+For biotech, the rebound arrives after a brutal two-year drought in which early-stage AI drugmakers struggled to differentiate from crowded LLM-wrapper competitors. Q1's mega-rounds suggest limited partners have concluded that AI in life sciences is a capital-intensive infrastructure play, not a software bet.
+
+## What to watch
+
+Three questions will define Q2. First, can the mega-round pace hold? Nineteen $100M+ rounds in a single quarter is unsustainable historically, and a single cooling month could wipe out the headline gains. Second, the **IPO pipeline**: with eight new unicorns minted and public-market comps strengthening, bankers expect at least two AI-health listings to test investor appetite before summer. Third, regulators. The FDA's forthcoming guidance on adaptive AI models, paired with HHS scrutiny of data-readiness claims, could reshape which platforms qualify for the next wave of enterprise contracts—and, by extension, the next wave of checks.
