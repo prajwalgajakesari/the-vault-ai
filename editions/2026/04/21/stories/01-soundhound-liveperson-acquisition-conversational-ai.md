@@ -1,0 +1,31 @@
+# SoundHound AI to Acquire LivePerson in $250 Million Deal, Creating Omnichannel Conversational AI Leader
+
+
+
+# SoundHound AI to Acquire LivePerson in $250 Million Deal, Creating Omnichannel Conversational AI Leader
+
+**April 21, 2026** — SoundHound AI announced Tuesday it will acquire digital customer-engagement veteran LivePerson in an all-stock transaction valued at roughly $250 million on an enterprise basis, a deal that marries SoundHound's fast-growing voice agent business with one of the largest enterprise messaging footprints in the world. The combination, set to close in the second half of 2026, is being pitched as the first true end-to-end omnichannel conversational AI platform — and Wall Street's initial reaction was sharply negative, with SoundHound shares falling more than 15% on the news.
+
+Under the terms announced before the opening bell, LivePerson shareholders will receive SoundHound Class A common stock valued at approximately $43 million in aggregate equity value, subject to a price collar of $7.00 to $12.00 per SoundHound share that determines the final exchange ratio. The rest of the $250 million enterprise value reflects LivePerson's net debt, which SoundHound is refinancing through a concurrent $261 million debt restructuring transaction backed by a syndicate of existing LivePerson noteholders. The restructuring extends maturities and, according to the companies, clears the balance sheet overhang that has dogged LivePerson for three years.
+
+"By combining SoundHound's proprietary voice AI with LivePerson's digital messaging scale, we are creating the only end-to-end omnichannel conversational AI platform built for the agentic era," said Keyvan Mohajer, SoundHound's co-founder and chief executive, on a call with analysts. Mohajer argued that most rivals have strength in either voice or chat but rarely both at enterprise scale, and that agentic workflows — where AI systems autonomously complete multi-step tasks — require seamless handoffs across channels.
+
+LivePerson chief executive John Sabino, who will join SoundHound's leadership team after closing, framed the tie-up as an escape hatch from a punishing public-market cycle. "Our customers have been telling us for two years that voice is the missing piece. With SoundHound, we can finally deliver a unified agent that speaks, texts, and resolves — across every touchpoint our enterprise customers operate," Sabino said in the joint release.
+
+## A combined footprint rivals can't easily match
+
+The merged company would operate in more than 30 countries and process over 1 billion consumer messages per month across LivePerson's Conversational Cloud. LivePerson's customer roster includes 12 of the top 15 global banks, and SoundHound brings marquee relationships with major automakers including Stellantis and Hyundai, quick-service restaurant chains, and several top-tier airlines. Together, the companies said their pro-forma annual recurring revenue would exceed $430 million, with a cross-sell opportunity they value at more than $150 million over three years.
+
+The strategic logic is clear: enterprise buyers are consolidating contact-center and customer-experience vendors, and agentic AI is the axis along which they are rebuilding stacks. Salesforce's Agentforce, Genesys Cloud CX, and Five9's Genius AI suite have all pushed aggressively into autonomous agents over the past 18 months, and NICE's acquisition of LiveVox in 2024 showed the consolidation curve was already bending. SoundHound-LivePerson is the first deal of 2026 that puts a pure-play voice leader together with a pure-play digital messaging leader at genuine scale.
+
+## Why the stock fell
+
+Despite the strategic fit, SoundHound shares sold off aggressively in Tuesday trading. Analysts pointed to three concerns. First, the all-stock structure is dilutive at a moment when SoundHound bulls had been pricing in operating leverage, not share issuance. Second, LivePerson has posted declining revenue for nine consecutive quarters, and integrating a turnaround story into a high-growth narrative is notoriously difficult. Third, the $261 million debt restructuring, while skillfully negotiated, adds leverage to what had been a relatively clean SoundHound balance sheet.
+
+"The industrial logic is defensible, but SoundHound is buying a melting ice cube and paying for it with the most expensive currency they have — their own equity at a depressed multiple," one sell-side analyst wrote in a note to clients. Bulls countered that LivePerson's messaging volumes are sticky and that SoundHound's voice technology can re-accelerate the combined revenue line within four quarters.
+
+## What to watch next
+
+The transaction is expected to close in the second half of 2026, subject to customary regulatory approvals in the United States, the European Union and the United Kingdom, as well as approval by LivePerson shareholders. Antitrust scrutiny is expected to be limited given the complementary nature of the assets, but both the FTC and the European Commission have signaled heightened interest in AI-platform consolidation.
+
+Investors will be watching three milestones: the proxy filing and deal vote expected in June, early cross-sell wins from the combined go-to-market team in the third quarter, and the first quarterly print as a merged entity, likely in early 2027. If Mohajer and Sabino can deliver even half of the cross-sell pipeline they outlined, SoundHound will have redefined the conversational AI landscape. If they cannot, Tuesday's sell-off will look like the first warning rather than the last.
