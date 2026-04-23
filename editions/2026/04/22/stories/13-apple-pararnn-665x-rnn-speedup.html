@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apple ParaRNN Achieves 665x Speedup for Nonlinear RNN Training, Accepted as ICLR Oral — The Vault AI Edition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+  <style>
+    
+    :root {
+      --bg: #101014;
+      --surface: #18181c;
+      --surface-2: #1f1f24;
+      --border: rgba(255,255,255,.07);
+      --border-hover: rgba(255,255,255,.14);
+      --text: #b8b8bf;
+      --text-strong: #ececef;
+      --text-muted: #5a5a63;
+      --accent: #c084fc;
+      --cat-business: #e8a735;
+      --cat-llms-genai: #a78bfa;
+      --cat-research: #5eead4;
+      --cat-policy: #fb7185;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; transition: color .2s; }
+    a:hover { color: #d4a5fd; }
+    
+    .progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: #5eead4; z-index: 1000; width: 0%;
+      transition: width .1s linear;
+    }
+    .sticky-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(16,16,20,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 56px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .sticky-nav a { color: var(--text-muted); font-size: 14px; font-weight: 500; }
+    .sticky-nav a:hover { color: var(--text-strong); }
+    .back-arrow { font-size: 18px; }
+    .brand { color: var(--text-strong) !important; font-weight: 800; letter-spacing: 2px; font-size: 13px; text-transform: uppercase; }
+    .article-container {
+      max-width: 720px; margin: 0 auto; padding: 48px 24px 80px;
+    }
+    .category-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: #5eead4;
+      padding: 4px 10px; border-radius: 4px;
+      background: #5eead41a; margin-bottom: 16px;
+    }
+    .category-tag svg { width: 14px; height: 14px; }
+    .article-container h1 {
+      font-family: 'Source Serif 4', serif;
+      font-size: 2.2rem; font-weight: 700; color: var(--text-strong);
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .meta-row {
+      display: flex; gap: 20px; color: var(--text-muted);
+      font-size: 13px; margin-bottom: 32px; flex-wrap: wrap;
+    }
+    .meta-row span { display: flex; align-items: center; gap: 4px; }
+    .key-takeaway {
+      background: var(--surface); border-left: 3px solid;
+      border-radius: 0 8px 8px 0; padding: 20px 24px;
+      margin-bottom: 36px;
+    }
+    .kt-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; margin-bottom: 8px;
+    }
+    .key-takeaway p { color: var(--text-strong); font-size: 15px; line-height: 1.6; }
+    .article-body {
+      font-family: 'Source Serif 4', serif; font-size: 17px;
+      line-height: 1.85; color: var(--text);
+    }
+    .article-body h2 {
+      font-family: 'DM Sans', sans-serif; font-size: 1.3rem;
+      font-weight: 700; color: var(--text-strong); margin: 40px 0 16px;
+    }
+    .article-body h3 {
+      font-family: 'DM Sans', sans-serif; font-size: 1.1rem;
+      font-weight: 600; color: var(--text-strong); margin: 32px 0 12px;
+    }
+    .article-body p { margin-bottom: 20px; }
+    .article-body a { color: #5eead4; border-bottom: 1px solid #5eead440; }
+    .article-body a:hover { border-bottom-color: #5eead4; }
+    .drop-cap {
+      float: left; font-size: 3.6em; line-height: .8;
+      padding: 4px 10px 0 0; color: #5eead4;
+      font-family: 'Source Serif 4', serif; font-weight: 700;
+    }
+    .pull-quote {
+      border-left: 3px solid; margin: 40px 0; padding: 20px 28px;
+      background: var(--surface); border-radius: 0 8px 8px 0;
+    }
+    .pull-quote p {
+      font-family: 'Source Serif 4', serif; font-style: italic;
+      font-size: 1.15rem; color: var(--text-strong); line-height: 1.6;
+      margin-bottom: 8px !important;
+    }
+    .pull-quote cite {
+      font-style: normal; font-family: 'DM Sans', sans-serif;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .data-strip {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1px; background: var(--border); border-radius: 8px;
+      overflow: hidden; margin: 36px 0;
+    }
+    .stat-cell {
+      background: var(--surface); padding: 20px; text-align: center;
+    }
+    .stat-value {
+      font-size: 1.5rem; font-weight: 800; margin-bottom: 4px;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .stat-label {
+      font-size: 12px; color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .sources-section {
+      margin-top: 48px; padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .sources-section h3 {
+      font-size: 13px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .source-list { display: flex; flex-wrap: wrap; gap: 12px; }
+    .source-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 6px;
+      font-size: 13px; color: var(--text); transition: all .2s;
+    }
+    .source-link:hover {
+      border-color: var(--border-hover); color: var(--text-strong);
+      background: var(--surface-2);
+    }
+    .source-link img { border-radius: 2px; }
+    .story-nav {
+      display: flex; gap: 16px; margin-top: 56px;
+      padding-top: 32px; border-top: 1px solid var(--border);
+    }
+    .story-nav a {
+      flex: 1; padding: 20px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 8px;
+      transition: all .2s; display: flex; flex-direction: column;
+      text-decoration: none;
+    }
+    .story-nav a:hover {
+      border-color: var(--border-hover); background: var(--surface-2);
+    }
+    .nav-prev { align-items: flex-start; }
+    .nav-next { align-items: flex-end; text-align: right; }
+    .nav-arrow { font-size: 18px; color: var(--text-muted); }
+    .nav-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 4px 0; }
+    .nav-title { font-size: 14px; color: var(--text-strong); font-weight: 500; line-height: 1.4; }
+    footer {
+      text-align: center; padding: 40px 24px; color: var(--text-muted);
+      font-size: 13px; border-top: 1px solid var(--border); margin-top: 60px;
+    }
+    @media (max-width: 640px) {
+      .article-container h1 { font-size: 1.6rem; }
+      .article-body { font-size: 16px; }
+      .data-strip { grid-template-columns: 1fr; }
+      .story-nav { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <nav class="sticky-nav">
+    <a href="../index.html" class="back-arrow">&larr;</a>
+    <a href="../index.html" class="brand">THE VAULT</a>
+  </nav>
+
+  <article class="article-container">
+    <div class="category-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</div>
+    <h1>Apple ParaRNN Achieves 665x Speedup for Nonlinear RNN Training, Accepted as ICLR Oral</h1>
+    <div class="meta-row">
+      <span>4 min read</span>
+      <span>890 words</span>
+      <span>2 sources</span>
+    </div>
+
+    
+        <div class="key-takeaway" style="border-left-color: #5eead4;">
+          <div class="kt-label" style="color: #5eead4;">Key Takeaway</div>
+          <p>Apple ParaRNN solves the decades-old parallelization problem for nonlinear RNNs, achieving 665x speedup.</p>
+        </div>
+        
+
+    <div class="article-body">
+      <p><span class="drop-cap"><</span>strong>Cupertino's researchers crack the parallelization problem that has limited recurrent neural networks for decades, enabling the first 7-billion-parameter classical RNNs competitive with transformers.</strong></p>
+<p>As the International Conference on Learning Representations (ICLR) kicks off this week in Rio de Janeiro, Apple is making a bold statement: the era of nonlinear recurrent neural networks being confined to sequential, painfully slow training may be over. The company's ParaRNN framework, accepted as an Oral presentation at ICLR 2026 -- a distinction reserved for roughly the top 1-2% of submissions -- achieves a staggering 665x speedup over traditional sequential training for nonlinear RNNs, a result that could reshape the competitive landscape between RNNs and the transformer architectures that have dominated AI for the past several years.</p>
+<h2>Breaking the Sequential Bottleneck</h2>
+<p>The fundamental challenge with recurrent neural networks has always been their sequential nature. Each hidden state depends on the previous one, creating a chain of dependencies that resists parallelization. While State Space Models (SSMs) like Mamba have sidestepped this problem by constraining themselves to linear recurrences, that linearity comes at a cost: reduced expressive power compared to their nonlinear cousins, which include the venerable LSTM and GRU architectures.</p>
+<p>ParaRNN, developed by Apple researchers Federico Danieli, Pau Rodriguez, Miguel Sarabia, Xavier Suau, and Luca Zappella, takes an entirely different approach. Rather than simplifying the recurrence to make it parallelizable, the team reframes the entire sequence of nonlinear recurrence relationships as a single unified system of equations. That system is then solved in parallel using Newton's iterations combined with custom parallel reductions -- a mathematical reformulation that preserves the full nonlinear expressiveness of classical RNNs while unlocking massive computational speedups.</p>
+<p>"ParaRNN breaks the sequence-parallelization barrier for nonlinear RNNs," the researchers write in their paper, describing how the framework enables "training at unprecedented scales while maintaining expressiveness advantages over linear alternatives like SSMs."</p>
+<h2>7 Billion Parameters and Counting</h2>
+<p>The numbers tell a compelling story. The 665x speedup over naive sequential processing is not merely a theoretical benchmark -- the team used it to train adapted LSTM and GRU architectures at a scale of 7 billion parameters, marking what Apple claims are the first classical RNNs of that size. These models achieved perplexity comparable to similarly-sized Transformers and Mamba2 architectures on language modeling tasks, demonstrating that nonlinear RNNs can compete at the frontier when freed from their computational shackles.</p>
+<p>Apple has released the ParaRNN codebase as an open-source PyTorch+CUDA library on GitHub, offering three solver implementations: a pure PyTorch reference implementation for accessibility, a CUDA-accelerated version for production use, and a fully-fused CUDA implementation for maximum performance. The open-source release signals Apple's intent to seed a broader research ecosystem around parallelized nonlinear RNNs, rather than keeping the advantage proprietary.</p>
+<h2>MANZANO: A Multimodal Companion</h2>
+<p>ParaRNN is not Apple's only headline at ICLR 2026. The company is also presenting MANZANO, a unified multimodal model built around a hybrid vision tokenizer that bridges image understanding and image generation within a single architecture. Led by a team of over 30 researchers including Yanghao Li, Rui Qian, and Bowen Pan, MANZANO tackles a persistent challenge in multimodal AI: the performance trade-off between understanding images and generating them.</p>
+<p>MANZANO's architecture routes a shared vision encoder through two lightweight adapters -- one producing continuous embeddings for image-to-text understanding, the other generating discrete tokens for text-to-image generation. A unified autoregressive LLM handles high-level semantic prediction, while an auxiliary diffusion decoder translates image tokens into pixels. The researchers report that this design exhibits "minimal task conflicts and consistent gains from scaling model size," achieving state-of-the-art results among unified models and competitive performance with specialist systems, particularly on text-rich evaluations.</p>
+<h2>Analysis: Why This Matters</h2>
+<p>ParaRNN's significance extends beyond the immediate speedup numbers. For years, the AI research community has operated under an implicit assumption that transformers won the architecture war -- and that any alternative would need to accept significant compromises. SSMs like Mamba offered efficient inference but traded away nonlinear expressiveness. Classical RNNs retained that expressiveness but could not scale.</p>
+<p>ParaRNN challenges that calculus. If nonlinear RNNs can now train at transformer-competitive speeds and scales, the architectural design space for large language models just got substantially wider. RNNs offer inherent advantages for certain workloads: constant memory during inference regardless of sequence length, natural handling of streaming data, and a fundamentally different inductive bias that could prove valuable for tasks where transformers struggle.</p>
+<p>The open-source release amplifies the potential impact. By providing production-ready CUDA implementations alongside accessible PyTorch reference code, Apple is lowering the barrier for the broader research community to explore nonlinear RNNs at scale -- something that was simply not feasible before.</p>
+<h2>The Bigger Picture</h2>
+<p>Apple's ICLR 2026 showing -- which also includes Oral presentations on length generalization in SSMs, 3D scene generation with SHARP, and protein folding with SimpleFold -- reflects a research organization that is increasingly willing to publish foundational work and release code. Conference attendees can experience some of this research firsthand at booth #204, where Apple is demonstrating SHARP running on iPad Pro with M5 and local LLM inference on MacBook Pro with M5 Max using the MLX framework.</p>
+<p>For the AI research community gathering in Rio this week, the message from Cupertino is clear: the architectural frontier is far from settled, and Apple intends to help redraw the map.</p>
+<p>---</p>
+<p><em>Sources: <a href="https://machinelearning.apple.com/research/pararnn">Apple Machine Learning Research</a>, <a href="https://arxiv.org/abs/2510.21450">arXiv:2510.21450</a>, <a href="https://machinelearning.apple.com/research/iclr-2026">Apple ICLR 2026 Overview</a>, <a href="https://machinelearning.apple.com/research/manzano">Apple MANZANO Research</a></em></p>
+    </div>
+
+    
+        <blockquote class="pull-quote" style="border-left-color: #5eead4;">
+          <p>ParaRNN breaks the sequence-parallelization barrier for nonlinear RNNs, enabling training at unprecedented scales.</p>
+          <cite>— Federico Danieli et al., Apple ML Researchers</cite>
+        </blockquote>
+        
+    <div class="data-strip">
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #5eead4;">665x</div>
+              <div class="stat-label">Training speedup</div>
+            </div>
+            
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #5eead4;">7B</div>
+              <div class="stat-label">Largest classical RNN trained</div>
+            </div>
+            
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #5eead4;">3</div>
+              <div class="stat-label">Open-source solvers released</div>
+            </div>
+            </div>
+    
+        <div class="sources-section">
+          <h3>Sources</h3>
+          <div class="source-list">
+            <a href="https://machinelearning.apple.com/research/pararnn" target="_blank" rel="noopener" class="source-link">
+              <img src="https://www.google.com/s2/favicons?domain=machinelearning.apple.com&sz=32" alt="Apple ML Research" width="16" height="16" loading="lazy">
+              <span>Apple ML Research</span>
+            </a>
+            
+            <a href="https://arxiv.org/abs/2510.21450" target="_blank" rel="noopener" class="source-link">
+              <img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="arXiv" width="16" height="16" loading="lazy">
+              <span>arXiv</span>
+            </a>
+            </div>
+        </div>
+        
+
+    <div class="story-nav">
+      <a href="12-human-scientists-outperform-ai-complex-tasks.html" class="nav-prev"><span class="nav-arrow">&larr;</span><span class="nav-label">Previous</span><span class="nav-title">Nature Study Finds Human Scientists Still Outperform Best AI Agents on Complex Research Tasks</span></a>
+      <a href="14-huggingface-leaderboard-contamination-resistant.html" class="nav-next"><span class="nav-label">Next</span><span class="nav-arrow">&rarr;</span><span class="nav-title">HuggingFace Revamps Open LLM Leaderboard With Contamination-Resistant Benchmarks</span></a>
+    </div>
+  </article>
+
+  <footer>The Vault &mdash; AI Edition &middot; Published April 22, 2026</footer>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var h = document.documentElement;
+      var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      document.getElementById('progressBar').style.width = pct + '%';
+    });
+  </script>
+</body>
+</html>

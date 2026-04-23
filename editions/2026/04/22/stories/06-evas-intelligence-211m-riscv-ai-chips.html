@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EVAS Intelligence Raises $211 Million Series B to Scale RISC-V Chips for AI Training — The Vault AI Edition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+  <style>
+    
+    :root {
+      --bg: #101014;
+      --surface: #18181c;
+      --surface-2: #1f1f24;
+      --border: rgba(255,255,255,.07);
+      --border-hover: rgba(255,255,255,.14);
+      --text: #b8b8bf;
+      --text-strong: #ececef;
+      --text-muted: #5a5a63;
+      --accent: #c084fc;
+      --cat-business: #e8a735;
+      --cat-llms-genai: #a78bfa;
+      --cat-research: #5eead4;
+      --cat-policy: #fb7185;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; transition: color .2s; }
+    a:hover { color: #d4a5fd; }
+    
+    .progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: #e8a735; z-index: 1000; width: 0%;
+      transition: width .1s linear;
+    }
+    .sticky-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(16,16,20,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 56px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .sticky-nav a { color: var(--text-muted); font-size: 14px; font-weight: 500; }
+    .sticky-nav a:hover { color: var(--text-strong); }
+    .back-arrow { font-size: 18px; }
+    .brand { color: var(--text-strong) !important; font-weight: 800; letter-spacing: 2px; font-size: 13px; text-transform: uppercase; }
+    .article-container {
+      max-width: 720px; margin: 0 auto; padding: 48px 24px 80px;
+    }
+    .category-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: #e8a735;
+      padding: 4px 10px; border-radius: 4px;
+      background: #e8a7351a; margin-bottom: 16px;
+    }
+    .category-tag svg { width: 14px; height: 14px; }
+    .article-container h1 {
+      font-family: 'Source Serif 4', serif;
+      font-size: 2.2rem; font-weight: 700; color: var(--text-strong);
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .meta-row {
+      display: flex; gap: 20px; color: var(--text-muted);
+      font-size: 13px; margin-bottom: 32px; flex-wrap: wrap;
+    }
+    .meta-row span { display: flex; align-items: center; gap: 4px; }
+    .key-takeaway {
+      background: var(--surface); border-left: 3px solid;
+      border-radius: 0 8px 8px 0; padding: 20px 24px;
+      margin-bottom: 36px;
+    }
+    .kt-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; margin-bottom: 8px;
+    }
+    .key-takeaway p { color: var(--text-strong); font-size: 15px; line-height: 1.6; }
+    .article-body {
+      font-family: 'Source Serif 4', serif; font-size: 17px;
+      line-height: 1.85; color: var(--text);
+    }
+    .article-body h2 {
+      font-family: 'DM Sans', sans-serif; font-size: 1.3rem;
+      font-weight: 700; color: var(--text-strong); margin: 40px 0 16px;
+    }
+    .article-body h3 {
+      font-family: 'DM Sans', sans-serif; font-size: 1.1rem;
+      font-weight: 600; color: var(--text-strong); margin: 32px 0 12px;
+    }
+    .article-body p { margin-bottom: 20px; }
+    .article-body a { color: #e8a735; border-bottom: 1px solid #e8a73540; }
+    .article-body a:hover { border-bottom-color: #e8a735; }
+    .drop-cap {
+      float: left; font-size: 3.6em; line-height: .8;
+      padding: 4px 10px 0 0; color: #e8a735;
+      font-family: 'Source Serif 4', serif; font-weight: 700;
+    }
+    .pull-quote {
+      border-left: 3px solid; margin: 40px 0; padding: 20px 28px;
+      background: var(--surface); border-radius: 0 8px 8px 0;
+    }
+    .pull-quote p {
+      font-family: 'Source Serif 4', serif; font-style: italic;
+      font-size: 1.15rem; color: var(--text-strong); line-height: 1.6;
+      margin-bottom: 8px !important;
+    }
+    .pull-quote cite {
+      font-style: normal; font-family: 'DM Sans', sans-serif;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .data-strip {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1px; background: var(--border); border-radius: 8px;
+      overflow: hidden; margin: 36px 0;
+    }
+    .stat-cell {
+      background: var(--surface); padding: 20px; text-align: center;
+    }
+    .stat-value {
+      font-size: 1.5rem; font-weight: 800; margin-bottom: 4px;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .stat-label {
+      font-size: 12px; color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .sources-section {
+      margin-top: 48px; padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .sources-section h3 {
+      font-size: 13px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .source-list { display: flex; flex-wrap: wrap; gap: 12px; }
+    .source-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 6px;
+      font-size: 13px; color: var(--text); transition: all .2s;
+    }
+    .source-link:hover {
+      border-color: var(--border-hover); color: var(--text-strong);
+      background: var(--surface-2);
+    }
+    .source-link img { border-radius: 2px; }
+    .story-nav {
+      display: flex; gap: 16px; margin-top: 56px;
+      padding-top: 32px; border-top: 1px solid var(--border);
+    }
+    .story-nav a {
+      flex: 1; padding: 20px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 8px;
+      transition: all .2s; display: flex; flex-direction: column;
+      text-decoration: none;
+    }
+    .story-nav a:hover {
+      border-color: var(--border-hover); background: var(--surface-2);
+    }
+    .nav-prev { align-items: flex-start; }
+    .nav-next { align-items: flex-end; text-align: right; }
+    .nav-arrow { font-size: 18px; color: var(--text-muted); }
+    .nav-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 4px 0; }
+    .nav-title { font-size: 14px; color: var(--text-strong); font-weight: 500; line-height: 1.4; }
+    footer {
+      text-align: center; padding: 40px 24px; color: var(--text-muted);
+      font-size: 13px; border-top: 1px solid var(--border); margin-top: 60px;
+    }
+    @media (max-width: 640px) {
+      .article-container h1 { font-size: 1.6rem; }
+      .article-body { font-size: 16px; }
+      .data-strip { grid-template-columns: 1fr; }
+      .story-nav { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <nav class="sticky-nav">
+    <a href="../index.html" class="back-arrow">&larr;</a>
+    <a href="../index.html" class="brand">THE VAULT</a>
+  </nav>
+
+  <article class="article-container">
+    <div class="category-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+    <h1>EVAS Intelligence Raises $211 Million Series B to Scale RISC-V Chips for AI Training</h1>
+    <div class="meta-row">
+      <span>4 min read</span>
+      <span>866 words</span>
+      <span>2 sources</span>
+    </div>
+
+    
+        <div class="key-takeaway" style="border-left-color: #e8a735;">
+          <div class="kt-label" style="color: #e8a735;">Key Takeaway</div>
+          <p>Beijing-based EVAS Intelligence closed a $211M Series B to mass-produce RISC-V AI training chips as China bets on open-source silicon.</p>
+        </div>
+        
+
+    <div class="article-body">
+      <p><span class="drop-cap"><</span>strong>Beijing-based EVAS Intelligence has closed a 1.5 billion yuan ($211 million) Series B round to mass-produce its Epoch series RISC-V AI chips, signaling a major bet that open-source silicon can challenge NVIDIA's grip on the AI training market.</strong></p>
+<p>At a moment when the global semiconductor industry is consumed by a single question -- who will supply enough compute for the next generation of AI models -- a four-year-old Chinese chipmaker just raised one of the largest RISC-V-focused rounds on record. EVAS Intelligence (奕行智能), founded in 2022 and headquartered in Beijing, announced on April 22 that it has secured $211 million in Series B financing to accelerate the production and global rollout of its Epoch series AI training chips.</p>
+<p>The round was co-led by four Beijing-backed funds: the Beijing Economic-Technological Development Area Industrial Upgrade Fund (Yigoutou), the Beijing High-Precision Industrial Development Investment Fund, the Beijing Information Industry Development Investment Fund, and the Beijing AI Industry Investment Fund. Existing shareholders including Heli Capital, Boni Capital, Saie Industrial Fund, Longjiang Fund, Qingtan Capital, and Nine Capitals Venture Capital also participated, doubling down on their earlier bets.</p>
+<h2>A Different Architectural Gamble</h2>
+<p>What makes EVAS Intelligence stand out in a crowded AI chip landscape is its architectural wager. Rather than building on proprietary instruction sets or licensing cores from Arm, the company has married a TPU-like tensor processing architecture with the open-source RISC-V instruction set -- a combination that CEO Liu Hui has described as purpose-built for the economics of AI.</p>
+<p>"AI algorithms continuously iterate in intelligent domains like autonomous driving and robotics, creating opportunity for a more versatile, programmable, and cost-efficient computing architecture," Liu said in a recent statement. The company calls its approach a "full-stack, self-developed" platform, spanning chip design, PCIe accelerator cards, full servers, and intelligent computing clusters.</p>
+<p>The Epoch series, which EVAS says has already entered mass production, is optimized for large-model training and deep learning workloads. Built on RISC-V with vector extension (RVV) support, the chips natively handle FP8 quantization and are compatible with emerging low-precision formats such as FP4 and MXFP4 -- formats increasingly favored by frontier AI labs seeking to train larger models without proportional increases in compute cost.</p>
+<h2>Where the Money Goes</h2>
+<p>EVAS Intelligence plans to deploy the new capital across four priorities: scaling commercial production of the Epoch line, funding R&D for a next-generation flagship chip, building out its software-hardware ecosystem, and expanding internationally. The global expansion push is notable given the geopolitical headwinds facing Chinese semiconductor firms, but EVAS appears to be betting that RISC-V's open-source foundation offers a pathway less encumbered by export controls than Arm- or x86-based alternatives.</p>
+<p>"As countries push to build domestic AI infrastructure, EVAS is positioning itself as a key player in reducing reliance on foreign GPU technologies," noted a recent analysis by TechStartups, underscoring the strategic dimension of the raise.</p>
+<h2>A Surging RISC-V AI Ecosystem</h2>
+<p>EVAS's round lands in a month already crowded with RISC-V investment. On April 9, SiFive -- the most prominent Western RISC-V company -- closed a $400 million Series G backed by NVIDIA, pushing its valuation to $3.65 billion. Research firm Semico projects that chips incorporating RISC-V technology will grow at a compound annual rate of 73.6 percent through 2027, when annual production could reach 25 billion units generating $291 billion in revenue.</p>
+<p>The convergence is not accidental. RISC-V's royalty-free, modifiable instruction set allows chipmakers to build highly customized AI accelerators without licensing fees, a structural advantage as AI workloads diversify beyond the dense matrix multiplications where NVIDIA's CUDA ecosystem dominates. Meta has reportedly begun testing its own RISC-V-based AI training chip, and Alibaba's T-Head subsidiary has been shipping RISC-V cores for years.</p>
+<p>For EVAS Intelligence, the competitive moat lies in vertical integration. The company's EVAMIND architecture -- a domain-specific accelerator built on RISC-V's fifth-generation ISA -- uses what it calls a globally unique macro-instruction out-of-order execution architecture paired with a Virtual Instruction Set Architecture (VISA). The company claims performance on par with leading AI processors through instruction and data parallelism at the core level.</p>
+<h2>What to Watch</h2>
+<p>The $211 million raise positions EVAS Intelligence among the best-funded RISC-V AI chip startups globally, though it remains far behind the capital reserves of incumbents like NVIDIA, AMD, and even SiFive. The real test will come in the next 12 to 18 months as the Epoch series moves from initial production to large-scale commercial deployment -- and as customers decide whether an open-source architecture can deliver the software maturity and ecosystem support that has made CUDA the default platform for AI training.</p>
+<p>With four Beijing government-affiliated funds co-leading the round, the investment also carries an unmistakable policy signal: China's capital apparatus views RISC-V as critical infrastructure for AI sovereignty. Whether EVAS Intelligence can convert that policy tailwind into commercial traction will be one of the most closely watched stories in semiconductor markets this year.</p>
+    </div>
+
+    
+        <blockquote class="pull-quote" style="border-left-color: #e8a735;">
+          <p>AI algorithms continuously iterate in intelligent domains like autonomous driving and robotics, creating opportunity for a more versatile computing architecture.</p>
+          <cite>— Liu Hui, CEO, EVAS Intelligence</cite>
+        </blockquote>
+        
+    <div class="data-strip">
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #e8a735;">$211M</div>
+              <div class="stat-label">Series B round</div>
+            </div>
+            
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #e8a735;">73.6%</div>
+              <div class="stat-label">Projected CAGR for RISC-V chips</div>
+            </div>
+            
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #e8a735;">$291B</div>
+              <div class="stat-label">Projected RISC-V revenue by 2027</div>
+            </div>
+            </div>
+    
+        <div class="sources-section">
+          <h3>Sources</h3>
+          <div class="source-list">
+            <a href="https://autonews.gasgoo.com/articles/news/seeds-evas-intelligence-secures-15-billion-yuan-series-b-funding-2046955775308587008" target="_blank" rel="noopener" class="source-link">
+              <img src="https://www.google.com/s2/favicons?domain=autonews.gasgoo.com&sz=32" alt="Gasgoo" width="16" height="16" loading="lazy">
+              <span>Gasgoo</span>
+            </a>
+            
+            <a href="https://pandaily.com/yixing-intelligence-raises-rmb-1-5-billion-in-series-b-for-risc-v-ai-chips" target="_blank" rel="noopener" class="source-link">
+              <img src="https://www.google.com/s2/favicons?domain=pandaily.com&sz=32" alt="Pandaily" width="16" height="16" loading="lazy">
+              <span>Pandaily</span>
+            </a>
+            </div>
+        </div>
+        
+
+    <div class="story-nav">
+      <a href="05-blue-energy-380m-nuclear-ai-data-centers.html" class="nav-prev"><span class="nav-arrow">&larr;</span><span class="nav-label">Previous</span><span class="nav-title">Blue Energy Raises $380 Million to Build Nuclear Power Plants for AI Data Centers</span></a>
+      <a href="07-mistral-large-3-eu-data-residency.html" class="nav-next"><span class="nav-label">Next</span><span class="nav-arrow">&rarr;</span><span class="nav-title">Mistral AI Releases Large 3 With Improved Function Calling and EU Data Residency</span></a>
+    </div>
+  </article>
+
+  <footer>The Vault &mdash; AI Edition &middot; Published April 22, 2026</footer>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var h = document.documentElement;
+      var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      document.getElementById('progressBar').style.width = pct + '%';
+    });
+  </script>
+</body>
+</html>

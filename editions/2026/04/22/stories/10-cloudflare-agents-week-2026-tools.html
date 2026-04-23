@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloudflare Wraps Agents Week With New Compute, Security, and Agent Toolbox — The Vault AI Edition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+  <style>
+    
+    :root {
+      --bg: #101014;
+      --surface: #18181c;
+      --surface-2: #1f1f24;
+      --border: rgba(255,255,255,.07);
+      --border-hover: rgba(255,255,255,.14);
+      --text: #b8b8bf;
+      --text-strong: #ececef;
+      --text-muted: #5a5a63;
+      --accent: #c084fc;
+      --cat-business: #e8a735;
+      --cat-llms-genai: #a78bfa;
+      --cat-research: #5eead4;
+      --cat-policy: #fb7185;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; transition: color .2s; }
+    a:hover { color: #d4a5fd; }
+    
+    .progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: #a78bfa; z-index: 1000; width: 0%;
+      transition: width .1s linear;
+    }
+    .sticky-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(16,16,20,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 56px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .sticky-nav a { color: var(--text-muted); font-size: 14px; font-weight: 500; }
+    .sticky-nav a:hover { color: var(--text-strong); }
+    .back-arrow { font-size: 18px; }
+    .brand { color: var(--text-strong) !important; font-weight: 800; letter-spacing: 2px; font-size: 13px; text-transform: uppercase; }
+    .article-container {
+      max-width: 720px; margin: 0 auto; padding: 48px 24px 80px;
+    }
+    .category-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: #a78bfa;
+      padding: 4px 10px; border-radius: 4px;
+      background: #a78bfa1a; margin-bottom: 16px;
+    }
+    .category-tag svg { width: 14px; height: 14px; }
+    .article-container h1 {
+      font-family: 'Source Serif 4', serif;
+      font-size: 2.2rem; font-weight: 700; color: var(--text-strong);
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .meta-row {
+      display: flex; gap: 20px; color: var(--text-muted);
+      font-size: 13px; margin-bottom: 32px; flex-wrap: wrap;
+    }
+    .meta-row span { display: flex; align-items: center; gap: 4px; }
+    .key-takeaway {
+      background: var(--surface); border-left: 3px solid;
+      border-radius: 0 8px 8px 0; padding: 20px 24px;
+      margin-bottom: 36px;
+    }
+    .kt-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; margin-bottom: 8px;
+    }
+    .key-takeaway p { color: var(--text-strong); font-size: 15px; line-height: 1.6; }
+    .article-body {
+      font-family: 'Source Serif 4', serif; font-size: 17px;
+      line-height: 1.85; color: var(--text);
+    }
+    .article-body h2 {
+      font-family: 'DM Sans', sans-serif; font-size: 1.3rem;
+      font-weight: 700; color: var(--text-strong); margin: 40px 0 16px;
+    }
+    .article-body h3 {
+      font-family: 'DM Sans', sans-serif; font-size: 1.1rem;
+      font-weight: 600; color: var(--text-strong); margin: 32px 0 12px;
+    }
+    .article-body p { margin-bottom: 20px; }
+    .article-body a { color: #a78bfa; border-bottom: 1px solid #a78bfa40; }
+    .article-body a:hover { border-bottom-color: #a78bfa; }
+    .drop-cap {
+      float: left; font-size: 3.6em; line-height: .8;
+      padding: 4px 10px 0 0; color: #a78bfa;
+      font-family: 'Source Serif 4', serif; font-weight: 700;
+    }
+    .pull-quote {
+      border-left: 3px solid; margin: 40px 0; padding: 20px 28px;
+      background: var(--surface); border-radius: 0 8px 8px 0;
+    }
+    .pull-quote p {
+      font-family: 'Source Serif 4', serif; font-style: italic;
+      font-size: 1.15rem; color: var(--text-strong); line-height: 1.6;
+      margin-bottom: 8px !important;
+    }
+    .pull-quote cite {
+      font-style: normal; font-family: 'DM Sans', sans-serif;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .data-strip {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1px; background: var(--border); border-radius: 8px;
+      overflow: hidden; margin: 36px 0;
+    }
+    .stat-cell {
+      background: var(--surface); padding: 20px; text-align: center;
+    }
+    .stat-value {
+      font-size: 1.5rem; font-weight: 800; margin-bottom: 4px;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .stat-label {
+      font-size: 12px; color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .sources-section {
+      margin-top: 48px; padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .sources-section h3 {
+      font-size: 13px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .source-list { display: flex; flex-wrap: wrap; gap: 12px; }
+    .source-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 6px;
+      font-size: 13px; color: var(--text); transition: all .2s;
+    }
+    .source-link:hover {
+      border-color: var(--border-hover); color: var(--text-strong);
+      background: var(--surface-2);
+    }
+    .source-link img { border-radius: 2px; }
+    .story-nav {
+      display: flex; gap: 16px; margin-top: 56px;
+      padding-top: 32px; border-top: 1px solid var(--border);
+    }
+    .story-nav a {
+      flex: 1; padding: 20px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 8px;
+      transition: all .2s; display: flex; flex-direction: column;
+      text-decoration: none;
+    }
+    .story-nav a:hover {
+      border-color: var(--border-hover); background: var(--surface-2);
+    }
+    .nav-prev { align-items: flex-start; }
+    .nav-next { align-items: flex-end; text-align: right; }
+    .nav-arrow { font-size: 18px; color: var(--text-muted); }
+    .nav-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 4px 0; }
+    .nav-title { font-size: 14px; color: var(--text-strong); font-weight: 500; line-height: 1.4; }
+    footer {
+      text-align: center; padding: 40px 24px; color: var(--text-muted);
+      font-size: 13px; border-top: 1px solid var(--border); margin-top: 60px;
+    }
+    @media (max-width: 640px) {
+      .article-container h1 { font-size: 1.6rem; }
+      .article-body { font-size: 16px; }
+      .data-strip { grid-template-columns: 1fr; }
+      .story-nav { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <nav class="sticky-nav">
+    <a href="../index.html" class="back-arrow">&larr;</a>
+    <a href="../index.html" class="brand">THE VAULT</a>
+  </nav>
+
+  <article class="article-container">
+    <div class="category-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs & GenAI</div>
+    <h1>Cloudflare Wraps Agents Week With New Compute, Security, and Agent Toolbox</h1>
+    <div class="meta-row">
+      <span>4 min read</span>
+      <span>925 words</span>
+      <span>2 sources</span>
+    </div>
+
+    
+        <div class="key-takeaway" style="border-left-color: #a78bfa;">
+          <div class="kt-label" style="color: #a78bfa;">Key Takeaway</div>
+          <p>Cloudflare shipped 12+ new services during Agents Week spanning 100x-faster compute, zero-trust agent security, and a full developer toolbox.</p>
+        </div>
+        
+
+    <div class="article-body">
+      <p><span class="drop-cap"><</span>strong>Cloudflare used its week-long Agents Week event to ship more than a dozen new services aimed at turning its global network into the default operating environment for autonomous AI agents -- a bet that the next wave of software will be written, deployed, and secured by code that never sleeps.</strong></p>
+<p>The announcements, which concluded on April 20, spanned compute infrastructure, security primitives, developer tooling, and what the company calls the "emerging agentic web." Taken together, they represent Cloudflare's most concentrated push yet to define the infrastructure layer beneath the AI agent boom.</p>
+<p>"The way people build software is fundamentally changing," said Matthew Prince, Cloudflare co-founder and CEO. "We are entering a world where agents are the ones writing and executing code."</p>
+<h2>Compute: 100x Faster, Fraction of the Cost</h2>
+<p>At the center of the compute story is <strong>Dynamic Workers</strong>, a new isolate-based runtime that Cloudflare says delivers 100x speed improvements over traditional containers at a fraction of the cost. Paired with that is the general availability of <strong>Sandboxes</strong>, persistent Linux environments that give agents full shell and filesystem access when a lightweight isolate is not enough.</p>
+<p>Cloudflare also unveiled <strong>Durable Object Facets</strong>, which let Dynamic Workers instantiate Durable Objects with their own isolated SQLite databases -- enabling developers to build platforms that run persistent, stateful code generated on the fly. The company rearchitected its <strong>Workflows</strong> control plane to handle 50,000 concurrent executions with a 300-per-second creation rate, a capacity increase designed for durable background agents that may run for hours or days.</p>
+<h2>Security: Zero Trust for Non-Human Traffic</h2>
+<p>Perhaps the most consequential announcements addressed the security gap that opens when autonomous agents need access to internal systems. Cloudflare introduced <strong>Cloudflare Mesh</strong>, a private networking fabric that extends zero-trust access to users, nodes, and AI agents alike. Integrated with Workers VPC, Mesh grants agents scoped access to private databases and APIs without exposing credentials.</p>
+<p>"It doesn't work for a coding agent running autonomously on your laptop that needs to query a staging database at 2am," said Nikita Cano, Senior Product Manager at Cloudflare, describing the limitations of traditional VPN-based authentication for agent workloads.</p>
+<p><strong>Outbound Workers for Sandboxes</strong> add a programmable, zero-trust egress proxy that lets developers inject credentials and enforce dynamic security policies at the network edge. The company also shipped scannable API tokens, enhanced OAuth visibility, and GA for resource-scoped permissions -- all aimed at implementing least-privilege architecture for agent identities.</p>
+<p>Rita Kozlov, VP of Product Management, framed the design principle: "For organizations, this means the same permissions that govern a user's actions in the dashboard also apply to that user's agent."</p>
+<h2>The Agent Toolbox</h2>
+<p>The week produced a dense stack of new developer primitives:</p>
+<p>- <strong>Artifacts</strong> (beta): Git-compatible versioned storage that enables developers to create tens of millions of repositories, giving agents a permanent, forkable home for code and data. - <strong>Agent Memory</strong> (private beta): A managed service that extracts and persists conversation context, giving agents recall across sessions. - <strong>AI Search</strong>: A hybrid vector-and-keyword search primitive with relevance boosting, purpose-built for retrieval-augmented generation pipelines. - <strong>Browser Run</strong>: Enhanced headless browser access with 4x higher concurrency limits, live view, and session recordings for debugging agent web interactions. - <strong>Agent Readiness Index</strong>: A scored assessment built on Cloudflare Radar that evaluates how well a website supports autonomous agents by checking for robots.txt, llms.txt, structured data, and markdown delivery.</p>
+<p>The company also introduced <strong>Agent Lee</strong>, an in-dashboard agent that helps developers troubleshoot and manage their Cloudflare stack using sandboxed TypeScript, and previewed <strong>Project Think</strong>, a next-generation Agents SDK component designed for long-running, multi-step reasoning tasks.</p>
+<h2>High-Performance LLM Inference</h2>
+<p>In a companion blog post, Cloudflare engineers detailed the custom stack they built to run high-performance large language models on their infrastructure. The team made Moonshot AI's trillion-parameter Kimi K2.5 available through Workers AI with a 3x speed improvement, reducing p90 time-per-token from roughly 100 milliseconds to 20-30 milliseconds through prefill-decode disaggregation. Their proprietary Rust-based <strong>Infire</strong> inference engine now supports multi-GPU configurations, achieves cold-start times under 20 seconds, and delivers up to 20 percent higher tokens-per-second throughput. A new compression system called <strong>Unweight</strong> achieves up to 22 percent model footprint reduction without meaningful quality loss.</p>
+<h2>Analysis: Building the Agent Cloud Before Agents Arrive at Scale</h2>
+<p>Cloudflare's strategy mirrors what AWS did a decade ago for microservices: own the primitives so deeply that switching costs become architectural. By bundling compute, storage, networking, security, and inference into a single platform -- and by processing 241 billion tokens and 20 million AI Gateway requests internally already -- Cloudflare is eating its own cooking at a scale that lends credibility to the pitch.</p>
+<p>The partnership signal matters too. OpenAI's Rohan Varma, a product lead, endorsed the platform directly: "Cloud agents are quickly becoming a foundational building block for how work gets done, and with Cloudflare, we're making it dramatically easier for developers to deploy production-ready agents."</p>
+<p>The open question is timing. Production AI agents remain rare outside developer tooling and customer support. Cloudflare is building the airport before the planes have been certified. But if autonomous agents do become the dominant software paradigm -- and the venture capital pouring into the space suggests many believe they will -- the company that owns the infrastructure layer wins disproportionately. This week, Cloudflare made its case that the layer should look like theirs.</p>
+    </div>
+
+    
+        <blockquote class="pull-quote" style="border-left-color: #a78bfa;">
+          <p>The way people build software is fundamentally changing. We are entering a world where agents are the ones writing and executing code.</p>
+          <cite>— Matthew Prince, CEO, Cloudflare</cite>
+        </blockquote>
+        
+    <div class="data-strip">
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #a78bfa;">100x</div>
+              <div class="stat-label">Dynamic Workers speed improvement</div>
+            </div>
+            
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #a78bfa;">241B</div>
+              <div class="stat-label">Tokens processed internally</div>
+            </div>
+            
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #a78bfa;">50,000</div>
+              <div class="stat-label">Concurrent workflow executions</div>
+            </div>
+            </div>
+    
+        <div class="sources-section">
+          <h3>Sources</h3>
+          <div class="source-list">
+            <a href="https://blog.cloudflare.com/agents-week-in-review/" target="_blank" rel="noopener" class="source-link">
+              <img src="https://www.google.com/s2/favicons?domain=blog.cloudflare.com&sz=32" alt="Cloudflare Blog" width="16" height="16" loading="lazy">
+              <span>Cloudflare Blog</span>
+            </a>
+            
+            <a href="https://www.networkworld.com/article/4160860/cloudflare-wants-to-rebuild-the-network-for-the-age-of-ai-agents.html" target="_blank" rel="noopener" class="source-link">
+              <img src="https://www.google.com/s2/favicons?domain=networkworld.com&sz=32" alt="Network World" width="16" height="16" loading="lazy">
+              <span>Network World</span>
+            </a>
+            </div>
+        </div>
+        
+
+    <div class="story-nav">
+      <a href="09-openai-gpt-rosalind-research-preview.html" class="nav-prev"><span class="nav-arrow">&larr;</span><span class="nav-label">Previous</span><span class="nav-title">OpenAI Launches GPT-Rosalind as Research Preview for Scientific Reasoning</span></a>
+      <a href="11-google-gemini-auto-browse-chrome.html" class="nav-next"><span class="nav-label">Next</span><span class="nav-arrow">&rarr;</span><span class="nav-title">Google Brings Gemini-Powered Auto Browse to Chrome for Enterprise Task Automation</span></a>
+    </div>
+  </article>
+
+  <footer>The Vault &mdash; AI Edition &middot; Published April 22, 2026</footer>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var h = document.documentElement;
+      var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      document.getElementById('progressBar').style.width = pct + '%';
+    });
+  </script>
+</body>
+</html>

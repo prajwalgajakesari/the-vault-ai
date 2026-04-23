@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Unveils Eighth-Generation TPU Chips Designed for the Agentic Era — The Vault AI Edition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+  <style>
+    
+    :root {
+      --bg: #101014;
+      --surface: #18181c;
+      --surface-2: #1f1f24;
+      --border: rgba(255,255,255,.07);
+      --border-hover: rgba(255,255,255,.14);
+      --text: #b8b8bf;
+      --text-strong: #ececef;
+      --text-muted: #5a5a63;
+      --accent: #c084fc;
+      --cat-business: #e8a735;
+      --cat-llms-genai: #a78bfa;
+      --cat-research: #5eead4;
+      --cat-policy: #fb7185;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; transition: color .2s; }
+    a:hover { color: #d4a5fd; }
+    
+    .progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: #e8a735; z-index: 1000; width: 0%;
+      transition: width .1s linear;
+    }
+    .sticky-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(16,16,20,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 56px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .sticky-nav a { color: var(--text-muted); font-size: 14px; font-weight: 500; }
+    .sticky-nav a:hover { color: var(--text-strong); }
+    .back-arrow { font-size: 18px; }
+    .brand { color: var(--text-strong) !important; font-weight: 800; letter-spacing: 2px; font-size: 13px; text-transform: uppercase; }
+    .article-container {
+      max-width: 720px; margin: 0 auto; padding: 48px 24px 80px;
+    }
+    .category-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: #e8a735;
+      padding: 4px 10px; border-radius: 4px;
+      background: #e8a7351a; margin-bottom: 16px;
+    }
+    .category-tag svg { width: 14px; height: 14px; }
+    .article-container h1 {
+      font-family: 'Source Serif 4', serif;
+      font-size: 2.2rem; font-weight: 700; color: var(--text-strong);
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .meta-row {
+      display: flex; gap: 20px; color: var(--text-muted);
+      font-size: 13px; margin-bottom: 32px; flex-wrap: wrap;
+    }
+    .meta-row span { display: flex; align-items: center; gap: 4px; }
+    .key-takeaway {
+      background: var(--surface); border-left: 3px solid;
+      border-radius: 0 8px 8px 0; padding: 20px 24px;
+      margin-bottom: 36px;
+    }
+    .kt-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; margin-bottom: 8px;
+    }
+    .key-takeaway p { color: var(--text-strong); font-size: 15px; line-height: 1.6; }
+    .article-body {
+      font-family: 'Source Serif 4', serif; font-size: 17px;
+      line-height: 1.85; color: var(--text);
+    }
+    .article-body h2 {
+      font-family: 'DM Sans', sans-serif; font-size: 1.3rem;
+      font-weight: 700; color: var(--text-strong); margin: 40px 0 16px;
+    }
+    .article-body h3 {
+      font-family: 'DM Sans', sans-serif; font-size: 1.1rem;
+      font-weight: 600; color: var(--text-strong); margin: 32px 0 12px;
+    }
+    .article-body p { margin-bottom: 20px; }
+    .article-body a { color: #e8a735; border-bottom: 1px solid #e8a73540; }
+    .article-body a:hover { border-bottom-color: #e8a735; }
+    .drop-cap {
+      float: left; font-size: 3.6em; line-height: .8;
+      padding: 4px 10px 0 0; color: #e8a735;
+      font-family: 'Source Serif 4', serif; font-weight: 700;
+    }
+    .pull-quote {
+      border-left: 3px solid; margin: 40px 0; padding: 20px 28px;
+      background: var(--surface); border-radius: 0 8px 8px 0;
+    }
+    .pull-quote p {
+      font-family: 'Source Serif 4', serif; font-style: italic;
+      font-size: 1.15rem; color: var(--text-strong); line-height: 1.6;
+      margin-bottom: 8px !important;
+    }
+    .pull-quote cite {
+      font-style: normal; font-family: 'DM Sans', sans-serif;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .data-strip {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1px; background: var(--border); border-radius: 8px;
+      overflow: hidden; margin: 36px 0;
+    }
+    .stat-cell {
+      background: var(--surface); padding: 20px; text-align: center;
+    }
+    .stat-value {
+      font-size: 1.5rem; font-weight: 800; margin-bottom: 4px;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .stat-label {
+      font-size: 12px; color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .sources-section {
+      margin-top: 48px; padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .sources-section h3 {
+      font-size: 13px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .source-list { display: flex; flex-wrap: wrap; gap: 12px; }
+    .source-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 6px;
+      font-size: 13px; color: var(--text); transition: all .2s;
+    }
+    .source-link:hover {
+      border-color: var(--border-hover); color: var(--text-strong);
+      background: var(--surface-2);
+    }
+    .source-link img { border-radius: 2px; }
+    .story-nav {
+      display: flex; gap: 16px; margin-top: 56px;
+      padding-top: 32px; border-top: 1px solid var(--border);
+    }
+    .story-nav a {
+      flex: 1; padding: 20px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 8px;
+      transition: all .2s; display: flex; flex-direction: column;
+      text-decoration: none;
+    }
+    .story-nav a:hover {
+      border-color: var(--border-hover); background: var(--surface-2);
+    }
+    .nav-prev { align-items: flex-start; }
+    .nav-next { align-items: flex-end; text-align: right; }
+    .nav-arrow { font-size: 18px; color: var(--text-muted); }
+    .nav-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 4px 0; }
+    .nav-title { font-size: 14px; color: var(--text-strong); font-weight: 500; line-height: 1.4; }
+    footer {
+      text-align: center; padding: 40px 24px; color: var(--text-muted);
+      font-size: 13px; border-top: 1px solid var(--border); margin-top: 60px;
+    }
+    @media (max-width: 640px) {
+      .article-container h1 { font-size: 1.6rem; }
+      .article-body { font-size: 16px; }
+      .data-strip { grid-template-columns: 1fr; }
+      .story-nav { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <nav class="sticky-nav">
+    <a href="../index.html" class="back-arrow">&larr;</a>
+    <a href="../index.html" class="brand">THE VAULT</a>
+  </nav>
+
+  <article class="article-container">
+    <div class="category-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+    <h1>Google Unveils Eighth-Generation TPU Chips Designed for the Agentic Era</h1>
+    <div class="meta-row">
+      <span>4 min read</span>
+      <span>954 words</span>
+      <span>3 sources</span>
+    </div>
+
+    
+        <div class="key-takeaway" style="border-left-color: #e8a735;">
+          <div class="kt-label" style="color: #e8a735;">Key Takeaway</div>
+          <p>Google split its eighth-generation TPU into two purpose-built chips -- TPU 8t for training and TPU 8i for inference -- marking its most aggressive bid to reshape AI infrastructure economics for the agentic era.</p>
+        </div>
+        
+
+    <div class="article-body">
+      <p><span class="drop-cap"><</span>strong>At Cloud Next 2026, Google split its custom silicon strategy in two — one chip to train the models, another to run millions of agents — in a bid to reshape the economics of AI infrastructure.</strong></p>
+<p>Google on Tuesday took its most ambitious swing yet at the economics of artificial intelligence, unveiling two purpose-built eighth-generation Tensor Processing Units at its annual Cloud Next conference in Las Vegas. The TPU 8t, optimized for training massive frontier models, and the TPU 8i, engineered for low-latency inference, mark the first time Google has bifurcated its custom chip architecture — a strategic bet that the era of autonomous AI agents demands fundamentally different hardware for building models versus running them at scale.</p>
+<p>The announcement sent Alphabet shares up nearly 2%, with GOOGL climbing 1.69% to $337.91, edging closer to its 52-week high of $349.00. Nvidia, whose dominant GPU empire Google is increasingly flanking rather than confronting head-on, ticked up a modest 0.21% to $200.30.</p>
+<h2>Two Chips, One Vision</h2>
+<p>CEO Sundar Pichai framed the dual-chip strategy around what he called the central infrastructure challenge of the next computing cycle. The new architecture, he wrote in a blog post, delivers the "massive throughput and low latency needed to concurrently run millions of agents cost-effectively." It is a telling choice of words: not thousands of agents, but millions — a scale that demands rethinking chip design from the transistor level up.</p>
+<p>Amin Vahdat, Google's SVP and Chief Technologist for AI and Infrastructure, authored the detailed technical announcement. "By customizing and co-designing silicon with hardware, networking and software, we can deliver dramatically more power efficiency and absolute performance," Vahdat wrote, underscoring Google's vertically integrated approach to chip development.</p>
+<p>The training-focused TPU 8t delivers nearly 3x the compute performance per pod compared to its predecessor, Ironwood. A single superpod houses 9,600 chips providing 121 exaflops of compute and two petabytes of shared high-bandwidth memory. Perhaps most strikingly, Google says it can link more than one million TPUs across multiple data center sites into a single logical training cluster — a claim that, if validated at production scale, would represent an unprecedented level of distributed compute coherence. The chip also features native four-bit floating-point support and a SparseCore accelerator for irregular memory access patterns common in large language model lookups, delivering a 2.7x performance-per-dollar improvement over Ironwood for large-scale training workloads.</p>
+<p>The inference-oriented TPU 8i tackles a different bottleneck entirely. With 288 GB of high-bandwidth memory and 384 MB of on-chip SRAM — triple the previous generation — the chip can host substantially larger key-value caches, which directly accelerates text generation for LLMs. Its new Collectives Acceleration Engine reduces on-chip latency by up to 5x, a critical advantage for the chain-of-thought reasoning that agentic AI systems perform continuously. Google claims the TPU 8i delivers roughly 80% better performance-per-dollar at low-latency targets, enabling it to serve nearly twice the customer volume at the same cost. A custom Boardfly network topology interconnects up to 1,152 chips and cuts the hops required for all-to-all communication by up to 50%.</p>
+<p>Mark Lohmeyer, Google Cloud VP, distilled the economic imperative behind the split design: "The number of transactions is going way up, and the cost per transaction needs to go way down for it to scale."</p>
+<h2>Why This Matters</h2>
+<p>The dual-chip strategy reflects a broader inflection point in the AI industry. Training and inference have historically shared the same silicon, but the rise of agentic AI — systems that reason, plan, and execute multi-step tasks autonomously — is creating wildly divergent hardware demands. Training requires raw computational brute force applied in massive, sustained bursts. Inference for agents, by contrast, demands constant low-latency responsiveness across millions of concurrent sessions, each potentially running complex chains of reasoning that can last minutes or hours.</p>
+<p>Google is not alone in recognizing this split. Nvidia's own product roadmap has increasingly differentiated between training and inference offerings. But Google's willingness to design entirely separate chip architectures — rather than configuring the same chip differently — represents a more radical commitment. Both new TPUs deliver 2x the performance-per-watt of the previous generation, an efficiency gain that matters enormously as data center power consumption becomes a constraining factor industry-wide.</p>
+<p>Notably, Google is not positioning these chips as an Nvidia killer. The company confirmed it will offer Nvidia's latest Vera Rubin chips through Google Cloud later in 2026, and the two companies are deepening a decade-long collaboration on networking efficiency using Falcon, Google's open-sourced networking technology. Chip analyst Patrick Moorhead noted on X that he had predicted TPUs could be "bad news for Nvidia" back in 2016 — a prediction that has not materialized, given Nvidia's current valuation approaching $5 trillion. Google's growing customer roster for its TPU platform — which now includes Citadel Securities, U.S. national laboratories, and Anthropic — suggests the strategy is less about displacing Nvidia than about offering a cost-optimized alternative for workloads that run natively on Google's infrastructure.</p>
+<h2>What to Watch Next</h2>
+<p>Both the TPU 8t and TPU 8i are expected to reach general availability later in 2026, but the real test will be whether Google's cost-per-transaction thesis holds at production scale. As agentic AI moves from demos to deployment — with enterprises running thousands of autonomous agents handling customer service, code generation, and research tasks simultaneously — the infrastructure layer becomes the binding constraint. Google is betting that purpose-built silicon, not general-purpose GPUs, will win that war on economics. The coming quarters will reveal whether developers and enterprises vote with their workloads.</p>
+    </div>
+
+    
+        <blockquote class="pull-quote" style="border-left-color: #e8a735;">
+          <p>The number of transactions is going way up, and the cost per transaction needs to go way down for it to scale.</p>
+          <cite>— Mark Lohmeyer, VP, Google Cloud</cite>
+        </blockquote>
+        
+    <div class="data-strip">
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #e8a735;">2.7x</div>
+              <div class="stat-label">Performance-per-dollar improvement</div>
+            </div>
+            
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #e8a735;">121 exaflops</div>
+              <div class="stat-label">Compute per superpod</div>
+            </div>
+            
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #e8a735;">1M+</div>
+              <div class="stat-label">TPUs linkable into single cluster</div>
+            </div>
+            </div>
+    
+        <div class="sources-section">
+          <h3>Sources</h3>
+          <div class="source-list">
+            <a href="https://www.cnbc.com/2026/04/22/google-launches-training-and-inference-tpus-in-latest-shot-at-nvidia.html" target="_blank" rel="noopener" class="source-link">
+              <img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="CNBC" width="16" height="16" loading="lazy">
+              <span>CNBC</span>
+            </a>
+            
+            <a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/" target="_blank" rel="noopener" class="source-link">
+              <img src="https://www.google.com/s2/favicons?domain=blog.google&sz=32" alt="Google Blog" width="16" height="16" loading="lazy">
+              <span>Google Blog</span>
+            </a>
+            
+            <a href="https://www.benzinga.com/markets/tech/26/04/51971571/google-unveils-new-ai-super-chips-to-slash-costs-rival-nvidia" target="_blank" rel="noopener" class="source-link">
+              <img src="https://www.google.com/s2/favicons?domain=benzinga.com&sz=32" alt="Benzinga" width="16" height="16" loading="lazy">
+              <span>Benzinga</span>
+            </a>
+            </div>
+        </div>
+        
+
+    <div class="story-nav">
+      
+      <a href="02-merck-google-cloud-1b-ai-partnership.html" class="nav-next"><span class="nav-label">Next</span><span class="nav-arrow">&rarr;</span><span class="nav-title">Merck and Google Cloud Forge Up to $1 Billion Agentic AI Partnership</span></a>
+    </div>
+  </article>
+
+  <footer>The Vault &mdash; AI Edition &middot; Published April 22, 2026</footer>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var h = document.documentElement;
+      var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      document.getElementById('progressBar').style.width = pct + '%';
+    });
+  </script>
+</body>
+</html>

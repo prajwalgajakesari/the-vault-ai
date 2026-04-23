@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nature Study Finds Human Scientists Still Outperform Best AI Agents on Complex Research Tasks — The Vault AI Edition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+  <style>
+    
+    :root {
+      --bg: #101014;
+      --surface: #18181c;
+      --surface-2: #1f1f24;
+      --border: rgba(255,255,255,.07);
+      --border-hover: rgba(255,255,255,.14);
+      --text: #b8b8bf;
+      --text-strong: #ececef;
+      --text-muted: #5a5a63;
+      --accent: #c084fc;
+      --cat-business: #e8a735;
+      --cat-llms-genai: #a78bfa;
+      --cat-research: #5eead4;
+      --cat-policy: #fb7185;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; transition: color .2s; }
+    a:hover { color: #d4a5fd; }
+    
+    .progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: #5eead4; z-index: 1000; width: 0%;
+      transition: width .1s linear;
+    }
+    .sticky-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(16,16,20,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 56px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .sticky-nav a { color: var(--text-muted); font-size: 14px; font-weight: 500; }
+    .sticky-nav a:hover { color: var(--text-strong); }
+    .back-arrow { font-size: 18px; }
+    .brand { color: var(--text-strong) !important; font-weight: 800; letter-spacing: 2px; font-size: 13px; text-transform: uppercase; }
+    .article-container {
+      max-width: 720px; margin: 0 auto; padding: 48px 24px 80px;
+    }
+    .category-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: #5eead4;
+      padding: 4px 10px; border-radius: 4px;
+      background: #5eead41a; margin-bottom: 16px;
+    }
+    .category-tag svg { width: 14px; height: 14px; }
+    .article-container h1 {
+      font-family: 'Source Serif 4', serif;
+      font-size: 2.2rem; font-weight: 700; color: var(--text-strong);
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .meta-row {
+      display: flex; gap: 20px; color: var(--text-muted);
+      font-size: 13px; margin-bottom: 32px; flex-wrap: wrap;
+    }
+    .meta-row span { display: flex; align-items: center; gap: 4px; }
+    .key-takeaway {
+      background: var(--surface); border-left: 3px solid;
+      border-radius: 0 8px 8px 0; padding: 20px 24px;
+      margin-bottom: 36px;
+    }
+    .kt-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; margin-bottom: 8px;
+    }
+    .key-takeaway p { color: var(--text-strong); font-size: 15px; line-height: 1.6; }
+    .article-body {
+      font-family: 'Source Serif 4', serif; font-size: 17px;
+      line-height: 1.85; color: var(--text);
+    }
+    .article-body h2 {
+      font-family: 'DM Sans', sans-serif; font-size: 1.3rem;
+      font-weight: 700; color: var(--text-strong); margin: 40px 0 16px;
+    }
+    .article-body h3 {
+      font-family: 'DM Sans', sans-serif; font-size: 1.1rem;
+      font-weight: 600; color: var(--text-strong); margin: 32px 0 12px;
+    }
+    .article-body p { margin-bottom: 20px; }
+    .article-body a { color: #5eead4; border-bottom: 1px solid #5eead440; }
+    .article-body a:hover { border-bottom-color: #5eead4; }
+    .drop-cap {
+      float: left; font-size: 3.6em; line-height: .8;
+      padding: 4px 10px 0 0; color: #5eead4;
+      font-family: 'Source Serif 4', serif; font-weight: 700;
+    }
+    .pull-quote {
+      border-left: 3px solid; margin: 40px 0; padding: 20px 28px;
+      background: var(--surface); border-radius: 0 8px 8px 0;
+    }
+    .pull-quote p {
+      font-family: 'Source Serif 4', serif; font-style: italic;
+      font-size: 1.15rem; color: var(--text-strong); line-height: 1.6;
+      margin-bottom: 8px !important;
+    }
+    .pull-quote cite {
+      font-style: normal; font-family: 'DM Sans', sans-serif;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .data-strip {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1px; background: var(--border); border-radius: 8px;
+      overflow: hidden; margin: 36px 0;
+    }
+    .stat-cell {
+      background: var(--surface); padding: 20px; text-align: center;
+    }
+    .stat-value {
+      font-size: 1.5rem; font-weight: 800; margin-bottom: 4px;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .stat-label {
+      font-size: 12px; color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .sources-section {
+      margin-top: 48px; padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .sources-section h3 {
+      font-size: 13px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 16px;
+    }
+    .source-list { display: flex; flex-wrap: wrap; gap: 12px; }
+    .source-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 6px;
+      font-size: 13px; color: var(--text); transition: all .2s;
+    }
+    .source-link:hover {
+      border-color: var(--border-hover); color: var(--text-strong);
+      background: var(--surface-2);
+    }
+    .source-link img { border-radius: 2px; }
+    .story-nav {
+      display: flex; gap: 16px; margin-top: 56px;
+      padding-top: 32px; border-top: 1px solid var(--border);
+    }
+    .story-nav a {
+      flex: 1; padding: 20px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 8px;
+      transition: all .2s; display: flex; flex-direction: column;
+      text-decoration: none;
+    }
+    .story-nav a:hover {
+      border-color: var(--border-hover); background: var(--surface-2);
+    }
+    .nav-prev { align-items: flex-start; }
+    .nav-next { align-items: flex-end; text-align: right; }
+    .nav-arrow { font-size: 18px; color: var(--text-muted); }
+    .nav-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 4px 0; }
+    .nav-title { font-size: 14px; color: var(--text-strong); font-weight: 500; line-height: 1.4; }
+    footer {
+      text-align: center; padding: 40px 24px; color: var(--text-muted);
+      font-size: 13px; border-top: 1px solid var(--border); margin-top: 60px;
+    }
+    @media (max-width: 640px) {
+      .article-container h1 { font-size: 1.6rem; }
+      .article-body { font-size: 16px; }
+      .data-strip { grid-template-columns: 1fr; }
+      .story-nav { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <nav class="sticky-nav">
+    <a href="../index.html" class="back-arrow">&larr;</a>
+    <a href="../index.html" class="brand">THE VAULT</a>
+  </nav>
+
+  <article class="article-container">
+    <div class="category-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</div>
+    <h1>Nature Study Finds Human Scientists Still Outperform Best AI Agents on Complex Research Tasks</h1>
+    <div class="meta-row">
+      <span>4 min read</span>
+      <span>847 words</span>
+      <span>2 sources</span>
+    </div>
+
+    
+        <div class="key-takeaway" style="border-left-color: #5eead4;">
+          <div class="kt-label" style="color: #5eead4;">Key Takeaway</div>
+          <p>On the most demanding scientific benchmarks, the best AI agents complete just 20% of complex tasks versus 70% for human scientists.</p>
+        </div>
+        
+
+    <div class="article-body">
+      <p><span class="drop-cap">F</span>or all the breathless talk of artificial intelligence replacing researchers, a sobering new assessment published by <em>Nature</em> on April 13 delivers a blunt verdict: human scientists still trounce the best AI agents when it comes to the complex, messy work of real scientific discovery. The finding, drawn from the 2026 Stanford AI Index Report and corroborated by multiple independent benchmarks, arrives at a moment when labs and universities are racing to deploy autonomous AI agents across every stage of the research pipeline.</p>
+<p>The <em>Nature</em> analysis, a state-of-the-industry report synthesizing data from Stanford's Human-Centered AI Institute and peer-reviewed evaluations, found that on the most demanding scientific benchmarks, the best AI agents perform only about half as well as experts with PhDs. That gap persists even as frontier models have conquered narrower academic tests -- passing PhD-level multiple-choice exams and earning gold medals at the International Mathematical Olympiad.</p>
+<h2>The Numbers Tell the Story</h2>
+<p>The disconnect between exam performance and practical scientific ability is stark. On DiscoveryWorld, a benchmark developed by Peter Jansen at the Allen Institute for AI (Ai2) that requires agents to form hypotheses, design experiments, execute them, and analyze results, the best AI systems complete only around 20% of tasks at higher difficulty levels. Average human scientists with advanced degrees solve roughly 70% of those same challenges -- a 50-percentage-point chasm.</p>
+<p>On MLE-bench, which challenges AI systems with 75 real-world data science competitions drawn from Kaggle, the best-performing setup -- OpenAI's o1-preview with AIDE scaffolding -- achieved at least the level of a Kaggle bronze medal in just 16.9% of competitions. Meanwhile, on the OSWorld benchmark for autonomous computer tasks, AI agents jumped from 12% to approximately 66% task success over the past year, yet still fail roughly one in three attempts on structured tasks that humans handle routinely.</p>
+<p>Even on Humanity's Last Exam, a collection of the hardest expert-level questions across disciplines, the best AI models top out around 35% accuracy while human domain experts average approximately 90% -- exposing a gap of more than 50 points.</p>
+<h2>The Jagged Frontier</h2>
+<p>Researchers describe the problem as a "jagged frontier" of AI capability. Models that can solve extraordinarily complex mathematics problems fail at surprisingly simple tasks. The top AI model reads analog clocks correctly only 50.1% of the time. This unpredictability is precisely what makes autonomous deployment in science risky.</p>
+<p>"We generally lack measures of how well a system, or agent, needs to function in a particular setting," said Ray Perrault, co-director of the Stanford AI Index steering committee, cautioning that strong benchmark scores may not translate to real-world research effectiveness.</p>
+<p>Peter Jansen of Ai2, whose DiscoveryWorld benchmark has been cited nearly 80 times since its 2024 release, put the gap in sharper terms. His research shows that AI agents possess impressive "book smarts" -- they can ace standardized science exams -- but lack the "street smarts" required for genuine scientific inquiry. Agents that received A grades on ARC science exams initially failed over 90% of practical ScienceWorld tasks when those benchmarks launched in 2022, though frontier models have since climbed into the low 80s on that earlier test.</p>
+<h2>Adoption Outpaces Capability</h2>
+<p>Despite these limitations, researchers have enthusiastically embraced AI tools. The number of publications in the natural sciences mentioning AI grew almost 30-fold from 2010 to 2025, and AI-related computer science publications more than doubled over the past decade, from 102,000 to 258,000. Many scientists now rely on AI agents to autonomously carry out scientific workflows, even as the <em>Nature</em> report expresses skepticism about the agents' actual performance on complex tasks.</p>
+<p>The Stanford report also documents a telling pattern in clinical AI research: of more than 500 reviewed clinical AI studies, nearly half relied on exam-style questions rather than real patient data, with only 5% using authentic clinical information. The finding suggests that the gap between AI performance on curated tests and messy real-world problems extends well beyond the laboratory bench.</p>
+<h2>What Comes Next</h2>
+<p>The picture is not entirely discouraging for AI proponents. Human-AI collaboration consistently outperforms either humans or AI working alone, according to the AgentDS technical report. The most successful approaches combine human strategic reasoning -- diagnosing modeling failures, injecting domain knowledge, making judgment calls about generalization -- with AI-assisted implementation that accelerates coding, experimentation, and iteration.</p>
+<p>Stanford computer scientist James Zou captured the nuance: "AI excels at spotting gaps, but judgment calls still need humans."</p>
+<p>For now, the message from the research community is clear. AI agents are powerful accelerators, but the irreplaceable core of scientific work -- the capacity to navigate ambiguity, exercise judgment under uncertainty, and connect disparate threads of knowledge into genuine insight -- remains a distinctly human advantage. The question is not whether AI will eventually close the gap, but how many premature claims of parity the field will have to walk back before it does.</p>
+    </div>
+
+    
+        <blockquote class="pull-quote" style="border-left-color: #5eead4;">
+          <p>We generally lack measures of how well a system, or agent, needs to function in a particular setting.</p>
+          <cite>— Ray Perrault, Co-director, Stanford AI Index</cite>
+        </blockquote>
+        
+    <div class="data-strip">
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #5eead4;">20% vs 70%</div>
+              <div class="stat-label">AI vs human on DiscoveryWorld</div>
+            </div>
+            
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #5eead4;">16.9%</div>
+              <div class="stat-label">Best AI bronze-medal rate on MLE-bench</div>
+            </div>
+            
+            <div class="stat-cell">
+              <div class="stat-value" style="color: #5eead4;">35% vs 90%</div>
+              <div class="stat-label">AI vs human on Humanitys Last Exam</div>
+            </div>
+            </div>
+    
+        <div class="sources-section">
+          <h3>Sources</h3>
+          <div class="source-list">
+            <a href="https://www.nature.com/articles/d41586-026-01199-z" target="_blank" rel="noopener" class="source-link">
+              <img src="https://www.google.com/s2/favicons?domain=nature.com&sz=32" alt="Nature" width="16" height="16" loading="lazy">
+              <span>Nature</span>
+            </a>
+            
+            <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener" class="source-link">
+              <img src="https://www.google.com/s2/favicons?domain=hai.stanford.edu&sz=32" alt="Stanford HAI" width="16" height="16" loading="lazy">
+              <span>Stanford HAI</span>
+            </a>
+            </div>
+        </div>
+        
+
+    <div class="story-nav">
+      <a href="11-google-gemini-auto-browse-chrome.html" class="nav-prev"><span class="nav-arrow">&larr;</span><span class="nav-label">Previous</span><span class="nav-title">Google Brings Gemini-Powered Auto Browse to Chrome for Enterprise Task Automation</span></a>
+      <a href="13-apple-pararnn-665x-rnn-speedup.html" class="nav-next"><span class="nav-label">Next</span><span class="nav-arrow">&rarr;</span><span class="nav-title">Apple ParaRNN Achieves 665x Speedup for Nonlinear RNN Training, Accepted as ICLR Oral</span></a>
+    </div>
+  </article>
+
+  <footer>The Vault &mdash; AI Edition &middot; Published April 22, 2026</footer>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var h = document.documentElement;
+      var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      document.getElementById('progressBar').style.width = pct + '%';
+    });
+  </script>
+</body>
+</html>
