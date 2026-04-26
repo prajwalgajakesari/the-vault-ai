@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Infosys and OpenAI Partner to Scale Agentic AI Across Enterprise — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Infosys and OpenAI Partner to Scale Agentic AI Across Enterprise</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 823 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Infosys will integrate OpenAI models into its 600-agent Topaz Fabric platform, joining IT services firms racing to become the enterprise distribution layer for AI labs.</p>
+</div>
+<div class="article-body">
+<p># Infosys and OpenAI Partner to Scale Agentic AI Across Enterprise</p>
+<p>Infosys has struck a strategic collaboration with OpenAI to embed the AI lab's frontier models and coding tools into the Indian IT giant's Topaz platform, marking one of the most significant enterprise AI distribution deals of 2026 and underscoring a broader race among global IT services firms to become the deployment arm of Silicon Valley's leading AI companies.</p>
+<h2>The Deal</h2>
+<p>Announced on April 22, the partnership will see Infosys integrate OpenAI's technology -- including its Codex agentic coding assistant, which now counts more than four million weekly active users -- into Infosys Topaz Fabric, the company's composable, open agentic services suite. The initial focus areas span software engineering, legacy code modernization, DevOps automation, e-commerce, and other engineering-led domains where AI agents can deliver measurable productivity gains.</p>
+<p>Infosys CEO Salil Parekh framed the collaboration as a step-change in how enterprises consume AI. "Generative and Agentic AI will redefine how enterprises operate and grow," Parekh said. The partnership, he added, "establishes an operating model to unlock AI value at scale -- uniting technology, talent, and transformation playbooks so clients can move decisively from pilots to performance, creating competitive advantage."</p>
+<p>The practical upshot: Infosys engineers will deploy Codex across enterprise use cases such as automated code review, vulnerability detection, legacy code modernization, and full-stack application development, while embedding OpenAI's models into the broader workflows where knowledge work actually gets done.</p>
+<h2>A Platform Play</h2>
+<p>Infosys Topaz Fabric is no side project. The platform houses roughly 600 purpose-built AI agents tailored to different services and industry verticals, according to CTO Mohammed Rafee Tarafdar's presentation at Infosys Investor AI Day in February 2026. The company says it is collaborating with 90 percent of its top 200 clients on AI initiatives, with more than 4,600 AI projects currently underway. AI-related work already accounts for 5.5 percent of Infosys's quarterly revenue and is, by management's account, growing at a "robust pace."</p>
+<p>By layering OpenAI's models on top of Topaz, Infosys is betting it can deliver more advanced capabilities -- intelligent automation, natural language interfaces, and agent-based systems that perform complex tasks with minimal human intervention -- to clients who lack the internal engineering muscle to build such systems from scratch.</p>
+<h2>The Bigger Picture: IT Services as AI's Distribution Layer</h2>
+<p>The Infosys-OpenAI deal does not exist in isolation. It is the latest in a cascade of partnerships between AI labs and the global IT services and consulting sector. In February, OpenAI formalized multiyear agreements with Accenture, Capgemini, McKinsey, and Boston Consulting Group to sell and implement its Frontier AI agent platform. Tata Consultancy Services, Cognizant, CGI, and PwC are also named as Codex Labs partners. Together, these firms form the distribution network OpenAI is building to push enterprise adoption beyond early adopters.</p>
+<p>Infosys Chairman Nandan Nilekani offered a clear-eyed take on why IT services companies remain essential even as AI grows more autonomous. "While AI agents can automate tasks and enhance productivity, enterprises still require deep systems integration, governance, trust frameworks, and large-scale transformation capabilities to fundamentally re-engineer their businesses," Nilekani said.</p>
+<p>His framing captures a tension at the heart of the AI services boom. Agentic AI threatens to automate much of the rote software work that has historically been the bread and butter of Indian IT outsourcers. Yet the same complexity that makes enterprises slow to adopt AI -- sprawling legacy systems, regulatory requirements, data governance concerns -- also makes them dependent on exactly the kind of large-scale integration and change management that firms like Infosys specialize in.</p>
+<h2>A $300 Billion Market</h2>
+<p>Infosys is clearly positioning for what it sees as a massive addressable market. At its Investor Day in February, the company unveiled an AI First Value Framework targeting what a Nasscom-McKinsey report estimates is a USD 300 to 400 billion AI services opportunity by 2030. Infosys has developed more than 30 new service offerings across six identified AI value pools and is training tens of thousands of employees on AI tools and methodologies.</p>
+<p>The competitive pressure is real. Accenture has been the most aggressive mover, embedding OpenAI across its consulting, operations, and delivery work and equipping tens of thousands of professionals with ChatGPT Enterprise. TCS and Wipro, meanwhile, have leaned into partnerships with Microsoft and Anthropic. Infosys itself struck a deal with Anthropic in February to build enterprise-grade AI agents, making the OpenAI partnership part of a deliberate multi-model strategy.</p>
+<h2>What to Watch</h2>
+<p>The partnership's success will ultimately be measured by whether it accelerates the shift from AI pilots to production deployments. Enterprises have spent the past two years experimenting with generative AI; the pitch from Infosys and OpenAI is that the combination of frontier models, a battle-tested agentic platform, and deep enterprise transformation expertise can finally close the gap between proof-of-concept and business impact. With agentic AI investment projected to surge 38 percent in 2026, the window for IT services firms to establish themselves as the indispensable middle layer between AI labs and enterprise buyers is narrowing fast.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>“While AI agents can automate tasks, enterprises still require deep systems integration, governance, trust frameworks, and large-scale transformation capabilities.”</blockquote><cite>— Nandan Nilekani, Chairman, Infosys</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">4M+</div><div class="stat-label">Codex weekly active users</div></div><div class="stat-cell"><div class="stat-value">600</div><div class="stat-label">Topaz Fabric AI agents</div></div><div class="stat-cell"><div class="stat-value">4,600+</div><div class="stat-label">Active Infosys AI projects</div></div><div class="stat-cell"><div class="stat-value">$300-400B</div><div class="stat-label">AI services market by 2030</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.infosys.com/newsroom/press-releases/2026/collaboration-accelerate-enterprise-ai-transformation.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=infosys.com&sz=32" alt="">Infosys Newsroom</a><a href="https://techcrunch.com/2026/04/22/openai-teams-up-with-infosys-to-bring-ai-tools-to-more-businesses/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://www.business-standard.com/amp/markets/capital-market-news/infosys-ties-up-with-openai-to-boost-enterprise-ai-transformation-126042300274_1.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=business-standard.com&sz=32" alt="">Business Standard</a></div></div>
+<div class="article-nav"><a href="08-salesforce-google-cloud-cross-platform-agents.html" class="nav-prev">← Salesforce and Google Cloud Enable AI Agents to Ac</a><a href="10-wpp-google-earth-ai-physical-targeting.html" class="nav-next">WPP Integrates Google Earth AI Into Open Marketing →</a></div>
+<footer>The Vault — AI Edition · Published April 25, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

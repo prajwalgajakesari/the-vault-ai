@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Launches $25K Bio Bug Bounty to Stress-Test GPT-5.5 Safety — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>OpenAI Launches $25K Bio Bug Bounty to Stress-Test GPT-5.5 Safety</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 891 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI is offering $25,000 for the first universal jailbreak of GPT-5.5's biosafety guardrails, turning red teaming into a structured experiment.</p>
+</div>
+<div class="article-body">
+<p># OpenAI Launches $25K Bio Bug Bounty to Stress-Test GPT-5.5 Safety</p>
+<p>OpenAI is putting a price on its own model's vulnerabilities. The company announced on April 23 a restricted Bio Bug Bounty program that will pay up to $25,000 to the first security researcher who can devise a universal jailbreak capable of bypassing GPT-5.5's biosafety guardrails -- a move that marks one of the most targeted and high-stakes red-teaming exercises ever conducted on a frontier AI system.</p>
+<p>The challenge is deceptively simple in description but formidable in practice: participants must craft a single prompt that can defeat all five questions in a curated bio safety challenge, starting from a clean chat session with no prior context. The first person to demonstrate a complete, reproducible universal jailbreak walks away with the top prize. OpenAI has indicated it may also issue smaller discretionary awards for partial successes.</p>
+<h2>A Controlled Hunt for Dangerous Gaps</h2>
+<p>Unlike traditional bug bounties that cast a wide net across a product's attack surface, OpenAI's Bio Bug Bounty is surgically narrow. The program is invitation- and application-only, restricted to researchers with vetted backgrounds in AI red teaming, cybersecurity, or biosecurity. All participants must hold existing ChatGPT accounts and sign a non-disclosure agreement. Every prompt, model output, and finding produced during the program remains under NDA.</p>
+<p>Testing is confined to a single environment: GPT-5.5 running on Codex Desktop. Applications opened April 23 with rolling acceptances and close June 22, 2026. The testing window runs from April 28 through July 27, giving accepted researchers a full three months to probe the model's defenses.</p>
+<p>"In our ongoing work to strengthen our safeguards for advanced AI capabilities in biology, we're inviting researchers with experience in AI red teaming, security, or biosecurity to try to find a universal jailbreak," OpenAI said in its announcement of the program.</p>
+<h2>What Pre-Release Testing Already Found</h2>
+<p>The bounty program does not exist in a vacuum. It complements a battery of pre-deployment safety evaluations documented in the GPT-5.5 system card, which OpenAI published alongside the model's launch. The company subjected GPT-5.5 to its full Preparedness Framework, including targeted red-teaming for advanced biology and cybersecurity capabilities, and collected feedback from nearly 200 early-access partners before release.</p>
+<p>External assessors were part of the process as well. SecureBio, an independent biosecurity organization, evaluated two pre-release checkpoints of GPT-5.5 between April 2 and April 9. The group found that GPT-5.5 exceeded state-of-the-art scores on the Virology Capabilities Test, surpassing every other model SecureBio has tested. While the checkpoints "consistently recognized high-risk prompts and refused to provide in-depth, practical assistance," SecureBio flagged a critical caveat: the organization did not systematically test how robust those mitigations are to jailbreaking.</p>
+<p>"Given that uncertainty, the models' strong high-level reasoning capabilities, and the models' blind spots on dual-use topics, we conclude that the models' potential for facilitating sophisticated planning by expert actors remains a critical biosecurity consideration," SecureBio wrote in its pre-release assessment.</p>
+<p>That candid admission helps explain why OpenAI is now offering cash for exactly the kind of adversarial testing SecureBio did not perform.</p>
+<h2>Red Teaming as an Emerging Industry Standard</h2>
+<p>The Bio Bug Bounty sits within a broader shift across the AI industry toward structured adversarial testing. OpenAI already operates separate Safety Bug Bounty and Security Bug Bounty programs for researchers interested in broader vulnerability work. Anthropic, Google DeepMind, and Meta have all established their own red-teaming pipelines, and the White House's October 2023 executive order on AI safety explicitly encouraged frontier labs to adopt pre-deployment adversarial evaluations.</p>
+<p>But the GPT-5.5 bounty pushes the concept further in two important ways. First, it narrows the scope to a single, high-consequence domain -- biology -- rather than treating safety as a monolithic category. Second, it defines success in binary terms: either a universal jailbreak exists, or it does not. That clarity transforms red teaming from a qualitative exercise into something closer to a falsifiable experiment.</p>
+<p>The approach is not without critics. Some biosecurity researchers have argued that offering financial incentives to break biological safety guardrails -- even under NDA -- risks normalizing the search for dangerous prompts and could produce techniques that eventually leak. Others counter that if a universal jailbreak exists, it is better discovered by vetted researchers under controlled conditions than by bad actors in the wild.</p>
+<h2>What It Means for the Field</h2>
+<p>The program's design reveals how OpenAI is thinking about safety at the frontier. Rather than relying solely on internal evaluations and third-party audits, the company is building a layered defense that includes financial incentives for external adversaries. Each major model release is now paired with a public-facing safety document and a targeted red-teaming exercise -- a launch routine that treats safety evaluation as an ongoing process rather than a one-time gate.</p>
+<p>For the broader AI ecosystem, the Bio Bug Bounty sets a precedent. If a $25,000 prize is enough to surface a universal jailbreak in GPT-5.5, it will validate the model and demonstrate that relatively modest investments in structured adversarial testing can yield high-confidence safety assurances. If no one claims the prize, it provides a different kind of evidence: that the model's biosafety guardrails withstood three months of focused attack by credentialed specialists.</p>
+<p>Either outcome produces information the field badly needs as AI models grow more capable in sensitive domains. The testing window opens April 28. The clock starts then.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>“The models' potential for facilitating sophisticated planning by expert actors remains a critical biosecurity consideration.”</blockquote><cite>— SecureBio, Independent biosecurity evaluator</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">$25,000</div><div class="stat-label">Top prize</div></div><div class="stat-cell"><div class="stat-value">5</div><div class="stat-label">Bio safety questions</div></div><div class="stat-cell"><div class="stat-value">3 months</div><div class="stat-label">Testing window</div></div><div class="stat-cell"><div class="stat-value">~200</div><div class="stat-label">Early-access partners</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/gpt-5-5-bio-bug-bounty/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI</a><a href="https://letsdatascience.com/news/openai-launches-gpt-55-bio-bug-bounty-program-0b56430d" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=letsdatascience.com&sz=32" alt="">Let's Data Science</a><a href="https://www.newsbytesapp.com/news/science/openai-launches-25-000-bio-bug-bounty-to-test-gpt-5-5-safety/story" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=newsbytesapp.com&sz=32" alt="">NewsBytes</a><a href="https://securebio.substack.com/p/securebios-pre-release-assessment" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=securebio.substack.com&sz=32" alt="">SecureBio</a><a href="https://cybersecuritynews.com/gpt-5-5-bio-bug-bounty/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cybersecuritynews.com&sz=32" alt="">CyberSecurity News</a></div></div>
+<div class="article-nav"><a href="10-wpp-google-earth-ai-physical-targeting.html" class="nav-prev">← WPP Integrates Google Earth AI Into Open Marketing</a><a href="12-ai-drug-discovery-173-clinical-2026.html" class="nav-next">AI-Discovered Drugs Reach 173 Clinical Programs as →</a></div>
+<footer>The Vault — AI Edition · Published April 25, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
