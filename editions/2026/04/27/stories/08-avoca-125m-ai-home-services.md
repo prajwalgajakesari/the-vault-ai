@@ -1,0 +1,31 @@
+# Avoca Raises $125 Million to Build AI Front Office for Home Services
+
+A missed call at an HVAC company is not a minor inconvenience -- it is a lost job worth hundreds or thousands of dollars, gone to a competitor who picked up the phone. Avoca, a startup that began by solving exactly that problem, has now raised more than $125 million across Seed, Series A, and Series B rounds at a $1 billion valuation, betting that AI voice agents can become the operational backbone of America's home services industry.
+
+The Series B was led by Meritech Capital Partners and General Catalyst, with continued participation from Series A lead Kleiner Perkins and earlier backer Amplify Partners. Y Combinator, which backed the company at the seed stage in 2024, also remains on the cap table. The fundraise marks Avoca's arrival as a unicorn less than two years after emerging from stealth, a trajectory that underscores investor appetite for AI applied to massive, unglamorous, and chronically underdigitized industries.
+
+Avoca was founded by Tyson Chen and Apurva Shrivastava, two MIT-trained engineers who originally built an AI system to handle missed calls for restaurants. Their pivot to home services came through serendipity: while walking a Texas restaurant conference, a Dallas heating and air company called Rescue Air found them, and everything changed.
+
+"Home services is one of the last great underdigitized markets. Early on, it was hard to break into, as contractors were skeptical of AI," Chen said. "Once we earned that trust, we uncovered an abundance of opportunity on the other side. Now, we're leapfrogging the industry straight into the AI era alongside our customers."
+
+The opportunity is enormous. The US home services market exceeds $1 trillion in annual spend, yet the front-office operations of most contractors -- answering phones, booking appointments, following up on estimates, managing demand across technician schedules -- still run on manual labor, spreadsheets, and hope. When a storm spikes call volume or a dispatcher calls in sick, leads fall through the cracks. Avoca's platform addresses the entire front-office workflow: AI-powered voice agents answer inbound calls within seconds, book jobs directly into existing CRMs like ServiceTitan, follow up on outstanding estimates, and dynamically adjust marketing spend based on real-time technician capacity.
+
+The numbers suggest the approach is working. Avoca is on track to book $1 billion in jobs for its customers this year alone. The company surpassed eight figures in annual recurring revenue in 2025 and says its AI agents achieve booking rates on par with a contractor's best human customer service representatives -- while capturing millions in additional annual revenue that would otherwise be lost to missed calls and abandoned follow-ups.
+
+"Every successful contractor already has a winning playbook. Answer every call. Follow up relentlessly. Fill the board before it empties," said co-founder Shrivastava. "The reality is that execution breaks down when demand spikes or when teams are stretched thin."
+
+The customer roster backs the traction claims. Avoca counts Turnpoint, 1-800-GOT-JUNK?, Goettl, and Sila Services among its clients, and has established integrations with ServiceTitan, Nexstar, and Clover. Keith Chisholm, CTO of Sila Services, one of the largest HVAC, plumbing, and electrical operators in the country, noted the impact: "Since we started using Avoca, our booking rates have jumped dramatically, and we're capturing far more demand after hours and during peak storms. Additionally, our customers love speaking to the AI."
+
+The investment thesis from the lead backers centers on category creation. "Three years ago, AI voice for home services wasn't a category. Avoca created it," said Alex Clayton, General Partner at Meritech Capital. "Today, every major contractor in America knows the name." General Catalyst partner Vedant Suri framed the bet in broader terms: "There's no shortage of software built for software companies. Avoca is building an AI workforce for the people who actually keep America running -- millions of service businesses across the country."
+
+Avoca's rise fits a pattern that has been building throughout 2025 and into 2026: vertical AI companies targeting specific industries with tailored solutions are attracting outsized valuations because they can demonstrate concrete ROI in ways that horizontal AI tools often cannot. Unlike a general-purpose chatbot that might save a knowledge worker a few minutes per day, Avoca's agents directly generate revenue by converting leads that would otherwise be lost. That tight connection between AI deployment and top-line impact makes the unit economics compelling for both the startup and its customers.
+
+The competitive landscape is heating up. ServiceTitan itself has been investing in AI features, and a cohort of newer startups is chasing similar opportunities in adjacent service verticals. But Avoca's head start -- its deep integration with industry-standard tools, its growing dataset of real contractor conversations, and its expanding customer base -- creates a data flywheel that will be difficult for latecomers to replicate.
+
+Kleiner Perkins partner Leigh Marie Braswell, who has championed the company since its Series A, put it this way: "What excites me about Avoca is that they're applying AI where execution is the real bottleneck. Tyson and Apurva have built something that feels less like a tool and more like core infrastructure for how this industry operates."
+
+Chen offered a closing thought that captured the company's ambition: "The physical world still needs to be maintained. The people who do that work deserve the same operational firepower that Fortune 500 companies have had for decades. We're building that infrastructure and putting it in their hands."
+
+---
+
+**Sources:** [PR Newswire](https://www.prnewswire.com/news-releases/avoca-raises-125m-at-1b-valuation-to-power-americas-services-economy-with-ai-302753962.html), [Fortune](https://fortune.com/2026/04/27/avoca-ai-agents-missed-calls-hvac-plumbing-roofing-kleiner-perkins-chen-shrivastava-braswell/), [Avoca Blog](https://www.avoca.ai/blog/avoca-raises-125m-series-b-1b-valuation), [TechStartups](https://techstartups.com/2026/04/27/top-startup-and-tech-funding-news-april-27-2025/)
