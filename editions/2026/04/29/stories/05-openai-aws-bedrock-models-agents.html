@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AWS Rolls Out OpenAI Models on Bedrock as Cloud Exclusivity Era Ends — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>AWS Rolls Out OpenAI Models on Bedrock as Cloud Exclusivity Era Ends</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 913 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>AWS launched GPT-5.5, Codex, and Managed Agents on Bedrock within 24 hours of Microsoft exclusivity expiring, marking the start of a multi-cloud era for OpenAI.</p>
+</div>
+<div class="article-body">
+<p>The seven-year era of Microsoft Azure as the sole cloud home for OpenAI's models ended with a bang on April 28, 2026, when Amazon Web Services launched three OpenAI offerings on Amazon Bedrock barely 24 hours after the exclusivity clause expired. The move signals a seismic shift in AI cloud dynamics and marks the beginning of a true multi-cloud era for the world's most widely used AI lab.</p>
+<p>AWS debuted GPT-5.5 and GPT-5.4 on Bedrock in limited preview, alongside Codex (OpenAI's coding agent) and a jointly built product called Bedrock Managed Agents. The trio of launches transforms Bedrock from a marketplace dominated by Anthropic's Claude and Meta's Llama into the first platform where enterprises can mix and match frontier models from virtually every major AI provider under a single set of security and billing controls.</p>
+<h2>A Deal Years in the Making</h2>
+<p>The groundwork was laid months before the exclusivity expired. In February 2026, Amazon committed to investing up to $50 billion in OpenAI, building on an existing $38 billion AWS agreement that OpenAI subsequently expanded by $100 billion over eight years. When Microsoft and OpenAI formally amended their partnership on April 27, making OpenAI free to serve all products on any cloud, AWS was ready to move immediately.</p>
+<p>"This is what our customers have been asking us for for a really long time," AWS CEO Matt Garman said at a launch event in San Francisco. "The biggest thing is, how do we get OpenAI technologies in the hands of AWS customers. That's what they wanted, and that's what we wanted."</p>
+<p>The restructured Microsoft-OpenAI agreement grants Microsoft non-exclusive rights to OpenAI's intellectual property through 2032, while revenue-share payments continue through 2030 subject to a total cap. Microsoft no longer shares revenue with OpenAI from serving its models on Azure, a concession that effectively removed the financial barrier to OpenAI distributing its models elsewhere.</p>
+<h2>Managed Agents: The Crown Jewel</h2>
+<p>While GPT-5.5 access on Bedrock grabs headlines, the more strategically significant launch is Bedrock Managed Agents, a jointly engineered agent runtime that is exclusive to AWS. The product combines OpenAI's frontier models with what the companies describe as a "stateful runtime technology" designed to let AI agents remember tasks and maintain context over extended periods.</p>
+<p>OpenAI CEO Sam Altman, who appeared at the launch event via recorded video, confirmed the AWS exclusivity for the managed agents product in a subsequent interview with Stratechery's Ben Thompson. "AWS is one of the companies that change what builders can do," Altman said, underscoring the strategic importance of the collaboration.</p>
+<p>The agent runtime is engineered for faster execution, sharper reasoning, and reliable steering of long-running tasks, according to AWS documentation. For enterprise customers, it integrates with IAM, AWS PrivateLink, guardrails, encryption, and CloudTrail logging, meaning companies can deploy OpenAI-powered agents without rearchitecting their security and compliance infrastructure.</p>
+<h2>What the Numbers Say</h2>
+<p>The financial dimensions of this partnership are staggering. OpenAI's expanded AWS agreement totals $100 billion over eight years, layered on top of Amazon's $50 billion equity investment. For context, the entire global cloud infrastructure market generated roughly $330 billion in revenue in 2025. OpenAI is betting a significant fraction of the industry's total output on a single cloud relationship.</p>
+<p>For enterprise customers, the economics tilt toward wherever they already spend. Usage of OpenAI models on Bedrock counts toward existing AWS Enterprise Discount Programs and savings plans, with consolidated billing through a single invoice. Prompt caching comes at a 90 percent discount on cached inputs, a meaningful cost reduction for high-volume applications. Per-token pricing matches OpenAI's direct API rates, so the choice between platforms comes down to existing commitments rather than unit economics.</p>
+<h2>The Multi-Cloud Implications</h2>
+<p>The end of Azure exclusivity reshapes competitive dynamics across the $330 billion cloud market. For years, Microsoft's exclusive access to OpenAI models was its most potent selling point in enterprise AI deals. Competitors, particularly Anthropic and Google, exploited the Azure lock-in as a sales objection, arguing that customers should avoid single-vendor dependency. That argument now cuts both ways: OpenAI is available everywhere, but so is the competition.</p>
+<p>Google Cloud is widely expected to be next. With OpenAI now free to license to any provider, a Google Cloud partnership would give OpenAI access to the three largest hyperscalers, covering more than 65 percent of global cloud market share. The question is no longer whether it will happen, but when.</p>
+<p>For Anthropic, which has built its cloud distribution strategy around deep integrations with both AWS and Google Cloud, the arrival of OpenAI on Bedrock introduces direct competition on its home turf. Anthropic's Claude has been a cornerstone of Bedrock's model catalog; now enterprises can A/B test Claude against GPT-5.5 within the same platform, using the same tooling and billing.</p>
+<h2>What to Watch</h2>
+<p>Three developments will determine how this reshaping plays out. First, the transition from limited preview to general availability, expected within weeks, will reveal actual enterprise adoption patterns. Second, the Bedrock Managed Agents product, exclusive to AWS, could become the template for how cloud providers differentiate beyond raw model access. If jointly built agent runtimes prove stickier than commodity model APIs, expect Google and Microsoft to pursue similar co-development arrangements.</p>
+<p>Third, Microsoft's response will be telling. The company's shares slipped on the exclusivity news, but Microsoft retains significant advantages: years of integration work, the Office 365 distribution channel, and a relationship with OpenAI that, while no longer exclusive, remains deeply intertwined. Whether Microsoft treats this as a loss or an opportunity to double down on its own model investments, including its rumored next-generation internal models, will shape the competitive landscape for years to come.</p>
+<p>The cloud AI wars are entering their most competitive phase yet. With every major model available on every major platform, the battleground shifts from access to execution: which cloud provider can offer the best tools, the tightest integration, and the most compelling economics for building production AI systems. For enterprise buyers, that is unambiguously good news.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>"This is what our customers have been asking us for for a really long time."</blockquote><cite>— Matt Garman, CEO, Amazon Web Services</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">$100B</div><div class="stat-label">OpenAI-AWS agreement over 8 years</div></div><div class="stat-cell"><div class="stat-value">$50B</div><div class="stat-label">Amazon equity investment in OpenAI</div></div><div class="stat-cell"><div class="stat-value">7 years</div><div class="stat-label">Azure exclusive hosting duration</div></div><div class="stat-cell"><div class="stat-value">90%</div><div class="stat-label">Bedrock cached input discount</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.cnbc.com/2026/04/28/openai-brings-models-to-aws-after-ending-exclusivity-with-microsoft.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="">CNBC</a><a href="https://www.geekwire.com/2026/openais-models-land-on-amazon-bedrock-one-day-after-microsoft-exclusivity-ends/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=geekwire.com&sz=32" alt="">GeekWire</a><a href="https://aws.amazon.com/about-aws/whats-new/2026/04/bedrock-openai-models-codex-managed-agents/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=aws.amazon.com&sz=32" alt="">AWS Blog</a><a href="https://stratechery.com/2026/an-interview-with-openai-ceo-sam-altman-and-aws-ceo-matt-garman-about-bedrock-managed-agents/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=stratechery.com&sz=32" alt="">Stratechery</a></div></div>
+<div class="article-nav"><a href="04-anthropic-30b-arr-fastest-growing.html" class="nav-prev">&larr; Anthropic Hits $30 Billion Annualized Revenue, Bec</a><a href="06-stanford-ai-index-transparency-drops.html" class="nav-next">Stanford AI Index Finds Most Capable Models Are No &rarr;</a></div>
+<footer>The Vault — AI Edition &middot; Published April 29, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
