@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mistral Releases Medium 3.5, a 128B Dense Open-Weights Model With 256K Context Window | The Vault</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,0.07);--border-hover:rgba(255,255,255,0.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+body{background:var(--bg);color:var(--text);font-family:"Source Serif 4",Georgia,serif;line-height:1.7;min-height:100vh}
+nav{position:sticky;top:0;z-index:100;background:rgba(16,16,20,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0.75rem 2rem;display:flex;align-items:center;justify-content:space-between;font-family:"DM Sans",sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;transition:color 0.2s}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+.brand{color:var(--text-strong);font-weight:700;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase}
+.article-header{max-width:720px;margin:3rem auto 2rem;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:0.4rem;font-family:"DM Sans",sans-serif;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--cat-color);margin-bottom:1rem}
+.cat-tag svg{width:14px;height:14px}
+h1{font-family:"DM Sans",sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.15;margin-bottom:1rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:1.2rem;font-family:"DM Sans",sans-serif;font-size:0.8rem;color:var(--text-muted);align-items:center}
+.meta-row span{display:flex;align-items:center;gap:0.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);display:flex;gap:0.8rem;align-items:flex-start}
+.takeaway svg{width:18px;height:18px;color:var(--cat-color);flex-shrink:0;margin-top:2px}
+.takeaway-content .takeaway-label{font-family:"DM Sans",sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--cat-color);margin-bottom:0.3rem}
+.takeaway-content p{font-size:0.95rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem 3rem}
+.article-body p{margin-bottom:1.2rem;font-size:1.05rem}
+.article-body h2{font-family:"DM Sans",sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 1rem}
+.article-body p:first-of-type::first-letter{font-size:3.2rem;font-weight:700;float:left;line-height:1;margin-right:0.1rem;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1.2rem 1.5rem;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:0.5rem}
+.pull-quote cite{font-family:"DM Sans",sans-serif;font-size:0.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;background:var(--border);border-radius:8px;overflow:hidden;margin:2rem 0}
+.data-cell{background:var(--surface);padding:1rem;text-align:center}
+.data-value{display:block;font-family:"DM Sans",sans-serif;font-size:1.3rem;font-weight:800;color:var(--cat-color)}
+.data-label{display:block;font-family:"DM Sans",sans-serif;font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem}
+.sources{max-width:720px;margin:0 auto 2rem;padding:0 1.5rem}
+.sources h3{font-family:"DM Sans",sans-serif;font-size:0.85rem;font-weight:700;color:var(--text-strong);margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:0.06em}
+.source-link{display:inline-flex;align-items:center;gap:0.4rem;font-family:"DM Sans",sans-serif;font-size:0.82rem;color:var(--text);text-decoration:none;padding:0.4rem 0.8rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;margin:0 0.4rem 0.4rem 0;transition:border-color 0.2s}
+.source-link:hover{border-color:var(--border-hover)}
+.source-favicon{width:16px;height:16px;border-radius:2px}
+.ext-icon{width:12px;height:12px;color:var(--text-muted)}
+.article-nav{max-width:720px;margin:0 auto 3rem;padding:0 1.5rem;display:flex;justify-content:space-between}
+.nav-link{display:flex;align-items:center;gap:0.3rem;font-family:"DM Sans",sans-serif;font-size:0.85rem;color:var(--text-muted);text-decoration:none;transition:color 0.2s}
+.nav-link:hover{color:var(--text-strong)}
+.nav-link svg{width:16px;height:16px}
+.nav-link.next{margin-left:auto}
+footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-family:"DM Sans",sans-serif;font-size:0.75rem;color:var(--text-muted)}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width 0.1s}
+@media(max-width:640px){h1{font-size:1.6rem}.data-strip{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progress"></div>
+<nav>
+<a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+<span class="brand">THE VAULT</span>
+<span></span>
+</nav>
+<header class="article-header">
+<div class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</div>
+<h1>Mistral Releases Medium 3.5, a 128B Dense Open-Weights Model With 256K Context Window</h1>
+<div class="meta-row">
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 890 words</span>
+<span>May 1, 2026</span>
+<span>3 sources</span>
+</div>
+</header>
+<div class="takeaway">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+<div class="takeaway-content">
+<div class="takeaway-label">KEY TAKEAWAY</div>
+<p>Mistral's 128B dense open-weights model unifies chat, reasoning, and code into a single model, scoring 77.6% on SWE-Bench Verified.</p>
+</div>
+</div>
+<div class="article-body">
+<p># Mistral Releases Medium 3.5, a 128B Dense Open-Weights Model With 256K Context Window</p>
+<p>Mistral AI on Tuesday released Medium 3.5, a 128-billion-parameter dense language model with open weights, a 256K-token context window, and a single set of weights that handles chat, reasoning, and code -- a combination the Paris-based company is betting will redefine what mid-tier models can do in production. The release, accompanied by Mistral's tagline "medium is the new large," lands as the open-weights movement enters a new phase of direct competition with proprietary frontier systems from OpenAI, Anthropic, and Google.</p>
+<p>Medium 3.5 is available immediately on Hugging Face under a modified MIT license, through the Mistral API, and as the default model in both Le Chat and Mistral Vibe, the company's coding assistant. API pricing is set at $1.50 per million input tokens and $7.50 per million output tokens.</p>
+<h2>One Model, Three Jobs</h2>
+<p>The most significant architectural choice in Medium 3.5 is what Mistral calls a "merged model" approach. Rather than shipping separate fine-tuned checkpoints for instruction following, chain-of-thought reasoning, and code generation, the company collapsed all three capabilities into a single dense model with configurable reasoning effort per request.</p>
+<p>"We believe that the future of AI deployment is a single model that can be configured at inference time, not a zoo of specialized checkpoints that operators have to route between," Mistral wrote in its technical announcement. The reasoning mode toggle lets developers choose between fast, low-latency replies and extended chain-of-thought processing without swapping models or endpoints -- a meaningful simplification for teams running production workloads.</p>
+<p>The model also ships with native vision capabilities, function calling, and JSON-structured output, making it a multimodal workhorse out of the box. Multilingual support spans more than a dozen languages, including English, French, German, Spanish, Chinese, Japanese, Korean, and Arabic.</p>
+<h2>Benchmark Performance</h2>
+<p>On SWE-Bench Verified, the standard benchmark for real-world coding tasks, Medium 3.5 scores 77.6% -- a result Mistral says places it ahead of both Devstral 2 and Qwen3.5 397B, a model more than three times its size. On the Tau3-Telecom agentic benchmark, it reaches 91.4%, underscoring the model's strength in tool use and multi-step task completion. Mistral has also claimed that Medium 3.5 surpasses Claude Sonnet 4.5 on several internal evaluations, though independent verification of those comparisons is still pending.</p>
+<p>"Medium 3.5 is our first flagship merged model," the company stated in its Hugging Face release notes. "It handles instruction-following, reasoning, and coding in a single set of weights, with a 256K context window."</p>
+<h2>Self-Hosting and the Open-Weights Play</h2>
+<p>The decision to release Medium 3.5 as open weights under a modified MIT license -- rather than restricting access to an API -- is Mistral's clearest signal yet that it sees self-hosted deployment as a primary go-to-market channel, not an afterthought. The dense 128B architecture can run on as few as four GPUs, a hardware requirement that puts it within reach of well-resourced enterprise teams and cloud deployments alike. An EAGLE speculative decoding variant has also been released on Hugging Face, designed to accelerate inference throughput.</p>
+<p>The pricing at $1.50/$7.50 per million tokens for API access positions Medium 3.5 in a middle tier -- substantially cheaper than frontier models from Anthropic and OpenAI but more expensive than smaller open-source alternatives like Llama or Qwen. That pricing has already drawn scrutiny from developers on Hacker News and elsewhere, with some arguing that the cost is too high for a model that users can, in theory, host themselves for the price of GPU compute.</p>
+<h2>Vibe Gets Remote Agents</h2>
+<p>Alongside Medium 3.5, Mistral announced that its Vibe coding assistant now supports remote agents -- cloud-based coding agents that can be spawned from the CLI or Le Chat and run asynchronously to produce finished pull requests on GitHub. The feature positions Vibe as a direct competitor to Cursor, Windsurf, and the growing field of AI-powered development environments, with Medium 3.5 serving as the backbone model.</p>
+<h2>Analysis: Mistral's Enterprise Bet</h2>
+<p>Medium 3.5 represents a strategic clarification for Mistral. After a period in which the company shipped a rapid succession of models across multiple size classes -- Mistral Small, Medium 3, Devstral, Codestral -- this release consolidates the lineup around a single, versatile model that Mistral clearly wants enterprises to standardize on. The merged-model approach eliminates the operational complexity of managing multiple specialized endpoints, which has been a persistent pain point for teams deploying open-weights models in production.</p>
+<p>The 256K context window is another enterprise-oriented feature, enabling use cases like full-codebase analysis, long-document summarization, and multi-turn agentic workflows that shorter-context models cannot support. Combined with native function calling and vision, Medium 3.5 is arguably the most complete single-model offering in the open-weights ecosystem today.</p>
+<p>But Mistral's challenge remains distribution. Meta's Llama family dominates open-weights mindshare, and Chinese labs like Alibaba's Qwen team are shipping competitive models at breakneck speed. Medium 3.5's benchmark numbers are strong, but converting benchmark performance into enterprise adoption requires more than raw capability -- it requires ecosystem, support, and trust. Mistral's European roots and data sovereignty pitch give it an angle in regulated industries, but the company will need to prove that one merged model truly replaces the specialist zoo if it wants Medium 3.5 to become the default choice for teams that have the option to self-host.</p>
+<p>The AI model market is fragmenting into two tiers: closed frontier systems sold as services, and open-weights models sold as infrastructure. With Medium 3.5, Mistral is making its most ambitious play yet for the latter category -- and betting that medium really is the new large.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;We believe that the future of AI deployment is a single model that can be configured at inference time, not a zoo of specialized checkpoints.&rdquo;</blockquote><cite>&mdash; Mistral AI, Company announcement</cite></div>
+<div class="data-strip"><div class="data-cell"><span class="data-value">128B</span><span class="data-label">Parameters</span></div><div class="data-cell"><span class="data-value">256K</span><span class="data-label">Context window</span></div><div class="data-cell"><span class="data-value">77.6%</span><span class="data-label">SWE-Bench Verified</span></div><div class="data-cell"><span class="data-value">$1.50/$7.50</span><span class="data-label">API pricing per M tokens</span></div></div>
+</div>
+<div class="sources">
+<h3>Sources</h3>
+<div><a href="https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5" target="_blank" rel="noopener" class="source-link"><img src="https://www.google.com/s2/favicons?domain=mistral.ai&sz=32" alt="" class="source-favicon">Mistral AI<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="ext-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a href="https://huggingface.co/mistralai/Mistral-Medium-3.5-128B" target="_blank" rel="noopener" class="source-link"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="" class="source-favicon">Hugging Face<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="ext-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a href="https://the-decoder.com/mistrals-new-flagship-medium-3-5-folds-chat-reasoning-and-code-into-one-model/" target="_blank" rel="noopener" class="source-link"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&sz=32" alt="" class="source-favicon">The Decoder<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="ext-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
+</div>
+<div class="article-nav">
+<a href="05-huawei-ascend-12b-chip-revenue-target.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Prev</a><a href="07-ibm-bob-ai-coding-platform.html" class="nav-link next">Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</div>
+<footer>
+<p>The Vault &mdash; AI Edition &middot; May 1, 2026 &middot; Published by The Vault</p>
+</footer>
+<script>
+window.addEventListener("scroll",function(){
+var h=document.documentElement,b=document.body;
+var st=h.scrollTop||b.scrollTop;
+var sh=h.scrollHeight||b.scrollHeight;
+var pct=(st/(sh-h.clientHeight))*100;
+document.getElementById("progress").style.width=pct+"%";
+});
+</script>
+</body>
+</html>

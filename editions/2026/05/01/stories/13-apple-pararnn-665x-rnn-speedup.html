@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apple's ParaRNN Achieves 665x Speedup for Recurrent Neural Network Training at ICLR 2026 | The Vault</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,0.07);--border-hover:rgba(255,255,255,0.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+body{background:var(--bg);color:var(--text);font-family:"Source Serif 4",Georgia,serif;line-height:1.7;min-height:100vh}
+nav{position:sticky;top:0;z-index:100;background:rgba(16,16,20,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0.75rem 2rem;display:flex;align-items:center;justify-content:space-between;font-family:"DM Sans",sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;transition:color 0.2s}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+.brand{color:var(--text-strong);font-weight:700;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase}
+.article-header{max-width:720px;margin:3rem auto 2rem;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:0.4rem;font-family:"DM Sans",sans-serif;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--cat-color);margin-bottom:1rem}
+.cat-tag svg{width:14px;height:14px}
+h1{font-family:"DM Sans",sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.15;margin-bottom:1rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:1.2rem;font-family:"DM Sans",sans-serif;font-size:0.8rem;color:var(--text-muted);align-items:center}
+.meta-row span{display:flex;align-items:center;gap:0.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);display:flex;gap:0.8rem;align-items:flex-start}
+.takeaway svg{width:18px;height:18px;color:var(--cat-color);flex-shrink:0;margin-top:2px}
+.takeaway-content .takeaway-label{font-family:"DM Sans",sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--cat-color);margin-bottom:0.3rem}
+.takeaway-content p{font-size:0.95rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem 3rem}
+.article-body p{margin-bottom:1.2rem;font-size:1.05rem}
+.article-body h2{font-family:"DM Sans",sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 1rem}
+.article-body p:first-of-type::first-letter{font-size:3.2rem;font-weight:700;float:left;line-height:1;margin-right:0.1rem;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1.2rem 1.5rem;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:0.5rem}
+.pull-quote cite{font-family:"DM Sans",sans-serif;font-size:0.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;background:var(--border);border-radius:8px;overflow:hidden;margin:2rem 0}
+.data-cell{background:var(--surface);padding:1rem;text-align:center}
+.data-value{display:block;font-family:"DM Sans",sans-serif;font-size:1.3rem;font-weight:800;color:var(--cat-color)}
+.data-label{display:block;font-family:"DM Sans",sans-serif;font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem}
+.sources{max-width:720px;margin:0 auto 2rem;padding:0 1.5rem}
+.sources h3{font-family:"DM Sans",sans-serif;font-size:0.85rem;font-weight:700;color:var(--text-strong);margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:0.06em}
+.source-link{display:inline-flex;align-items:center;gap:0.4rem;font-family:"DM Sans",sans-serif;font-size:0.82rem;color:var(--text);text-decoration:none;padding:0.4rem 0.8rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;margin:0 0.4rem 0.4rem 0;transition:border-color 0.2s}
+.source-link:hover{border-color:var(--border-hover)}
+.source-favicon{width:16px;height:16px;border-radius:2px}
+.ext-icon{width:12px;height:12px;color:var(--text-muted)}
+.article-nav{max-width:720px;margin:0 auto 3rem;padding:0 1.5rem;display:flex;justify-content:space-between}
+.nav-link{display:flex;align-items:center;gap:0.3rem;font-family:"DM Sans",sans-serif;font-size:0.85rem;color:var(--text-muted);text-decoration:none;transition:color 0.2s}
+.nav-link:hover{color:var(--text-strong)}
+.nav-link svg{width:16px;height:16px}
+.nav-link.next{margin-left:auto}
+footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-family:"DM Sans",sans-serif;font-size:0.75rem;color:var(--text-muted)}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width 0.1s}
+@media(max-width:640px){h1{font-size:1.6rem}.data-strip{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progress"></div>
+<nav>
+<a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+<span class="brand">THE VAULT</span>
+<span></span>
+</nav>
+<header class="article-header">
+<div class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</div>
+<h1>Apple's ParaRNN Achieves 665x Speedup for Recurrent Neural Network Training at ICLR 2026</h1>
+<div class="meta-row">
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 890 words</span>
+<span>May 1, 2026</span>
+<span>3 sources</span>
+</div>
+</header>
+<div class="takeaway">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+<div class="takeaway-content">
+<div class="takeaway-label">KEY TAKEAWAY</div>
+<p>Apple's ParaRNN breaks the parallelization barrier for nonlinear RNNs, achieving 665x speedup and enabling the first 7B-parameter RNNs competitive with transformers.</p>
+</div>
+</div>
+<div class="article-body">
+<p># Apple's ParaRNN Achieves 665x Speedup for Recurrent Neural Network Training at ICLR 2026</p>
+<p>Recurrent neural networks may have just gotten a second life. Apple researchers presented ParaRNN at the International Conference on Learning Representations (ICLR) in Rio de Janeiro last week, unveiling a framework that achieves a 665-fold speedup over traditional sequential RNN training -- and demonstrating, for the first time, that classical RNN architectures can be scaled to 7 billion parameters with language modeling performance competitive with transformers. The paper, accepted as an Oral presentation at ICLR 2026, could reshape the competitive landscape of sequence modeling architectures that has been dominated by transformers for nearly a decade.</p>
+<h2>The Parallelization Breakthrough</h2>
+<p>The fundamental problem with RNNs has always been parallelization. Unlike transformers, which can process all tokens in a sequence simultaneously through their attention mechanism, RNNs must be unrolled step-by-step -- each hidden state depends on the one before it. This sequential bottleneck made it effectively impossible to train RNNs at the billion-parameter scales that have become standard for modern large language models.</p>
+<p>State Space Models (SSMs) like Mamba partially addressed this by using structured linear recurrences that can be parallelized, but the linearity constraint limits their expressive power. As the Apple research team wrote in their paper: "Must we sacrifice expressivity for speed, or can we have both?"</p>
+<p>ParaRNN answers that question by casting the entire sequence of nonlinear recurrence relationships as a single system of equations, then solving them in parallel using Newton's method combined with custom parallel reductions. The key insight is that each Newton iteration effectively reduces to computing a linear State Space Model, which can be solved efficiently via parallel scan. The researchers found that convergence is achieved consistently with just three iterations -- meaning three carefully designed parallel SSM applications can recover the same hidden state evolution as a full sequential nonlinear RNN pass.</p>
+<p>"Scalability was the missing piece in the RNN puzzle all along," the research team wrote in their technical overview. "At billion scale, they perform as well as modern language models, and boast superior expressivity and faster throughput to boot."</p>
+<h2>The Numbers</h2>
+<p>The results are striking. ParaRNN's implementation achieves speedups of up to 665x over naive sequential application of recurrent layers. The researchers applied their framework to adaptations of two classical RNN architectures -- the GRU (Gated Recurrent Unit) and LSTM (Long Short-Term Memory) -- training models ranging from 400 million to 7 billion parameters on language modeling tasks.</p>
+<p>At the 7B scale, both ParaGRU and ParaLSTM achieved perplexity scores comparable to similarly-sized transformers and Mamba2 architectures. On downstream task performance, the parallelized RNNs matched or exceeded state-of-the-art SSMs, with notably superior performance on state tracking and recall tasks over purely linear RNNs like Mamba.</p>
+<p>The real advantage emerges at inference time. Unlike transformers, whose computational cost grows quadratically with sequence length due to the attention mechanism, RNNs require constant compute per token regardless of context length. This means maintaining high throughput even as sequences grow longer -- a critical advantage for deployment scenarios where fast generation is paramount.</p>
+<h2>Open Source and Implications</h2>
+<p>Apple has released the ParaRNN codebase as an open-source framework on GitHub, designed as a fully modular, PyTorch and CUDA-based software package. The framework is built to be extensible: researchers can define a custom RNN cell by implementing its recurrence step, and ParaRNN handles the parallelization automatically. The release includes multiple backend options, from a pure PyTorch mode for prototyping to optimized implementations for production scale.</p>
+<p>Federico Danieli, the paper's lead author, delivered the Apple Expo Talk at ICLR 2026, presenting ParaRNN alongside other Apple research including SHARP and on-device AI demonstrations. The paper was co-authored by Pau Rodriguez, Miguel Sarabia, Xavier Suau, and Luca Zappella.</p>
+<h2>Analysis: RNNs Are Back -- But It's Complicated</h2>
+<p>The implications of ParaRNN extend well beyond a single benchmark result. For years, the AI research community has treated the transformer's dominance as essentially settled. SSMs like Mamba opened a crack in that consensus by showing that recurrent-style architectures could compete at scale, but their reliance on linear recurrences was seen as a fundamental expressivity limitation.</p>
+<p>ParaRNN removes that constraint entirely. By enabling nonlinear RNNs to train at transformer-competitive speeds, Apple has effectively reopened a question many researchers had closed: whether the transformer's architectural advantages are inherent, or simply a consequence of computational limitations that favored parallelizable designs.</p>
+<p>The inference efficiency angle is particularly relevant for Apple's business. The company's AI strategy depends heavily on on-device deployment, where memory and compute budgets are tightly constrained. RNNs' constant-time token generation and lower memory footprint compared to attention-based models make them natural candidates for running language models on iPhones and other Apple hardware.</p>
+<p>That said, competitive perplexity at 7B parameters is a necessary but not sufficient condition for displacing transformers. The real test will be whether parallelized nonlinear RNNs can match transformer performance on the full range of capabilities that matter for production LLMs -- instruction following, reasoning, long-context retrieval, and multimodal understanding. The ParaRNN paper focuses on language modeling perplexity and a limited set of downstream tasks, leaving these broader questions open.</p>
+<h2>What to Watch</h2>
+<p>The open-source release is the most consequential near-term development. By lowering the barrier to experimenting with nonlinear RNNs at scale, Apple is effectively crowdsourcing the answer to whether these architectures can truly compete with transformers across the full spectrum of modern AI applications. Watch for independent reproductions and extensions in the coming months -- and for whether Apple integrates ParaRNN-trained models into its own on-device AI stack. The RNN may not be dead after all; it was just waiting for the right algorithm.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;Scalability was the missing piece in the RNN puzzle all along. At billion scale, they perform as well as modern language models.&rdquo;</blockquote><cite>&mdash; Apple ParaRNN research team, Paper authors</cite></div>
+<div class="data-strip"><div class="data-cell"><span class="data-value">665x</span><span class="data-label">Training speedup</span></div><div class="data-cell"><span class="data-value">7B</span><span class="data-label">Largest classical RNN trained</span></div><div class="data-cell"><span class="data-value">3</span><span class="data-label">Newton iterations for convergence</span></div><div class="data-cell"><span class="data-value">ICLR Oral</span><span class="data-label">Paper acceptance level</span></div></div>
+</div>
+<div class="sources">
+<h3>Sources</h3>
+<div><a href="https://machinelearning.apple.com/research/pararnn" target="_blank" rel="noopener" class="source-link"><img src="https://www.google.com/s2/favicons?domain=machinelearning.apple.com&sz=32" alt="" class="source-favicon">Apple ML Research<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="ext-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a href="https://arxiv.org/abs/2510.21450" target="_blank" rel="noopener" class="source-link"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="" class="source-favicon">arXiv<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="ext-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a href="https://9to5mac.com/2026/04/27/heres-what-apple-showcased-at-iclr-2026-one-of-the-worlds-biggest-ai-conferences/" target="_blank" rel="noopener" class="source-link"><img src="https://www.google.com/s2/favicons?domain=9to5mac.com&sz=32" alt="" class="source-favicon">9to5Mac<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="ext-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
+</div>
+<div class="article-nav">
+<a href="12-elevenlabs-elevenmusic-platform-launch.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Prev</a><a href="14-openai-zilis-musk-covert-liaison.html" class="nav-link next">Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</div>
+<footer>
+<p>The Vault &mdash; AI Edition &middot; May 1, 2026 &middot; Published by The Vault</p>
+</footer>
+<script>
+window.addEventListener("scroll",function(){
+var h=document.documentElement,b=document.body;
+var st=h.scrollTop||b.scrollTop;
+var sh=h.scrollHeight||b.scrollHeight;
+var pct=(st/(sh-h.clientHeight))*100;
+document.getElementById("progress").style.width=pct+"%";
+});
+</script>
+</body>
+</html>

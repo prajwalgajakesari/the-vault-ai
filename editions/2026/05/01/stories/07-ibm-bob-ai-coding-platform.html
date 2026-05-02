@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IBM Launches Bob, an AI Coding Platform Built on Multi-Model Routing and Human Checkpoints | The Vault</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,0.07);--border-hover:rgba(255,255,255,0.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+body{background:var(--bg);color:var(--text);font-family:"Source Serif 4",Georgia,serif;line-height:1.7;min-height:100vh}
+nav{position:sticky;top:0;z-index:100;background:rgba(16,16,20,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0.75rem 2rem;display:flex;align-items:center;justify-content:space-between;font-family:"DM Sans",sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;transition:color 0.2s}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+.brand{color:var(--text-strong);font-weight:700;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase}
+.article-header{max-width:720px;margin:3rem auto 2rem;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:0.4rem;font-family:"DM Sans",sans-serif;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--cat-color);margin-bottom:1rem}
+.cat-tag svg{width:14px;height:14px}
+h1{font-family:"DM Sans",sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.15;margin-bottom:1rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:1.2rem;font-family:"DM Sans",sans-serif;font-size:0.8rem;color:var(--text-muted);align-items:center}
+.meta-row span{display:flex;align-items:center;gap:0.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);display:flex;gap:0.8rem;align-items:flex-start}
+.takeaway svg{width:18px;height:18px;color:var(--cat-color);flex-shrink:0;margin-top:2px}
+.takeaway-content .takeaway-label{font-family:"DM Sans",sans-serif;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--cat-color);margin-bottom:0.3rem}
+.takeaway-content p{font-size:0.95rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem 3rem}
+.article-body p{margin-bottom:1.2rem;font-size:1.05rem}
+.article-body h2{font-family:"DM Sans",sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 1rem}
+.article-body p:first-of-type::first-letter{font-size:3.2rem;font-weight:700;float:left;line-height:1;margin-right:0.1rem;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1.2rem 1.5rem;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:0.5rem}
+.pull-quote cite{font-family:"DM Sans",sans-serif;font-size:0.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;background:var(--border);border-radius:8px;overflow:hidden;margin:2rem 0}
+.data-cell{background:var(--surface);padding:1rem;text-align:center}
+.data-value{display:block;font-family:"DM Sans",sans-serif;font-size:1.3rem;font-weight:800;color:var(--cat-color)}
+.data-label{display:block;font-family:"DM Sans",sans-serif;font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem}
+.sources{max-width:720px;margin:0 auto 2rem;padding:0 1.5rem}
+.sources h3{font-family:"DM Sans",sans-serif;font-size:0.85rem;font-weight:700;color:var(--text-strong);margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:0.06em}
+.source-link{display:inline-flex;align-items:center;gap:0.4rem;font-family:"DM Sans",sans-serif;font-size:0.82rem;color:var(--text);text-decoration:none;padding:0.4rem 0.8rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;margin:0 0.4rem 0.4rem 0;transition:border-color 0.2s}
+.source-link:hover{border-color:var(--border-hover)}
+.source-favicon{width:16px;height:16px;border-radius:2px}
+.ext-icon{width:12px;height:12px;color:var(--text-muted)}
+.article-nav{max-width:720px;margin:0 auto 3rem;padding:0 1.5rem;display:flex;justify-content:space-between}
+.nav-link{display:flex;align-items:center;gap:0.3rem;font-family:"DM Sans",sans-serif;font-size:0.85rem;color:var(--text-muted);text-decoration:none;transition:color 0.2s}
+.nav-link:hover{color:var(--text-strong)}
+.nav-link svg{width:16px;height:16px}
+.nav-link.next{margin-left:auto}
+footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-family:"DM Sans",sans-serif;font-size:0.75rem;color:var(--text-muted)}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width 0.1s}
+@media(max-width:640px){h1{font-size:1.6rem}.data-strip{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progress"></div>
+<nav>
+<a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+<span class="brand">THE VAULT</span>
+<span></span>
+</nav>
+<header class="article-header">
+<div class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</div>
+<h1>IBM Launches Bob, an AI Coding Platform Built on Multi-Model Routing and Human Checkpoints</h1>
+<div class="meta-row">
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 878 words</span>
+<span>May 1, 2026</span>
+<span>4 sources</span>
+</div>
+</header>
+<div class="takeaway">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+<div class="takeaway-content">
+<div class="takeaway-label">KEY TAKEAWAY</div>
+<p>IBM's Bob platform differentiates with dynamic multi-model routing and configurable human checkpoints, already adopted by 80,000 IBM employees with 45% productivity gains.</p>
+</div>
+</div>
+<div class="article-body">
+<p># IBM Launches Bob, an AI Coding Platform Built on Multi-Model Routing and Human Checkpoints</p>
+<p>IBM has taken its biggest swing yet at the AI-assisted software development market, announcing the global availability of Bob, an agentic coding platform that routes tasks across multiple AI models and enforces human approval checkpoints before code reaches production. The platform, which went live on April 28, is already in use by more than 80,000 IBM employees after a year-long internal rollout that began with just 100 developers in June 2025.</p>
+<p>Where most AI coding assistants focus narrowly on autocomplete or chat-based code generation, Bob is designed to operate across the full software development lifecycle -- from planning and architecture through coding, testing, deployment, and legacy modernization. IBM is positioning it not as a coding copilot but as a system-level development partner, one that coordinates specialized AI agents across code, tests, documentation, and CI/CD pipelines.</p>
+<h2>Multi-Model Routing: Picking the Right Brain for the Job</h2>
+<p>At the core of Bob is a dynamic model-routing engine that selects the most suitable AI model for each task based on accuracy, performance, and cost. Rather than locking developers into a single large language model, Bob draws on a mix of frontier models -- including Anthropic Claude, Mistral open-source models, and IBM's own Granite family -- alongside specialized fine-tuned models built for code reasoning, security analysis, and next-edit prediction.</p>
+<p>The approach reflects a growing industry consensus that no single model excels at every software engineering task. A lightweight model might handle routine boilerplate generation efficiently, while a frontier model is better suited for complex architectural reasoning or security review. Bob abstracts that complexity away from the developer, making routing decisions automatically behind the scenes.</p>
+<p>"Bob dynamically routes tasks to a suitable model based on accuracy, performance, and cost," IBM stated in its announcement, describing a system that draws on "a mix of frontier models including Anthropic Claude, Mistral open source models, and IBM Granite, alongside specialized fine-tuned models for code reasoning, security, and next-edit prediction."</p>
+<h2>Human Checkpoints: Guardrails for Agentic Code</h2>
+<p>The second pillar of Bob's architecture is its configurable human checkpoint system. As AI agents gain the ability to make changes across entire repositories -- modifying code, updating tests, rewriting documentation -- the risk of unchecked automation grows. Bob addresses this with an approval model that lets teams configure checkpoints matching their workflow, from manual sign-off on every change to auto-approval by task type.</p>
+<p>IBM says the structured checkpoint layer is what distinguishes Bob from the wave of fully autonomous coding agents entering the market. The platform "introduces a structured layer that constantly pauses for human-led checkpoints," according to VentureBeat's coverage, yet by harnessing AI to perform the heavy lifting between those checkpoints, IBM reports that some teams have saved up to 70% of time on selected tasks -- translating to an average of 10 hours saved per week per developer.</p>
+<h2>The Numbers Behind the Rollout</h2>
+<p>IBM's internal deployment data provides some of the most concrete productivity metrics yet published by a major tech company for an AI coding tool. The platform launched inside IBM in June 2025 with 100 developers and scaled to more than 80,000 employees worldwide within a year. Surveyed users self-reported an average productivity gain of 45% across modernization, security, and new development work.</p>
+<p>Those figures come with the usual caveats around self-reported data, but the scale of IBM's internal adoption -- 80,000 users across a company known for conservative enterprise IT -- lends them more weight than typical early-adopter testimonials.</p>
+<h2>Pricing and Availability</h2>
+<p>Bob is now available as a SaaS offering at bob.ibm.com with a 30-day free trial. Pricing uses a credit-based system called Bobcoins: the Pro tier costs $20 per month and includes 40 Bobcoins, while the Ultra tier runs $200 per month with 500 Bobcoins. Enterprise plans with custom pricing are also available.</p>
+<h2>Analysis: IBM's Enterprise Play in a Crowded Field</h2>
+<p>The AI coding assistant market has exploded over the past two years, with GitHub Copilot, Cursor, Windsurf, Amazon Q Developer, and a growing roster of startups all competing for developer mindshare. IBM's entry with Bob is deliberately differentiated along two axes that matter most to enterprise buyers: governance and model flexibility.</p>
+<p>By building multi-model routing into the platform's foundation, IBM sidesteps the vendor lock-in concern that haunts CIOs evaluating AI tools tied to a single model provider. And the human checkpoint system speaks directly to regulated industries -- finance, healthcare, defense -- where fully autonomous code generation is a compliance non-starter.</p>
+<p>The Bobcoin pricing model is an interesting gambit. Credit-based systems can create friction if developers feel constrained, but they also give enterprises predictable cost control -- a meaningful advantage over per-seat models that scale unpredictably with usage.</p>
+<p>The bigger question is whether IBM can compete for developer affection against tools that have built passionate grassroots communities. Bob's strength is clearly top-down enterprise adoption, not bottom-up developer evangelism. IBM's track record suggests it will win deals through procurement offices rather than hackathons -- and in the enterprise AI market, that may be exactly the right strategy.</p>
+<h2>What to Watch</h2>
+<p>Keep an eye on how Bob's multi-model routing evolves as the underlying model landscape shifts. If IBM can demonstrate that its routing layer consistently picks the best model for each task -- and that this delivers measurable quality improvements over single-model competitors -- it could establish a durable architectural advantage. The 80,000-employee internal deployment also gives IBM a feedback loop that few competitors can match. Whether that internal momentum translates to external enterprise sales will be the true test of Bob's market viability.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Bob dynamically routes tasks to a suitable model based on accuracy, performance, and cost, drawing on Anthropic Claude, Mistral, and IBM Granite.&rdquo;</blockquote><cite>&mdash; IBM, Company announcement</cite></div>
+<div class="data-strip"><div class="data-cell"><span class="data-value">80,000</span><span class="data-label">IBM employees using Bob</span></div><div class="data-cell"><span class="data-value">45%</span><span class="data-label">Avg productivity gain</span></div><div class="data-cell"><span class="data-value">10 hrs/week</span><span class="data-label">Time saved per developer</span></div><div class="data-cell"><span class="data-value">$20-$200/mo</span><span class="data-label">Pricing range</span></div></div>
+</div>
+<div class="sources">
+<h3>Sources</h3>
+<div><a href="https://newsroom.ibm.com/2026-04-28-introducing-ibm-bob-ai-development-partner" target="_blank" rel="noopener" class="source-link"><img src="https://www.google.com/s2/favicons?domain=newsroom.ibm.com&sz=32" alt="" class="source-favicon">IBM Newsroom<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="ext-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a href="https://venturebeat.com/orchestration/ibm-launches-bob-with-multi-model-routing" target="_blank" rel="noopener" class="source-link"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="" class="source-favicon">VentureBeat<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="ext-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a href="https://www.theregister.com/2026/04/28/ibms_ai_coding_partner_bob/" target="_blank" rel="noopener" class="source-link"><img src="https://www.google.com/s2/favicons?domain=theregister.com&sz=32" alt="" class="source-favicon">The Register<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="ext-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a><a href="https://devops.com/ibm-bob-takes-ai-coding-assistants-to-the-next-level/" target="_blank" rel="noopener" class="source-link"><img src="https://www.google.com/s2/favicons?domain=devops.com&sz=32" alt="" class="source-favicon">DevOps.com<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="ext-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
+</div>
+<div class="article-nav">
+<a href="06-mistral-medium-3-5-open-weights.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Prev</a><a href="08-amazon-join-the-chat-ai-shopping.html" class="nav-link next">Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</div>
+<footer>
+<p>The Vault &mdash; AI Edition &middot; May 1, 2026 &middot; Published by The Vault</p>
+</footer>
+<script>
+window.addEventListener("scroll",function(){
+var h=document.documentElement,b=document.body;
+var st=h.scrollTop||b.scrollTop;
+var sh=h.scrollHeight||b.scrollHeight;
+var pct=(st/(sh-h.clientHeight))*100;
+document.getElementById("progress").style.width=pct+"%";
+});
+</script>
+</body>
+</html>
