@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cloudflare and Stripe Unveil Protocol for AI Agents to Transact and Deploy Autonomously — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Cloudflare and Stripe Unveil Protocol for AI Agents to Transact and Deploy Autonomously</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 952 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Cloudflare and Stripe launched an open protocol enabling AI agents to autonomously create accounts, buy domains, and deploy apps with a $100/month default spending cap.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Cloudflare and Stripe Unveil Protocol for AI Agents to Transact and Deploy Autonomously"
+slug: cloudflare-stripe-agent-protocol
+category: llms-genai
+story_number: "10"
+date: 2026-05-02
+---</p>
+<p>Artificial intelligence agents just got their own wallets and cloud accounts. In a pair of coordinated announcements on April 30, Cloudflare and Stripe unveiled an open protocol that allows AI coding agents to create cloud accounts, purchase domain names, start paid subscriptions, and deploy applications to production -- all without a human touching a dashboard, filling out a form, or copying an API key. The protocol, co-designed by the two companies and launched alongside Stripe Projects at Stripe Sessions 2026, represents the most concrete step yet toward giving AI agents genuine economic autonomy within the software development lifecycle.</p>
+<h2>From Vibe Coding to Vibe Deploying</h2>
+<p>Until now, AI coding agents have been effective at generating code but largely helpless when it came time to actually ship it. Deploying an application still required a human to register an account with a cloud provider, enter payment information, configure DNS, and click through a series of setup wizards. The new protocol eliminates those manual steps by defining a standard way for AI agents to discover services, authenticate on behalf of a user, and pay for resources -- all programmatically.</p>
+<p>Stripe cofounder and president John Collison captured the shift in characteristically pithy terms: "Vibe coding is so 2025. The leading edge is now in vibe deploying, and Stripe Projects lets you do just that."</p>
+<p>The protocol is built around three pillars. First, Discovery: an agent can query a structured catalog of available services to understand what providers offer and what they cost. Second, Authorization: the platform attests to the identity of the human user, allowing providers like Cloudflare to provision new accounts or link existing ones and securely issue credentials back to the agent. Third, Payment: Stripe provides a tokenized payment credential -- never the actual credit card number -- so the agent can initiate purchases, start subscriptions, or trigger usage-based billing without ever handling sensitive financial data.</p>
+<h2>How It Works in Practice</h2>
+<p>The workflow is designed to be minimal. A developer installs the Stripe CLI with the Stripe Projects plugin, logs into Stripe, starts a new project, and prompts their AI agent to build something. The agent writes the code, discovers that it needs hosting and a domain, queries the protocol catalog, provisions a Cloudflare account, registers a domain, deploys the application to Cloudflare Workers, and bills the developer through Stripe -- all in a single conversational loop.</p>
+<p>Critically, Stripe enforces a default spending cap of $100 per month per provider, ensuring that a runaway agent cannot rack up unlimited charges. Developers can raise this limit and configure budget alerts, but the guardrail-first design reflects an awareness that autonomous spending authority requires hard constraints before it can earn broad trust.</p>
+<p>Stripe president of product and business Will Gaybrick framed the design philosophy bluntly: "If AI can solve Nobel-level physics problems but cannot buy a domain, something has gone wrong. Our mantra: empower agents. We are excited for all the growth opportunities this will unlock for businesses."</p>
+<h2>An Ecosystem, Not Just a Partnership</h2>
+<p>While Cloudflare is the highest-profile infrastructure provider in the initial launch, the protocol is explicitly designed to be open and multi-provider. Stripe Projects launched in open beta with 32 integrated service providers, including Vercel, Supabase, Clerk, PostHog, Sentry, PlanetScale, Inngest, Render, and Twilio. Stripe announced 14 new partners at Sessions 2026, signaling rapid ecosystem expansion.</p>
+<p>On Cloudflare's side, the announcement landed during the company's own Agents Week 2026, a week-long blitz of agentic infrastructure releases that included Dynamic Workers with 100x faster cold starts than containers, Sandboxes reaching general availability, and AI Gateway support across more than 14 model providers. CEO Matthew Prince positioned the company squarely at the center of the shift: "We are entering a world where agents are the ones writing and executing code. But agents need a home that is secure by default, scales to millions instantly, and persists across long-running tasks. Today, we are making Cloudflare the definitive platform for the agentic web."</p>
+<p>Stripe CEO Patrick Collison went further, placing the announcement in the context of a generational economic transition: "AI is the biggest platform shift for the economy since the internet, and in the not-too-distant future agents will account for most transactions online. The enterprises and startups behind this wave are overwhelmingly building on Stripe."</p>
+<h2>What This Means for Agentic Commerce</h2>
+<p>The Cloudflare-Stripe protocol matters less for what it does today -- deploying a side project to a new domain is useful but not revolutionary -- and more for the infrastructure pattern it establishes. By standardizing how agents discover, authenticate with, and pay for services, the protocol creates a template that could extend well beyond developer tools. Imagine AI agents autonomously procuring marketing services, spinning up analytics pipelines, or negotiating SaaS contracts on behalf of small businesses. The protocol's three-pillar architecture of discovery, authorization, and payment is generic enough to accommodate all of those use cases.</p>
+<p>Rita Kozlov, Cloudflare's VP of Product, underscored the scale implications: "The potential scale of agents is staggering: if even a fraction of the world's knowledge workers each run a few agents in parallel, you need compute capacity for tens of millions of simultaneous sessions."</p>
+<p>The $100-per-month default spending cap is a telling detail. It simultaneously enables experimentation and signals that the industry recognizes agentic spending as a new risk category that demands its own controls. As agents gain the ability to commit real dollars, the governance frameworks around them -- spending limits, audit trails, approval workflows -- will become as important as the protocols themselves.</p>
+<h2>What to Watch Next</h2>
+<p>The immediate question is adoption velocity. Stripe Projects is in open beta, and the protocol is open, but widespread adoption depends on whether the major AI agent platforms -- OpenAI, Anthropic, Google, and the growing cohort of open-source agent frameworks -- integrate the protocol into their default toolchains. Watch for announcements from coding agent providers like Cursor, Windsurf, and Devin about native Stripe Projects support.</p>
+<p>Beyond developer tools, the more consequential race is to define the standards for agentic commerce at large. Coinbase, which Bloomberg reported is collaborating with Cloudflare and Stripe on AI money infrastructure, could add a crypto payments dimension. If agents can transact in both fiat and stablecoins through a single protocol, the addressable market expands dramatically.</p>
+<p>Finally, regulatory attention is inevitable. When software agents can autonomously open accounts, make purchases, and deploy internet-facing services, questions about liability, consumer protection, and anti-fraud controls will follow. The companies building this infrastructure would be wise to engage regulators proactively rather than wait for the rules to be written in response to the first high-profile incident.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"Vibe coding is so 2025. The leading edge is now in vibe deploying, and Stripe Projects lets you do just that."</blockquote><cite>— John Collison, Cofounder and President, Stripe</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">$100/mo</div><div class="stat-label">Default agent spend cap</div></div><div class="stat-cell"><div class="stat-value">32</div><div class="stat-label">Service providers at launch</div></div><div class="stat-cell"><div class="stat-value">288</div><div class="stat-label">Stripe Sessions launches</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://blog.cloudflare.com/agents-stripe-projects/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.cloudflare.com&sz=32" alt="">Cloudflare Blog</a><a href="https://stripe.com/newsroom/news/sessions-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=stripe.com&sz=32" alt="">Stripe Newsroom</a><a href="https://www.infoworld.com/article/4165857/are-we-ready-to-give-ai-agents-the-keys-to-the-cloud-cloudflare-thinks-so.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=infoworld.com&sz=32" alt="">InfoWorld</a><a href="https://www.bloomberg.com/news/articles/2026-04-02/coinbase-cloudflare-stripe-push-to-shape-future-of-ai-money" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=32" alt="">Bloomberg</a></div></div>
+<div class="article-nav"><a href="09-openai-ai-smartphone-agents.html" class="nav-prev">← OpenAI Reportedly Developing AI-First Smartphone D</a><a href="11-google-turboquant-kv-cache-iclr.html" class="nav-next">Google TurboQuant Achieves 6x KV Cache Compression →</a></div>
+<footer>The Vault — AI Edition · Published May 02, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
