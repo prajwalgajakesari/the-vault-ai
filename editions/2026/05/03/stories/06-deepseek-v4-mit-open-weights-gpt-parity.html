@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DeepSeek V4 Ships MIT Licensed Open Weights With 1.6 Trillion Parameters at Near GPT-5.4 Parity -- The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.5rem;font-size:1.05rem}.article-body li{margin-bottom:.4rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:48%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.5rem}.data-strip{flex-direction:column}.article-nav{flex-direction:column}}</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</span>
+  <h1>DeepSeek V4 Ships MIT Licensed Open Weights With 1.6 Trillion Parameters at Near GPT-5.4 Parity</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 892 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>DeepSeek V4-Pro matches GPT-5.4 on cost-adjusted benchmarks under MIT license, but NIST testing shows it trails the true frontier by roughly eight months on complex reasoning.</p></div>
+<div class="article-body">
+<p>On April 24 the Hangzhou-based AI lab DeepSeek dropped the preview release of its V4 model family -- two Mixture-of-Experts language models shipped under the MIT license with full open weights on Hugging Face. The larger variant, V4-Pro, packs 1.6 trillion total parameters with 49 billion active per forward pass, a one-million-token context window, and benchmark scores that place it within striking distance of the best American frontier models at a fraction of their price. Ten days later, the implications are still rippling through the industry.</p>
+<h2>Two Models, One Message</h2>
+<p>DeepSeek V4 arrives in two configurations. V4-Pro is the flagship: 1.6 trillion parameters, 49 billion active, pre-trained on 33 trillion tokens. V4-Flash is the efficiency variant: 284 billion total parameters, 13 billion active, trained on 32 trillion tokens. Both share a hybrid attention architecture that combines Compressed Sparse Attention and Heavily Compressed Attention, cutting single-token inference FLOPs to 27 percent of the previous DeepSeek-V3.2 and shrinking the KV cache to just 10 percent of its predecessor at the full one-million-token context length.</p>
+<p>The pricing underscores the competitive intent. V4-Pro lists at $1.74 per million input tokens and $3.48 per million output tokens. V4-Flash comes in at $0.14 per million input tokens. For comparison, OpenAI charges roughly $5.00 per million input tokens for GPT-5.5 and Anthropic charges $25 per million output tokens for Claude Opus. A promotional 75 percent discount on V4-Pro runs through May 31, making the already aggressive pricing temporarily absurd.</p>
+<h2>Benchmarks: Close but Not Identical</h2>
+<p>The headline numbers are impressive. V4-Pro tops LiveCodeBench at 93.5 and reaches a Codeforces ELO of 3,206 -- ahead of GPT-5.5 at 3,168. On SWE-bench Verified, V4-Pro scores 80.6 percent, statistically tied with Claude Opus 4.7 at 80.8.</p>
+<p>But the picture is more nuanced than DeepSeek's own marketing suggests. A NIST Center for AI Standards and Innovation evaluation published in early May concluded that V4-Pro's capabilities "lag behind the frontier by about eight months," placing it roughly on par with GPT-5 rather than GPT-5.5. On Terminal-Bench 2.0, which tests complex command-line workflows requiring planning and tool coordination, GPT-5.5 scores 82.7 percent versus V4-Pro's 67.9 -- a 14.8-point gap that is not a rounding error.</p>
+<p>The NIST assessment did note, however, that compared to the most cost-competitive U.S. reference model, GPT-5.4 mini, DeepSeek V4 was more cost efficient on five out of seven benchmarks, ranging from 53 percent less expensive to 41 percent more expensive depending on the task. That cost-efficiency finding may matter more to enterprise buyers than raw leaderboard placement.</p>
+<h2>The MIT License Changes the Calculus</h2>
+<p>What separates V4 from many previous frontier-adjacent releases is the license. MIT imposes no commercial-use restrictions, no acceptable-use clauses tied to user count, and no required attribution beyond the license text itself. Any company, research lab, or individual developer can download the weights, fine-tune them, and deploy them in production without negotiating an enterprise agreement or worrying about usage caps.</p>
+<p>"The open strategy has been one key channel through which China aims to compete with the U.S., by rapidly scaling up adoptions and rolling out real-life applications in various sectors from e-commerce to robotics," CNN reported on the day of the release.</p>
+<p>The permissive licensing also complicates the geopolitical picture. Anthropic and OpenAI have accused DeepSeek of illegally extracting capabilities from their models through distillation. On the eve of the V4 launch, Michael Kratsios, White House director of the Office of Science and Technology Policy, accused foreign entities "primarily based in China" of conducting "industrial-scale" campaigns to distill frontier AI models from U.S. companies. DeepSeek has not publicly responded to the allegations.</p>
+<h2>Huawei Hardware, Not Nvidia</h2>
+<p>To fulfill V4's computing requirements, DeepSeek partnered with Huawei, which announced that it supports the AI startup with its Supernode technology by combining large clusters of its Ascend 950 chips. The integration is significant: it demonstrates that a competitive frontier model can be trained and served on non-Nvidia silicon, weakening one of the core assumptions behind U.S. export controls on advanced AI chips to China.</p>
+<h2>What This Means for the Market</h2>
+<p>The market reaction to V4 has been notably more muted than the panic that followed DeepSeek R1 in January 2025, when the model briefly tanked U.S. tech stocks. Analysts attribute the calmer response to two factors: the frontier labs have widened their own leads since then, and the industry has internalized that Chinese open-source models will continue to close the gap on a recurring basis.</p>
+<p>For enterprise AI teams, however, the practical implications are substantial. A mid-size SaaS company processing 100 million input tokens per day could save roughly $29,500 per month by switching from GPT-5.5 to V4-Flash, according to cost analyses published after the release. That savings grows when factoring in the ability to self-host the open weights, eliminating API dependency entirely.</p>
+<p>The central question going forward is whether near-frontier performance at one-seventh the cost is good enough. For coding assistants, document processing, and high-volume classification tasks, the answer is almost certainly yes. For complex agentic workflows requiring deep planning and tool coordination -- where that 14.8-point Terminal-Bench gap lives -- frontier closed models still hold a meaningful edge. The market is splitting, and DeepSeek V4 just made the split wider.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"The open strategy has been one key channel through which China aims to compete with the U.S., by rapidly scaling up adoptions."</blockquote><cite>-- CNN Business, News outlet</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">1.6T/49B</div><div class="stat-label">V4-Pro total/active params</div></div><div class="stat-cell"><div class="stat-value">$1.74/M</div><div class="stat-label">Input token pricing</div></div><div class="stat-cell"><div class="stat-value">1M</div><div class="stat-label">Context window tokens</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://fortune.com/2026/04/24/deepseek-v4-ai-model-price-performance-china-open-source/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=fortune.com&sz=32" alt="">Fortune</a><a href="https://www.cnbc.com/2026/04/24/deepseek-v4-llm-preview-open-source-ai-competition-china.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="">CNBC</a><a href="https://www.technologyreview.com/2026/04/24/1136422/why-deepseeks-v4-matters/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=technologyreview.com&sz=32" alt="">MIT Technology Review</a><a href="https://techcrunch.com/2026/04/24/deepseek-previews-new-ai-model-that-closes-the-gap-with-frontier-models/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a></div></div>
+<div class="article-nav"><a href="05-agentic-ai-q2-42b-funding-surge.html" class="nav-prev">&larr; Agentic AI Draws $42.6 Billion in Q2 2026 Accounting fo...</a><a href="07-nvidia-vera-rubin-full-production.html" class="nav-next">NVIDIA Vera Rubin Platform Enters Full Production Promi... &rarr;</a></div>
+<footer>The Vault -- AI Edition &middot; Published May 03, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%";});</script>
+</body></html>
