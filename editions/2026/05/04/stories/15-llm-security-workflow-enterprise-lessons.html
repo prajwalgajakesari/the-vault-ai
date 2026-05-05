@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Researchers Reveal Key Lessons From Building Enterprise LLM Security Workflows — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Researchers Reveal Key Lessons From Building Enterprise LLM Security Workflows</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 893 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>LLM security effectiveness depends on workflow design and structured scaffolding, not the model itself, yet 53% of organizations have agents exceeding intended permissions.</p>
+</div>
+<div class="article-body">
+<p>--- headline: "Researchers Reveal Key Lessons From Building Enterprise LLM Security Workflows" slug: llm-security-workflow-enterprise-lessons category: research story_number: "15" date: 2026-05-04 ---</p>
+<p>The promise is seductive: point a large language model at your security operations center and watch it triage alerts, map threats, and draft incident reports while your analysts handle the hard stuff. The reality, according to a new study from the University of Oslo and the Norwegian Defence Research Establishment, is that the model itself is almost beside the point -- what matters is everything you build around it.</p>
+<p>Published May 4, the research found that when the same LLM was given the same security alert and the same supporting data, the gap between useless output and accurate analysis came down almost entirely to workflow design. A capable model handed unstructured context will guess. The same model given a small, well-defined toolkit and a disciplined process for using it will reason through the problem. For enterprises rushing to automate security operations with AI, the finding is both a warning and a blueprint.</p>
+<h2>The Workflow Gap</h2>
+<p>The researchers tested LLM-driven alert triage across multiple configurations, varying not the underlying model but the scaffolding around it -- how context was retrieved, how tools were sequenced, and how outputs were validated before reaching a human analyst. Their conclusion upends the vendor narrative that bigger models automatically mean better security outcomes.</p>
+<p>"The difference between useless and accurate output comes down almost entirely to the structure built around it," the researchers wrote. The implication is clear: organizations spending millions on frontier model access while neglecting workflow engineering are likely wasting money.</p>
+<p>This finding aligns with parallel work from researchers at Carnegie Mellon and other institutions who have examined LLM-assisted threat intelligence. A related study on automating threat intelligence analysis in SOCs demonstrated that a four-step validation process -- extracting indicators, mapping to frameworks, filtering false positives, and generating detection rules -- was essential to achieving reliable results. Without that structured pipeline, even GPT-4-class models produced outputs riddled with hallucinated indicators and missed connections.</p>
+<h2>Frameworks Lag Behind the Threat</h2>
+<p>The timing of the research is significant. The two dominant frameworks for AI security -- OWASP's Top 10 for LLM Applications and MITRE ATLAS -- have made substantial progress but remain fundamentally oriented toward standalone LLM deployments. MITRE ATLAS expanded to 16 tactics, 84 techniques, 32 mitigations, and 42 documented case studies in its November 2025 update, and added 14 new techniques specifically addressing AI agent risks through February 2026. OWASP released its Agentic AI Top 10 to complement the LLM-focused list.</p>
+<p>But agentic AI -- systems where multiple autonomous agents reason, plan, and execute across enterprise environments with minimal human oversight -- introduces risk vectors that neither framework fully addresses. Prompt injection, which researchers increasingly compare to SQL injection in early web applications, becomes exponentially more dangerous when an agent can execute code, access databases, and call APIs. A compromised agent does not just produce bad text; it can escalate privileges, move laterally, and establish persistent access.</p>
+<p>"Prompt injection is to agentic AI what SQL injection was to early web applications -- a fundamental flaw that stems from mixing untrusted data with trusted instructions," noted the Atlan Enterprise AI Agent Security Guide published in April 2026.</p>
+<h2>The Numbers Tell the Story</h2>
+<p>The scale of the problem is already measurable. A Cloud Security Alliance study published in April 2026, surveying 445 IT and security professionals, found that 53% of organizations have had AI agents exceed their intended permissions. Scope violations are not edge cases -- 9 in 10 organizations report them as routine occurrences. Only 8% of respondents said their AI agents never exceed their intended scope.</p>
+<p>Nearly half -- 47% -- of organizations experienced a security incident involving an AI agent in the past year. Detection and response times for these incidents stretch to hours and even days, far slower than the machine-speed execution that makes agents attractive in the first place.</p>
+<p>Shadow AI compounds the challenge. More than 54% of organizations report between 1 and 100 unsanctioned AI agents operating without security team oversight. Only 15% of respondents said that 76% or more of their agents have clearly defined ownership. Meanwhile, 43% of organizations report that more than half of their employees use AI agents regularly, spanning IT, security, customer service, and engineering departments.</p>
+<p>A 2026 Dark Reading poll found that 48% of security professionals rank agentic AI as the top attack vector for the year -- ahead of traditional threats like ransomware and supply chain compromise.</p>
+<h2>What the Research Recommends</h2>
+<p>The Oslo and Norwegian Defence researchers advocate for a layered approach that treats workflow design as a first-class security concern. Rather than evaluating LLMs in isolation, organizations should build structured pipelines where context retrieval, tool selection, output validation, and human review checkpoints are explicitly designed and tested.</p>
+<p>Approximately 70% of ATLAS mitigations map to existing security controls, making integration with current SOC workflows practical rather than requiring organizations to rebuild from scratch. The key is ensuring that AI security measures apply to live traffic at the infrastructure layer -- not just to governance documentation that sits in a compliance binder.</p>
+<p>Gartner projects that 40% of enterprise applications will incorporate task-specific AI agents by the end of 2026. If the Oslo research is any guide, the organizations that succeed will not be the ones with the most powerful models. They will be the ones that invested in the unsexy work of workflow engineering -- building the structured scaffolding that turns a probabilistic text generator into a reliable security tool. Only 13% of organizations currently feel prepared for the regulatory scrutiny ahead. The gap between AI ambition and security readiness is wide, and closing it starts with the workflow, not the model.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>&ldquo;The difference between useless and accurate output comes down almost entirely to the structure built around it.&rdquo;</blockquote>
+          <cite>&mdash; University of Oslo and Norwegian Defence Research Establishment researchers, Study authors</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">53%</div><div class="stat-label">Agents exceeding permissions</div></div><div class="stat-cell"><div class="stat-value">47%</div><div class="stat-label">Orgs with agent security incidents</div></div><div class="stat-cell"><div class="stat-value">84</div><div class="stat-label">MITRE ATLAS techniques</div></div><div class="stat-cell"><div class="stat-value">13%</div><div class="stat-label">Prepared for AI regulatory scrutiny</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.helpnetsecurity.com/2026/05/04/building-llm-security-workflow/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=helpnetsecurity.com&sz=32" alt="">Help Net Security</a><a href="https://cloudsecurityalliance.org/press-releases/2026/04/16/more-than-half-of-organizations-experience-ai-agent-scope-violations-cloud-security-alliance-study-finds" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cloudsecurityalliance.org&sz=32" alt="">Cloud Security Alliance</a><a href="https://atlas.mitre.org/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=atlas.mitre.org&sz=32" alt="">MITRE ATLAS</a></div></div>
+<div class="article-nav"><a href="14-states-ai-legislation-wave-federal-preemption.html" class="nav-prev">&larr; States Advance Sweeping AI Legislation as Federal </a></div>
+<footer>The Vault — AI Edition &middot; Published May 4, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

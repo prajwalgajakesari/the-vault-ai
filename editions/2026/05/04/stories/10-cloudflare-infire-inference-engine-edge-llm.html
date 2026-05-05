@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cloudflare Builds Infire Inference Engine to Run Large Language Models at the Edge — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Cloudflare Builds Infire Inference Engine to Run Large Language Models at the Edge</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 892 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Cloudflare built a custom Rust-based inference engine called Infire achieving 3x latency improvements and 20% higher throughput for edge LLMs.</p>
+</div>
+<div class="article-body">
+<p>--- headline: "Cloudflare Builds Infire Inference Engine to Run Large Language Models at the Edge" slug: cloudflare-infire-inference-engine-edge-llm category: llms-genai story_number: "10" date: 2026-05-04 ---</p>
+<p>Running a large language model is expensive. Running one across a globally distributed edge network -- where every millisecond of latency and every megabyte of memory matters -- is a different kind of engineering problem entirely. Cloudflare has spent the past year attacking it head-on, building a custom inference engine called Infire from the ground up in Rust and rearchitecting how its Workers AI platform processes requests at every layer of the stack. The results, disclosed in a pair of technical blog posts published in April 2026, reveal a company that has essentially rejected the standard open-source inference toolkit in favor of a purpose-built system tuned to the realities of serving AI at the network edge.</p>
+<h2>Why Cloudflare Walked Away from vLLM</h2>
+<p>Most companies running LLM inference at scale rely on vLLM, the widely adopted open-source serving engine that has become something of an industry default. Cloudflare used it too -- until it became clear that the framework's general-purpose design was a poor fit for the company's highly distributed, security-constrained environment.</p>
+<p>"Infire completes inference tasks faster and with a fraction of the CPU load of our previous vLLM-based setup, especially under the strict security constraints we require," the company wrote in its engineering blog. The decision to build from scratch was not taken lightly, but Cloudflare's requirements -- running models across hundreds of edge locations on heterogeneous hardware, maintaining strict tenant isolation, and minimizing cold-start times -- demanded it.</p>
+<p>Infire is composed of three major components: an OpenAI-compatible HTTP server, a batcher that groups incoming requests for efficient GPU utilization, and the Infire engine itself. Written entirely in Rust, the system supports multi-GPU inference in pipeline-parallel, tensor-parallel, and expert-parallel modes -- the last of which is critical for efficiently serving Mixture-of-Experts architectures like DeepSeek and Kimi K2.5.</p>
+<h2>Splitting the Brain: Prefill-Decode Disaggregation</h2>
+<p>Perhaps the most consequential architectural decision Cloudflare made was separating the two internal phases of LLM inference -- prefill and decode -- onto entirely different server clusters.</p>
+<p>In a standard LLM serving setup, the same GPU handles both phases: first processing all input tokens to build a key-value (KV) cache (the prefill phase), then generating output tokens one at a time (the decode phase). The problem is that these two jobs have fundamentally different hardware profiles. Prefill is compute-bound, demanding raw floating-point throughput. Decode is memory-bound, limited by how fast the GPU can read from its KV cache.</p>
+<p>By running separate, independently tuned server pools for each phase, Cloudflare achieved dramatic improvements. After shifting traffic to the disaggregated architecture, p90 time per token dropped from approximately 100 milliseconds with high variance to 20-30 milliseconds -- a 3x improvement in intertoken latency, achieved on the same quantity of GPUs.</p>
+<p>"This architecture allows the servers to be tuned independently for the role they are performing, scaled to account for more input-heavy or output-heavy traffic, or even to run on heterogeneous hardware," Cloudflare explained. The company uses RDMA (Remote Direct Memory Access) to transfer KV cache data directly between GPUs over the network, bypassing the CPU entirely and eliminating a major bottleneck in cross-server inference.</p>
+<h2>Smarter Caching, Faster Boot Times</h2>
+<p>Cloudflare also overhauled its input token caching strategy. By working with heavy internal users to adopt a header that signals how much of a prompt is reusable, the company increased its input token cache hit ratio from 60% to 80% during peak times -- a gain that translates directly into higher throughput and lower latency for interactive workloads like AI-assisted coding sessions.</p>
+<p>Boot times received similar attention. Even for the largest models, such as the 236-billion-parameter Kimi K2.5, Infire can begin serving requests in under 20 seconds, with load times bounded only by drive speed. On unconstrained systems, the proprietary engine delivers up to 20% higher tokens-per-second throughput compared to the previous stack, and critically, it enables Cloudflare to run frontier-class models on lower-end hardware where inference was previously infeasible.</p>
+<h2>Compressing Models Without Losing a Bit</h2>
+<p>Alongside Infire, Cloudflare published research on Unweight, a lossless compression system for LLM weight tensors. By separating each BF16 value into its sign-plus-mantissa and exponent components and applying Huffman coding, Unweight achieves 15-22% reductions in model size -- roughly 3 GB of VRAM savings on a model like Llama 3.1 8B -- without any loss of output quality.</p>
+<p>The engineering challenge was making decompression fast enough to avoid slowing down inference. Unweight solves this by decompressing weights directly in fast on-chip shared memory and feeding results straight to the tensor cores, using an autotuner that optimizes the decompression pipeline for each model and hardware configuration. The system targets NVIDIA Hopper GPUs (H100, H200), with kernel source code released on GitHub.</p>
+<h2>The Bigger Picture</h2>
+<p>Cloudflare's infrastructure push positions the company as one of the few non-hyperscaler platforms capable of serving frontier-class LLMs, and the only one attempting to do so across a globally distributed edge network. The combination of Infire, prefill-decode disaggregation, aggressive caching, and lossless weight compression represents a vertically integrated inference stack that rivals what companies like Google and Meta have built internally.</p>
+<p>For developers building AI-powered applications on Workers AI, the implications are practical: access to models like Kimi K2.5 through a single API call, with latency and cost characteristics that were previously available only to teams running their own GPU clusters. For the broader industry, Cloudflare's work demonstrates that the gap between centralized cloud inference and distributed edge inference is closing faster than many expected -- and that the tools to close it may need to be built from scratch.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>&ldquo;This architecture allows the servers to be tuned independently for the role they are performing, scaled to account for more input-heavy or output-heavy traffic.&rdquo;</blockquote>
+          <cite>&mdash; Cloudflare, Engineering Blog</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">3x</div><div class="stat-label">Latency improvement</div></div><div class="stat-cell"><div class="stat-value">20%</div><div class="stat-label">Higher throughput</div></div><div class="stat-cell"><div class="stat-value">&lt;20s</div><div class="stat-label">Boot time for largest models</div></div><div class="stat-cell"><div class="stat-value">15-22%</div><div class="stat-label">Model size reduction via Unweight</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.infoq.com/news/2026/05/cloudflare-llm-infrastructure/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=infoq.com&sz=32" alt="">InfoQ</a><a href="https://blog.cloudflare.com/high-performance-llms/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.cloudflare.com&sz=32" alt="">Cloudflare Blog</a><a href="https://blog.cloudflare.com/cloudflares-most-efficient-ai-inference-engine/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.cloudflare.com&sz=32" alt="">Cloudflare Blog - Infire</a></div></div>
+<div class="article-nav"><a href="09-enterprise-ai-adoption-challenges-79-percent.html" class="nav-prev">&larr; Enterprise AI Adoption Challenges Surge as 79 Perc</a><a href="11-five-eyes-agentic-ai-security-guidance.html" class="nav-next">Five Eyes Agencies Issue First Joint Security Guid &rarr;</a></div>
+<footer>The Vault — AI Edition &middot; Published May 4, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
