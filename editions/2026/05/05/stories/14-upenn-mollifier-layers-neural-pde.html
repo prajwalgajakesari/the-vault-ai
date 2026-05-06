@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UPenn Researchers Introduce Mollifier Layers to Solve Inverse Partial Differential Equations With Neural Networks — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>UPenn Researchers Introduce Mollifier Layers to Solve Inverse Partial Differential Equations With Neural Networks</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 925 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>UPenn developed Mollifier Layers, reducing memory and training time by 6-10x for inverse PDE problems by replacing recursive automatic differentiation with analytic convolution.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "UPenn Researchers Introduce Mollifier Layers to Solve Inverse Partial Differential Equations With Neural Networks"
+slug: upenn-mollifier-layers-neural-pde
+category: research
+story_number: "14"
+date: 2026-05-05
+author: The Vault AI
+sources:
+  - name: Penn Engineering - AI Method Tackles One of Science's Hardest Math Problems
+    url: https://www.seas.upenn.edu/stories/ai-method-tackles-one-of-sciences-hardest-math-problems/
+    domain: seas.upenn.edu
+  - name: "arXiv - Mollifier Layers: Enabling Efficient High-Order Derivatives in Inverse PDE Learning"
+    url: https://arxiv.org/html/2505.11682
+    domain: arxiv.org
+  - name: Phys.org - AI Tackles One of Math's Most Brutal Problems
+    url: https://phys.org/news/2026-05-ai-tackles-math-brutal-problems.html
+    domain: phys.org
+  - name: Mirage News - AI Breakthrough Solves Toughest Math Challenge
+    url: https://www.miragenews.com/ai-breakthrough-solves-toughest-math-challenge-1666072/
+    domain: miragenews.com
+---</p>
+<p># UPenn Researchers Introduce Mollifier Layers to Solve Inverse Partial Differential Equations With Neural Networks</p>
+<p>A team of researchers at the University of Pennsylvania has developed a deceptively elegant solution to one of scientific computing's most persistent headaches: getting neural networks to reliably compute high-order derivatives when solving inverse partial differential equations. Their method, called "Mollifier Layers," borrows an 80-year-old mathematical smoothing technique and weaves it directly into modern AI architectures, slashing memory usage and training time by 6 to 10 times while producing more stable results. The work, published in Transactions on Machine Learning Research, will be presented at the Conference on Neural Information Processing Systems (NeurIPS 2026).</p>
+<h2>The Inverse PDE Problem</h2>
+<p>Partial differential equations describe how quantities change across both space and time. They underpin models of weather systems, heat dissipation, fluid mechanics, and -- in the case of the Penn team -- the organization of DNA inside cells. Solving a PDE forward, predicting future behavior from known rules, is hard enough. Solving one inversely, working backward from observed data to infer the hidden forces that produced it, is substantially harder.</p>
+<p>"Solving an inverse problem is like looking at ripples in a pond and working backward to figure out where the pebble fell," the researchers explain. Scientists need this capability across disciplines: identifying tumor growth parameters from medical imaging, reconstructing subsurface geology from seismic readings, or inferring reaction rates from microscopy data.</p>
+<p>For years, neural networks tackling these inverse problems have relied on recursive automatic differentiation to compute derivatives -- the mathematical measurements of change that PDEs require. For first- and second-order derivatives, this works tolerably well. But many real-world systems demand third-, fourth-, or even higher-order derivatives, and that is where the approach falls apart. Each recursive pass amplifies noise in the data, like repeatedly photocopying a photocopy until the text becomes illegible. The computational cost also scales explosively, consuming memory and processing power that quickly exceed practical limits.</p>
+<h2>An 80-Year-Old Mathematical Idea, Reimagined</h2>
+<p>Rather than simply throwing more computing power at the problem, the Penn team looked to the past. In the 1940s, German-American mathematician Kurt Otto Friedrichs -- later a National Medal of Science recipient -- described "mollifiers," mathematical functions that smooth out the sharpest features of noisy or jagged signals while preserving their essential structure.</p>
+<p>"Modern AI often advances by scaling up computation," said Vinayak Vinayak, a doctoral candidate in Materials Science and Engineering at Penn and co-first author of the study. "But some scientific challenges require better mathematics, not just more compute."</p>
+<p>The team's key insight was that by applying a mollifier as a convolutional layer within the neural network, they could collapse the entire chain of recursive higher-order automatic differentiation into a single analytic convolution. Instead of computing derivatives step by painful step -- each one magnifying noise -- the mollifier layer smooths the signal first, then extracts derivative information in one clean operation.</p>
+<p>The result is a lightweight, architecture-agnostic module that can be dropped into existing neural network designs without rearchitecting them. "That let us solve these equations more reliably, without the same computational burden," said Ananyae Kumar Bhartari, a graduate of Penn Engineering's Scientific Computing master's program and co-first author.</p>
+<h2>Concrete Results</h2>
+<p>In experiments across multiple benchmark inverse PDE problems, Mollifier Layers reduced both memory footprint and training time by 6 to 10 times compared to standard recursive automatic differentiation. Critically, they did so while preserving robust, high-order derivative estimates -- even when the input data was noisy, precisely the conditions under which conventional methods deteriorate most rapidly.</p>
+<p>The framework was validated on problems requiring up to fourth-order derivatives, a regime where recursive methods become computationally prohibitive for most research groups. By making these higher-order problems tractable on standard hardware, the work lowers the barrier to entry for labs that lack access to massive compute clusters.</p>
+<h2>From Chromatin to Climate</h2>
+<p>For the Shenoy Lab at Penn, where the work originated, one immediate application is understanding chromatin -- the tightly folded complex of proteins and DNA that packages chromosomes inside cell nuclei. Tiny domains of chromatin, just 100 nanometers in size, regulate which genes are accessible for expression, a process with direct implications for cell identity, aging, and disease.</p>
+<p>"These domains are just 100 nanometers in size," said Vivek Shenoy, Eduardo D. Glandt President's Distinguished Professor in Materials Science and Engineering and senior author, "but because accessibility determines gene expression, and gene expression governs cell identity, function, aging and disease, these domains play a critical role in biology and health."</p>
+<p>By using mollifier layers to infer the epigenetic reaction rates driving chromatin reorganization, the team aims to move beyond static microscopy snapshots toward dynamic models of how chromatin changes over time and how those changes influence gene expression and cell fate.</p>
+<p>But the implications extend well beyond biology. Problems in materials science, fluid mechanics, weather forecasting, and geological modeling all involve higher-order PDEs and noisy observational data. The architecture-agnostic design of mollifier layers means any research group already using neural networks for scientific computing can integrate the module with minimal friction.</p>
+<h2>The Bigger Picture</h2>
+<p>The work fits squarely within a broader trend in scientific machine learning: the recognition that brute-force scaling is not always the answer. Alongside recent advances in physics-informed neural networks and neural operators, mollifier layers represent a growing toolkit of mathematically principled modules that encode domain knowledge directly into AI architectures rather than hoping the network will learn it from data alone.</p>
+<p>"Ultimately, the goal is to move from observing complex patterns to quantitatively uncovering the rules that generate them," said Shenoy. "If you understand the rules that govern a system, you now have the possibility of changing it."</p>
+<p>That ambition -- not just predicting nature but reverse-engineering its operating instructions -- is what makes inverse PDEs so important and so difficult. With mollifier layers, the Penn team has made the difficult considerably more tractable.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"Modern AI often advances by scaling up computation. But some scientific challenges require better mathematics, not just more compute."</blockquote>
+          <cite>— Vinayak Vinayak, Doctoral candidate, Penn Engineering</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">6-10x</div><div class="stat-label">Reduction in memory and training time</div></div><div class="stat-cell"><div class="stat-value">4th-order</div><div class="stat-label">Highest derivative order validated</div></div><div class="stat-cell"><div class="stat-value">100nm</div><div class="stat-label">Chromatin domains studied with mollifier layers</div></div><div class="stat-cell"><div class="stat-value">1940s</div><div class="stat-label">When mollifiers were first described</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.seas.upenn.edu/stories/ai-method-tackles-one-of-sciences-hardest-math-problems/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=seas.upenn.edu&sz=32" alt="">Penn Engineering</a><a href="https://arxiv.org/html/2505.11682" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://phys.org/news/2026-05-ai-tackles-math-brutal-problems.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=phys.org&sz=32" alt="">Phys.org</a></div></div>
+<div class="article-nav"><a href="13-apple-simplefold-protein-iclr-2026.html" class="nav-prev">← Apples SimpleFold Shows Standard Transformers Can </a><a href="15-meta-fair-replay-buffer-rl-efficiency.html" class="nav-next">Meta FAIR Shows Replay Buffers Can Slash the Cost  →</a></div>
+<footer>The Vault — AI Edition · Published May 05, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

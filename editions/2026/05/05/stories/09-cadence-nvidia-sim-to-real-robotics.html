@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cadence and NVIDIA Expand Partnership to Close the Sim-to-Real Gap in Robotics — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Cadence and NVIDIA Expand Partnership to Close the Sim-to-Real Gap in Robotics</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 843 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Cadence and NVIDIA are combining high-fidelity multiphysics simulation with AI world models to create an end-to-end pipeline addressing robotics sim-to-real transfer.</p>
+</div>
+<div class="article-body">
+<p>---
+title: "Cadence and NVIDIA Expand Partnership to Close the Sim-to-Real Gap in Robotics"
+slug: cadence-nvidia-sim-to-real-robotics
+category: research
+story_number: 9
+date: 2026-05-05
+sources:
+  - https://www.cadence.com/en_US/home/company/newsroom/press-releases/pr/2026/cadence-and-nvidia-expand-partnership-to-reinvent-engineering.html
+  - https://thenextweb.com/news/cadence-nvidia-robotics-physics-simulation-ai
+  - https://www.digitimes.com/news/a20260416VL200/cadence-nvidia-eda-partnership-ai-agent-robotics.html
+  - https://aibusiness.com/robotics/nvidia-partners-chip-software-maker-close-sim-to-real-gap
+  - https://roboticsandautomationnews.com/2026/04/21/cadence-and-nvidia-expand-partnership-to-advance-ai-driven-engineering-and-digital-twin-technologies/100772/
+  - https://finance.yahoo.com/sectors/technology/articles/cadence-nvidia-expand-partnership-reinvent-173000818.html
+---</p>
+<p># Cadence and NVIDIA Expand Partnership to Close the Sim-to-Real Gap in Robotics</p>
+<p>Training a robot in simulation is easy. Getting that robot to perform the same way in a warehouse, a factory, or on a public road is the hard part. Cadence Design Systems and NVIDIA are now betting that fusing high-fidelity physics engines with AI world models can finally close that gap.</p>
+<p>The two companies announced an expanded partnership at CadenceLIVE Silicon Valley 2026 in mid-April, unveiling a joint technology stack that combines Cadence\u2019s multiphysics simulation tools with NVIDIA\u2019s Isaac open-source robotics libraries and Cosmos open-world models. The goal is an end-to-end, agent-orchestrated workflow that links world-model training, accurate physics simulation, large-scale scenario testing, and continuous real-world feedback \u2014 all targeting robotics\u2019 most persistent challenge: the sim-to-real transfer problem.</p>
+<p>\u201cThe more accurate the generated training data is, the better the model will be,\u201d Cadence CEO Anirudh Devgan said at the Santa Clara conference, framing the partnership as a natural convergence between Cadence\u2019s simulation heritage and NVIDIA\u2019s dominance in AI compute.</p>
+<p>NVIDIA CEO Jensen Huang was characteristically direct about the scope of the collaboration. \u201cWe\u2019re working with you across the board on robotic systems,\u201d he told Devgan onstage, signaling that the partnership reaches well beyond a single product integration.</p>
+<h2>How the Stack Works</h2>
+<p>The combined workflow spans four stages. First, virtual training takes place in NVIDIA Isaac Sim and Isaac Lab, where robots learn motor skills and navigation behaviors through reinforcement learning. Second, those trained policies are evaluated against detailed Cadence physics models that simulate real-world properties like friction, thermal effects, and material deformation with greater fidelity than standard game-engine physics. Third, mission-scale scenario testing runs in VTD (Virtual Test Drive) and VTDx, Cadence\u2019s extended high-fidelity simulation environment for complex, real-world scenarios \u2014 think a delivery robot navigating a crowded sidewalk in rain, not just an empty test track. Finally, the validated systems deploy on NVIDIA Jetson robotics and edge AI hardware, where a live digital twin enables continuous monitoring and refinement.</p>
+<p>The integration of NVIDIA\u2019s Cosmos open-world models is particularly significant. Cosmos generates photorealistic synthetic environments for training, while Cadence\u2019s physics engines ensure those environments behave according to real-world physical laws \u2014 not just look realistic. That combination addresses one of the fundamental weaknesses of current sim-to-real pipelines, where visual fidelity often outpaces physical accuracy.</p>
+<h2>Agentic AI and Chip Design, Too</h2>
+<p>The robotics stack is part of a broader expansion. Cadence also introduced its ChipStack AI Super Agent, which applies agentic AI to semiconductor design and verification. The company says early deployments have demonstrated productivity gains of up to 10x, a figure that underscores how deeply AI is reshaping the EDA (electronic design automation) industry.</p>
+<p>\u201cAgentic AI and digital twins are reshaping the entire engineering landscape \u2014 from semiconductor design to planetary-scale AI systems,\u201d Devgan said.</p>
+<p>Huang added that the shift is structural, not incremental. \u201cWe are at an inflection point in computing \u2014 CUDA-accelerated computing and AI are reinventing the engineering process,\u201d he said. \u201cFor the first time, we can innovate in the digital world \u2014 exploring, testing, and optimizing ideas at unprecedented speed and scale \u2014 by building everything as full-fidelity digital twins first.\u201d</p>
+<p>A third pillar of the partnership targets hyperscale AI data centers. Cadence and NVIDIA are building digital twins of entire AI factory infrastructure \u2014 from chip-level thermal analysis to facility-wide power and cooling optimization \u2014 allowing operators to test configurations virtually before deploying physical systems.</p>
+<h2>Market Context</h2>
+<p>Cadence enters the partnership from a position of financial strength. The company reported Q1 2026 revenue of $1.474 billion, up 18.7 percent year-over-year, and holds a record backlog of $8 billion. Full-year 2025 revenue reached $5.297 billion, up 14 percent, with the company guiding for 17 percent growth in 2026.</p>
+<p>The robotics simulation market is expanding rapidly alongside Cadence\u2019s ambitions. The global robotic simulator market was valued at $936 million in 2026 and is projected to reach $3.09 billion by 2035, growing at a 14.2 percent CAGR, according to Precedence Research. The sim-to-real gap is a central bottleneck: ABB and NVIDIA separately announced in March 2026 an integration embedding Omniverse libraries into RobotStudio to achieve up to 99 percent simulation accuracy, underscoring how much industry attention the problem now commands.</p>
+<h2>Why It Matters</h2>
+<p>The Cadence-NVIDIA partnership reflects a broader convergence between the EDA world and the physical AI stack. Cadence has historically sold tools to chip designers; now it is positioning its physics simulation engines as essential infrastructure for training robots, autonomous vehicles, and industrial automation systems. NVIDIA, for its part, is assembling an ever-wider ecosystem around Isaac and Omniverse, with Cadence joining ABB, Siemens, and others in building on that platform.</p>
+<p>The sim-to-real gap has been one of robotics\u2019 most stubborn obstacles for over a decade. If the combination of physics-accurate simulation, AI-generated synthetic worlds, and continuous digital-twin feedback can meaningfully narrow it, the implications extend far beyond either company\u2019s product roadmap. It would accelerate the deployment of robots in unstructured environments \u2014 the warehouses, construction sites, and public spaces where the industry\u2019s next wave of growth depends.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"The more accurate the generated training data is, the better the model will be."</blockquote>
+          <cite>— Anirudh Devgan, CEO, Cadence Design Systems</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">10x</div><div class="stat-label">Productivity gains from Cadence ChipStack AI</div></div><div class="stat-cell"><div class="stat-value">$8B</div><div class="stat-label">Cadence record backlog Q1 2026</div></div><div class="stat-cell"><div class="stat-value">$1.474B</div><div class="stat-label">Cadence Q1 2026 revenue (+18.7% YoY)</div></div><div class="stat-cell"><div class="stat-value">$936M</div><div class="stat-label">Global robotic simulator market 2026</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.cadence.com/en_US/home/company/newsroom/press-releases/pr/2026/cadence-and-nvidia-expand-partnership-to-reinvent-engineering.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cadence.com&sz=32" alt="">Cadence</a><a href="https://thenextweb.com/news/cadence-nvidia-robotics-physics-simulation-ai" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenextweb.com&sz=32" alt="">The Next Web</a><a href="https://aibusiness.com/robotics/nvidia-partners-chip-software-maker-close-sim-to-real-gap" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=aibusiness.com&sz=32" alt="">AI Business</a></div></div>
+<div class="article-nav"><a href="08-openai-codex-developer-giveaway.html" class="nav-prev">← OpenAI Turns Sold-Out GPT-5.5 Party Into Month-Lon</a><a href="10-meta-acquires-ari-humanoid-robotics.html" class="nav-next">Meta Acquires Robotics Startup Assured Robot Intel →</a></div>
+<footer>The Vault — AI Edition · Published May 05, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
