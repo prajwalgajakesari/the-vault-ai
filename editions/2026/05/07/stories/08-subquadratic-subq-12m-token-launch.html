@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Subquadratic Exits Stealth With $29 Million and a 12 Million Token Context Window That Challenges Transformer Orthodoxy &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Subquadratic Exits Stealth With $29 Million and a 12 Million Token Context Window That Challenges Transformer Orthodoxy</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 940 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Miami startup Subquadratic launched with $29M seed funding and a 12-million-token context window on novel sparse attention, but independent verification of 1,000x claims remains outstanding.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Subquadratic Exits Stealth With $29 Million and a 12 Million Token Context Window That Challenges Transformer Orthodoxy"
+slug: subquadratic-subq-12m-token-launch
+category: llms-genai
+story_number: "08"
+date: 2026-05-07
+---</p>
+<p># Subquadratic Exits Stealth With $29 Million and a 12 Million Token Context Window That Challenges Transformer Orthodoxy</p>
+<p>A four-person Miami startup called Subquadratic emerged from stealth on May 5 with a claim bold enough to divide the AI research community within hours: that it has built the first frontier large language model to fully escape the quadratic attention bottleneck that has constrained every major AI system since 2017. The company launched with $29 million in seed funding, a model called SubQ 1M-Preview, and a research configuration boasting a 12 million token context window -- roughly 9 million words, or the equivalent of 120 books processed in a single call.</p>
+<p>The announcement drew more than 12 million views on X and over 30,000 waitlist signups in its first 24 hours, according to co-founder and CEO Justin Dangel. It also drew something less welcome: immediate and pointed skepticism from the AI research community, which has seen architectures promising to dethrone the transformer come and go with metronomic regularity.</p>
+<h2>The Core Claim: Linear Scaling Where Everyone Else Pays Quadratic Costs</h2>
+<p>At the heart of Subquadratic"s pitch is a proprietary mechanism called Subquadratic Sparse Attention, or SSA. Traditional transformer models use dense attention, meaning every token in a prompt is compared against every other token. Double the input, and the compute roughly quadruples. That quadratic scaling is why the industry standard remains 128,000 tokens for most models, stretching to 1 million for frontier offerings like Claude Sonnet 4.7 and Gemini 3.1 Pro.</p>
+<p>SSA takes a different approach. For each query token, the model dynamically selects a small subset of positions to attend to based on content rather than fixed patterns, then computes exact attention only over those selected positions. The result, the company claims, is a model that scales linearly with context length, cutting attention compute by approximately 1,000 times at 12 million tokens compared with standard architectures.</p>
+<p>"We are very focused on the problem of how we transition from a dense attention, quadratic scaling architecture to a sparse attention linear architecture," Dangel told SiliconANGLE. "Sparse attention is an effort to say, hey, let"s try to figure out how to not compare every token to every token to every token."</p>
+<p>CTO Alexander Whedon, formerly Head of Generative AI at TribeAI and a software engineer at Meta, framed the practical impact in terms of what developers currently endure. "I used to manually curate prompts and retrieval systems and evals and conditional logic to chain together the workflows," Whedon said. "And I think that that is kind of a waste of human intelligence and also limiting to the product quality."</p>
+<h2>Strong Benchmarks, Narrow Selection</h2>
+<p>Subquadratic is backing its claims with performance numbers. On the RULER 128K benchmark, SubQ scored 95 percent accuracy at a reported cost of $8, compared with 94 percent accuracy and approximately $2,600 for Claude Opus. The company says SubQ outperforms GPT-5.5 on retrieval benchmarks at the 12 million token scale.</p>
+<p>But the benchmark selection has drawn scrutiny. The company published results on exactly three tests, all emphasizing long-context retrieval and coding -- precisely the tasks SSA is designed to excel at. Broader evaluations covering general reasoning, mathematics, multilingual performance, and safety have not been released. A comprehensive model card is listed as "coming soon," and the company has not yet published a peer-reviewed technical paper.</p>
+<h2>Skeptics Draw the Theranos Comparison</h2>
+<p>The AI research community"s response landed on a wide spectrum. Within hours of the launch, prominent AI engineer Will Depue noted that SubQ appeared to be built on open-source model weights, suggesting it was likely a sparse attention fine-tune of an existing model such as Kimi or DeepSeek. Depue later escalated his criticism, writing that the company"s O(n) scaling claims and speedup numbers "don"t seem to line up" and calling the communication "either incredibly poorly communicated or just not real."</p>
+<p>Whedon confirmed on X that the company uses open-source model weights as a starting point, describing it as a practical function of funding and maturity. Still, the comparisons were unflattering. At least one widely circulated post declared that SubQ is "either the biggest breakthrough since the Transformer... or it"s AI Theranos."</p>
+<p>The Magic.dev precedent looms especially large. That company announced a 100 million token context window model in August 2024, also claiming a 1,000 times efficiency advantage, and raised roughly $500 million on the strength of those claims. As of early 2026, there is no public evidence of its LTM-2-mini model being used outside the company.</p>
+<h2>The Team and the Money</h2>
+<p>Dangel is a five-time founder with a track record across health tech, insurance technology, and consumer goods. The company"s research team includes 11 PhD researchers with backgrounds at Meta, Google, Oxford, Cambridge, ByteDance, Adobe, and Microsoft. The $29 million seed round, raised at a reported $500 million valuation, was backed by Tinder co-founder Justin Mateen, Miami tech investor Javier Villamizar, and investors with ties to Anthropic, OpenAI, Stripe, and Brex.</p>
+<p>According to Dangel, the company has been developing the underlying technology for roughly five years. It is launching two products in beta: an API exposing a 1 million token production context window and SubQ Code, a CLI coding agent. The 12 million token window is available in a research configuration, with a 50 million token target set for the fourth quarter of 2026.</p>
+<h2>Why This Matters</h2>
+<p>If Subquadratic"s claims survive independent evaluation, the implications extend well beyond one startup"s valuation. A genuinely linear-scaling attention mechanism at frontier quality would make retrieval-augmented generation pipelines, chunking strategies, and agentic retrieval systems partially or fully obsolete for many workloads. Entire enterprise codebases, months of pull request history, and full legal document sets could be processed in a single call without the latency and information loss that current workarounds introduce.</p>
+<p>But the AI field has a pattern: architectures that claim to replace the transformer -- Mamba, RWKV, state space models -- have repeatedly underperformed at frontier scale when subjected to rigorous, independent evaluation. Dangel himself acknowledged the dynamic. "Extraordinary claims will often be greeted rightly with skepticism," he said. "The fact that our company has a potentially industry-disrupting innovation, I"m not surprised by the reaction."</p>
+<h2>What to Watch Next</h2>
+<p>The company says it plans to release additional technical papers and products in the coming months. "We look forward to releasing products and papers," Dangel said. "I hope the community will be satisfied." The real verdict will come not from internal benchmarks or X engagement metrics, but from whether independent researchers can reproduce the efficiency claims and whether the architecture holds up across the broad battery of evaluations that frontier models are expected to pass. Until then, Subquadratic occupies a familiar but precarious position: a startup whose technology is either genuinely transformative or merely well-marketed, with $29 million and 11 PhDs to prove which it is.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Sparse attention is an effort to say, hey, let us try to figure out how to not compare every token to every token to every token.&rdquo;</blockquote><cite>&mdash; Justin Dangel, Co-founder and CEO, Subquadratic</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">$29M</div><div class="stat-label">Seed funding raised</div></div><div class="stat-cell"><div class="stat-value">12M tokens</div><div class="stat-label">Maximum context window</div></div><div class="stat-cell"><div class="stat-value">1,000x</div><div class="stat-label">Claimed compute reduction</div></div><div class="stat-cell"><div class="stat-value">30,000+</div><div class="stat-label">Waitlist signups in 24 hours</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://venturebeat.com/technology/miami-startup-subquadratic-claims-1-000x-ai-efficiency-gain-with-subq-model-researchers-demand-independent-proof" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://siliconangle.com/2026/05/05/subquadratic-launches-29m-bring-12m-token-context-windows-ai/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=siliconangle.com&sz=32" alt="">SiliconANGLE</a><a href="https://subq.ai/introducing-subq" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=subq.ai&sz=32" alt="">Subquadratic Blog</a><a href="https://www.eweek.com/news/subquadratic-subq-12m-token-llm-neuron/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=eweek.com&sz=32" alt="">eWeek</a></div></div>
+<div class="article-nav"><a href="07-openai-voice-models-70-languages.html" class="nav-prev">&larr; OpenAI Drops Three Voice Models That Translate 70 </a><a href="09-genesis-ai-gene-265-robotics.html" class="nav-next">Genesis AI Unveils GENE-26.5 Robotic Brain With Hu &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published May 07, 2026</footer>
+<script>window.addEventListener("scroll",function(){let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

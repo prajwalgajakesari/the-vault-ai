@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Investigation Finds Thousands of AI-Built Apps Leaking Sensitive Data Across Lovable Replit and Base44 &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>Investigation Finds Thousands of AI-Built Apps Leaking Sensitive Data Across Lovable Replit and Base44</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1020 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>More than 5,000 apps built with AI vibe coding platforms were found with little or no authentication, with nearly 40 percent leaking sensitive data.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Investigation Finds Thousands of AI-Built Apps Leaking Sensitive Data Across Lovable, Replit, and Base44"
+slug: vibe-coding-apps-data-leak-crisis
+category: policy
+story_number: "10"
+date: 2026-05-07
+---</p>
+<p># Investigation Finds Thousands of AI-Built Apps Leaking Sensitive Data Across Lovable, Replit, and Base44</p>
+<p>A sweeping security investigation has found that more than 5,000 web applications built with popular AI "vibe coding" platforms are leaking medical records, financial data, and corporate secrets onto the open internet, exposing a systemic failure in the tools that have made software development accessible to millions of non-engineers.</p>
+<p>Israeli cybersecurity firm RedAccess scanned 380,000 publicly accessible assets built with platforms including Lovable, Base44, Replit, and Netlify, and found that roughly 5,000 had little to no authentication protecting them. Anyone who stumbled onto the right URL could walk in. Nearly 40 percent of those exposed apps contained sensitive data, including hospital work assignments with personally identifiable information, active clinical trial records for a health company, unredacted customer service conversations for a cabinet supplier, and internal financial information for a Brazilian bank.</p>
+<p>"We found entire databases sitting wide open on the internet," Dor Zvi, the RedAccess researcher who led the investigation, told reporters. Many of the applications had privacy settings configured to make them publicly accessible by default, and because search engines had indexed them, the data was effectively one Google query away from anyone who cared to look.</p>
+<p>The findings, first reported by WIRED and independently verified by Axios, land at a moment when vibe coding has become one of the fastest-growing categories in software. Lovable, the highest-profile platform in the space, hit $4 million in annual recurring revenue within its first four weeks and is now valued at $6.6 billion with eight million users. Collins English Dictionary named "vibe coding" its Word of the Year for 2025. Gartner forecasts that 60 percent of all new code will be AI-generated by the end of 2026.</p>
+<p>But the security data across the category is alarming. Between 40 and 62 percent of AI-generated code contains security vulnerabilities, depending on the study. A first-quarter 2026 assessment of more than 200 vibe-coded applications found that 91.5 percent contained at least one vulnerability traceable to AI hallucination. More than 60 percent exposed API keys or database credentials in public repositories. AI-written code produces flaws at 2.74 times the rate of human-written code, according to an analysis of 470 GitHub pull requests.</p>
+<p>The root cause is deceptively simple. AI coding assistants optimize for making apps that work, not apps that are secure. When a user asks for a page that displays messages, the model builds one that displays messages. It does not pause to ask who should be allowed to see them. "AI coding tools only do what is asked of them," security researcher Joel Margolis told WIRED. "So if a user does not ask for security explicitly, the app may not be secure by default."</p>
+<p>The architectural pattern that vibe coding tools push makes the problem worse. Most generate a frontend that talks directly to a hosted backend like Supabase or Firebase, using an API key embedded in the client code. Both services provide per-table access rules, but those rules are frequently left in their default, wide-open configuration. Alex Stamos, former chief security officer at Facebook, captured the risk succinctly when discussing the practice of connecting users directly to a database: "You can do it correctly. The odds of doing it correctly are extremely low."</p>
+<p>Lovable has been at the center of repeated incidents. In February, a tech entrepreneur found 16 vulnerabilities, six of them critical, in a single app featured on Lovable"s own Discover page with more than 100,000 views. The app, an AI-powered education tool, exposed 18,697 user records, including 4,538 student accounts from UC Berkeley and UC Davis. In April, a researcher disclosed a broken object-level authorization flaw in Lovable"s API that had been open for 48 days after the company closed the initial bug bounty report without escalation. The vulnerability exposed source code, database credentials, and user data for projects that had employees at Nvidia, Microsoft, Uber, and Spotify tied to affected accounts.</p>
+<p>Platform responses have ranged from deflection to denial. Replit CEO Amjad Masad wrote on X that some users had published apps on the open web that should have been private, calling publicly accessible apps "expected behavior." Lovable initially posted that it "did not suffer a data breach," calling exposed data "intentional behaviour," before blaming its documentation, then its bug bounty partner, and finally issuing a partial apology. Base44 parent company Wix stated that public access reflects user configuration choices rather than a platform vulnerability.</p>
+<p>The regulatory landscape is struggling to keep pace. The EU AI Act"s high-risk obligations take effect on August 2, requiring transparency and human oversight for AI systems, but none of the current regulations specifically address the security of code generated by AI models for end users. California"s S.B. 53 and New York"s RAISE Act require frontier AI developers to publish safety frameworks, yet the gap between regulatory intent and the speed of deployment continues to widen. Financial services and healthcare, the two most regulated sectors, show the lowest vibe coding adoption rates at 34 and 28 percent respectively, a signal that the market itself recognizes the compliance risks even where formal rules have not yet caught up.</p>
+<h2>Why This Matters</h2>
+<p>The vibe coding data leak crisis is not a story about a few careless developers. It is a structural failure baked into the economics of an industry that has prioritized accessibility and growth over basic security hygiene. Eighty-seven percent of Fortune 500 companies have adopted at least one vibe coding platform. Enterprise adoption grew 340 percent year over year, while non-technical user adoption surged 520 percent. Every one of those new users is building applications without the security training that traditional software engineers receive, and the platforms they are using do not compensate for that gap.</p>
+<p>The comparison Zvi drew is instructive: this is the new wave of exposed Amazon S3 buckets, except the scale is larger, the users are less technical, and the data is more diverse. Thirty-five CVEs were disclosed in March alone from AI-generated code, up from six in January, and Georgia Tech estimates the actual figure is five to ten times higher than what is detected. Until vibe coding platforms build security defaults that protect users who do not know to ask for them, the volume of leaked data will only grow.</p>
+<h2>What to Watch Next</h2>
+<p>Security firms are raising capital specifically to address the gap. Escape raised $18 million to build AI agents that scan vibe-coded applications, reporting more than 2,000 high-impact vulnerabilities found in live production systems. Lovable partnered with Aikido for automated penetration testing. Whether these aftermarket fixes can keep up with a market that is shipping millions of new applications per quarter remains the central question, and one that regulators in Brussels, Sacramento, and Albany are only beginning to ask.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185"><blockquote>&ldquo;AI coding tools only do what is asked of them. So if a user does not ask for security explicitly, the app may not be secure by default.&rdquo;</blockquote><cite>&mdash; Joel Margolis, Security researcher</cite></div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">5,000+</div><div class="stat-label">Apps with no authentication</div></div><div class="stat-cell"><div class="stat-value">380,000</div><div class="stat-label">Assets scanned by RedAccess</div></div><div class="stat-cell"><div class="stat-value">~40%</div><div class="stat-label">Exposed apps with sensitive data</div></div><div class="stat-cell"><div class="stat-value">87%</div><div class="stat-label">Fortune 500 using vibe coding</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.axios.com/2026/05/07/loveable-replit-vibe-coding-privacy" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=axios.com&sz=32" alt="">Axios</a><a href="https://www.digitaltrends.com/computing/your-coworkers-ai-built-app-might-be-leaking-company-secrets/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=digitaltrends.com&sz=32" alt="">Digital Trends</a><a href="https://www.xda-developers.com/keep-finding-vibe-coded-apps-leak-user-data/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=xda-developers.com&sz=32" alt="">XDA Developers</a><a href="https://www.darkreading.com/application-security/critical-flaw-vibe-coding-base44-exposed-apps" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=darkreading.com&sz=32" alt="">Dark Reading</a></div></div>
+<div class="article-nav"><a href="09-genesis-ai-gene-265-robotics.html" class="nav-prev">&larr; Genesis AI Unveils GENE-26.5 Robotic Brain With Hu</a><a href="11-connecticut-ai-responsibility-act.html" class="nav-next">Connecticut Passes One of Americas Most Comprehens &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published May 07, 2026</footer>
+<script>window.addEventListener("scroll",function(){let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
