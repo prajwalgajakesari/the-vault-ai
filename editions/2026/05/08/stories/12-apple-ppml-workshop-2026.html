@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apple Hosts Privacy-Preserving Machine Learning Workshop as On-Device AI Strategy Takes Shape — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Apple Hosts Privacy-Preserving Machine Learning Workshop as On-Device AI Strategy Takes Shape</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 887 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Apple's PPML workshop featured 23+ papers on differential privacy and federated learning, weeks before WWDC 2026 is expected to unveil iOS 27's AI provider choice.</p>
+</div>
+<div class="article-body">
+<p>--- headline: "Apple Hosts Privacy-Preserving Machine Learning Workshop as On-Device AI Strategy Takes Shape" slug: apple-ppml-workshop-2026 category: research story_number: "12" date: 2026-05-08 sources:   - name: Apple Machine Learning Research     url: https://machinelearning.apple.com/updates/ppml-2026     domain: machinelearning.apple.com   - name: TechCrunch     url: https://techcrunch.com/2026/05/05/apple-plans-to-make-ios-27-a-choose-your-own-adventure-of-ai-models/     domain: techcrunch.com   - name: AppleInsider     url: https://appleinsider.com/articles/26/03/01/wwdc-2026-to-introduce-core-ai-as-replacement-for-core-ml     domain: appleinsider.com   - name: Apple Security Research     url: https://security.apple.com/blog/private-cloud-compute/     domain: security.apple.com ---</p>
+<p>While the rest of the AI industry races to build ever-larger cloud-dependent models, Apple is doubling down on the proposition that the most powerful AI is the kind that never sees your data in the first place. The company's annual Workshop on Privacy-Preserving Machine Learning & AI, held earlier this year and publicly detailed on May 8, gathered Apple researchers alongside leading academics to tackle the thorniest questions at the intersection of artificial intelligence and personal privacy — just weeks before the company is expected to unveil sweeping changes to how AI operates across its platforms.</p>
+<p>The two-day workshop, now in its fifth consecutive year, focused on three research pillars: Private Learning and Statistics, Foundation Models and Privacy, and Attacks and Security. It featured presentations from Apple ML researchers and external academics spanning institutions including the University of Toronto, Georgetown University, CISPA Helmholtz Center for Information Security, Harvard University, and Boston University. More than 20 peer-reviewed papers were presented, covering topics from differential privacy accounting and federated fine-tuning to memorization vulnerabilities in diffusion models.</p>
+<p>"At Apple, we believe privacy is a fundamental human right," the company stated in its workshop recap. "As AI capabilities increase and become more integrated into people's daily lives, advancing research in privacy-preserving techniques is increasingly important to ensure privacy is protected while users enjoy innovative AI experiences."</p>
+<h2>The Technical Frontier</h2>
+<p>The workshop's featured talks illuminated where Apple sees the research frontier moving. Apple ML researcher Kunal Talwar presented on "Crypto for DP and DP for Crypto," exploring the symbiotic relationship between cryptographic techniques and differential privacy — a mathematical framework that allows aggregate insights to be drawn from user data without exposing any individual's information. Aleksandar Nikolov of the University of Toronto addressed online matrix factorization and query release, while Franziska Boenisch of CISPA tackled one of the hottest problems in the field with her presentation on understanding and mitigating memorization in foundation models — the tendency of large AI models to inadvertently retain and reproduce training data.</p>
+<p>Several Apple-authored papers stood out. One examined combining machine learning with homomorphic encryption within the Apple ecosystem, a technique that allows computations on encrypted data without ever decrypting it. Another, co-authored by Congzheng Song and Xinyu Tang, tackled memory-efficient backpropagation for fine-tuning large language models on resource-constrained mobile devices — research with direct implications for running sophisticated AI models on iPhones and iPads without shipping data to the cloud.</p>
+<p>"Differential privacy provides a mathematically rigorous definition of privacy, rooted in the idea that carefully calibrated noise can mask a user's data, and when many people submit data, the noise averages out and meaningful information emerges," Apple has explained of its approach in prior research publications.</p>
+<h2>From Research to Product Strategy</h2>
+<p>The workshop arrives at a pivotal moment for Apple's AI ambitions. WWDC 2026, scheduled for June 8-12 at Apple Park in Cupertino, is expected to unveil iOS 27 with a landmark feature internally dubbed "Extensions" — a framework that will allow users to choose which third-party AI model powers various Apple Intelligence features, including Siri, Writing Tools, and Image Playground. Models from Google's Gemini, Anthropic's Claude, and xAI's Grok are reportedly being tested alongside Apple's own on-device models.</p>
+<p>The move represents a strategic pivot: rather than competing head-on in the large language model arms race, Apple is positioning itself as the privacy-preserving platform layer through which all AI flows. Users would select their preferred AI provider through a new Extensions menu in Settings, with choices applying across iPadOS 27 and macOS 27 as well.</p>
+<p>This platform approach is undergirded by Apple's Private Cloud Compute infrastructure, which processes more complex AI requests in the cloud while ensuring that personal user data remains inaccessible to anyone — including Apple itself. Simple requests stay entirely on-device. For tasks requiring cloud processing, only the relevant text is transmitted, processed, and immediately deleted.</p>
+<p>AppleInsider has reported that WWDC 2026 will also introduce Core AI, a successor to the Core ML framework, offering developers new APIs for running small models locally. iOS 27 is expected to provide better hooks for on-device inference, along with new privacy APIs that let developers declare which AI interactions should stay on-device and which can be routed to the cloud.</p>
+<h2>The Bigger Picture</h2>
+<p>Apple's dual-track approach — investing heavily in privacy-preserving research while opening its platform to third-party AI providers — amounts to a bet that consumers will increasingly value control and transparency over raw model capability. With 23 published papers at a single workshop spanning federated learning, privacy attacks, synthetic data quality, and agent security, the research pipeline is clearly designed to ensure that whichever AI model a user selects, Apple's privacy guarantees remain the constant.</p>
+<p>The workshop's contributor list — including Vitaly Feldman, Christina Ilvento, Audra McMillan, Kunal Talwar, and others — represents some of the most cited researchers in differential privacy. Their work on efficient privacy loss accounting, training data pruning for reduced memorization, and private federated learning directly feeds the systems that will power the next generation of Apple Intelligence features.</p>
+<p>As the AI industry grapples with growing scrutiny over data practices and model training transparency, Apple's annual PPML workshop serves as both a technical conference and a strategic statement: in Cupertino's vision of the AI future, privacy is not a constraint to be engineered around, but the foundation on which everything else is built.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"Advancing research in privacy-preserving techniques is increasingly important to ensure privacy is protected while users enjoy innovative AI experiences."</blockquote>
+          <cite>— Apple, Workshop statement</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">23+</div><div class="stat-label">Papers presented</div></div><div class="stat-cell"><div class="stat-value">5</div><div class="stat-label">Consecutive years hosting PPML</div></div><div class="stat-cell"><div class="stat-value">3</div><div class="stat-label">Third-party AI models for iOS 27</div></div><div class="stat-cell"><div class="stat-value">June 8-12</div><div class="stat-label">WWDC 2026 dates</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://machinelearning.apple.com/updates/ppml-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=machinelearning.apple.com&sz=32" alt="">Apple ML Research</a><a href="https://techcrunch.com/2026/05/05/apple-plans-to-make-ios-27-a-choose-your-own-adventure-of-ai-models/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://appleinsider.com/articles/26/03/01/wwdc-2026-to-introduce-core-ai-as-replacement-for-core-ml" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=appleinsider.com&sz=32" alt="">AppleInsider</a></div></div>
+<div class="article-nav"><a href="11-icml-2026-6500-papers-seoul.html" class="nav-prev">← ICML 2026 Accepts Over 6,500 Papers as Seoul Confe</a><a href="13-pennsylvania-sues-character-ai-psychiatrist.html" class="nav-next">Pennsylvania Sues Character.AI After Chatbot Posed →</a></div>
+<footer>The Vault — AI Edition · Published May 8, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

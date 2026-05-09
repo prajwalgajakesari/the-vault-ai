@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anthropic Doubles Claude Code Rate Limits and Removes Peak-Hour Restrictions for Pro and Max Users — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Anthropic Doubles Claude Code Rate Limits and Removes Peak-Hour Restrictions for Pro and Max Users</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 895 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Anthropic doubled Claude Code rate limits for all paid tiers and removed peak-hour throttling, enabled by a SpaceX Colossus 1 deal adding 220,000+ GPUs.</p>
+</div>
+<div class="article-body">
+<p>--- headline: "Anthropic Doubles Claude Code Rate Limits and Removes Peak-Hour Restrictions for Pro and Max Users" slug: anthropic-claude-code-rate-limits-doubled category: llms-genai story_number: "08" date: 2026-05-08 sources:   - name: Anthropic Blog     url: https://www.anthropic.com/news/higher-limits-spacex     domain: anthropic.com   - name: 9to5Google     url: https://9to5google.com/2026/05/06/claude-code-is-getting-higher-usage-limits-doubled-for-most-users/     domain: 9to5google.com   - name: Dataconomy     url: https://dataconomy.com/2026/05/07/anthropic-doubles-claude-code-rate-limits-after-deal-with-spacex/     domain: dataconomy.com   - name: XDA Developers     url: https://www.xda-developers.com/anthropic-is-doubling-claude-codes-hourly-rate-limits-removing-peak-hours-andworking-with-spacex/     domain: xda-developers.com ---</p>
+<p>Anthropic has doubled the five-hour rate limits for Claude Code across all paid subscription tiers and eliminated peak-hour throttling for Pro and Max users, a sweeping capacity upgrade announced at the company's inaugural Code with Claude developer conference in San Francisco on May 6 and made possible by a new compute agreement with SpaceX.</p>
+<p>The changes, which took effect immediately, apply to Claude Code users on Pro, Max, Team, and seat-based Enterprise plans. The doubling covers the tool's five-hour usage caps, meaning paid subscribers can now execute roughly twice as many AI-assisted coding operations in any rolling five-hour window as they could the day before. For Pro and Max account holders, Anthropic also removed the peak-hours limitation that previously reduced available capacity during periods of high demand, effectively giving those users consistent access regardless of when they code.</p>
+<p>"We've had difficulties with compute," CEO Dario Amodei said from the conference stage. "We're sorry if sometimes it takes some time, but we're gonna keep going to acquire as much as we can."</p>
+<p>The admission was unusually candid for a technology executive leading one of the world's most valuable startups, and it framed the rate-limit increase not as a marketing gesture but as a direct response to infrastructure constraints that have frustrated developers for months.</p>
+<h2>The SpaceX Connection</h2>
+<p>The capacity expansion is underpinned by a new arrangement with SpaceX that gives Anthropic access to all compute resources at the Colossus 1 data center, a facility that houses more than 220,000 Nvidia GPUs and delivers over 300 megawatts of power. The deal represents one of the more unconventional pairings in the AI infrastructure landscape, linking an AI safety company founded by former OpenAI researchers with Elon Musk's aerospace and satellite conglomerate.</p>
+<p>Anthropic said the SpaceX capacity would come online within the month, adding to an already sprawling infrastructure portfolio that includes a multibillion-dollar agreement with Amazon Web Services for up to five gigawatts of capacity, a partnership with Google and Broadcom for an additional 3.5 gigawatts beginning in 2027, and the recently announced $1.8 billion, seven-year deal with Akamai Technologies.</p>
+<p>The compute hunger reflects Anthropic's staggering growth trajectory. The company had forecast 10-fold growth for the first quarter of 2026. Instead, it experienced 80-fold annualized growth, pushing its revenue run rate from roughly $9 billion at the close of 2025 to $30 billion by April 2026, driven largely by surging adoption of Claude Code itself.</p>
+<h2>Beyond Claude Code: API Limits Surge</h2>
+<p>The announcement extended well beyond the coding tool. Anthropic simultaneously raised API rate limits for its Claude Opus models by more than an order of magnitude. Tier 1 API users saw their maximum input tokens per minute jump from 30,000 to 500,000, a 1,500 percent increase. Maximum output tokens per minute rose by 900 percent. The API changes signal Anthropic's intent to remove friction not just for individual developers using Claude Code but for the enterprises and startups building production applications on top of its models.</p>
+<p>Weekly caps for Claude Code, however, remained unchanged, and the free tier saw no adjustments. The decision to hold weekly limits steady while doubling five-hour caps suggests Anthropic is focused on smoothing short-term usage spikes rather than broadly expanding total consumption, a calibrated approach that balances user experience against still-finite compute resources.</p>
+<h2>Why It Matters</h2>
+<p>Rate limits have been one of the most persistent pain points in the AI coding assistant market. Developers who rely on Claude Code for complex refactoring, multi-file edits, and agentic coding workflows have frequently hit usage ceilings during intensive work sessions, forcing them to pause or switch to competing tools. By doubling the five-hour window and removing peak-hour penalties, Anthropic is directly addressing the workflow interruptions that erode developer trust and productivity.</p>
+<p>The timing is strategic. Claude Code has emerged as one of the primary growth engines behind Anthropic's explosive revenue expansion, and the company cannot afford to lose developer loyalty to rivals at a moment when the AI coding assistant market is intensifying. GitHub Copilot, Cursor, and Google's Gemini Code Assist are all competing aggressively for developer mindshare, and usage limits have become a key competitive differentiator.</p>
+<p>The SpaceX partnership also signals a broader evolution in how frontier AI companies assemble their compute infrastructure. Rather than relying on a single hyperscaler, Anthropic is building a diversified portfolio spanning Amazon, Google, Akamai, and now SpaceX, treating compute procurement more like an energy company managing a generation portfolio than a traditional software firm choosing a cloud provider.</p>
+<h2>What to Watch</h2>
+<p>The critical question is whether the doubled limits will be sufficient to keep pace with demand. Anthropic's own growth has repeatedly outstripped its forecasts, and the company's decision to hold weekly caps unchanged suggests it is still rationing total capacity even as it loosens short-term constraints. Developers will be watching closely to see whether the SpaceX compute comes online on schedule and whether the peak-hour removal for Pro and Max users holds up as adoption continues to surge. If demand once again outpaces supply, Anthropic may find itself back at the podium making another round of infrastructure announcements sooner than planned.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"We've had difficulties with compute. We're sorry if sometimes it takes some time, but we're gonna keep going to acquire as much as we can."</blockquote>
+          <cite>— Dario Amodei, CEO, Anthropic</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">2x</div><div class="stat-label">Rate limit increase for all paid tiers</div></div><div class="stat-cell"><div class="stat-value">1,500%</div><div class="stat-label">Tier 1 API input token increase</div></div><div class="stat-cell"><div class="stat-value">220,000+</div><div class="stat-label">Nvidia GPUs at SpaceX Colossus 1</div></div><div class="stat-cell"><div class="stat-value">300 MW</div><div class="stat-label">New compute capacity from SpaceX</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.anthropic.com/news/higher-limits-spacex" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" alt="">Anthropic Blog</a><a href="https://9to5google.com/2026/05/06/claude-code-is-getting-higher-usage-limits-doubled-for-most-users/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=9to5google.com&sz=32" alt="">9to5Google</a><a href="https://dataconomy.com/2026/05/07/anthropic-doubles-claude-code-rate-limits-after-deal-with-spacex/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=dataconomy.com&sz=32" alt="">Dataconomy</a></div></div>
+<div class="article-nav"><a href="07-adobe-acrobat-productivity-agent.html" class="nav-prev">← Adobe Launches Acrobat Productivity Agent That Tur</a><a href="09-openai-brockman-50b-infrastructure-2026.html" class="nav-next">OpenAI President Reveals Company Will Spend $50 Bi →</a></div>
+<footer>The Vault — AI Edition · Published May 8, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Rolls Out GPT-5.5-Cyber to Vetted Security Teams With Fewer Guardrails for Defenders — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>OpenAI Rolls Out GPT-5.5-Cyber to Vetted Security Teams With Fewer Guardrails for Defenders</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 890 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI launched GPT-5.5-Cyber with loosened guardrails for vetted defenders, with AISI testing showing it solved a 12-hour challenge in under 11 minutes for $1.73.</p>
+</div>
+<div class="article-body">
+<p>--- headline: "OpenAI Rolls Out GPT-5.5-Cyber to Vetted Security Teams With Fewer Guardrails for Defenders" slug: openai-gpt55-cyber-defenders category: llms-genai story_number: "06" date: 2026-05-08 sources:   - name: OpenAI Blog     url: https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber/     domain: openai.com   - name: Help Net Security     url: https://www.helpnetsecurity.com/2026/05/08/openai-gpt-5-5-cyber-model/     domain: helpnetsecurity.com   - name: Axios     url: https://www.axios.com/2026/05/07/openai-gpt-55-cybersecurity-model     domain: axios.com   - name: UK AI Security Institute     url: https://www.aisi.gov.uk/blog/our-evaluation-of-openais-gpt-5-5-cyber-capabilities     domain: aisi.gov.uk   - name: Neowin     url: https://www.neowin.net/news/openai-doubles-down-on-cyber-defense-gpt-55-cyber-limited-preview-now-available/     domain: neowin.net ---</p>
+<p>OpenAI is placing its most powerful cybersecurity tool yet into the hands of vetted defenders, launching GPT-5.5-Cyber in limited preview to approved security teams with deliberately loosened guardrails designed to let the good guys work faster than the adversaries trying to break in.</p>
+<p>The model, announced on May 7 and made available through OpenAI's Trusted Access for Cyber program, represents the most permissive variant in the company's cybersecurity lineup. It is engineered for specialized workflows such as authorized red teaming, penetration testing, and high-severity vulnerability validation that standard consumer-facing models would refuse to assist with.</p>
+<h2>A Tiered Trust Architecture</h2>
+<p>At the heart of the release is OpenAI's Trusted Access for Cyber (TAC) framework, an identity and trust-based access system that vets cybersecurity professionals before granting them elevated model permissions. The framework establishes multiple access tiers: the base GPT-5.5 model available to general users; GPT-5.5 with Trusted Access for Cyber, which OpenAI recommends as the entry point for most defensive security workflows; and now GPT-5.5-Cyber, which sits at the top with the fewest restrictions and the strictest verification requirements.</p>
+<p>"The initial preview of cyber-permissive models like GPT-5.5-Cyber is not intended to significantly increase cyber capability beyond GPT-5.5 -- it's primarily trained to be more permissive on security-related tasks," OpenAI wrote in its blog post announcing the release. The company emphasized that the differences between model access levels are most pronounced when comparing prompts and responses, not raw capability.</p>
+<p>Launch partners for the program include Cisco, CrowdStrike, Palo Alto Networks, Cloudflare, Intel, Snyk, and SentinelOne -- a roster that reads like a who's who of enterprise security. These organizations will be among the first to integrate GPT-5.5-Cyber into their defensive operations.</p>
+<p>"We'd like to help companies secure themselves, and we think it's important to start work on this quickly," OpenAI CEO Sam Altman wrote on X, signaling that the company views cybersecurity as both a commercial opportunity and a moral imperative.</p>
+<h2>Staggering Benchmark Results</h2>
+<p>Independent testing from the UK's AI Security Institute paints a striking picture of just how capable GPT-5.5 has become at cyber tasks. In AISI's evaluation, GPT-5.5 achieved a 71.4 percent pass rate on expert-level cybersecurity capture-the-flag challenges, edging out Anthropic's Claude Mythos Preview at 68.6 percent and substantially outperforming GPT-5.4 at 52.4 percent.</p>
+<p>Perhaps the most jaw-dropping result involved a complex reverse-engineering challenge that required an attacker to decode a custom virtual machine implemented in Rust, build a disassembler from scratch, reverse-engineer an authentication protocol, and solve for a valid password. A human expert from Crystal Peak Security needed roughly 12 hours to complete the challenge. GPT-5.5 solved it in 10 minutes and 22 seconds at a cost of $1.73 in API usage.</p>
+<p>On AISI's most demanding test, a 32-step corporate network attack simulation called "The Last Ones" that models an enterprise intrusion spanning four subnets and roughly 20 hosts, GPT-5.5 completed the full chain end-to-end in 2 of 10 attempts. The simulation, which AISI estimates would take a human expert around 20 hours, requires chaining reconnaissance, credential theft, lateral movement across Active Directory forests, and a CI/CD supply-chain pivot.</p>
+<h2>The Asymmetry Problem</h2>
+<p>The release arrives at a moment when the cybersecurity community is grappling with a fundamental asymmetry. Models of GPT-5.5's caliber are becoming potent offensive tools whether companies like OpenAI intend it or not, and AISI's evaluation noted that rapid improvement on cyber tasks appears to be a byproduct of general advances in reasoning and coding rather than deliberate specialization. If that trend holds, each new frontier model generation will arrive with incrementally stronger offensive cyber capabilities baked in.</p>
+<p>OpenAI's strategy with GPT-5.5-Cyber is to lean into this reality rather than pretend it away. By giving defenders access to the same capabilities that adversaries might exploit, the company is betting that transparency and controlled access will produce better security outcomes than blanket restrictions.</p>
+<p>During early testing, selected partners used GPT-5.5-Cyber to automate and expand red-teaming exercises on infrastructure systems and to validate high-severity vulnerabilities. OpenAI said it plans to document these results in a future technical deep dive as part of a responsible disclosure process.</p>
+<p>"We expect to continue to accelerate defenders with various models, including both our flagship models through Trusted Access for Cyber, and with dedicated cyber models like GPT-5.5-Cyber and even more cyber-capable models in the future," the company stated.</p>
+<h2>What to Watch</h2>
+<p>The AISI evaluation did surface concerns. Expert red-teamers identified a universal jailbreak that could elicit harmful cyber content across all malicious queries, and while OpenAI made updates to its safeguard stack, a configuration issue prevented AISI from fully verifying the fixes. That finding underscores a persistent tension: making models more permissive for defenders inevitably creates a wider attack surface for misuse.</p>
+<p>The UK government's latest Cyber Security Breaches Survey, published the same week, found that 43 percent of businesses suffered a cyber breach or attack in the past 12 months. With frontier AI models now capable of completing in minutes what takes human experts hours, the race between offense and defense is accelerating -- and GPT-5.5-Cyber is OpenAI's bet that arming the defenders is the right move.</p>
+<h2>The Bottom Line</h2>
+<p>OpenAI is making a calculated gamble: that the cybersecurity industry benefits more from powerful, permissive AI tools in trusted hands than from models hobbled by overly cautious guardrails. With GPT-5.5 already demonstrating expert-level offensive capabilities in independent testing, the question is no longer whether AI will reshape cybersecurity, but whether defenders can adopt these tools fast enough to stay ahead.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"We'd like to help companies secure themselves, and we think it's important to start work on this quickly."</blockquote>
+          <cite>— Sam Altman, CEO, OpenAI</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">71.4%</div><div class="stat-label">GPT-5.5 pass rate on expert cyber CTF challenges</div></div><div class="stat-cell"><div class="stat-value">10m 22s</div><div class="stat-label">Time to solve 12-hour challenge</div></div><div class="stat-cell"><div class="stat-value">$1.73</div><div class="stat-label">API cost for the challenge</div></div><div class="stat-cell"><div class="stat-value">7</div><div class="stat-label">Launch partners including Cisco and CrowdStrike</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI Blog</a><a href="https://www.axios.com/2026/05/07/openai-gpt-55-cybersecurity-model" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=axios.com&sz=32" alt="">Axios</a><a href="https://www.aisi.gov.uk/blog/our-evaluation-of-openais-gpt-5-5-cyber-capabilities" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=aisi.gov.uk&sz=32" alt="">UK AISI</a></div></div>
+<div class="article-nav"><a href="05-ibm-chief-ai-officer-76-percent.html" class="nav-prev">← IBM Study Finds 76 Percent of Organizations Now Ha</a><a href="07-adobe-acrobat-productivity-agent.html" class="nav-next">Adobe Launches Acrobat Productivity Agent That Tur →</a></div>
+<footer>The Vault — AI Edition · Published May 8, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
