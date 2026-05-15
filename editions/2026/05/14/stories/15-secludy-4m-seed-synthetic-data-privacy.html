@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Secludy Raises $4 Million to Let Financial Firms Train AI Without Exposing Customer Data — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>Secludy Raises $4 Million to Let Financial Firms Train AI Without Exposing Customer Data</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 916 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Secludy uses differential privacy to generate synthetic datasets letting banks train AI models without exposing customer data, addressing the core bottleneck stalling enterprise GenAI in regulated industries.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Secludy Raises $4 Million to Let Financial Firms Train AI Without Exposing Customer Data"
+slug: secludy-4m-seed-synthetic-data-privacy
+category: policy
+story_number: "15"
+date: 2026-05-14
+author: The Vault AI
+tags: [secludy, synthetic-data, differential-privacy, financial-services, seed-funding, data-privacy, genai]
+---
+# Secludy Raises $4 Million to Let Financial Firms Train AI Without Exposing Customer Data</p>
+<p>Banks want to train AI on their most sensitive data. Secludy just raised $4 million to make sure they never have to.</p>
+<p>The San Francisco-based privacy-tech startup announced its seed round on May 13, positioning itself at the intersection of two forces reshaping financial services: the rush to deploy generative AI and the regulatory reality that the most valuable training data -- transaction histories, fraud patterns, loan files, customer support logs -- is also the most tightly controlled.</p>
+<p>Impression Ventures, a fintech-focused firm based in Toronto, led the round. LAUNCH and The Syndicate, the venture firm and angel investing group led by Jason Calacanis, also participated, alongside Wedbush Ventures, Precursor Ventures, Hustle Fund, Script Capital, Mana Ventures, and Chispa VC.</p>
+<h2>The Problem With Proprietary Data</h2>
+<p>Every major bank and payments company is under pressure to ship AI-powered products, from fraud detection models to customer service chatbots. But the datasets that would make those models most effective sit behind walls of compliance obligations, privacy regulations, and institutional risk aversion. In practice, that means enterprise AI deals stall during vendor evaluation and pilot phases because firms cannot share real customer data with outside partners or even move it freely within their own organizations.</p>
+<p>"Every CEO is telling their teams to ship AI," said Ben Cerchio, founder and CEO of Secludy. "None of them want to be the one explaining a customer data leak on the next earnings call."</p>
+<p>Cerchio would know the tension firsthand. Before founding Secludy, he spent his career in privacy and information security, most recently leading product privacy at TikTok and earlier working in information security compliance at PayPal. His co-founder and CTO, Mingze He, holds a PhD in computational biology with a machine learning specialization, conducted postdoctoral research at the Stanford Research Institute, and built enterprise AI systems at Williams-Sonoma.</p>
+<h2>How Secludy Works</h2>
+<p>The company's platform generates synthetic data that statistically mirrors an organization's real datasets while guaranteeing that no individual customer record can be reverse-engineered from the output. The technical foundation is differential privacy, a mathematical framework that provides formal, provable limits on how much information about any single person can leak from a dataset. Unlike anonymization or masking techniques, which have repeatedly been shown to be vulnerable to re-identification attacks, differential privacy offers a quantifiable privacy guarantee.</p>
+<p>Secludy deploys entirely within the customer's own cloud environment, meaning raw data never leaves the institution's infrastructure. The synthetic output can then be used freely for model training, fine-tuning, benchmarking, and vendor evaluation -- all without triggering the regulatory tripwires that stall most enterprise AI projects.</p>
+<p>The approach is compliant by design with GDPR, CCPA, and HIPAA, a detail that matters enormously for firms operating across multiple jurisdictions with overlapping and sometimes contradictory data protection requirements.</p>
+<h2>A Market in Rapid Expansion</h2>
+<p>Secludy enters a synthetic data market that analysts expect to grow aggressively. Multiple research firms estimate the global synthetic data generation market at roughly $635 million to $790 million in 2026, with projections reaching between $4.2 billion and $6.9 billion by the early 2030s, reflecting compound annual growth rates above 30 percent. Model training represents the largest application segment, accounting for an estimated 46 percent of market demand.</p>
+<p>Financial services is a particularly acute pressure point. Banks and insurers sit on decades of proprietary data but face some of the strictest regulatory environments for sharing or repurposing it. That dynamic creates a large addressable market for any company that can credibly bridge the gap between data utility and data protection.</p>
+<p>"We keep hearing the same thing from banks and insurers: they're sitting on decades of proprietary data and know they need to train models on it, but can't do it safely," said Christian Lassonde, Managing Partner at Impression Ventures. "That's the gap Secludy closes."</p>
+<h2>Where the Money Goes</h2>
+<p>Secludy plans to use the $4 million to accelerate hiring, scale its go-to-market operation targeting banks, payments firms, and fintech companies, and expand the platform across additional enterprise AI workflows beyond its initial financial services focus.</p>
+<p>The round is modest by 2026 standards -- the same week saw Anduril raise $5 billion and Cerebras debut at a $95 billion market cap -- but the thesis is narrowly targeted. Secludy is not building a general-purpose AI platform. It is selling a compliance-first data layer to institutions that have the data, the budget, and the regulatory mandate to care deeply about how that data gets used.</p>
+<h2>The Bigger Picture</h2>
+<p>The rise of synthetic data startups reflects a broader reckoning in enterprise AI. The industry spent the past three years demonstrating that large language models can be transformative. The next phase is proving they can be deployed within the constraints that regulated industries actually operate under. Privacy is not a feature request -- it is a prerequisite.</p>
+<p>For financial services firms, the calculus is straightforward: the cost of a data breach or regulatory penalty dwarfs the cost of generating synthetic alternatives. If Secludy's differential privacy guarantees hold up under production workloads, the company could become essential infrastructure for an industry that controls trillions of dollars in data-rich transactions but has barely begun to tap generative AI.</p>
+<p>The seed round is a starting point, not a destination. But in a market where every bank is racing to deploy AI and none of them can afford to get privacy wrong, Secludy is betting that the safe path is the fast path.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185">
+          <blockquote>"Every CEO is telling their teams to ship AI. None of them want to be the one explaining a customer data leak on the next earnings call."</blockquote>
+          <cite>— Ben Cerchio, CEO, Secludy</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">$4M</div><div class="stat-label">Seed funding raised</div></div><div class="stat-cell"><div class="stat-value">$635-790M</div><div class="stat-label">Synthetic data market 2026</div></div><div class="stat-cell"><div class="stat-value">30%+</div><div class="stat-label">Market CAGR through 2030s</div></div><div class="stat-cell"><div class="stat-value">46%</div><div class="stat-label">Market share for model training</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.globenewswire.com/news-release/2026/05/13/3294051/32619/en/secludy-raises-4m-to-safely-unlock-proprietary-data-for-genai.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=globenewswire.com&sz=32" alt="">GlobeNewswire</a><a href="https://www.hpcwire.com/bigdatawire/this-just-in/secludy-raises-4m-to-safely-unlock-proprietary-data-for-genai/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=hpcwire.com&sz=32" alt="">BigDATAwire</a><a href="https://www.finsmes.com/2026/05/secludy-raises-4m-in-seed-funding.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=finsmes.com&sz=32" alt="">FinSMEs</a><a href="https://vcnewsdaily.com/secludy/venture-capital-funding/fjkphzklwj" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=vcnewsdaily.com&sz=32" alt="">VCNewsDaily</a></div></div>
+<div class="article-nav"><a href="14-us-china-ai-safety-protocol-trump-xi.html" class="nav-prev">← US and China Announce AI Safety Protocol Plan Afte</a></div>
+<footer>The Vault — AI Edition · Published May 14, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

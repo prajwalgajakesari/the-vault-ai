@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Machine Learning Research Has Outpaced Its Communication Norms — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Machine Learning Research Has Outpaced Its Communication Norms</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 870 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A study of 2.8 million papers finds NeurIPS readability has cratered while volume grew 50-fold, proposing seven enforceable writing standards for NeurIPS 2027.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Machine Learning Research Has Outpaced Its Communication Norms"
+slug: ml-research-outpaces-communication-norms
+category: research
+story_number: "11"
+---</p>
+<p># Machine Learning Research Has Outpaced Its Communication Norms</p>
+<p>The machine learning research community has a writing problem. Papers are getting harder to read, acronyms are multiplying faster than the models they describe, and the venues that once set the standard for scientific communication are struggling to keep pace with a field that has grown fifty-fold in under four decades. A new study analyzing millions of papers argues the flagship conference NeurIPS needs to intervene — before the field's own literature becomes unintelligible to the researchers producing it.</p>
+<p>The paper, published on arXiv on May 9 by Ajay Mandyam Rangarajan and Jeyashree Krishnan, represents one of the most comprehensive quantitative audits of ML research writing ever conducted. The authors analyzed 2.8 million arXiv papers spanning 1991 to 2025, 24,772 NeurIPS papers from 1987 to 2024, and 24.5 million PubMed papers from 1990 to 2025, applying classical readability metrics, sensational language detection, acronym analysis, LLM-based readability scoring, and citation data from OpenAlex and Semantic Scholar.</p>
+<p>The findings are stark. Flesch Reading Ease scores for NeurIPS abstracts have dropped from roughly 24 in 1987 to 13 in 2024 — a decline that pushes the field's flagship venue deep into territory that readability researchers classify as requiring specialized postgraduate training to parse. For context, scientific writing already trends toward the difficult end of any readability scale, and NeurIPS abstracts are getting harder even by that standard.</p>
+<h2>The Acronym Epidemic</h2>
+<p>Perhaps the most vivid finding concerns the explosion of acronyms. Acronym density in NeurIPS titles has surged nearly tenfold, from 0.33 per 100 words in 1987 to 3.21 in 2024. Worse, roughly 89 percent of acronyms appearing in NeurIPS papers are used fewer than ten times across the entire corpus — ten percentage points above the science-wide baseline. The field is not just producing jargon; it is producing disposable jargon, shorthand that serves the authors of a single paper and no one else.</p>
+<p>Sensational language has risen by approximately 50 percent in NeurIPS abstracts between 2015 and 2024, a trend that mirrors broader concerns about hype in AI research. The combination of decreasing readability and increasing sensationalism creates a peculiar dynamic: papers are simultaneously harder to understand and more breathless in their claims.</p>
+<h2>Readability Correlates with Impact</h2>
+<p>The study's most provocative finding may be its simplest. More readable NeurIPS papers tend to receive more citations. The correlation suggests that clarity is not merely a stylistic preference but a measurable determinant of research impact. Papers that cannot be easily understood risk being siloed — read by the narrow subcommunity that shares the authors' specific vocabulary and ignored by everyone else.</p>
+<p>"Is the target reader a human or an LLM?" Rangarajan and Krishnan pose the question directly in their analysis. Their LLM-based readability scores rated NeurIPS abstracts as roughly stable from 1987 to 2022, with early signs of improvement afterward — a pattern that contradicts every classical readability metric designed for human comprehension. The divergence raises an uncomfortable question for a field increasingly reliant on automated tools for reviewing, summarizing, and synthesizing research.</p>
+<h2>A Field Under Structural Strain</h2>
+<p>The communication crisis does not exist in isolation. NeurIPS received 21,575 valid submissions in 2025, a 61 percent increase over 2024's 15,671 main-track papers. The conference that once received a few hundred submissions per year now processes tens of thousands, placing extraordinary pressure on volunteer reviewers who must read and evaluate work across an ever-widening array of subfields.</p>
+<p>The broader ML conference ecosystem is feeling the strain. ICML 2026 introduced its most stringent policies yet, including a two-tier framework governing LLM use in peer review. Under the new system, authors and reviewers choose between a conservative policy that prohibits LLMs entirely and a permissive policy that allows limited AI assistance for comprehension and polishing but bans AI-generated evaluations. The conference detected 795 policy violations — roughly one percent of all reviews — using watermarking techniques embedded in submission PDFs. NeurIPS itself elevated reproducibility to a first-class research activity in May, announcing that the Machine Learning Reproducibility Challenge would become an official conference track for the first time at NeurIPS 2026 in Sydney.</p>
+<h2>Seven Standards for NeurIPS 2027</h2>
+<p>Rangarajan and Krishnan propose seven concrete standards NeurIPS could pilot beginning in 2027: an acronym budget paired with a venue-approved term list, a human readability threshold for accepted papers, stricter citation standards, requirements for standalone visual elements, mandatory plain language summaries, a pre-registered acronym glossary, and open-source audit tooling that would allow authors to check compliance before submission.</p>
+<p>The proposals are deliberately incremental. The authors are not calling for a revolution in how ML research is written — they are arguing that a field producing roughly 50 times more papers than it did in the late 1980s needs explicit, enforceable norms that match its current scale. The alternative is a literature that grows increasingly opaque even to its own practitioners, where the gap between what is published and what is understood widens with every conference cycle.</p>
+<p>Whether NeurIPS will act remains an open question. But the data makes the case difficult to dismiss: the field's communication infrastructure was built for a different era, and the cracks are no longer subtle.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"Is the target reader a human or an LLM?"</blockquote>
+          <cite>— Ajay Mandyam Rangarajan and Jeyashree Krishnan, Paper authors</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">24 to 13</div><div class="stat-label">Flesch score decline (1987-2024)</div></div><div class="stat-cell"><div class="stat-value">~50x</div><div class="stat-label">NeurIPS volume growth</div></div><div class="stat-cell"><div class="stat-value">89%</div><div class="stat-label">Acronyms used fewer than 10 times</div></div><div class="stat-cell"><div class="stat-value">21,575</div><div class="stat-label">NeurIPS 2025 submissions</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2605.08889" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://blog.neurips.cc/2026/05/04/mlrc-2026-reproducibility-as-an-official-track-at-neurips/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.neurips.cc&sz=32" alt="">NeurIPS Blog</a><a href="https://icml.cc/Conferences/2026/LLM-Policy" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=icml.cc&sz=32" alt="">ICML 2026</a></div></div>
+<div class="article-nav"><a href="10-inception-diffusion-llm-microsoft.html" class="nav-prev">← Inception Diffusion-Based Language Models Draw Mic</a><a href="12-speech-patterns-executive-function-ai.html" class="nav-next">Researchers Link Everyday Speech Patterns to Execu →</a></div>
+<footer>The Vault — AI Edition · Published May 14, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
