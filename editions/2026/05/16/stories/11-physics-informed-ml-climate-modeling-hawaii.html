@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>University of Hawaii Unveils Physics-Informed ML Algorithm for Climate and Fluid Dynamics — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>University of Hawaii Unveils Physics-Informed ML Algorithm for Climate and Fluid Dynamics</h1>
+  <div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 852 words</span><span>3 sources</span></div>
+</header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>A UH-linked physics-informed deep learning framework embeds governing PDEs directly into training, producing physically consistent fluid simulations at dramatically lower computational cost.</p></div>
+<div class="article-body"><p>---
+title: "University of Hawaii Unveils Physics-Informed ML Algorithm That Advances Climate and Fluid Dynamics Modeling"
+slug: physics-informed-ml-climate-modeling-hawaii
+category: research
+story_number: "11"
+date: "2026-05-16"
+---</p>
+<p># University of Hawaii Unveils Physics-Informed ML Algorithm That Advances Climate and Fluid Dynamics Modeling</p>
+<p>A new generation of machine learning models grounded in the laws of physics is reshaping how scientists simulate climate systems and fluid dynamics — and the University of Hawaiʻi is at the center of the breakthrough.</p>
+<p>Researchers working at the confluence of artificial intelligence and atmospheric science have unveiled a physics-informed spatiotemporal deep learning framework capable of replicating the complex, turbulent behavior of convective fluid systems at a fraction of the computational cost of traditional numerical simulations. The advance, published in the <em>Journal of the American Statistical Association</em> in early 2026, could meaningfully accelerate climate projections, extreme weather risk modeling, and industrial fluid engineering.</p>
+<h2>The Problem With Brute-Force Simulation</h2>
+<p>Understanding fluid dynamics — whether in ocean currents, thunderstorm cells, or industrial heat exchangers — has long demanded enormous computational resources. Direct numerical simulations (DNS) of turbulent systems must resolve every eddy, every temperature gradient, every chaotic fluctuation down to microscopic scales. For climate scientists studying decades-long trends, this approach is simply untenable. Even with modern supercomputers, running DNS for long-horizon atmospheric models can take weeks or months.</p>
+<p>That computational barrier has driven growing interest in surrogate modeling: using machine learning to approximate the behavior of physical systems without solving the governing equations from scratch at every time step. The challenge, however, is that pure data-driven models tend to violate the basic conservation laws that real fluid systems must obey. They can hallucinate physically impossible states, drifting further from reality the longer they run.</p>
+<p>Physics-informed machine learning resolves this tension by encoding the governing partial differential equations (PDEs) directly into the training objective. The model is not merely rewarded for matching observed data — it is explicitly penalized whenever its outputs contradict the physics.</p>
+<h2>The New Framework: Convection Meets Transformers</h2>
+<p>The paper, authored by Luca Menicali, Andrew Grace, David H. Richter, and Stefano Castruccio, focuses on Rayleigh-Benard convection (RBC) — a canonical model system in which a fluid layer is heated from below, generating the kind of rolling, turbulent convection cells seen in the atmosphere, oceans, and planetary interiors.</p>
+<p>Their architecture combines two powerful but previously separate ideas. Convolutional neural networks handle spatial dimension reduction, compressing the high-resolution field data into a latent representation that captures essential structure without retaining every detail of the simulation domain. Then, a novel recurrent architecture — explicitly inspired by the attention mechanisms underlying large language models — models how that compressed state evolves through time, capturing long-range temporal dependencies that simpler recurrent networks miss.</p>
+<p>Crucially, the inference step is penalized with respect to the governing PDEs. If the model predicts a temperature field that violates energy conservation, that error is baked into the loss function. The physics is not just a prior assumption — it is an active training signal at every iteration.</p>
+<p>To handle the inherent uncertainty of turbulent systems, the researchers applied a conformal prediction framework, providing statistically rigorous uncertainty bounds around each forecast rather than producing a single deterministic output. The result is a surrogate model that replicates key physical features of RBC dynamics — heat flux, velocity statistics, spatial correlations — while slashing computational cost compared to DNS.</p>
+<p>The framework architecture is explicitly designed for generalizability. The authors emphasize that the convolutional structure, recurrent memory, and physics-based loss components are all transferable to other nonlinear systems in thermodynamics, climate, and geophysical flows — a design choice that positions the work as infrastructure for the field rather than a narrow, one-off result.</p>
+<h2>UH Manoa's Broader AI Climate Push</h2>
+<p>The new framework arrives as the University of Hawaiʻi is scaling up its institutional investment in AI-driven climate science on multiple fronts.</p>
+<p>Associate Professor Peter Sadowski of UH Manoa's Department of Information and Computer Sciences holds a five-year, $424,293 NSF CAREER grant for research titled "Score-Based Diffusion Models for Probabilistic Forecasting of Weather and Climate." The project applies generative AI techniques — the same class of models that produce realistic images from text — to produce location-specific probabilistic forecasts of extreme weather events, drawing on data from satellites, ground-based stations, and the NSF-funded CHANGE-HI climate simulation project.</p>
+<p>"One of the risks of climate change for Hawaiʻi is extreme weather events, and current scientific models are poor at estimating these risks," Sadowski said. "This project will provide a completely new approach modeling these risks, using the latest advancements in AI."</p>
+<p>The CHANGE-HI project itself represents a $20 million, five-year NSF award to develop actionable climate science for the Hawaiian Islands — a region particularly vulnerable to sea-level rise, intensifying rainfall events, and drought. Machine learning is central to that effort, with active work on high-resolution rainfall mapping, sea surface temperature forecasting from NOAA buoy data, and long-range climate projections tailored to the Pacific Island context.</p>
+<p>In April 2026, UH also launched a new EPSCoR/IDeA Office specifically designed to expand research capacity statewide and amplify the visibility of Hawaii-based science nationally — a structural signal that physics-informed AI for climate is being treated as a long-term institutional priority, not a passing research trend.</p>
+<h2>Why Physics-Informed ML Changes the Equation</h2>
+<p>What distinguishes the current wave of physics-informed models from earlier neural-network approaches to fluid simulation is the degree of integration between learned representations and physical constraints. Earlier hybrid methods often bolted physical corrections onto purely data-driven outputs as a post-processing step. The newer frameworks embed physics into every layer of the optimization process.</p>
+<p>The payoff is significant: models trained this way generalize better to conditions outside their training distribution, remain stable over long simulation horizons, and produce outputs that scientists can interpret in terms of known physical mechanisms. For climate applications — where the goal is often to understand unprecedented future states, not merely interpolate within historical records — this physical grounding is not a luxury. It is a prerequisite for trustworthy prediction.</p>
+<p>The conformal prediction layer addresses a separate but equally important gap: quantifying uncertainty in a statistically rigorous way. Climate policy decisions increasingly depend not just on best-guess projections but on credible probability ranges. A forecast that attaches a meaningful confidence interval to a rainfall estimate is more useful to a water utility or emergency manager than one that delivers only a single-point output.</p>
+<h2>What Comes Next</h2>
+<p>The Rayleigh-Benard convection results are framed as a proof-of-concept for a broader class of geophysical applications. Potential extensions include ocean circulation modeling, atmospheric blocking events, and coupled climate system simulations — all domains where the cost of DNS makes conventional simulation impractical at the scales needed for policy-relevant projections.</p>
+<p>With Hawaiʻi's unique position as a living laboratory for Pacific climate dynamics — sitting at the intersection of tropical convection, trade wind systems, and ocean-atmosphere coupling — the University's growing portfolio of physics-informed AI research carries stakes well beyond academic publication. It is aimed squarely at the question of how island communities across the Pacific will prepare for, and adapt to, a fundamentally altered climate in the decades ahead.</p><div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"One of the risks of climate change for Hawaii is extreme weather events, and current scientific models are poor at estimating these risks. This project will provide a completely new approach."</blockquote><cite>— Peter Sadowski, Associate Professor, UH Manoa</cite></div><div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">$424K</div><div class="stat-label">NSF CAREER grant</div></div><div class="stat-cell"><div class="stat-value">$20M</div><div class="stat-label">Five-year NSF CHANGE-HI award</div></div></div></div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2505.10919" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://www.tandfonline.com/doi/full/10.1080/01621459.2026.2632865" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tandfonline.com&sz=32" alt="">Journal of the American Statistical Association</a><a href="https://www.hawaii.edu/news/2023/07/24/nsf-career-grant-peter-sadowski/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=hawaii.edu&sz=32" alt="">UH System News</a></div></div>
+<div class="article-nav"><a href="10-mollifier-layers-neural-network-stability-upenn.html" class="nav-prev">&larr; Penn Researchers Introduce Mollifier Layers for Mo</a><a href="12-google-ai-agent-prompt-injection-wild.html" class="nav-next">Google Warns Malicious Web Pages Are Actively Hija &rarr;</a></div>
+<footer>The Vault — AI Edition &middot; Published May 16, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

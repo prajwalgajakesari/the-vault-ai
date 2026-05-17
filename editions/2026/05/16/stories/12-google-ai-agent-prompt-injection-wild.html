@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google Warns Malicious Web Pages Are Actively Hijacking AI Agents via Prompt Injection — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>Google Warns Malicious Web Pages Are Actively Hijacking AI Agents via Prompt Injection</h1>
+  <div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 873 words</span><span>3 sources</span></div>
+</header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>Google confirmed a 32% surge in malicious prompt injection payloads on the public web between Nov 2025 and Feb 2026, including PayPal transaction hijacks.</p></div>
+<div class="article-body"><p>---
+headline: "Google Warns Malicious Web Pages Are Actively Hijacking AI Agents via Prompt Injection"
+slug: google-ai-agent-prompt-injection-wild
+category: policy
+story_number: "12"
+date: 2026-05-16
+sources:
+  - name: "Google Security Blog"
+    url: "https://security.googleblog.com/2026/04/ai-threats-in-wild-current-state-of.html"
+    domain: "security.googleblog.com"
+  - name: "AI News (TechForge)"
+    url: "https://www.artificialintelligence-news.com/news/google-warns-malicious-web-pages-poisoning-ai-agents/"
+    domain: "artificialintelligence-news.com"
+  - name: "Decrypt"
+    url: "https://decrypt.co/365677/google-prompt-injection-ai-agents-paypal-enterprise"
+    domain: "decrypt.co"
+  - name: "Help Net Security"
+    url: "https://www.helpnetsecurity.com/2026/04/24/indirect-prompt-injection-in-the-wild/"
+    domain: "helpnetsecurity.com"
+  - name: "SecurityWeek"
+    url: "https://www.securityweek.com/malicious-ai-prompt-injection-attacks-increasing-but-sophistication-still-low-google/"
+    domain: "securityweek.com"
+---</p>
+<p># Google Warns Malicious Web Pages Are Actively Hijacking AI Agents via Prompt Injection</p>
+<p>The public web is being booby-trapped for AI. According to a sweeping new report from Google's security team, malicious actors have begun seeding ordinary websites with invisible instructions designed not for human readers, but for the AI agents browsing on their behalf — and the attack count is rising fast.</p>
+<p>Google researchers Thomas Brunner, Yu-Han Liu, and Moni Pande published their findings on April 23, disclosing the results of a broad scan across Common Crawl, a repository of 2–3 billion web pages per monthly snapshot. What they found was a live, growing threat: a 32% increase in malicious indirect prompt injection (IPI) payloads between November 2025 and February 2026.</p>
+<h2>What Is Indirect Prompt Injection — and Why Does It Matter Now?</h2>
+<p>Direct prompt injection — a user typing "ignore your previous instructions" into a chatbot — is the attack most people picture when they think about AI manipulation. Enterprises have spent the last two years building guardrails against it. Indirect prompt injection is harder to stop because the attack never touches the user interface at all.</p>
+<p>In an IPI attack, malicious instructions are hidden inside content an AI agent is sent to retrieve: a webpage, a PDF, an email, a shared document. When the agent reads that content, it processes the hidden commands alongside the legitimate text — and may execute them. Attackers hide their payloads in text shrunk to a single pixel, drained to near-transparency, buried in HTML comment sections, or tucked into page metadata. The human sees nothing. The AI reads everything.</p>
+<p>"Unlike a direct injection where a user 'jailbreaks' a chatbot, IPI occurs when an AI system processes content — like a website, email, or document — that contains malicious instructions," Google's researchers wrote. "When the AI reads this poisoned content, it may silently follow the attacker's commands instead of the user's original intent."</p>
+<p>Until recently, this attack class was largely theoretical — a research curiosity discussed at security conferences. Google's report is significant precisely because it confirms the transition from proof-of-concept to active exploitation in the wild.</p>
+<h2>What Google Actually Found</h2>
+<p>The Google team applied a three-stage filtering approach to Common Crawl data: pattern matching on known IPI signatures (phrases like "ignore all previous instructions" or "if you are an AI"), Gemini-based classification to determine intent and context, and final human validation to eliminate false positives. The resulting dataset is conservative by design — it captures only what is clearly malicious, not the full ambient noise of the web.</p>
+<p>Even with that conservative lens, the researchers identified a clear taxonomy of attacks:</p>
+<p><strong>Harmless pranks and SEO manipulation</strong> made up the bulk of detections. One page hid an instruction telling AI agents to respond like a cartoon bird. Others attempted to game AI-generated summaries — a new front in an old search engine optimization arms race, with some injections apparently generated by automated SEO tooling rather than hand-crafted by individuals.</p>
+<p><strong>Agent-deterrence attacks</strong> attempted to waste AI resources. One payload redirected AI readers to a separate page that streamed infinite text — a denial-of-service attempt aimed at timeout errors and compute waste.</p>
+<p><strong>Data exfiltration attempts</strong> were fewer in number but more alarming in intent. One payload instructed the reading AI to return the user's IP address alongside their passwords. Another attempted to have the AI execute a machine-formatting command — effectively a wiper attack triggered passively through a webpage.</p>
+<p>The sophistication gap between these attacks and the techniques published by academic security researchers remains wide — which Google views as a temporary reprieve rather than reassurance. "We expect both the scale and sophistication of attempted IPI attacks to grow in the near future," the researchers wrote.</p>
+<h2>PayPal Transactions, Stripe Donations, and the Financial Payload Problem</h2>
+<p>The financial dimension of the threat is where the stakes become concrete. Cybersecurity firm Forcepoint published a parallel report documenting payloads that went further than anything in Google's dataset. Researchers found one payload that embedded a fully specified PayPal transaction — complete with step-by-step transfer instructions and the classic "ignore all previous instructions" override technique — aimed squarely at AI agents with integrated payment capabilities.</p>
+<p>A second attack used a technique called "meta tag namespace injection" combined with a persuasion amplifier keyword to route AI-mediated payments toward a Stripe donation link. A third appeared designed as reconnaissance — probing which AI systems were actually vulnerable before mounting a larger strike.</p>
+<p>This is the core of the enterprise risk. An AI agent with legitimate payment credentials, executing a transaction it reads off a website, produces logs that look identical to normal operations. There is no anomalous login, no brute-force attempt, no signature for a firewall to catch. The agent did exactly what it was authorized to do — it just received its instructions from the wrong source.</p>
+<p>"An agentic AI that can send emails, execute terminal commands, or process payments is a different category of target entirely," Forcepoint's researchers noted. "The attack surface scales with privilege."</p>
+<h2>The Liability Gap No One Has Solved</h2>
+<p>Beyond the technical attack surface lies a legal vacuum. When an enterprise AI agent with company-approved credentials reads a malicious webpage and initiates a fraudulent PayPal transfer, the liability chain is murky at best. Does responsibility fall on the enterprise that deployed the agent? The model provider whose system followed the injected instruction? The website owner who hosted the payload, knowingly or not?</p>
+<p>No legal framework currently covers this scenario — even though Google's researchers found actual payloads in the wild as recently as February 2026.</p>
+<p>The broader security community has been tracking this threat category for months. The Open Worldwide Application Security Project (OWASP) ranks prompt injection as LLM01:2025 — the single most critical vulnerability class in AI applications. The FBI tracked nearly $900 million in AI-related scam losses in 2025, its first year logging the category as a distinct line item. Google's findings suggest the more targeted, agent-specific financial attacks are only beginning to ramp up.</p>
+<h2>The Numbers Undercount the Real Scope</h2>
+<p>The 32% growth figure covers only three months of data from the static, publicly crawlable web — the portion of the internet that requires no login credentials and blocks no automated scrapers. Social media platforms, login-walled enterprise portals, and dynamically generated content were all out of scope. Common Crawl's monthly snapshots represent 2–3 billion pages but exclude most of where enterprise AI agents actually operate: email inboxes, Slack workspaces, internal wikis, CRM portals.</p>
+<p>Google also observed that some of the more sophisticated SEO injection attempts showed signs of automated generation — payloads produced at scale by purpose-built pipelines rather than hand-crafted by individual attackers. Forcepoint similarly flagged shared injection templates across multiple domains as evidence of "organized tooling rather than isolated experimentation." Someone is building infrastructure for this, even if the full deployment wave has not yet arrived.</p>
+<h2>What Defenders Can Do Right Now</h2>
+<p>Google's defensive recommendations apply zero-trust principles to the agent layer itself — a shift that most enterprise security architectures have not yet made.</p>
+<p><strong>Dual-model verification</strong> interposes a small, isolated sanitizer model between privileged reasoning agents and the open web. The sanitizer fetches and strips external content; if it is compromised by an injected payload, it cannot execute consequential actions because it lacks the necessary permissions.</p>
+<p><strong>Strict tool compartmentalization</strong> enforces least-privilege on agent identities. An AI agent built to research competitors online should never hold write access to the company CRM. Bundling read, write, and execute capabilities into a single monolithic agent identity creates a high-value target and a single point of failure.</p>
+<p><strong>Decision-lineage audit trails</strong> must evolve beyond token usage and latency metrics to track the specific URLs and content that shaped every AI recommendation. Without forensic lineage, diagnosing a successful injection after the fact becomes nearly impossible — and attribution for a fraudulent transaction becomes a legal quagmire.</p>
+<p>Google has committed to continued monitoring of IPI patterns across the web, is expanding its AI Vulnerability Reward Program to bring in external researchers, and has published both a white paper on securing AI agents and a dedicated Workspace blog post covering Gemini-specific mitigations.</p>
+<p>The broader message lands with some urgency: the internet has always been an adversarial environment. For human users, decades of accumulated tooling — firewalls, endpoint detection, identity management — have at least made the threats visible. AI agents are navigating that same environment with far less armor, acting on behalf of users who may have no idea what their agents are reading. The attackers have noticed, and they are not waiting for the defense to catch up.</p><div class="pull-quote" style="border-left:2px solid #fb7185"><blockquote>"We expect both the scale and sophistication of attempted IPI attacks to grow in the near future."</blockquote><cite>— Thomas Brunner, Yu-Han Liu, Moni Pande, Google Threat Intelligence Researchers</cite></div><div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">32%</div><div class="stat-label">Increase in malicious IPI detections</div></div><div class="stat-cell"><div class="stat-value">2-3B</div><div class="stat-label">Web pages scanned per crawl</div></div><div class="stat-cell"><div class="stat-value">$900M</div><div class="stat-label">AI-related scam losses (FBI 2025)</div></div></div></div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://security.googleblog.com/2026/04/ai-threats-in-wild-current-state-of.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=security.googleblog.com&sz=32" alt="">Google Security Blog</a><a href="https://www.securityweek.com/malicious-ai-prompt-injection-attacks-increasing-but-sophistication-still-low-google/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=securityweek.com&sz=32" alt="">SecurityWeek</a><a href="https://decrypt.co/365677/google-prompt-injection-ai-agents-paypal-enterprise" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=decrypt.co&sz=32" alt="">Decrypt</a></div></div>
+<div class="article-nav"><a href="11-physics-informed-ml-climate-modeling-hawaii.html" class="nav-prev">&larr; University of Hawaii Unveils Physics-Informed ML A</a><a href="13-deepfake-ceo-video-2m-wire-fraud.html" class="nav-next">AI-Generated Deepfake CEO Video Enables $2 Million &rarr;</a></div>
+<footer>The Vault — AI Edition &middot; Published May 16, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

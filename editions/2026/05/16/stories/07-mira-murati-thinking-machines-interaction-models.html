@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mira Muratis Thinking Machines Reveals Real-Time Multimodal AI Interaction Models — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Mira Muratis Thinking Machines Reveals Real-Time Multimodal AI Interaction Models</h1>
+  <div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 966 words</span><span>3 sources</span></div>
+</header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>Thinking Machines Lab Interaction Models reframe the AI interaction problem as architectural, splitting live conversation and background reasoning into two dedicated models.</p></div>
+<div class="article-body"><p>---
+title: "Mira Murati's Thinking Machines Reveals Real-Time Multimodal AI Interaction Models"
+slug: mira-murati-thinking-machines-interaction-models
+category: llms-genai
+story_number: "07"
+date: 2026-05-16
+---</p>
+<p># Mira Murati's Thinking Machines Reveals Real-Time Multimodal AI Interaction Models</p>
+<p>The startup has introduced a new class of AI architecture it calls Interaction Models — and the benchmarks suggest the rest of the industry may need to rethink how it builds conversational AI from the ground up.</p>
+<p>---</p>
+<p>On May 11, 2026, Thinking Machines Lab — the AI startup founded by former OpenAI CTO Mira Murati — pulled back the curtain on its first in-house model: a system it calls an Interaction Model. Built from scratch to perceive and respond across audio, video, and text simultaneously, the reveal marks the company's clearest statement yet on where it believes conversational AI has gone wrong — and how it intends to fix it.</p>
+<p>The announcement, long anticipated since the company raised $2 billion at a $12 billion valuation just ten months ago, lands Thinking Machines squarely in competitive territory with OpenAI's GPT-Realtime and Google's Gemini Flash — but with a fundamentally different architectural argument at its core.</p>
+<h2>The Problem With How Every Other Lab Built Interaction</h2>
+<p>Most AI systems handle real-time conversation through a patchwork of components: voice-activity detection identifies when a user stops speaking, a transcription layer converts audio to text, a language model processes the text, and a text-to-speech engine converts the response back to audio. Each handoff introduces latency. Each boundary is a seam where the experience frays.</p>
+<p>Thinking Machines says that is not a tuning problem. It is an architectural one.</p>
+<p>"Most labs treat autonomy as the goal and interactivity as scaffolding around a turn-based core," said Murati in the company's blog post accompanying the release. "We think the way we work with AI matters as much as how smart it is."</p>
+<p>The company's answer is TML-Interaction-Small, a 276-billion-parameter Mixture-of-Experts model — though only 12 billion parameters are active at any given moment — trained from scratch for continuous, simultaneous perception and generation. Rather than waiting for a user to finish speaking, the model processes input and generates output in overlapping 200-millisecond micro-turns. It can listen while it speaks, interrupt when appropriate, and react to visual context from a live video feed — behaviors the company describes as "full duplex" interaction.</p>
+<h2>A Two-Model Architecture</h2>
+<p>The architecture splits responsibility between two systems. The Interaction Model stays live with the user: it listens, backchannel-signals, asks clarifying questions, and holds the conversational thread. A separate Background Model handles heavier cognitive work — reasoning chains, tool calls, web searches — running asynchronously and passing results back to the Interaction Model without breaking the flow of the conversation.</p>
+<p>The design is a deliberate inversion of the standard approach, where a single large model tries to both reason deeply and respond instantly. Thinking Machines argues that this compromise has forced every major lab to accept an interaction experience that feels fundamentally unnatural.</p>
+<h2>The Numbers Back the Claim</h2>
+<p>On FD-bench v1.5 — a benchmark for interaction quality that measures responsiveness, turn-taking naturalness, and multimodal coherence — TML-Interaction-Small scored 77.8, compared to 47.8 for OpenAI's GPT-Realtime 2.0. In raw latency terms, the model achieves a 0.40-second response time, faster than Google's Gemini 3.1 Flash at 0.57 seconds and well ahead of OpenAI's GPT-Realtime 2.0 at 1.18 seconds.</p>
+<p>Those are prototype numbers, and Thinking Machines is careful to note that TML-Interaction-Small is not yet commercially available. Access is currently limited to a small cohort of research partners, with a broader rollout expected later in 2026. Larger variants of the model, which would offer greater reasoning depth, remain too computationally expensive to serve at scale — a constraint the company says it is actively working to overcome.</p>
+<h2>Context: A High-Stakes Debut</h2>
+<p>The release carries significant weight beyond the technical merits. Thinking Machines was co-founded in February 2025 by Murati alongside a roster of former OpenAI heavyweights including John Schulman, Barrett Zoph, Lilian Weng, Andrew Tulloch, and Luke Metz. The company secured backing from Andreessen Horowitz, Nvidia, AMD, Cisco, and Jane Street — and unusually, from the government of Albania, Murati's country of origin, which amended its national budget to make a $10 million investment.</p>
+<p>"We started Thinking Machines to advance human-AI collaboration, and this is our first bet on what that looks like," Murati wrote. The framing is deliberate: where competitors have raced toward autonomous agents that act independently, Thinking Machines is making a different bet — that the future of AI lies in tighter, more natural collaboration with humans, not replacement of them.</p>
+<h2>Analysis: Architecture as Argument</h2>
+<p>What makes the Interaction Models announcement notable is not just the benchmark performance — it is the clarity of the thesis behind it. Thinking Machines is not claiming to have built a smarter model. It is claiming to have identified a category error in how the entire industry has approached the problem.</p>
+<p>Whether that argument holds up at commercial scale remains to be seen. The MoE architecture and the two-model split introduce their own engineering complexities, and competitors like OpenAI and Google are not standing still. But in a landscape where most AI announcements compete on raw capability metrics — context windows, benchmark scores, parameter counts — Thinking Machines is betting that the quality of the interaction experience itself is an undervalued dimension of the market.</p>
+<p>If the FD-bench scores translate to real-world deployments, that bet could prove prescient. And given the team assembled in San Francisco and the runway that $2 billion provides, the rest of the industry would be wise to take the argument seriously.</p>
+<p>The broader rollout for TML-Interaction-Small — and the larger variants still in development — is expected in the second half of 2026.</p>
+<p>---</p>
+<p><em>Sources: [Thinking Machines Lab Blog](https://thinkingmachines.ai/blog/interaction-models/), [VentureBeat](https://venturebeat.com/technology/thinking-machines-shows-off-preview-of-near-realtime-ai-voice-and-video-conversation-with-new-interaction-models), [Semafor](https://www.semafor.com/article/05/13/2026/mira-muratis-thinking-machines-previews-interaction-models), [Analytics Drift](https://analyticsdrift.com/mira-murati-thinking-machines-interaction-model/)</em></p><div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"Most labs treat autonomy as the goal and interactivity as scaffolding around a turn-based core. We think the way we work with AI matters as much as how smart it is."</blockquote><cite>— Mira Murati, CEO, Thinking Machines Lab</cite></div><div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">0.40s</div><div class="stat-label">Response latency</div></div><div class="stat-cell"><div class="stat-value">276B params</div><div class="stat-label">MoE model total parameters</div></div><div class="stat-cell"><div class="stat-value">$2B at $12B</div><div class="stat-label">Seed funding and valuation</div></div></div></div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://thinkingmachines.ai/blog/interaction-models/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thinkingmachines.ai&sz=32" alt="">Thinking Machines Lab</a><a href="https://venturebeat.com/technology/thinking-machines-shows-off-preview-of-near-realtime-ai-voice-and-video-conversation-with-new-interaction-models" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://www.semafor.com/article/05/13/2026/mira-muratis-thinking-machines-previews-interaction-models" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=semafor.com&sz=32" alt="">Semafor</a></div></div>
+<div class="article-nav"><a href="06-google-io-2026-gemini-intelligence-preview.html" class="nav-prev">&larr; Google I/O 2026 Sets Stage for Gemini Intelligence</a><a href="08-runway-world-models-pivot-5b-valuation.html" class="nav-next">Runway Pivots From Video Generation to World Model &rarr;</a></div>
+<footer>The Vault — AI Edition &middot; Published May 16, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
