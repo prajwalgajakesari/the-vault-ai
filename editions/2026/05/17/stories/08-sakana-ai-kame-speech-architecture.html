@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sakana AI Introduces KAME Architecture for Real-Time Knowledge-Augmented Speech — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Sakana AI Introduces KAME Architecture for Real-Time Knowledge-Augmented Speech</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 980 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>KAME decouples speech latency from knowledge quality by running a real-time S2S front-end and a full-scale LLM back-end asynchronously, lifting MT-Bench scores from 2.05 to 6.43.</p>
+</div>
+<div class="article-body">
+<p>---
+title: "Sakana AI Introduces KAME Architecture for Real-Time Knowledge-Augmented Speech"
+slug: sakana-ai-kame-speech-architecture
+category: llms-genai
+story_number: "08"
+date: 2026-05-17
+edition: 2026/05/17
+sources:
+  - name: MarkTechPost
+    url: https://www.marktechpost.com/2026/05/03/sakana-ai-introduces-kame-a-tandem-speech-to-speech-architecture-that-injects-llm-knowledge-in-real-time/
+  - name: Sakana AI Official (ICASSP 2026)
+    url: https://sakana.ai/kame-icassp-2026/
+  - name: Sakana AI Technical Blog
+    url: https://pub.sakana.ai/kame/
+  - name: arXiv Paper (2510.02327)
+    url: https://arxiv.org/abs/2510.02327
+  - name: Artiverse
+    url: https://www.artiverse.ca/sakana-ai-unveils-kame-for-real-time-smarter-voice-interactions/
+---</p>
+<p># Sakana AI Introduces KAME Architecture for Real-Time Knowledge-Augmented Speech</p>
+<p><strong>The Tokyo lab cracks voice AI’s oldest dilemma: speak fast or speak smart. KAME does both.</strong></p>
+<p>For years, building a conversational voice AI meant picking a poison. You could have a system that responds in the blink of an eye but knows embarrassingly little, or one that draws on the full knowledge of a frontier language model but makes users wait long enough to lose the conversational thread. Sakana AI, the Tokyo-based research lab co-founded by former Google Brain researcher David Ha, has published a new architecture called <strong>KAME</strong> — Knowledge-Access Model Extension — that refuses the tradeoff entirely.</p>
+<p>Accepted to ICASSP 2026, KAME is a tandem system that runs a real-time speech-to-speech front-end and a full-scale LLM back-end simultaneously and asynchronously, letting the two components inform each other on the fly. The result: near-zero response latency alongside a knowledge quality that rivals state-of-the-art cascaded systems. The model weights, inference code, and paper are all publicly available.</p>
+<h2>The Fault Line in Voice AI</h2>
+<p>To understand what makes KAME significant, it helps to understand the two paradigms it bridges.</p>
+<p>Direct speech-to-speech (S2S) models like KyutAI’s Moshi are end-to-end audio transformers. They ingest audio tokens and emit audio tokens in a continuous loop, meaning they can start replying before the user even finishes their sentence — latency measured in tens of milliseconds. The catch is that audio carries far more information per token than text: tone, rhythm, emotion, and prosody all compete for model capacity alongside factual knowledge. The result is a system that feels fluid but often produces shallow, low-confidence answers.</p>
+<p>Cascaded systems take the opposite approach. Speech goes in, gets transcribed by an ASR model, routes through a powerful text LLM, and returns as synthesized audio. Knowledge quality is excellent — you can wire in any frontier model — but the pipeline is inherently serial. The system cannot begin LLM processing until the user stops speaking, which introduces a median latency of around <strong>2.1 seconds</strong> before the first word of the response is heard. That gap is long enough to make natural back-and-forth feel stilted.</p>
+<p>KAME’s wager is that these two components do not need to wait for each other.</p>
+<h2>Architecture: Speak While Thinking</h2>
+<p>KAME operates with two modules running in parallel. The <strong>front-end S2S module</strong> is built on the Moshi architecture and processes audio at the cycle of discrete audio tokens — roughly every <strong>80 milliseconds</strong> — generating a spoken response immediately. Internally, Moshi has three concurrent streams: input audio, an inner monologue in text, and output audio. KAME adds a fourth: the <strong>oracle stream</strong>.</p>
+<p>The <strong>back-end LLM module</strong> consists of a streaming speech-to-text (STT) component feeding a full-scale language model. As the user speaks, the STT component builds a growing partial transcript and periodically ships it to the back-end LLM. The LLM returns candidate text responses — called “oracles” — that are streamed back to the front-end in real time. Because the user’s speech is still arriving, these oracles begin as educated guesses and grow progressively more accurate as the transcript fills in.</p>
+<p>The front-end S2S transformer conditions its ongoing speech output on both its own internal state and these incoming oracle tokens, effectively updating its response mid-sentence as better information arrives. Because both modules run asynchronously, the initial response latency stays near zero — the same as Moshi running alone.</p>
+<p>The paper’s framing is deliberately direct: “Two heads are better than one.” The system shifts the paradigm from “think, then speak” to “speak while thinking.”</p>
+<h2>Training Without Ground Truth</h2>
+<p>One non-trivial engineering challenge: no naturally occurring dataset contains oracle signals. Sakana AI’s team addressed this with a technique they call <strong>Simulated Oracle Augmentation</strong>. Using a simulator LLM and a standard conversational dataset, they generated synthetic oracle sequences that mimic what a real-time LLM would produce at different stages of transcript completeness.</p>
+<p>They defined <strong>six hint levels (0–5)</strong>: at level 0, the front-end receives no oracle at all; at level 5, it receives the verbatim ground-truth response. Levels 1–4 capture the realistic scenario where the oracle starts vague and sharpens as the transcript grows. The final training corpus consisted of <strong>56,582 synthetic dialogues</strong> drawn from MMLU-Pro, GSM8K, and HSSBench, converted to audio via TTS and augmented with these progressive oracle sequences.</p>
+<h2>Benchmark Results: Closing the Gap</h2>
+<p>The team evaluated on a speech-synthesized subset of the MT-Bench multi-turn Q&A benchmark, focusing on reasoning, STEM, and humanities categories (coding, math, and writing were excluded as unsuitable for spoken interaction).</p>
+<p>The numbers tell a clear story. Moshi alone scores <strong>2.05</strong>. KAME backed by GPT-4.1 scores <strong>6.43</strong>, and KAME backed by Claude Opus 4.1 scores <strong>6.23</strong> — both at the same near-zero latency as Moshi. The leading cascaded system, Unmute (also backed by GPT-4.1), scores <strong>7.70</strong> — but only after a 2.1-second wait.</p>
+<p>To isolate the effect of KAME’s premature-generation problem — the fact that the front-end starts speaking before the full query is heard — the team also scored the back-end LLM’s text outputs from the final oracle injection in each session directly. Those scores averaged <strong>7.79</strong> across reasoning (6.48), STEM (8.34), and humanities (8.56) — statistically comparable to Unmute’s 7.70. In other words, KAME’s remaining gap to cascaded systems is not a ceiling on the LLM’s knowledge but a consequence of committing to speech output before the user has finished asking.</p>
+<h2>Backend Agnostic by Design</h2>
+<p>One of the more commercially significant aspects of KAME is its flexibility. The front-end was trained using GPT-4.1-nano as the simulated back-end, but swapping in a different model at inference time requires zero retraining. Sakana AI tested GPT-4.1, Claude Opus 4.1, and Gemini 2.5 Flash interchangeably.</p>
+<p>The substitution experiments also revealed task-specific strengths: Claude Opus 4.1 outperformed GPT-4.1 on reasoning tasks, while GPT-4.1 led on humanities questions. That opens the door to query routing — a production system could direct a factual query to one LLM and a reasoning-heavy question to another, without touching the front-end model at all.</p>
+<h2>Why It Matters</h2>
+<p>Voice AI has been stuck at a false binary for years. Consumer products have largely resigned themselves to the latency of cascaded systems, treating the delay as a necessary cost of intelligence. Real-time systems like Moshi showed that zero-lag conversation was possible but sacrificed too much depth for general-purpose use.</p>
+<p>KAME’s architecture suggests that latency and knowledge are not actually in fundamental tension — they were in tension only because prior designs assumed a serial pipeline. By decoupling the two components and letting them run asynchronously, Sakana AI has demonstrated that a system can begin speaking immediately while still steering itself toward a more knowledgeable answer as it goes.</p>
+<p>The architecture is arguably closer to how expert humans handle real-time conversation: start forming a response based on early context, stay ready to revise as more information arrives, and never let uncertainty justify silence.</p>
+<p>With weights and code released publicly and the paper accepted to a major signal-processing conference, KAME is well-positioned to influence the next generation of voice assistants — both at research labs and in production.</p>
+<p>---</p>
+<p><em>Sources: [Sakana AI ICASSP 2026](https://sakana.ai/kame-icassp-2026/) | [Technical blog](https://pub.sakana.ai/kame/) | [arXiv 2510.02327](https://arxiv.org/abs/2510.02327) | [MarkTechPost](https://www.marktechpost.com/2026/05/03/sakana-ai-introduces-kame-a-tandem-speech-to-speech-architecture-that-injects-llm-knowledge-in-real-time/) | [GitHub](https://github.com/SakanaAI/kame)</em></p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"The system shifts the paradigm from think, then speak to speak while thinking."</blockquote>
+          <cite>— Sakana AI Research Team, KAME paper authors</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">2.05 to 6.43</div><div class="stat-label">MT-Bench score improvement</div></div><div class="stat-cell"><div class="stat-value">~0ms vs 2.1s</div><div class="stat-label">Latency: KAME vs cascaded</div></div><div class="stat-cell"><div class="stat-value">56,582</div><div class="stat-label">Synthetic training dialogues</div></div><div class="stat-cell"><div class="stat-value">80ms</div><div class="stat-label">Audio token cycle time</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.marktechpost.com/2026/05/03/sakana-ai-introduces-kame-a-tandem-speech-to-speech-architecture-that-injects-llm-knowledge-in-real-time/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=marktechpost.com&sz=32" alt="">MarkTechPost</a><a href="https://sakana.ai/kame-icassp-2026/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=sakana.ai&sz=32" alt="">Sakana AI</a><a href="https://arxiv.org/abs/2510.02327" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://www.artiverse.ca/sakana-ai-unveils-kame-for-real-time-smarter-voice-interactions/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=artiverse.ca&sz=32" alt="">Artiverse</a></div></div>
+<div class="article-nav"><a href="07-google-gemma-4-open-reasoning-models.html" class="nav-prev">&larr; Google Releases Gemma 4 Open Models for Advanced R</a><a href="09-vercel-zero-ai-programming-language.html" class="nav-next">Vercel Labs Releases Zero Programming Language Des &rarr;</a></div>
+<footer>The Vault — AI Edition &middot; Published May 17, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
