@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TDFold Reimagines Protein Structure Prediction as 2D Diffusion Task — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>TDFold Reimagines Protein Structure Prediction as 2D Diffusion Task</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 865 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>TDFold reformulates 3D protein structure prediction as a 2D diffusion task, achieving state-of-the-art accuracy while running 10-100x faster than AlphaFold2.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "TDFold Reimagines Protein Structure Prediction as 2D Diffusion Task"
+slug: tdfold-protein-structure-2d-diffusion
+category: research
+story_number: 13
+date: 2026-05-18
+---</p>
+<p># TDFold Reimagines Protein Structure Prediction as 2D Diffusion Task</p>
+<p><em>A team of Chinese researchers has reframed one of biology's grand computational challenges -- predicting the 3D shape of a protein from its amino acid sequence -- as something closer to generating an image. Their method, called TDFold, treats the problem as a two-dimensional diffusion task, and early benchmarks suggest it can outpace heavyweights like AlphaFold2, AlphaFold3 and ESMFold while running on a fraction of the hardware.</em></p>
+<p>Published in April 2026 in <em>Nature Machine Intelligence</em>, the work arrives at a moment when the field of protein structure prediction is simultaneously mature and restless. AlphaFold2 cracked the CASP competition in 2020. AlphaFold3, ESMFold and OmegaFold have since pushed accuracy and usability further. But these models share a common constraint: they either demand expensive multiple sequence alignments (MSAs) drawn from evolutionary databases, or they sacrifice accuracy when forced to work from a single protein sequence alone.</p>
+<p>TDFold, developed by Xudong Wang, Tong Zhang, Zhen Cui, Wenming Zheng and colleagues at Southeast University in Nanjing and Beijing Normal University, attacks precisely that gap. The model operates in two stages. First, a 2D geometric template diffusion module -- adapted from the Stable Diffusion architecture originally built for text-to-image generation -- produces high-quality pairwise distance and orientation maps between amino acid residues. These maps look, computationally speaking, like images. Second, a lightweight Sequence-template Co-evolved Learning (SCL) network refines those geometric templates into full three-dimensional coordinates.</p>
+<p>The intellectual move is striking: rather than reasoning directly in 3D space, TDFold collapses the problem into a 2D representation that can exploit the enormous efficiency gains the computer vision community has already wrung out of diffusion models. The geometric templates capture inter-residue relationships -- distances and orientations -- in matrix form, making them natural candidates for image-style processing.</p>
+<h2>Benchmarks That Matter</h2>
+<p>On standard benchmarks, TDFold delivers competitive or superior results compared with leading single-sequence methods. On CASP14, TDFold achieved a TM-score of 0.73, edging out ESMFold at 0.71 -- a modest but meaningful gain in a field where incremental improvements translate to real structural insight. The model also posted strong results on CASP15 and CASP16 targets.</p>
+<p>Where TDFold truly distinguishes itself is on so-called orphan proteins -- sequences with no detectable homologs in existing databases. These are the hardest cases for MSA-dependent tools like AlphaFold2 and RoseTTAFold, which rely on evolutionary signals that simply do not exist for orphan sequences. On the Orphan and Orphan25 benchmark datasets, TDFold achieved state-of-the-art performance, demonstrating that the diffusion-based geometric templates can compensate for the absence of evolutionary context.</p>
+<h2>Speed and Efficiency</h2>
+<p>The efficiency numbers are perhaps even more impressive than the accuracy gains. TDFold predicts the structure of a 500-residue protein in roughly 10 seconds. By comparison, ESMFold takes about 100 seconds, AlphaFold3 requires approximately 240 seconds, and AlphaFold2 and RoseTTAFold each need close to 1,000 seconds for the same task.</p>
+<p>GPU memory consumption tells a similar story. TDFold occupies approximately 7 GB of GPU memory, compared with 12 GB for AlphaFold2, 16 GB for RoseTTAFold and 20 GB for ESMFold. Perhaps most remarkably, the entire TDFold system -- including fine-tuning the Stable Diffusion backbone and training the SCL network from scratch -- can be completed in one week on a single NVIDIA RTX 4090 GPU. That is consumer-grade hardware, a stark contrast to the cluster-scale resources typically associated with frontier protein folding models.</p>
+<h2>Why It Matters</h2>
+<p>The implications extend beyond benchmark tables. A model that requires only a single sequence as input, runs on modest hardware and delivers competitive accuracy could democratize structural biology research in resource-constrained labs. It could also accelerate high-throughput applications in drug discovery and protein engineering, where predicting structures for thousands of novel sequences is routine.</p>
+<p>The approach also carries a broader lesson for computational biology: the architectural innovations flowing out of the generative AI boom -- diffusion models, in particular -- are not confined to art and text. By recognizing that pairwise residue geometries share structural properties with images, the TDFold team has opened a bridge between two seemingly distant domains.</p>
+<p>"By combining geometric precision, collaborative learning, and efficient resource utilization, TDFold sets a new benchmark for single-sequence-based modeling," the authors wrote, noting that their approach makes "protein structure prediction faster, more accessible, and accurate."</p>
+<p>The paper further states that TDFold "presents three key advantages compared with existing protein language models and homology-based methods: better single-sequence-based prediction performance, lower resource consumption and higher efficiency in inference."</p>
+<p>Still, limitations remain. TDFold's accuracy on well-studied proteins with abundant homologs does not yet match the best MSA-powered methods. The model is a single-sequence tool by design, and for targets where rich evolutionary data exists, AlphaFold2 and its successors retain an edge. The question going forward is whether hybrid approaches -- combining diffusion-generated templates with evolutionary signals -- can capture the best of both worlds.</p>
+<p>For now, TDFold stands as a compelling proof of concept: the language of image generation can speak fluently about the shapes of life's molecular machinery, and it can do so faster and cheaper than many thought possible.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>“TDFold presents three key advantages compared with existing protein language models and homology-based methods: better prediction performance, lower resource consumption and higher efficiency.”</blockquote><cite>— Wang, Zhang, Cui, Zheng et al., Paper authors</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">~10 seconds</div><div class="stat-label">Inference time per protein</div></div><div class="stat-cell"><div class="stat-value">7 GB</div><div class="stat-label">GPU memory needed</div></div><div class="stat-cell"><div class="stat-value">0.73</div><div class="stat-label">TM-score on CASP14</div></div><div class="stat-cell"><div class="stat-value">1 week</div><div class="stat-label">Training on single RTX 4090</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.nature.com/articles/s42256-026-01210-2" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=32" alt="">Nature Machine Intelligence</a><a href="https://www.biorxiv.org/content/10.1101/2025.07.03.662909v2" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=biorxiv.org&sz=32" alt="">bioRxiv</a><a href="https://bioengineer.org/boosting-protein-folding-with-2d-geometric-diffusion/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bioengineer.org&sz=32" alt="">Bioengineer.org</a></div></div>
+<div class="article-nav"><a href="12-data-centers-2-percent-global-electricity.html" class="nav-prev">← Global Data Centers Now Consume 2 Percent of World</a><a href="14-spin-orbit-ml-framework-quantum-materials.html" class="nav-next">Machine Learning Framework Predicts Spin-Orbit Ele →</a></div>
+<footer>The Vault — AI Edition · Published May 18, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
