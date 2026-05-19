@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Training Neural Networks on Random Noise Yields Better Calibrated AI Models — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Training Neural Networks on Random Noise Yields Better Calibrated AI Models</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 823 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Briefly training neural networks on random noise before real data fixes overconfidence at the source, producing better-calibrated models that reliably flag what they do not know.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Training Neural Networks on Random Noise Yields Better Calibrated AI Models"
+slug: neural-network-noise-training-calibration
+category: research
+story_number: "15"
+date: 2026-05-18
+---</p>
+<p># Training Neural Networks on Random Noise Yields Better Calibrated AI Models</p>
+<p>Before an AI model has learned a single useful thing about the world, it is already brimming with misplaced confidence. A new study published in Nature Machine Intelligence reveals that this overconfidence is baked into neural networks from the very first moment of their existence -- and that a deceptively simple fix inspired by how the human brain develops before birth can make AI systems dramatically more honest about what they do not know.</p>
+<p>The research, led by Jeonghwan Cheon and Distinguished Professor Se-Bum Paik at the Korea Advanced Institute of Science and Technology (KAIST), identifies a culprit hiding in plain sight: the standard weight initialization methods that the deep learning community has relied on for years. When the team fed random, meaningless data into a freshly initialized neural network -- one that had never been trained on anything -- the model still produced predictions with high confidence scores. In other words, the network was certain about answers it had no basis for giving.</p>
+<h2>The Warm-Up That Changes Everything</h2>
+<p>Their proposed solution is as counterintuitive as it is elegant. Before exposing a neural network to real training data, the team briefly trains it on random noise paired with random labels -- pure nonsense, by design. This warm-up phase forces the network into a state of calibrated uncertainty, effectively teaching it to say, in computational terms, I do not know anything yet.</p>
+<p>After this brief noise pretraining, the model proceeds through standard training on real data. The key difference is that confidence scores emerging from the warm-up-trained network stay well aligned with actual prediction accuracy throughout the entire learning process. Models that completed the warm-up phase produced lower confidence scores for incorrect predictions while maintaining appropriately high confidence when their answers were correct -- precisely the behavior researchers want from a well-calibrated system.</p>
+<p>The resulting networks also showed markedly improved ability to flag out-of-distribution inputs, data points that fall outside the patterns seen during training. This is a critical capability for real-world deployment, where AI systems routinely encounter scenarios their training data never anticipated.</p>
+<h2>Borrowing From the Brain</h2>
+<p>What makes this work particularly striking is its biological inspiration. The human brain does not wait passively for sensory experience to begin shaping neural circuits. Before birth, the developing brain generates spontaneous neural activity -- intrinsic signals interlaced with biological noise that flow through forming neural pathways without any external stimulus. Neuroscience research has established that this prenatal spontaneous activity plays a vital role in preparing circuits to handle the ambiguity and variability of real sensory input once it arrives.</p>
+<p>Cheon and Paik drew a direct analogy between this developmental process and the initialization phase of artificial neural networks. Just as biological noise prepares the brain for robust perception, artificial noise during a warm-up phase prepares a neural network for reliable, well-calibrated inference.</p>
+<p>"This study demonstrates that by incorporating key principles of brain development, AI can recognize its own knowledge state in a way that is more similar to humans," said Professor Paik.</p>
+<h2>Why Calibration Matters Now</h2>
+<p>The timing of this research is significant. As AI systems move into high-stakes domains -- medical diagnosis, autonomous driving, financial risk assessment, and scientific research -- the gap between a model's stated confidence and its actual reliability has emerged as one of the field's most pressing safety concerns. An overconfident radiology model that flags a benign scan as cancer with 99 percent certainty, or a self-driving system that misidentifies an obstacle while reporting high confidence, represents exactly the kind of failure mode that erodes trust in AI deployment.</p>
+<p>Existing approaches to calibration typically require post-processing steps applied after training is complete, such as temperature scaling or Platt scaling, or involve computationally expensive ensemble methods. The KAIST team's warm-up strategy stands apart because it resolves uncertainty-related issues without any pre- or post-processing overhead. It slots into the beginning of the training pipeline and improves calibration throughout, with minimal additional computational cost.</p>
+<p>"The resulting networks demonstrate high proficiency in the identification of unknown inputs, providing a robust solution for uncertainty calibration in both in-distribution and out-of-distribution contexts," the researchers wrote in the paper.</p>
+<h2>Looking Ahead</h2>
+<p>The elegance of the approach -- just a few epochs of noise training before the real work begins -- makes it straightforward to integrate into existing deep learning workflows. It requires no architectural changes, no additional inference-time computation, and no specialized hardware. That low barrier to adoption could accelerate its uptake across research labs and production systems alike.</p>
+<p>The study also opens a broader question about what else the AI community might learn from developmental neuroscience. If the brain's prenatal warm-up phase yields insights that improve artificial calibration, other aspects of neural development -- synaptic pruning, critical periods, or activity-dependent refinement -- may hold similarly productive analogies.</p>
+<p>For now, the immediate takeaway is both practical and humbling: the best way to build an AI system that knows what it knows may be to first teach it, thoroughly, that it knows nothing at all.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>“This study demonstrates that by incorporating key principles of brain development, AI can recognize its own knowledge state in a way that is more similar to humans.”</blockquote><cite>— Se-Bum Paik, Distinguished Professor, KAIST</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">Nature MI 8, 602-613</div><div class="stat-label">Publication</div></div><div class="stat-cell"><div class="stat-value">April 9, 2026</div><div class="stat-label">Publication date</div></div><div class="stat-cell"><div class="stat-value">Zero</div><div class="stat-label">Additional inference cost</div></div><div class="stat-cell"><div class="stat-value">2 authors</div><div class="stat-label">KAIST research team</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.nature.com/articles/s42256-026-01215-x" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=32" alt="">Nature Machine Intelligence</a><a href="https://techxplore.com/news/2026-05-im-ai-words-biggest-dangerous.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techxplore.com&sz=32" alt="">TechXplore</a><a href="https://bioengineer.org/brain-inspired-noise-training-enhances-uncertainty-calibration/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bioengineer.org&sz=32" alt="">Bioengineer.org</a></div></div>
+<div class="article-nav"><a href="14-spin-orbit-ml-framework-quantum-materials.html" class="nav-prev">← Machine Learning Framework Predicts Spin-Orbit Ele</a></div>
+<footer>The Vault — AI Edition · Published May 18, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
