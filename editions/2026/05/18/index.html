@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Vault — AI Edition · May 18, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc}
+*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem}nav .nav-right{margin-left:auto;display:flex;gap:1rem}
+.edition-header{text-align:center;padding:3rem 1.5rem 1.5rem}
+.edition-header .overline{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--accent)}
+.edition-header h1{font-size:2rem;font-weight:800;color:var(--text-strong);margin:.5rem 0}
+.edition-header .date-line{font-size:.9rem;color:var(--text-muted)}
+.stats-row{display:flex;justify-content:center;gap:1.5rem;padding:1rem;flex-wrap:wrap}
+.stats-row .chip{display:flex;align-items:center;gap:.35rem;padding:.3rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:20px;font-size:.8rem;color:var(--text-muted)}
+.stats-row .chip svg{width:14px;height:14px}
+.featured-area{max-width:800px;margin:2rem auto;padding:0 1.5rem}
+.featured-card{display:block;padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:border-color .2s}
+.featured-card:hover{border-color:var(--border-hover)}
+.featured-card .cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:.25rem .6rem;border-radius:4px;margin-bottom:.8rem}
+.featured-card .cat-tag svg{width:12px;height:12px}
+.featured-card h2{font-size:1.4rem;font-weight:700;color:var(--text-strong);margin-bottom:.6rem;line-height:1.3}
+.featured-card p{font-size:.9rem;color:var(--text);margin-bottom:1rem;line-height:1.5}
+.featured-card .read-link{font-size:.85rem;font-weight:600}
+.filter-bar{max-width:800px;margin:1.5rem auto;padding:0 1.5rem;display:flex;gap:.5rem;flex-wrap:wrap}
+.filter-btn{display:flex;align-items:center;gap:.35rem;padding:.4rem .8rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);cursor:pointer;transition:all .2s}
+.filter-btn:hover,.filter-btn.active{border-color:var(--border-hover);color:var(--text-strong)}
+.filter-btn svg{width:14px;height:14px}
+.cat-section{max-width:800px;margin:2rem auto;padding:0 1.5rem}
+.cat-header{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
+.cat-icon{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.cat-icon svg{width:18px;height:18px}
+.cat-header h2{font-size:1.1rem;font-weight:700;color:var(--text-strong)}
+.cat-count{font-size:.75rem;color:var(--text-muted);background:var(--surface);padding:.15rem .5rem;border-radius:10px}
+.card-grid{display:flex;flex-direction:column;gap:.6rem}
+.story-card{display:flex;align-items:flex-start;gap:.8rem;padding:1rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;text-decoration:none;transition:border-color .2s;position:relative;overflow:hidden}
+.story-card:hover{border-color:var(--border-hover)}
+.card-accent{position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .2s}
+.story-card:hover .card-accent{opacity:1}
+.card-num{font-size:.75rem;font-weight:700;min-width:24px;text-align:center;padding-top:.1rem}
+.card-body{flex:1;min-width:0}
+.card-body h3{font-size:.95rem;font-weight:600;color:var(--text-strong);line-height:1.3;margin-bottom:.3rem}
+.card-body .excerpt{font-size:.8rem;color:var(--text-muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:.5rem}
+.card-meta{display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-muted)}
+.read-link{font-weight:600}
+footer{text-align:center;padding:3rem 1.5rem;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:3rem}</style></head><body>
+<nav>
+  <a href="../../.."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Home</a>
+  <span class="brand">THE VAULT</span>
+  <div class="nav-right">
+    <a href="../../../archive/">Archive</a>
+    <a href="../../../feed.xml"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
+  </div>
+</nav>
+<header class="edition-header">
+  <div class="overline">DAILY INTELLIGENCE BRIEF</div>
+  <h1>The Vault — AI Edition</h1>
+  <div class="date-line">Monday, May 18, 2026</div>
+</header>
+<div class="stats-row">
+  <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> 15 stories</div>
+  <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 12,822 words</div>
+  <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 60 min read</div>
+</div>
+<div class="featured-area">
+      <a href="stories/01-isomorphic-labs-2b-series-b-drug-design.html" class="featured-card">
+        <span class="cat-tag" style="color:#e8a735;background:color-mix(in srgb,#e8a735 10%,transparent)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+        <h2>Isomorphic Labs Raises $2.1 Billion Series B to Scale AI Drug Design Engine</h2>
+        <p>Isomorphic Labs, the Alphabet-backed AI drug discovery company founded by Nobel laureate Sir Demis Hassabis, has closed a $2.1 billion Seri</p>
+        <span class="read-link" style="color:#e8a735">Read full story →</span>
+      </a>
+    </div>
+<div class="filter-bar"><button class="filter-btn active" data-filter="all"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> All</button><button class="filter-btn" data-filter="business" style="--fc:#e8a735"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</button><button class="filter-btn" data-filter="llms-genai" style="--fc:#a78bfa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</button><button class="filter-btn" data-filter="research" style="--fc:#5eead4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</button><button class="filter-btn" data-filter="policy" style="--fc:#fb7185"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</button></div>
+<section class="cat-section" data-cat="business">
+      <div class="cat-header"><div class="cat-icon" style="background:color-mix(in srgb,#e8a735 15%,transparent);color:#e8a735"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h2>Business</h2><span class="cat-count">5</span></div>
+      <div class="card-grid"><a href="stories/01-isomorphic-labs-2b-series-b-drug-design.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">01</div>
+          <div class="card-body">
+            <h3>Isomorphic Labs Raises $2.1 Billion Series B to Scale AI Drug Design Engine</h3>
+            <p class="excerpt">Isomorphic Labs, the Alphabet-backed AI drug discovery company founded by Nobel laureate Sir Demis Hassabis, has closed a $2.1 billion Seri</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#e8a735">Read →</span></div>
+          </div>
+        </a><a href="stories/02-openai-malta-chatgpt-plus-citizens-literacy.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">02</div>
+          <div class="card-body">
+            <h3>OpenAI Partners With Malta to Offer Free ChatGPT Plus to Every Citizen</h3>
+            <p class="excerpt">Malta has become the first country in the world to strike a deal with OpenAI guaranteeing every citizen and resident free access to Ch</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#e8a735">Read →</span></div>
+          </div>
+        </a><a href="stories/03-microsoft-suleyman-18-month-white-collar.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">03</div>
+          <div class="card-body">
+            <h3>Microsoft AI Chief Predicts All White-Collar Work Automated Within 18 Months</h3>
+            <p class="excerpt">Mustafa Suleyman, the CEO of Microsoft AI, has put one of the most aggressive automation timelines on record from any major technology</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#e8a735">Read →</span></div>
+          </div>
+        </a><a href="stories/04-europe-energy-costs-threaten-ai-competitiveness.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">04</div>
+          <div class="card-body">
+            <h3>High Energy Prices Could Derail Europe AI Race With US and China</h3>
+            <p class="excerpt">Europe ambitions to become a serious contender in the global artificial intelligence race are colliding with a stubborn economic</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#e8a735">Read →</span></div>
+          </div>
+        </a><a href="stories/05-ubs-ai-bubble-warning-intel-stock-drops.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">05</div>
+          <div class="card-body">
+            <h3>UBS Warns AI Markets Running Too Hot as Intel Drops on Bubble Risk</h3>
+            <p class="excerpt">The AI trade that has powered Wall Street to record highs may be building on borrowed confidence, according to a pointed new warning from UBS</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#e8a735">Read →</span></div>
+          </div>
+        </a></div>
+    </section><section class="cat-section" data-cat="llms-genai">
+      <div class="cat-header"><div class="cat-icon" style="background:color-mix(in srgb,#a78bfa 15%,transparent);color:#a78bfa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><h2>Llms Genai</h2><span class="cat-count">4</span></div>
+      <div class="card-grid"><a href="stories/06-gpt55-instant-becomes-default-chatgpt.html" class="story-card" data-cat="llms-genai">
+          <div class="card-accent" style="background:#a78bfa"></div>
+          <div class="card-num" style="color:#a78bfa">06</div>
+          <div class="card-body">
+            <h3>GPT-5.5 Instant Becomes Default ChatGPT Model With Major Reasoning Gains</h3>
+            <p class="excerpt">OpenAI has replaced the engine under ChatGPT with a model that hallucinates far less, reasons significantly better at math, and can ri</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#a78bfa">Read →</span></div>
+          </div>
+        </a><a href="stories/07-andon-labs-four-ai-radio-stations.html" class="story-card" data-cat="llms-genai">
+          <div class="card-accent" style="background:#a78bfa"></div>
+          <div class="card-num" style="color:#a78bfa">07</div>
+          <div class="card-body">
+            <h3>Four AI Models Ran Radio Stations for Six Months and the Results Were Unhinged</h3>
+            <p class="excerpt">Give four AI models a microphone, a $20 budget, and six months of unsupervised airtime, and you will learn more about the state</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#a78bfa">Read →</span></div>
+          </div>
+        </a><a href="stories/08-salesforce-headless-360-agent-infrastructure.html" class="story-card" data-cat="llms-genai">
+          <div class="card-accent" style="background:#a78bfa"></div>
+          <div class="card-num" style="color:#a78bfa">08</div>
+          <div class="card-body">
+            <h3>Salesforce Opens Entire Platform to AI Agents With Headless 360 API Strategy</h3>
+            <p class="excerpt">Salesforce just told its customers they may never need to open a browser again. At TDX 2026 the company unve</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#a78bfa">Read →</span></div>
+          </div>
+        </a><a href="stories/09-soderbergh-ai-lennon-documentary-cannes.html" class="story-card" data-cat="llms-genai">
+          <div class="card-accent" style="background:#a78bfa"></div>
+          <div class="card-num" style="color:#a78bfa">09</div>
+          <div class="card-body">
+            <h3>Steven Soderbergh Premieres AI-Enhanced John Lennon Documentary at Cannes</h3>
+            <p class="excerpt">Steven Soderbergh has never been afraid of a fight. With the premiere of John Lennon: The Last Interview at Cann</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#a78bfa">Read →</span></div>
+          </div>
+        </a></div>
+    </section><section class="cat-section" data-cat="research">
+      <div class="cat-header"><div class="cat-icon" style="background:color-mix(in srgb,#5eead4 15%,transparent);color:#5eead4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><h2>Research</h2><span class="cat-count">4</span></div>
+      <div class="card-grid"><a href="stories/12-data-centers-2-percent-global-electricity.html" class="story-card" data-cat="research">
+          <div class="card-accent" style="background:#5eead4"></div>
+          <div class="card-num" style="color:#5eead4">12</div>
+          <div class="card-body">
+            <h3>Global Data Centers Now Consume 2 Percent of World Electricity as AI Demand Surges</h3>
+            <p class="excerpt">The world data centers have crossed a stark threshold: they now devour roughly 2 percent of global electricity, up from an estimated 1.7 pe</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#5eead4">Read →</span></div>
+          </div>
+        </a><a href="stories/13-tdfold-protein-structure-2d-diffusion.html" class="story-card" data-cat="research">
+          <div class="card-accent" style="background:#5eead4"></div>
+          <div class="card-num" style="color:#5eead4">13</div>
+          <div class="card-body">
+            <h3>TDFold Reimagines Protein Structure Prediction as 2D Diffusion Task</h3>
+            <p class="excerpt">A team of researchers has reframed one of biology grand computational challenges -- predicting the 3D shape of a protein from</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#5eead4">Read →</span></div>
+          </div>
+        </a><a href="stories/14-spin-orbit-ml-framework-quantum-materials.html" class="story-card" data-cat="research">
+          <div class="card-accent" style="background:#5eead4"></div>
+          <div class="card-num" style="color:#5eead4">14</div>
+          <div class="card-body">
+            <h3>Machine Learning Framework Predicts Spin-Orbit Electronic Structure Across Periodic Table</h3>
+            <p class="excerpt">A new graph neural network called Uni-HamGNN can predict spin-orbit-coupled electronic structures across the entire periodic table with</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#5eead4">Read →</span></div>
+          </div>
+        </a><a href="stories/15-neural-network-noise-training-calibration.html" class="story-card" data-cat="research">
+          <div class="card-accent" style="background:#5eead4"></div>
+          <div class="card-num" style="color:#5eead4">15</div>
+          <div class="card-body">
+            <h3>Training Neural Networks on Random Noise Yields Better Calibrated AI Models</h3>
+            <p class="excerpt">Before an AI model has learned a single useful thing about the world, it is already brimming with misplaced confidence. A new study publi</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#5eead4">Read →</span></div>
+          </div>
+        </a></div>
+    </section><section class="cat-section" data-cat="policy">
+      <div class="cat-header"><div class="cat-icon" style="background:color-mix(in srgb,#fb7185 15%,transparent);color:#fb7185"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h2>Policy</h2><span class="cat-count">2</span></div>
+      <div class="card-grid"><a href="stories/10-pope-leo-xiv-vatican-ai-commission.html" class="story-card" data-cat="policy">
+          <div class="card-accent" style="background:#fb7185"></div>
+          <div class="card-num" style="color:#fb7185">10</div>
+          <div class="card-body">
+            <h3>Pope Leo XIV Establishes Vatican Inter-Dicasterial Commission on Artificial Intelligence</h3>
+            <p class="excerpt">The Vatican announced on May 16 that Pope Leo XIV has approved the creation of an Interdicasterial Commission on Artificial Inte</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#fb7185">Read →</span></div>
+          </div>
+        </a><a href="stories/11-federal-ai-spending-defense-surge-2026.html" class="story-card" data-cat="policy">
+          <div class="card-accent" style="background:#fb7185"></div>
+          <div class="card-num" style="color:#fb7185">11</div>
+          <div class="card-body">
+            <h3>Federal AI Spending Surges as Pentagon Dominates US Government Investment</h3>
+            <p class="excerpt">The Pentagon now commands nearly 99 percent of all federal artificial intelligence contract spending, a concentration so extreme that every</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#fb7185">Read →</span></div>
+          </div>
+        </a></div>
+    </section>
+<footer>The Vault — AI Edition · May 18, 2026<br>Curated daily at <a href="https://news.promtvault.app" style="color:var(--accent);text-decoration:none">news.promtvault.app</a></footer>
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.cat-section').forEach(s=>{s.style.display=(f==='all'||s.dataset.cat===f)?'':'none'});
+  });
+});
+</script>
+</body></html>
