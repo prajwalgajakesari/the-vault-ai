@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anthropic Adds Private MCP Tunnels and Self-Hosted Sandboxes to Claude Managed Agents — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Anthropic Adds Private MCP Tunnels and Self-Hosted Sandboxes to Claude Managed Agents</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1060 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Anthropic split Managed Agents into managed orchestration and customer-controlled execution, letting enterprises run Claude agents entirely inside their own security perimeters.</p>
+</div>
+<div class="article-body">
+<p>---
+title: Anthropic Adds Private MCP Tunnels and Self-Hosted Sandboxes to Claude Managed Agents
+slug: anthropic-managed-agents-mcp-tunnels
+category: llms-genai
+story_number: "07"
+date: 2026-05-20
+sources:
+  - https://9to5mac.com/2026/05/19/anthropic-enhances-claude-managed-agents-with-two-new-privacy-and-security-features/
+  - https://www.testingcatalog.com/anthropic-launches-new-secure-tools-for-claude-managed-agents/
+  - https://www.infoq.com/news/2026/05/code-with-claude/
+  - https://thenewstack.io/anthropic-mcp-tunnels-sandboxes/
+  - https://the-decoder.com/anthropic-adds-self-hosted-sandboxes-and-mcp-tunnels-to-claude-managed-agents/
+  - https://www.infoq.com/news/2026/05/claude-mcp-tunnels/
+---</p>
+<p># Anthropic Adds Private MCP Tunnels and Self-Hosted Sandboxes to Claude Managed Agents</p>
+<p>Anthropic drew a bright line between what an AI agent can do and where it is allowed to do it — and handed that second decision entirely to enterprises.</p>
+<p>At its Code with Claude developer conference in London on May 19, 2026 — marking Anthropic's first developer gathering outside the United States — the company announced two new infrastructure capabilities for its Claude Managed Agents platform: self-hosted sandboxes, now available in public beta, and MCP tunnels, currently accessible by request in research preview. Together, the features let organizations deploy autonomous Claude agents while keeping both code execution and access to internal systems firmly inside their own security perimeters.</p>
+<h2>The Problem They Are Solving</h2>
+<p>Enterprise AI adoption has run into a consistent wall: security and compliance teams cannot sign off on agents that execute arbitrary code on third-party infrastructure or that require internal APIs and databases to be publicly exposed. Until now, organizations using Claude Managed Agents had to accept that tool execution — the moment when an agent actually runs code, queries a database, or calls a service — happened on Anthropic's infrastructure. For regulated industries and security-sensitive organizations, that was often a non-starter.</p>
+<p>The new features attack both sides of that problem simultaneously. Self-hosted sandboxes relocate where execution happens. MCP tunnels redefine how agents reach internal systems.</p>
+<h2>Self-Hosted Sandboxes: Your Infrastructure, Anthropic's Orchestration</h2>
+<p>Self-hosted sandboxes draw a clear architectural boundary between orchestration and execution. Anthropic continues to handle the agent loop — the reasoning, context management, multi-step planning, and error recovery that make Claude's agents capable of autonomous work. But when the agent actually needs to run code or invoke a tool, that work now occurs inside infrastructure the customer controls.</p>
+<p>Supported infrastructure partners at launch include Cloudflare, Daytona, Modal, and Vercel, each tuned for different enterprise profiles. Cloudflare runs sandboxes in microVMs at scale with granular outbound network controls. Daytona provides stateful sandboxes that can be paused and restored with full state retention — useful for long-running engineering tasks. Modal, built for AI workloads, adds container-based sandboxes with access to both CPU and GPU resources. Vercel combines virtual machine-level security with fast startup times and allows customers to bring their own cloud environment while managing firewall and credential policies themselves.</p>
+<p>Real-world deployments announced alongside the feature underscore the breadth of use cases. Rogo, an AI platform for institutional finance, is building an analyst agent that uses Claude Managed Agents for reasoning while routing all data handling through Vercel for compliant processing. DoorDash is constructing an internal productivity agent running on Modal. Clay's engineering agent, Sculptor, uses Daytona to build and monitor automation workflows, taking advantage of that provider's stateful sandbox persistence across sessions.</p>
+<p>The architecture reflects an explicit design choice: "The agent loop that handles orchestration, context management, and error recovery stays on Anthropic's infrastructure, while tool execution moves to your own configured environment," as Anthropic described in documentation accompanying the launch. The split gives enterprises the AI reasoning layer without surrendering the execution layer.</p>
+<h2>MCP Tunnels: Private Networks Without Public Exposure</h2>
+<p>MCP tunnels address the complementary challenge of connecting agents to internal systems without opening those systems to the internet. The mechanism is architecturally straightforward: rather than require organizations to punch inbound holes in firewalls or expose private API endpoints publicly, a lightweight gateway is deployed inside the private network and opens a single outbound encrypted connection back to Anthropic's infrastructure.</p>
+<p>The security model is deliberately layered. The tunnel carries three independent encryption channels: mutual TLS between Anthropic and the tunnel edge, an inner TLS session between Anthropic's backend and the customer's proxy — terminated using a certificate only the customer holds — and OAuth authentication on each individual MCP server. The transport layer is provided by Cloudflare, which can observe connection metadata such as timing, byte volume, and subdomain identifier, but cannot read MCP request or response payloads because the inner TLS layer is opaque to it.</p>
+<p>"A lightweight gateway opens a single outbound connection, end-to-end encrypted, with no inbound firewall rules or public endpoints required," Anthropic stated in its technical documentation. The goal is to let agents reach internal databases, private APIs, or ticketing systems as tools — without those systems ever receiving inbound traffic from the public internet.</p>
+<p>MCP tunnels work with both Claude Managed Agents and the Messages API directly, giving organizations the same private connectivity option whether they manage their own agent loops or rely on Anthropic's managed platform. That dual compatibility is meaningful: companies already using the Messages API to build custom orchestration can adopt MCP tunnels without migrating to the full managed agents stack.</p>
+<h2>Why This Architecture Matters</h2>
+<p>The split between orchestration and execution represents a meaningful shift in how cloud AI services can be structured. Most current AI platforms treat the model, the orchestration layer, and the execution environment as a unified stack that lives entirely on the provider's infrastructure. By externalizing execution, Anthropic is acknowledging that for a growing segment of enterprise customers, control over where code runs matters as much as the capability of the model doing the reasoning.</p>
+<p>The four-provider sandbox ecosystem signals a deliberate platform strategy as well: rather than build a single proprietary execution environment, Anthropic is positioning Claude Managed Agents as an orchestration layer that plugs into existing infrastructure choices. Organizations that have already standardized on Cloudflare Workers, Modal for ML workloads, or Vercel for application deployment do not need to adopt a new execution environment — they bring their existing stack and connect it to Claude's reasoning capabilities.</p>
+<p>MCP tunnels represent a similarly pragmatic bet on standards. The Model Context Protocol, which Anthropic open-sourced in late 2024, has grown into the dominant framework for connecting AI agents to external tools and data sources. By building private network access directly into MCP rather than a proprietary connector format, Anthropic ensures compatibility with the broader MCP ecosystem — and solves a security requirement that previously forced enterprises to choose between agent capability and network isolation.</p>
+<p>For sectors with strict data residency requirements — financial services, healthcare, government — that tradeoff was often decisive. Self-hosted sandboxes and MCP tunnels together remove it from the equation.</p>
+<h2>Availability and What Comes Next</h2>
+<p>Self-hosted sandboxes are available now to all Claude Platform customers in public beta. MCP tunnels require a separate access request given their research preview status, signaling that Anthropic is still iterating on the feature before broad rollout.</p>
+<p>The Code with Claude London conference itself — Anthropic's first European developer event — served as the backdrop for both announcements, reflecting a broader push to build developer community outside the company's San Francisco base. Other announcements at the event included updates to Claude Code, Anthropic's AI-assisted development tool.</p>
+<p>For enterprises evaluating AI agent platforms, the combined announcement removes two of the most commonly cited deployment blockers: data residency concerns around execution environments, and the security exposure of making internal systems reachable from the public internet. Whether the four-provider sandbox roster expands and how the MCP tunnel research preview matures into general availability will be among the features to watch in Anthropic's platform roadmap through the rest of 2026.</p>
+<p>The orchestration stays in San Francisco. The execution, increasingly, can stay with you.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;A lightweight gateway opens a single outbound connection, end-to-end encrypted, with no inbound firewall rules or public endpoints required.&rdquo;</blockquote><cite>&mdash; Anthropic, Technical documentation</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">4</div><div class="stat-label">Sandbox providers at launch</div></div><div class="stat-cell"><div class="stat-value">3</div><div class="stat-label">Encryption layers per tunnel</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://9to5mac.com/2026/05/19/anthropic-enhances-claude-managed-agents-with-two-new-privacy-and-security-features/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=9to5mac.com&sz=32" alt="">9to5Mac</a><a href="https://thenewstack.io/anthropic-mcp-tunnels-sandboxes/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenewstack.io&sz=32" alt="">The New Stack</a><a href="https://www.infoq.com/news/2026/05/claude-mcp-tunnels/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=infoq.com&sz=32" alt="">InfoQ</a></div></div>
+<div class="article-nav"><a href="06-glm-51-open-weight-754b-agentic.html" class="nav-prev">&larr; Zhipu AI GLM-5.1 Becomes First Open-Weight Model t</a><a href="08-anthropic-finance-agents-10-templates.html" class="nav-next">Anthropic Releases Ten Ready-to-Run AI Agent Templ &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published May 20, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

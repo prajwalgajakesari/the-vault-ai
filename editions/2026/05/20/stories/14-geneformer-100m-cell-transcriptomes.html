@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Geneformer Model Scales to 100 Million Human Cell Transcriptomes for Network Biology Predictions — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Geneformer Model Scales to 100 Million Human Cell Transcriptomes for Network Biology Predictions</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 823 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Geneformer s expanded pretraining on 104 million cells and scaling to 316M parameters establishes power-law improvements in network biology, while quantization cuts compute by 85%.</p>
+</div>
+<div class="article-body">
+<p>---
+title: Geneformer Model Scales to 100 Million Human Cell Transcriptomes for Network Biology Predictions
+slug: geneformer-100m-cell-transcriptomes
+category: research
+story_number: "14"
+date: 2026-05-20
+sources:
+  - https://www.nature.com/articles/s43588-026-00972-4
+  - https://www.nature.com/articles/s43588-026-00990-2
+  - https://www.nature.com/articles/s41596-026-01364-8
+  - https://huggingface.co/ctheodoris/Geneformer
+---</p>
+<p># Geneformer Model Scales to 100 Million Human Cell Transcriptomes for Network Biology Predictions</p>
+<p>A transformer model that once learned the language of human biology from 30 million cells has now consumed more than 104 million — and the difference is not merely one of scale. Published in Nature Computational Science this spring, a new study shows that Geneformer, the foundational AI model for single-cell transcriptomics developed by Christina V. Theodoris and colleagues, has grown from a 10-million-parameter system into a 316-million-parameter architecture whose predictive power on gene network tasks follows a clean power law: more data, more parameters, better biology.</p>
+<p>The implications stretch far beyond benchmark scores. Geneformer is one of a small class of AI tools that can predict which genes are central to disease-driving networks, which transcription factors can be nudged to reprogram cell fate, and which targets are most likely to improve outcomes in conditions such as cardiomyopathy — all without wet-lab experiments. At 316 million parameters pretrained on a transcriptomic corpus now called Genecorpus-104M, the model represents the most comprehensive attempt yet to encode the regulatory logic of the human cell into a single, transferable model.</p>
+<h2>From 30 Million Cells to 104 Million</h2>
+<p>The original Geneformer, introduced in 2021 and published in Nature in 2023, was pretrained on approximately 30 million single-cell transcriptomes. The core innovation was the representation strategy: rather than feeding each cell's raw gene expression counts into the model, Geneformer ranks each cell's genes by expression level, foregrounding the informative signal — transcription factors, pathway nodes, lineage markers — while pushing ubiquitous housekeeping genes to the back. The ranked list becomes a sentence; the cell becomes a document; the corpus becomes a library encoding the grammar of cellular identity.</p>
+<p>For the 2026 update, the team assembled Genecorpus-104M, a corpus of approximately 104 million human single-cell transcriptomes drawn from a broad range of tissues and disease states. Successively larger models were pretrained on this data — from smaller configurations up to the 316-million-parameter flagship — allowing the researchers to map the scaling laws for transcriptional masked learning with the same rigor that language model researchers apply to text.</p>
+<p>The results were unambiguous. The 316-million-parameter model pretrained on more than 100 million transcriptomes significantly outperformed the original 10-million-parameter model on both gene-level and cell-level tasks, with zero-shot performance — meaning predictions made without any task-specific fine-tuning data — improving most dramatically on the hardest biological challenges.</p>
+<h2>Quantization Brings Research-Grade AI to Ordinary Hardware</h2>
+<p>A second major contribution of the 2026 work is model quantization. Large foundation models are computationally expensive, and the gap between a model's theoretical capabilities and what a typical academic lab can run in practice has grown alongside model size. The Geneformer team applied quantization techniques that compress the full-precision model into a more compact numerical representation, dramatically reducing resource requirements while preserving biological fidelity.</p>
+<p>The numbers are striking: quantized Geneformer requires only 15 percent of the inference time and 34 percent of the computational resources of the full-precision model, with no meaningful loss of performance on zero-shot or fine-tuning benchmarks. The contextual gene and cell embedding space — the learned geometric representation of biological relationships — is preserved intact. Researchers with modest GPU budgets can now run a state-of-the-art network biology model that would previously have demanded significant cloud compute.</p>
+<p>"The largest model shows the highest zero-shot performance on both gene- and cell-level biologically meaningful tasks," the authors note, underscoring that the scaling gains are not confined to fine-tuned applications but extend to entirely novel prediction problems where no labeled training data exists. That property is particularly valuable for rare diseases, clinically inaccessible tissues, and emerging cell types where labeled datasets may never reach the scale needed to train task-specific models from scratch.</p>
+<h2>What the Model Can Do — and Why It Matters for Drug Discovery</h2>
+<p>Geneformer's practical utility spans a range of network biology tasks that map directly onto drug discovery workflows. The model can distinguish transcription factor dosage sensitivity, predict gene network centrality, characterize bivalent chromatin dynamics, model transcription factor regulatory range, and simulate the effects of gene perturbations in silico — all from a ranked expression profile of a single cell.</p>
+<p>The therapeutic target prediction capability has already demonstrated real-world impact. Earlier work using Geneformer identified a novel transcription factor in cardiomyocytes through zero-shot learning alone — a finding that would have required extensive wet-lab screening to reach through conventional methods. The model also predicted candidate therapeutic targets for cardiomyopathy that subsequently improved contractility in an induced pluripotent stem cell model of the disease, providing in vitro validation of a computationally generated hypothesis.</p>
+<p>With the expanded 104-million-cell corpus, the model's tissue and disease coverage is substantially broader, which should improve generalization to disease contexts not well represented in the original 30-million-cell training set. The addition of disease-state transcriptomes — cells drawn from patients rather than healthy donors — is particularly significant for therapeutic target identification, where the relevant biology is the perturbed network, not the healthy baseline.</p>
+<p>A companion paper published simultaneously in Nature Protocols describes a practical workflow for using Geneformer to discover candidate therapeutic targets, lowering the barrier for research groups who want to apply the model to their own disease areas without building the infrastructure from scratch.</p>
+<h2>Open Science, Accessible Infrastructure</h2>
+<p>The updated Genecorpus-104M, all Geneformer model weights, and quantization code are freely available on the Hugging Face Model Hub, continuing the open-science ethos of the original release. That accessibility matters: foundation models for biology derive much of their value from broad community adoption, diverse fine-tuning applications, and the accumulation of domain-specific benchmarks that collectively sharpen understanding of where the models succeed and where they fail.</p>
+<p>The scaling law characterization is itself a contribution to that collective understanding. By demonstrating that transcriptional masked learning follows a power law relationship between model parameters, pretraining data, and downstream task performance, the 2026 work provides a principled roadmap for the next generation of biological foundation models. The question is no longer whether more data and larger models improve biological predictions — it is how far the scaling curve extends before it flattens, and what complementary architectural innovations will be needed to push beyond it.</p>
+<p>For a field that has historically operated at the scale of thousands of cells per experiment, a model that has processed 104 million transcriptomes representing the breadth of human tissue diversity represents a genuine inflection point. The biology encoded in those cells — every disease state, every developmental transition, every tissue-specific gene regulatory program — is now, in compressed form, available for interrogation at the cost of a forward pass through a 316-million-parameter transformer.</p>
+<p>---</p>
+<p><em>Sources: Nature Computational Science, Nature Protocols, Hugging Face</em></p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;The largest model shows the highest zero-shot performance on both gene- and cell-level biologically meaningful tasks.&rdquo;</blockquote><cite>&mdash; Theodoris et al., Authors, Nature Computational Science</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">104M</div><div class="stat-label">Cell transcriptomes</div></div><div class="stat-cell"><div class="stat-value">316M</div><div class="stat-label">Model parameters</div></div><div class="stat-cell"><div class="stat-value">85%</div><div class="stat-label">Compute reduction via quantization</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.nature.com/articles/s43588-026-00972-4" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=32" alt="">Nature Computational Science</a><a href="https://www.nature.com/articles/s41596-026-01364-8" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=32" alt="">Nature Protocols</a><a href="https://huggingface.co/ctheodoris/Geneformer" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Hugging Face</a></div></div>
+<div class="article-nav"><a href="13-ama-ai-chatbot-patient-safety-guidance.html" class="nav-prev">&larr; American Medical Association Issues First Patient-</a><a href="15-ai-maps-science-predicts-research-trends.html" class="nav-next">AI System Predicts Emerging Research Trends Two to &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published May 20, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

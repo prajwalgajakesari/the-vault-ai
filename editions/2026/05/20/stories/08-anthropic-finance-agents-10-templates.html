@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anthropic Releases Ten Ready-to-Run AI Agent Templates for Financial Services — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Anthropic Releases Ten Ready-to-Run AI Agent Templates for Financial Services</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 7 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1410 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Anthropic released ten production-ready AI agent templates for finance covering pitchbooks, KYC screening, month-end close, backed by 16+ data provider integrations.</p>
+</div>
+<div class="article-body">
+<p>---
+title: Anthropic Releases Ten Ready-to-Run AI Agent Templates for Financial Services
+slug: anthropic-finance-agents-10-templates
+category: llms-genai
+story_number: "08"
+date: 2026-05-20
+sources:
+  - https://www.anthropic.com/news/finance-agents
+  - https://pasqualepillitteri.it/en/news/2173/claude-finance-anthropic-10-ai-agents-2026
+  - https://9to5mac.com/2026/05/07/anthropic-updates-claude-managed-agents-with-three-new-features/
+  - https://letsdatascience.com/news/anthropic-launches-ten-finance-agent-templates-for-claude-6516f048
+  - https://www.marketsmedia.com/anthropic-introduces-agents-for-financial-services/
+  - https://finance.yahoo.com/sectors/technology/articles/anthropic-launches-10-ai-agents-153623834.html
+---</p>
+<p># Anthropic Releases Ten Ready-to-Run AI Agent Templates for Financial Services</p>
+<p>Wall Street has spent years watching AI inch toward the trading floor. On May 5, 2026, Anthropic stopped inching. The company unveiled ten production-ready agent templates purpose-built for financial services — covering everything from building pitchbooks to screening KYC files to closing the books at month-end — and packaged them so a firm can go from zero to deployed in days rather than the months it typically takes to build AI agents from scratch.</p>
+<p>The templates, available immediately through the financial services marketplace at GitHub, run as plugins inside Claude Cowork and Claude Code, or as fully autonomous cookbooks for Claude Managed Agents on the Claude Platform. Paired with deep integrations into Microsoft 365 and a data ecosystem spanning Moody's, FactSet, S&P Capital IQ, PitchBook, and eight other major providers, the release represents the most comprehensive push yet by an AI lab to wire itself directly into the operational core of institutional finance.</p>
+<h2>Ten Templates, Two Categories</h2>
+<p>The agents divide cleanly across two functional areas. On the research and client coverage side, five templates target the analyst's daily workload:</p>
+<p>- <strong>Pitch Builder</strong> creates target company lists, runs comparable analyses, and drafts complete pitchbooks for M&A and capital markets engagements.
+- <strong>Meeting Preparer</strong> assembles client and counterparty briefing packs — background, relevant news, and suggested talking points — before calls.
+- <strong>Earnings Reviewer</strong> reads quarterly transcripts and SEC filings, updates three-statement financial models in Excel, and flags any news that shifts the investment thesis.
+- <strong>Model Builder</strong> constructs DCF, LBO, and comparable company models directly from filings and data feeds, returning fully linked Excel files ready for sensitivity analysis.
+- <strong>Market Researcher</strong> tracks sector and issuer developments across news feeds and broker research, and produces daily briefings flagging estimated price impacts across a coverage list.</p>
+<p>Five additional templates address the finance and operations stack:</p>
+<p>- <strong>Valuation Reviewer</strong> checks fund valuations against comparables and the firm's internal methodology, then packages reports for LP distribution.
+- <strong>General Ledger Reconciler</strong> identifies discrepancies between internal accounting entries and custodian statements, traces the cause of each difference, and prepares the reconciliation memo.
+- <strong>Month-End Closer</strong> runs the close checklist, prepares journal entries including accruals and deferrals, and produces the period's variance commentary.
+- <strong>Statement Auditor</strong> reviews investor statements for consistency and completeness before distribution.
+- <strong>KYC Screener</strong> assembles onboarding entity files, reviews source documents against the firm's compliance rules, and packages escalations for compliance officer review.</p>
+<p>Each template is a reference architecture that bundles three components: skills (Markdown files encoding the domain knowledge and operational procedures for the task), connectors (governed, real-time access to external data sources via the Model Context Protocol), and subagents (specialized Claude models invoked for discrete sub-tasks such as comparables selection or methodology validation). Firms can adapt any template to their own modeling conventions, risk policies, and approval workflows.</p>
+<h2>The Benchmark That Matters</h2>
+<p>Anthropic is pairing the release with Claude Opus 4.7, which the company positions as its flagship model for financial tasks. On the Vals AI Finance Agent benchmark — the industry's emerging standard for evaluating financial reasoning — Opus 4.7 currently scores 64.37 percent, the highest figure in the field. That leaves more than a third of responses requiring careful human review, and Anthropic is explicit that every output from these agents is intended as a draft for qualified professional sign-off, not a final deliverable. The agents do not execute trades, approve client onboarding, or write directly to books of record.</p>
+<p>The industry response from existing clients suggests the practical value is arriving ahead of perfection. FIS CEO Stephanie Ferris stated the stakes plainly: "FIS sits at the center of how money moves for thousands of financial institutions worldwide. When we began to build AI agents, we knew we needed a provider we could trust. Anthropic was the clear choice. Together we're building an agent that compresses AML investigations from days to minutes." At Citadel, Atte Lahtiranta, Head of Core Engineering, described a more immediate use case: "Analysts are using it to build and update coverage models, separate signal from noise, and pressure-test their work — all with a step-change in efficiency."</p>
+<h2>Microsoft 365 as the Delivery Layer</h2>
+<p>One of the release's most significant structural elements is the Microsoft 365 integration, which has reached general availability for Excel, PowerPoint, and Word, with Outlook in beta. The key architectural decision is that context flows automatically across all four applications — an analyst who builds a DCF model in Excel does not need to re-explain the company, assumptions, or deal structure when moving to PowerPoint for the deck, or to Word for the credit memo. The pitch deck refreshes automatically when the underlying Excel numbers change. Outlook, once live, will offer inbox triage, meeting scheduling, and response drafting in the analyst's voice.</p>
+<p>This cross-application context threading addresses one of the persistent frustrations in enterprise AI deployments: the re-entry tax, where users must re-explain their situation to each tool in sequence. For a financial analyst whose workflow bounces between a model, a deck, a memo, and a client email multiple times per day, eliminating that overhead compounds into hours recovered per week.</p>
+<h2>A Data Ecosystem Built for Institutional Use</h2>
+<p>AI agents are only as useful as the data they can access. Anthropic has assembled a data layer that matches institutional expectations: FactSet, S&P Capital IQ, MSCI, PitchBook, Morningstar, LSEG, Daloopa, Chronograph, and now — as new connectors announced alongside the templates — Dun & Bradstreet, Fiscal AI, Financial Modeling Prep, Guidepoint, IBISWorld, SS&C Intralinks, Third Bridge, and Verisk. Moody's has gone a step further, launching a native MCP app inside Claude that gives direct access to credit ratings and risk data on more than 600 million public and private companies.</p>
+<p>The data partnerships solve a problem that has dogged enterprise AI deployments in regulated industries: getting LLMs to reason over current, governed, auditable data rather than stale training-set approximations. Under the connector architecture, data access is scoped, permissioned, and logged — producing the audit trail that compliance and legal teams require before they will sanction AI-assisted workflows.</p>
+<h2>Three Ways to Deploy</h2>
+<p>Firms have three deployment paths. As a plugin in Claude Cowork — Anthropic's collaborative enterprise workspace — the templates are enabled by an IT administrator and invoked conversationally by analysts, with iteration and human review baked into the interface. In Claude Code, the same templates run as CLI plugins with slash-command shortcuts, integrating outputs directly into broader analytical pipelines — the path favored by quantitative teams. And as Claude Managed Agents, the templates run autonomously on Anthropic's cloud infrastructure via API, handling work that spans entire books of deals or runs on nightly schedules: a month-end close across dozens of funds, or a sweep of new SEC filings that triggers an Earnings Reviewer run without human initiation.</p>
+<p>The managed-agent path is the most consequential shift. Long-running sessions that can sustain a multi-hour deal close, per-tool permissions, credential vaults, and a full audit log accessible to compliance and engineering teams in the Claude Console — these are infrastructure capabilities that financial institutions would otherwise spend months and significant budget building. Anthropic is shipping them as defaults.</p>
+<h2>Implications for the Industry</h2>
+<p>The ten templates collectively amount to a blueprint for what a mid-sized bank, asset manager, or fund administrator could automate with a subscription and a few days of deployment work. The front office applications — Pitch Builder, Earnings Reviewer, Model Builder — most directly threaten the task portfolio of junior investment banking and equity research analysts, roles that typically absorb waves of new graduates and represent a significant share of Wall Street's training pipeline. The back-office applications — GL Reconciler, Month-End Closer, Statement Auditor — attack operational headcount that has remained relatively insulated from prior waves of financial technology automation.</p>
+<p>What Anthropic has done with this release is compress the typical AI deployment timeline from a year-long integration project to something achievable in a sprint. The financial institution no longer needs to engineer the agent infrastructure, negotiate every data connection, or write the domain-knowledge prompts from scratch. The hard parts are pre-built. The remaining question — whether the 64 percent accuracy floor is high enough for production use in each specific workflow — is one every firm will need to answer for itself before the agents touch anything that moves money or gets filed.</p>
+<p>---</p>
+<p><em>Sources: Anthropic, Markets Media, Let's Data Science, Yahoo Finance, Pasquale Pillitteri</em></p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Together we are building an agent that compresses AML investigations from days to minutes.&rdquo;</blockquote><cite>&mdash; Stephanie Ferris, CEO, FIS</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">64.37%</div><div class="stat-label">Vals AI Finance benchmark score</div></div><div class="stat-cell"><div class="stat-value">10</div><div class="stat-label">Agent templates released</div></div><div class="stat-cell"><div class="stat-value">16+</div><div class="stat-label">Data provider integrations</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.anthropic.com/news/finance-agents" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" alt="">Anthropic</a><a href="https://www.marketsmedia.com/anthropic-introduces-agents-for-financial-services/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=marketsmedia.com&sz=32" alt="">Markets Media</a><a href="https://letsdatascience.com/news/anthropic-launches-ten-finance-agent-templates-for-claude-6516f048" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=letsdatascience.com&sz=32" alt="">Let s Data Science</a></div></div>
+<div class="article-nav"><a href="07-anthropic-managed-agents-mcp-tunnels.html" class="nav-prev">&larr; Anthropic Adds Private MCP Tunnels and Self-Hosted</a><a href="09-apple-third-party-ai-providers-ios27.html" class="nav-next">Apple Reportedly Opening Apple Intelligence to Goo &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published May 20, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
