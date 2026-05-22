@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Vault AI &middot; May 21, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root {
+  --bg: #101014; --surface: #18181c; --surface-2: #1f1f24;
+  --border: rgba(255,255,255,0.07); --border-hover: rgba(255,255,255,0.14);
+  --text: #b8b8bf; --text-strong: #ececef; --text-muted: #5a5a63; --accent: #c084fc;
+  --business: #e8a735; --llms-genai: #a78bfa; --research: #5eead4; --policy: #fb7185;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; line-height:1.6; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.container { max-width:960px; margin:0 auto; padding:0 24px; }
+
+/* NAV */
+.top-nav { position:sticky; top:0; z-index:100; background:rgba(16,16,20,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); padding:14px 0; }
+.top-nav .container { display:flex; justify-content:space-between; align-items:center; }
+.top-nav .nav-links { display:flex; align-items:center; gap:20px; }
+.top-nav .nav-links a { color:var(--text-muted); font-size:13px; font-weight:500; }
+.top-nav .nav-links a:hover { color:var(--text-strong); text-decoration:none; }
+.top-nav .brand { font-weight:700; font-size:14px; letter-spacing:2px; color:var(--text-strong); }
+/* HEADER */
+.edition-header { padding:64px 0 40px; text-align:center; }
+.overline { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
+.edition-header h1 { font-family:'Source Serif 4',serif; font-size:clamp(28px,5vw,44px); color:var(--text-strong); margin-bottom:8px; }
+.edition-header .date { font-size:16px; color:var(--text-muted); }
+/* STATS ROW */
+.stats-row { display:flex; justify-content:center; gap:40px; padding:20px 0 40px; border-bottom:1px solid rgba(255,255,255,0.06); margin-bottom:40px; }
+.stats-row .stat { text-align:center; }
+.stats-row .stat-val { font-size:28px; font-weight:800; color:var(--text-strong); }
+.stats-row .stat-label { font-size:12px; color:var(--text-muted); }
+/* FEATURED */
+.featured-card { background:var(--surface); border-radius:14px; padding:36px; margin-bottom:48px; border:1px solid rgba(255,255,255,0.06); }
+.featured-label { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:16px; }
+.featured-card h2 { font-family:'Source Serif 4',serif; font-size:clamp(22px,4vw,32px); color:var(--text-strong); line-height:1.25; margin-bottom:12px; }
+.featured-card h2 a { color:var(--text-strong); }
+.featured-card h2 a:hover { color:var(--accent); text-decoration:none; }
+.featured-card .excerpt { font-size:15px; color:var(--text); margin-bottom:16px; line-height:1.6; }
+.featured-card .card-meta { font-size:13px; color:var(--text-muted); }
+/* FILTERS */
+.filters { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:36px; }
+.filters button { background:var(--surface); border:1px solid rgba(255,255,255,0.08); color:var(--text-muted); font-family:'DM Sans',sans-serif; font-size:13px; font-weight:600; padding:7px 16px; border-radius:20px; cursor:pointer; transition:all .2s; }
+.filters button:hover, .filters button.active { color:var(--text-strong); border-color:var(--accent); background:rgba(192,132,252,0.1); }
+/* CATEGORY SECTIONS */
+.cat-section { margin-bottom:48px; }
+.cat-section-header { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+.cat-section-header svg { width:20px; height:20px; }
+.cat-section-header h2 { font-size:18px; font-weight:700; }
+/* STORY CARDS */
+.story-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
+.story-card { background:var(--surface); border-radius:10px; padding:24px; border:1px solid rgba(255,255,255,0.04); transition:border-color .2s; }
+.story-card:hover { border-color:rgba(255,255,255,0.12); }
+.story-card .cat-badge { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; display:inline-flex; align-items:center; gap:5px; }
+.story-card .cat-badge svg { width:12px; height:12px; }
+.story-card h3 { font-family:'Source Serif 4',serif; font-size:16px; font-weight:600; color:var(--text-strong); line-height:1.35; margin-bottom:8px; }
+.story-card h3 a { color:var(--text-strong); }
+.story-card h3 a:hover { color:var(--accent); text-decoration:none; }
+.story-card .excerpt { font-size:13px; color:var(--text-muted); line-height:1.5; margin-bottom:10px; }
+.story-card .card-meta { font-size:12px; color:var(--text-muted); }
+/* FOOTER */
+footer { border-top:1px solid rgba(255,255,255,0.06); padding:32px 0; margin-top:40px; text-align:center; color:var(--text-muted); font-size:13px; }
+footer a { color:var(--accent); }
+</style>
+</head>
+<body>
+
+<nav class="top-nav"><div class="container">
+  <div class="nav-links"><a href="#">Home</a></div>
+  <div class="brand">THE VAULT</div>
+  <div class="nav-links"><a href="#">Archive</a> <a href="#">RSS</a></div>
+</div></nav>
+
+<div class="container">
+<div class="edition-header">
+  <div class="overline">DAILY INTELLIGENCE BRIEF</div>
+  <h1>The Vault AI</h1>
+  <div class="date">Thursday, May 21, 2026</div>
+</div>
+
+<div class="stats-row">
+  <div class="stat"><div class="stat-val">15</div><div class="stat-label">Stories</div></div>
+  <div class="stat"><div class="stat-val">13,946</div><div class="stat-label">Words</div></div>
+  <div class="stat"><div class="stat-val">60</div><div class="stat-label">Min Read</div></div>
+</div>
+
+<div class="featured-card" style="border-left:3px solid #e8a735">
+  <div class="featured-label">Featured Story</div>
+  <h2><a href="stories/01-nvidia-q1-earnings-81b-ai-chip-demand.html">Nvidia Q1 Revenue Soars 85 Percent to $81.6 Billion on Relentless AI Chip Demand</a></h2>
+  <p class="excerpt">Nvidia shattered its own records again on Wednesday, reporting first-quarter revenue of $81.6 billion — an 85 percent surge from a year ago.</p>
+  <div class="card-meta">4 min read &middot; 961 words &middot; 3 sources</div>
+</div>
+
+<div class="filters"><button class="active" onclick="filterCat('all')">All</button><button onclick="filterCat('business')" style="--fc:#e8a735">Business (5)</button><button onclick="filterCat('llms-genai')" style="--fc:#a78bfa">LLMs &amp; GenAI (4)</button><button onclick="filterCat('research')" style="--fc:#5eead4">Research (3)</button><button onclick="filterCat('policy')" style="--fc:#fb7185">Policy (3)</button></div>
+
+<div class="cat-section" data-cat="business">
+  <div class="cat-section-header" style="color:#e8a735"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><h2>Business</h2></div>
+  <div class="story-grid"><div class="story-card" data-cat="business">
+  <div class="cat-badge" style="color:#e8a735"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+  <h3><a href="stories/01-nvidia-q1-earnings-81b-ai-chip-demand.html">Nvidia Q1 Revenue Soars 85 Percent to $81.6 Billion on Relentless AI Chip Demand</a></h3>
+  <p class="excerpt">Nvidia shattered its own records again on Wednesday, reporting first-quarter revenue of $81.6 billion — an 85 percent su</p>
+  <div class="card-meta">4 min &middot; 961 words &middot; 3 sources</div>
+</div><div class="story-card" data-cat="business">
+  <div class="cat-badge" style="color:#e8a735"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+  <h3><a href="stories/02-anthropic-first-operating-profit-q2-2026.html">Anthropic Projects First Operating Profit as Q2 Revenue Hits $10.9 Billion</a></h3>
+  <p class="excerpt">Anthropic, the safety-focused AI company behind the Claude model family, told investors this week that it expects to pos</p>
+  <div class="card-meta">4 min &middot; 835 words &middot; 3 sources</div>
+</div><div class="story-card" data-cat="business">
+  <div class="cat-badge" style="color:#e8a735"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+  <h3><a href="stories/03-openai-confidential-ipo-filing-fall-2026.html">OpenAI Prepares Confidential IPO Filing Targeting Fall 2026 Public Debut</a></h3>
+  <p class="excerpt">OpenAI is preparing to confidentially file its initial public offering paperwork with the SEC within days, setting the s</p>
+  <div class="card-meta">4 min &middot; 990 words &middot; 3 sources</div>
+</div><div class="story-card" data-cat="business">
+  <div class="cat-badge" style="color:#e8a735"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+  <h3><a href="stories/04-google-blackstone-5b-tpu-cloud-venture.html">Google and Blackstone Launch $5 Billion Joint Venture for AI Cloud Infrastructure</a></h3>
+  <p class="excerpt">Blackstone and Google have announced a joint venture to create a new U.S.-based company that will sell access to Google </p>
+  <div class="card-meta">4 min &middot; 940 words &middot; 3 sources</div>
+</div><div class="story-card" data-cat="business">
+  <div class="cat-badge" style="color:#e8a735"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+  <h3><a href="stories/05-mercury-200m-series-d-52b-ai-banking.html">Mercury Raises $200 Million at $5.2 Billion Valuation Amid AI-Driven Startup Banking Boom</a></h3>
+  <p class="excerpt">Mercury, the fintech company that has quietly become the default banking platform for a generation of technology startup</p>
+  <div class="card-meta">4 min &middot; 935 words &middot; 3 sources</div>
+</div></div>
+</div>
+<div class="cat-section" data-cat="llms-genai">
+  <div class="cat-section-header" style="color:#a78bfa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg><h2>LLMs &amp; GenAI</h2></div>
+  <div class="story-grid"><div class="story-card" data-cat="llms-genai">
+  <div class="cat-badge" style="color:#a78bfa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</div>
+  <h3><a href="stories/06-synthid-openai-kakao-watermark-adoption.html">OpenAI and Kakao Adopt Google SynthID as AI Watermarking Goes Industry-Wide</a></h3>
+  <p class="excerpt">Google invisible watermarking technology SynthID is rapidly becoming the de facto standard for identifying AI-generated </p>
+  <div class="card-meta">4 min &middot; 875 words &middot; 3 sources</div>
+</div><div class="story-card" data-cat="llms-genai">
+  <div class="cat-badge" style="color:#a78bfa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</div>
+  <h3><a href="stories/07-anthropic-spacex-125b-monthly-gpu-deal.html">SpaceX IPO Filing Reveals Anthropic Is Paying $1.25 Billion Monthly for GPU Compute</a></h3>
+  <p class="excerpt">When SpaceX dropped its S-1 registration statement on May 20, the financial world fixated on the headline numbers. But b</p>
+  <div class="card-meta">4 min &middot; 981 words &middot; 3 sources</div>
+</div><div class="story-card" data-cat="llms-genai">
+  <div class="cat-badge" style="color:#a78bfa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</div>
+  <h3><a href="stories/08-dust-40m-series-b-multiplayer-agents.html">Dust Raises $40 Million Series B to Build Multiplayer AI Agents for Enterprise</a></h3>
+  <p class="excerpt">Most companies have spent the last three years bolting AI assistants onto individual workflows. Paris-based startup Dust</p>
+  <div class="card-meta">4 min &middot; 838 words &middot; 3 sources</div>
+</div><div class="story-card" data-cat="llms-genai">
+  <div class="cat-badge" style="color:#a78bfa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</div>
+  <h3><a href="stories/09-chinese-ai-pricing-gap-western-frontier.html">Chinese AI Labs Open 10x Pricing Gap as Four Open-Weight Models Match Western Frontier</a></h3>
+  <p class="excerpt">Between April 12 and April 24, four Chinese AI laboratories released open-weight large language models that match or app</p>
+  <div class="card-meta">4 min &middot; 792 words &middot; 3 sources</div>
+</div></div>
+</div>
+<div class="cat-section" data-cat="research">
+  <div class="cat-section-header" style="color:#5eead4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><h2>Research</h2></div>
+  <div class="story-grid"><div class="story-card" data-cat="research">
+  <div class="cat-badge" style="color:#5eead4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</div>
+  <h3><a href="stories/10-penn-light-matter-chip-ai-computing.html">Penn Researchers Create Light-Matter Chip That Could Slash AI Computing Energy by Orders of Magnitude</a></h3>
+  <p class="excerpt">Eighty years after the University of Pennsylvania gave the world ENIAC, a team of Penn physicists is now pointing toward</p>
+  <div class="card-meta">4 min &middot; 949 words &middot; 3 sources</div>
+</div><div class="story-card" data-cat="research">
+  <div class="cat-badge" style="color:#5eead4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</div>
+  <h3><a href="stories/11-stanford-ai-index-2026-consumer-value.html">Stanford AI Index 2026 Finds Generative AI Worth $172 Billion Annually to US Consumers</a></h3>
+  <p class="excerpt">The ninth annual AI Index Report from Stanford Institute for Human-Centered Artificial Intelligence landed with a parado</p>
+  <div class="card-meta">4 min &middot; 950 words &middot; 3 sources</div>
+</div><div class="story-card" data-cat="research">
+  <div class="cat-badge" style="color:#5eead4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</div>
+  <h3><a href="stories/15-neuro-symbolic-ai-100x-energy-reduction.html">Neuro-Symbolic AI Approach Cuts Energy Use 100x While Boosting Accuracy for Robotics</a></h3>
+  <p class="excerpt">Researchers at Tufts University have built a hybrid AI system that pairs neural networks with symbolic reasoning, achiev</p>
+  <div class="card-meta">4 min &middot; 989 words &middot; 3 sources</div>
+</div></div>
+</div>
+<div class="cat-section" data-cat="policy">
+  <div class="cat-section-header" style="color:#fb7185"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><h2>Policy</h2></div>
+  <div class="story-grid"><div class="story-card" data-cat="policy">
+  <div class="cat-badge" style="color:#fb7185"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</div>
+  <h3><a href="stories/12-trump-postpones-ai-executive-order.html">Trump Postpones AI Executive Order Hours Before Signing Over Fears It Could Block US Lead</a></h3>
+  <p class="excerpt">President Donald Trump abruptly pulled the plug on a landmark artificial intelligence executive order on Wednesday, canc</p>
+  <div class="card-meta">4 min &middot; 936 words &middot; 3 sources</div>
+</div><div class="story-card" data-cat="policy">
+  <div class="cat-badge" style="color:#fb7185"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</div>
+  <h3><a href="stories/13-federal-ai-spending-91b-surge-2026.html">Federal AI Spending Potential Awards Surge to $91.8 Billion as Pentagon Dominates Investment</a></h3>
+  <p class="excerpt">The United States government is placing an enormous and rapidly escalating bet on artificial intelligence, with the tota</p>
+  <div class="card-meta">4 min &middot; 940 words &middot; 3 sources</div>
+</div><div class="story-card" data-cat="policy">
+  <div class="cat-badge" style="color:#fb7185"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</div>
+  <h3><a href="stories/14-ny-ai-dividend-proposal-displaced-workers.html">New York Lawmaker Proposes AI Dividend to Pay Americans Displaced by Automation</a></h3>
+  <p class="excerpt">As artificial intelligence reshapes the American economy at a pace that outstrips any prior technological shift, a New Y</p>
+  <div class="card-meta">4 min &middot; 982 words &middot; 3 sources</div>
+</div></div>
+</div>
+
+</div>
+
+<footer><div class="container">&copy; 2026 The Vault AI &middot; <a href="https://news.promtvault.app">news.promtvault.app</a></div></footer>
+
+<script>
+function filterCat(cat) {
+  document.querySelectorAll('.filters button').forEach(function(b){b.classList.remove('active')});
+  event.target.classList.add('active');
+  document.querySelectorAll('.cat-section').forEach(function(s){
+    s.style.display=(cat==='all'||s.dataset.cat===cat)?'':'none';
+  });
+}
+</script>
+</body></html>
