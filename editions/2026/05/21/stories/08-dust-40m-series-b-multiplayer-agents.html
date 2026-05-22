@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dust Raises $40 Million Series B to Build Multiplayer AI Agents for Enterprise | The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root {
+  --bg: #101014; --surface: #18181c; --surface-2: #1f1f24;
+  --border: rgba(255,255,255,0.07); --border-hover: rgba(255,255,255,0.14);
+  --text: #b8b8bf; --text-strong: #ececef; --text-muted: #5a5a63; --accent: #c084fc;
+  --business: #e8a735; --llms-genai: #a78bfa; --research: #5eead4; --policy: #fb7185;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; line-height:1.6; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.container { max-width:740px; margin:0 auto; padding:0 24px; }
+
+/* NAV */
+.top-nav { position:sticky; top:0; z-index:100; background:rgba(16,16,20,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); padding:14px 0; }
+.top-nav .container { display:flex; justify-content:space-between; align-items:center; }
+.top-nav .back { display:flex; align-items:center; gap:6px; color:var(--text-muted); font-size:14px; }
+.top-nav .back svg { width:16px; height:16px; }
+.top-nav .back:hover { color:var(--text); text-decoration:none; }
+.top-nav .brand { font-weight:700; font-size:14px; letter-spacing:2px; color:var(--text-muted); }
+/* PROGRESS */
+.progress-bar { position:fixed; top:0; left:0; height:3px; background:var(--accent); z-index:200; transition:width .1s; width:0%; }
+/* HERO */
+.article-hero { padding:60px 0 40px; }
+.cat-tag { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:1.5px; padding:5px 12px; border-radius:20px; margin-bottom:20px; }
+.cat-tag svg { width:14px; height:14px; }
+h1 { font-family:'Source Serif 4',serif; font-size:clamp(28px,5vw,42px); font-weight:700; color:var(--text-strong); line-height:1.2; margin-bottom:16px; }
+.meta-row { display:flex; gap:20px; color:var(--text-muted); font-size:13px; }
+.meta-row span { display:flex; align-items:center; gap:4px; }
+.meta-row svg { width:14px; height:14px; }
+/* TAKEAWAY */
+.takeaway { background:var(--surface); border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:20px 24px; margin:32px 0; }
+.takeaway-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--accent); margin-bottom:8px; }
+.takeaway p { color:var(--text-strong); font-family:'Source Serif 4',serif; font-size:17px; line-height:1.6; }
+/* BODY */
+.article-body { font-family:'Source Serif 4',serif; font-size:17px; line-height:1.8; color:var(--text); }
+.article-body h2 { font-family:'DM Sans',sans-serif; font-size:20px; font-weight:700; color:var(--text-strong); margin:36px 0 16px; }
+.article-body h3 { font-family:'DM Sans',sans-serif; font-size:17px; font-weight:600; color:var(--text-strong); margin:28px 0 12px; }
+.article-body p { margin-bottom:20px; }
+.article-body ul { margin:0 0 20px 24px; }
+.article-body li { margin-bottom:8px; }
+.article-body .drop-cap::first-letter { font-size:3.4em; float:left; line-height:0.8; margin:4px 10px 0 0; color:var(--text-strong); font-weight:700; }
+.article-body a { color:var(--accent); }
+/* PULL QUOTE */
+.pull-quote { border-left:3px solid var(--accent); padding:24px 0 24px 28px; margin:36px 0; }
+.pull-quote blockquote { font-family:'Source Serif 4',serif; font-size:20px; font-style:italic; color:var(--text-strong); line-height:1.5; margin-bottom:12px; }
+.pull-quote cite { font-size:13px; color:var(--text-muted); font-style:normal; }
+/* DATA STRIP */
+.data-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1px; background:rgba(255,255,255,0.04); border-radius:10px; overflow:hidden; margin:36px 0; }
+.stat-cell { background:var(--surface); padding:20px; text-align:center; }
+.stat-val { font-size:24px; font-weight:800; color:var(--text-strong); }
+.stat-label { font-size:12px; color:var(--text-muted); margin-top:4px; }
+/* SOURCES */
+.sources-section { margin:40px 0; padding-top:32px; border-top:1px solid rgba(255,255,255,0.06); }
+.sources-section h3 { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted); margin-bottom:16px; }
+.source-list { list-style:none; }
+.source-list li { margin-bottom:10px; }
+.source-list a { display:inline-flex; align-items:center; gap:8px; font-size:14px; }
+.source-list img { width:16px; height:16px; border-radius:2px; }
+/* PREV/NEXT */
+.article-nav { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:40px 0; padding-top:32px; border-top:1px solid rgba(255,255,255,0.06); }
+.article-nav a { display:block; background:var(--surface); border-radius:10px; padding:20px; font-size:14px; color:var(--text); }
+.article-nav a:hover { background:rgba(255,255,255,0.05); text-decoration:none; }
+.article-nav .label { font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:6px; }
+.article-nav .next { text-align:right; }
+/* FOOTER */
+footer { border-top:1px solid rgba(255,255,255,0.06); padding:32px 0; margin-top:40px; text-align:center; color:var(--text-muted); font-size:13px; }
+footer a { color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progress"></div>
+<nav class="top-nav"><div class="container">
+  <a href="../index.html" class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back to edition</a>
+  <div class="brand">THE VAULT</div>
+</div></nav>
+
+<main class="container">
+<div class="article-hero">
+  <div class="cat-tag" style="color:#a78bfa;background:rgba(167,139,250,0.12)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</div>
+  <h1>Dust Raises $40 Million Series B to Build Multiplayer AI Agents for Enterprise</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg> 838 words</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> 3 sources</span>
+  </div>
+</div>
+
+<div class="takeaway">
+  <div class="takeaway-label">Key Takeaway</div>
+  <p>Dust $40M Series B signals growing conviction that enterprise AI lies in multiplayer systems where humans and agents share context and collaborate.</p>
+</div>
+
+<article class="article-body">
+<p class="drop-cap">Most companies have spent the last three years bolting AI assistants onto individual workflows. One employee prompts a chatbot, gets an answer, and the context vanishes into a private thread. The result is real but isolated productivity — gains that never compound across teams.</p>
+<p>Paris-based startup Dust thinks the fix is architectural, not incremental. On May 18, the company announced a $40 million Series B led by Abstract and Sequoia, with strategic participation from Snowflake Ventures and Datadog Ventures. The round brings Dust's total funding to more than $60 million and will bankroll an ambitious push into what co-founder and CEO Gabriel Hubert calls "multiplayer AI."</p>
+<h2>From Single-Player to Multiplayer</h2>
+<p>The phrase is deliberately borrowed from gaming. In single-player mode, every employee operates their own AI assistant in isolation: the sales rep researches a prospect, the solutions engineer runs discovery the next day from scratch, and the product marketer drafts a one-pager that the content writer has never seen. Knowledge stays trapped in individual sessions.</p>
+<p>Dust's platform flips that model. It provides shared workspaces where humans and AI agents operate side by side with access to the same context, tools, notifications, and goals. Agents are not private utilities — they are organizational resources that any authorized team member can build, share, invoke, and improve. The company positions itself as an "operating system for AI agents" rather than another chatbot wrapper.</p>
+<p>"What will transform the way we work isn't the next best model or assistant," Hubert said in the company's announcement. He argued that the breakthrough will come from systems that give humans and agents shared, governed access to the same information so they become genuine collaborators.</p>
+<h2>Traction That Caught Sequoia's Attention</h2>
+<p>The numbers backing the pitch are hard to dismiss. Dust says more than 3,000 organizations now use the platform, with over 300,000 agents deployed across customers. Weekly active usage sits at 70 percent, and the company reported zero churn throughout 2025 — a retention figure that would be exceptional in any enterprise SaaS category, let alone one as nascent as agentic AI.</p>
+<p>Konstantine Buhler, a partner at Sequoia, pointed to those engagement metrics as proof that the product has moved beyond experimentation. Ramtin Naimi, general partner at Abstract, highlighted how customers such as Datadog and 1Password are not just using Dust but actively building agents that collaborate across departments and learn from every interaction.</p>
+<p>Named customers span a range of use cases. At Clay, Dust serves as foundational knowledge infrastructure for a fast-growing go-to-market team. At Persona, teams across 11 departments have deployed more than 300 agents. At Doctolib, the platform supports a company-wide AI strategy reaching 3,000 employees.</p>
+<h2>The Founders' Playbook</h2>
+<p>Hubert and co-founder Stanislas Polu have been building together since meeting at Stanford in 2007. They previously co-founded TOTEMS, a data analytics company acquired by Stripe in 2014, and then spent five years at Stripe scaling products and teams. Polu later joined OpenAI as a research engineer on Greg Brockman's team, where he co-authored papers on AI reasoning with Ilya Sutskever. Hubert became Chief Product Officer at French healthtech company Alan.</p>
+<p>In September 2022, Polu left OpenAI with a conviction that became Dust's founding thesis: the models were already powerful enough to be economically transformative, but were under-deployed because the product layer was missing. The pair launched Dust to build that layer.</p>
+<h2>Under the Hood</h2>
+<p>Dust's platform connects to more than 100 enterprise data sources and integrates with tools teams already rely on — Slack, Snowflake, HubSpot, Notion, Gmail, and Google Drive among them. A hybrid intelligence layer combines semantic search for deep contextual understanding with MCP (Model Context Protocol) connections for real-time queries and actions across tools.</p>
+<p>Built-in memory and reinforcement loops allow agents to learn from interactions and improve over time, while enterprise governance features provide granular permissions, cost monitoring, full audit trails, and agent analytics. The company is SOC 2 Type II certified and GDPR compliant with both EU and US data residency options.</p>
+<h2>What Comes Next</h2>
+<p>Dust plans to deploy the new capital across three frontiers: agents that learn and improve automatically through use, collaboration primitives that make humans and agents equal co-contributors with bidirectional access to shared projects and context, and infrastructure that makes governance and orchestration predictable at enterprise scale.</p>
+<p>The bet is that as AI capabilities continue to advance, the companies that pull ahead will not be those with the best individual assistants but those with the best systems for coordinating work across humans and agents at organizational scale. Dust is building the plumbing for that future — and with $60 million in the bank and zero churn on the books, it has a credible shot at defining the category.</p>
+</article>
+
+<div class="pull-quote">
+  <blockquote>&ldquo;What will transform the way we work is a completely new type of system that gives humans and agents shared, governed access to the same information.&rdquo;</blockquote>
+  <cite>&mdash; Gabriel Hubert, Co-Founder and CEO, Dust</cite>
+</div>
+<div class="data-strip"><div class="stat-cell"><div class="stat-val">$40M</div><div class="stat-label">Series B raised</div></div>
+<div class="stat-cell"><div class="stat-val">3,000+</div><div class="stat-label">Organizations</div></div>
+<div class="stat-cell"><div class="stat-val">300K+</div><div class="stat-label">Agents deployed</div></div>
+<div class="stat-cell"><div class="stat-val">0</div><div class="stat-label">Customer churn in 2025</div></div></div>
+<div class="sources-section"><h3>Sources (3)</h3><ul class="source-list"><li><a href="https://www.axios.com/pro/enterprise-software-deals/2026/05/18/agentic-ai-dust-snowflake-sequoia" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=axios.com&amp;sz=32" alt="">Axios</a></li>
+<li><a href="https://sifted.eu/articles/dust-series-b-40m" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=sifted.eu&amp;sz=32" alt="">Sifted</a></li>
+<li><a href="https://siliconangle.com/2026/05/18/multiplayer-ai-startup-dust-swipes-40m-funding-help-enterprises-move-beyond-isolated-ai-assistants/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=siliconangle.com&amp;sz=32" alt="">SiliconANGLE</a></li></ul></div>
+<div class="article-nav"><a href="07-anthropic-spacex-125b-monthly-gpu-deal.html"><div class="label">&larr; Previous</div>SpaceX IPO Filing Reveals Anthropic Is Paying $1.25 Billion </a><a href="09-chinese-ai-pricing-gap-western-frontier.html" class="next"><div class="label">Next &rarr;</div>Chinese AI Labs Open 10x Pricing Gap as Four Open-Weight Mod</a></div>
+</main>
+
+<footer><div class="container">&copy; 2026 The Vault AI &middot; <a href="https://news.promtvault.app">news.promtvault.app</a></div></footer>
+
+<script>
+window.addEventListener('scroll',function(){
+  var h=document.documentElement;
+  var pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width=pct+'%';
+});
+</script>
+</body></html>

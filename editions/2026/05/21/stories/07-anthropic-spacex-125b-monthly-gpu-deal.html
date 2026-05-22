@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SpaceX IPO Filing Reveals Anthropic Is Paying $1.25 Billion Monthly for GPU Compute | The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root {
+  --bg: #101014; --surface: #18181c; --surface-2: #1f1f24;
+  --border: rgba(255,255,255,0.07); --border-hover: rgba(255,255,255,0.14);
+  --text: #b8b8bf; --text-strong: #ececef; --text-muted: #5a5a63; --accent: #c084fc;
+  --business: #e8a735; --llms-genai: #a78bfa; --research: #5eead4; --policy: #fb7185;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; line-height:1.6; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.container { max-width:740px; margin:0 auto; padding:0 24px; }
+
+/* NAV */
+.top-nav { position:sticky; top:0; z-index:100; background:rgba(16,16,20,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); padding:14px 0; }
+.top-nav .container { display:flex; justify-content:space-between; align-items:center; }
+.top-nav .back { display:flex; align-items:center; gap:6px; color:var(--text-muted); font-size:14px; }
+.top-nav .back svg { width:16px; height:16px; }
+.top-nav .back:hover { color:var(--text); text-decoration:none; }
+.top-nav .brand { font-weight:700; font-size:14px; letter-spacing:2px; color:var(--text-muted); }
+/* PROGRESS */
+.progress-bar { position:fixed; top:0; left:0; height:3px; background:var(--accent); z-index:200; transition:width .1s; width:0%; }
+/* HERO */
+.article-hero { padding:60px 0 40px; }
+.cat-tag { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:1.5px; padding:5px 12px; border-radius:20px; margin-bottom:20px; }
+.cat-tag svg { width:14px; height:14px; }
+h1 { font-family:'Source Serif 4',serif; font-size:clamp(28px,5vw,42px); font-weight:700; color:var(--text-strong); line-height:1.2; margin-bottom:16px; }
+.meta-row { display:flex; gap:20px; color:var(--text-muted); font-size:13px; }
+.meta-row span { display:flex; align-items:center; gap:4px; }
+.meta-row svg { width:14px; height:14px; }
+/* TAKEAWAY */
+.takeaway { background:var(--surface); border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:20px 24px; margin:32px 0; }
+.takeaway-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--accent); margin-bottom:8px; }
+.takeaway p { color:var(--text-strong); font-family:'Source Serif 4',serif; font-size:17px; line-height:1.6; }
+/* BODY */
+.article-body { font-family:'Source Serif 4',serif; font-size:17px; line-height:1.8; color:var(--text); }
+.article-body h2 { font-family:'DM Sans',sans-serif; font-size:20px; font-weight:700; color:var(--text-strong); margin:36px 0 16px; }
+.article-body h3 { font-family:'DM Sans',sans-serif; font-size:17px; font-weight:600; color:var(--text-strong); margin:28px 0 12px; }
+.article-body p { margin-bottom:20px; }
+.article-body ul { margin:0 0 20px 24px; }
+.article-body li { margin-bottom:8px; }
+.article-body .drop-cap::first-letter { font-size:3.4em; float:left; line-height:0.8; margin:4px 10px 0 0; color:var(--text-strong); font-weight:700; }
+.article-body a { color:var(--accent); }
+/* PULL QUOTE */
+.pull-quote { border-left:3px solid var(--accent); padding:24px 0 24px 28px; margin:36px 0; }
+.pull-quote blockquote { font-family:'Source Serif 4',serif; font-size:20px; font-style:italic; color:var(--text-strong); line-height:1.5; margin-bottom:12px; }
+.pull-quote cite { font-size:13px; color:var(--text-muted); font-style:normal; }
+/* DATA STRIP */
+.data-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1px; background:rgba(255,255,255,0.04); border-radius:10px; overflow:hidden; margin:36px 0; }
+.stat-cell { background:var(--surface); padding:20px; text-align:center; }
+.stat-val { font-size:24px; font-weight:800; color:var(--text-strong); }
+.stat-label { font-size:12px; color:var(--text-muted); margin-top:4px; }
+/* SOURCES */
+.sources-section { margin:40px 0; padding-top:32px; border-top:1px solid rgba(255,255,255,0.06); }
+.sources-section h3 { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted); margin-bottom:16px; }
+.source-list { list-style:none; }
+.source-list li { margin-bottom:10px; }
+.source-list a { display:inline-flex; align-items:center; gap:8px; font-size:14px; }
+.source-list img { width:16px; height:16px; border-radius:2px; }
+/* PREV/NEXT */
+.article-nav { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:40px 0; padding-top:32px; border-top:1px solid rgba(255,255,255,0.06); }
+.article-nav a { display:block; background:var(--surface); border-radius:10px; padding:20px; font-size:14px; color:var(--text); }
+.article-nav a:hover { background:rgba(255,255,255,0.05); text-decoration:none; }
+.article-nav .label { font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:6px; }
+.article-nav .next { text-align:right; }
+/* FOOTER */
+footer { border-top:1px solid rgba(255,255,255,0.06); padding:32px 0; margin-top:40px; text-align:center; color:var(--text-muted); font-size:13px; }
+footer a { color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progress"></div>
+<nav class="top-nav"><div class="container">
+  <a href="../index.html" class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back to edition</a>
+  <div class="brand">THE VAULT</div>
+</div></nav>
+
+<main class="container">
+<div class="article-hero">
+  <div class="cat-tag" style="color:#a78bfa;background:rgba(167,139,250,0.12)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</div>
+  <h1>SpaceX IPO Filing Reveals Anthropic Is Paying $1.25 Billion Monthly for GPU Compute</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg> 981 words</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> 3 sources</span>
+  </div>
+</div>
+
+<div class="takeaway">
+  <div class="takeaway-label">Key Takeaway</div>
+  <p>SpaceX S-1 filing reveals Anthropic is paying $1.25 billion per month for GPU compute at the Colossus data center, a deal worth up to $45 billion through May 2029.</p>
+</div>
+
+<article class="article-body">
+<p class="drop-cap">When SpaceX dropped its S-1 registration statement on May 20, the financial world fixated on the headline numbers: a $1.75 trillion target valuation, a $75 billion raise, and a Nasdaq debut under the ticker SPCX as early as June 12. But buried in the prospectus was a disclosure that sent shockwaves through the AI industry: Anthropic, the maker of Claude, has committed to paying SpaceX $1.25 billion per month for access to GPU compute infrastructure through May 2029.</p>
+<p>The deal, formalized through Cloud Services Agreements signed in May 2026, gives Anthropic access to more than 300 megawatts of compute capacity and over 220,000 NVIDIA GPUs housed at the Colossus data center campus near Memphis, Tennessee. At the stated monthly rate, the contract is worth roughly $15 billion per year and could total approximately $45 billion over its full term, making it one of the largest enterprise compute agreements ever disclosed in a public filing.</p>
+<h2>A Rival's Hardware, a Competitor's Models</h2>
+<p>The arrangement is remarkable for its strategic oddity. The Colossus facility belongs to xAI, the AI company Elon Musk founded in 2023, which merged with SpaceX in February 2026. xAI trains its own frontier model, Grok, on the same campus. In practical terms, Musk's compute infrastructure is now simultaneously powering the training runs of two rival frontier AI labs.</p>
+<p>Anthropic co-founder and chief compute officer Tom Brown confirmed the scope of the partnership on X shortly before the filing went public, noting that Anthropic would be scaling up on NVIDIA GB200 capacity in the newer Colossus 2 facility throughout June. The expansion beyond Colossus 1 to Colossus 2 suggests Anthropic's appetite for compute is growing even faster than the original agreement anticipated.</p>
+<p>Either party can terminate the contract with 90 days' notice, a clause that introduces meaningful uncertainty for both sides. For SpaceX, the Anthropic payments represent a substantial share of AI segment revenue. For Anthropic, an abrupt termination would force a scramble for alternative capacity at a time when high-end GPU clusters remain among the scarcest resources in technology.</p>
+<h2>The 71-Cent Problem</h2>
+<p>The SpaceX deal lands at a pivotal moment for Anthropic's finances. According to recent investor disclosures, Anthropic spent 71 cents on compute for every dollar of revenue during the first quarter of 2026. That ratio, while expected to improve to roughly 56 cents in the current quarter, underscores just how capital-intensive frontier AI model development remains.</p>
+<p>The math is staggering but not entirely out of proportion to Anthropic's growth trajectory. The company's annualized revenue run rate has now surpassed $30 billion, meaning the $15 billion annual compute bill with SpaceX alone consumes roughly half of gross revenue. Layer on additional compute commitments, including a deal with Amazon for up to $25 billion in investment and 5 gigawatts of compute capacity, and Anthropic's infrastructure spending dwarfs that of most publicly traded technology companies.</p>
+<p>Despite the enormous outlays, Anthropic has told investors it expects to post its first operating profit in the second quarter of 2026, projecting revenue of $10.9 billion and operating income of $559 million for the period. The company has cautioned, however, that profitability may not persist throughout the year as infrastructure spending ramps further.</p>
+<h2>What the Deal Reveals About AI Economics</h2>
+<p>The Anthropic-SpaceX arrangement is a window into the brutal economics of the AI arms race. Training and running frontier models requires compute infrastructure on a scale that did not exist three years ago. The fact that Anthropic is willing to pay $1.25 billion monthly to a company controlled by a direct competitor speaks to the severity of the GPU supply crunch and the lengths AI labs will go to secure capacity.</p>
+<p>SpaceX's S-1 makes clear it views compute leasing as a growing business line. The filing states that the company expects to enter into additional similar services contracts, signaling that the Anthropic deal may be the first of several large-scale compute agreements. SpaceX claims sufficient capacity to serve both its own AI training and inference demands and external customers simultaneously.</p>
+<p>For the broader AI industry, the disclosure puts concrete numbers on what has been widely suspected: the cost of competing at the frontier of AI is measured in tens of billions of dollars per year. OpenAI, Google DeepMind, and Meta are all engaged in comparable infrastructure buildouts, but few have had their spending exposed with the specificity that an IPO prospectus demands.</p>
+<h2>The SpaceX Side of the Ledger</h2>
+<p>For SpaceX, the Anthropic contract is financially transformative. The company's total annual revenue stood at approximately $18.7 billion in 2025. Adding $15 billion in annual compute revenue from a single customer nearly doubles that figure, though the 90-day termination clause means the revenue stream carries meaningful risk.</p>
+<p>The AI segment of the newly merged SpaceX-xAI entity posted a $6.4 billion operating loss in 2025 on $12.7 billion in capital expenditure. The Anthropic payments help offset that burn, converting idle compute capacity into one of the largest recurring revenue lines in the filing. It is a pragmatic move: monetize the infrastructure now while xAI's own compute needs are still ramping.</p>
+<h2>Looking Ahead</h2>
+<p>The deal raises questions that will play out over the coming months. Can Anthropic sustain a $15 billion annual compute bill as it pushes toward profitability and a potential IPO of its own, reportedly targeted for October 2026? Will xAI eventually reclaim the leased capacity as Grok's training demands grow? And does the 90-day exit clause make this arrangement a durable revenue stream or a temporary bridge?</p>
+<p>What is already clear is that the era of AI development measured in hundreds of millions has given way to one measured in billions per month. The SpaceX S-1 did not just reveal a rocket company going public. It revealed the staggering price of building the future of artificial intelligence.</p>
+</article>
+
+<div class="pull-quote">
+  <blockquote>&ldquo;We are expanding our partnership with SpaceX, and will be scaling up on GB200 capacity in Colossus 2 throughout June.&rdquo;</blockquote>
+  <cite>&mdash; Tom Brown, Co-founder and Chief Compute Officer, Anthropic</cite>
+</div>
+<div class="data-strip"><div class="stat-cell"><div class="stat-val">$1.25B/mo</div><div class="stat-label">Monthly GPU payment</div></div>
+<div class="stat-cell"><div class="stat-val">$45B</div><div class="stat-label">Max contract value</div></div>
+<div class="stat-cell"><div class="stat-val">220K+</div><div class="stat-label">GPUs accessible</div></div></div>
+<div class="sources-section"><h3>Sources (3)</h3><ul class="source-list"><li><a href="https://www.axios.com/2026/05/20/anthropic-spacex-compute" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=axios.com&amp;sz=32" alt="">Axios</a></li>
+<li><a href="https://www.datacenterdynamics.com/en/news/spacex-ipo-filing-reveals-anthropic-set-to-pay-musks-firm-125bn-a-month-to-rent-xai-data-center-space/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=datacenterdynamics.com&amp;sz=32" alt="">Data Center Dynamics</a></li>
+<li><a href="https://fortune.com/2026/05/21/rollout-complete-spacex-files-ipo-prospectus/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=fortune.com&amp;sz=32" alt="">Fortune</a></li></ul></div>
+<div class="article-nav"><a href="06-synthid-openai-kakao-watermark-adoption.html"><div class="label">&larr; Previous</div>OpenAI and Kakao Adopt Google SynthID as AI Watermarking Goe</a><a href="08-dust-40m-series-b-multiplayer-agents.html" class="next"><div class="label">Next &rarr;</div>Dust Raises $40 Million Series B to Build Multiplayer AI Age</a></div>
+</main>
+
+<footer><div class="container">&copy; 2026 The Vault AI &middot; <a href="https://news.promtvault.app">news.promtvault.app</a></div></footer>
+
+<script>
+window.addEventListener('scroll',function(){
+  var h=document.documentElement;
+  var pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width=pct+'%';
+});
+</script>
+</body></html>
