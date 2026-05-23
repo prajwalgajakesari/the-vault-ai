@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Andrej Karpathy Joins Anthropic to Lead Claude Pre-Training Research Team — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>Andrej Karpathy Joins Anthropic to Lead Claude Pre-Training Research Team</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 6 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1110 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Andrej Karpathy joins Anthropic's pre-training team to build a new research group that will use Claude itself to accelerate the development of future Claude models.</p>
+</div>
+<div class="article-body">
+<p><em>The hire of one of AI's most celebrated researchers signals a deepening war for elite talent — and a strategic bet that frontier models can accelerate their own development.</em></p>
+<p>---</p>
+<p>In a move that sent a jolt through the AI industry on May 19, Andrej Karpathy — OpenAI co-founder, former Tesla AI director, and one of the most widely respected researchers in machine learning — announced he is joining Anthropic to work on pre-training for Claude. The announcement, made via a brief post on X, was immediately recognized as one of the highest-profile talent moves in the sector's recent history, and a symbolic blow to OpenAI, the company Karpathy helped build from the ground up.</p>
+<p>"I think the next few years at the frontier of LLMs will be especially formative," Karpathy wrote. "I am very excited to join the team here and get back to R&D. I remain deeply passionate about education and plan to resume my work on it in time."</p>
+<p>---</p>
+<h2>The Role: Building Claude With Claude</h2>
+<p>Karpathy will join Anthropic's pre-training team, the group responsible for the massive, compute-intensive training runs that give Claude its foundational knowledge, reasoning ability, and capabilities. But his charter goes beyond running training jobs. According to Anthropic, Karpathy will help stand up a new research sub-team with an explicit and ambitious mandate: use Claude itself to accelerate pre-training research.</p>
+<p>The idea — that a frontier model can meaningfully contribute to the research processes that produce the next frontier model — sits at the center of current debates about AI self-improvement and automated research. Anthropic is betting that weaving an existing model into the workflow of researchers working on its successor will produce a measurable productivity multiplier. Karpathy, with his credibility spanning theoretical machine learning, large-scale industrial deployment, and science communication, is a natural choice to lead that experiment.</p>
+<p>He will work under Nick Joseph, Anthropic's head of pre-training, who welcomed the hire publicly. "Excited to welcome Andrej to the Pretraining team!" Joseph wrote on X the same day.</p>
+<p>---</p>
+<h2>A Resume Unmatched in the Field</h2>
+<p>Few researchers carry the combination of academic depth and at-scale industrial experience that Karpathy brings to Anthropic. He was among the original cohort at OpenAI when it was founded in 2015, focused on deep learning and computer vision research during a period that defined modern AI. In 2017 he left for Tesla, where he rose to Senior Director of AI and led the computer vision and neural network programs behind Tesla's Autopilot and Full Self-Driving systems — one of the most demanding real-world deployments of deep learning in history.</p>
+<p>After departing Tesla in 2022, Karpathy returned briefly to OpenAI for roughly a year before leaving again in 2024 to found Eureka Labs, a startup applying AI assistants to education. During that period he became AI's most effective public communicator, building millions of followers across YouTube and X through dense technical explainers and hands-on tutorials. His "Neural Networks: Zero to Hero" series on YouTube has been watched tens of millions of times and is widely cited as a definitive self-study resource for practitioners.</p>
+<p>He coined the term "vibe coding" — describing the experience of working alongside AI to generate code through high-level intent rather than explicit instruction — and recently described himself as being in a "state of AI psychosis" since late 2025, aggressively stress-testing frontier models as they grew more capable.</p>
+<p>---</p>
+<h2>Anthropic's Momentum — and the Stakes</h2>
+<p>The hire lands at a pivotal moment for Anthropic. The company's annualized revenue run rate surged to $30 billion by April 2026, up from roughly $9 billion at the end of 2025 — growth that reflects both rapid enterprise adoption of Claude and the commercial success of Claude Code, Anthropic's agentic coding product. CEO Dario Amodei has been explicit that Anthropic views the next several years as a critical window for locking in advantages at the frontier of model capability.</p>
+<p>Karpathy is one of a small cohort of researchers globally who can operate effectively across the full stack of modern pre-training: understanding the theory, making architectural decisions, managing the engineering complexity of massive distributed training runs, and translating findings into publishable research and institutional knowledge. Anthropic's ability to recruit him — over, presumably, competing interest from OpenAI, Google DeepMind, xAI, and others — is a meaningful signal about how the company is perceived among elite researchers.</p>
+<p>The Axios headline captured the industry read succinctly: "The hire is a major coup for Anthropic in the high-stakes competition for elite AI talent."</p>
+<p>---</p>
+<h2>Why This Matters: The Talent War Is the Model War</h2>
+<p>The AI race is often narrated through funding rounds and GPU counts. The Karpathy hire is a reminder that the most consequential competition may be for the few dozen researchers capable of moving the frontier. Anthropic has now assembled a pre-training team that includes some of the most credentialed practitioners in the field, at a moment when the company is executing training runs at the scale required to stay competitive with OpenAI's GPT-series and Google's Gemini line.</p>
+<p>The specific focus of Karpathy's new team — using Claude to accelerate the research that produces Claude — also reflects a broader strategic thesis now shared by several frontier labs: that AI-assisted AI research is not a future possibility but a present opportunity. If that loop can be made to work reliably, the teams best positioned to benefit are those with both a capable existing model and researchers who understand pre-training deeply enough to know where a model can meaningfully help. Karpathy may be the single person most qualified to sit at that intersection.</p>
+<p>There is also a cultural dimension. Karpathy's public presence — his willingness to explain difficult concepts clearly, his reputation for intellectual honesty, his independence from any single institutional identity — gives Anthropic a researcher who can attract other researchers. Talent begets talent, and few names in AI carry the draw that Karpathy's does among graduate students, postdocs, and mid-career engineers deciding where to spend the formative years of their careers.</p>
+<p>---</p>
+<h2>What to Watch</h2>
+<p>The most immediate question is what Karpathy's team produces. If the bet pays off — if Claude-assisted pre-training research demonstrably shortens research cycles or surfaces insights that human researchers alone would have missed — it will validate a template other labs will rush to copy. Watch for publications, benchmark performance on future Claude releases, and whether Anthropic begins talking more publicly about AI-accelerated research methodology.</p>
+<p>Also worth tracking: the continued drain from OpenAI. Karpathy is among the most prominent of a series of founding-era OpenAI researchers who have departed in recent years. The pattern raises questions about culture, strategic direction, and whether OpenAI's increasingly commercial orientation is pushing its most research-focused talent toward competitors. The answer will shape who builds the most capable models over the next three to five years — which is to say, it will shape everything.</p>
+<p>---</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735">
+          <blockquote>"I think the next few years at the frontier of LLMs will be especially formative. I am very excited to join the team here and get back to R&D."</blockquote>
+          <cite>— Andrej Karpathy, Pre-Training Researcher, Anthropic</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">$30B</div><div class="stat-label">Anthropic annualized revenue run rate</div></div><div class="stat-cell"><div class="stat-value">$9B</div><div class="stat-label">Anthropic revenue end of 2025</div></div><div class="stat-cell"><div class="stat-value">2015</div><div class="stat-label">Year Karpathy co-founded OpenAI</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techcrunch.com/2026/05/19/openai-co-founder-andrej-karpathy-joins-anthropics-pre-training-team/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://www.cnbc.com/2026/05/19/anthropic-hires-openai-cofounder-andrej-karpathy-former-tesla-ai-lead.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="">CNBC</a><a href="https://venturebeat.com/technology/andrej-karpathy-announces-hes-joining-anthropic" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://www.axios.com/2026/05/19/anthropic-openai-karpathy-andrej-claude" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=axios.com&sz=32" alt="">Axios</a></div></div>
+<div class="article-nav"><a href="02-japan-megabanks-claude-mythos-access.html" class="nav-next">Japan Megabanks Set to Access Anthropic Claude Myt →</a></div>
+<footer>The Vault — AI Edition · Published May 22, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

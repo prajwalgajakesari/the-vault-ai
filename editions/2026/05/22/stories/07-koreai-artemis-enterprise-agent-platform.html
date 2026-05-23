@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kore.ai Ships Artemis Platform to Deploy Production AI Agents in Days Instead of Months — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Kore.ai Ships Artemis Platform to Deploy Production AI Agents in Days Instead of Months</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 6 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 850 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Kore.ai's Artemis platform uses a declarative Agent Blueprint Language to collapse enterprise multi-agent AI deployment from months to days.</p>
+</div>
+<div class="article-body">
+<p><em>Friday, May 22, 2026 | 6 min read | 850 words</em></p>
+<p><strong>Key Takeaway:</strong> Kore.ai's Artemis platform introduces Agent Blueprint Language and an AI agent architect called Arch to collapse enterprise AI deployment timelines from months to days, launching first on Microsoft Azure with AWS and Google Cloud to follow.</p>
+<p>---</p>
+<p>Kore.ai launched its Artemis edition of the Agent Platform on May 21, promising Global 2000 enterprises a path from AI experimentation to production operations in days — not the quarters-long cycles that have been the norm. The release is the company's most ambitious rethinking of enterprise AI infrastructure since it pivoted from conversational AI toward agentic systems, and it arrives as the market for multi-agent orchestration platforms heats up alongside competitors including Salesforce, ServiceNow, and Microsoft itself.</p>
+<p>---</p>
+<h2>The Architecture: Three Interlocking Bets</h2>
+<p>The platform is built around three core innovations Kore.ai argues make it "AI-native" rather than AI-augmented.</p>
+<p>The first is <strong>Agent Blueprint Language (ABL)</strong>, a compiled, declarative language that standardizes how AI agents, workflows, and multi-agent systems are defined, validated, and governed. ABL ships with six built-in orchestration patterns — supervisor, delegation, handoff, fan-out, escalation, and agent-to-agent federation — designed to address the most common coordination problems that trip up enterprise multi-agent deployments. The declarative approach means agents are expressed as reviewable, auditable blueprints rather than opaque code, a distinction that matters deeply to compliance and legal teams in regulated industries.</p>
+<p>The second is <strong>Arch</strong>, Kore.ai's AI agent architect. Arch takes plain-language business objectives and translates them into production-ready ABL, designs the underlying agent topology, and continuously refines running agents using real-world production traces. The pitch is essentially AI building AI: instead of an engineering team spending months specifying agent behavior, Arch generates compiled blueprints that are reviewable before deployment.</p>
+<p>The third is a <strong>dual-brain architecture</strong> pairing agentic reasoning with deterministic flow controls. Both cognitive engines run in parallel through shared memory, authored in the same unified language and governed by a single runtime. Kore.ai frames this as the key to making agent behavior predictable enough for enterprise operations — the deterministic layer acts as a guardrail the model cannot override.</p>
+<p>"Enterprise AI is entering its third wave, where governance, observability, and trust define success at scale," said Raj Koneru, CEO and founder of Kore.ai. "The Kore.ai Agent Platform reflects this shift by bringing an AI-native architecture to market that enables enterprises to build, manage, and optimize multiagent systems with confidence. This level of depth comes from a decade of delivering AI experiences in complex, regulated environments, where scale, compliance, and reliability are non-negotiable."</p>
+<p>---</p>
+<h2>The Microsoft Partnership</h2>
+<p>Artemis launches exclusively on Microsoft Azure, and the depth of that integration is notable. The platform is built natively on Azure compute, identity, AI, and security infrastructure, and integrates with Microsoft Foundry, Microsoft Agent 365, Entra ID, and the Microsoft Graph API. It also delivers a native Microsoft Teams channel via the Azure Bot Framework. Kore.ai is named as a launch partner for Microsoft Agent 365.</p>
+<p>"Enterprises are moving agentic AI from experimentation to operations, and that shift requires a foundation built for production," said Stephen Boyle, CVP of Enterprise Partner Solutions at Microsoft. "The Kore.ai Agent Platform integrates with Microsoft Foundry and Microsoft Agent 365, giving customers a governed environment to build, deploy, and operate AI agents with the identity, security, and observability that Microsoft customers expect."</p>
+<p>Expansion to AWS and Google Cloud is planned for later in 2026, but the Azure-first approach is a deliberate market signal: the largest enterprise software buyers — those already standardized on the Microsoft stack — are the primary initial target. Kore.ai's agent platform competes most directly with Salesforce Agentforce, ServiceNow's AI Agents, and to some degree Microsoft's own first-party agentic products, making the launch-partner designation with Agent 365 a strategically complex but commercially important alignment.</p>
+<p>---</p>
+<h2>The Governance Story</h2>
+<p>The governance capabilities woven into Artemis reflect a calculation about where enterprise AI buyers are in their adoption cycle. After two years of experimentation — proof-of-concept chatbots, narrow task automation, a handful of production pilots — CIOs and CISOs are now confronting the operational and regulatory implications of running AI systems at scale. Kore.ai is betting those buyers want governance enforced at the platform layer, outside the model's control, rather than bolted on afterward.</p>
+<p>Every decision, path, and outcome in the Artemis runtime is logged, traced, and analyzed in real time. Deterministic constraints are enforced by the platform itself. According to Kore.ai, this gives CISOs traceable agent actions tied to specific regulatory controls — a feature with direct relevance to financial services, healthcare, and government deployments.</p>
+<p>"To scale AI with confidence, enterprises need a standardized agent building system and the enforcement of robust governance," said Vaibhav Bansal, Vice President at Everest Group. "Kore.ai's strong investments in advancing agentic AI capabilities and governance, combined with a consistent focus on delivering measurable business outcomes, have positioned Kore.ai as a Leader in the Agentic AI Products PEAK Matrix Assessment 2026."</p>
+<p>The platform supports more than 40 voice and digital channels and over 300 integrations spanning Microsoft 365, Salesforce, HubSpot, Jira, GitHub, and other enterprise software ecosystems. It runs across public cloud, sovereign regions, private cloud, and on-premises environments — a range designed to accommodate the data-residency requirements that have stalled enterprise AI adoption in regulated geographies.</p>
+<p>---</p>
+<h2>Why It Matters</h2>
+<p>The "months to days" deployment claim is the competitive centerpiece of the Artemis launch, and it deserves scrutiny. The historical bottleneck in enterprise AI deployment has rarely been the model itself. It has been the surrounding infrastructure: agent definition, integration with existing systems, governance review, testing, and change management. Artemis is designed to address all of those except change management — ABL provides a structured, reviewable definition layer; Arch automates much of the specification work; the dual-brain runtime reduces unpredictable model behavior; and the governance stack provides the audit trail that compliance teams require.</p>
+<p>If those claims hold in production — and the proof will come from customer deployments over the next several quarters — Kore.ai will have reframed the competitive discussion from "which LLM" to "which operating environment." That is the same move Salesforce is making with Agentforce and ServiceNow is making with its AI layer: making the model-agnostic orchestration and governance layer the strategic differentiable, while treating the underlying model as a commodity. Kore.ai's edge, if it has one, is a decade of regulated-enterprise deployment experience and the specificity of ABL as a governed definition standard.</p>
+<p>The AWS and Google Cloud expansion timeline will also be worth watching. Enterprise buyers rarely standardize on a single cloud, and a platform that runs only on Azure will face resistance from procurement teams negotiating multi-cloud contracts. The expansion timeline is "later in 2026" — vague enough to suggest it is not imminent, which could slow adoption in accounts where Azure is not the primary cloud.</p>
+<p>---</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"Enterprise AI is entering its third wave, where governance, observability, and trust define success at scale."</blockquote>
+          <cite>— Raj Koneru, CEO and Founder, Kore.ai</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">Days vs. Months</div><div class="stat-label">Deployment timeline improvement</div></div><div class="stat-cell"><div class="stat-value">300+</div><div class="stat-label">Enterprise software integrations</div></div><div class="stat-cell"><div class="stat-value">40+</div><div class="stat-label">Supported channels</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.businesswire.com/news/home/20260521284219/en/Kore.ai-Launches-Artemis-the-New-Generation-of-the-Kore.ai-Agent-Platform-for-Building-Governing-and-Optimizing-Enterprise-AI" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=businesswire.com&sz=32" alt="">Business Wire</a><a href="https://www.helpnetsecurity.com/2026/05/22/kore-ai-unveils-ai-native-platform-for-enterprise-multiagent-systems/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=helpnetsecurity.com&sz=32" alt="">Help Net Security</a><a href="https://venturebeat.com/technology/kore-ai-launches-artemis-ai-agent-platform-expands-challenge-to-microsoft-and-salesforce" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a></div></div>
+<div class="article-nav"><a href="06-chatgpt-personal-finance-plaid-integration.html" class="nav-prev">← OpenAI Launches ChatGPT Personal Finance With Plai</a><a href="08-camunda-processos-agentic-orchestration.html" class="nav-next">Camunda Unveils ProcessOS Agentic Operating System →</a></div>
+<footer>The Vault — AI Edition · Published May 22, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
