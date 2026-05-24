@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Model Autonomously Disproves 80-Year Erdős Geometry Conjecture — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root{--cat-color:#5eead4}
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>OpenAI Model Autonomously Disproves 80-Year Erdős Geometry Conjecture</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 950 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI's general-purpose reasoning model autonomously disproved Paul Erdős's 80-year-old unit distance conjecture using a novel cross-domain proof connecting geometry to algebraic number theory, verified by leading external mathematicians.</p>
+</div>
+<div class="article-body">
+<p><em>A general-purpose reasoning model cracked a problem that had stumped mathematicians since 1946 — and this time, the experts who exposed OpenAI's last embarrassing claim are vouching for the result.</em></p>
+<p>---</p>
+<p>On May 20, 2026, OpenAI announced that an internal general-purpose reasoning model had autonomously disproved a famous conjecture in discrete geometry — a problem first posed by the prolific Hungarian mathematician Paul Erdős in 1946 and left unsolved for nearly eight decades. The proof, which has been independently verified by a panel of external mathematicians including some who previously and publicly embarrassed OpenAI over a botched math announcement, marks what the company calls "the first time AI has autonomously solved a prominent open problem central to a field of mathematics."</p>
+<h2>The Problem That Stumped a Generation</h2>
+<p>The question at the heart of the breakthrough is deceptively simple: given <em>n</em> points arranged on a flat plane, what is the maximum number of pairs of those points that can sit exactly one unit apart? This is the planar unit distance problem, and Erdős himself described it as one of the best-known and easiest-to-explain problems in combinatorial geometry. Easy to explain, nearly impossible to resolve.</p>
+<p>For 80 years, the accepted wisdom was that arrangements based on square grids — think the intersections of graph paper — represented the theoretical best case. The mathematical consensus held that the number of unit-distance pairs could grow only slightly faster than linearly as more points were added: technically, no faster than n raised to a power of (1 + o(1)), where that small correction term drifts toward zero as n grows. Erdős posed the problem in 1946, and his own lower-bound construction using that square grid approach had not been meaningfully improved since.</p>
+<p>OpenAI's model changed that. It discovered an infinite family of point configurations that beats the grid, producing at least n^(1+δ) unit-distance pairs for infinitely many values of n — where δ is a fixed positive constant that does not vanish as n scales up. Princeton mathematician Will Sawin subsequently refined the result, showing that δ can be set as high as 0.014. The lower bound on the unit distance problem, frozen since 1946, has finally moved.</p>
+<h2>The Cross-Field Leap That Stunned Experts</h2>
+<p>What made the proof surprising was not just that it worked — it was <em>how</em> it worked. Rather than grinding through geometry with brute computational force, the AI model made a conceptual leap into an entirely different mathematical universe: algebraic number theory, a deep branch of mathematics concerned with the structure of generalized number systems called algebraic number fields.</p>
+<p>Erdős's original lower bound construction can be understood through Gaussian integers — complex numbers of the form a + bi — which encode a special symmetry useful for counting unit distances. OpenAI's model extended that idea into richer algebraic number fields, drawing on concepts such as infinite class field towers and Golod-Shafarevich theory, tools ordinarily associated with pure number theory, not planar geometry.</p>
+<p>"Mathematics is a clear testbed for measuring AI's reasoning ability because mathematical problems require precise formulation, verifiable proofs, and logically coherent arguments from beginning to end," OpenAI wrote in its announcement. The company described the achievement as an example of AI "not merely providing an answer, but connecting ideas from disparate fields to generate mathematical discoveries."</p>
+<p>OpenAI researcher Noam Brown was blunter about what the pace of progress implies. "Less than 1 year ago frontier AI models were at IMO gold-level performance," he posted on X. "I expect this pace of progress to continue."</p>
+<h2>Credibility This Time: The Skeptics Are Onside</h2>
+<p>The announcement carries added weight because of who is validating it. Seven months earlier, in October 2025, OpenAI made a similar-sounding claim when its then-VP Kevin Weil declared on X that GPT-5 had solved 10 previously unsolved Erdős problems. That claim collapsed within days after mathematician Thomas Bloom — who maintains the authoritative Erdős Problems website — publicly called it "a dramatic misrepresentation," pointing out that the model had simply surfaced existing solutions from published literature rather than producing original proofs. Yann LeCun and Google DeepMind CEO Demis Hassabis both weighed in with pointed criticism. Weil deleted the post and left OpenAI entirely in April 2026.</p>
+<p>This time, Bloom is one of the mathematicians who signed off on the result. So is Princeton combinatorialist Noga Alon, who described the unit distance problem as "one of Erdős's favorite problems" and called the solution "an outstanding achievement that settles a long-standing unsolved problem." Fields Medal laureate Tim Gowers contributed companion remarks, hailing the proof as "a milestone in AI mathematics." OpenAI published the companion document — signed by Alon, Bloom, Melanie Wood, and others — alongside its announcement.</p>
+<p>Number theorist Arul Shankar perhaps put it most directly: current AI models, he said, demonstrate that they are "capable of going beyond being mere assistants to human mathematicians and generating and executing original ideas."</p>
+<h2>Why This Matters Beyond Mathematics</h2>
+<p>The broader implication OpenAI is pressing is that the capability demonstrated here is not domain-specific. This proof did not come from a system fine-tuned for mathematics or a specialized theorem-proving engine. It came from a general-purpose reasoning model that was handed a written statement of the problem and told to work. That distinction matters: if the same class of model that handles business documents and code reviews can autonomously advance the mathematical frontier, the question of what else it can do — in biology, materials science, drug discovery, physics — becomes very live very quickly.</p>
+<p>The upper bound on the unit distance problem, meanwhile, remains where it has stood since Spencer, Szemerédi, and Trotter placed it in 1984: O(n^(4/3)). Closing the gap between that ceiling and the newly raised floor is now the next open question — and the mathematics community will be watching to see whether AI plays a role there too.</p>
+<p>Thomas Bloom, the mathematician whose public rebuke of OpenAI's 2025 claim became a cautionary tale for the whole industry, offered a characteristically measured but evocative take: "AI is helping us to more fully explore the cathedral of mathematics we have built over the centuries. What other unseen wonders are waiting in the wings?"</p>
+<h2>What to Watch Next</h2>
+<p>The immediate question is peer review. The proof has been verified by a hand-selected external panel, but it has not yet been through formal journal review, and the full paper will need to survive scrutiny from the broader mathematical community before the result is fully settled. The upper bound on the unit distance problem — O(n^(4/3)) since 1984 — remains untouched, leaving a large gap that researchers will now be motivated to narrow. And OpenAI has not publicly named or released the model responsible for the proof, raising questions about reproducibility. For a company with a self-inflicted credibility deficit on math claims, the best thing it can do now is let the mathematics speak — and let the peer review process run its course.</p>
+<p>---</p>
+<p><em>Sources: OpenAI (openai.com), TechCrunch, GIGAZINE, Interesting Engineering, AutoGPT</em></p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"AI is helping us to more fully explore the cathedral of mathematics we have built over the centuries. What other unseen wonders are waiting in the wings?"</blockquote><cite>— Thomas Bloom, Mathematician, Erdős Problems website maintainer</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">80 years</div><div class="stat-label">Time the problem remained unsolved</div></div><div class="stat-cell"><div class="stat-value">0.014</div><div class="stat-label">Fixed exponent δ improvement</div></div><div class="stat-cell"><div class="stat-value">1984</div><div class="stat-label">Year upper bound was last improved</div></div><div class="stat-cell"><div class="stat-value">7 months</div><div class="stat-label">Since OpenAI's prior false math claim</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI</a><a href="https://techcrunch.com/2026/05/20/openai-claims-it-solved-an-80-year-old-math-problem-for-real-this-time/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://gigazine.net/gsc_news/en/20260521-openai-model-disproves-discrete-geometry-conjecture/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=gigazine.net&sz=32" alt="">GIGAZINE</a><a href="https://interestingengineering.com/ai-robotics/openai-paul-erdos-geometry-problem-cracked" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=interestingengineering.com&sz=32" alt="">Interesting Engineering</a><a href="https://autogpt.net/openai-disproves-erdos-conjecture-unit-distance-problem/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=autogpt.net&sz=32" alt="">AutoGPT</a></div></div>
+<div class="article-nav"><a href="02-walmart-sparky-ai-agent-aov-growth.html" class="nav-next">Walmart Credits Sparky AI Agent With Lifting Avera &rarr;</a></div>
+<footer>The Vault — AI Edition &middot; Published May 23, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
