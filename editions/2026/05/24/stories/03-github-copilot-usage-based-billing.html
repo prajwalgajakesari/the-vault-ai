@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GitHub Copilot Shifts to Usage-Based Billing With AI Credits Starting June 1 — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>GitHub Copilot Shifts to Usage-Based Billing With AI Credits Starting June 1</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1318 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>GitHub replaces flat-rate billing with token-metered AI Credits on June 1, keeping prices flat but ending unlimited agentic usage.</p>
+</div>
+<div class="article-body">
+<p>---
+title: "GitHub Copilot Shifts to Usage-Based Billing With AI Credits Starting June 1"
+slug: github-copilot-usage-based-billing
+category: business
+story_number: "03"
+date: 2026-05-24
+sources:
+  - name: "GitHub Blog"
+    url: "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/"
+    domain: "github.blog"
+  - name: "The Register"
+    url: "https://www.theregister.com/2026/04/28/microsofts_github_shifts_to_metered/"
+    domain: "theregister.com"
+  - name: "CodePick"
+    url: "https://codepick.dev/en/guides/copilot-ai-credits-billing/"
+    domain: "codepick.dev"
+  - name: "Visual Studio Magazine"
+    url: "https://visualstudiomagazine.com/articles/2026/04/27/devs-sound-off-on-usage-based-copilot-pricing-change-you-will-get-less-but-pay-the-same-price.aspx"
+    domain: "visualstudiomagazine.com"
+  - name: "GitHub Docs"
+    url: "https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals"
+    domain: "docs.github.com"
+---</p>
+<p># GitHub Copilot Shifts to Usage-Based Billing With AI Credits Starting June 1</p>
+<p>The all-you-can-eat era of AI coding assistance is ending. Starting June 1, GitHub Copilot will retire its fixed-allotment premium request model and replace it with GitHub AI Credits — a token-metered virtual currency that ties what developers pay directly to what they consume. For millions of Copilot subscribers, the change signals something bigger than a billing tweak: it is an admission that the economics of subsidized AI assistance have become unsustainable.</p>
+<h2>The End of the Flat-Rate Buffet</h2>
+<p>GitHub Chief Product Officer Mario Rodriguez did not mince words when announcing the change on April 27. "Today, a quick chat question and a multi-hour autonomous coding session can cost the user the same amount," he wrote in a company blog post. "GitHub has absorbed much of the escalating inference cost behind that usage, but the current premium request model is no longer sustainable."</p>
+<p>The diagnosis is widely shared across the industry. Anthropic, Google, and OpenAI have all moved to tighten usage limits or introduce premium tiers in recent months as agentic AI workflows — sessions that can run for hours, iterate across entire codebases, and chain together dozens of model calls — push compute costs far beyond what flat subscription fees were designed to cover.</p>
+<p>Under the old system, GitHub used Premium Request Units (PRUs) as a rough abstraction over model usage. The problem: a deceptively short prompt sent to a thinking-heavy model like Anthropic's Opus could consume far more inference compute than a long but simple completion, yet both cost the user the same number of PRUs. GitHub ate the difference. With agentic usage exploding in late 2025 and early 2026, that arbitrage became untenable.</p>
+<h2>How GitHub AI Credits Work</h2>
+<p>The new system replaces PRUs with GitHub AI Credits, where one credit equals $0.01 USD. Consumption is calculated based on actual token usage — input tokens, output tokens, and cached tokens — at model-specific API rates. The abstraction layer of credits lets GitHub normalize pricing across its growing model catalog without forcing subscribers to track raw token counts.</p>
+<p>Crucially, base subscription prices are not changing:</p>
+<p>- <strong>Copilot Pro:</strong> $10/month, including $10 in monthly AI Credits (1,000 credits)
+- <strong>Copilot Pro+:</strong> $39/month, including $39 in monthly AI Credits (3,900 credits)
+- <strong>Copilot Business:</strong> $19/user/month, including $19 in monthly AI Credits
+- <strong>Copilot Enterprise:</strong> $39/user/month, including $39 in monthly AI Credits</p>
+<p>Code completions and Next Edit Suggestions remain unlimited on all paid plans and do not consume credits — a meaningful carve-out for developers whose Copilot usage is primarily inline assistance. The metered model applies to Copilot Chat, the CLI, agentic coding sessions, Copilot Spaces, Spark, and third-party coding agents.</p>
+<p>To ease the transition, existing Business and Enterprise customers will receive promotional credits through August: $30/month for Business subscribers and $70/month for Enterprise — roughly 1.5 to 1.8 times their standard allotment.</p>
+<h2>Who Gets Hit — and Who Doesn't</h2>
+<p>The impact of the shift is sharply uneven. Developers who rely primarily on code completions and inline suggestions will see little day-to-day change. Those who have built workflows around Copilot Chat, long-context code review, or autonomous coding agents are in different territory entirely.</p>
+<p>Preview billing data shared in GitHub's community forum has alarmed some heavy users. One developer reported that their April 2026 usage, which would have cost $39.07 under the old PRU model, came back at $902.72 in GitHub's preview billing tool — a 23-fold increase. While this figure likely represents extreme agentic usage rather than typical behavior, it has amplified concerns about cost predictability.</p>
+<p>"You will get less, but pay the same price," became the rallying cry in developer communities, as reported by Visual Studio Magazine. The complaint points to something real: the fallback experience that previously kicked in when PRUs were exhausted — dropping users to a less capable model but keeping them working — is being eliminated entirely. Under the new model, once credits run out, usage is simply capped until the next billing cycle, unless administrators configure additional spending budgets.</p>
+<p>VS Code's development team moved quickly in response, rolling out token-use throttling in late April to limit background context consumption and help users conserve their monthly credit allotments ahead of the June 1 deadline.</p>
+<h2>A Broader Industry Reckoning</h2>
+<p>GitHub's pivot is part of a broader repricing wave hitting the AI tools market. The explosive growth of agentic coding agents — systems that can run continuously, spawn sub-agents, and consume enormous context windows — has stress-tested every flat-rate subscription model in the space.</p>
+<p>The Register noted the dynamic bluntly, comparing GitHub's position to Red Lobster's infamous Endless Shrimp promotion, which contributed to the seafood chain's 2024 bankruptcy: the math of unlimited consumption at a fixed price eventually catches up with any provider.</p>
+<p>The comparison is apt. The economics of unlimited AI access look very different when the marginal user is a developer running 24-hour autonomous coding agents rather than one asking occasional inline questions. GitHub is not alone in recalibrating: OpenAI has floated ending unlimited ChatGPT plans and launched a $100/month Pro tier for heavy Codex users; Anthropic has tightened Claude usage limits; and cloud providers including AWS and Azure have grappled with capacity constraints driven by AI demand. The agentic inflection point of late 2025 — when models became capable enough for extended autonomous workflows to become mainstream — appears to have triggered a simultaneous cost crisis across the industry.</p>
+<h2>What Subscribers Should Do Now</h2>
+<p>GitHub has released a preview billing dashboard accessible through the Billing Overview page at github.com, giving users and administrators a projected cost estimate before June 1 arrives. The company is also introducing pooled credits for organizations — unused credits from one user can offset consumption by another, eliminating the stranded capacity problem that plagued per-seat PRU models.</p>
+<p>Administrators gain new budget controls at the enterprise, cost-center, and individual user levels. When included credits are exhausted, organizations can either allow overage spending at published rates or hard-cap usage — a meaningful governance improvement over the previous model, where the only real lever was restricting which models users could access.</p>
+<p>Users on annual Pro or Pro+ plans are not immediately migrated; they remain on PRU-based billing until their plan expires, after which they will transition to Copilot Free with the option to purchase a monthly plan. Annual plan holders who want to switch early can convert to monthly billing and receive prorated credits for remaining plan value. Those who stay on annual plans will face sharply higher model multipliers starting June 1 — Anthropic's Opus 4.7, for example, jumps from a 7.5x PRU multiplier to 27x, and OpenAI's GPT-5.4 rises from 1x to 6x.</p>
+<h2>The Bottom Line</h2>
+<p>GitHub's move to usage-based billing is a milestone in the maturation of the AI tools market. The flat-rate, premium-request era was a land-grab phase: price to drive adoption, absorb the losses, and figure out sustainable economics later. Later has arrived.</p>
+<p>For most Copilot users, the June 1 change will be largely invisible. For power users who have made agentic coding sessions and extended Copilot Chat sessions central to their workflows, the math is about to get significantly harder. The question now is whether competitors — Cursor, Windsurf, Amazon Q, and others — can sustain their own flat-rate economics long enough to capture developers who find GitHub's new pricing model uncomfortable. Based on the industry trajectory, the answer is probably not for long.</p>
+<p>---</p>
+<p><em>Sources: [GitHub Blog](https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/), [The Register](https://www.theregister.com/2026/04/28/microsofts_github_shifts_to_metered/), [CodePick](https://codepick.dev/en/guides/copilot-ai-credits-billing/), [Visual Studio Magazine](https://visualstudiomagazine.com/articles/2026/04/27/devs-sound-off-on-usage-based-copilot-pricing-change-you-will-get-less-but-pay-the-same-price.aspx), [GitHub Docs](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals)</em></p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>"A quick chat question and a multi-hour autonomous coding session can cost the user the same amount. The current premium request model is no longer sustainable."</blockquote><cite>— Mario Rodriguez, Chief Product Officer, GitHub</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">$0.01</div><div class="stat-label">One AI Credit</div></div><div class="stat-cell"><div class="stat-value">June 1</div><div class="stat-label">Billing transition date</div></div><div class="stat-cell"><div class="stat-value">1,000/mo</div><div class="stat-label">Credits for Copilot Pro</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=github.blog&sz=32" alt="">GitHub Blog</a><a href="https://www.theregister.com/2026/04/28/microsofts_github_shifts_to_metered/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=theregister.com&sz=32" alt="">The Register</a><a href="https://visualstudiomagazine.com/articles/2026/04/27/devs-sound-off-on-usage-based-copilot-pricing-change.aspx" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=visualstudiomagazine.com&sz=32" alt="">Visual Studio Magazine</a></div></div>
+<div class="article-nav"><a href="02-sap-prior-labs-1b-acquisition.html" class="nav-prev">&#8592; SAP Bets $1.16 Billion on Prior Labs to Build Euro</a><a href="04-google-lyria-3-pro-music-expansion.html" class="nav-next">Google Expands Lyria 3 Pro Music Generation Across &#8594;</a></div>
+<footer>The Vault — AI Edition &middot; Published May 24, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

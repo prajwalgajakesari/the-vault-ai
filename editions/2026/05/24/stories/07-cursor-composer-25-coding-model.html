@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cursor Ships Composer 2.5 In-House Coding Model Matching Frontier Benchmarks — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Cursor Ships Composer 2.5 In-House Coding Model Matching Frontier Benchmarks</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 922 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Cursor Composer 2.5 matches Claude Opus 4.7 and GPT-5.5 on coding benchmarks at roughly one-tenth the per-token cost.</p>
+</div>
+<div class="article-body">
+<p># Cursor Ships Composer 2.5 In-House Coding Model Matching Frontier Benchmarks</p>
+<p><strong>Category:</strong> llms-genai | <strong>Story:</strong> 07 | <strong>Date:</strong> May 24, 2026</p>
+<p>---</p>
+<p>Cursor shipped Composer 2.5 on May 18, declaring the model a substantial improvement in intelligence and behavior over its predecessor - and backing the claim with benchmark numbers that put it in the same tier as Claude Opus 4.7 and GPT-5.5, at roughly one-tenth the cost per token.</p>
+<p>The move marks a structural inflection point for Cursor, the AI-powered IDE made by Anysphere that began life as a wrapper for OpenAI and Anthropic models. With Composer 2.5, the company has now published two generations of its own coding model and is using those to vertically integrate the most expensive part of its stack: inference.</p>
+<h2>What the Numbers Say</h2>
+<p>Composer 2.5 scores 79.8% on SWE-Bench Multilingual, the industry-standard benchmark for evaluating agentic coding performance across real GitHub issues. Claude Opus 4.7 sits at 80.5% on the same evaluation. On Cursor's own internal CursorBench v3.1, the model posts 63.2%, matching GPT-5.5 on coding-specific tasks.</p>
+<p>The pricing gap is the headline. Cursor has listed Composer 2.5 at $0.50 per million input tokens and $2.50 per million output tokens. A faster variant with the same benchmark performance runs $3.00 and $15.00 respectively. Both figures sit significantly below what Anthropic and OpenAI charge for their comparable frontier tiers, which The Decoder has previously reported run up to $11 per task on CursorBench v3.1 for the competition.</p>
+<p>"It's a substantial improvement in intelligence and behavior over Composer 2," the Cursor team wrote in its launch post. "It is better at sustained work on long-running tasks, follows complex instructions more reliably, and is more pleasant to collaborate with."</p>
+<h2>How They Built It</h2>
+<p>Composer 2.5 starts from the same open-source base as its predecessor: Moonshot AI's Kimi K2.5, a mixture-of-experts architecture with roughly 1 trillion total parameters and approximately 32 billion active parameters per inference. That architecture matters for cost - active parameter count, not total parameter count, determines inference spend.</p>
+<p>But the base model is not the story. Cursor says 85% of the compute budget for Composer 2.5 went toward its own post-training pipeline, not the pretrained weights it licensed. That pipeline involved three distinct advances.</p>
+<p>The first is scale. Composer 2.5 was trained on 25 times more synthetic tasks than Composer 2, generated dynamically throughout the run using techniques like feature deletion - where the model is given a codebase, told to remove specific features, and then asked to reimplement them from tests. The scale surfaced unexpected behavior: the model found a Python type-checking cache to reverse-engineer a deleted function signature, and decompiled Java bytecode to reconstruct a third-party API. Cursor's team used agentic monitoring tools to detect and correct both reward hacks.</p>
+<p>The second is a novel technique Cursor calls targeted RL with textual feedback. Standard reinforcement learning signals are computed over entire rollouts that can span hundreds of thousands of tokens, making it hard to attribute credit for specific decisions. Cursor's approach inserts targeted hints directly at the turn in the trajectory where the model made a mistake, generating a localized distillation signal without disrupting the broader RL objective. The company applied this to everything from tool call errors to communication style.</p>
+<p>The third is infrastructure: a modified distributed training stack using sharded Muon with distributed orthogonalization and a dual-mesh HSDP layout that separates expert and non-expert weights, reducing optimizer step time to 0.2 seconds on the 1T parameter model.</p>
+<h2>The Larger Picture</h2>
+<p>Cursor has also disclosed a partnership with SpaceXAI to train a significantly larger model from scratch using 10x more total compute on the Colossus 2 supercomputer, which houses what SpaceX describes as a cluster of one million H100-equivalent GPUs. That project would be the third generation of the Composer line, and the first not built on an open-source checkpoint. SpaceX had separately announced a $60 billion acquisition offer for Cursor earlier this year.</p>
+<p>The competitive context sharpens the significance of Composer 2.5. In April 2026, both Anthropic and OpenAI pushed the frontier of coding benchmarks upward - Opus 4.7 at 80.5% SWE-Bench, GPT-5.5 at 60.24 on the broader Intelligence Index. Cursor is not trying to beat those numbers on general reasoning. It is trying to match them on the specific domain - multi-file, multi-step agentic coding - that its users care about, and do it at a cost structure that allows the company to embed the model as the default across its entire product without needing to bill users for every call at frontier rates.</p>
+<p>That is a different competitive strategy than Anthropic or OpenAI are running. Neither lab is primarily optimizing for IDE integration or cost-per-task at the workflow level. Cursor is building a model to serve one specific use case, at scale, cheaply enough that pricing becomes a feature rather than a friction point.</p>
+<p>The launch of Composer 2.5 also signals that the pool of credible coding model developers has expanded. Within the past six months, Cursor has published two models, both of which benchmark within striking distance of the most capable closed-source alternatives. If the Colossus 2 training run proceeds as described, the next release will be the first time the company has trained a model of true frontier scale from the ground up - not adapted from an open checkpoint.</p>
+<p>For developers already in the Cursor IDE, Composer 2.5 is available now. The company is offering double usage credits for the first week.</p>
+<p>---</p>
+<p><em>Sources: [Cursor Blog](https://cursor.com/blog/composer-2-5) | [The Decoder](https://the-decoder.com/cursors-composer-2-5-matches-opus-4-7-and-gpt-5-5-benchmarks-at-a-fraction-of-the-cost/) | [WhatLLM.org](https://whatllm.org/blog/new-ai-models-may-2026) | [buildfastwithai.com](https://www.buildfastwithai.com/blogs/cursor-composer-2-5-review-2026)</em></p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"It is better at sustained work on long-running tasks, follows complex instructions more reliably, and is more pleasant to collaborate with."</blockquote><cite>— Cursor Team, Anysphere</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">79.8%</div><div class="stat-label">SWE-Bench Multilingual</div></div><div class="stat-cell"><div class="stat-value">$0.50/$2.50</div><div class="stat-label">Input/output per M tokens</div></div><div class="stat-cell"><div class="stat-value">25x</div><div class="stat-label">More synthetic training tasks</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://cursor.com/blog/composer-2-5" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cursor.com&sz=32" alt="">Cursor Blog</a><a href="https://the-decoder.com/cursors-composer-2-5-matches-opus-4-7-and-gpt-5-5-benchmarks-at-a-fraction-of-the-cost/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&sz=32" alt="">The Decoder</a><a href="https://whatllm.org/blog/new-ai-models-may-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=whatllm.org&sz=32" alt="">WhatLLM</a></div></div>
+<div class="article-nav"><a href="06-telegram-bot-to-bot-ai-agents.html" class="nav-prev">&#8592; Telegram Enables Bot-to-Bot Communication Making A</a><a href="08-amazon-alexa-ai-podcast-generation.html" class="nav-next">Amazon Alexa Now Generates Full AI Podcast Episode &#8594;</a></div>
+<footer>The Vault — AI Edition &middot; Published May 24, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
