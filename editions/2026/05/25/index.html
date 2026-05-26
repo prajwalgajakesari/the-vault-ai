@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vault AI Edition | May 25, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg: #101014;
+  --surface: #18181c;
+  --surface-2: #1e1e24;
+  --border: #2a2a32;
+  --text: #b8b8bf;
+  --text-strong: #ececef;
+  --text-muted: #6b6b76;
+  --business: #e8a735;
+  --llms-genai: #a78bfa;
+  --research: #5eead4;
+  --policy: #fb7185;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--text-strong); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+.top-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(16,16,20,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700; font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  color: var(--text-strong);
+}
+.brand span { color: var(--text-muted); font-weight: 400; }
+.nav-date {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Category tag */
+.cat-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--cat-color) 15%, transparent);
+  color: var(--cat-color);
+}
+
+.edition-header {
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  border-bottom: 1px solid var(--border);
+}
+.edition-header h1 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+.edition-header .subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Stats row */
+.stats-row {
+  display: flex; justify-content: center; gap: 2.5rem;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+  font-family: 'DM Sans', sans-serif;
+}
+.stat { text-align: center; }
+.stat .num {
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--text-strong);
+  display: block;
+}
+.stat .lbl {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* Featured card */
+.featured-section {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+.featured-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.featured-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #e8a735, #a78bfa, #5eead4, #fb7185);
+}
+.featured-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.featured-card h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+.featured-card h2 a { color: var(--text-strong); }
+.featured-card h2 a:hover { text-decoration: underline; }
+.featured-card .excerpt {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+.featured-card .read-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+/* Filters */
+.filter-bar {
+  display: flex; justify-content: center; gap: 0.6rem;
+  padding: 2rem 2rem 0;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--surface-2);
+  color: var(--text-strong);
+  border-color: var(--text-muted);
+}
+
+/* Category sections */
+.category-section {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 0 2rem;
+}
+.category-heading {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+.category-heading svg { width: 18px; height: 18px; }
+
+/* Story cards */
+.story-cards { display: grid; gap: 1px; background: var(--border); border-radius: 8px; overflow: hidden; }
+.story-card {
+  background: var(--surface);
+  padding: 1.5rem;
+  display: flex; gap: 1.2rem;
+  transition: background 0.2s;
+}
+.story-card:hover { background: var(--surface-2); }
+.story-card .num {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem; font-weight: 700;
+  color: var(--text-muted);
+  min-width: 24px;
+  padding-top: 3px;
+}
+.story-card .content { flex: 1; }
+.story-card h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem; font-weight: 600;
+  color: var(--text-strong);
+  line-height: 1.35;
+  margin-bottom: 0.4rem;
+}
+.story-card h3 a { color: var(--text-strong); }
+.story-card h3 a:hover { text-decoration: underline; }
+.story-card .card-excerpt {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
+.story-card .card-meta {
+  display: flex; align-items: center; gap: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.story-card .card-meta .source-icons {
+  display: flex; gap: 4px;
+}
+.story-card .card-meta img {
+  width: 16px; height: 16px; border-radius: 3px;
+  background: var(--surface-2);
+}
+
+@media (max-width: 600px) {
+  .edition-header h1 { font-size: 1.8rem; }
+  .stats-row { gap: 1.2rem; }
+  .featured-card { padding: 1.5rem; }
+  .featured-card h2 { font-size: 1.3rem; }
+}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="brand">THE VAULT <span>AI Edition</span></div>
+  <span class="nav-date">May 25, 2026</span>
+</nav>
+
+<header class="edition-header">
+  <h1>Monday's AI Briefing</h1>
+  <p class="subtitle">May 25, 2026 &middot; 15 stories curated from across the AI landscape</p>
+</header>
+
+<div class="stats-row">
+  <div class="stat"><span class="num">15</span><span class="lbl">Stories</span></div>
+  <div class="stat"><span class="num">13,693</span><span class="lbl">Words</span></div>
+  <div class="stat"><span class="num">61</span><span class="lbl">Min Read</span></div>
+  <div class="stat"><span class="num">4</span><span class="lbl">Categories</span></div>
+</div>
+
+
+<div class="featured-section">
+  <div class="featured-card">
+    <div class="featured-label">Featured Story</div>
+    <div class="cat-tag" style="--cat-color:#e8a735;margin-bottom:1rem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+    <h2><a href="stories/01-anthropic-30b-round-900b-valuation.html">Anthropic Set to Close Second $30 Billion Round at $900 Billion-Plus Valuation</a></h2>
+    <p class="excerpt">Three months ago, Anthropic closed a $30 billion Series G that valued the Claude maker at $380 billion. This week, the company is poised...</p>
+    <a class="read-link" href="stories/01-anthropic-30b-round-900b-valuation.html">Read full story &rarr;</a>
+  </div>
+</div>
+<div class="filter-bar"><button class="filter-btn active" onclick="filterStories('all')">All</button><button class="filter-btn" onclick="filterStories('business')" style="--cat-color:#e8a735">Business (5)</button><button class="filter-btn" onclick="filterStories('llms-genai')" style="--cat-color:#a78bfa">LLMs & GenAI (5)</button><button class="filter-btn" onclick="filterStories('research')" style="--cat-color:#5eead4">Research (3)</button><button class="filter-btn" onclick="filterStories('policy')" style="--cat-color:#fb7185">Policy (2)</button></div>
+
+<div class="category-section" data-category-section="business">
+  <div class="category-heading" style="color:#e8a735"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</div>
+  <div class="story-cards">
+<div class="story-card" data-category="business">
+  <div class="num">01</div>
+  <div class="content">
+    <h3><a href="stories/01-anthropic-30b-round-900b-valuation.html">Anthropic Set to Close Second $30 Billion Round at $900 Billion-Plus Valuation</a></h3>
+    <p class="card-excerpt">Three months ago, Anthropic closed a $30 billion Series G that valued the Claude maker at $380 billion. This week, the company is poised...</p>
+    <div class="card-meta">
+      <span>4 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=32" alt="Bloomberg" title="Bloomberg" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="CNBC" title="CNBC" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=fortune.com&sz=32" alt="Fortune" title="Fortune" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+<div class="story-card" data-category="business">
+  <div class="num">02</div>
+  <div class="content">
+    <h3><a href="stories/02-nextera-dominion-67b-ai-power-merger.html">NextEra Energy Acquires Dominion in $67 Billion Merger to Power AI Grid</a></h3>
+    <p class="card-excerpt">The largest utility merger in American history is no longer a hypothetical stress test for energy analysts -- it is a signed deal sh...</p>
+    <div class="card-meta">
+      <span>4 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=fortune.com&sz=32" alt="Fortune" title="Fortune" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="CNBC" title="CNBC" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+<div class="story-card" data-category="business">
+  <div class="num">03</div>
+  <div class="content">
+    <h3><a href="stories/03-jpmorgan-ai-core-infrastructure.html">JPMorgan Chase Reclassifies AI From Experimental R&amp;D to Core Infrastructure</a></h3>
+    <p class="card-excerpt">The world&#x27;s largest bank has stopped treating artificial intelligence as an experiment. JPMorgan Chase has formally reclassified its...</p>
+    <div class="card-meta">
+      <span>4 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=bankingexchange.com&sz=32" alt="Banking Exchange" title="Banking Exchange" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+<div class="story-card" data-category="business">
+  <div class="num">04</div>
+  <div class="content">
+    <h3><a href="stories/04-adobe-canva-capcut-gemini-integration.html">Adobe Canva and CapCut Integrate Google Gemini for Seamless Creative Workflows</a></h3>
+    <p class="card-excerpt">In the span of just four days following Google I/O 2026, three of the largest names in consumer creative software announced na...</p>
+    <div class="card-meta">
+      <span>4 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=blog.adobe.com&sz=32" alt="Adobe Blog" title="Adobe Blog" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=androidauthority.com&sz=32" alt="Android Authority" title="Android Authority" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+<div class="story-card" data-category="business">
+  <div class="num">05</div>
+  <div class="content">
+    <h3><a href="stories/05-anthropic-microsoft-maia-200-chip.html">Anthropic Eyes Microsoft Maia 200 Chip as Fifth Silicon Partner</a></h3>
+    <p class="card-excerpt">Anthropic is in early-stage negotiations with Microsoft to run its Claude models on Azure servers powered by the Maia 200...</p>
+    <div class="card-meta">
+      <span>4 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="CNBC" title="CNBC" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=blogs.microsoft.com&sz=32" alt="Microsoft Blog" title="Microsoft Blog" loading="lazy"></div>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="category-section" data-category-section="llms-genai">
+  <div class="category-heading" style="color:#a78bfa"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs & GenAI</div>
+  <div class="story-cards">
+<div class="story-card" data-category="llms-genai">
+  <div class="num">06</div>
+  <div class="content">
+    <h3><a href="stories/06-openai-codex-mac-control-locked.html">OpenAI Codex Now Controls Mac While Locked Expanding Agent Autonomy</a></h3>
+    <p class="card-excerpt">Your Mac no longer needs you sitting in front of it for an AI agent to get work done. OpenAI announced that its...</p>
+    <div class="card-meta">
+      <span>4 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=macrumors.com&sz=32" alt="MacRumors" title="MacRumors" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=macworld.com&sz=32" alt="Macworld" title="Macworld" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+<div class="story-card" data-category="llms-genai">
+  <div class="num">07</div>
+  <div class="content">
+    <h3><a href="stories/07-google-turboquant-kv-cache-compression.html">Google TurboQuant Achieves 6x KV Cache Compression With Zero Accuracy Loss</a></h3>
+    <p class="card-excerpt">The training-free algorithm squeezes LLM key-value caches down to 3 bits per coordinate, delivering up to 8x faster attention on H...</p>
+    <div class="card-meta">
+      <span>4 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=research.google&sz=32" alt="Google Research" title="Google Research" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="arXiv" title="arXiv" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+<div class="story-card" data-category="llms-genai">
+  <div class="num">08</div>
+  <div class="content">
+    <h3><a href="stories/08-pentagon-tests-openai-google-defense.html">Pentagon Tests OpenAI and Google AI Models to Potentially Replace Claude in Defense</a></h3>
+    <p class="card-excerpt">The U.S. Department of Defense is running a live bake-off between frontier AI models from OpenAI, Google, and xAI after blacklisting...</p>
+    <div class="card-meta">
+      <span>4 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=defensescoop.com&sz=32" alt="DefenseScoop" title="DefenseScoop" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=32" alt="Bloomberg" title="Bloomberg" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="CNBC" title="CNBC" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+<div class="story-card" data-category="llms-genai">
+  <div class="num">09</div>
+  <div class="content">
+    <h3><a href="stories/09-enterprise-ai-adoption-challenges-2026.html">Enterprise AI Adoption Hits Wall as 79 Percent of Organizations Face Challenges</a></h3>
+    <p class="card-excerpt">Nearly every large company has deployed an AI agent in the past year. Nearly four in five say the process is tearing them apart....</p>
+    <div class="card-meta">
+      <span>4 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=writer.com&sz=32" alt="Writer" title="Writer" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=deloitte.com&sz=32" alt="Deloitte" title="Deloitte" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+<div class="story-card" data-category="llms-genai">
+  <div class="num">14</div>
+  <div class="content">
+    <h3><a href="stories/14-alteryx-agent-studio-inspire-2026.html">Alteryx Unveils Agent Studio Turning Business Analysts Into AI Agent Builders</a></h3>
+    <p class="card-excerpt">At its annual Inspire conference, Alteryx made a bold bet on who should be building the next generation of enterprise...</p>
+    <div class="card-meta">
+      <span>4 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=prnewswire.com&sz=32" alt="PR Newswire" title="PR Newswire" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=techzine.eu&sz=32" alt="TechZine" title="TechZine" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=diginomica.com&sz=32" alt="Diginomica" title="Diginomica" loading="lazy"></div>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="category-section" data-category-section="research">
+  <div class="category-heading" style="color:#5eead4"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Research</div>
+  <div class="story-cards">
+<div class="story-card" data-category="research">
+  <div class="num">12</div>
+  <div class="content">
+    <h3><a href="stories/12-penn-mollifier-layers-inverse-pdes.html">Penn Researchers Introduce Mollifier Layers to Solve Inverse PDEs With Neural Networks</a></h3>
+    <p class="card-excerpt">Sometimes the biggest breakthroughs in AI come not from building bigger models, but from reaching back into the history of...</p>
+    <div class="card-meta">
+      <span>4 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=seas.upenn.edu&sz=32" alt="Penn Engineering" title="Penn Engineering" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=eurekalert.org&sz=32" alt="EurekAlert" title="EurekAlert" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+<div class="story-card" data-category="research">
+  <div class="num">13</div>
+  <div class="content">
+    <h3><a href="stories/13-medtronic-hugo-surgical-robot-fda.html">Medtronic Hugo Surgical Robot Wins FDA Clearance and Completes First US Cases</a></h3>
+    <p class="card-excerpt">For the first time in more than two decades, a major medtech company has brought a new robotic surgery platform to the US market...</p>
+    <div class="card-meta">
+      <span>4 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=news.medtronic.com&sz=32" alt="Medtronic" title="Medtronic" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=medtechdive.com&sz=32" alt="MedTech Dive" title="MedTech Dive" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+<div class="story-card" data-category="research">
+  <div class="num">15</div>
+  <div class="content">
+    <h3><a href="stories/15-specific-ai-b2b-workforce-platform.html">Specific AI Unveils Global B2B Workforce Platform at Silicon Valley Startup Grind</a></h3>
+    <p class="card-excerpt">A Hong Kong-based startup wants to become the infrastructure layer for international business -- one AI teammate at a time....</p>
+    <div class="card-meta">
+      <span>4 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=swacenews.com&sz=32" alt="Swace News" title="Swace News" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=fortune.com&sz=32" alt="Fortune" title="Fortune" loading="lazy"></div>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="category-section" data-category-section="policy">
+  <div class="category-heading" style="color:#fb7185"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</div>
+  <div class="story-cards">
+<div class="story-card" data-category="policy">
+  <div class="num">10</div>
+  <div class="content">
+    <h3><a href="stories/10-connecticut-sb5-comprehensive-ai-law.html">Connecticut Passes One of the Most Comprehensive AI Laws in the Nation</a></h3>
+    <p class="card-excerpt">On May 1, Connecticut lawmakers sent one of the most ambitious state-level AI bills in the country to the Governor&#x27;s desk....</p>
+    <div class="card-meta">
+      <span>5 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=dlapiper.com&sz=32" alt="DLA Piper" title="DLA Piper" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=ctmirror.org&sz=32" alt="CT Mirror" title="CT Mirror" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=dwt.com&sz=32" alt="Davis Wright Tremaine" title="Davis Wright Tremaine" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+<div class="story-card" data-category="policy">
+  <div class="num">11</div>
+  <div class="content">
+    <h3><a href="stories/11-ai-deepfake-political-ads-voting.html">AI-Generated Deepfake Attack Ads Spread Across Early Voting States</a></h3>
+    <p class="card-excerpt">As South Carolina opens early voting for its state primaries, voters scrolling their phones will encounter something new this cycle...</p>
+    <div class="card-meta">
+      <span>4 min read</span>
+      <div class="source-icons"><img src="https://www.google.com/s2/favicons?domain=live5news.com&sz=32" alt="Live 5 News" title="Live 5 News" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=cnn.com&sz=32" alt="CNN" title="CNN" loading="lazy"><img src="https://www.google.com/s2/favicons?domain=detroitnews.com&sz=32" alt="Detroit News" title="Detroit News" loading="lazy"></div>
+    </div>
+  </div>
+</div></div>
+</div>
+
+<footer class="site-footer">
+  The Vault AI Edition &middot; May 25, 2026 &middot; Curated by AI, verified by humans
+</footer>
+
+<script>
+function filterStories(cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.category-section').forEach(s => {
+    s.style.display = (cat === 'all' || s.dataset.categorySection === cat) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
