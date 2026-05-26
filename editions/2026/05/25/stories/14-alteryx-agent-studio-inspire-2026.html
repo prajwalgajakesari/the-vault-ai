@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alteryx Unveils Agent Studio Turning Business Analysts Into AI Agent Builders | The Vault AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg: #101014;
+  --surface: #18181c;
+  --surface-2: #1e1e24;
+  --border: #2a2a32;
+  --text: #b8b8bf;
+  --text-strong: #ececef;
+  --text-muted: #6b6b76;
+  --business: #e8a735;
+  --llms-genai: #a78bfa;
+  --research: #5eead4;
+  --policy: #fb7185;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--text-strong); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+.top-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(16,16,20,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700; font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  color: var(--text-strong);
+}
+.brand span { color: var(--text-muted); font-weight: 400; }
+.nav-date {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Category tag */
+.cat-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--cat-color) 15%, transparent);
+  color: var(--cat-color);
+}
+
+/* Progress bar */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px; z-index: 200;
+  background: var(--cat-color);
+  width: 0%; transition: width 0.1s linear;
+}
+
+.article-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+.article-header { margin-bottom: 2.5rem; }
+.article-header .cat-tag { margin-bottom: 1rem; }
+.article-header h1 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-strong);
+  margin-bottom: 1rem;
+}
+.article-meta {
+  display: flex; align-items: center; gap: 1.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.article-meta svg { width: 14px; height: 14px; vertical-align: -2px; }
+
+/* Key takeaway */
+.key-takeaway {
+  background: var(--surface);
+  border-left: 3px solid var(--cat-color);
+  border-radius: 0 8px 8px 0;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 2.5rem;
+  font-family: 'DM Sans', sans-serif;
+}
+.key-takeaway .label {
+  font-size: 0.7rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cat-color);
+  margin-bottom: 0.4rem;
+}
+.key-takeaway p {
+  font-size: 0.95rem;
+  color: var(--text-strong);
+  line-height: 1.5;
+}
+
+/* Article body */
+.article-body p { margin-bottom: 1.4rem; }
+.article-body p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 0.85;
+  margin-right: 0.1em;
+  color: var(--text-strong);
+  font-family: 'DM Sans', sans-serif;
+}
+.article-body h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.35rem;
+  color: var(--text-strong);
+  margin: 2.5rem 0 1rem;
+  font-weight: 600;
+}
+.article-body h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-strong);
+  margin: 2rem 0 0.8rem;
+  font-weight: 600;
+}
+.article-body ul {
+  margin: 0 0 1.4rem 1.5rem;
+  list-style: disc;
+}
+.article-body li { margin-bottom: 0.4rem; }
+
+/* Pull quote */
+.pull-quote {
+  border-left: 3px solid var(--cat-color);
+  margin: 2.5rem 0;
+  padding: 1.5rem 2rem;
+  background: var(--surface);
+  border-radius: 0 8px 8px 0;
+}
+.pull-quote blockquote {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--text-strong);
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+.pull-quote .attribution {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Data strip */
+.data-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2.5rem 0;
+}
+.data-cell {
+  background: var(--surface);
+  padding: 1.2rem 1rem;
+  text-align: center;
+}
+.data-cell .value {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cat-color);
+  display: block;
+}
+.data-cell .label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* Sources */
+.sources-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.sources-section h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.source-item {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 0.8rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+}
+.source-item img {
+  width: 20px; height: 20px; border-radius: 4px;
+  background: var(--surface-2);
+}
+.source-item a { color: var(--text); }
+.source-item a:hover { color: var(--text-strong); }
+
+/* Prev/Next nav */
+.story-nav {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.story-nav a {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  max-width: 48%;
+}
+.story-nav a:hover { color: var(--text-strong); }
+.story-nav a .dir {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.story-nav a .title {
+  color: var(--text-strong);
+  font-weight: 500;
+}
+.story-nav .next { text-align: right; margin-left: auto; }
+
+@media (max-width: 600px) {
+  .article-header h1 { font-size: 1.6rem; }
+  .data-strip { grid-template-columns: repeat(2, 1fr); }
+  .story-nav { flex-direction: column; }
+  .story-nav a { max-width: 100%; }
+}
+
+:root { --cat-color: #a78bfa; }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">THE VAULT <span>AI Edition</span></a>
+  <span class="nav-date">May 25, 2026</span>
+</nav>
+
+<article class="article-container">
+  <header class="article-header">
+    <div class="cat-tag" style="--cat-color:#a78bfa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs & GenAI</div>
+    <h1>Alteryx Unveils Agent Studio Turning Business Analysts Into AI Agent Builders</h1>
+    <div class="article-meta">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+      <span>940 words</span>
+      <span>Story #14</span>
+    </div>
+  </header>
+
+  <div class="key-takeaway" style="--cat-color:#a78bfa">
+    <div class="label">Key Takeaway</div>
+    <p>Alteryx Agent Studio lets business analysts convert data workflows into autonomous AI agents without coding.</p>
+  </div>
+
+  <div class="article-body">
+    <p># Alteryx Unveils Agent Studio, Turning Business Analysts Into AI Agent Builders</p>
+<p>At its annual Inspire conference in Orlando last week, Alteryx made a bold bet on who should be building the next generation of enterprise AI agents — and it is not the engineers.</p>
+<p>The data analytics company unveiled Agent Studio, a new capability within its Alteryx One platform that lets business analysts transform their existing data workflows directly into autonomous AI agents, no coding required. Alongside it, Alteryx launched an MCP (Model Context Protocol) Server that exposes those agent-powered workflows to external AI systems including Anthropic's Claude, OpenAI's ChatGPT, and Google's Gemini.</p>
+<p>The message from CEO Andy MacMillan was unambiguous: the people closest to the business should own the logic layer that AI runs on.</p>
+<p>"It's not IT who owns the logic layer. IT owns a lot of the infrastructure that supports that environment," MacMillan said during the keynote. "But I think it's going to be business analysts, Rev Ops people, finance professionals, supply chain experts. The people who know the business."</p>
+<h2>The Problem Agent Studio Solves</h2>
+<p>To drive the point home, Alteryx Chief Evangelist Joshua Burkhow demonstrated what happens when enterprises lean too heavily on raw AI coding. He pasted a tax reconciliation spreadsheet into Claude Code and watched it generate 1,785 lines of Python in seconds. The audience applauded — until MacMillan pointed out that tax jurisdictions change quarterly, several suppliers on the list had exemptions, and auditors were arriving the next day.</p>
+<p>Burkhow delivered the punchline: "You are the proud owner of 1,700 lines of code that most people in your company can't read, they can't process, and very likely don't know how to get through and audit."</p>
+<p>This is the gap Agent Studio is designed to fill. Rather than generating opaque code, it lets analysts package the business rules, calculations, workflows, and governance controls they already maintain into reusable AI agents. Those agents operate on logic that is — in Alteryx's repeated formulation — visible, understandable, repeatable, and auditable.</p>
+<h2>What Agent Studio Actually Does</h2>
+<p>Agent Studio sits within the Alteryx One platform and allows users to convert trusted datasets and validated business logic into autonomous agents. These agents can be deployed natively within Alteryx or exported into third-party agent orchestration frameworks.</p>
+<p>The companion Alteryx One MCP Server takes this a step further. Workflows built and governed inside Alteryx One can now be exposed as MCP tools, making them callable from ChatGPT, Gemini, Claude, or custom agents running inside enterprise applications like Slack and Microsoft Teams. In practice, this means a finance workflow that has been certified by an analyst — complete with its approval chain and audit trail — can be invoked by a CFO asking Gemini about quarterly commission accruals, without anyone writing new code.</p>
+<p>Alteryx also demonstrated bidirectional MCP capability: a user inside Gemini can ask the model to reconcile revenue, and the model returns not just an answer but a structured plan that executes as a workflow surfacing back inside Alteryx Designer for an analyst to inspect, approve, and govern.</p>
+<p>Chief Product Officer Ben Canning framed the architecture as future-proof. "No investment that you've made in Alteryx is wasted, and all of it carries forward," he said, noting that over a quarter of customer workflows now interact with Ask Alteryx, the platform's embedded AI assistant, which contains more than 130 tools.</p>
+<h2>The Scale Behind the Strategy</h2>
+<p>The announcements were backed by production numbers. Over the past twelve months, the Alteryx One platform has processed 774 trillion records and 258 petabytes of data. Live Query — the capability that runs calculations inside data warehouses like Snowflake, Databricks, and Google BigQuery without copying data out — is now generally available across all three platforms.</p>
+<p>Alteryx also released research showing that 65 percent of analysts believe AI and agent-based systems work best when underlying logic is managed at the business level, not by centralized IT. Nearly half (46 percent) prefer a human-in-the-loop approach requiring human approval before agents act, while only 3 percent are comfortable with fully autonomous AI.</p>
+<h2>The Bigger Picture: Democratizing Agent Building</h2>
+<p>Alteryx's move arrives amid a land grab for the enterprise agent layer. Snowflake Cortex, Databricks Genie, Microsoft Fabric, and Google Gemini Enterprise are all staking claims that the natural home for AI agents is wherever the data platform lives. Alteryx is arguing the opposite — that agents should live wherever business logic is governed, and that business logic belongs to analysts, not to warehouses or model vendors.</p>
+<p>The distinction matters. A data platform can tell you what your revenue was. An analyst's workflow can tell you which definition of revenue the CFO actually needs when KPMG walks in. Agent Studio is Alteryx's mechanism for encoding that institutional knowledge into something an AI agent can execute reliably.</p>
+<p>Customer validation came from Joseph Pantone, VP of Business Intelligence and Analytics at Charlotte Pipe and Foundry, a fifth-generation North Carolina manufacturer. Pantone requires every new analyst to spend two weeks in the foundry, two weeks at the plastics plant, and two weeks with the sales team before touching any analytics tool. "The business domain knowledge is the ground rule," Pantone said. "Platforms like Alteryx are a force multiplier, but if you don't get your business knowledge dialed in, you're really at a disadvantage."</p>
+<h2>What to Watch</h2>
+<p>Agent Studio enters preview in June, alongside Data Bridge (which extends workspace execution to harder integration patterns) and the bidirectional MCP capability. The timeline is tight. Several of Alteryx's strongest claims at Inspire depend on capabilities that ship next month, and any delay would push general availability into the second half of the year — precisely when competitors are shipping their own agent frameworks.</p>
+<p>The deeper question is organizational: will business analysts actually want to own the logic layer for enterprise AI? Alteryx is betting that the people who have spent years building deterministic, auditable workflows are the natural architects of the agent era. If that bet holds, Agent Studio could become the template for how non-technical professionals participate in the agentic revolution. If it does not, it will join a long list of platforms that overestimated how eagerly business users adopt new responsibilities.</p>
+<p>Either way, the days when AI agent building was exclusively a developer's job are numbered.</p>
+  </div>
+
+  
+<div class="pull-quote">
+  <blockquote>&ldquo;It is not IT who owns the logic layer... it is going to be business analysts, Rev Ops people, finance professionals.&rdquo;</blockquote>
+  <div class="attribution">&mdash; Andy MacMillan, CEO, Alteryx</div>
+</div>
+  <div class="data-strip"><div class="data-cell"><span class="value">774T</span><span class="label">Records processed</span></div><div class="data-cell"><span class="value">3%</span><span class="label">Comfortable with full autonomy</span></div><div class="data-cell"><span class="value">46%</span><span class="label">Prefer human-in-loop</span></div></div>
+  <div class="sources-section"><h3>Sources</h3><div class="source-item"><img src="https://www.google.com/s2/favicons?domain=prnewswire.com&sz=32" alt="" loading="lazy"><a href="https://www.prnewswire.com/news-releases/alteryx-puts-business-logic-at-the-center-of-agentic-ai-enabling-enterprises-to-operationalize-ai-at-scale-302776782.html" target="_blank" rel="noopener">PR Newswire</a></div><div class="source-item"><img src="https://www.google.com/s2/favicons?domain=techzine.eu&sz=32" alt="" loading="lazy"><a href="https://www.techzine.eu/blogs/analytics/141453/alteryx-inspire-business-analysts-will-become-the-architects-of-ai/" target="_blank" rel="noopener">TechZine</a></div><div class="source-item"><img src="https://www.google.com/s2/favicons?domain=diginomica.com&sz=32" alt="" loading="lazy"><a href="https://diginomica.com/whose-job-it-govern-enterprise-ai-alteryx-inspire-2026-makes-case-putting-analysts-charge" target="_blank" rel="noopener">Diginomica</a></div></div>
+  <div class="story-nav"><a href="13-medtronic-hugo-surgical-robot-fda.html"><span class="dir">Previous</span><span class="title">Medtronic Hugo Surgical Robot Wins FDA Clearance and Completes First US Cases</span></a><a class="next" href="15-specific-ai-b2b-workforce-platform.html"><span class="dir">Next</span><span class="title">Specific AI Unveils Global B2B Workforce Platform at Silicon Valley Startup Grind</span></a></div>
+</article>
+
+<footer class="site-footer">
+  The Vault AI Edition &middot; May 25, 2026 &middot; Curated by AI, verified by humans
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  var h = document.documentElement;
+  var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specific AI Unveils Global B2B Workforce Platform at Silicon Valley Startup Grind | The Vault AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg: #101014;
+  --surface: #18181c;
+  --surface-2: #1e1e24;
+  --border: #2a2a32;
+  --text: #b8b8bf;
+  --text-strong: #ececef;
+  --text-muted: #6b6b76;
+  --business: #e8a735;
+  --llms-genai: #a78bfa;
+  --research: #5eead4;
+  --policy: #fb7185;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--text-strong); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+.top-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(16,16,20,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700; font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  color: var(--text-strong);
+}
+.brand span { color: var(--text-muted); font-weight: 400; }
+.nav-date {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Category tag */
+.cat-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--cat-color) 15%, transparent);
+  color: var(--cat-color);
+}
+
+/* Progress bar */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px; z-index: 200;
+  background: var(--cat-color);
+  width: 0%; transition: width 0.1s linear;
+}
+
+.article-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+.article-header { margin-bottom: 2.5rem; }
+.article-header .cat-tag { margin-bottom: 1rem; }
+.article-header h1 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-strong);
+  margin-bottom: 1rem;
+}
+.article-meta {
+  display: flex; align-items: center; gap: 1.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.article-meta svg { width: 14px; height: 14px; vertical-align: -2px; }
+
+/* Key takeaway */
+.key-takeaway {
+  background: var(--surface);
+  border-left: 3px solid var(--cat-color);
+  border-radius: 0 8px 8px 0;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 2.5rem;
+  font-family: 'DM Sans', sans-serif;
+}
+.key-takeaway .label {
+  font-size: 0.7rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cat-color);
+  margin-bottom: 0.4rem;
+}
+.key-takeaway p {
+  font-size: 0.95rem;
+  color: var(--text-strong);
+  line-height: 1.5;
+}
+
+/* Article body */
+.article-body p { margin-bottom: 1.4rem; }
+.article-body p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 0.85;
+  margin-right: 0.1em;
+  color: var(--text-strong);
+  font-family: 'DM Sans', sans-serif;
+}
+.article-body h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.35rem;
+  color: var(--text-strong);
+  margin: 2.5rem 0 1rem;
+  font-weight: 600;
+}
+.article-body h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-strong);
+  margin: 2rem 0 0.8rem;
+  font-weight: 600;
+}
+.article-body ul {
+  margin: 0 0 1.4rem 1.5rem;
+  list-style: disc;
+}
+.article-body li { margin-bottom: 0.4rem; }
+
+/* Pull quote */
+.pull-quote {
+  border-left: 3px solid var(--cat-color);
+  margin: 2.5rem 0;
+  padding: 1.5rem 2rem;
+  background: var(--surface);
+  border-radius: 0 8px 8px 0;
+}
+.pull-quote blockquote {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--text-strong);
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+.pull-quote .attribution {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Data strip */
+.data-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2.5rem 0;
+}
+.data-cell {
+  background: var(--surface);
+  padding: 1.2rem 1rem;
+  text-align: center;
+}
+.data-cell .value {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cat-color);
+  display: block;
+}
+.data-cell .label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* Sources */
+.sources-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.sources-section h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.source-item {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 0.8rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+}
+.source-item img {
+  width: 20px; height: 20px; border-radius: 4px;
+  background: var(--surface-2);
+}
+.source-item a { color: var(--text); }
+.source-item a:hover { color: var(--text-strong); }
+
+/* Prev/Next nav */
+.story-nav {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.story-nav a {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  max-width: 48%;
+}
+.story-nav a:hover { color: var(--text-strong); }
+.story-nav a .dir {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.story-nav a .title {
+  color: var(--text-strong);
+  font-weight: 500;
+}
+.story-nav .next { text-align: right; margin-left: auto; }
+
+@media (max-width: 600px) {
+  .article-header h1 { font-size: 1.6rem; }
+  .data-strip { grid-template-columns: repeat(2, 1fr); }
+  .story-nav { flex-direction: column; }
+  .story-nav a { max-width: 100%; }
+}
+
+:root { --cat-color: #5eead4; }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">THE VAULT <span>AI Edition</span></a>
+  <span class="nav-date">May 25, 2026</span>
+</nav>
+
+<article class="article-container">
+  <header class="article-header">
+    <div class="cat-tag" style="--cat-color:#5eead4"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Research</div>
+    <h1>Specific AI Unveils Global B2B Workforce Platform at Silicon Valley Startup Grind</h1>
+    <div class="article-meta">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+      <span>823 words</span>
+      <span>Story #15</span>
+    </div>
+  </header>
+
+  <div class="key-takeaway" style="--cat-color:#5eead4">
+    <div class="label">Key Takeaway</div>
+    <p>Specific AI positions itself as purpose-built infrastructure for cross-border B2B operations.</p>
+  </div>
+
+  <div class="article-body">
+    <p># Specific AI Unveils Global B2B Workforce Platform at Silicon Valley Startup Grind, Signaling a New Era for Cross-Border AI Agents</p>
+<p>A Hong Kong-based startup wants to become the infrastructure layer for international business — one AI teammate at a time.</p>
+<p>---</p>
+<p>When companies expand into foreign markets, they tend to rely on what they already know: domestic contacts, familiar regulations, comfortable data sources. The intelligence that actually determines success or failure — overseas tender filings, foreign-language regulatory updates, cross-border risk signals — often sits just out of reach, scattered across languages, jurisdictions, and data silos that no single human team can efficiently monitor.</p>
+<p>Specific AI, a Hong Kong-headquartered startup founded by a Cambridge-trained team with multinational consulting backgrounds, presented its answer to that problem at Startup Grind Conference in Redwood City, California last week. The company showcased an AI workforce platform designed to give enterprises specialized AI agent teammates for every stage of global business expansion — and the response from the Silicon Valley audience suggests it struck a nerve.</p>
+<h2>Three AI Teammates, One Ambitious Vision</h2>
+<p>The platform currently deploys three specialized AI agents: an AI Bid Specialist that identifies and responds to international procurement opportunities, an AI Sales Assistant that qualifies and conducts outreach to cross-border leads, and an AI Risk Specialist that monitors commercial, financial, and legal risks across counterparty networks.</p>
+<p>But the founding team made clear at Startup Grind that these three agents are just the beginning.</p>
+<p>"We are not building a product," said Jinguang Yang, co-founder and CEO of Specific AI. "We are building the infrastructure layer for cross-border B2B growth and intend to be the system for global business."</p>
+<p>Yang outlined a roadmap that extends far beyond the current product set. The platform aims to eventually cover financial compliance monitoring, legal tracking, logistics intelligence, trade platform integration, and real-time regulatory surveillance — all unified under a single agent framework. Powering the system is what the company calls a proprietary 100-million-node commercial knowledge graph, which maps relationships across global business entities, trade signals, and regulatory environments.</p>
+<h2>Real Clients, Real Traction</h2>
+<p>Specific AI is not operating on pitch decks alone. The company has validated its platform across a notably diverse set of industries, including construction materials, medical devices, solar energy, semiconductors, auto parts, and AI robotics. In one flagship enterprise deployment, the AI Risk Specialist has been actively supporting teams in monitoring cross-border commercial and legal risks across large counterparty networks.</p>
+<p>One particularly telling use case involves a construction materials company using the platform to bid on European public procurement contracts — exactly the kind of complex, multilingual, regulation-heavy task where AI agents can deliver outsized value compared to manual processes.</p>
+<p>The Startup Grind presentation drew what multiple reports described as a packed room of investors and operators, generating substantial follow-up interest from venture firms and enterprise prospects alike.</p>
+<h2>A Market That Is Moving Fast</h2>
+<p>Specific AI enters a B2B AI workforce market that is heating up rapidly. Earlier this month, ServiceNow — the enterprise software giant valued at roughly $95 billion — unveiled its own Autonomous Workforce suite at Knowledge 2026, deploying AI specialists across IT operations, HR, finance, legal, procurement, and security. ServiceNow reported that its AI specialists already resolve 91 percent of cases without reassignment, and that early adopters like Docusign are targeting 90 percent autonomous resolution of IT tickets.</p>
+<p>The broader trend is unmistakable. The World Economic Forum projects a net gain of 78 million jobs by 2030, with AI and big data topping the list of fastest-growing skills. Enterprise buyers are no longer asking whether to deploy AI agents — they are asking which ones, and how fast.</p>
+<p>What distinguishes Specific AI from larger incumbents is its narrow focus on the cross-border problem. While ServiceNow and others are building AI workforces for internal enterprise operations, Specific AI is attacking the uniquely fragmented landscape of international B2B commerce — a space where language barriers, regulatory complexity, and data fragmentation create structural obstacles that general-purpose AI tools struggle to address.</p>
+<h2>What to Watch Next</h2>
+<p>With the Startup Grind appearance behind it, Specific AI has announced plans to accelerate expansion into North American and Japanese markets. The company is positioning itself not as another point solution in the crowded AI agent landscape, but as foundational infrastructure — the operating system, in effect, for companies that want to go global without building massive local teams in every market.</p>
+<p>The key question going forward is whether Specific AI can scale its knowledge graph and agent capabilities fast enough to stay ahead of larger, better-funded competitors entering the B2B AI workforce space. The 100-million-node knowledge graph is a meaningful technical moat, but maintaining and expanding it across industries and geographies will require significant capital and data partnerships.</p>
+<p>For enterprise buyers evaluating AI workforce solutions in 2026, Specific AI represents a bet on specialization over generalization — the idea that cross-border business is different enough from domestic operations to warrant its own purpose-built AI infrastructure. If that thesis proves correct, the company could become a critical piece of the global commerce stack.</p>
+<p>The era of AI as a helper is giving way to AI as a worker. The question is no longer if, but where these digital teammates will show up next.</p>
+  </div>
+
+  
+<div class="pull-quote">
+  <blockquote>&ldquo;We are not building a product. We are building the infrastructure layer for cross-border B2B growth.&rdquo;</blockquote>
+  <div class="attribution">&mdash; Jinguang Yang, CEO, Specific AI</div>
+</div>
+  <div class="data-strip"><div class="data-cell"><span class="value">100M</span><span class="label">Knowledge graph nodes</span></div><div class="data-cell"><span class="value">3</span><span class="label">AI agents deployed</span></div><div class="data-cell"><span class="value">6+</span><span class="label">Industries served</span></div></div>
+  <div class="sources-section"><h3>Sources</h3><div class="source-item"><img src="https://www.google.com/s2/favicons?domain=swacenews.com&sz=32" alt="" loading="lazy"><a href="https://www.swacenews.com/2026/05/25/specific-ai-at-silicon-valleys-startup-grind-unveils-global-b2b-ai-infrastructure-vision/" target="_blank" rel="noopener">Swace News</a></div><div class="source-item"><img src="https://www.google.com/s2/favicons?domain=fortune.com&sz=32" alt="" loading="lazy"><a href="https://fortune.com/2026/05/05/servicenow-knowledge-2026-autonomous-workforce-microsoft-nvidia-ai-announcements/" target="_blank" rel="noopener">Fortune</a></div></div>
+  <div class="story-nav"><a href="14-alteryx-agent-studio-inspire-2026.html"><span class="dir">Previous</span><span class="title">Alteryx Unveils Agent Studio Turning Business Analysts Into AI Agent Builders</span></a></div>
+</article>
+
+<footer class="site-footer">
+  The Vault AI Edition &middot; May 25, 2026 &middot; Curated by AI, verified by humans
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  var h = document.documentElement;
+  var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+</script>
+</body>
+</html>

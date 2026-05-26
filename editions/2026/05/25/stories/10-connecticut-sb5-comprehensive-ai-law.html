@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connecticut Passes One of the Most Comprehensive AI Laws in the Nation | The Vault AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg: #101014;
+  --surface: #18181c;
+  --surface-2: #1e1e24;
+  --border: #2a2a32;
+  --text: #b8b8bf;
+  --text-strong: #ececef;
+  --text-muted: #6b6b76;
+  --business: #e8a735;
+  --llms-genai: #a78bfa;
+  --research: #5eead4;
+  --policy: #fb7185;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--text-strong); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+.top-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(16,16,20,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700; font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  color: var(--text-strong);
+}
+.brand span { color: var(--text-muted); font-weight: 400; }
+.nav-date {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Category tag */
+.cat-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--cat-color) 15%, transparent);
+  color: var(--cat-color);
+}
+
+/* Progress bar */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px; z-index: 200;
+  background: var(--cat-color);
+  width: 0%; transition: width 0.1s linear;
+}
+
+.article-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+.article-header { margin-bottom: 2.5rem; }
+.article-header .cat-tag { margin-bottom: 1rem; }
+.article-header h1 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-strong);
+  margin-bottom: 1rem;
+}
+.article-meta {
+  display: flex; align-items: center; gap: 1.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.article-meta svg { width: 14px; height: 14px; vertical-align: -2px; }
+
+/* Key takeaway */
+.key-takeaway {
+  background: var(--surface);
+  border-left: 3px solid var(--cat-color);
+  border-radius: 0 8px 8px 0;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 2.5rem;
+  font-family: 'DM Sans', sans-serif;
+}
+.key-takeaway .label {
+  font-size: 0.7rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cat-color);
+  margin-bottom: 0.4rem;
+}
+.key-takeaway p {
+  font-size: 0.95rem;
+  color: var(--text-strong);
+  line-height: 1.5;
+}
+
+/* Article body */
+.article-body p { margin-bottom: 1.4rem; }
+.article-body p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 0.85;
+  margin-right: 0.1em;
+  color: var(--text-strong);
+  font-family: 'DM Sans', sans-serif;
+}
+.article-body h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.35rem;
+  color: var(--text-strong);
+  margin: 2.5rem 0 1rem;
+  font-weight: 600;
+}
+.article-body h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-strong);
+  margin: 2rem 0 0.8rem;
+  font-weight: 600;
+}
+.article-body ul {
+  margin: 0 0 1.4rem 1.5rem;
+  list-style: disc;
+}
+.article-body li { margin-bottom: 0.4rem; }
+
+/* Pull quote */
+.pull-quote {
+  border-left: 3px solid var(--cat-color);
+  margin: 2.5rem 0;
+  padding: 1.5rem 2rem;
+  background: var(--surface);
+  border-radius: 0 8px 8px 0;
+}
+.pull-quote blockquote {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--text-strong);
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+.pull-quote .attribution {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Data strip */
+.data-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2.5rem 0;
+}
+.data-cell {
+  background: var(--surface);
+  padding: 1.2rem 1rem;
+  text-align: center;
+}
+.data-cell .value {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cat-color);
+  display: block;
+}
+.data-cell .label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* Sources */
+.sources-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.sources-section h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.source-item {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 0.8rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+}
+.source-item img {
+  width: 20px; height: 20px; border-radius: 4px;
+  background: var(--surface-2);
+}
+.source-item a { color: var(--text); }
+.source-item a:hover { color: var(--text-strong); }
+
+/* Prev/Next nav */
+.story-nav {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.story-nav a {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  max-width: 48%;
+}
+.story-nav a:hover { color: var(--text-strong); }
+.story-nav a .dir {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.story-nav a .title {
+  color: var(--text-strong);
+  font-weight: 500;
+}
+.story-nav .next { text-align: right; margin-left: auto; }
+
+@media (max-width: 600px) {
+  .article-header h1 { font-size: 1.6rem; }
+  .data-strip { grid-template-columns: repeat(2, 1fr); }
+  .story-nav { flex-direction: column; }
+  .story-nav a { max-width: 100%; }
+}
+
+:root { --cat-color: #fb7185; }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">THE VAULT <span>AI Edition</span></a>
+  <span class="nav-date">May 25, 2026</span>
+</nav>
+
+<article class="article-container">
+  <header class="article-header">
+    <div class="cat-tag" style="--cat-color:#fb7185"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</div>
+    <h1>Connecticut Passes One of the Most Comprehensive AI Laws in the Nation</h1>
+    <div class="article-meta">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+      <span>1,022 words</span>
+      <span>Story #10</span>
+    </div>
+  </header>
+
+  <div class="key-takeaway" style="--cat-color:#fb7185">
+    <div class="label">Key Takeaway</div>
+    <p>Connecticut SB5 bundles AI companion safety, employment transparency, and synthetic media rules into a 67-page omnibus.</p>
+  </div>
+
+  <div class="article-body">
+    <p># Connecticut Passes One of the Most Comprehensive AI Laws in the Nation</p>
+<p><strong>The Connecticut Artificial Intelligence Responsibility and Transparency Act tackles AI companions, automated hiring tools, and synthetic media in a single sweeping package.</strong></p>
+<p>On May 1, Connecticut lawmakers sent one of the most ambitious state-level AI bills in the country to Governor Ned Lamont's desk. Senate Bill 5, a 67-page omnibus formally titled the Connecticut Artificial Intelligence Responsibility and Transparency Act, cleared the House 131-17 after passing the Senate 32-4 on April 21. The governor has confirmed he will sign it, capping years of contentious debate and a failed attempt in 2025 that collapsed under veto threat.</p>
+<p>The law is not a single regulatory framework but rather a bundle of distinct AI bills stitched together, each targeting a different dimension of artificial intelligence risk: companion chatbots that form emotional bonds with users, automated tools that screen job applicants, and generative AI systems that produce synthetic images and audio indistinguishable from reality.</p>
+<p>"There is no longer doubt that the nature of work, the nature of life, is going to change rapidly with the continued evolution of AI," said Rep. Roland Lemar, D-New Haven, co-chair of the General Law Committee, as floor debate began. "This is about protecting people without stopping that innovation."</p>
+<h2>Three Pillars of Regulation</h2>
+<p><strong>AI Companions and Child Safety.</strong> Beginning January 1, 2027, operators of AI companions must implement evidence-based protocols to detect expressions of suicidal ideation, self-harm, or imminent violence and refer users to mental health resources including the 988 Suicide and Crisis Lifeline. Companions must also disclose clearly and conspicuously that the user is not speaking with a human, with hourly reminders for minors and every three hours for adults.</p>
+<p>The law imposes particularly strict guardrails for users under 18, barring AI companions from engaging in romantic or sexually explicit interactions with minors, encouraging self-harm or substance abuse, offering unauthorized mental health services, or deploying manipulative engagement techniques designed to maximize screen time. Connecticut becomes the seventh state with a companion chatbot law.</p>
+<p><strong>Automated Employment Decisions.</strong> Effective October 1, 2027, any employer deploying automated employment-related decision technology (AEDT) as a substantial factor in hiring, promotion, discipline, or termination must notify affected workers in plain language before any decision is made. The notice must disclose the system's purpose, trade name, data categories and sources, and the employer's contact information. When a decision is adverse, the employer must explain the principal reasons, including how heavily the automated output weighed in the outcome. A separate amendment to Connecticut's anti-discrimination statute, effective October 1, 2026, makes clear that using an automated system is not a defense to a discrimination claim.</p>
+<p><strong>Synthetic Media Provenance.</strong> Generative AI providers with more than one million monthly users must embed machine-readable provenance data into any AI-generated or materially altered audio, image, or video content. The requirement, effective October 1, 2026, calls for methods consistent with the Coalition for Content Provenance and Authenticity (C2PA) standard and demands that provenance data be made difficult to tamper with or remove. Exceptions exist for artistic and satirical works, though even those must carry some form of disclosure.</p>
+<h2>A Deal Years in the Making</h2>
+<p>The path to SB 5 was anything but smooth. A similar bill cleared the Connecticut Senate in 2025 but died after Governor Lamont threatened a veto, worried that overregulation would chase businesses from the state. This year, the bill's lead author, Sen. James Maroney, D-Milford, negotiated directly with Lamont's office, folding in the governor's priorities: a regulatory sandbox program allowing companies to test AI products under relaxed rules, and youth social media protections including a one-hour daily screen-time default and a notification curfew from 9 PM to 8 AM for minors.</p>
+<p>That compromise flipped the governor from adversary to ally. "Parents should be in control of aspects of social media and AI that carry real risks for children's mental health," Lamont spokesperson Cathryn Vaulman said. "Workers should be able to benefit from greater efficiency on the job without fearing discrimination or displacement by AI."</p>
+<p>Attorney General William Tong, who will serve as the primary enforcement authority for most of the bill's provisions, praised the vote. "Artificial intelligence is exploding everywhere, with potential for good intertwined with severe risks," Tong said. "Neither state nor federal law has kept pace with these developments, and today's vote is an important first step towards protecting Connecticut families."</p>
+<h2>Bipartisan but Not Unanimous</h2>
+<p>The bill drew unusual bipartisan support. Several House Republicans spoke in its favor during three hours of floor debate. "This isn't overbearing, we're not stifling innovation," said Rep. David Rutigliano, R-Trumbull. Rep. Joe Hoxha, R-Bristol, was even more emphatic: "I don't want to wait for the federal government. I don't want to wait for regulators, and I don't want to wait for the free market. This is way too important for the youth of this country."</p>
+<p>Not everyone agreed. Rep. Tina Courpas, R-Greenwich, warned the state risked driving away innovation. And Rep. Bill Buckbee, R-New Milford, called the effort "more like theater," adding that he had used AI to generate his own floor questions.</p>
+<h2>Federal Headwinds</h2>
+<p>Connecticut's move arrives against a complicated federal backdrop. President Trump's December 2025 executive order directed the DOJ to challenge state AI laws deemed inconsistent with federal policy. Colorado's AI Act was specifically cited. While Connecticut's child safety provisions likely fall within recognized federal carve-outs, the employment and frontier model whistleblower provisions could face scrutiny.</p>
+<p>The law also includes a frontier model whistleblower provision, protecting employees of developers training models above 10^26 floating-point operations who report catastrophic risks.</p>
+<h2>What Comes Next</h2>
+<p>Most provisions take effect October 1, 2026, with the AI companion rules launching January 1, 2027, and the employment tool requirements following on October 1, 2027. A first-of-its-kind independent verification pilot, set for July 2027, will approve up to five third-party organizations to assess AI models against safety standards.</p>
+<p>Connecticut now joins California, Colorado, and New York as a state willing to act on AI governance without waiting for Washington. With dozens of AI bills pending in statehouses nationwide, SB 5 may prove less an outlier than a bellwether.</p>
+  </div>
+
+  
+<div class="pull-quote">
+  <blockquote>&ldquo;Artificial intelligence is exploding everywhere, with potential for good intertwined with severe risks.&rdquo;</blockquote>
+  <div class="attribution">&mdash; William Tong, Connecticut Attorney General</div>
+</div>
+  <div class="data-strip"><div class="data-cell"><span class="value">131-17</span><span class="label">House vote</span></div><div class="data-cell"><span class="value">32-4</span><span class="label">Senate vote</span></div><div class="data-cell"><span class="value">67 pages</span><span class="label">Bill length</span></div><div class="data-cell"><span class="value">Oct 1, 2026</span><span class="label">Effective date</span></div></div>
+  <div class="sources-section"><h3>Sources</h3><div class="source-item"><img src="https://www.google.com/s2/favicons?domain=dlapiper.com&sz=32" alt="" loading="lazy"><a href="https://www.dlapiper.com/en-us/insights/publications/2026/05/unpacking-connecticuts-new-ai-law" target="_blank" rel="noopener">DLA Piper</a></div><div class="source-item"><img src="https://www.google.com/s2/favicons?domain=ctmirror.org&sz=32" alt="" loading="lazy"><a href="https://ctmirror.org/2026/05/01/artificial-intelligence-house-regulation-passage-ct/" target="_blank" rel="noopener">CT Mirror</a></div><div class="source-item"><img src="https://www.google.com/s2/favicons?domain=dwt.com&sz=32" alt="" loading="lazy"><a href="https://www.dwt.com/blogs/artificial-intelligence-law-advisor/2026/05/ct-ai-transparency-safety-consumer-protection-law" target="_blank" rel="noopener">Davis Wright Tremaine</a></div></div>
+  <div class="story-nav"><a href="09-enterprise-ai-adoption-challenges-2026.html"><span class="dir">Previous</span><span class="title">Enterprise AI Adoption Hits Wall as 79 Percent of Organizations Face Challenges</span></a><a class="next" href="11-ai-deepfake-political-ads-voting.html"><span class="dir">Next</span><span class="title">AI-Generated Deepfake Attack Ads Spread Across Early Voting States</span></a></div>
+</article>
+
+<footer class="site-footer">
+  The Vault AI Edition &middot; May 25, 2026 &middot; Curated by AI, verified by humans
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  var h = document.documentElement;
+  var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+</script>
+</body>
+</html>

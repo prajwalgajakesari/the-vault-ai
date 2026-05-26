@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google TurboQuant Achieves 6x KV Cache Compression With Zero Accuracy Loss | The Vault AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg: #101014;
+  --surface: #18181c;
+  --surface-2: #1e1e24;
+  --border: #2a2a32;
+  --text: #b8b8bf;
+  --text-strong: #ececef;
+  --text-muted: #6b6b76;
+  --business: #e8a735;
+  --llms-genai: #a78bfa;
+  --research: #5eead4;
+  --policy: #fb7185;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--text-strong); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+.top-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(16,16,20,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700; font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  color: var(--text-strong);
+}
+.brand span { color: var(--text-muted); font-weight: 400; }
+.nav-date {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Category tag */
+.cat-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--cat-color) 15%, transparent);
+  color: var(--cat-color);
+}
+
+/* Progress bar */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px; z-index: 200;
+  background: var(--cat-color);
+  width: 0%; transition: width 0.1s linear;
+}
+
+.article-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+.article-header { margin-bottom: 2.5rem; }
+.article-header .cat-tag { margin-bottom: 1rem; }
+.article-header h1 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-strong);
+  margin-bottom: 1rem;
+}
+.article-meta {
+  display: flex; align-items: center; gap: 1.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.article-meta svg { width: 14px; height: 14px; vertical-align: -2px; }
+
+/* Key takeaway */
+.key-takeaway {
+  background: var(--surface);
+  border-left: 3px solid var(--cat-color);
+  border-radius: 0 8px 8px 0;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 2.5rem;
+  font-family: 'DM Sans', sans-serif;
+}
+.key-takeaway .label {
+  font-size: 0.7rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cat-color);
+  margin-bottom: 0.4rem;
+}
+.key-takeaway p {
+  font-size: 0.95rem;
+  color: var(--text-strong);
+  line-height: 1.5;
+}
+
+/* Article body */
+.article-body p { margin-bottom: 1.4rem; }
+.article-body p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 0.85;
+  margin-right: 0.1em;
+  color: var(--text-strong);
+  font-family: 'DM Sans', sans-serif;
+}
+.article-body h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.35rem;
+  color: var(--text-strong);
+  margin: 2.5rem 0 1rem;
+  font-weight: 600;
+}
+.article-body h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-strong);
+  margin: 2rem 0 0.8rem;
+  font-weight: 600;
+}
+.article-body ul {
+  margin: 0 0 1.4rem 1.5rem;
+  list-style: disc;
+}
+.article-body li { margin-bottom: 0.4rem; }
+
+/* Pull quote */
+.pull-quote {
+  border-left: 3px solid var(--cat-color);
+  margin: 2.5rem 0;
+  padding: 1.5rem 2rem;
+  background: var(--surface);
+  border-radius: 0 8px 8px 0;
+}
+.pull-quote blockquote {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--text-strong);
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+.pull-quote .attribution {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Data strip */
+.data-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2.5rem 0;
+}
+.data-cell {
+  background: var(--surface);
+  padding: 1.2rem 1rem;
+  text-align: center;
+}
+.data-cell .value {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cat-color);
+  display: block;
+}
+.data-cell .label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* Sources */
+.sources-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.sources-section h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.source-item {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 0.8rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+}
+.source-item img {
+  width: 20px; height: 20px; border-radius: 4px;
+  background: var(--surface-2);
+}
+.source-item a { color: var(--text); }
+.source-item a:hover { color: var(--text-strong); }
+
+/* Prev/Next nav */
+.story-nav {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.story-nav a {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  max-width: 48%;
+}
+.story-nav a:hover { color: var(--text-strong); }
+.story-nav a .dir {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.story-nav a .title {
+  color: var(--text-strong);
+  font-weight: 500;
+}
+.story-nav .next { text-align: right; margin-left: auto; }
+
+@media (max-width: 600px) {
+  .article-header h1 { font-size: 1.6rem; }
+  .data-strip { grid-template-columns: repeat(2, 1fr); }
+  .story-nav { flex-direction: column; }
+  .story-nav a { max-width: 100%; }
+}
+
+:root { --cat-color: #a78bfa; }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<nav class="top-nav">
+  <a href="../index.html" class="brand">THE VAULT <span>AI Edition</span></a>
+  <span class="nav-date">May 25, 2026</span>
+</nav>
+
+<article class="article-container">
+  <header class="article-header">
+    <div class="cat-tag" style="--cat-color:#a78bfa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs & GenAI</div>
+    <h1>Google TurboQuant Achieves 6x KV Cache Compression With Zero Accuracy Loss</h1>
+    <div class="article-meta">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+      <span>993 words</span>
+      <span>Story #07</span>
+    </div>
+  </header>
+
+  <div class="key-takeaway" style="--cat-color:#a78bfa">
+    <div class="label">Key Takeaway</div>
+    <p>TurboQuant compresses the LLM KV cache to 3-bit precision with zero accuracy loss, 6x memory reduction, 8x speedup on H100s.</p>
+  </div>
+
+  <div class="article-body">
+    <p># Google TurboQuant Achieves 6x KV Cache Compression With Zero Accuracy Loss</p>
+<p><strong>The training-free algorithm squeezes LLM key-value caches down to 3 bits per coordinate, delivering up to 8x faster attention on H100 GPUs — and the open-source community is already running with it.</strong></p>
+<p>The most expensive part of running a large language model is not always the model itself. It is often the memory consumed by the key-value cache — the running ledger of every previous token the model must consult each time it generates a new one. As context windows push past 128,000 tokens, that cache can devour tens of gigabytes of GPU memory, forcing inference providers into brutal tradeoffs between serving more users and supporting longer conversations.</p>
+<p>Google Research has now published a compression algorithm that attacks this bottleneck head-on. TurboQuant, presented at ICLR 2026 in Rio de Janeiro, compresses the KV cache from 16-bit precision down to roughly 3 bits per coordinate — a 6x reduction in memory — with zero measurable accuracy loss on standard benchmarks. On NVIDIA H100 GPUs, the 4-bit variant delivers up to 8x speedup in attention logit computation compared to 32-bit unquantized keys.</p>
+<p>The results are not incremental. They represent a step change in what is possible at inference time.</p>
+<h2>How It Works: Rotation, Then Correction</h2>
+<p>TurboQuant is built from two companion techniques, each peer-reviewed at a top venue. The first, PolarQuant (accepted at AISTATS 2026), applies a random orthogonal rotation to each KV vector. This seemingly simple step has a profound effect: it spreads the energy of each vector uniformly across all coordinates, eliminating the outlier channels that have historically plagued low-bit quantization. Once rotated, every coordinate follows a predictable near-Gaussian distribution, allowing mathematically optimal Lloyd-Max quantization buckets to be computed from probability theory alone — no calibration data, no model-specific tuning.</p>
+<p>The second technique, Quantized Johnson-Lindenstrauss (QJL, published at AAAI 2025), spends just one additional bit per coordinate to correct residual error from the first stage. QJL acts as a mathematical error-checker that preserves the inner-product relationships between vectors — the exact relationships on which attention scores depend.</p>
+<p>"TurboQuant is more than just a practical engineering solution; it is a fundamental algorithmic contribution backed by strong theoretical proofs," wrote Amir Zandieh, Research Scientist, and Vahab Mirrokni, VP and Google Fellow, in the official Google Research blog post announcing the work. The team also noted that the method operates within a factor of approximately 2.7 of the information-theoretic limit for compression — close to the best any algorithm could theoretically achieve.</p>
+<p>Critically, the entire pipeline is data-oblivious: compute the rotation matrix once via QR decomposition, and it works on any transformer model without retraining or fine-tuning.</p>
+<h2>The Numbers That Matter</h2>
+<p>Google evaluated TurboQuant on Llama-3.1-8B-Instruct, Gemma, and Mistral across five standard long-context benchmarks including LongBench, Needle-in-a-Haystack, ZeroSCROLLS, RULER, and L-Eval. At 3.5 bits per value on LongBench, TurboQuant scored 50.06 — identical to the full-precision FP16 baseline. Even at an aggressive 2.5 bits, the score dropped only marginally to 49.44.</p>
+<p>On needle-in-a-haystack retrieval tasks with context lengths up to 104,000 tokens, TurboQuant scored 0.997 at 4x compression — functionally perfect. The algorithm also outperformed KIVI, the previous standard baseline for KV cache quantization published at ICML 2024, while being simpler to implement.</p>
+<p>For vector search workloads, TurboQuant achieved superior recall ratios compared to state-of-the-art methods that relied on larger codebooks and dataset-specific tuning, confirming its robustness beyond the LLM inference use case.</p>
+<h2>Why This Changes the Inference Cost Equation</h2>
+<p>The economics of LLM inference are straightforward: GPU memory is the binding constraint. A 6x reduction in KV cache memory means either serving six times more concurrent users on the same hardware, or extending context windows six times longer at the same concurrency. For cloud inference providers spending millions on H100 clusters, the savings are immediate and material.</p>
+<p>As Vast.ai noted in its analysis of the breakthrough: "TurboQuant matters because it attacks one of the fastest-growing costs in long-context inference: the KV cache." The GPU cloud provider pointed out that workloads previously requiring premium high-VRAM instances could potentially run on cheaper hardware, directly lowering per-token costs.</p>
+<p>The implications extend beyond the data center. Community developers have already built working implementations for llama.cpp, vLLM, and Apple Silicon via MLX — all from the paper alone, since Google has not yet released official code. One llama.cpp implementation demonstrated a 104-billion parameter model running at 128,000-token context on a MacBook with just 74 GB peak memory. An independent developer built a PyTorch version with custom Triton kernels, reporting character-identical output to the uncompressed baseline at 2-bit precision.</p>
+<h2>Market Shock and the Bigger Picture</h2>
+<p>The market took notice before the research community finished digesting the paper. When Google published its blog post on March 25, SK Hynix shares fell 6.23% and Samsung Electronics dropped 4.8% on the Korea Exchange the following day. U.S. memory stocks including Micron and SanDisk also sold off sharply. Analysts largely called the reaction an overreaction, noting that TurboQuant compresses inference-stage working memory only and offers no reduction in the massive memory requirements of model training.</p>
+<p>Still, the broader signal is clear. The AI efficiency race — doing more with less — may prove as consequential as the parameter race. TurboQuant stacks cleanly on top of existing optimizations like PagedAttention for memory management, speculative decoding for latency, and weight quantization techniques like AWQ and GPTQ. Each layer compounds the savings.</p>
+<h2>What to Watch Next</h2>
+<p>Google is expected to release official TurboQuant code around Q2 2026. The real question is adoption: whether vLLM, llama.cpp, and Ollama merge the technique into their mainline releases. Feature requests and pull requests are already open in all three projects. If TurboQuant becomes a default option in the open-source inference stack, it will quietly reshape what hardware is needed to run long-context AI — from cloud clusters down to a single workstation in a small office.</p>
+<p>The parameter race makes headlines. Compression makes deployment possible.</p>
+  </div>
+
+  
+<div class="pull-quote">
+  <blockquote>&ldquo;TurboQuant is more than just a practical engineering solution; it is a fundamental algorithmic contribution backed by strong theoretical proofs.&rdquo;</blockquote>
+  <div class="attribution">&mdash; Amir Zandieh and Vahab Mirrokni, Google Research</div>
+</div>
+  <div class="data-strip"><div class="data-cell"><span class="value">6x</span><span class="label">Memory reduction</span></div><div class="data-cell"><span class="value">8x</span><span class="label">Attention speedup</span></div><div class="data-cell"><span class="value">3-bit</span><span class="label">Precision</span></div></div>
+  <div class="sources-section"><h3>Sources</h3><div class="source-item"><img src="https://www.google.com/s2/favicons?domain=research.google&sz=32" alt="" loading="lazy"><a href="https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/" target="_blank" rel="noopener">Google Research</a></div><div class="source-item"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="" loading="lazy"><a href="https://arxiv.org/abs/2504.19874" target="_blank" rel="noopener">arXiv</a></div></div>
+  <div class="story-nav"><a href="06-openai-codex-mac-control-locked.html"><span class="dir">Previous</span><span class="title">OpenAI Codex Now Controls Mac While Locked Expanding Agent Autonomy</span></a><a class="next" href="08-pentagon-tests-openai-google-defense.html"><span class="dir">Next</span><span class="title">Pentagon Tests OpenAI and Google AI Models to Potentially Replace Claude in Defense</span></a></div>
+</article>
+
+<footer class="site-footer">
+  The Vault AI Edition &middot; May 25, 2026 &middot; Curated by AI, verified by humans
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  var h = document.documentElement;
+  var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+</script>
+</body>
+</html>
