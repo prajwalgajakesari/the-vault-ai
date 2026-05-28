@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dun and Bradstreet Rebuilds Entire Commercial Data Graph So AI Agents Can Query Business Records — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>Dun and Bradstreet Rebuilds Entire Commercial Data Graph So AI Agents Can Query Business Records</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span>925 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>D&B rebuilt its 642-million-company Commercial Graph from human-oriented dashboards to an agent-native knowledge graph with MCP-based access.</p>
+</div>
+<div class="article-body">
+<p>--- headline: "Dun and Bradstreet Rebuilds Entire Commercial Data Graph So AI Agents Can Query Business Records" slug: dun-bradstreet-ai-agent-data-graph category: business story_number: "04" date: 2026-05-27 author: The Vault AI Edition ---</p>
+<p>For nearly two centuries, Dun and Bradstreet has been the definitive source of commercial intelligence, the company behind the D-U-N-S Number that serves as a global business identity standard. Now, the firm has undertaken perhaps the most consequential infrastructure overhaul in its 184-year history: rebuilding its entire Commercial Graph from the ground up so that AI agents, not just human analysts, can query, verify, and act on business records in real time.</p>
+<p>The scale of the problem demanded an equally ambitious solution. D&B's Commercial Graph covers 642 million businesses worldwide, with 11,000 data fields per record spanning corporate hierarchies, ownership structures, risk profiles, and supplier relationships. The database had nearly doubled in five years, growing from roughly 300 million records, and the firm now runs approximately 100 billion data quality checks per month. But the architecture that had reliably served nearly 200,000 enterprise customers was designed for a world in which a credit analyst or compliance officer queried a dashboard and interpreted the results. AI agents cannot do any of those things. They need structured, machine-queryable data with verified entity resolution at every step.</p>
+<h2>The Rebuild: From Fragmented Databases to Unified Knowledge Graph</h2>
+<p>When D&B's customers started pushing agents into credit, procurement, and supply chain workflows, the old architecture became a bottleneck. Gary Kotovets, D&B's Chief Data and Analytics Officer, has been blunt about what he observed across the enterprise landscape. After speaking with hundreds of CDOs and CIOs over recent months, he said the constraint was consistent: companies could not build what they wanted in AI because their data foundations were not standardized, normalized, or agent-queryable.</p>
+<p>"We need to think about agents as our new consumer category, evolving from our standard credit analysts or sales and marketing professionals to also now catering to these customers' agents," Kotovets said.</p>
+<p>The rebuild involved three major engineering efforts. First, D&B migrated its fragmented databases to cloud infrastructure and redesigned the underlying schema. Second, the company built a data fabric layer that normalizes records across markets while preserving regional compliance requirements. Third, the result is a unified knowledge graph that tracks billions of relationships across those 642 million companies, continuously updated and enriched by AI-driven data processing.</p>
+<p>Critically, D&B created a set of tools and skills available through the Model Context Protocol, or MCP, that package data with context and route agents to the right records for specific queries. A match and entity resolution engine sits behind every query, ensuring that when an agent asks about a company, the answer resolves to a verified, specific entity rather than a fuzzy name match. Kotovets has described this as a form of "Know Your Agent, similar to know your customer," adding verification layers so that the system can confirm not just the business being queried, but the identity and permissions of the agent making the request.</p>
+<h2>Anthropic Partnership Puts D&B Data Inside Claude</h2>
+<p>The infrastructure rebuild set the stage for a landmark partnership announced on May 5. D&B and Anthropic are collaborating to embed D&B's proprietary risk data directly inside Claude, Anthropic's AI assistant. By connecting the Commercial Graph to Claude via an MCP server, clients in regulated industries like banking and fintech can build customized know-your-customer and know-your-business workflows in minutes rather than weeks.</p>
+<p>Alex Zuck, General Manager of Risk at Dun and Bradstreet, framed the integration as more than a data feed. "Claude isn't just being given more data; it's being given the verified context and decision logic required to act," Zuck said. The integration allows users to verify business identities across complex ownership structures, evaluate exposure across global supplier networks, automate onboarding agents with real-time risk intelligence, and generate risk decision documentation automatically.</p>
+<p>The D-U-N-S Number serves as the persistent identity anchor throughout, giving Claude a way to reason about corporate ownership and control with a level of specificity that generic web searches cannot match.</p>
+<h2>The Data Readiness Gap</h2>
+<p>D&B's own research underscores why this kind of infrastructure investment matters across the enterprise landscape. The company's AI Momentum Survey, a quarterly study of 10,000 businesses across 32 countries, found that 97 percent of organizations worldwide now report active AI initiatives. But only five percent say their data is adequately ready to support them. Meanwhile, 56 percent plan to increase AI investment over the next 12 months, and 60 percent report at least some measurable ROI from AI deployments, including 24 percent claiming broad or strong returns.</p>
+<p>The implication is clear: the bottleneck for enterprise AI is no longer the model. It is whether the underlying data infrastructure can deliver verified, continuously refreshed business identity across systems at the speed agents require.</p>
+<h2>Why This Matters</h2>
+<p>D&B's rebuild is a bellwether for a broader shift in enterprise data strategy. As agentic AI moves from pilot projects to production workflows, every major data provider will face the same question: was your infrastructure built for humans browsing dashboards, or for machines executing multi-step workflows autonomously? The companies that answer that question first, and rebuild accordingly, will define the plumbing layer of the agentic economy. D&B, with its unique position as the global standard for commercial identity, is betting that being first to offer agent-native access to 642 million business records is a competitive moat that will be difficult to replicate.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>"We need to think about agents as our new consumer category, evolving from our standard credit analysts to also now catering to these customers agents."</blockquote><cite>— Gary Kotovets, Chief Data and Analytics Officer, Dun and Bradstreet</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">642M</div><div class="stat-label">Business records in graph</div></div><div class="stat-cell"><div class="stat-value">11,000</div><div class="stat-label">Data fields per record</div></div><div class="stat-cell"><div class="stat-value">100B</div><div class="stat-label">Quality checks per month</div></div><div class="stat-cell"><div class="stat-value">97%</div><div class="stat-label">Orgs with active AI initiatives</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://venturebeat.com/data/d-and-bs-database-of-642-million-businesses-was-built-for-humans-not-ai-agents-so-they-rebuilt-it" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://www.prnewswire.com/news-releases/dun--bradstreet-brings-risk--compliance-workflows-to-anthropics-claude-302762851.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=prnewswire.com&sz=32" alt="">PR Newswire</a><a href="https://www.pymnts.com/artificial-intelligence-2/2026/dun-bradstreet-partners-with-anthropic-to-automate-business-onboarding/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=pymnts.com&sz=32" alt="">PYMNTS</a></div></div>
+<div class="article-nav"><a href="03-kuaishou-kling-ai-funding-listing.html" class="nav-prev">← Kuaishou in Talks to Raise Funding for Kling AI Vi</a><a href="05-tensormesh-20m-kv-cache-inference.html" class="nav-next">Tensormesh Raises $20 Million to Cut AI Inference  →</a></div>
+<footer>The Vault — AI Edition · Published May 27, 2026</footer>
+<script>window.addEventListener("scroll",function(){let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
