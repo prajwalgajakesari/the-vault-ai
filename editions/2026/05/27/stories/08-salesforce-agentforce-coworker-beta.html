@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Salesforce Ships Agentforce Coworker Embedding AI Teammates Into CRM Search Interfaces — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Salesforce Ships Agentforce Coworker Embedding AI Teammates Into CRM Search Interfaces</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span>890 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Salesforce embeds an autonomous AI agent into every CRM search bar via Agentforce Coworker, letting users converse with their entire CRM in plain language.</p>
+</div>
+<div class="article-body">
+<p>--- title: "Salesforce Ships Agentforce Coworker, Embedding AI Teammates Into CRM Search Interfaces" slug: salesforce-agentforce-coworker-beta category: llms-genai story_number: 8 date: 2026-05-27 ---</p>
+<p>Salesforce is betting that the future of enterprise AI starts in the search bar. On May 21, CEO Marc Benioff unveiled Agentforce Coworker, a beta feature that embeds an autonomous AI agent directly into every Salesforce Global Search interface, turning the humble text field into a conversational gateway to the entire CRM stack.</p>
+<p>The move marks a decisive escalation in the CRM giant's agentic AI strategy, which has already generated $800 million in annualized recurring revenue and $100 million in internal cost savings. With Coworker, Salesforce is attempting something more ambitious than a chatbot overlay: it wants to make the traditional point-and-click CRM interface itself feel optional.</p>
+<h2>What Coworker Actually Does</h2>
+<p>Rather than forcing users to navigate record pages, dashboards, and reports manually, Coworker lets them converse with their CRM in plain language from Global Search. Ask it to summarize an account's recent activity, surface pipeline risks, or draft a follow-up email, and the agent pulls from live CRM data, workflows, customer history, opportunities, and open cases to respond in real time.</p>
+<p>"It doesn't just find things — it works with you," Benioff wrote on X, framing the launch as a step toward eliminating the copy-paste workflows and tab-switching that have defined CRM usage for decades. The tool also extends beyond Salesforce's own interface: Coworker agents can run natively in Slack, Microsoft Teams, and mobile environments, reflecting the company's broader push to meet users wherever they already work.</p>
+<p>Setup is notably streamlined. Administrators navigate to Setup, search for Agentforce Coworker, and click a single "Turn On" button. The system then automatically provisions the Agentforce platform, connects to CRM data, configures search infrastructure, and creates a personalized search agent — a process that takes minutes rather than the days or weeks typical of enterprise AI deployments.</p>
+<h2>Early Reactions: Skepticism Meets Surprise</h2>
+<p>The Salesforce ecosystem's initial response has been a mix of genuine enthusiasm and the usual wariness that accompanies yet another product name from a company with a well-documented renaming habit. Andrew Russo, a prominent Salesforce community voice, captured both sentiments in rapid succession after testing the tool.</p>
+<p>"Agentforce Coworker was able to pull together and navigate our complex sales and ERP data to answer questions that just yesterday would have been 45-60 mins of swivel chairing between screens and systems," Russo wrote on X, a post that caught Benioff's personal attention.</p>
+<p>"I'm freaking speechless at how good it works," Russo told Salesforce Ben. "I expected to write some scathing post making fun of how much it sucked — turns out I'm still trying to break it."</p>
+<p>Not everyone shares that enthusiasm. Discussion threads on Reddit's r/Salesforce subreddit reflect recurring skepticism about whether Coworker represents a genuinely new capability or simply another rebrand of existing Agentforce functionality with a friendlier name — a fair question given the company's track record of relabeling products.</p>
+<h2>The Numbers Behind the Bet</h2>
+<p>Salesforce's confidence in Coworker is backed by hard financial evidence from its broader Agentforce platform. The company has deployed AI agents across its own customer support operations, where they have handled 3 million support conversations and contributed to a year-over-year caseload reduction of 8 percent — more than 170,000 fewer cases — while simultaneously expanding live chat support from zero to seven languages.</p>
+<p>Jim Roth, President of Customer Success at Salesforce, framed the transformation in capacity terms rather than pure cost cutting. "We already know that AI agents can scale our cost structure infinitely, but the real unlock is that they can help us scale our capacity, too," Roth told Fortune. "When our capacity is infinite, we can be proactive and build more incredible customer experiences."</p>
+<p>Externally, Agentforce ARR hit $800 million, up 169 percent year-over-year, with 29,000 deals closed — a 50 percent increase quarter-over-quarter. The platform now counts over 8,000 customers, and Salesforce reports more than $100 million in annualized cost savings across its customer base, alongside a 34 percent productivity increase from agentic and generative AI deployments.</p>
+<p>Perhaps most telling is the "sawdust" experiment Fortune documented in April: Salesforce deployed an AI agent to engage hundreds of thousands of dormant, low-priority leads that human sales teams had effectively written off. The result was significant new pipeline, more than 3,200 influenced opportunities, and closed business from prospects that would otherwise have remained invisible.</p>
+<h2>What It Means for the CRM Market</h2>
+<p>Coworker arrives as part of Salesforce's Summer '26 release cycle and is available immediately in beta for Enterprise, Unlimited, and Agentforce 1 Edition customers. It requires the Data 360 Admin or Architect role for configuration, plus the AI Search Permission Set License for end users.</p>
+<p>The broader strategic signal is clear: Salesforce is systematically making its traditional UI layer a secondary interface. Between Coworker in search, Slack CRM eliminating the need to log into Salesforce directly, and the Headless 360 architecture announced at TDX 2026 — which exposes every platform capability as an API or MCP tool — the company is rebuilding itself as infrastructure that AI agents consume, not screens that humans click through.</p>
+<p>For the thousands of Salesforce administrators, consultants, and developers who make their living configuring and customizing those screens, the message is simultaneously exciting and unsettling. The search bar has always been the simplest part of CRM. Salesforce just made it the most powerful.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"We already know that AI agents can scale our cost structure infinitely, but the real unlock is that they can help us scale our capacity, too."</blockquote><cite>— Jim Roth, President of Customer Success, Salesforce</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">$800M</div><div class="stat-label">Agentforce ARR</div></div><div class="stat-cell"><div class="stat-value">8,000+</div><div class="stat-label">Agentforce customers</div></div><div class="stat-cell"><div class="stat-value">29,000</div><div class="stat-label">Deals closed</div></div><div class="stat-cell"><div class="stat-value">34%</div><div class="stat-label">Productivity increase reported</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.salesforceben.com/salesforce-announces-agentforce-coworker-ai-in-every-search-bar/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=salesforceben.com&sz=32" alt="">Salesforce Ben</a><a href="https://fortune.com/2026/04/18/salesforce-agentforce-ai-efficiency-revenue-growth/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=fortune.com&sz=32" alt="">Fortune</a><a href="https://www.cfodive.com/news/salesforce-says-over-8000-customers-using-new-agentic-ai-platform-agentforce/749362/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cfodive.com&sz=32" alt="">CFO Dive</a></div></div>
+<div class="article-nav"><a href="07-google-search-agents-generative-ui.html" class="nav-prev">← Google Search Enters Agent Era With Background Inf</a><a href="09-openai-50b-infrastructure-2026-senate.html" class="nav-next">OpenAI Tells US It Will Spend $50 Billion on AI In →</a></div>
+<footer>The Vault — AI Edition · Published May 27, 2026</footer>
+<script>window.addEventListener("scroll",function(){let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
