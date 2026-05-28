@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tensormesh Raises $20 Million to Cut AI Inference Latency With KV Cache Reuse Platform — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>Tensormesh Raises $20 Million to Cut AI Inference Latency With KV Cache Reuse Platform</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span>880 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Tensormesh raised $20M from AMD Ventures, NVentures, and CoreWeave to launch its KV cache reuse platform claiming up to 10x reductions in latency and cost.</p>
+</div>
+<div class="article-body">
+<p>--- headline: "Tensormesh Raises $20 Million to Cut AI Inference Latency With KV Cache Reuse Platform" slug: tensormesh-20m-kv-cache-inference category: business story_number: "05" date: 2026-05-27 author: The Vault AI sources:   - name: Tensormesh Blog     url: https://www.tensormesh.ai/blog-posts/tensormesh-raises-20m-launches-inference-platform   - name: SiliconANGLE     url: https://siliconangle.com/2026/05/27/tensormesh-taps-nvidia-amd-coreweave-funding-fix-llm-memory-problems/   - name: HPCwire     url: https://www.hpcwire.com/off-the-wire/tensormesh-raises-20m-launches-ai-inference-platform-built-on-kv-caching/   - name: Morningstar / BusinessWire     url: https://www.morningstar.com/news/business-wire/20260527958597/tensormesh-raises-20m-from-investors-including-amd-ventures-coreweave-nventures-launches-tensormesh-inference-to-fix-ais-most-expensive-problem ---</p>
+<p>Every time an enterprise AI system fields a prompt, its GPUs grind through the same context window from scratch -- system instructions, conversation history, tool definitions, all of it -- even if identical work was completed moments earlier. Tensormesh, a startup born out of distributed-systems research at the University of Chicago, UC Berkeley, and Carnegie Mellon, announced today that it has raised $20 million to make that redundancy a relic of the past.</p>
+<p>The round, which extends the company's seed financing to a total of $24.5 million, drew strategic participation from AMD Ventures, NVentures (NVIDIA's venture capital arm), and CoreWeave, alongside venture firms Valley Capital Partners and Laude Ventures. Alongside the funding, Tensormesh announced the general availability of Tensormesh Inference, its flagship SaaS platform that stores and reuses the intermediate computations large language models generate -- a technique known as key-value (KV) caching -- to eliminate redundant GPU work.</p>
+<p>The company claims the approach can deliver up to 10x reductions in both latency and GPU spend, a bold figure that becomes more plausible in the context of agentic AI workflows, where multi-step reasoning loops repeatedly reprocess overlapping context windows at full cost.</p>
+<h2>The Problem: AI's Amnesia Tax</h2>
+<p>Traditional LLM inference treats every incoming request as a blank slate. A chatbot engaged in a long conversation, an agent cycling through tool calls, or an application analyzing a document it has already seen -- each must recompute the entire context window from the first token. The computational waste scales with the complexity of the workload: the more capable the agent, the larger the context window, and the more GPU cycles burned on work that has already been done.</p>
+<p>Tensormesh calls this the "amnesia tax," and its platform is designed to eliminate it. By persisting KV cache data -- the intermediate numerical representations that LLMs produce while processing input tokens -- Tensormesh allows subsequent requests to skip straight to the new information, serving repeated context instantly rather than reprocessing it.</p>
+<p>"Behind the term KV cache is a whole concept of AI interpretation of the question it is asked. This makes it a whole new class of data," said Junchen Jiang, co-founder and CEO of Tensormesh, who is also a University of Chicago faculty member and co-creator of LMCache, the open-source project that underpins the platform.</p>
+<h2>Strategic Backers Signal Infrastructure Conviction</h2>
+<p>The investor roster is notable less for the dollar amount than for who is writing the checks. AMD, NVIDIA, and CoreWeave are not passive financial participants -- they are the companies that build the GPUs and operate the AI clouds where inference workloads actually run. Their involvement signals a shared belief that KV caching is not a niche optimization but a foundational layer of the emerging AI infrastructure stack.</p>
+<p>"As enterprises scale AI workloads, maximizing every GPU cycle is critical. Software innovations like KV caching are a powerful complement to raw accelerator performance," said Ramine Roane, corporate vice president of AI at AMD. The funds will be used to deepen hardware-level integrations with all three strategic investors and accelerate product development.</p>
+<p>CoreWeave co-founder Brannin McBee framed the investment in similar terms, noting that Tensormesh is tackling infrastructure challenges that affect both the economics and scalability of AI at the foundational level.</p>
+<h2>Inside the Product</h2>
+<p>Tensormesh Inference ships with a pricing model that reflects the underlying technology: cached input tokens are billed at zero dollars -- not as a promotional offer, but as a permanent feature of the platform's economics. When a request hits the KV cache, the enterprise pays nothing for the cached portion of the input.</p>
+<p>The platform offers two deployment modes. A serverless API provides immediate, OpenAI-compatible access to frontier models with no infrastructure provisioning. Reserved deployments cater to enterprises running AI at scale that need dedicated capacity and custom service-level agreements.</p>
+<p>A real-time Cost Savings Dashboard tracks cache hit rates and converts them into dollar figures, giving engineering teams visibility into exactly how much redundant computation they are avoiding. According to the company, well-optimized deployments regularly achieve cache hit rates above 70 percent, meaning more than two-thirds of prompt tokens are served from storage rather than recomputed.</p>
+<p>The platform is built on LMCache, the open-source KV caching project that Jiang co-created and that now counts more than 8,000 GitHub stars, with integrations across vLLM, SGLang, TensorRT, NVIDIA Dynamo, AWS SageMaker, and Oracle OCI Data Science. Tensormesh has committed to continuing its open-source contributions as part of its product roadmap.</p>
+<h2>Market Context</h2>
+<p>The funding arrives at a moment when inference costs have become the dominant line item in enterprise AI budgets. Model training is a one-time capital expenditure; inference is an ongoing operational cost that scales with every user, every agent loop, and every API call. Any technology that materially reduces that cost while simultaneously cutting latency addresses what may be the single largest economic bottleneck in production AI.</p>
+<p>Tensormesh is not the only company working on inference optimization, but its approach -- treating cached intermediate state as a persistent, reusable asset rather than ephemeral data to be discarded -- carves out a distinct position. If KV caching proves as consequential as its backers believe, the company's head start and open-source credibility could make it a defining player in the next layer of the AI stack.</p>
+<p>As Valley Capital Partners founder Steve O'Hara, who sits on Tensormesh's board, put it: KV caching represents one of the most consequential opportunities in AI infrastructure today, and Tensormesh has built the only platform making this technology production-ready for the enterprise.</p>
+<p>Tensormesh Inference is available now at tensormesh.ai. The company is based in Foster City, California.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>"Behind the term KV cache is a whole concept of AI interpretation of the question it is asked. This makes it a whole new class of data."</blockquote><cite>— Junchen Jiang, Co-founder and CEO, Tensormesh</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">$20M</div><div class="stat-label">New funding raised</div></div><div class="stat-cell"><div class="stat-value">10x</div><div class="stat-label">Claimed latency reduction</div></div><div class="stat-cell"><div class="stat-value">70%+</div><div class="stat-label">Cache hit rates achieved</div></div><div class="stat-cell"><div class="stat-value">8,000+</div><div class="stat-label">GitHub stars on LMCache</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.tensormesh.ai/blog-posts/tensormesh-raises-20m-launches-inference-platform" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tensormesh.ai&sz=32" alt="">Tensormesh Blog</a><a href="https://siliconangle.com/2026/05/27/tensormesh-taps-nvidia-amd-coreweave-funding-fix-llm-memory-problems/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=siliconangle.com&sz=32" alt="">SiliconANGLE</a><a href="https://www.hpcwire.com/off-the-wire/tensormesh-raises-20m-launches-ai-inference-platform-built-on-kv-caching/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=hpcwire.com&sz=32" alt="">HPCwire</a></div></div>
+<div class="article-nav"><a href="04-dun-bradstreet-ai-agent-data-graph.html" class="nav-prev">← Dun and Bradstreet Rebuilds Entire Commercial Data</a><a href="06-google-gemini-35-flash-omni-io.html" class="nav-next">Google Launches Gemini 3.5 Flash and Gemini Omni M →</a></div>
+<footer>The Vault — AI Edition · Published May 27, 2026</footer>
+<script>window.addEventListener("scroll",function(){let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
