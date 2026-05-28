@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Four Chinese Labs Ship Open-Weight Coding Models Matching Western Frontier Performance in 12-Day Sprint — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Four Chinese Labs Ship Open-Weight Coding Models Matching Western Frontier Performance in 12-Day Sprint</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span>911 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Four Chinese labs shipped open-weight coding models within 12 days that cluster within 3-6 points of Western frontier systems on SWE-Bench Pro, at one-third or less the inference cost.</p>
+</div>
+<div class="article-body">
+<p>--- headline: "Four Chinese Labs Ship Open-Weight Coding Models Matching Western Frontier Performance in 12-Day Sprint" slug: chinese-open-weight-coding-models-sprint category: research story_number: 12 date: 2026-05-27 ---</p>
+<p>Between April 12 and April 24, four Chinese AI laboratories released open-weight coding models in rapid succession, each targeting the autonomous, multi-step programming workflows that enterprise teams increasingly rely on — and each arriving at roughly one-third the inference cost of Western closed-model alternatives. The sprint marks the most compressed wave of frontier-competitive open-weight releases the industry has seen, and it is reshaping how engineering organizations think about their AI procurement stack.</p>
+<p>Z.ai (formerly Zhipu AI) kicked off the sequence with <strong>GLM-5.1</strong>, a 754-billion-parameter mixture-of-experts model released under the MIT license. <strong>MiniMax</strong> followed with <strong>M2.7</strong>. Days later, Moonshot AI dropped <strong>Kimi K2.6</strong>, a one-trillion-parameter vision-language model. And on April 24, <strong>DeepSeek</strong> closed the window with <strong>V4</strong>, offered in two variants: V4 Pro at 1.6 trillion total parameters (49 billion active) and V4 Flash at 284 billion total parameters (13 billion active).</p>
+<h2>The benchmark picture</h2>
+<p>The numbers tell a story of convergence rather than dominance. On SWE-Bench Pro, the benchmark most closely tied to real-world agentic coding, Kimi K2.6 briefly topped the open-weight leaderboard at 58.6 percent on April 21. GLM-5.1, DeepSeek V4, and MiniMax M2.7 all cluster within roughly 3.2 percentage points of that mark. On agentic real-world coding task scores tracked by Artificial Analysis, DeepSeek V4 Pro leads the Chinese cohort at 1,554, followed by GLM-5.1 at 1,535 and MiniMax M2.7 at 1,514.</p>
+<p>But the frontier did not stand still while the open-weight wave was building. Anthropic shipped Claude Opus 4.7 on April 16 — squarely in the middle of the Chinese release window — and it holds the top publicly available SWE-Bench Pro position at 64.3 percent. OpenAI released GPT-5.5 on April 23, one day before DeepSeek V4, and it leads SWE-Bench Verified at 88.7 percent. DeepSeek V4 Pro scores 80.6 percent on SWE-Bench Verified, within 0.2 points of Claude Opus 4.6 and closing fast on GPT-5.5.</p>
+<p>"The headline writes itself: China caught up. The headline is half right," wrote analyst Can Demir in a detailed assessment of the sprint published on Medium. "The benchmark gap narrowed; it did not close."</p>
+<h2>The real story is cost</h2>
+<p>Where the Chinese open-weight tier pulls decisively ahead is economics. All four models price inference at no more than one-third of Claude Opus 4.7, and in high-volume production pipelines the gap widens further. Kimi K2.6 offers what Moonshot AI describes as a 3.6x cost advantage over Claude Opus 4.7 on equivalent coding tasks. DeepSeek V4 Pro is free to use through chat.deepseek.com with no paid tier required.</p>
+<p>For AI-native startups running autonomous coding loops at scale, the arithmetic is hard to argue with. A team executing tens of thousands of agentic coding calls per day can cut its inference bill by 70 to 90 percent by switching from closed Western APIs to the open-weight Chinese models — assuming the five-to-six-point SWE-Bench Pro gap is acceptable for their use case.</p>
+<p>"The question for enterprise teams is not whether these models are good enough; benchmarks confirm they are," noted Digital Bright Future in its analysis of the wave. "The question is whether your infrastructure, compliance posture, and vendor risk appetite can accommodate them."</p>
+<h2>Architecture and licensing divergence</h2>
+<p>The four models are not interchangeable. DeepSeek V4 Pro's 1.6-trillion-parameter architecture and its Flash variant give teams a choice between maximum capability and optimized latency. GLM-5.1's MIT license is the most permissive of the four, making it the default choice for enterprises that need full weights access without commercial restrictions. Kimi K2.6's vision-language capabilities extend beyond pure code generation into multimodal agent workflows. MiniMax M2.7 continues that lab's focus on multimodal strengths while staying competitive on coding benchmarks.</p>
+<p>Alibaba's Qwen 3.6, released on April 21, adds a fifth data point from the broader Chinese ecosystem. At 27 billion parameters with an Apache 2.0 license, it scores 77.2 percent on SWE-Bench Verified and 53.5 percent on SWE-Bench Pro — slightly below the big four but at a fraction of the compute cost, making it the most practical option for teams that need to self-host on modest hardware.</p>
+<h2>Geopolitical signal</h2>
+<p>The compressed timeline carries a message beyond model capability. Four major labs shipping within 12 days of each other signals coordination — or at minimum, a shared awareness that the window for demonstrating parity with Western frontier systems was narrow and needed to be seized together. It is, as multiple analysts have noted, a statement that U.S. chip export controls have not produced the capability gap they were intended to create.</p>
+<p>The practical consequence for engineering leaders is straightforward: the open-weight coding tier is now good enough for the majority of production use cases, the cost advantage is structural rather than promotional, and the licensing terms are in several cases more permissive than anything available from Western labs. The remaining gap — five to six points on the hardest agentic benchmarks — is real, but it is shrinking with each release cycle.</p>
+<p>The inference cost war that began with DeepSeek R1 in January 2025 has entered a new phase. The question is no longer whether open-weight models can compete with closed frontier systems on coding tasks. It is how long the closed-model premium can justify itself when four viable alternatives arrive in less than two weeks.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"The headline writes itself: China caught up. The headline is half right. The benchmark gap narrowed; it did not close."</blockquote><cite>— Can Demir, AI analyst and engineer</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">58.6%</div><div class="stat-label">Kimi K2.6 SWE-Bench Pro score</div></div><div class="stat-cell"><div class="stat-value">64.3%</div><div class="stat-label">Claude Opus 4.7 SWE-Bench Pro</div></div><div class="stat-cell"><div class="stat-value">1/3</div><div class="stat-label">Max cost vs Claude Opus 4.7</div></div><div class="stat-cell"><div class="stat-value">12 days</div><div class="stat-label">Window all four models shipped</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://digitalbrightfuture.com/best-open-source-coding-models-2026/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=digitalbrightfuture.com&sz=32" alt="">Digital Bright Future</a><a href="https://medium.com/@candemir13/three-weeks-four-chinese-coding-models-whats-actually-real-and-what-s-overstated-4cb58199e83d" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=medium.com&sz=32" alt="">Can Demir / Medium</a><a href="https://nerdleveltech.com/china-open-weight-coding-models-cost-war" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nerdleveltech.com&sz=32" alt="">Nerd Level Tech</a></div></div>
+<div class="article-nav"><a href="11-genai-outperforms-humans-creativity.html" class="nav-prev">← Study of 100,000 People Finds Generative AI Now Ou</a><a href="13-china-ai-researcher-travel-restrictions.html" class="nav-next">China Widens Travel Restrictions on AI Researchers →</a></div>
+<footer>The Vault — AI Edition · Published May 27, 2026</footer>
+<script>window.addEventListener("scroll",function(){let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
