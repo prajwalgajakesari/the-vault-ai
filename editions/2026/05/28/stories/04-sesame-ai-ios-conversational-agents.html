@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sesame AI From Oculus Founders Launches iOS App With Personalized Conversational Agents — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</span>
+  <h1>Sesame AI From Oculus Founders Launches iOS App With Personalized Conversational Agents</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span>763 words</span>
+    <span>2 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Sesame backed by $322M launched a free iOS app featuring four personalized voice AI agents across 39 countries.</p>
+</div>
+<div class="article-body">
+<p><strong>Category:</strong> llms-genai | <strong>Story:</strong> 04 | <strong>Date:</strong> May 28, 2026</p>
+<p>---</p>
+<p>Sesame, the conversational AI startup co-founded by former Oculus CEO Brendan Iribe, dropped its iOS app into public preview on Thursday — bringing four distinctly personalized AI agents to iPhone users across 39 countries and putting itself squarely in the crosshairs of every voice-mode feature OpenAI and Google have been racing to ship.</p>
+<p>The app is the most public test yet of a vision the company has been quietly assembling since 2023: that the next computing interface is not a chatbox, but a voice companion that remembers you, adapts to you, and eventually lives on hardware you wear on your face. After raising a total of $322 million — including a $250 million Series B led by Sequoia Capital and Spark Capital announced in October 2025 that pushed the company’s valuation past $1 billion — Sesame is now betting that the iPhone can serve as the on-ramp to something far more ambitious.</p>
+<h2>Four Agents, One Big Bet on Voice</h2>
+<p>The app introduces four AI agents named Maya, Miles, Simone, and Charlie, each engineered with a distinct voice, personality, and accumulated memory. The characters are not merely cosmetic differentiators. Sesame says each agent maintains continuous memory across both voice and text sessions, meaning a conversation started over lunch can pick up seamlessly that evening without the user having to recap context. A new incognito mode lets users have ephemeral sessions that tap existing memory without saving anything new — a nod to growing user anxiety around AI data retention.</p>
+<p>The underlying technology is built around a proprietary real-time voice model that generates speech directly rather than converting large language model text output into audio after the fact. The distinction matters for naturalness: Sesame claims its system can run multiple parallel web searches while speaking, weaving fresh results into its responses mid-sentence rather than pausing to retrieve them. As the company put it in its launch blog post, “There’s an inherent tension between replying quickly and taking the time to compose thoughtful responses. A slower response is usually more correct, but it can also feel unnatural if it takes too long.” The parallel retrieval architecture is Sesame’s answer to that tension.</p>
+<p>Beyond conversation, agents can search the web and surface image-rich search cards, create and save notes, set reminders, and generate summaries of deep-dive topics — functionality that begins to blur the line between companion and productivity tool. The full experience is free during the preview period, though the company warns there may be a short waitlist at sign-up.</p>
+<h2>From a Million Users to a Mass-Market App</h2>
+<p>Sesame’s public launch arrives with meaningful early-signal data already in hand. When the company published a research demo of Maya and Miles in February 2025, more than one million people engaged with the characters in the first few weeks alone, generating over five million minutes of conversation — numbers that helped convince Sequoia to co-lead the Series B. “We spent hours talking to Maya and Miles, and the experience was unlike anything we’d used before,” wrote Sequoia partners Roelof Botha and David Cahn in their investment announcement. “We kept coming back, not because we needed to — but because we wanted to.”</p>
+<p>That pull-factor is precisely what Sesame’s co-founder and CEO Brendan Iribe is trying to engineer at scale. Iribe previously shepherded Oculus from startup to a $2 billion acquisition by Facebook in 2014. His co-founder, Ankit Kumar, previously served as CTO of AR startup Ubiquity6, giving the leadership team a rare combination of consumer hardware credibility and spatial computing experience. Oculus co-founder Nate Mitchell has also joined Sesame as chief product officer, deepening the hardware bench as the company eyes its next platform.</p>
+<h2>Why This Matters Beyond the App Store</h2>
+<p>Sesame’s iOS launch lands at a moment when every major AI lab is chasing the same prize: a voice interface that feels genuinely human rather than mechanically responsive. OpenAI has been iterating on Advanced Voice Mode in ChatGPT; Google has been pushing Gemini Live; Apple has been overhauling Siri with third-party LLM integrations. What distinguishes Sesame’s approach is its outright rejection of the assistant paradigm. These are not tools that wait to be prompted — they are characters engineered for sustained, emotionally resonant dialogue.</p>
+<p>That framing positions Sesame less as a ChatGPT competitor and more as a bet that the AI companion category — already validated in narrow form by apps like Character.AI — is ready to go mainstream with a more sophisticated, memory-driven architecture. The company’s decision to call its products ‘agents’ rather than chatbots also signals where it intends to go: toward autonomous action on behalf of the user, not just response generation. Sesame has openly hinted that the agents will eventually be able to take actions — booking appointments, managing tasks — rather than merely discussing them.</p>
+<p>The harder play is hardware. Sesame has been explicit that the phone is a staging ground. The company plans to embed its agents into lightweight AI-enabled eyewear it designs and manufactures itself, targeting a 2027 launch. Sequoia’s investment memo described the glasses as ‘intentionally crafted — fit for everyday life’ and noted that ‘fashion will matter here.’ It is a direct play for territory Meta has been cultivating with Ray-Ban smart glasses — except Sesame intends to own the AI model, the voice layer, and the hardware simultaneously, rather than relying on a third-party model provider.</p>
+<h2>What to Watch Next</h2>
+<p>The preview’s free pricing is a deliberate land-grab. Sesame needs to build habit and memory depth with users before it can charge for either the software or the eventual hardware. Watch for how quickly the company moves to introduce a subscription tier — and what capabilities it gates behind it. The Android preview, which Sesame says is coming but has not dated, will be the next indicator of how broadly the company intends to compete before its glasses reach consumers. With $322 million raised and a valuation nudging past $1 billion, Sesame has enough runway to reach 2027 — but the clock is already running on a hardware bet that will require flawless execution from a team that, whatever its pedigree, has never shipped a consumer wearable under the Sesame name.</p>
+<p>---</p>
+<p><em>Sources: TechCrunch, Sequoia Capital, TestingCatalog, NewsBytesApp, Mezha</em></p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"We kept coming back, not because we needed to but because we wanted to."</blockquote><cite>— Roelof Botha and David Cahn, Partners, Sequoia Capital</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">$322M</div><div class="stat-label">Total funding raised</div></div><div class="stat-cell"><div class="stat-value">39</div><div class="stat-label">Countries at launch</div></div><div class="stat-cell"><div class="stat-value">1M+</div><div class="stat-label">Early preview users</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techcrunch.com/2026/05/28/sesame-the-conversational-ai-startup-from-oculus-founders-launches-its-ios-app/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://sequoiacap.com/article/partnering-with-sesame-a-new-era-for-voice/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=sequoiacap.com&sz=32" alt="">Sequoia Capital</a></div></div>
+<div class="article-nav"><a href="03-cohere-aleph-alpha-20b-sovereign-ai.html" class="nav-prev">← Cohere Acquires Aleph Alpha to Create $20 Billion ...</a><a href="05-apple-ios-27-siri-gemini-overhaul.html" class="nav-next">Apple Prepares Radical Siri Overhaul for iOS 27 Wi... →</a></div>
+<footer>The Vault — AI Edition · Published May 28, 2026</footer>
+<script>window.addEventListener("scroll",function(){let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
