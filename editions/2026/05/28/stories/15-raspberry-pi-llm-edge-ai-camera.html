@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Raspberry Pi Publishes Guide to Running LLMs at the Edge With AI Camera Integration — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Raspberry Pi Publishes Guide to Running LLMs at the Edge With AI Camera Integration</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span>878 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Raspberry Pi May 26 tutorial combines its AI Camera with LLMs in a local VLM pipeline enabling privacy-preserving on-device AI inference.</p>
+</div>
+<div class="article-body">
+<p><em>By The Vault AI Edition | May 28, 2026</em></p>
+<p>---</p>
+<p>The humble Raspberry Pi just got a whole lot smarter. On May 26, Raspberry Pi published a detailed hands-on tutorial showing developers exactly how to pair its dedicated AI Camera with large language models — all running locally on the device, with no cloud connection required. The guide, written by Lucy Hattersley, editor of <em>Raspberry Pi Official Magazine</em>, marks a practical milestone in the broader push toward on-device AI inference that has been gaining momentum throughout 2026.</p>
+<p>The tutorial demonstrates what engineers are increasingly calling vision-language models (VLMs): systems that combine real-time visual object detection with the natural-language reasoning capabilities of LLMs. The result is a pipeline where the Raspberry Pi AI Camera continuously processes its sensor feed, outputs structured inference metadata, and passes that data to a language model that interprets the results in plain English — all without a single frame of video ever leaving the device.</p>
+<h2>From Raw Pixels to Plain English, On-Device</h2>
+<p>The technical stack Hattersley describes is deliberately minimal. The Raspberry Pi AI Camera, which houses Sony's IMX500 image sensor with on-chip AI processing, handles the heavy compute of object detection locally on the sensor itself. Rather than streaming high-bandwidth video, it outputs compact structured metadata — confidence-scored labels like `{Person (0.92), Cat (0.87), Box (0.82)}` — which are then routed to an LLM via the OpenAI API.</p>
+<p>The code is tightly practical. A `git clone` of the tutorial repository, a Python virtual environment, and two `pip install` commands (`modlib` and `openai`) are all that stand between a developer and a working VLM pipeline. Once running, the system produces natural-language outputs: "At 14:23, one person is in the living room with the cat. A box is in the room as well."</p>
+<p>The prompt on a single line of code is the only thing that changes across the tutorial's three example applications — smart home observer, retail shelf monitor, and factory floor safety watcher — underscoring how flexible the architecture is. The factory floor variant, for instance, checks whether warehouse workers are wearing high-visibility jackets, emitting natural-language alerts when someone is out of compliance: "Warning: one worker is not wearing a high-vis."</p>
+<p>"These powerful new systems are being called vision-language models," Hattersley wrote. "This approach lets you build systems that describe and reason about the physical world using natural language. All without streaming video to the cloud, helping to keep your capture private and reduce the burden of GDPR compliance."</p>
+<h2>Privacy Is the Killer Feature</h2>
+<p>The privacy angle is not incidental. It is the core value proposition. By keeping inference entirely local — sensor to metadata to LLM summary, all on the Pi — the tutorial sidesteps the regulatory and security headaches that have made cloud-dependent computer vision systems difficult to deploy in sensitive environments.</p>
+<p>That framing aligns with a broader trend analysts have been tracking all year. According to research published by the Edge AI and Vision Alliance in January 2026, the field has moved from treating on-device LLMs as a novelty to treating them as a practical engineering discipline with a well-developed toolkit. The Alliance's analysis, authored by Meta AI researcher Vikas Chandra and Raghuraman Krishnamoorthi, identifies four primary drivers pushing inference to the edge: latency (cloud round-trips add hundreds of milliseconds, breaking real-time experiences), privacy (data that never leaves the device cannot be breached), cost (shifting inference to user hardware reduces cloud serving costs at scale), and availability (local models function without any connectivity).</p>
+<p>"Phones didn't become GPUs," the Edge AI and Vision Alliance report concluded. "The field learned to treat memory bandwidth, not compute, as the binding constraint, and to build smaller, smarter models designed for that reality from the start."</p>
+<p>Raspberry Pi's tutorial is a direct embodiment of that philosophy applied to sub-$100 hardware.</p>
+<h2>Hardware Momentum Behind the Tutorial</h2>
+<p>The timing of the guide is no accident. Earlier this year, Raspberry Pi launched the AI HAT+ 2 — a $130 add-on board for the Raspberry Pi 5 that packs Hailo's 10H neural processing unit delivering 40 TOPS of INT4 inference performance. Reviews from CNX Software confirmed that the hardware can run vision models such as YOLOv8m for object detection and a language model in parallel, enabling multimodal applications that describe camera content in real time. Benchmark testing showed models like Llama 3.2 running at 30–50 tokens per second on the module, fully offline, without loading the Pi 5's CPU at all.</p>
+<p>The May 26 tutorial does not require the AI HAT+ 2 — it routes LLM calls to OpenAI's API over the network, using the AI Camera purely for local vision inference. But the combination points toward a near-term future where even the LLM step moves fully on-device. Models available at AI HAT+ 2 launch included DeepSeek-R1-Distill, Llama 3.2, Qwen2.5-Coder, and Qwen2.5-Instruct, with the majority running at 1.5 billion parameters.</p>
+<h2>Democratization at Scale</h2>
+<p>What makes the Raspberry Pi tutorial significant beyond the technical details is its accessibility. The Raspberry Pi platform has historically served as the on-ramp for millions of hobbyists, educators, and small-scale industrial developers who lack the resources of large tech firms. By publishing a working, five-command setup guide for a VLM pipeline, Raspberry Pi is effectively democratizing a class of AI deployment that until recently required specialized expertise and significant infrastructure.</p>
+<p>The applications Hattersley chose to illustrate are deliberately mundane in the best sense: home monitoring, inventory management, workplace safety compliance. None requires a data science team to deploy. Each could realistically be built and maintained by a single developer with a Raspberry Pi and a camera module.</p>
+<p>That accessibility has implications for industries where AI adoption has been slow precisely because cloud-dependent systems were too complex, too expensive, or too legally fraught. A local-inference VLM pipeline consuming minimal bandwidth and generating no cloud data footprint removes most of those objections at once.</p>
+<h2>A Note on the Architecture</h2>
+<p>Developers reading the tutorial closely will notice that Hattersley uses `modlib` — Raspberry Pi's Application Module Library — rather than the `picamera2` library used in earlier guides. In the comments section of the post, she clarified the distinction: modlib provides access to the SSDMobileNetV2FPNLite320x320 model, which is lighter than the IMX500 default, and better suited for this particular metadata-to-LLM pipeline. "This is not 'the new way'," she noted. "Just a horse for this particular course."</p>
+<p>That kind of pragmatic model selection — choosing the smallest capable model for each specific task — is itself emblematic of the broader engineering discipline the edge AI field has developed. Sub-billion parameter models now handle many practical tasks that once required much larger architectures, a shift the Edge AI and Vision Alliance attributes to improved training methodology, high-quality synthetic data, and distillation from larger teacher models.</p>
+<h2>What Comes Next</h2>
+<p>The tutorial is explicitly a starting point. Hattersley's GitHub repository (`lucyhattersley/aicam_llm`) ships multiple example scripts with the prompt as the only variable, inviting developers to substitute their own use cases. The combination of a standardized hardware platform, a minimal software stack, and a single configurable prompt creates an unusually low floor for experimentation.</p>
+<p>As the Raspberry Pi ecosystem continues adding dedicated AI acceleration hardware — and as smaller language models continue improving on constrained hardware — the gap between what is possible in a cloud data center and what is possible on a low-cost board will keep narrowing. Tuesday's tutorial is a practical demonstration of how far that gap has already closed, and a blueprint for the next wave of privacy-preserving AI deployments in homes, factories, and retail floors around the world.</p>
+<p>---</p>
+<p><em>Sources: <a href="https://www.raspberrypi.com/news/bringing-llms-to-the-edge/" target="_blank" rel="noopener">Raspberry Pi News</a> | <a href="https://www.edge-ai-vision.com/2026/01/on-device-llms-in-2026-what-changed-what-matters-whats-next/" target="_blank" rel="noopener">Edge AI and Vision Alliance</a> | <a href="https://www.cnx-software.com/2026/01/20/raspberry-pi-ai-hat-2-review-a-40-tops-ai-accelerator-tested-with-computer-vision-llm-and-vlm-workloads/" target="_blank" rel="noopener">CNX Software</a></em></p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"This approach lets you build systems that describe and reason about the physical world using natural language. All without streaming video to the cloud."</blockquote><cite>— Lucy Hattersley, Editor, Raspberry Pi Official Magazine</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">40 TOPS</div><div class="stat-label">AI HAT+ 2 inference performance</div></div><div class="stat-cell"><div class="stat-value">$130</div><div class="stat-label">AI HAT+ 2 module price</div></div><div class="stat-cell"><div class="stat-value">30-50 tok/s</div><div class="stat-label">Llama 3.2 speed offline</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.raspberrypi.com/news/bringing-llms-to-the-edge/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=raspberrypi.com&sz=32" alt="">Raspberry Pi</a><a href="https://www.edge-ai-vision.com/2026/01/on-device-llms-in-2026-what-changed-what-matters-whats-next/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=edge-ai-vision.com&sz=32" alt="">Edge AI Vision Alliance</a><a href="https://www.cnx-software.com/2026/01/20/raspberry-pi-ai-hat-2-review-a-40-tops-ai-accelerator-tested-with-computer-vision-llm-and-vlm-workloads/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnx-software.com&sz=32" alt="">CNX Software</a></div></div>
+<div class="article-nav"><a href="14-big-four-consulting-claude-enterprise-standard.html" class="nav-prev">← All Big Four Consulting Firms Now Betting on Claud...</a></div>
+<footer>The Vault — AI Edition · Published May 28, 2026</footer>
+<script>window.addEventListener("scroll",function(){let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
