@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Microsoft Build 2026 Previews Windows Agent Framework and Copilot Autonomous Mode — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style>
+</head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Microsoft Build 2026 Previews Windows Agent Framework and Copilot Autonomous Mode</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 995 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Microsoft is repositioning Windows as an agent-native operating system with new Agent Framework APIs, Agent Store, and multi-model Azure AI Foundry support.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Microsoft Build 2026 Previews Windows Agent Framework and Copilot Autonomous Mode"
+slug: microsoft-build-2026-windows-agent-preview
+category: llms-genai
+story_number: "07"
+date: 2026-05-30
+---</p>
+<p># Microsoft Build 2026 Previews Windows Agent Framework and Copilot Autonomous Mode</p>
+<p>Microsoft Build 2026 opens in three days, and the company is not being subtle about its ambitions. When Satya Nadella takes the keynote stage on June 2 at Fort Mason Center in San Francisco, the message will be unmistakable: Windows is no longer just an operating system for running applications. It is becoming an orchestration layer for autonomous AI agents -- and Microsoft wants developers to start building for that future immediately.</p>
+<p>The two-day conference, running June 2-3 with free online streaming and roughly 2,500 in-person attendees, represents the most agent-focused Build in the event's history. Seven session tracks span the catalog, but the throughline connecting every one is a single word: agents.</p>
+<h2>Windows Agent Framework: The OS as Agent Runtime</h2>
+<p>The centerpiece announcement is the Windows Agent Framework, a new set of APIs that embed autonomous AI agents directly into the Windows shell, task scheduler, and security model. Microsoft is open-sourcing WAF under an MIT license, inviting community contributions to what it envisions as the foundational layer for agent-native Windows development.</p>
+<p>WAF abstracts agent lifecycle management -- creation, execution, monitoring, and termination -- into libraries and services developers can integrate without building their own orchestration infrastructure. The framework includes a Windows Agent Runtime for executing agents within the OS security sandbox, deep Windows 365 integration for scalable cloud-hosted agent execution, and WSL 3 with NPU passthrough for AI workloads running on Linux within Windows.</p>
+<p>At the conference's closing panel, CTO Kevin Scott reiterated that "this is the beginning of a multi-year journey to fully realize the agent-native OS." The framing is deliberate: Microsoft is not treating agents as a feature bolted onto Windows. It is rebuilding the platform assumption around the idea that software will soon be built for people, copilots, and autonomous agents simultaneously.</p>
+<h2>Copilot Agent Mode: Multi-Step Coding With Sub-Agents</h2>
+<p>GitHub Copilot is getting its most significant upgrade since the autonomous coding agent launched at Build 2025. The new Copilot Agent Mode transforms Copilot into a meta-agent capable of multi-step coding workflows inside VS Code, with specialized sub-agents for testing, documentation, security scanning, and code review running in parallel.</p>
+<p>The competitive pressure behind this move is real. GitHub Copilot has 4.7 million paid subscribers but in the JetBrains April 2026 developer survey, only 9 percent of developers named Copilot their most-loved coding tool, compared to 46 percent for Claude Code. Kyle Daigle, GitHub's COO, has keynote stage time alongside Nadella and Scott Guthrie -- a placement that signals something substantial is coming. Copilot CLI reached general availability in March 2026 and brought agentic coding to the terminal. Build 2026 will build on that with deeper GitHub-Azure integration.</p>
+<h2>Windows Agent Store: A Curated Marketplace</h2>
+<p>Alongside the framework, Microsoft is launching the Windows Agent Store -- a curated marketplace for AI agents that integrate with Windows applications. The concept mirrors how the App Store organized mobile software, but for autonomous digital workers rather than traditional apps. Developers will be able to publish, distribute, and monetize agents through the store, while enterprises gain a governed channel for deploying vetted agents across their Windows fleets.</p>
+<p>Visual Studio 2026 ships with an Agent Designer, a low-code companion that produces YAML-based manifests describing an agent's intents, actions, and safety constraints. These manifests can be versioned in Git alongside application code, bringing agent development into the same workflows developers already use for software engineering.</p>
+<h2>Azure AI Foundry Goes Multi-Model</h2>
+<p>One of the more strategically significant announcements is Azure AI Foundry's formal addition of Anthropic's Claude models alongside OpenAI, with full enterprise pricing and SLA support. The model marketplace has grown from roughly 1,900 models at GA to over 3,000 today, spanning frontier models from OpenAI, Anthropic, Meta, Mistral, and specialty providers.</p>
+<p>Microsoft is now the only major cloud platform providing enterprise access to both Claude and GPT frontier models on a single platform -- a commercial diversification that reflects growing enterprise demand for the ability to route specific workloads to models optimized for different domains. The platform is also expected to introduce dedicated evaluation harnesses for agentic workflows, including tracing, replay testing, and automated red-teaming for agent decision paths.</p>
+<p>The AI Foundry for Windows SDK bundles ONNX Runtime, DirectML, and Copilot Runtime into a single NuGet package, ending the fragmentation that has made on-device AI development on Windows harder than it needs to be. Copilot Plus PCs already ship with 40-plus TOPS NPUs that most apps never touch. The unified SDK makes local AI inference a single package install rather than a multi-library integration project.</p>
+<h2>The Bigger Picture</h2>
+<p>Microsoft's agent push at Build 2026 arrives at a pivotal moment. The conference theme -- the operating system as agent runtime -- represents a fundamental architectural bet. Where Google used I/O 2026 to push consumer AI agents through Gemini, Microsoft is targeting the developer and enterprise stack, positioning Windows and Azure as the governance and execution layer regardless of which underlying model provides the intelligence.</p>
+<p>The multi-model strategy is particularly telling. By formally welcoming Claude into Azure AI Foundry alongside OpenAI, Microsoft is acknowledging what enterprise buyers have been saying for months: different tasks benefit from different models, and platform lock-in to a single provider is a liability, not a feature. The message to developers is pointed: start building now, because "Windows is no longer just where you run your code -- it's the runtime your code will soon depend on."</p>
+<p>The open-sourcing of WAF under MIT adds credibility to the platform play. If the framework gains developer adoption, Microsoft could establish the default standard for how agents interact with desktop operating systems -- a position analogous to what Android achieved for mobile app distribution. As the conference opens on June 2, the question is whether developers are ready to build software where autonomous agents are first-class citizens of the OS. Microsoft is betting the next era of Windows on the answer being yes.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"This is the beginning of a multi-year journey to fully realize the agent-native OS."</blockquote><cite>— Kevin Scott, CTO, Microsoft</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">3,000+</div><div class="stat-label">Models in Azure AI Foundry</div></div><div class="stat-cell"><div class="stat-value">4.7M</div><div class="stat-label">GitHub Copilot paid subscribers</div></div><div class="stat-cell"><div class="stat-value">2,500</div><div class="stat-label">In-person Build attendees</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.buildfastwithai.com/blogs/ai-news-today-may-30-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=buildfastwithai.com&sz=32" alt="">Build Fast with AI</a><a href="https://windowsnews.ai/article/microsoft-build-2026-windows-becomes-the-platform-for-ai-agents.420503" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=windowsnews.ai&sz=32" alt="">Windows News</a><a href="https://chatforest.com/reviews/microsoft-build-2026-preview/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=chatforest.com&sz=32" alt="">ChatForest</a></div></div>
+<div class="article-nav"><a href="06-openai-rosalind-biodefense-gpt-model.html" class="nav-prev">← OpenAI Launches Rosalind Biodefense Program With G</a><a href="08-duckduckgo-surge-google-ai-search-backlash.html" class="nav-next">DuckDuckGo Installs Surge 30 Percent as Users Reje →</a></div>
+<footer>The Vault — AI Edition · Published May 30, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

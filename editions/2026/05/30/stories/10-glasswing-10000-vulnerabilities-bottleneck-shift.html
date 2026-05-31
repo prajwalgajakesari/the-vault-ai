@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Project Glasswing Finds 10,000 Vulnerabilities in 30 Days Shifting Cybersecurity Bottleneck From Discovery to Remediation — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style>
+</head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Project Glasswing Finds 10,000 Vulnerabilities in 30 Days Shifting Cybersecurity Bottleneck From Discovery to Remediation</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 999 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>AI-powered vulnerability discovery has outpaced human remediation capacity, with only 75 of 530 disclosed high-severity bugs patched so far.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Project Glasswing Finds 10,000 Vulnerabilities in 30 Days, Shifting Cybersecurity Bottleneck From Discovery to Remediation"
+slug: glasswing-10000-vulnerabilities-bottleneck-shift
+category: research
+story_number: 10
+date: 2026-05-30
+author: The Vault AI Edition
+---</p>
+<p># Project Glasswing Finds 10,000 Vulnerabilities in 30 Days, Shifting Cybersecurity Bottleneck From Discovery to Remediation</p>
+<p>For decades, the central constraint in software security was the same: finding vulnerabilities before attackers did. That constraint no longer applies. In its place is a new and arguably more difficult one -- fixing them fast enough to matter.</p>
+<p>Anthropic's Project Glasswing, a consortium of roughly 50 organizations armed with the restricted Claude Mythos Preview model, has surfaced more than 10,000 high- or critical-severity vulnerabilities across systemically important software in just 30 days. The scale of discovery has outpaced the global capacity to respond, exposing a remediation crisis that the cybersecurity industry was not built to handle.</p>
+<h2>The numbers behind the surge</h2>
+<p>Launched in April 2026, Project Glasswing grants gated access to Mythos Preview -- a frontier AI model purpose-built for autonomous vulnerability discovery -- alongside up to $100 million in usage credits. Partners include AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, the Linux Foundation, Microsoft, NVIDIA, and Palo Alto Networks. IBM joined the consortium in May, bringing its enterprise security expertise to the effort and contributing findings through coordinated disclosure and upstream open-source patches.</p>
+<p>Anthropic has also independently scanned more than 1,000 open-source projects with Mythos. The model flagged 23,019 potential issues, of which 6,202 were estimated as high or critical severity. When six independent security research firms reviewed 1,752 of those high- or critical-rated findings, 90.6 percent turned out to be valid true positives, and 1,094 were confirmed as genuinely high or critical. That false-positive rate is, by multiple accounts, better than human testers typically achieve.</p>
+<p>The standout individual find was CVE-2026-5194, a critical flaw in wolfSSL (CVSS score: 9.1), the open-source cryptography library embedded in billions of devices worldwide. Mythos Preview constructed an exploit that could allow an attacker to forge digital certificates -- effectively enabling fake bank websites or email providers to appear perfectly legitimate to end users. The vulnerability, discovered by Nicholas Carlini of Anthropic's Frontier Red Team, has since been patched in wolfSSL version 5.9.1.</p>
+<p>But wolfSSL was far from the only legacy code to fall under scrutiny. Mythos also unearthed a 27-year-old vulnerability in the OpenBSD kernel and a 16-year-old flaw in FFmpeg's H.264 decoder, where the underlying bug dated back to a 2003 commit and became exploitable after a 2010 refactor. These are the kinds of deeply buried flaws that human auditors have walked past for years.</p>
+<h2>Partners report tenfold detection increases</h2>
+<p>Individual consortium members have reported results that redefine the baseline for what security teams can accomplish. Cloudflare found 2,000 bugs across its critical-path systems, 400 of which were rated high or critical severity, with a false-positive rate its team described as better than human testers. Mozilla found and fixed 271 vulnerabilities in Firefox 150 while testing Mythos Preview -- more than ten times the number identified in Firefox 148 using Claude Opus 4.6. Palo Alto Networks shipped more than five times its usual volume of patches in a recent release cycle. Microsoft has warned that its monthly patch counts will "continue trending larger for some time."</p>
+<p>XBOW, an independent offensive security platform, called the model "a significant step up over all existing models" on its web exploit benchmark.</p>
+<h2>The bottleneck has moved</h2>
+<p>The paradox at the heart of Project Glasswing is that its success has created a new crisis. Anthropic acknowledged this directly in its May 22 update: "Progress on software security used to be limited by how quickly we could find new vulnerabilities. Now it's limited by how quickly we can verify, disclose, and patch the large numbers of vulnerabilities found by AI."</p>
+<p>Of the 530 high- or critical-severity bugs Anthropic has disclosed to open-source maintainers so far, just 75 have been patched. Several maintainers have asked Anthropic to slow down its rate of disclosure because they lack the capacity to design fixes. On average, a high- or critical-severity bug found by Mythos takes two weeks to patch -- and that timeline assumes a maintainer is available and willing to engage.</p>
+<p>The remediation gap is compounded by the flood of low-quality, AI-generated bug reports from other sources already overwhelming maintainers. Anthropic says it reproduces and assesses each issue before reporting, but the sheer volume is straining a system built on volunteer labor. And with Anthropic's 90-day coordinated disclosure policy, unpatched vulnerabilities may become public whether or not a fix is ready.</p>
+<h2>A new security posture</h2>
+<p>Anthropic is not standing still on the remediation problem. The company has launched Claude Security in public beta for enterprise customers, which has been used to patch over 2,100 vulnerabilities in three weeks using Claude Opus 4.7. It has partnered with the Open Source Security Foundation's Alpha-Omega project to help maintainers triage incoming reports, and begun a Cyber Verification Program that lets security professionals use its models without certain safeguards for legitimate penetration testing and red teaming.</p>
+<p>Beyond vulnerability hunting, Mythos is proving useful for broader security work. At one Glasswing partner bank, the model helped detect and prevent a fraudulent $1.5 million wire transfer after attackers compromised a customer's email and conducted spoofed phone calls.</p>
+<h2>What comes next</h2>
+<p>Anthropic has been clear that Mythos-class models will not be released publicly until stronger safeguards exist to prevent misuse. But similarly capable models from other AI companies are not far behind, and the window during which vulnerabilities are being rapidly discovered and slowly patched presents heightened risk.</p>
+<p>"Glasswing helps the most systemically important cyber defenders gain an asymmetric advantage," the company stated. "However, there is an urgent need for as many organizations as possible to shore up their cyber defenses."</p>
+<p>The message to software developers and network defenders is blunt: shorten patch cycles, harden default configurations, enforce multi-factor authentication, and deploy updates faster. The age of security through obscurity -- where bugs survive simply because no one looked hard enough -- is ending. What replaces it will be defined not by how well we find problems, but by how fast we fix them.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"Progress on software security used to be limited by how quickly we could find new vulnerabilities. Now it is limited by how quickly we can verify, disclose, and patch the large numbers of vulnerabilities found by AI."</blockquote><cite>— Anthropic, Project Glasswing Initial Update</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">10,000+</div><div class="stat-label">Vulnerabilities found in 30 days</div></div><div class="stat-cell"><div class="stat-value">1,094</div><div class="stat-label">Confirmed high/critical true positives</div></div><div class="stat-cell"><div class="stat-value">9.1</div><div class="stat-label">CVSS score of wolfSSL flaw</div></div><div class="stat-cell"><div class="stat-value">271</div><div class="stat-label">Firefox vulnerabilities fixed by Mozilla</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.anthropic.com/glasswing" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" alt="">Anthropic</a><a href="https://thehackernews.com/2026/05/claude-mythos-ai-finds-10000-high.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thehackernews.com&sz=32" alt="">The Hacker News</a><a href="https://cyberscoop.com/anthropic-mythos-software-flaws-glasswing/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cyberscoop.com&sz=32" alt="">CyberScoop</a></div></div>
+<div class="article-nav"><a href="09-anthropic-5gw-trainium-compute-commitment.html" class="nav-prev">← Anthropic Commits 5 Gigawatts of Trainium Capacity</a><a href="11-ibm-joins-glasswing-concert-security-platform.html" class="nav-next">IBM Joins Project Glasswing Bringing Concert Secur →</a></div>
+<footer>The Vault — AI Edition · Published May 30, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
