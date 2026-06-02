@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stanford AI Index Reports Coding Benchmarks Hit Near-Perfect Scores as Adoption Reaches 88 Percent — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Stanford AI Index Reports Coding Benchmarks Hit Near-Perfect Scores as Adoption Reaches 88 Percent</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 3 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 738 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Stanford 2026 AI Index shows SWE-bench coding scores rose from 60 to near 100 percent in one year while organizational AI adoption hit 88 percent, but model transparency scores plummeted from 58 to 40.</p>
+</div>
+<div class="article-body">
+<p>Artificial intelligence is no longer approaching human-level performance on technical benchmarks — it has arrived and blown past it. The Stanford Institute for Human-Centered Artificial Intelligence released its annual AI Index Report this week, and the headline finding is as dramatic as any in the report's nine-year history: on the SWE-bench Verified coding benchmark, AI performance rose from 60 percent to near 100 percent in a single year.</p>
+<p>The 2026 report, the most comprehensive annual survey of the AI landscape, paints a picture of a technology that is simultaneously exceeding expectations on capability measures and raising new concerns about concentration, transparency, and the pace of adoption in education.</p>
+<p>"The speed of improvement we are seeing on coding and reasoning benchmarks is historically unprecedented for any technology," said Yolanda Gil, director of AI and data science at the Information Sciences Institute at USC and a contributor to the report. "We are running out of benchmarks fast enough to measure progress."</p>
+<h2>Benchmarks Are Falling Faster Than They Can Be Created</h2>
+<p>Beyond SWE-bench, the report documents similarly rapid gains across multiple evaluation suites. On Humanity's Last Exam — a benchmark specifically designed to be difficult for AI systems and favorable to human domain experts — frontier models gained 30 percentage points in a single year. Mathematical reasoning scores on MATH-500 now exceed 95 percent for top models. Visual question answering on complex charts and diagrams has reached near-human parity.</p>
+<p>The competitive landscape has also tightened considerably. U.S. and Chinese models have traded the top spot on major leaderboards multiple times since early 2025. As of March 2026, the leading closed-source model holds just a 2.7 percent advantage over the best open-weight alternative on the LMSYS Arena leaderboard — though the report notes this gap has widened slightly from 0.5 percent in August 2024, with six of the top ten models now being closed-source.</p>
+<h2>Adoption Reaches New Highs</h2>
+<p>The report finds that generative AI has reached 53 percent population-level adoption within three years of ChatGPT's launch — faster than the personal computer, the internet, or smartphones reached the same penetration level. Organizational adoption of AI tools reached 88 percent globally, up from 72 percent in 2024.</p>
+<p>Consumer value is following suit. The estimated annual value of generative AI tools to U.S. consumers reached $172 billion by early 2026, with the median value per user tripling between 2025 and 2026. The top use cases driving that value are code generation, document drafting, and research assistance.</p>
+<p>Yet adoption varies dramatically by country. Singapore leads at 61 percent population adoption, followed by the United Arab Emirates at 54 percent. The United States ranks 24th globally at 28.3 percent, suggesting that despite being home to most leading AI companies, American consumers have been slower to integrate generative AI into daily routines than their counterparts in smaller, more digitally connected nations.</p>
+<h2>Transparency Is Going in the Wrong Direction</h2>
+<p>Perhaps the most troubling finding involves corporate transparency. The Foundation Model Transparency Index — which tracks how much information AI companies disclose about their models' training data, architecture, and evaluation methods — dropped from an average score of 58 to 40 points year over year. The largest AI companies are increasingly keeping training code, dataset compositions, and parameter counts confidential, even as their models become more powerful and more widely deployed.</p>
+<p>"There is a direct tension between the competitive pressure to keep methods secret and the public need to understand what these systems are trained on and how they behave," said Nestor Maslej, research manager at Stanford HAI and editor of the AI Index. "That tension is getting worse, not better."</p>
+<h2>The Education Gap</h2>
+<p>The report also highlights a widening policy gap in education. Over 80 percent of U.S. high school and college students now use AI for school-related tasks, but only half of middle and high schools have any AI usage policies in place. Among those that do, just 6 percent of teachers describe the policies as clear and actionable.</p>
+<h2>What to Watch Next</h2>
+<p>The Stanford report has become the definitive annual snapshot of the AI industry, and this year's edition makes one thing clear: the technology is advancing faster than the institutions meant to govern, educate about, and build on top of it. Whether 2026 becomes the year that regulatory frameworks, transparency standards, and educational policies catch up — or fall further behind — will depend on decisions being made right now.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"The speed of improvement we are seeing on coding and reasoning benchmarks is historically unprecedented for any technology."</blockquote><cite>— Yolanda Gil, Director of AI and Data Science, USC ISI</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">~100%</div><div class="stat-label">SWE-bench Verified score</div></div><div class="stat-cell"><div class="stat-value">88%</div><div class="stat-label">Organizational adoption</div></div><div class="stat-cell"><div class="stat-value">$172B</div><div class="stat-label">US consumer value annually</div></div><div class="stat-cell"><div class="stat-value">40/100</div><div class="stat-label">Transparency index (down from 58)</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=hai.stanford.edu&sz=32" alt="">Stanford HAI</a><a href="https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=hai.stanford.edu&sz=32" alt="">Stanford HAI Takeaways</a><a href="https://spectrum.ieee.org/state-of-ai-index-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=spectrum.ieee.org&sz=32" alt="">IEEE Spectrum</a></div></div>
+<div class="article-nav"><a href="09-openai-chatgpt-pro-promo-expires.html" class="nav-prev">&larr; OpenAI Promotional Rates Expire on ChatGPT Pro and</a></div>
+<footer>The Vault — AI Edition &middot; Published June 01, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
