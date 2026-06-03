@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Microsoft Launches AI Agent Store for Windows With 85 Percent Developer Revenue Share — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>Microsoft Launches AI Agent Store for Windows With 85 Percent Developer Revenue Share</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 950 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Microsoft is using an 85/15 revenue split and deep OS integration to position Windows as the default platform for AI agent distribution.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Microsoft Launches AI Agent Store for Windows With 85 Percent Developer Revenue Share"
+slug: microsoft-windows-agent-store-85-share
+category: business
+story_number: "04"
+date: 2026-06-02
+author: The Vault — AI Edition
+sources:
+  - name: FourWeekMBA
+    url: https://fourweekmba.com/ai-microsoft-windows-agent-store-framework-build-2026/
+  - name: Windows News
+    url: https://windowsnews.ai/article/microsoft-build-2026-windows-becomes-the-platform-for-ai-agents.420503
+  - name: ChatForest
+    url: https://chatforest.com/builders-log/microsoft-build-2026-recap-windows-agent-platform-project-polaris-copilot-workspace/
+  - name: Windows Developer Blog
+    url: https://blogs.windows.com/windowsdeveloper/2026/06/02/build-2026-furthering-windows-as-the-trusted-platform-for-development/
+  - name: The Neuron
+    url: https://www.theneuron.ai/explainer-articles/everything-microsoft-announced-at-microsoft-build-2026-explained/
+---</p>
+<p># Microsoft Launches AI Agent Store for Windows With 85 Percent Developer Revenue Share</p>
+<p>At Build 2026 in San Francisco on Monday, Microsoft declared that Windows is no longer just an operating system for humans. It is now a platform for AI agents — complete with a curated marketplace, an open-source developer framework, and a revenue split that undercuts every major app store on the planet.</p>
+<p>The centerpiece announcement: the Windows Agent Store, where developers can distribute and sell AI agents that run as first-class citizens inside Windows. Microsoft will take just 15 percent of revenue, leaving 85 percent for developers. For context, Apple and Google both claim 30 percent from their respective app stores. Microsoft is wielding economics as a weapon in what is shaping up to be the defining platform war of the agent era.</p>
+<h2>From Assistants to Async Coworkers</h2>
+<p>Satya Nadella opened his keynote with a thesis that reframed the entire conference. "Windows is no longer a platform for human users only — agents are now first-class citizens in the runtime, the tooling, and the distribution model," the CEO said, describing a shift from synchronous AI assistants that wait for prompts to asynchronous coworkers that execute long-running tasks in the background.</p>
+<p>The distinction matters. Today's AI tools — chatbots, copilots, search assistants — operate in a call-and-response loop. A user asks, the model answers, and the interaction ends. Microsoft is betting the next phase looks fundamentally different: agents that triage your email overnight, join meetings on your behalf, detect configuration drift in your deployment pipeline, and prepare design templates before you sit down at your desk.</p>
+<p>Adobe and Zoom are among the early design partners. Adobe demonstrated an agent that learns a designer's layout habits and automatically prepares InDesign templates. Zoom showed an agent that can attend meetings for a user and push summarized action items directly into Microsoft Planner. Both examples signal that this is not vaporware — enterprise software companies are already building for the platform.</p>
+<h2>A Three-Layer Architecture</h2>
+<p>Microsoft shipped a full technical stack to support the vision, organized into three distinct layers.</p>
+<p>The <strong>Windows Agent Framework (WAF)</strong>, open-sourced under an MIT license, is the developer SDK. Agents are defined in YAML manifests that are portable across local Windows machines, Windows 365 Cloud PCs, and Azure Arc-enabled edge devices. A single agent definition can start as a local process on a laptop, escalate to a cloud GPU when the workload demands it, and publish to Azure as a service — with no re-architecture required. The MIT license is a deliberate signal: developers can fork WAF and deploy agents on-premises without any Azure dependency.</p>
+<p>The <strong>Windows Agent Runtime</strong>, previewed for Insiders in June, provides OS-level APIs that embed agents directly into the Windows shell. Unlike traditional applications that run as isolated processes, agents in the Runtime operate as native OS citizens with access to structured data — JSON, XML, and PDF files in the initial preview. Vision-based agents that can interpret screen pixels are planned for 2027.</p>
+<p>The <strong>Windows Agent Store</strong> sits on top as the distribution and monetization layer, with its 85 percent revenue split and mandatory security reviews for every listed agent.</p>
+<h2>The Enterprise Security Play</h2>
+<p>Microsoft clearly anticipated the objection that autonomous agents with deep OS access present an enormous attack surface. The answer is AgentGuard and a new technology called Microsoft Execution Containers (MXC).</p>
+<p>MXC is a cross-platform, policy-driven execution layer that lets developers declare exactly what an agent can access — specific files, network endpoints, system resources — with containment boundaries enforced at runtime. IT administrators can set rules through Intune, such as preventing an agent from sending financial data to an external API without explicit human approval. Defender, Entra, Intune, and Purview protections layer on top to provide runtime security against malicious prompts, data leakage, and risky agent behavior.</p>
+<p>Pavan Davuluri, Executive Vice President for Windows and Devices, framed it bluntly in the official Windows Developer Blog: "As agents become more capable and autonomous, they are delivering material productivity gains. But they are also introducing new risk."</p>
+<p>Every agent is assigned a verifiable identity — either a local ID or a cloud-provisioned Entra credential — so that all activity can be attributed and audited. The goal is to make agent actions as traceable as human logins.</p>
+<h2>Why the Revenue Share Matters</h2>
+<p>The 85/15 split is not just a developer perk. It is a calculated land grab. Microsoft is racing to establish Windows as the default agent platform before Apple or Google can build equivalents. By offering economics that are roughly twice as favorable as competing app stores, Microsoft is creating a financial incentive for developers to build Windows-first.</p>
+<p>The timing is strategic. The broader industry is converging on the idea that AI agents — not apps — will be the primary unit of software distribution within a few years. Whoever controls the agent marketplace controls the next generation of platform economics. Microsoft is making the bet that generous revenue terms, combined with deep OS integration and enterprise security tooling, will be enough to lock in early developer commitment.</p>
+<h2>The Bigger Picture at Build</h2>
+<p>The Agent Store was part of a sweeping set of announcements at Build 2026. Microsoft also unveiled Project Polaris, its in-house AI model that will replace GPT-4 in GitHub Copilot by August, signaling reduced dependence on OpenAI. Azure Agent Mesh will federate agent execution across on-premises servers, cloud PCs, and edge devices when it reaches general availability in Q4 2026. And new on-device models — Aion 1.0 Instruct and Aion 1.0 Plan — will enable fully local agentic reasoning on Windows hardware without cloud round-trips.</p>
+<p>Taken together, the message is unmistakable. Microsoft is not incrementally improving Windows. It is repositioning the entire operating system as the runtime layer for an agent-driven economy — and it is paying developers handsomely to build that future on its platform.</p>
+<p>The Windows Agent Runtime preview is available to Windows Insiders starting this month. The Agent Store timeline has not been confirmed, but early design partner access is expected through the Windows Insider program.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>“Windows is no longer a platform for human users only -- agents are now first-class citizens in the runtime, the tooling, and the distribution model.”</blockquote><cite>— Satya Nadella, CEO, Microsoft</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">85%</div><div class="stat-label">Developer revenue share</div></div><div class="stat-cell"><div class="stat-value">15%</div><div class="stat-label">Microsoft platform cut</div></div><div class="stat-cell"><div class="stat-value">2,500</div><div class="stat-label">Developers at Build 2026</div></div><div class="stat-cell"><div class="stat-value">MIT</div><div class="stat-label">WAF open-source license</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://fourweekmba.com/ai-microsoft-windows-agent-store-framework-build-2026/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=fourweekmba.com&sz=32" alt="">FourWeekMBA</a><a href="https://windowsnews.ai/article/microsoft-build-2026-windows-becomes-the-platform-for-ai-agents.420503" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=windowsnews.ai&sz=32" alt="">Windows News</a><a href="https://chatforest.com/builders-log/microsoft-build-2026-recap-windows-agent-platform-project-polaris-copilot-workspace/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=chatforest.com&sz=32" alt="">ChatForest</a><a href="https://blogs.windows.com/windowsdeveloper/2026/06/02/build-2026-furthering-windows-as-the-trusted-platform-for-development/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blogs.windows.com&sz=32" alt="">Windows Developer Blog</a></div></div>
+<div class="article-nav"><a href="03-github-copilot-app-agent-native-desktop.html" class="nav-prev">← GitHub Launches Copilot App as Agent-Native Deskto</a><a href="05-intel-xeon-6-plus-18a-agentic-computex.html" class="nav-next">Intel Debuts Xeon 6 Plus on 18A Process for Agenti →</a></div>
+<footer>The Vault — AI Edition · Published June 2, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

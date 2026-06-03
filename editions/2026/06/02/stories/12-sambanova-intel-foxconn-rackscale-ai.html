@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SambaNova Intel and Foxconn Unveil Rackscale AI Infrastructure for Agentic Workloads — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>SambaNova Intel and Foxconn Unveil Rackscale AI Infrastructure for Agentic Workloads</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 890 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Intel, SambaNova, and Foxconn are co-developing rackscale infrastructure packing 36,864 CPU cores and SN50 RDU accelerators into a 100 kW envelope for agentic AI.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "SambaNova, Intel, and Foxconn Unveil Rackscale AI Infrastructure for Agentic Workloads"
+slug: sambanova-intel-foxconn-rackscale-ai
+category: research
+story_number: 12
+date: 2026-06-02
+authors:
+  - The Vault AI
+sources:
+  - name: Intel Newsroom
+    url: https://newsroom.intel.com/artificial-intelligence/intel-announces-new-ai-innovations-at-computex
+  - name: Intel Newsroom - Client Computing
+    url: https://newsroom.intel.com/client-computing/intel-at-computex-2026-the-next-era-of-ai-driven-computing
+  - name: The Register
+    url: https://www.theregister.com/ai-and-ml/2026/06/02/intel-and-pals-cram-36864-cpu-cores-into-a-100kw-rack-while-chasing-the-agentic-ai-dragon/5249917
+  - name: SambaNova Blog
+    url: https://sambanova.ai/blog/introducing-the-sn50-rdu-purpose-built-for-agentic-inference
+  - name: Focus Taiwan (CNA)
+    url: https://focustaiwan.tw/sci-tech/202606020023
+---</p>
+<p># SambaNova, Intel, and Foxconn Unveil Rackscale AI Infrastructure for Agentic Workloads</p>
+<p><strong>At Computex 2026, the trio demonstrated production-ready racks that cram up to 36,864 CPU cores alongside purpose-built AI accelerators into a single 100 kW envelope, targeting the exploding demand for enterprise inference.</strong></p>
+<p>---</p>
+<p>TAIPEI -- The AI industry's center of gravity is shifting from training to inference, and three companies just placed a massive bet on what that future looks like at rack scale.</p>
+<p>At Computex 2026 on Monday, Intel, SambaNova Systems, and Foxconn jointly unveiled production-ready rackscale AI infrastructure that combines Intel Xeon 6 processors with SambaNova's fifth-generation SN50 Reconfigurable Dataflow Units (RDUs). The platform targets enterprise inference and agentic workloads -- the fast-growing category of AI systems that autonomously plan, reason, and execute multi-step tasks using software tools.</p>
+<p>"Our customers are asking us to think at the system level to help them serve real agentic workloads at scale," Intel CEO Lip-Bu Tan said during his keynote address.</p>
+<h2>The CPU Returns to Prominence</h2>
+<p>The announcement signals a fundamental rethinking of data center architecture. Where AI training demanded GPU-heavy configurations with a typical 1:8 CPU-to-GPU ratio, agentic workloads flip that equation. AI agents must coordinate tasks, retrieve information, access files, and interact with software tools -- operations that lean heavily on CPU orchestration.</p>
+<p>"For agentic AI, the CPU orchestrates the show," said Kevork Kechichian, executive vice president and general manager of Intel's Data Center Group.</p>
+<p>Intel revealed two reference blueprints during the keynote. Both support up to 128 processors -- either Intel's 128-core Granite Rapids Xeon 6 or the new 288-core Clearwater Forest Xeon 6+ chips -- delivering between 16,384 and 36,864 cores per rack. The systems pack up to 384 TB of DDR5 memory within a 100 kW power envelope, a figure that allows deployment in existing air-cooled data centers without costly liquid-cooling retrofits.</p>
+<p>Intel claims a single rack of Xeon 6+ CPUs can run up to 150,000 concurrent AI agents.</p>
+<h2>SambaNova's SN50: Purpose-Built for Agentic Inference</h2>
+<p>SambaNova CEO Rodrigo Liang joined Tan on stage to demonstrate what the company calls the world's first heterogeneous disaggregated inference architecture. The design splits workloads intelligently: compute-heavy prefill operations run on GPUs, while bandwidth-intensive decode operations route to SambaNova's SN50 RDUs, boosting per-user token output by two to three times compared to standalone GPU systems.</p>
+<p>The SN50, SambaNova's fifth-generation chip, claims striking performance advantages. Against Nvidia's Blackwell B200 GPUs, the company says the SN50 delivers five times the maximum generation speed and over three times the throughput for agentic inference on models like Meta's Llama 3.3 70B. The SambaRack SN50 system combines 16 SN50 chips and averages just 20 kW of power while operating air-cooled.</p>
+<p>The chip's three-tiered memory architecture -- large-capacity memory, high-bandwidth memory (HBM), and ultra-fast SRAM -- enables millisecond-speed model hot-swapping, a critical capability for agentic workloads that frequently switch between multiple models within a single task chain. SambaNova says the SN50 can support individual models up to 10 trillion parameters and context lengths of up to 10 million tokens.</p>
+<p>SN50-based systems will begin shipping to customers in the second half of 2026, with SoftBank's Japanese data centers confirmed as the first deployment.</p>
+<h2>Foxconn's Role: Integration and a CPU-Dense Variant</h2>
+<p>Foxconn brings manufacturing scale and system integration expertise to the partnership. Beyond assembling the hybrid RDU-plus-Xeon racks, the company plans to manufacture a CPU-dense variant of the infrastructure for workloads that do not require dedicated AI acceleration -- including cost-optimized inference, data processing, and hybrid AI applications.</p>
+<p>This CPU-only option addresses a pragmatic reality: not every enterprise inference workload justifies the cost of specialized accelerators. For lighter models, retrieval-augmented generation pipelines, and orchestration-heavy agent frameworks, dense CPU configurations may offer superior economics.</p>
+<h2>Competitive Context</h2>
+<p>The announcement lands in an increasingly crowded rackscale AI arena. Nvidia unveiled a similar CPU-dense platform at GTC in March, packing 256 of its 88-core Vera CPUs into a single liquid-cooled rack. Arm is developing its own reference designs based on new AGI CPUs, ranging from an air-cooled 8,160-core system at 36 kW to a 200 kW liquid-cooled rack with 45,696 cores.</p>
+<p>The first commercial customer for the Intel-SambaNova disaggregated architecture is Together.AI, while newly launched inference cloud provider Vector Core Compute -- backed by Vista Equity Partners -- will be among the earliest large-scale deployments.</p>
+<h2>What It Means</h2>
+<p>The rackscale AI infrastructure unveiled at Computex 2026 represents more than a product launch -- it is an architectural thesis. As AI evolves from monolithic model serving toward orchestrated multi-agent systems, the industry is rediscovering that CPUs, accelerators, and memory hierarchies must be co-designed at the system level rather than bolted together as afterthoughts.</p>
+<p>For enterprises evaluating inference infrastructure, the message is clear: the agentic era demands a new balance of compute, and the companies that nail rack-level integration will capture the next wave of data center spending.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>“For agentic AI, the CPU orchestrates the show.”</blockquote><cite>— Kevork Kechichian, EVP and GM, Intel Data Center Group</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">36,864</div><div class="stat-label">Max CPU cores per rack</div></div><div class="stat-cell"><div class="stat-value">100 kW</div><div class="stat-label">Rack power envelope</div></div><div class="stat-cell"><div class="stat-value">150,000</div><div class="stat-label">Concurrent agents per rack</div></div><div class="stat-cell"><div class="stat-value">5x</div><div class="stat-label">SN50 gen speed vs B200</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://newsroom.intel.com/artificial-intelligence/intel-announces-new-ai-innovations-at-computex" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=newsroom.intel.com&sz=32" alt="">Intel Newsroom</a><a href="https://www.theregister.com/ai-and-ml/2026/06/02/intel-and-pals-cram-36864-cpu-cores-into-a-100kw-rack-while-chasing-the-agentic-ai-dragon/5249917" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=theregister.com&sz=32" alt="">The Register</a><a href="https://sambanova.ai/blog/introducing-the-sn50-rdu-purpose-built-for-agentic-inference" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=sambanova.ai&sz=32" alt="">SambaNova Blog</a><a href="https://focustaiwan.tw/sci-tech/202606020023" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=focustaiwan.tw&sz=32" alt="">Focus Taiwan</a></div></div>
+<div class="article-nav"><a href="11-compal-nvidia-polymedx-smart-hospitals.html" class="nav-prev">← Compal and NVIDIA Deploy POLYMEDX Physical AI Plat</a><a href="13-vector-core-compute-disaggregated-inference.html" class="nav-next">Vector Core Compute Emerges With Disaggregated Arc →</a></div>
+<footer>The Vault — AI Edition · Published June 2, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
