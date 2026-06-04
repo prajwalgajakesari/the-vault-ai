@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Veeam Launches DataAI Command Platform as Research Finds Only 7 Percent of Enterprises AI-Ready — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>Veeam Launches DataAI Command Platform as Research Finds Only 7 Percent of Enterprises AI-Ready</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 940 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>While 88 percent of enterprises use or pilot AI agents, only 7 percent have the data trust foundations needed to make AI work at scale.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Veeam Launches DataAI Command Platform as Research Finds Only 7 Percent of Enterprises AI-Ready"
+slug: veeam-dataai-platform-7pct-ai-ready
+category: business
+story_number: "05"
+date: 2026-06-03
+---</p>
+<p># Veeam Launches DataAI Command Platform as Research Finds Only 7 Percent of Enterprises AI-Ready</p>
+<p>Nearly nine in ten enterprises are already deploying or piloting AI agents, but a sweeping new study from Veeam Software reveals that the vast majority are doing so on shaky foundations -- with just 7 percent of organizations qualifying as truly AI-ready.</p>
+<p>The findings, drawn from a global survey of 600 senior executives released on June 3, land alongside the company's biggest product announcement in years: the Veeam DataAI Command Platform, a unified infrastructure layer designed to bring data resilience, security, governance, compliance, and privacy under a single roof for the age of autonomous AI agents.</p>
+<p>Together, the research and the platform launch paint a picture of an enterprise landscape racing to adopt AI while struggling to build the trust infrastructure needed to make it work safely at scale.</p>
+<h2>The Trust Gap in Numbers</h2>
+<p>Veeam's Data and AI Trust Gap report lays bare a stark disconnect. While 88 percent of organizations are already using or piloting AI agents, 95 percent say data challenges have slowed their AI progress over the past year. Only 7 percent have the three building blocks the report identifies as essential to AI readiness -- ambition, visibility, and governance -- all in place simultaneously.</p>
+<p>The business case for closing that gap is striking. Among the small cohort of organizations that have achieved full AI readiness, 97 percent report measurable, formally quantified business outcomes from their data and AI investments. Across all respondents, the figure drops to just 48 percent.</p>
+<p>Nearly half of all CEOs surveyed believe that trusted, compliant data could unlock more than 25 percent revenue growth or efficiency gains. Yet most executives acknowledge their organization's data still falls short: 79 percent say it needs to be more up to date, 74 percent say more accurate, and 71 percent say more accessible.</p>
+<p>“Most organizations don’t have an AI adoption problem; they have an AI trust problem,” said Anand Eswaran, CEO at Veeam. “The infrastructure to deploy AI exists. The infrastructure to trust it doesn’t. With the DataAI Command Platform, Veeam is building the missing layer -- combining resilience, security, governance, compliance and privacy in one platform.”</p>
+<h2>Shadow AI and the Leadership Disconnect</h2>
+<p>The report also surfaces a troubling perception gap within the C-suite. Some 65 percent of CEOs believe their organization maintains a complete and reliable AI inventory, but only 44 percent of CISOs and 52 percent of CIOs agree. That misalignment matters because AI strategy, compliance posture, and risk tolerance are typically set at the top -- and decisions built on an incomplete view can compound risk across the organization.</p>
+<p>Shadow AI compounds the problem. A full 95 percent of organizations know employees are using unapproved AI tools, and 93 percent of senior leaders recognize shadow AI as a business risk. Yet only 25 percent of organizations provide all employees with access to approved AI alternatives.</p>
+<p>Ownership of AI risk is similarly fragmented. When asked who holds primary responsibility for what AI agents do, respondents pointed to no single clear owner -- spreading accountability across roles in ways that can make enforcement, incident response, and regulatory accountability harder to achieve.</p>
+<h2>Building the Missing Layer</h2>
+<p>The DataAI Command Platform, unveiled at VeeamON 2026 in New York on May 12, is Veeam’s answer to the structural challenge its research describes. The platform merges Veeam’s two decades of data resilience expertise -- it protects more than 550,000 customers across 150-plus countries, including 77 percent of the Global 2000 -- with capabilities from its acquisition of Securiti AI, the top-ranked platform in data security posture management.</p>
+<p>At the heart of the platform is the DataAI Command Graph, an intelligence layer with more than 300 connectors spanning cloud, SaaS, and on-premises environments. The graph maps not just which databases exist, but which specific files carry sensitive data, who has access, and which changes created risk conditions. Critically, it spans both production and backup systems simultaneously -- a level of cross-domain context that Veeam says no point solution currently offers.</p>
+<p>The platform is organized around six integrated capabilities: DataAI SKcurity, DataAI Governance, DataAI Compliance, DataAI Privacy, DataAI Precision Resilience, and the Command Graph itself. Governance controls are enforced at the data source rather than at the agent level, meaning even unsanctioned or rogue agents cannot access sensitive data if the data itself is governed.</p>
+<p>“Today, agents need to get to data, which means we need to open the security perimeter,ဝ Eswaran said. “That means the security control point is now the data itself -- and that demands a new approach to trust that can accelerate the safe use of AI.”</p>
+<h2>What Comes Next</h2>
+<p>The platform is expected to reach general availability through Veeam’s partner network in early Q3 2026. Alongside it, Veeam previewed version 13.1 of its core Data Platform with more than 70 enhancements and introduced a Data and AI Trust Maturity Model -- a 49-dimension framework informed by more than 300 CIOs and CISOs that lets enterprises benchmark their AI readiness across five maturity levels.</p>
+<p>The timing is deliberate. Autonomous AI agents now outnumber human employees 82 to 1 in some enterprise environments, according to Veeam, and 97 percent of those agents carry excessive privileges. As the volume and speed of agent operations collapse the window for detecting and responding to threats, the company argues that agentic AI itself has become the number one cyber threat.</p>
+<p>For enterprise technology leaders, the message from Veeam’s research is clear: the path to AI value does not run through faster adoption alone. It runs through trusted data, enforced governance, and executive alignment -- the very foundations that 93 percent of organizations have yet to fully build.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735">
+          <blockquote>&ldquo;The infrastructure to deploy AI exists. The infrastructure to trust it does not.&rdquo;</blockquote>
+          <cite>&mdash; Anand Eswaran, CEO, Veeam</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">7%</div><div class="stat-label">Organizations truly AI-ready</div></div><div class="stat-cell"><div class="stat-value">88%</div><div class="stat-label">Using or piloting AI agents</div></div><div class="stat-cell"><div class="stat-value">95%</div><div class="stat-label">Data challenges slowed AI progress</div></div><div class="stat-cell"><div class="stat-value">82:1</div><div class="stat-label">AI agents to human employees ratio</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.veeam.com/company/press-release/veeam-launches-dataai-command-platform-the-industrys-first-unified-data-and-ai-trust-infrastructure-for-the-agentic-era.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=veeam.com&sz=32" alt="">Veeam</a><a href="https://finance.yahoo.com/sectors/technology/articles/veeam-research-finds-ai-promise-110100746.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=finance.yahoo.com&sz=32" alt="">Yahoo Finance</a><a href="https://www.techzine.eu/news/data-management/141265/veeam-launches-dataai-command-platform-for-the-agentic-era/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techzine.eu&sz=32" alt="">Techzine</a><a href="https://www.storagereview.com/news/veeam-expands-data-resilience-portfolio-with-dataai-command-platform-v13-1-updates-and-ai-trust-framework" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=storagereview.com&sz=32" alt="">StorageReview</a></div></div>
+<div class="article-nav"><a href="04-outsystems-agentic-platform-a2a-mcp.html" class="nav-prev">&larr; OutSystems Unveils Open Agentic Systems Platform W</a><a href="06-openai-codex-plugins-sites-knowledge-work.html" class="nav-next">OpenAI Expands Codex Beyond Code With Six Knowledg &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published June 03, 2026</footer>
+<script>window.addEventListener("scroll",function(){let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
