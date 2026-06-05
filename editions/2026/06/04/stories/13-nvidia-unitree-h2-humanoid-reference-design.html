@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nvidia and Unitree Unveil Open Humanoid Robot Reference Design for Global Research &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Nvidia and Unitree Unveil Open Humanoid Robot Reference Design for Global Research</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 870 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Nvidia launched the first open humanoid robot reference design combining Unitree H2 Plus, Sharpa hands, Jetson Thor, and Isaac GR00T software for university labs.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Nvidia and Unitree Unveil Open Humanoid Robot Reference Design, Handing University Labs a Full-Stack Research Platform"
+slug: nvidia-unitree-h2-humanoid-reference-design
+category: research
+story_number: 13
+date: 2026-06-04
+author: The Vault AI Edition
+sources:
+  - name: NVIDIA Newsroom
+    url: https://nvidianews.nvidia.com/news/nvidia-open-humanoid-robot-reference-design
+  - name: CNBC
+    url: https://www.cnbc.com/2026/06/01/nvidia-unitree-humanoid-robotics-system-researchers.html
+  - name: Interesting Engineering
+    url: https://interestingengineering.com/ai-robotics/nvidias-new-humanoid-robot-platform
+  - name: Tech Times
+    url: https://www.techtimes.com/articles/317681/20260603/nvidia-isaac-gr00t-reference-robot-brings-full-stack-humanoid-platform-university-labs.htm
+  - name: Glitchwire
+    url: https://glitchwire.com/news/nvidia-unveils-first-open-humanoid-robot-reference-design-signaling-a-broader-ed/
+  - name: PR Newswire (Unitree)
+    url: https://www.prnewswire.com/news-releases/unitree-announces-h2-plus-an-nvidia-isaac-gr00t-reference-humanoid-robot-for-academic-research-302786748.html
+---</p>
+<p># Nvidia and Unitree Unveil Open Humanoid Robot Reference Design, Handing University Labs a Full-Stack Research Platform</p>
+<p>For years, frontier humanoid robotics research has been bottlenecked not by ideas but by infrastructure. University labs wanting to push the boundaries of physical AI had to stitch together hardware from one vendor, simulation software from another, and training pipelines from a third -- often spending months on integration before running a single experiment. At GTC Taipei on June 1, Nvidia moved to collapse that entire process into a single box.</p>
+<p>The company announced the Nvidia Isaac GR00T Reference Humanoid Robot, the first open humanoid robot reference design built on Nvidia Jetson Thor silicon and the Isaac GR00T open development platform. The system pairs a Unitree H2 Plus chassis with Sharpa Wave tactile five-finger hands and Nvidia's complete simulation-to-deployment software stack, creating what amounts to a turnkey starting point for academic humanoid research.</p>
+<p>"Humanoid robots will bring physical AI to the world's largest industries, opening a multitrillion-dollar economic opportunity," said Jensen Huang, founder and CEO of Nvidia, during the keynote. "The Nvidia Isaac GR00T Reference Humanoid Robot gives researchers a single, open platform to make breakthrough discoveries toward general-purpose physical intelligence."</p>
+<h2>What is in the box</h2>
+<p>The hardware profile is substantial. The Unitree H2 Plus chassis stands nearly six feet tall, weighs 150 pounds, and delivers 31 degrees of freedom across the body. Bolted to the arms are dual Sharpa Wave tactile five-finger hands, each contributing 22 degrees of freedom and bringing the total system to 75 DOF -- enough articulation to attempt the kind of dexterous manipulation tasks, from tool use to component assembly, that remain open problems in robotics. Each fingertip carries a high-resolution Digital Tactile Array with more than 1,000 tactile pixels and pressure sensitivity down to 0.02 newtons.</p>
+<p>The onboard brain is an Nvidia Jetson AGX Thor T5000 module built on the Blackwell architecture. It delivers 2,070 FP4 teraflops of AI performance alongside a 14-core Arm CPU and 128 GB of unified memory, all operating within a configurable 40-to-130-watt power envelope. Nvidia claims this provides 7.5 times the AI compute and 3.5 times the energy efficiency of its predecessor, Jetson Orin. A 15 Ah battery provides roughly three hours of operation, and an on-remote emergency stop lets researchers halt the robot instantly -- essential when prototyping novel behaviors on a six-foot machine.</p>
+<p>Sensing includes a head-mounted stereo camera with a 140-degree horizontal field of view, wrist cameras for close-range manipulation, and an inertia measurement unit for motion tracking. Connectivity spans Wi-Fi 6, Bluetooth 5.2, Ethernet, USB, and an array of microphones and speakers for voice interaction.</p>
+<h2>The software matters more than the metal</h2>
+<p>The more consequential part of the announcement may be the software. The Isaac GR00T development platform integrates capabilities that research teams typically assemble and maintain independently: Isaac Teleop for capturing high-quality demonstration data from human operators; Isaac GR00T open foundation models, licensed under Apache 2.0, for humanoid reasoning and multitask behavior; Isaac Sim and Isaac Lab for simulating and evaluating robot policies before physical deployment; accelerated Isaac ROS middleware for moving trained policies onto robot hardware; and the Jetson Thor runtime for on-device inference.</p>
+<p>Critically, researchers retain full control of their own robot data, training data, telemetry, and logs. The platform is modular -- teams can adopt the full stack or plug selected components into existing pipelines.</p>
+<h2>Top-tier labs are already on board</h2>
+<p>Stanford, ETH Zurich, the Allen Institute for AI, UC San Diego's Advanced Robotics and Controls Laboratory, and Nvidia Research itself have all committed to the reference design.</p>
+<p>"Robotics moves fastest when researchers can build on open platforms, share code and test ideas on real machines," said Steve Cousins, executive director of the Stanford Robotics Center. "The Nvidia Isaac GR00T Reference Robot gives our students and collaborators an open humanoid reference design with dexterous hands, onboard AI compute and the Nvidia Isaac GR00T development platform for creating, comparing and sharing robot behaviors on physical hardware."</p>
+<p>Marco Hutter, professor at ETH Zurich's Robotic Systems Lab, said the platform's value lies in collecting data, testing algorithms, and validating behaviors on a state-of-the-art humanoid body. Dieter Fox, senior research director at Ai2, emphasized that open technology is central to the institute's mission of broadly competent robotics through open science.</p>
+<h2>Edge compute, not cloud dependency</h2>
+<p>The design reflects a broader industry shift. A humanoid robot cannot wait for a remote server to decide whether to catch itself during a fall -- the response window is measured in milliseconds. By packing Blackwell-class compute directly onto the robot, Nvidia ensures that language-grounded manipulation commands, visual perception, and motor control can all run locally with no cloud roundtrip. The global AI edge computing market reached an estimated $29.98 billion in 2026, and Nvidia controls roughly 39 percent of edge AI computing revenue, with its Jetson platform reaching approximately two million developers.</p>
+<h2>Availability and what to watch</h2>
+<p>The H2 Plus reference design will be available from Unitree in late 2026, with Tech Times reporting an expected October ship date. Nvidia will also release a reference workflow for the smaller Unitree G1 -- already widely deployed in academic labs -- on GitHub and Hugging Face, letting existing G1 users adopt the Isaac GR00T pipeline immediately.</p>
+<p>Pricing has not been disclosed. Glitchwire estimates that a complete system could run well into six figures, given that the Unitree H2 lists at roughly $29,900 and the Sharpa Wave hands reportedly cost around $50,000 each.</p>
+<p>Nvidia has confirmed plans to extend the Isaac GR00T reference design to humanoid hardware partners in the United States, Europe, and South Korea, though no names have been disclosed. If the model follows the trajectory CUDA established for AI training -- where the company that defines the platform captures value long after the hardware ships -- the reference design is less a product launch than a standards play for the emerging physical AI ecosystem.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"Robotics moves fastest when researchers can build on open platforms, share code and test ideas on real machines."</blockquote><cite>— Steve Cousins, Executive Director, Stanford Robotics Center</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">75</div><div class="stat-label">Total degrees of freedom</div></div><div class="stat-cell"><div class="stat-value">2,070 TFLOPS</div><div class="stat-label">Jetson Thor FP4 compute</div></div><div class="stat-cell"><div class="stat-value">128 GB</div><div class="stat-label">Unified memory</div></div><div class="stat-cell"><div class="stat-value">~$130K+</div><div class="stat-label">Estimated system cost</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://nvidianews.nvidia.com/news/nvidia-open-humanoid-robot-reference-design" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nvidianews.nvidia.com&sz=32" alt="">NVIDIA Newsroom</a><a href="https://www.cnbc.com/2026/06/01/nvidia-unitree-humanoid-robotics-system-researchers.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="">CNBC</a><a href="https://interestingengineering.com/ai-robotics/nvidias-new-humanoid-robot-platform" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=interestingengineering.com&sz=32" alt="">Interesting Engineering</a><a href="https://www.prnewswire.com/news-releases/unitree-announces-h2-plus-an-nvidia-isaac-gr00t-reference-humanoid-robot-for-academic-research-302786748.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=prnewswire.com&sz=32" alt="">PR Newswire</a></div></div>
+<div class="article-nav"><a href="12-microsoft-majorana-2-quantum-1000x-reliability.html" class="nav-prev">← Microsoft Majorana 2 Quantum Chip Claims 1000x Rel</a><a href="14-quobly-115m-silicon-quantum-computing.html" class="nav-next">French Startup Quobly Raises 115 Million Euros to  →</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published June 04, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

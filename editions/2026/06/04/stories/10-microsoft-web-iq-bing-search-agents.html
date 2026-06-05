@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Microsoft Unveils Web IQ to Give AI Agents Real-Time Search Intelligence &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Microsoft Unveils Web IQ to Give AI Agents Real-Time Search Intelligence</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 935 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Microsoft Web IQ replaces traditional link-based search APIs with passage-level evidence delivery for AI agents at 164ms P95 latency.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Microsoft Unveils Web IQ to Give AI Agents Real-Time Search Intelligence"
+slug: microsoft-web-iq-bing-search-agents
+category: llms-genai
+story_number: 10
+date: 2026-06-04
+author: The Vault AI Edition
+sources:
+  - InfoWorld
+  - Neowin
+  - Search Engine Journal
+  - Search Engine Land
+  - Bing Search Blog
+  - Windows Report
+---</p>
+<p># Microsoft Unveils Web IQ to Give AI Agents Real-Time Search Intelligence</p>
+<p><strong>Bing-powered suite of grounding APIs delivers passages instead of links, promising 2.5x faster retrieval and lower costs for the agentic era.</strong></p>
+<p>SEATTLE -- Microsoft has taken the wraps off Web IQ, a suite of AI-native grounding APIs that fundamentally reimagines how autonomous agents and AI applications consume web information. Announced at Build 2026, the platform represents the clearest signal yet that the search infrastructure powering the next generation of AI will look nothing like the link-driven results pages humans have used for decades.</p>
+<p>Where traditional search APIs return ranked lists of URLs that applications must then fetch, parse, and distill, Web IQ delivers what Microsoft calls structured evidence objects -- curated passages and data fragments that large language models can feed directly into their reasoning chains. The distinction matters enormously for cost and speed: every unnecessary token an AI model processes adds latency and burns through inference budgets.</p>
+<p>"Fewer tokens in, better answers out, lower cost per call," is how Knut Risvik, Distinguished Engineer for Search and AI at Microsoft, summarized the design philosophy in the official Bing Search Blog announcement.</p>
+<h2>Built on Bing, Re-Architected From Scratch</h2>
+<p>Web IQ is not simply a new skin on the existing Bing Search API. According to Microsoft, the platform required a ground-up re-architecture across every layer of the retrieval stack -- indexing, retrieval, ranking, passage selection, and orchestration -- to meet the demands of agentic workloads. Agents do not issue a single search and stop. They retrieve repeatedly, reason over evidence, adapt, and operate inside tight latency budgets that make even small inefficiencies compound quickly.</p>
+<p>The system builds on Bing"s decades-old global index for breadth and freshness but pairs it with a new model layer anchored by Microsoft"s recently open-sourced embedding model and purpose-built ranking models trained specifically for how their outputs are consumed inside LLM-driven reasoning. Underneath, the platform extends DiskANN, Microsoft"s technology for searching large vector indexes without loading everything into memory, enabling fast nearest-neighbor search at scale.</p>
+<p>The performance numbers Microsoft is putting forward are aggressive. Internal benchmarks show a P95 latency of 164 milliseconds -- nearly 2.5 times faster than the next-best alternative, measured across five data centers spanning the US, Europe, and South Korea. On grounding quality, Microsoft uses a proprietary metric called GDSAT (grounding satisfaction), which evaluates completeness, freshness, and authority across a 3,000-query sample set, and claims Web IQ consistently outperforms competing systems.</p>
+<h2>Already Powering Copilot and ChatGPT</h2>
+<p>What makes Web IQ particularly notable is that it is not a future product waiting for adoption. The APIs already form the web grounding layer for Microsoft Copilot and power web search grounding in OpenAI"s ChatGPT. Jordi Ribas, President of Search and AI at Microsoft, confirmed to Search Engine Land that the system is used by Bing to generate Copilot answers shown atop search results, by ChatGPT for some of its web-grounded answers, and directly within Microsoft Copilot.</p>
+<p>"This is not the same APIs that Copilot and ChatGPT initially used when those LLMs launched," Ribas told Search Engine Land. "It is rebuilt from the ground up to be efficient, fast and of course, relevant."</p>
+<p>That production pedigree matters. Enterprise buyers evaluating grounding infrastructure will find comfort in the fact that hundreds of millions of queries have already stress-tested the system before they write a single line of integration code.</p>
+<h2>What It Means for Enterprise AI</h2>
+<p>Industry analysts see Web IQ as a meaningful simplification of a painful infrastructure problem. Phil Fersht, chief analyst at HFS Research, told InfoWorld that developers have historically stitched together web grounding using search APIs, web scraping, RAG pipelines, vector databases, custom ranking logic, and separate orchestration layers -- a stack that is "messy, brittle and expensive to maintain."</p>
+<p>"The hard part is not just finding a web page. It is retrieving the right evidence, ranking it, selecting useful passages, reducing token waste, respecting publisher controls and doing all this fast enough for multi-step agents," Fersht said.</p>
+<p>Mike Leone, principal analyst at Moor Insights and Strategy, put the cost problem in sharper terms: an agent running in production will typically execute at least five to ten retrieval steps per task, and at that scale latency and cost can become "ugly."</p>
+<p>Beyond direct API access, developers can also configure Web IQ as a Model Context Protocol (MCP) tool within Foundry IQ, giving it model-agnostic reach across Microsoft"s broader AI platform.</p>
+<h2>Competitive Landscape and Open Questions</h2>
+<p>Microsoft is not entering uncontested territory. Google offers its own grounding APIs, OpenAI has been building web search capabilities, and Perplexity provides developer-facing search APIs. Amazon"s Bedrock ecosystem offers data-service-partner integrations for similar use cases.</p>
+<p>But Microsoft"s advantage may lie in integration breadth. As Fersht noted, the company can combine Bing"s global web index with Azure AI, Copilot, Foundry, Microsoft 365, and enterprise developer channels into a unified stack that competitors would struggle to replicate. The existence of sibling IQ offerings -- Work IQ, Fabric IQ, and Foundry IQ -- creates an expanding surface of business-context APIs that could make the whole greater than the sum of its parts.</p>
+<p>Still, significant questions remain. General availability, pricing, and detailed API documentation have not been published. Web IQ is currently offered in limited access for select Azure customers, with broader access available through Microsoft account teams or an online interest form.</p>
+<p>For publishers, Microsoft says Web IQ inherits Bing"s existing robots exclusion protocols and publisher controls, and the company is working with the IETF and other industry forums to evolve interoperable standards for how AI systems access web content -- an acknowledgment that the economics of the open web depend on giving content creators meaningful say in how their work is consumed by machines.</p>
+<h2>The Bottom Line</h2>
+<p>Web IQ is a bet that the search infrastructure of the AI era will be measured not in links served but in evidence quality per token per millisecond. If the performance claims hold at scale and Microsoft delivers competitive pricing, the platform could become foundational plumbing for a generation of AI agents that need to reason against the world as it actually is -- fresh, contested, and constantly changing.</p>
+<p>Enterprises interested in early access can register at webiq.microsoft.ai.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"The hard part is not just finding a web page. It is retrieving the right evidence and doing all this fast enough for multi-step agents."</blockquote><cite>— Phil Fersht, Chief Analyst, HFS Research</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">164ms</div><div class="stat-label">P95 latency</div></div><div class="stat-cell"><div class="stat-value">2.5x</div><div class="stat-label">Faster than alternatives</div></div><div class="stat-cell"><div class="stat-value">3,000</div><div class="stat-label">GDSAT evaluation queries</div></div><div class="stat-cell"><div class="stat-value">5</div><div class="stat-label">Data centers for testing</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.infoworld.com/article/4181326/microsofts-web-iq-aims-to-give-enterprise-ai-agents-real-time-web-intelligence.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=infoworld.com&sz=32" alt="">InfoWorld</a><a href="https://www.neowin.net/news/microsoft-introduces-web-iq-a-bing-powered-search-system-built-for-ai-agents/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=neowin.com&sz=32" alt="">Neowin</a><a href="https://www.searchenginejournal.com/microsoft-web-iq-gives-ai-agents-bing-grounding-apis/577736/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=searchenginejournal.com&sz=32" alt="">Search Engine Journal</a><a href="https://blogs.bing.com/search/June-2026/Announcing-Microsoft-Web-IQ" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blogs.bing.com&sz=32" alt="">Bing Blog</a></div></div>
+<div class="article-nav"><a href="09-nvidia-nemotron-3-ultra-open-weights.html" class="nav-prev">← Nvidia Debuts Nemotron 3 Ultra as Largest US Open-</a><a href="11-tempus-lens-agentic-oncology-drug-dev.html" class="nav-next">Tempus AI Launches Next-Gen Lens Platform to Accel →</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published June 04, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

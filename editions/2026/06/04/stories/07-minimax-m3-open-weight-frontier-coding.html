@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MiniMax M3 Claims Frontier Coding Crown With Open-Weight Model and Million-Token Context &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>MiniMax M3 Claims Frontier Coding Crown With Open-Weight Model and Million-Token Context</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 836 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>MiniMax M3 is the first open-weight model to combine frontier coding (59% SWE-Bench Pro), 1M-token context, and native multimodality at one-tenth the cost of proprietary competitors.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "MiniMax M3 Claims Frontier Coding Crown With Open-Weight Model and Million-Token Context"
+slug: minimax-m3-open-weight-frontier-coding
+category: llms-genai
+story_number: 7
+date: 2026-06-04
+---</p>
+<p># MiniMax M3 Claims Frontier Coding Crown With Open-Weight Model and Million-Token Context</p>
+<p>Shanghai-based AI lab MiniMax launched its M3 foundation model on June 1, making what may be the most ambitious claim in the open-weight AI race this year: that a single model can match proprietary giants on coding benchmarks, process one million tokens of context, and handle native multimodal input -- all while costing developers a fraction of what closed competitors charge.</p>
+<p>The numbers, if they hold up under independent scrutiny, are striking. MiniMax reports that M3 scored 59.0% on SWE-Bench Pro, the demanding software engineering benchmark built around 1,865 real pull requests from 41 actively maintained open-source repositories. That edges past OpenAI's GPT-5.5 at 58.6% and Google's Gemini 3.1 Pro at 54.2%, though it trails Anthropic's Claude Opus 4.8, which posted 69.2% on the same benchmark. On BrowseComp, an autonomous web-search evaluation, M3 actually pulled ahead with 83.5 points.</p>
+<h2>A New Architecture for an Old Problem</h2>
+<p>The technical engine behind M3's million-token ambitions is MiniMax Sparse Attention, or MSA -- a new attention mechanism that tackles the quadratic cost scaling that has long plagued transformer models at extreme context lengths. Rather than comparing every token against every other token, MSA splits the key-value cache into blocks, runs a lightweight filtering step to identify which blocks are relevant, and then computes full attention only on the selected segments.</p>
+<p>The result is dramatic. At one million tokens of context, MiniMax reports a 20x reduction in per-token compute compared to its predecessor M2, with prefill processing running more than 9x faster and decoding more than 15x faster. Output speed hits roughly 100 tokens per second -- approximately 3x faster than Claude Opus, according to the company's benchmarks.</p>
+<p>Independent researcher Elie Bakouch characterized the approach as doing "block level selection like in CSA but attention is done on the real KV, not in the compressed dimension" -- a distinction from DeepSeek's Multi-head Latent Attention that avoids precision loss at long contexts by operating on uncompressed key-value data.</p>
+<h2>The Price War Intensifies</h2>
+<p>Perhaps the most disruptive element of the M3 launch is pricing. At $0.60 per million input tokens and $2.40 per million output tokens, M3 comes in at roughly one-tenth the cost of Claude Opus 4.7, which charges approximately $5 per million input and $25 per million output. A launch-week discount halves those figures further. For agentic coding workflows that can rack up thousands of model calls per session, the compounding savings are substantial.</p>
+<p>MiniMax also introduced tiered subscription plans through MiniMax Code, its dedicated coding interface: $20 per month for approximately 1.7 billion tokens, scaling up to $120 per month for 9.8 billion tokens.</p>
+<h2>Autonomy Demonstrations Raise the Bar</h2>
+<p>To showcase M3's sustained autonomous capabilities, MiniMax ran three internal demonstrations that push well beyond standard benchmark evaluations. In one test, M3 independently reproduced experiments from an ICLR 2025 Outstanding Paper on LLM fine-tuning, working autonomously for nearly 12 hours, producing 18 commits and 23 experimental figures. In another, the model optimized an FP8 matrix multiplication kernel on NVIDIA Hopper GPUs over 24 hours, completing 147 benchmark submissions and 1,959 tool calls to push hardware utilization from 7.6% to 71.3%.</p>
+<p>"That's not an accusation of cheating, it's just how launch-day benchmarks work," noted independent reviewer Thomas Wiegold, pointing out that every benchmark figure in MiniMax's launch materials was produced on the company's own infrastructure with baselines it selected.</p>
+<h2>The Caveats Are Real</h2>
+<p>The elephant in the room is verification. As of launch day, all benchmark scores are self-reported. Independent scores from Artificial Analysis and LMArena -- the two most widely cited third-party evaluation services -- were still pending. The promised open weights and technical report had not shipped either, with MiniMax committing to a roughly ten-day window for publication on Hugging Face and GitHub.</p>
+<p>There are also geopolitical considerations that enterprise developers cannot ignore. Under China's 2017 National Intelligence Law, MiniMax is legally required to "support, assist, and cooperate with state intelligence work" -- an obligation that applies to every prompt processed through the company's API regardless of where the user is located. The American Enterprise Institute named MiniMax specifically in April 2026 analysis of the law's application to Chinese AI labs.</p>
+<h2>What It Means for the AI Landscape</h2>
+<p>MiniMax M3 represents a significant inflection point in the open-weight model race. If the benchmarks survive independent validation and the weights ship on schedule, M3 would become the first open model to credibly challenge proprietary frontier systems across coding, long-context, and multimodal capabilities simultaneously -- and at a price point that could reshape how developers budget for AI infrastructure.</p>
+<p>But the conditional matters. Until independent evaluations land and the weights are in researchers' hands, M3 remains a compelling promise rather than a confirmed reality. The roughly June 11 target date for the open-weight release is when the real assessment begins.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"That is not an accusation of cheating, it is just how launch-day benchmarks work."</blockquote><cite>— Thomas Wiegold, Independent AI Reviewer</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">59.0%</div><div class="stat-label">SWE-Bench Pro score</div></div><div class="stat-cell"><div class="stat-value">20x</div><div class="stat-label">Compute reduction at 1M context</div></div><div class="stat-cell"><div class="stat-value">$0.60/$2.40</div><div class="stat-label">Per million tokens input/output</div></div><div class="stat-cell"><div class="stat-value">83.5%</div><div class="stat-label">BrowseComp autonomous search score</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://venturebeat.com/technology/minimax-m3-debuts-eclipsing-gpt-5-5-and-gemini-3-1-pro-on-key-benchmark-performance-for-just-5-10-of-the-cost" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://www.marktechpost.com/2026/06/01/minimax-releases-minimax-m3-with-msa-architecture-supporting-1m-token-context-native-multimodality-and-agentic-coding/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=marktechpost.com&sz=32" alt="">MarkTechPost</a><a href="https://the-decoder.com/minimax-m3-open-weight-model-with-a-million-token-context-challenges-proprietary-leaders/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&sz=32" alt="">The Decoder</a><a href="https://www.techtimes.com/articles/317532/20260601/minimax-m3-open-weight-coding-model-frontier-claims-unverified-benchmarks.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techtimes.com&sz=32" alt="">Tech Times</a></div></div>
+<div class="article-nav"><a href="06-humanoid-robots-trillion-dollar-investment-surge.html" class="nav-prev">← Humanoid Robots Race to Trillion-Dollar Market as </a><a href="08-openai-gpt-realtime-2-voice-agents.html" class="nav-next">OpenAI Launches GPT-Realtime-2 Bringing GPT-5 Clas →</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published June 04, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
