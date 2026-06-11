@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NVIDIA and ServiceNow Push Autonomous Agents From the Desktop to the Data Center — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>NVIDIA and ServiceNow Push Autonomous Agents From the Desktop to the Data Center</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 812 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>NVIDIA and ServiceNow expanded their partnership at Knowledge 2026 to deliver governed autonomous AI agents spanning employee desktops to data-center AI factories, anchored by the Project Arc desktop agent on NVIDIA's OpenShell runtime.</p>
+</div>
+<div class="article-body">
+<p>Enterprise AI has learned to generate text, then to reason. At ServiceNow Knowledge 2026, NVIDIA and ServiceNow set out to answer the harder question now facing every CIO: how should AI act — and who is accountable when it does?</p>
+<p>The two companies announced a significant expansion of their partnership to deliver governed, long-running autonomous agents that span the full enterprise stack, from individual employee desktops to the large-scale "AI factories" running in corporate data centers. NVIDIA founder and CEO Jensen Huang joined ServiceNow chairman and CEO Bill McDermott on the opening keynote stage in Las Vegas to frame the next phase of enterprise AI, one defined less by what models can say than by what agents can safely do.</p>
+<p>The centerpiece is Project Arc, which ServiceNow describes as an enterprise autonomous desktop agent that "thinks, writes code, executes, and adapts when things don't go as expected," completing complex, multi-step work across enterprise tools without requiring pre-built workflows. Unlike standalone agents, Project Arc connects natively to the ServiceNow AI Platform, can access local file systems, terminals and installed applications, and runs every action inside NVIDIA OpenShell — an open-source, sandboxed runtime that contains what an agent can see, which tools it can use, and how each action is logged.</p>
+<h2>The Governance Layer</h2>
+<p>The pitch is that autonomy without auditability is a non-starter for enterprise security teams. Project Arc's actions are governed by ServiceNow AI Control Tower, which sets policies, monitors behavior, and logs the files an agent reads, the commands it executes, and the APIs it calls. The agent is grounded in ServiceNow's Configuration Management Database and powered by ServiceNow Action Fabric, giving it operational context about how work actually flows through an organization.</p>
+<p>"ServiceNow and NVIDIA set out to make AI real for the enterprise, and today we're showing the proof of that work," said Joe Davis, executive vice president of AI Engineering and Delivery at ServiceNow. "Whether it's autonomous AI agents that can be trusted on the desktop, governance that extends to the data center, or open benchmarks that hold the entire industry accountable, this is enterprise AI that's built to last."</p>
+<p>NVIDIA framed the move as a control problem at scale. "Long-running, autonomous agents are rapidly changing the game for enterprise AI, and delivering them securely at scale requires governance that spans models, software and AI infrastructure," said Kari Briski, vice president of generative AI for enterprise at NVIDIA. "Together, NVIDIA and ServiceNow are bringing enterprises agents that feature the security of the NVIDIA OpenShell runtime and the power of NVIDIA AI factory solutions with the ServiceNow AI Control Tower, providing the control layer necessary for trusted, autonomous operations across the business."</p>
+<p>That governance now reaches the infrastructure layer. ServiceNow AI Control Tower has been folded into the NVIDIA Enterprise AI Factory validated design — an integration previewed at NVIDIA GTC in March and now generally available — extending lifecycle management, compliance monitoring, and real-time observability to the data centers where large model workloads run. Added capabilities include regulatory content packs, enterprise access maps for major cloud providers, and a runtime cost-and-ROI framework that tracks monthly value indicators.</p>
+<h2>The Economics and the Benchmarks</h2>
+<p>Cost is the throughline. As agents become always-on across millions of workflows, token economics becomes central, and NVIDIA leaned on hardware math to make the case: the NVIDIA Blackwell platform delivers more than 50x greater token output per watt than the prior Hopper generation, translating to nearly 35x lower cost per million tokens. ServiceNow, for its part, says more than 100 billion workflows run on its platform each year — the surface area these agents are meant to automate.</p>
+<p>The partnership also produced an attempt at industry accountability. The companies are advancing NOWAI-Bench, an open benchmarking suite released as open source and being integrated into NVIDIA's NeMo Gym. It comprises EnterpriseOps-Gym, a multi-step agentic evaluation spanning IT service management, customer service and HR workflows, and EVA-Bench, a voice-agent evaluation framework. NVIDIA says its Nemotron 3 Super open model currently posts leading performance among open-weight models on EnterpriseOps-Gym, while EVA-Bench is serving as a primary benchmark for the in-development Nemotron VoiceChat model.</p>
+<p>One caveat for buyers: Project Arc is available only as an early preview. The AI Control Tower integration with the Enterprise AI Factory design and the NOWAI-Bench releases are generally available, but the headline desktop agent has not yet reached broad production availability — a reminder to weigh demo-stage capability against deployment-ready maturity.</p>
+<h2>Why It Matters</h2>
+<p>The enterprise agentic-AI race has shifted from who has the smartest model to who can make autonomous agents safe, auditable and cheap enough to run at scale. By pairing ServiceNow's workflow and governance footprint with NVIDIA's compute, open models and OpenShell runtime, the two are staking out an integrated "control layer" position against Microsoft, Salesforce, Google and a field of agent startups all chasing the same prize: agents that do real work without exposing the enterprise to ungoverned risk. The bet is that governance, not raw capability, becomes the gating factor for production deployment — and that owning the control plane is as strategically valuable as owning the model.</p>
+<h2>What to Watch</h2>
+<p>Watch for Project Arc to move from early preview toward general availability, and for the first named enterprise customers with measurable productivity results. Track whether NOWAI-Bench gains adoption beyond NVIDIA and ServiceNow as a genuine cross-industry standard or remains a vendor-aligned yardstick. And watch how rivals respond — whether competing platforms embrace OpenShell's open runtime or push proprietary alternatives will shape whether enterprises get an interoperable agent ecosystem or another set of walled gardens.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>“Long-running, autonomous agents are rapidly changing the game for enterprise AI, and delivering them securely at scale requires governance that spans models, software and AI infrastructure.”</blockquote><cite>— Kari Briski, VP of Generative AI for Enterprise, NVIDIA</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">50x</div><div class="stat-label">Token output per watt, Blackwell vs Hopper</div></div><div class="stat-cell"><div class="stat-value">35x</div><div class="stat-label">Lower cost per million tokens</div></div><div class="stat-cell"><div class="stat-value">100B+</div><div class="stat-label">Workflows run on ServiceNow yearly</div></div><div class="stat-cell"><div class="stat-value">No.1</div><div class="stat-label">Nemotron 3 Super on EnterpriseOps-Gym</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://blogs.nvidia.com/blog/servicenow-autonomous-ai-agents-enterprises/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blogs.nvidia.com&sz=32" alt="">NVIDIA Blog</a><a href="https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-extends-agentic-AI-governance-from-desktops-to-data-centers-with-NVIDIA/default.aspx" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=newsroom.servicenow.com&sz=32" alt="">ServiceNow Newsroom</a><a href="https://fortune.com/2026/05/05/servicenow-knowledge-2026-autonomous-workforce/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=fortune.com&sz=32" alt="">Fortune</a><a href="https://qz.com/servicenow-nvidia-autonomous-desktop-agent-ai-control-tower-050626" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=qz.com&sz=32" alt="">Quartz</a></div></div>
+<div class="article-nav"><a href="04-asana-acquires-stackai-agents.html" class="nav-prev">← Asana Buys StackAI to Give Its AI Agents the Power</a><a href="06-google-diffusiongemma-text-diffusion.html" class="nav-next">DiffusionGemma: Google DeepMind Bets on Text Diffu →</a></div>
+<footer>The Vault — AI Edition · Published June 10, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
