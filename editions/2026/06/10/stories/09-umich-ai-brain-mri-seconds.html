@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Michigan's Prima AI Reads a Brain MRI in Seconds, Hitting 97.5% Accuracy Across 50+ Conditions — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Michigan's Prima AI Reads a Brain MRI in Seconds, Hitting 97.5% Accuracy Across 50+ Conditions</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 812 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>University of Michigan's Prima, a vision-language AI trained on 200,000+ brain MRIs, diagnosed neurological conditions in seconds with up to 97.5% accuracy and flagged urgent cases like strokes and hemorrhages.</p>
+</div>
+<div class="article-body">
+<p>A brain MRI can take days to read. By the time a radiologist works through a backlog, a patient with a quietly bleeding brain may have waited far too long. Researchers at the University of Michigan say they have built an artificial intelligence system that compresses that wait to seconds — reading a scan, suggesting a diagnosis, and flagging whoever might be in danger of a stroke or hemorrhage before they leave the imaging suite.</p>
+<p>The model, named Prima, detected neurological conditions with accuracy as high as 97.5% and predicted how urgently a patient needed treatment, according to a study published in <em>Nature Biomedical Engineering</em>. Across more than 50 radiologic diagnoses spanning major neurological disorders, the team reports that Prima outperformed other state-of-the-art general and medical AI models on diagnostic performance.</p>
+<p>"As the global demand for MRI rises and places significant strain on our physicians and health systems, our AI model has potential to reduce burden by improving diagnosis and treatment with fast, accurate information," said senior author Todd Hollon, M.D., a neurosurgeon at University of Michigan Health and assistant professor of neurosurgery at the U-M Medical School.</p>
+<p>What sets Prima apart, the researchers say, is the breadth of what it learned from. Earlier attempts to apply AI to neuroimaging typically relied on manually curated subsets of data built for narrow tasks — detecting a specific lesion, say, or predicting dementia risk. Hollon's team instead trained Prima on essentially every brain MRI taken at University of Michigan Health since radiology went digital decades ago: more than 220,000 studies comprising millions of imaging sequences. Crucially, they also fed the model each patient's clinical history and the physician's stated reason for ordering the scan.</p>
+<p>"Prima works like a radiologist by integrating information regarding the patient's medical history and imaging data to produce a comprehensive understanding of their health," said co-first author Samir Harake, a data scientist in Hollon's Machine Learning in Neurosurgery Lab. "This enables better performance across a broad range of prediction tasks."</p>
+<p>Technically, Prima is a vision language model — an AI system that can process images and text together in real time. After a patient finishes imaging, it can return feedback almost immediately, not only proposing likely diagnoses but triaging them. For time-critical conditions such as brain hemorrhages or strokes, the model can automatically alert providers and recommend which subspecialist should be notified, such as a stroke neurologist or a neurosurgeon.</p>
+<p>The team tested Prima on more than 30,000 MRI studies over the course of a year — a meaningful prospective check rather than a one-off benchmark.</p>
+<p>"Accuracy is paramount when reading a brain MRI, but quick turnaround times are critical for timely diagnosis and improved outcomes," said co-first author Yiwei Lyu, a researcher in Computer Science and Engineering at U-M. "At key steps in the process, our results show how Prima can improve workflows and streamline clinical care without abandoning accuracy."</p>
+<h2>Why it matters</h2>
+<p>Millions of MRI studies are performed worldwide each year, a large share of them aimed at neurological disease, and demand is climbing faster than the supply of neuroradiologists trained to interpret them. That mismatch produces the everyday frictions patients know well — scans that sit unread for days, longer waits at under-resourced hospitals, and the diagnostic errors that creep in when overstretched clinicians work through volume.</p>
+<p>AI in radiology has so far advanced mostly through single-purpose tools: an algorithm to spot a pulmonary nodule, another to flag a large-vessel stroke. Prima's pitch is breadth. By learning from an entire health system's archive rather than a hand-picked dataset, it aims to function less like a narrow detector and more like a generalist first reader — what Hollon describes as a co-pilot that interprets the study and routes the urgent cases to the right human. The approach could matter most where neuroradiology coverage is thinnest.</p>
+<p>"Whether you are receiving a scan at a larger health system that is facing increasing volume or a rural hospital with limited resources, innovative technologies are needed to improve access to radiology services," said Vikas Gulani, M.D., Ph.D., chair of the Department of Radiology at U-M Health and a co-author. "Our teams at University of Michigan have collaborated to develop a cutting-edge solution to this problem with tremendous, scalable potential."</p>
+<h2>What to watch</h2>
+<p>The researchers are candid that the work remains in an early stage of evaluation. The headline results come from a single health system's data, and how well Prima generalizes to scanners, populations, and workflows elsewhere is the open question that determines whether it becomes a clinical tool or a promising prototype. The team's next steps include folding in richer electronic medical record data to push accuracy further — closely mirroring how human radiologists actually read.</p>
+<p>Regulators, hospitals, and policymakers are still working out how to safely embed broad AI models into clinical practice, and most systems in use today remain approved for narrow tasks. The bigger ambition Hollon floats — adapting the same approach to mammograms, chest X-rays, and ultrasounds — would multiply both the potential benefit and the validation burden. For now, watch for external, multi-site testing and any move toward regulatory review; those, more than any single accuracy figure, will signal whether a seconds-long brain MRI read is ready for the clinic.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>“As the global demand for MRI rises and places significant strain on our physicians and health systems, our AI model has potential to reduce burden by improving diagnosis and treatment with fast, accurate information.”</blockquote><cite>— Todd Hollon, M.D., Neurosurgeon, University of Michigan</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">97.5%</div><div class="stat-label">Peak diagnostic accuracy</div></div><div class="stat-cell"><div class="stat-value">50+</div><div class="stat-label">Conditions identified</div></div><div class="stat-cell"><div class="stat-value">200,000+</div><div class="stat-label">MRI studies for training</div></div><div class="stat-cell"><div class="stat-value">30,000+</div><div class="stat-label">Studies in one-year eval</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.michiganmedicine.org/health-lab/ai-model-can-read-and-diagnose-brain-mri-seconds" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=michiganmedicine.org&sz=32" alt="">Michigan Medicine Health Lab</a><a href="https://www.eurekalert.org/news-releases/1115393" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=eurekalert.org&sz=32" alt="">EurekAlert!</a><a href="https://www.nature.com/articles/s41551-025-01608-0" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=32" alt="">Nature Biomedical Engineering</a><a href="https://medicalxpress.com/news/2026-02-ai-brain-mris-seconds-accuracy.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=medicalxpress.com&sz=32" alt="">Medical Xpress</a></div></div>
+<div class="article-nav"><a href="08-orion-100b-low-cost-frontier-training.html" class="nav-prev">← A $1.25-an-Hour Frontier Model? Why “Orion-100B” D</a><a href="10-mit-ferveret-ai-chip-cooling.html" class="nav-next">The MIT Startup That Wants to Cool AI's Chips With →</a></div>
+<footer>The Vault — AI Edition · Published June 10, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
