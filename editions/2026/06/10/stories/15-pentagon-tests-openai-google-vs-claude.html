@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pentagon Tests OpenAI and Google Models to Replace Anthropic's Claude in Classified Systems — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>Pentagon Tests OpenAI and Google Models to Replace Anthropic's Claude in Classified Systems</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 847 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>The Pentagon is testing OpenAI, Google and xAI models with about 25 of its AI power users to replace Anthropic's Claude in classified systems, after a dispute over Anthropic's safety guardrails escalated into a supply-chain-risk designation now being fought in court.</p>
+</div>
+<div class="article-body">
+<p>The U.S. Department of Defense is actively evaluating artificial intelligence models from OpenAI, Google and Elon Musk's xAI as potential replacements for Anthropic's Claude inside classified national-security systems, according to reporting that first surfaced in late May and has continued to draw attention through this week. The testing marks one of the most consequential vendor fights yet in the government AI procurement race, and it pits the Pentagon's appetite for fewer constraints against Anthropic's insistence on safety guardrails.</p>
+<p>The core claim, first reported by Bloomberg on May 21 and echoed across defense and technology outlets since, is that the Pentagon began putting rival models in front of roughly 25 of the department's AI "power users" to see which they prefer. According to a senior defense official cited by Bloomberg, those tests started at the beginning of March, three days after Defense Secretary Pete Hegseth moved to designate Anthropic a "supply-chain risk" and to drop it as a provider of AI tools.</p>
+<p>Claude was, until recently, the primary AI model running on parts of the Pentagon's classified networks, reaching the military largely through Anthropic's partnership with Palantir and its integration into the Maven Smart System, a digital command-and-control platform used for classified operations. Replacing a model that deeply embedded is not a simple swap, a point several officials and outside experts have stressed.</p>
+<h2>How the rift developed</h2>
+<p>The conflict has been building since January 2026. Reuters reported that Anthropic representatives opposed the use of the company's products for mass surveillance or to develop lethal autonomous weapons. In February, Axios reported the Pentagon had used Claude during U.S. operations tied to Venezuela, after which Anthropic said it would reassess the partnership. When Anthropic declined to agree that the Department could use Claude for "all lawful purposes," the Pentagon threatened to cancel its contracts, a relationship reportedly worth as much as $200 million.</p>
+<p>Hegseth then moved to label Anthropic a supply-chain risk, a designation that could force military contractors to sever ties with the company. Under Secretary of Defense for Research and Engineering Emil Michael, the Pentagon's top technology official, publicly pressed Anthropic to, in his words reported by DefenseScoop, "cross the Rubicon" and let the Department dictate how its technology is used.</p>
+<p>As the government moved against Anthropic, competitors stepped in. The Pentagon's GenAI.mil platform, announced by Hegseth in December 2025, initially contracted Google Gemini, and the Department later added xAI's Grok and reached an arrangement with OpenAI. MIT Technology Review reported that OpenAI's deal, finalized just before U.S. strikes on Iran, lacked the standalone right to prohibit otherwise-lawful government use that Anthropic had sought, an outcome the publication framed as "what Anthropic feared."</p>
+<p>Anthropic has fought back in court. In March, U.S. District Judge Rita F. Lin granted a preliminary injunction against the government, writing that the Department's own records showed it designated Anthropic a supply-chain risk because of the company's "hostile manner through the press" and that "punishing Anthropic for bringing public scrutiny to the government's contracting position is classic illegal First Amendment retaliation." In April, however, the D.C. Circuit declined to lift the designation, noting that doing so would force the military to "prolong its dealings with an unwanted vendor of critical AI services in the middle of a significant ongoing military conflict."</p>
+<h2>Why it matters</h2>
+<p>The choice of which AI model runs inside classified systems is no longer a back-office procurement detail. It now shapes how the world's most powerful military analyzes intelligence, plans operations and potentially makes targeting decisions. The Pentagon's willingness to test and onboard OpenAI, Google and xAI as Claude alternatives signals that vendors prepared to accept broader "lawful use" terms may win the most lucrative national-security contracts, while those that hold firmer lines on surveillance and autonomous weapons risk being designed out.</p>
+<p>That dynamic has stakes well beyond any single company's revenue. Anthropic built much of its public identity around the argument that AI deployed in high-consequence settings needs enforceable limits, and its supporters have warned that relying on agencies to police themselves is thin protection against AI-enabled mass surveillance or autonomous weapons. The Pentagon's counter is that operational decisions belong to the government, not to its software suppliers. Whichever view prevails inside classified systems could set a durable precedent for how much say AI makers retain over the use of their most capable models.</p>
+<h2>What to watch</h2>
+<p>The most immediate question is the outcome of Anthropic's litigation, which remains unresolved after the split rulings at the district and appellate levels; a final decision could either restore the company's standing or cement its removal. Watch, too, for whether the Pentagon's power-user testing produces a formal decision on a primary replacement model, and how cleanly Google, OpenAI or xAI can be integrated into Maven-class systems that were built around Claude. Congressional interest is rising, so oversight hearings or legislation on military AI procurement are plausible next steps. Finally, the broader signal to industry is worth tracking: if accommodating "all lawful purposes" becomes the price of entry, other AI developers may quietly adjust their own government usage policies to stay competitive.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185"><blockquote>“Punishing Anthropic for bringing public scrutiny to the government's contracting position is classic illegal First Amendment retaliation.”</blockquote><cite>— Judge Rita F. Lin, U.S. District Judge, N.D. California</cite></div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">~25</div><div class="stat-label">DoD AI 'power users' testing</div></div><div class="stat-cell"><div class="stat-value">$200M</div><div class="stat-label">Contract value at stake</div></div><div class="stat-cell"><div class="stat-value">3</div><div class="stat-label">Rival vendors tested (OpenAI, Google, xAI)</div></div><div class="stat-cell"><div class="stat-value">Mar 2026</div><div class="stat-label">Testing began</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.bloomberg.com/news/articles/2026-05-21/pentagon-tests-rival-ai-models-in-race-to-replace-anthropic" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=32" alt="">Bloomberg</a><a href="https://www.reuters.com/business/pentagon-clashes-with-anthropic-over-military-ai-use-2026-01-29/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=reuters.com&sz=32" alt="">Reuters</a><a href="https://en.wikipedia.org/wiki/Anthropic%E2%80%93United_States_Department_of_Defense_dispute" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=en.wikipedia.org&sz=32" alt="">Wikipedia</a><a href="https://www.technologyreview.com/2026/03/02/1133850/openais-compromise-with-the-pentagon-is-what-anthropic-feared/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=technologyreview.com&sz=32" alt="">MIT Technology Review</a></div></div>
+<div class="article-nav"><a href="14-anthropic-global-ai-pause-call.html" class="nav-prev">← Anthropic Calls for a Global AI “Pause” — Then Shi</a></div>
+<footer>The Vault — AI Edition · Published June 10, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
