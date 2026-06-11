@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Foxconn Hands Its Factories an AI Brain: Inside “MoMClaw,” the Multi-Agent System Built on NVIDIA's FOX Blueprint — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>Foxconn Hands Its Factories an AI Brain: Inside “MoMClaw,” the Multi-Agent System Built on NVIDIA's FOX Blueprint</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 865 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Foxconn's MoMClaw system, built on NVIDIA's new FOX blueprint, deploys hundreds of coordinated AI agents across live production lines, with Foxconn projecting roughly 80% faster root-cause analysis and about 10% fewer machine failures.</p>
+</div>
+<div class="article-body">
+<p>Foxconn, the world's largest electronics manufacturer, is wiring hundreds of AI agents into its production lines through a new system called MoMClaw — and projecting that the move will slash the time it takes to diagnose factory problems by roughly 80 percent while cutting machine failures by about 10 percent.</p>
+<p>The system, unveiled this month at NVIDIA's GTC Taipei conference held alongside COMPUTEX, is one of the first real-world deployments of NVIDIA's newly announced Factory Operations Blueprint, known by the acronym FOX. NVIDIA published details of the rollout on June 1, 2026, framing it as a turning point in how factories are run: a shift away from islands of isolated machine automation toward a single, plant-wide "agentic" intelligence layer that can reason across a facility in real time.</p>
+<h2>What MoMClaw actually does</h2>
+<p>MoMClaw — short for Foxconn's manufacturing operations multi-agent system — runs alongside live production work rather than in a lab. According to NVIDIA, it connects sensors, machine signals and other digital systems with hundreds of specialized AI agents in a single coordinating layer, then exposes that intelligence to humans through a natural-language interface. A plant manager can effectively ask the factory a question and get back not just an answer but a concrete action plan.</p>
+<p>The architecture matters because root-cause investigations on a factory floor have traditionally been painfully slow. When a line goes down or yields start drifting, engineers can spend hours or days correlating machine logs, sensor readings, quality data and maintenance records to find the culprit. By having a fleet of agents continuously monitoring and cross-referencing that data, Foxconn projects an 80 percent improvement in root-cause-analysis time, a 15 percent increase in labor productivity, and a 10 percent decrease in machine failure rates.</p>
+<p>The blueprint underpinning MoMClaw is built with NVIDIA NemoClaw, the company's AI-Q Blueprint and its open Nemotron models, and is designed to run on the NVIDIA DGX Station — a deskside supercomputer powered by the GB300 Grace Blackwell Ultra Desktop Superchip, which NVIDIA says delivers 20 petaflops of FP4 performance and can run models up to a trillion parameters locally. Crucially for a manufacturer guarding proprietary process data, the system layers in NVIDIA OpenShell privacy controls and safety guardrails so sensitive factory information stays on-premises.</p>
+<h2>A broader Taiwan rollout</h2>
+<p>Foxconn is not alone. NVIDIA named Advantech, Pegatron and Wistron as the other early adopters deploying autonomous factory-manager agents on FOX and NemoClaw. Pegatron is using the blueprint to orchestrate robots more efficiently, estimating a 15 percent reduction in asset-redundancy costs by eliminating expensive standby equipment. Advantech has rolled out an "AI Factory Brain" in its own plants to autonomously manage energy across HVAC and lighting, targeting a 10 percent cut in energy consumption. Wistron is building surface-mount-technology agents for real-time root-cause analysis and quality control.</p>
+<p>A constellation of smaller software vendors is also building specialized agents that plug into the same factories. DeepHow, for instance, is developing a standard-operating-procedure agent for Foxconn that supervises the assembly of Bianca boards for NVIDIA's GB300 servers — work NVIDIA says is helping improve first-pass yield by 3 percent.</p>
+<p>The strategic logic for Foxconn extends well beyond troubleshooting. Leo Guo, general manager of the Fii Robotic Group at Foxconn, has described the ambition in stark terms: "If you think about time to revenue, factory setup, and factory planning, we believe that we can cut that down by about 50%. We can model everything in a virtual environment to make sure everything fits and there are no obstructions, and then we can deploy our equipment."</p>
+<h2>Why it matters</h2>
+<p>The numbers Foxconn is citing are projections, not audited results, and that distinction is worth keeping front of mind. But even hedged, the deployment signals a meaningful change in where agentic AI is being pointed. For two years, the most visible "AI agents" have lived in software — writing code, answering customer tickets, summarizing documents. MoMClaw represents agentic AI crossing into heavy industry, where the cost of a wrong decision is measured in scrapped product and idled lines rather than a bad chatbot reply.</p>
+<p>It also deepens the symbiosis between NVIDIA and its Taiwanese manufacturing partners. Foxconn assembles much of NVIDIA's own server hardware, so a system that improves Foxconn's yields and uptime directly benefits NVIDIA's supply chain — even as NVIDIA sells the GPUs and blueprints that make the system run. That tight loop helps explain why NVIDIA executives have leaned hard into the "physical AI" theme. As Deepu Talla, NVIDIA's vice president of robotics and edge computing, put it: "Agentic AI is here, and Jetson's programmability and high performance enable developers to instantly deploy physical AI agents in production at the edge."</p>
+<p>For workers and operators, the framing is augmentation rather than replacement: the agents surface answers, but humans still act on them. Whether the 15 percent labor-productivity figure translates into more output per worker or fewer workers is a question the early projections do not resolve.</p>
+<h2>What to watch</h2>
+<p>The key test will be whether Foxconn's projected gains survive contact with the factory floor over a full production cycle, and whether the company releases verified results rather than estimates. Watch, too, for general availability of the FOX blueprint itself — NVIDIA is currently taking sign-ups rather than shipping it broadly — and for whether manufacturers outside the NVIDIA-Taiwan orbit adopt the approach. If MoMClaw's numbers hold, expect agentic factory management to move quickly from a COMPUTEX showcase to an industry expectation.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>“If you think about time to revenue, factory setup, and factory planning, we believe that we can cut that down by about 50%.”</blockquote><cite>— Leo Guo, General Manager, Fii Robotic Group, Foxconn</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">80%</div><div class="stat-label">Projected faster root-cause analysis</div></div><div class="stat-cell"><div class="stat-value">10%</div><div class="stat-label">Projected fewer machine failures</div></div><div class="stat-cell"><div class="stat-value">15%</div><div class="stat-label">Projected labor productivity gain</div></div><div class="stat-cell"><div class="stat-value">4</div><div class="stat-label">Taiwan first-adopter manufacturers</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://blogs.nvidia.com/blog/factory-operations-fox-blueprint-ai-brain/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blogs.nvidia.com&sz=32" alt="">NVIDIA Blog — Factory Operations Blueprint</a><a href="https://blogs.nvidia.com/blog/taiwan-ecosystem-ai-infrastructure/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blogs.nvidia.com&sz=32" alt="">NVIDIA Blog — Taiwan AI Infrastructure</a><a href="https://blogs.nvidia.com/blog/jetson-agentic-ai-physical-world/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blogs.nvidia.com&sz=32" alt="">NVIDIA Blog — Jetson Agentic AI</a><a href="https://www.digitimes.com/news/a20260602PD231/foxconn-data-robotics-infrastructure-nvidia.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=digitimes.com&sz=32" alt="">Digitimes — Foxconn AI</a></div></div>
+<div class="article-nav"><a href="02-newlimit-435m-series-c-longevity-ai.html" class="nav-next">NewLimit Raises $435M to Push AI-Designed Age-Reve →</a></div>
+<footer>The Vault — AI Edition · Published June 10, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
