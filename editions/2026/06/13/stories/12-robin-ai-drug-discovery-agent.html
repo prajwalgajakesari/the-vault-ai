@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robin, an AI 'Scientist' Agent, Runs the Drug-Discovery Loop From Hypothesis to Analysis - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Robin, an AI 'Scientist' Agent, Runs the Drug-Discovery Loop From Hypothesis to Analysis</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 947 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>FutureHouse's Robin multi-agent system ran the full discovery loop — reading 551 papers in 30 minutes, forming hypotheses, and surfacing ripasudil as a candidate for dry AMD — in work published in Nature.</p>
+</div>
+<div class="article-body">
+<h2>An AI That Thinks Like a Scientist — and Found a Drug Candidate for Blindness</h2>
+<p>The promise of AI in drug discovery has mostly meant point solutions: one tool predicts protein structures, another screens bioactivity. FutureHouse, the San Francisco-based nonprofit, wants to close the gap between those isolated tools and the full scientific loop — reading, hypothesizing, designing experiments, analyzing results, and iterating. In May 2026, it published evidence in <em>Nature</em> that its multi-agent system Robin can do exactly that. The proof-of-concept: starting with only the phrase "dry age-related macular degeneration," Robin autonomously identified ripasudil — a glaucoma drug already approved in Japan — as a promising candidate for a disease with no effective long-term treatment.</p>
+<h2>What Robin Is and How It Divides the Work</h2>
+<p>Robin is not a single model but an orchestration layer that coordinates three specialized agents built by FutureHouse:</p>
+<p>- <strong>Crow</strong> — a broad literature-search agent that conducts wide-ranging scientific reviews, surfacing disease mechanisms and candidate molecules from the published record.
+- <strong>Falcon</strong> — a deep-evaluation agent that produces comprehensive assessments of individual drug candidates, drawing on clinical trial data, genomic databases, and pharmacology literature.
+- <strong>Finch</strong> — a data-analysis agent capable of writing and executing Python and R code to process raw experimental output — flow cytometry files, RNA-sequencing datasets — and generate publication-ready figures.</p>
+<p>When a user submits a disease, Robin activates Crow to survey the landscape, ranks potential therapeutic mechanisms using an LLM-judged tournament, selects an experimental strategy, calls Falcon to evaluate candidate compounds, and then — after human scientists run the physical experiments — passes the resulting data to Finch for autonomous analysis. The output of that analysis feeds the next hypothesis cycle, creating what the FutureHouse team calls a "lab-in-the-loop" workflow.</p>
+<h2>The dAMD Discovery: From 551 Papers to a Candidate</h2>
+<p>Dry AMD degrades the retinal pigment epithelium (RPE) cells responsible for clearing photoreceptor debris and currently has no effective long-term therapy. Robin's first move was to read: it reviewed roughly 551 scientific papers — estimated at 540 hours of manual work — in under 30 minutes, then identified RPE phagocytosis enhancement as the top therapeutic mechanism and proposed thirty candidate molecules for lab testing.</p>
+<p>After human scientists ran the first round of experiments, Finch processed the flow cytometry data — gating cells, quantifying phagocytic uptake, running statistical tests — and flagged Y-27632, a ROCK inhibitor, as the top hit. Robin then proposed an RNA-sequencing experiment to investigate the mechanism. Finch's analysis of that data surfaced a roughly three-fold upregulation of ABCA1, a lipid efflux transporter closely tied to AMD biology — a mechanistic link not previously proposed in the literature.</p>
+<p>In the second hypothesis cycle, Robin nominated ripasudil, a clinically approved ROCK inhibitor. Lab validation showed ripasudil increased RPE phagocytosis approximately 1.89-fold, outperforming Y-27632 with minimal cytotoxicity, and the effect held in primary human retinal stem cell-derived RPE cultures. Robin also proposed KL001, a circadian-clock modulator, as a second novel AMD mechanism with no prior scientific precedent.</p>
+<p>Across all of this, every hypothesis, experimental design choice, data analysis, and main text figure in the <em>Nature</em> paper was generated by Robin. Human researchers performed only the physical bench work.</p>
+<h2>Speed as a Strategic Argument</h2>
+<p>The compression of research time is as significant as any single finding. FutureHouse estimates Robin reduced cognitive labor — literature synthesis, hypothesis generation, data interpretation — by roughly 200-fold compared to a conventional workflow. The full arc from concept to journal submission took 2.5 months for a small team.</p>
+<p>"By integrating these agents into a unified system," the FutureHouse team wrote in their announcement, "we've been able to automate the key intellectual steps of the entire scientific process and achieve our first AI-generated discovery."</p>
+<p>The result also contrasts sharply with earlier AI science tools. AlphaFold2 transformed structural biology but stops at protein structure. ActFound automated bioactivity predictions. Robin operates across the full loop and iterates — which is where scientific insight typically emerges.</p>
+<h2>The Caveat Every Reader Should Hold Onto</h2>
+<p>Robin's findings for ripasudil are preclinical. Flow cytometry and RNA-seq results in cell culture lines are not clinical evidence, and the pathway from a promising in vitro hit to an approved therapy is long, expensive, and frequently fails. The FutureHouse team is explicit about this: Robin is a "lab-in-the-loop" system, not a replacement for the full experimental and regulatory pipeline. Finch's data analysis also depends on domain-expert prompt engineering and cannot yet independently adapt to novel data modalities — a limitation the team acknowledges and is working to address.</p>
+<p>There is also a reproducibility question: the stochastic nature of language models means results may differ between runs, and scientists will scrutinize whether Robin's hypotheses were genuinely novel or pattern-matched from training data.</p>
+<h2>What to Watch</h2>
+<p>FutureHouse has open-sourced Robin's code at [github.com/Future-House/robin](https://github.com/Future-House/robin), including example agent trajectories, specifically to invite the research community to build on and stress-test the approach. The team's stated next priorities are making Finch's analysis prompts self-generating — removing the need for expert prompt design — and producing experimental protocols detailed enough to require minimal human translation before execution.</p>
+<p>Meanwhile, FutureHouse's for-profit arm, Edison Scientific, launched in 2025 with $70 million and is partnering with Google DeepMind on broader AI-scientist infrastructure. If Robin's architecture scales across oncology, neurodegeneration, and metabolic disease, the constraint on drug discovery may shift from the pace of scientific reasoning to the pace of the physical experiments that still require a human hand — a genuinely different bottleneck than the field has faced for decades.</p>
+<p>---</p>
+<p><em>Source: Ghareeb, A.E., Chang, B., Mitchener, L. et al. "A multi-agent system for automating scientific discovery." Nature (2026). DOI: 10.1038/s41586-026-10652-y. FutureHouse research announcement, May 19, 2026.</em></p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"By integrating these agents into a unified system, we've been able to automate the key intellectual steps of the entire scientific process and achieve our first AI-generated discovery."</blockquote>
+          <cite>- Sam Rodriques, Co-founder, FutureHouse</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">551</div><div class="stat-label">Papers analyzed in ~30 minutes</div></div><div class="stat-cell"><div class="stat-value">540 hrs</div><div class="stat-label">Estimated manual equivalent</div></div><div class="stat-cell"><div class="stat-value">1.89x</div><div class="stat-label">RPE phagocytosis increase from ripasudil</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.futurehouse.org/research/demonstrating-end-to-end-scientific-discovery-with-robin-a-multi-agent-system" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=futurehouse.org&sz=32" alt="">FutureHouse</a><a href="https://www.nature.com/articles/s41586-026-10652-y" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=32" alt="">Nature</a><a href="https://aiscientist.substack.com/p/musing-120-robin-a-multi-agent-system" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=aiscientist.substack.com&sz=32" alt="">AI Scientist</a></div></div>
+<div class="article-nav"><a href="11-reasoning-models-jailbreak-agents-study.html" class="nav-prev">&larr; Study Finds Large Reasoning Models Can Act as Auto</a><a href="13-cnn-perplexity-copyright-lawsuit.html" class="nav-next">CNN Sues Perplexity as the Publisher-vs-AI Copyrig &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 13, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
