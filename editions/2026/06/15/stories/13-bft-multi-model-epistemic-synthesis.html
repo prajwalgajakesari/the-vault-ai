@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Can AI Models Reach Consensus? A New Protocol Borrows From Fault-Tolerant Computing - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Can AI Models Reach Consensus? A New Protocol Borrows From Fault-Tolerant Computing</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 925 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A 2026 wave of research treats multiple AI models as nodes in a Byzantine-fault-tolerant system, letting them debate and filter each other's errors to produce a joint answer more reliable than any single model.</p>
+</div>
+<div class="article-body">
+<h2>Can AI Models Reach Consensus? A New Protocol Borrows From Fault-Tolerant Computing</h2>
+<p>When a single large language model gets something wrong, there is rarely anyone in the room to catch it. The model answers with the same fluent confidence whether it is right or hallucinating. A growing body of 2026 research is trying to fix that the way distributed systems engineers fixed unreliable hardware decades ago: by assuming some of the participants will fail, and designing the protocol so the group still reaches a trustworthy answer anyway.</p>
+<p>That is the premise behind a wave of work on <strong>Byzantine-fault-tolerant (BFT) deliberation among AI models</strong> — the idea that several language models, treated like nodes in a distributed system, can debate, filter each other's errors, and synthesize a joint answer more reliable than any one of them alone. The framing is a direct borrow from classical computer science, where "Byzantine fault tolerance" describes protocols that reach correct consensus even when some participants are faulty, unreliable, or actively adversarial.</p>
+<h2>From distributed systems to deliberating models</h2>
+<p>The conceptual move is straightforward once you accept the analogy. In a BFT system, a node can fail not just by going silent but by sending wrong or conflicting information — the so-called Byzantine fault. The protocol's job is to guarantee that honest nodes still agree on the correct value despite a bounded number of bad actors. Map that onto a council of language models, and a "Byzantine" model becomes one that emits a confidently incorrect response, whether through hallucination, a reasoning slip, or adversarial manipulation such as prompt injection.</p>
+<p>One of the clearest recent statements of this approach is <strong>"Robust Multi-Agent LLMs under Byzantine Faults,"</strong> submitted to arXiv on May 9, 2026 by a team including Haejoon Lee, Vincent-Daniel Yun, Dimitra Panagou and Sai Praneeth Karimireddy. The paper proposes a protocol called <strong>Self-Anchored Consensus (SAC)</strong>, described as "a fully decentralized iterative filter-and-refine protocol in which agents iteratively exchange responses, locally evaluate and filter unreliable messages, and refine their own outputs."</p>
+<p>The authors are explicit about why this matters. LLM agents, they write, "increasingly collaborate over peer-to-peer networks to improve their reliability," but "these same interactions can also become a source of vulnerability, as unreliable or Byzantine agents may sway neighboring agents toward incorrect conclusions and degrade overall system performance." Crucially, they argue that the obvious fixes are brittle: existing methods that "rely on leader-based coordination or self-reported confidence" are "both of which are susceptible to adversarial manipulation." A model that simply asserts high confidence in a wrong answer can poison a naive consensus — so the protocol cannot trust self-reported certainty.</p>
+<p>SAC's answer is to borrow the formal guarantees of BFT directly. The paper presents what it calls "(F+1)-robustness conditions for the communication graph that ensure honest agents preserve and propagate reliable information despite Byzantine influence" — a structural condition on how the models are connected, lifted from distributed-systems theory, that bounds how much damage faulty participants can do. On mathematical and commonsense reasoning benchmarks, the paper reports that SAC "effectively suppresses Byzantine influence and consistently improves performance across diverse communication topologies, whereas prior methods degrade under adversarial conditions."</p>
+<h2>A crowded, converging field</h2>
+<p>SAC is not alone, and that convergence is itself the story. A cluster of 2026 papers attacks the same problem from different angles. <strong>"Council Mode: A Heterogeneous Multi-Agent Consensus Framework for Reducing LLM Hallucination and Bias"</strong> organizes models into a three-phase pipeline — triage, parallel expert generation, then consensus synthesis — explicitly aimed at filtering out individual models' errors before they reach the user. <strong>"Mixture-of-Models,"</strong> posted in January 2026, formalizes deliberation as a structured topology with peer review and a voting function for reaching non-linear consensus among heterogeneous expert agents.</p>
+<p>Researchers are also documenting the failure modes that make this hard. Work on multi-agent debate has identified what some call "communication hallucinations," in which agents reach a misleading consensus precisely because one of them was confidently wrong and the others deferred. The standard Multi-Agent Debate paradigm, critics note, leans on "the unrealistic assumption that all debaters are rational and reflective" — an assumption that collapses exactly when the debaters are themselves hallucination-prone language models. That critique is what motivates the BFT framing: rather than hoping every participant behaves, you design for the assumption that some will not.</p>
+<p>This connects the new protocols to two older traditions. The first is <strong>ensemble methods</strong>, where combining many imperfect predictors yields a stronger one — but classical ensembling typically averages or votes over outputs without letting the members interrogate each other. The second is <strong>multi-agent debate</strong>, where models do argue across rounds. The BFT-derived work sits between them, keeping debate's iterative refinement but adding ensembling's statistical discipline and, critically, formal robustness guarantees about how much a bad participant can corrupt the result.</p>
+<h2>Why consensus matters for reliability</h2>
+<p>The deeper appeal is epistemic. A lone model has no way to represent disagreement — it cannot tell you that part of its answer rests on shaky ground. A deliberating council can. When models exchange, challenge, and filter one another's claims, the points of genuine consensus tend to be the ones supported by stable, coherent reasoning, while contested claims surface as exactly the places where a human should look harder. That makes the synthesized answer not only more accurate on average but more legible about its own uncertainty — a property single models conspicuously lack.</p>
+<p>There is a cost, and it is real. Running several models through multiple rounds of deliberation multiplies inference expense and latency, and classical BFT protocols are known to scale poorly past tens of nodes — a constraint that caps how large these councils can practically grow. The benefit only justifies the bill for high-stakes questions where a wrong answer is expensive. But that describes a large and growing share of where AI is being deployed in 2026: agentic systems making consequential decisions with limited human oversight.</p>
+<h2>What to watch next</h2>
+<p>The open questions are about robustness under pressure. Several teams are now stress-testing these systems with deliberate fault injection — forcing hallucinations, injecting adversarial prompts, and probing whether the consensus holds. Watch for results on how gracefully these protocols degrade as the fraction of faulty models rises, and whether the formal "(F+1)" guarantees survive contact with the messy, semantic nature of language rather than the clean numeric values classical BFT was built for. The most consequential design choice may turn out to be the human one: where, and how, a person sits inside the council — as a tiebreaker, an auditor, or simply a reader of where the machines could not agree.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"A fully decentralized iterative filter-and-refine protocol in which agents iteratively exchange responses, locally evaluate and filter unreliable messages, and refine their own outputs."</blockquote>
+          <cite>- Robust Multi-Agent LLMs under Byzantine Faults (arXiv, 2026), Describing the Self-Anchored Consensus protocol</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">May 2026</div><div class="stat-label">arXiv submission of the BFT consensus paper</div></div><div class="stat-cell"><div class="stat-value">(F+1)</div><div class="stat-label">Robustness condition borrowed from BFT</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2605.09076" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">Robust Multi-Agent LLMs under Byzantine Faults (arXiv:2605.09076)</a><a href="https://arxiv.org/html/2604.02923" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">Council Mode (arXiv:2604.02923)</a><a href="https://arxiv.org/pdf/2601.16863" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">Mixture-of-Models (arXiv:2601.16863)</a></div></div>
+<div class="article-nav"><a href="12-arbor-autonomous-research-knowledge-tree.html" class="nav-prev">&larr; Arbor: An AI Framework That Runs Its Own Research,</a><a href="14-xai-california-ab2013-training-data-lawsuit.html" class="nav-next">xAI Sues California Over Training-Data Disclosure  &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 15, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
