@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NVIDIA's Nemotron 3 Nano Omni Crams Vision, Audio and Language Into a 30B Open Model - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>NVIDIA's Nemotron 3 Nano Omni Crams Vision, Audio and Language Into a 30B Open Model</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 872 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>NVIDIA's open Nemotron 3 Nano Omni fuses vision, audio and language into a single 30B mixture-of-experts model that activates just 3B parameters per pass, claiming up to 9x higher throughput than rival open omni models.</p>
+</div>
+<div class="article-body">
+<h2>NVIDIA's Nemotron 3 Nano Omni Crams Vision, Audio and Language Into a 30B Open Model</h2>
+<p>AI agents have a plumbing problem. To watch a screen, listen to a call and read a contract, most production systems today bolt together a separate model for each sense, then shuttle data between them — bleeding latency, fragmenting context and stacking up cost on every handoff. NVIDIA's answer, released in late April and now spreading fast through enterprise pipelines, is to collapse those models into one.</p>
+<p><strong>Nemotron 3 Nano Omni</strong> is an open, omni-modal reasoning model that unifies vision, audio, video and language inside a single 30-billion-parameter mixture-of-experts architecture. NVIDIA pitches it as the "eyes and ears" of an agentic system — a perception sub-agent fast and cheap enough to run the loop that earlier multimodal stacks could not. The company claims it delivers up to <strong>9x higher throughput</strong> than other open omni models at the same level of interactivity, while topping six public leaderboards for document, video and audio understanding.</p>
+<h2>One Model, Three Senses</h2>
+<p>The architecture is the headline. Nemotron 3 Nano Omni uses a <strong>30B-A3B hybrid mixture-of-experts</strong> design: 30 billion total parameters, but only about <strong>3 billion activated per forward pass</strong>. Vision tokens, audio tokens and text tokens all flow through the same network, routing to whichever experts the modality demands. NVIDIA pairs the MoE backbone with Mamba layers for efficient sequence handling and transformer layers for reasoning, plus a Conv3D vision path and a technique called EVS (efficient video sampling). The model supports a <strong>256K-token context window</strong> — long enough to ingest dense multi-page documents or extended video alongside a running dialogue.</p>
+<p>That sparse activation is what underwrites the efficiency claims. Against comparable open omni models, NVIDIA reports <strong>7.4x higher system efficiency</strong> on multi-document workloads and <strong>9.2x</strong> on video tasks, plus roughly <strong>2.9x</strong> the single-stream reasoning speed on multimodal use cases. The throughput gains do not appear to come at the expense of accuracy: NVIDIA cites leading or competitive results across <strong>OCRBench-V2</strong>, <strong>MMLongBench-Doc</strong>, <strong>ChartQA</strong> and <strong>CharXiv</strong> for documents, and <strong>WorldSense</strong>, <strong>DailyOmni</strong> and <strong>VoiceBench</strong> for video and audio.</p>
+<p>The intended deployment surface is deliberately broad. Because the active footprint is small, NVIDIA says the model runs consistently from edge hardware like <strong>Jetson</strong> and <strong>DGX Spark</strong> desktops up through data-center and cloud environments. The company frames it as the perception layer that works alongside its larger open models — <strong>Nemotron 3 Super</strong> for high-frequency execution and <strong>Nemotron 3 Ultra</strong> for complex planning — or alongside proprietary cloud models from other vendors.</p>
+<h2>A Quote and a Customer</h2>
+<p>The launch leaned heavily on a partner case rather than an internal spokesperson. H Company, which builds computer-use agents, integrated the model to drive screen perception at full 1080p resolution.</p>
+<p>> "To build useful agents, you can't wait seconds for a model to interpret a screen," said <strong>Gautier Cloix, CEO of H Company</strong>. "By building on Nemotron 3 Nano Omni, our agents can rapidly interpret full HD screen recordings — something that wasn't practical before. This isn't just a speed boost: It's a fundamental shift in how our agents perceive and interact with digital environments in real time."</p>
+<p>In NVIDIA's own framing, written by <strong>Kari Briski</strong>, who leads the company's generative AI software efforts, the model "sets a new efficiency frontier for open multimodal models with leading accuracy and low cost." The company describes it as giving "enterprises and developers a production path for more efficient and accurate multimodal AI agents with full deployment flexibility and control."</p>
+<p>The roster of early adopters is unusually long for a launch this fresh. NVIDIA names <strong>Palantir, Foxconn, Aible, Eka Care, Pyler</strong> and <strong>Applied Scientific Intelligence</strong> as already building on it, with <strong>Dell Technologies, Docusign, Infosys, Oracle, Lila</strong> and <strong>Zefr</strong> evaluating. The model arrived on <strong>Hugging Face, OpenRouter</strong> and <strong>build.nvidia.com</strong> as an NVIDIA NIM microservice, plus more than 25 partner platforms, on day one.</p>
+<h2>The Open-Weights Play</h2>
+<p>What makes Nemotron 3 Nano Omni more than a benchmark flex is how openly it shipped. NVIDIA released not just the weights but the <strong>training datasets and recipes</strong>, under its <strong>NVIDIA Open Model Agreement</strong>, which permits commercial use. That transparency is the strategic point: organizations bound by regulatory, sovereignty or data-localization rules can fine-tune and self-host the model in environments where API-only frontier models are a non-starter. NVIDIA says the broader Nemotron 3 family — Nano, Super and Ultra — has crossed <strong>50 million downloads</strong> in the past year, and Omni extends that footprint into multimodal and agentic territory.</p>
+<p>The deeper logic is hardware. NVIDIA does not need its open models to be the most capable in the world; it needs them to be the ones enterprises actually run, ideally on NVIDIA silicon from Jetson to Blackwell. A high-efficiency open omni model that slots neatly into the agentic stack — perception for the GPUs you already bought — is a flywheel for compute demand, not a threat to it. It is a markedly different posture from labs that guard frontier weights, and it puts NVIDIA in direct conversation with the open multimodal efforts coming out of China and from Western labs racing to match them.</p>
+<p>It also rides the dominant architectural trend of 2026: omni-modal models that fuse perception into one network, and sparse MoE designs that keep the active parameter count — and therefore the inference bill — low. The pitch that a 30B model behaves like a 3B model at runtime while seeing, hearing and reading is precisely the bet the edge-AI market has been waiting on. If perception can run locally at agent-loop speed, the architecture of agentic systems shifts from cloud round-trips toward on-device reasoning.</p>
+<h2>What to Watch</h2>
+<p>The claims to verify are throughput under real concurrent load, not vendor benchmarks, and how the 9x efficiency holds once enterprises layer in their own latency and accuracy constraints. Watch the early adopters — Palantir, Dell, Docusign — for whether evaluation converts to production. And watch the competitive response: open omni models are now a contested category, and NVIDIA has set an efficiency bar that rivals will be measured against. The question for the rest of 2026 is whether "one model to see, hear and reason" becomes the default shape of an AI agent — and whether NVIDIA's open-weights generosity keeps the compute underneath it running on its own chips.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"To build useful agents, you can't wait seconds for a model to interpret a screen. By building on Nemotron 3 Nano Omni, our agents can rapidly interpret full HD screen recordings — something that wasn't practical before."</blockquote>
+          <cite>- Gautier Cloix, CEO, H Company</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">30B</div><div class="stat-label">Total parameters</div></div><div class="stat-cell"><div class="stat-value">3B</div><div class="stat-label">Active parameters per pass</div></div><div class="stat-cell"><div class="stat-value">9x</div><div class="stat-label">Throughput vs open omni peers</div></div><div class="stat-cell"><div class="stat-value">256K</div><div class="stat-label">Context window</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://blogs.nvidia.com/blog/nemotron-3-nano-omni-multimodal-ai-agents/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blogs.nvidia.com&sz=32" alt="">NVIDIA Blog</a><a href="https://developer.nvidia.com/blog/nvidia-nemotron-3-nano-omni-powers-multimodal-agent-reasoning-in-a-single-efficient-open-model/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=developer.nvidia.com&sz=32" alt="">NVIDIA Developer</a><a href="https://huggingface.co/blog/nvidia/nemotron-3-nano-omni-multimodal-intelligence" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Hugging Face</a></div></div>
+<div class="article-nav"><a href="07-fable-5-system-prompt-leak-github.html" class="nav-prev">&larr; A 120,000-Character Leak: Fable 5's Full System Pr</a><a href="09-fable-5-recall-hardware-sovereignty-local-ai.html" class="nav-next">After the Fable 5 Recall, Enterprises Rediscover ' &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 15, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
