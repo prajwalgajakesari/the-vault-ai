@@ -1,0 +1,43 @@
+# Palantir Pushes Enterprise AI Beyond Government With New Google Cloud, Legal and Construction Deals
+
+*The Vault — AI Edition · Business · June 16, 2026*
+
+When Palantir Technologies hosted the tenth edition of its AIPCon conference in Miami on June 4, the company best known for arming intelligence agencies and military commands with data software spent most of its time talking about lawyers, builders, and insurance adjusters. The lineup of customer-led demos read less like a defense procurement roster and more like a cross-section of corporate America: the law firm Kirkland & Ellis, construction giant McCarthy Building Companies, Mexican insurer GNP Seguros, plus Hertz, Nscale, Accenture, Parts Town, and the U.S. Department of Agriculture. The throughline was unmistakable. Palantir (NASDAQ: PLTR) is working to graft its platforms onto the day-to-day operating workflows of commercial enterprises — and it brought a major cloud partner along to help.
+
+## A multi-tiered Google Cloud bet
+
+The headline infrastructure news was a multi-tiered partnership with Google Cloud that makes Palantir available on the Google Cloud Marketplace for the first time. The technical substance matters more than the storefront. Palantir announced two-way data federation between Google's BigQuery and its own Foundry platform, building on existing zero-copy virtual table integration, plus a two-way semantic exchange between Google's Knowledge Catalog and Foundry's Ontology — the data model that maps an organization's people, assets, and processes into objects software can reason over. Deeper connectivity between Google's Gemini models and Palantir's Artificial Intelligence Platform (AIP) lets customers wire frontier models directly into operational decisions.
+
+"Our partnership with Palantir helps turn raw data into AI-driven insights that inform real-world, operational execution," said Satish Thomas, Vice President of Applied AI & Platform Ecosystem at Google Cloud. "By uniting BigQuery and Gemini with Palantir's Foundry and AIP, we're giving joint customers a secure, unified foundation to run their most complex, high-stakes workflows at scale."
+
+Palantir framed the deal as meeting customers where their data already lives. "Our customers are relentless in their ambitions, and clear about the need for holistic architectures," said Akshay Krishnaswamy, Palantir's chief architect. "Our partnership with Google Cloud marries the years of investments that customers have made into Google's Knowledge Catalog, BigQuery, and Cloud Storage with the operational force of Foundry and AIP, and enables them to unleash Gemini alongside their Ontology-powered AI strategy." As a proof point, Palantir cited industrial manufacturer Eaton, where Foundry, AIP, the Ontology, and Gemini together turn engineering documentation into operational assets for faster quote generation.
+
+## Lawyers and builders get an operating system
+
+The customer deals were the more telling story. Kirkland & Ellis — the world's highest-grossing law firm — and Palantir unveiled a proprietary, exclusive enterprise platform aimed at reinventing private equity fundraising, the centerpiece of a multiyear partnership expansion built on AIP. The "fund formation engine" is meant to let Kirkland codify its institutional knowledge and judgment, streamline complex legal workflows, and support fund formation clients across the entire fundraising lifecycle.
+
+"Private equity fundraising has become significantly more complex," said Erica Berthou, partner and global executive committee member at Kirkland & Ellis. "We are building this revolutionary fund formation engine to help clients navigate that complexity more efficiently across the full lifecycle of a fundraise and beyond. By combining Kirkland's market-leading funds expertise with Palantir's technology infrastructure, we will deliver better value and outcomes." Crucially, the firm stressed that the system is not an off-the-shelf legal AI tool but is built around Kirkland's own tradecraft, with Palantir supplying the ontological "connective tissue."
+
+McCarthy Building Companies, one of America's oldest privately held national contractors, signed a multi-year, multi-million dollar partnership to deploy AIP across its operations — what the firm describes as an AI operating system spanning early design through field execution, drawing on more than 160 years of building experience. "We're incredibly excited about our partnership with Palantir and believe we've invested in the premier platform on the market," said Justin McFarland, McCarthy's chief digital officer, citing Palantir's engineering talent for accelerating "complex operational concepts into scalable solutions faster than we thought possible."
+
+Rounding out the commercial push, GNP Seguros — Mexico's largest insurer and Palantir's first publicly disclosed commercial customer in the country — is applying AIP to AI-powered claims and fraud detection, a notable signal of geographic expansion beyond the U.S. and Western Europe.
+
+## From the battlefield to the back office
+
+The strategic significance of AIPCon 10 lies in what it says about Palantir's center of gravity. The company's reputation — and for years the bulk of its revenue — was rooted in government: defense, intelligence, and public-sector deployments where Foundry and the Apollo deployment layer ran in classified environments. AIP, launched in 2023, reoriented Palantir around large language models, and successive AIPCon events have functioned as showcases for converting that pitch into paying commercial logos.
+
+What is different now is the depth of embedding. These are not pilots or proofs-of-concept bolted onto the edge of a business. A law firm building its fundraising practice on top of the Ontology, a contractor running field execution through AIP, and an insurer routing claims through Palantir's models represent the software moving into the load-bearing core of how these companies operate. The Ontology is the connective layer in each case — the abstraction that lets a frontier model like Gemini act on a firm's actual objects and processes rather than generic text. The Google Cloud tie-up reinforces the same thesis: rather than asking enterprises to migrate their data, Palantir is increasingly content to federate with the warehouses and catalogs they already run, lowering the switching cost of adoption.
+
+## What to watch
+
+The open questions are about durability and economics. Multi-year, multi-million dollar framings make for strong press releases, but Palantir's commercial growth will ultimately be judged on net revenue retention, the pace of converting bootcamp-style pilots into production deployments, and whether marquee names like Kirkland & Ellis become repeatable templates for entire industries — legal, construction, insurance — rather than one-off prestige wins. The Google Cloud relationship also positions Palantir alongside, and in some respects against, hyperscalers building their own agentic AI stacks; how that coexistence plays out as Gemini and AIP interoperate will be worth tracking. For now, AIPCon 10 made the direction clear: Palantir's next chapter is being written less in the situation room than in the conference room.
+
+---
+
+### Sources
+
+- [Palantir Customers Reveal How AI Amplifies Their Tradecraft at AIPCon 10 — Business Wire](https://www.businesswire.com/news/home/20260604590081/en/Palantir-Customers-Reveal-How-AI-Amplifies-Their-Tradecraft-at-AIPCon-10)
+- [Palantir Announces Availability on Google Cloud Marketplace — Business Wire](https://www.businesswire.com/news/home/20260604907574/en/Palantir-Announces-Availability-on-Google-Cloud-Marketplace-Including-Two-Way-Integrations-between-BigQuery-and-Foundry-and-Deep-Connectivity-between-Gemini-and-AIP)
+- [Palantir and Kirkland & Ellis Partner to Transform Private Equity Fundraising — Business Wire](https://www.businesswire.com/news/home/20260604089153/en/Palantir-and-Kirkland-Ellis-Partner-to-Transform-Private-Equity-Fundraising-with-Exclusive-AI-Powered-Fund-Enterprise-Platform)
+- [McCarthy and Palantir Announce Strategic Partnership to Bring AI to the Construction Field and Beyond — Business Wire](https://www.businesswire.com/news/home/20260604988849/en/McCarthy-and-Palantir-Announce-Strategic-Partnership-to-Bring-AI-to-the-Construction-Field-and-Beyond)
+- [Kirkland & Ellis and Palantir Partner to Transform Private Equity Fundraising — Kirkland & Ellis LLP](https://www.kirkland.com/news/press-release/2026/06/kirkland-ellis-and-palantir-p-to-transform-pe-fundraising-with-excl-ai-pow-fund-enterprise-plat)
