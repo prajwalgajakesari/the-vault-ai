@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dr-DCI Lets Search Agents Talk Directly to a Corpus, Expanding Their Workspace on the Fly - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Dr-DCI Lets Search Agents Talk Directly to a Corpus, Expanding Their Workspace on the Fly</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 940 words</span>
+    <span>1 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Dr-DCI replaces the retriever-mediated interface with direct corpus interaction, shell-executable search and verify operations scaled via dynamic workspace expansion, giving long-horizon research agents direct, growable access to their evidence.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Dr-DCI Lets Search Agents Talk Directly to a Corpus, Expanding Their Workspace on the Fly"
+slug: dr-dci-direct-corpus-interaction
+category: research
+story_number: 14
+date: 2026-06-16
+source: "arXiv:2606.14885"
+---</p>
+<h2>Dr-DCI Lets Search Agents Talk Directly to a Corpus, Expanding Their Workspace on the Fly</h2>
+<p>For all the excitement around AI agents that "do research," most of them are still peering at the world through a very narrow window. When an agent searches a large document collection, it almost never touches the collection itself. Instead, it hands a query to a retriever — a system like BM25 or ColBERT — and gets back a ranked list of candidates. The retriever is good at one job: deciding which documents look most relevant to a string of words. But it only ever shows the agent the top of a list, or a bounded slice of a document. The agent cannot reorganize the material, cross-check a claim across ten sources at once, or verify a constraint that spans the whole corpus. It can only ask for more list.</p>
+<p>A paper announced June 16, 2026 argues this is the wrong interface for an agent that has to reason over many steps. Titled "Dr-DCI: Scaling Direct Corpus Interaction via Dynamic Workspace Expansion" (arXiv:2606.14885), the work — from Yi Lu, Zhuofeng Li, Wenhu Chen, Jimmy Lin, Dongfu Jiang, Yu Zhang and colleagues — proposes letting agents interact with a corpus far more directly, and then makes that direct interaction scale to collections too large to fit in any context window.</p>
+<h2>What "direct corpus interaction" means</h2>
+<p>The core idea, which the authors call Direct Corpus Interaction (DCI), is to stop treating the corpus as a black box behind a ranking function. Per the paper, a retriever-mediated interface "exposes evidence only as ranked results or bounded document views," which limits an agent's ability to reorganize material and verify constraints across documents. DCI instead exposes the corpus through shell-executable operations — the kind of search, filter, compare and verify primitives a human analyst would reach for at a command line.</p>
+<p>That distinction matters. A ranked list answers "what looks similar to my query?" A shell-style interface answers richer questions: count how many documents satisfy a condition, pull every passage that mentions two entities together, diff two reports, or filter down a set and then operate on the survivors. The agent is no longer limited to semantic similarity as the only lens. It can express logic, structure and verification directly against the data, which is exactly what long, multi-step investigations demand.</p>
+<p>The framing builds on a line of recent work — including papers like "Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search via Direct Corpus Interaction" — that questions whether similarity-ranking is the right contract between an agent and its evidence at all.</p>
+<h2>The scaling problem, and dynamic workspace expansion</h2>
+<p>Direct interaction sounds liberating until you remember how big real corpora are. You cannot simply dump a multi-gigabyte collection into a context window so the agent can grep it. The contribution Dr-DCI is named for is its answer to this: dynamic workspace expansion.</p>
+<p>Rather than fixing the agent's view in advance, the system grows the agent's working surface on the fly as the task demands. The "workspace" is the set of corpus material the agent can directly manipulate, and it expands dynamically — bringing more of the corpus into reach when the agent's operations call for it, instead of pre-committing to a single retrieved slice. This is what turns DCI from a neat idea on a toy collection into something that can, in principle, run against corpora far larger than the model could ever hold at once.</p>
+<p>The paper is a substantial one — 25 pages, with four figures and 22 tables — suggesting the authors put real weight on empirical evaluation across many settings rather than a single benchmark headline. (We are not reproducing those numbers here, since the abstract alone does not state them.)</p>
+<h2>Why this matters for long-horizon agents</h2>
+<p>The timing is not accidental. The hardest open problem in agentic search right now is the long horizon: tasks that need dozens of retrieval steps and reasoning that stitches together sources the agent saw at different moments. Recent benchmarks have shown how easily agents get "lost in the maze" of such tasks, and how a retriever's narrow window forces an agent to spend turns re-querying for context it should already be able to hold and inspect.</p>
+<p>A direct, expandable interface attacks that failure mode at its root. If an agent can filter, recombine and verify against the corpus itself — and if its workspace can grow as the investigation deepens — then constraint-checking and cross-document synthesis become operations the agent performs, not approximations it pieces together from ranked snippets. That is the difference between an agent that browses and an agent that genuinely works over a body of evidence.</p>
+<h2>The bigger shift</h2>
+<p>Dr-DCI fits a broader rethinking of how agents should meet their data. The first generation of retrieval-augmented systems treated retrieval as a fixed, one-shot step before generation. The second made it agentic — letting the model decide when and what to fetch. Dr-DCI pushes on the third axis: not just <em>when</em> an agent retrieves, but <em>what kind of contact</em> it gets with the corpus, and how much of that corpus it can hold in view at once. By making direct interaction scalable, the authors are betting that the most capable research agents will be the ones that stop asking a middleman for a list and start talking to the data directly.</p>
+<p>---</p>
+<p><em>Source: [arXiv:2606.14885](https://arxiv.org/abs/2606.14885), "Dr-DCI: Scaling Direct Corpus Interaction via Dynamic Workspace Expansion."</em></p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"exposes evidence only as ranked results or bounded document views"</blockquote>
+          <cite>- The authors, Dr-DCI paper, on the limits of retriever-mediated interfaces</cite>
+        </div>
+
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2606.14885" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a></div></div>
+<div class="article-nav"><a href="13-relational-structural-causal-models.html" class="nav-prev">&larr; Relational Structural Causal Models Push AI Toward</a></div>
+<footer>The Vault - AI Edition &middot; Published June 16, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
