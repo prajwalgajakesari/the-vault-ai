@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LoopWM Brings Looped Transformers to World Modeling, Outperforming Far Larger Models - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:48%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>LoopWM Brings Looped Transformers to World Modeling, Outperforming Far Larger Models</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 962 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>LoopWM applies looped, iterative-latent-depth transformers to world modeling, reportedly matching or beating models up to ~100x larger at lower compute by making a small model loop instead of scaling parameters.</p>
+</div>
+<div class="article-body">
+<h2>LoopWM Brings Looped Transformers to World Modeling, Outperforming Far Larger Models</h2>
+<p>A new June 2026 arXiv paper argues that the most reliable way to make a world model smarter is not to make it bigger, but to make it think longer. The paper introduces <strong>LoopWM</strong>, which its authors describe as the first looped transformer architecture built specifically for world modeling, and it lands a provocative headline result: by recycling a compact stack of layers across many internal iterations, LoopWM reportedly matches or beats conventional world models up to roughly 100x its parameter count, while spending less compute to get there.</p>
+<p>If the claim holds up to scrutiny, it is a pointed challenge to the prevailing scaling reflex in model-based AI. World models, the learned simulators that let agents imagine the consequences of their actions before taking them, have generally improved by ballooning in size. LoopWM proposes the opposite trade: a small set of weights, applied over and over.</p>
+<h2>How LoopWM Works</h2>
+<p>The core idea borrows from a fast-moving line of research on looped, or recurrent-depth, transformers. In a standard transformer, every layer has its own parameters, so adding depth means adding weights. A looped transformer instead reuses the same transformer block repeatedly, iterating over a shared latent representation rather than stacking fresh layers. The technique has gained momentum over the past year: a 770M-parameter Parcae model reportedly matched a 1.3B transformer, and the April 2026 "Hyperloop Transformers" paper from MIT researchers reported outperforming depth-matched baselines while using roughly 50% fewer parameters.</p>
+<p>LoopWM carries that primitive into the world-modeling setting, where the central job is to predict how an environment evolves over many future steps. According to the authors, the architecture performs what they call iterative latent depth: rather than producing a next-state prediction in a single forward pass, the model refines its internal latent estimate across multiple loop iterations, effectively allocating more "thinking depth" to harder transitions and less to easy ones. The authors frame this as letting the model trade compute for accuracy at inference time without retraining a larger network, a property they argue is especially valuable for long-horizon rollouts where small per-step errors compound into large drift.</p>
+<p>That framing connects LoopWM to a broader insight from the looped-language-model literature, where related systems build reasoning into pretraining through iterative computation in latent space and learn how much depth to spend on each input. LoopWM's contribution, the authors say, is showing that the same iterative-depth machinery stabilizes the long, multi-step predictions that world models need for planning, an area where transformer-based simulators have historically struggled with error accumulation.</p>
+<h2>The Efficiency Claim</h2>
+<p>The paper's most striking number is the comparison to far larger baselines. The authors report that LoopWM delivers superior predictive accuracy while outperforming models up to roughly 100 times larger in parameter count, and that it does so at reduced compute. That is a stronger claim than the looped-transformer field has typically made; prior work tended to report parameter savings in the range of 50% or order-of-magnitude reductions, not two orders of magnitude. The authors attribute the gap to the structure of the world-modeling task itself: because accurate forward prediction rewards iterative refinement more than raw representational width, a small model that loops many times can capture dynamics that a much wider, shallower model misses.</p>
+<p>The authors also emphasize stability over long horizons. They report that LoopWM produces more consistent multi-step rollouts than parameter-matched and far larger baselines, which matters because the value of a world model is realized in planning, when an agent chains many imagined steps together. A simulator that stays coherent over a long rollout is worth more to a planner than one that is marginally sharper on a single step but drifts after a dozen.</p>
+<p>Two caveats are worth flagging for readers. First, looped depth is not free: spending more iterations at inference recovers some of the compute that the small parameter count saves, so the efficiency story depends heavily on how aggressively the model loops and on the specific benchmark. Second, as with much of the recurrent-depth literature, the headline comparison is most compelling when the baselines are matched on training data and evaluation protocol, and outside replication will be needed to confirm the 100x figure across diverse environments.</p>
+<h2>Why It Matters</h2>
+<p>Parameter-efficient world models are not merely a tidiness concern. Model-based planning is one of the more promising routes to sample-efficient, controllable agents, and it is bottlenecked by the cost of running a learned simulator thousands of times inside a search or rollout loop. A world model that is small in memory but can dial up its accuracy by looping is attractive precisely where deployment is hardest: on-device control, robotics, and edge agents that cannot host a giant network but can afford to iterate. The same logic that made looped transformers appealing for memory-constrained language modeling applies with extra force here.</p>
+<p>There is also a conceptual point. Looped, iterative-depth architectures blur the line between "model size" and "amount of computation," and LoopWM extends that blurring into the world-modeling domain, suggesting that for prediction-heavy tasks, depth-as-iteration may be a better axis to scale than width-as-parameters. If that generalizes, it would reshape how researchers think about the compute budget for planning agents.</p>
+<h2>What to Watch</h2>
+<p>The open questions are concrete. Does the roughly 100x advantage survive on standardized world-model benchmarks and in closed-loop settings where the model drives a real agent rather than predicting an offline dataset? How does inference latency scale as the loop count grows, and where is the break-even point against simply using a larger feed-forward model? And can the learned depth-allocation be controlled precisely enough to give planners a reliable accuracy-versus-compute dial?</p>
+<p>For now, LoopWM is a sharp, well-timed bet that the next gains in world modeling will come from making compact models think harder, not from making large models thinker. The looped-transformer field has spent the past year proving that recurrence buys parameter efficiency in language. LoopWM is the argument that the same trick may matter even more for machines that try to imagine the future.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"Rather than producing a next-state prediction in a single forward pass, the model refines its latent estimate across multiple loop iterations, spending more thinking depth on harder transitions and trading compute for accuracy at inference without retraining a larger network."</blockquote><cite>- The authors, LoopWM paper</cite></div>
+
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2604.21254" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://arxiv.org/html/2510.25741v1" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (LoopLM)</a><a href="https://www.together.ai/blog/parcae" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=together.ai&sz=32" alt="">Together AI</a></div></div>
+<div class="article-nav"><a href="11-exprl-on-policy-rl-mid-training.html" class="nav-prev">&larr; ExpRL Uses Human Reference Solutions to Mid-Train </a><a href="13-eu-ai-act-content-labelling-code.html" class="nav-next">EU Publishes First Draft Code of Practice for Labe &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 17, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
