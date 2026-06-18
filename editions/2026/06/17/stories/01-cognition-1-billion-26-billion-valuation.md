@@ -1,0 +1,31 @@
+# Cognition Raises $1 Billion at a $26 Billion Valuation to Scale Its AI Coding Agent
+
+Cognition, the maker of the autonomous AI software engineer Devin, has raised more than $1 billion at a $26 billion post-money valuation, a deal that more than doubles the company's worth in roughly eight months and crowns it one of the most richly valued startups in the white-hot market for AI coding agents.
+
+The round, announced on May 27 and reported across TechCrunch, Bloomberg and The Next Web, was co-led by Lux Capital, General Catalyst and 8VC, with participation from new backers Ribbit Capital, Atreides Management and Layer Global, alongside existing investor Founders Fund, Peter Thiel's venture firm. TechCrunch pegged the deal at a $25 billion pre-money valuation, which translates to the widely cited $26 billion figure once the new cash is added. With the round, Cognition has now raised more than $2.5 billion in total funding since its 2023 founding.
+
+The leap is steep. As recently as September, a $400 million round valued the company at $10.2 billion. Eight months later, that number has more than doubled, a velocity that even by the standards of the current AI funding cycle is remarkable.
+
+## A Revenue Curve to Match the Valuation
+
+The numbers Cognition disclosed help explain why investors leaned in. The company says its annualized revenue run rate has climbed from $37 million in May 2025 to $492 million today, a roughly 13-fold increase in twelve months. Cognition told investors it expects to cross $1 billion in annualized revenue later this year. Enterprise usage of Devin, the company added, has grown 50% month over month for the past six months.
+
+Those numbers come attached to a marquee customer list. Cognition counts Goldman Sachs, Mercedes-Benz, NASA, Santander and several parts of the U.S. government among the organizations now running Devin in production. Unlike code-completion tools that suggest lines while a human developer types, Devin is pitched as a full agent that takes a task description and produces working software autonomously, planning, writing, debugging and deploying across multi-step workflows.
+
+The most arresting statistic Cognition offered was about itself. Co-founder and chief executive Scott Wu said more than 90% of the company's own internal code is now written by Devin, a claim that, if accurate, makes Cognition perhaps the most aggressive in-house user of its own product in enterprise software history. The company is, in effect, automating its own engineering function with the same tool it sells to automate engineering at everyone else.
+
+## Why It Matters
+
+The raise is, above all, a bet that there is room for an independent AI coding company in a market that giants are racing to swallow. A year ago, the conventional wisdom held that foundation-model makers would absorb the coding category outright. Anthropic's Claude Code, OpenAI's Codex and Google's Jules have each captured meaningful share, and Google's roughly $2.4 billion deal for Windsurf's top talent last year underscored how aggressively the platform companies were moving. Cognition itself acquired the remaining assets of Windsurf in July 2025.
+
+That backdrop makes the competitive geometry unusual, even awkward. Cognition runs Devin on a mix of its own proprietary models and models from OpenAI and Anthropic, the very companies building rival coding products. Wu has framed that not as a dependency but as a strategic advantage. As the model layer grows more competitive, he argues, orchestrating a combination of models produces better results than betting on any single provider, positioning Cognition as an orchestration layer rather than a model company. The wager beneath it all is that the model layer will commoditize while the agent layer, the planning, routing and execution logic on top, captures durable value.
+
+The competition for that value is ferocious. Cursor, the AI coding editor built by Anysphere, reached $2 billion in annual recurring revenue in about three years and was in talks to raise $2 billion at a $50 billion valuation before SpaceX struck a deal in April for the right to acquire it for $60 billion. Salesforce, meanwhile, expects to spend $300 million on Anthropic tokens this year, primarily for coding. Against that, Cognition's $26 billion valuation on $492 million of revenue works out to a multiple of roughly 53 times sales, a number that holds only if hypergrowth continues and the market does not consolidate around a handful of dominant players.
+
+Wu addressed the independence question pointedly. Speaking on Bloomberg Television, he emphasized that the raise allows Cognition to remain independent, a notable comment given the SpaceX-Cursor deal and the broader pattern of AI startups being folded into larger platforms. The company said it plans to use the capital to refine its models, improve the customer experience and potentially pursue more acquisitions.
+
+There is a sharper edge to the story, too. If Devin can genuinely automate 90% of a company's coding output, it is less a developer tool than a partial replacement for the software engineering workforce, the same logic now driving payroll-to-infrastructure shifts at companies like Meta and Microsoft. Cognition is selling the instrument that makes that substitution possible, which is both the source of its extraordinary growth and the reason the category draws scrutiny.
+
+## What to Watch Next
+
+The immediate test is whether Cognition can convert its $492 million run rate into the $1 billion in annualized revenue it has promised by year's end, and whether the 50% month-over-month enterprise growth holds as deployments mature. Watch, too, for how the model providers behave: OpenAI and Anthropic are improving native coding with every release, and the durability of Cognition's orchestration thesis depends on them not building agent products that undercut their own API customers. Finally, with fresh capital earmarked partly for acquisitions, expect Cognition to remain an active player in a consolidation wave that, as one observer put it, resembles the early days of cloud computing compressed into months rather than years. For a company that went from a viral demo to a $26 billion valuation in under three years, the pace is the point, and the question is how long it can last.
