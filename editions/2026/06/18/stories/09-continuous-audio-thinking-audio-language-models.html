@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>'Continuous Audio Thinking' Aims to Give Large Audio Language Models a Real Inner Voice - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>'Continuous Audio Thinking' Aims to Give Large Audio Language Models a Real Inner Voice</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 890 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A new arXiv preprint gives audio language models a continuous latent workspace, grounded by distillation from audio experts, so they can reason over acoustic detail like prosody and emotion before collapsing sound into text.</p>
+</div>
+<div class="article-body">
+<p>When you ask a voice assistant to listen to a song and name the genre, or to flag whether a caller sounds upset, something subtle and lossy happens under the hood. The model hears the audio, but almost immediately it starts translating what it heard into words. By the time it reasons about the problem, it is no longer thinking about sound at all. It is thinking about a text description of sound. A new arXiv preprint argues that this translation step quietly throws away exactly the information that matters most.</p>
+<p>The paper, "Continuous Audio Thinking for Large Audio Language Models," was posted June 18, 2026, by Gyojin Han, Dong-Jae Lee, Changho Choi, Jongsuk Kim, and Junmo Kim. It proposes a method the authors call Continuous Audio Thinking, or CoAT, that lets an audio model reason in the language of sound itself before it commits to words.</p>
+<h2>The problem: reasoning in text loses the audio</h2>
+<p>Large audio language models (LALMs) such as Qwen2-Audio, Qwen2.5-Omni, and Audio Flamingo have made impressive strides. They transcribe speech, classify music, identify sound events, and answer questions about what they hear. Many now borrow a trick from text models: chain-of-thought reasoning, where the model "thinks out loud" in intermediate steps before answering.</p>
+<p>But according to the paper's abstract, there is a catch baked into how these models are trained. LALMs are optimized to produce text-aligned responses, so their internal hidden states are progressively shaped for text generation rather than for preserving acoustic information. In plain terms, the model's inner representation drifts toward "what words should I say" and away from "what did this actually sound like."</p>
+<p>That drift is costly because so much of audio meaning lives in the parts that do not survive transcription. The authors point to phonetic detail, prosody (the rhythm and melody of speech), sound events, affect or emotional tone, and pitch. A sarcastic "great" and a sincere "great" transcribe identically. A tense violin and a triumphant one are both just "violin." Once the model has collapsed sound into text, a text-based chain of thought has nothing acoustic left to reason over.</p>
+<h2>What continuous audio thinking proposes</h2>
+<p>CoAT's core idea is to give the model a place to think in sound. Per the abstract, the method equips an audio language model with a continuous latent workspace for organizing acoustic information before it generates a response.</p>
+<p>The word <em>continuous</em> is doing real work here. Instead of forcing the model to discretize its reasoning into text tokens, CoAT lets it manipulate continuous internal representations, vectors that can hold fine-grained acoustic nuance that words cannot easily capture. This mirrors a broader trend toward latent or "continuous" reasoning, where models think in vector space rather than spelling out every step in language. The bet is that for non-textual signals like audio, a non-textual scratchpad is the more natural fit.</p>
+<p>The second ingredient is supervision. A latent workspace is only useful if the model learns to fill it with the right information. CoAT addresses this through distillation from audio experts: specialized audio models contribute their knowledge to ground the latent workspace, teaching the LALM to retain and organize acoustic detail rather than letting it evaporate. The expert signals act as a teacher, anchoring the continuous representations to genuine acoustic structure instead of leaving the model to invent its own.</p>
+<h2>Reported results and benchmarks</h2>
+<p>The authors report testing CoAT across three different LALMs, Qwen2-Audio, Qwen2.5-Omni-7B, and Audio Flamingo 3, rather than tuning it to a single architecture. That breadth matters: a technique that helps one model and breaks two others is a curiosity, while one that lifts three distinct systems looks more like a general principle.</p>
+<p>According to the abstract, the method is evaluated on a broad benchmark suite spanning audio reasoning, audio understanding, music classification, speech emotion, and speech transcription, with the paper reporting performance gains across these tasks. The Vault could not independently verify the specific accuracy figures from the preprint, so we describe the results qualitatively; readers who want exact numbers should consult the paper. The notable claim is the spread of the gains. Speech emotion and music classification depend heavily on the very acoustic cues a text-first pipeline discards, so improvements there would be the most direct evidence that preserving sound, rather than prematurely verbalizing it, is what helps.</p>
+<h2>Why it matters</h2>
+<p>The applications are immediate and broad. Voice assistants that can reason about <em>how</em> something is said, not just <em>what</em> is said, would handle ambiguity, sarcasm, and urgency far better. Audio agents that monitor calls, meetings, or environments could distinguish a routine sound from an alarming one with more reliability. And for accessibility, richer acoustic understanding could power better real-time captioning that conveys tone, or assistive tools that describe a soundscape rather than just naming objects in it.</p>
+<p>There is also a research-direction signal here. CoAT joins a wave of 2025-2026 work, including "Thinking with Sound" and audio chain-of-thought methods, all circling the same insight: audio reasoning should not be a thin wrapper around text reasoning. The field appears to be converging on the view that each modality may deserve its own way of thinking.</p>
+<h2>What to watch</h2>
+<p>Three things will determine whether continuous audio thinking is a milestone or a stepping stone. First, reproducibility, whether the reported gains hold up when independent labs run the benchmarks and whether code and weights are released. Second, cost, since a continuous latent workspace plus expert distillation adds training and possibly inference overhead that real-time voice products can ill afford. Third, generality, whether the approach extends beyond the three tested models and the benchmark categories to messy, real-world audio. If those hold, the next generation of voice AI may finally stop translating sound into words before it has truly listened.</p>
+
+
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2606.18273" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (paper)</a><a href="https://arxiv.org/abs/2509.21749" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (audio CoT)</a><a href="https://arxiv.org/pdf/2412.06769" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (latent reasoning)</a></div></div>
+<div class="article-nav"><a href="08-google-antigravity-cli-replaces-gemini-cli.html" class="nav-prev">&larr; Google's Antigravity CLI Replaces the Gemini CLI a</a><a href="10-openai-lifescibench-life-science-benchmark.html" class="nav-next">OpenAI's LifeSciBench Grades AI on Real Life-Scien &rarr;</a></div>
+<footer>The Vault - AI Edition - Published June 18, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NAVI-Orbital Puts a Zero-Shot Vision-Language Model in Space for Autonomous Earth Observation - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>NAVI-Orbital Puts a Zero-Shot Vision-Language Model in Space for Autonomous Earth Observation</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 886 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Researchers ran an edge-optimized vision-language model onboard a satellite, answering natural-language Earth-observation queries in orbit without downlinking raw imagery -- a first that points past the satellite-bandwidth bottleneck.</p>
+</div>
+<div class="article-body">
+<p>For the first time, an Earth observation satellite has answered a plain-English question about the world below it — without sending a single pixel back to a human analyst first. In a new arXiv preprint posted June 18, 2026, researchers at NASA's Jet Propulsion Laboratory describe what they call the first in-orbit demonstration of a zero-shot vision-language model running onboard a spacecraft, a milestone that quietly took place in April and could reshape how the satellite industry thinks about what a sensor in orbit is actually for.</p>
+<p>The paper, "NAVI-Orbital: First In-Orbit Demonstration of a Zero-Shot Vision-Language Model for Autonomous Earth Observation," is authored by Juan Manuel Delfa Victoria, Taran Cyriac John, and Andrew W. Herson. The demonstration ran aboard Yam-9, a spacecraft built and operated by the space infrastructure company Loft Orbital, which launched in the fall of 2025 as a pathfinder for orbital AI.</p>
+<h2>The bottleneck nobody can downlink their way out of</h2>
+<p>Modern Earth observation has an embarrassing problem: satellites collect far more data than anyone can get to the ground, let alone look at. A single high-resolution imaging spacecraft can generate terabytes per day, but the radio links that send that data down to Earth are narrow, the ground-station passes are brief, and the queue of imagery waiting for a human or a machine-learning pipeline to inspect it only grows. The result is a widening gap between what satellites see and what we can actually act on.</p>
+<p>The conventional fix has been to throw more bandwidth and more analysts at the problem. NAVI-Orbital takes the opposite approach: move the analysis up to the satellite, so that only the answer — not the raw imagery — needs to come down.</p>
+<h2>What NAVI-Orbital actually did</h2>
+<p>The demonstration combined three pieces. The first is Google DeepMind's Gemma 3, an open-weight vision-language model purpose-built for edge applications — meaning it is designed to run on constrained hardware far from a data center, using a SigLIP vision encoder and an attention design that keeps memory pressure low. The second is NAVI-Orbital itself, the software harness developed by Delfa Victoria's team at JPL, which stripped down Gemma 3's library dependencies and restructured the inference pipeline so the whole thing would fit inside the satellite's tight memory and processing budget. The third is an agent-orchestration layer that managed the autonomous query-and-response loop. The model ran on an Nvidia Jetson Orin AGX GPU, one of the leading chips now being flown for onboard compute.</p>
+<p>The "zero-shot" part is the crux. Rather than training a bespoke classifier for each target, researchers on the ground simply issued natural-language commands and got structured answers back. According to the paper and the team's account, the model was asked to classify sensor data where the natural environment meets human development, and to identify infrastructure around railway hubs — and it did, with no real-time data downlink in the loop. A VLM that accepts free-form queries means a satellite can be re-tasked with a sentence instead of a software update.</p>
+<h2>Why a VLM in orbit matters</h2>
+<p>The near-term payoff is data triage. If the spacecraft can classify scenes, flag anomalies, and return a short structured summary, the downlink stops being a firehose of raw imagery and becomes a trickle of actionable insight — compressing the time from observation to answer from hours to something closer to real time.</p>
+<p>The longer-term implications run further. Loft's head of AI, Paul Lasserre, framed it to TechCrunch as the start of "always-on, patrol layers in space," describing a future where an operator could tell a satellite to "monitor this border for me, and let me know when something is suspicious," then interact with it conversationally. That vision maps cleanly onto disaster response (spotting flooding or wildfire fronts as they happen), defense and maritime monitoring, and commercial tasking efficiency, where the scarce resource has always been analyst attention rather than imagery.</p>
+<p>There is also a research dividend. The idea behind the project began, fittingly, far from Earth observation: co-author Taran Cyriac John was thinking about digital assistants for astronauts on the Moon or Mars, where a suited crew member cannot exactly stop to type on a keyboard. A conversational model that can see and reason is useful to a spacecraft and to a human explorer alike.</p>
+<h2>What to watch</h2>
+<p>The demonstration is a proof of concept, not a constellation. Loft currently operates 12 spacecraft, and Lasserre estimated that real-time global coverage with Yam-9-class satellites would take somewhere between 50 and 100 of them. The hard, unglamorous engineering ahead is in power and thermal management — keeping an Orin-class GPU fed and cool in orbit — and in the memory discipline that let NAVI-Orbital squeeze a modern VLM onto flight hardware at all.</p>
+<p>Watch, too, for the field to crowd quickly. Planet Labs already flies Jetson Orin processors for simpler object detection and says VLM research is underway; Kepler Communications, which runs the largest orbital GPU cluster, has hinted at undisclosed compute use cases since its January launch. NAVI-Orbital's claim to be first is narrow and specific — a zero-shot VLM, demonstrated in orbit — but if it holds, the more important number is the second satellite to do it, and how fast it arrives.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"It opens the door to always-on patrol layers in space. If you have a VLM, you can have logic -- like 'monitor this border for me, and let me know when something is suspicious.'"</blockquote>
+          <cite>-- Paul Lasserre, Head of AI, Loft Orbital</cite>
+        </div>
+
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2606.18271" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://techcrunch.com/2026/06/15/a-satellite-just-learned-to-find-things-on-its-own-heres-what-that-means/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://www.techtimes.com/articles/318563/20260617/satellite-ai-inference-clears-orbit-gemma-3-ran-aboard-yam-9-april.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techtimes.com&sz=32" alt="">Tech Times</a></div></div>
+<div class="article-nav"><a href="11-pew-americans-ai-chatbot-adoption-2026.html" class="nav-prev">&larr; Pew: Nearly Half of US Adults Now Use AI Chatbots,</a><a href="13-gaussian-mixture-attention-linear-time.html" class="nav-next">Gaussian Mixture Attention Offers a Linear-Time Pa &rarr;</a></div>
+<footer>The Vault - AI Edition - Published June 18, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI's LifeSciBench Grades AI on Real Life-Science Research -- and the Best Model Passes Just 36% - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>OpenAI's LifeSciBench Grades AI on Real Life-Science Research -- and the Best Model Passes Just 36%</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 950 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI's LifeSciBench, a 750-task benchmark built with 173 PhD scientists, shows the best AI model passes only 36.1% -- and drops to 28.1% on tasks with attached data files, exposing how far models remain from real lab reasoning.</p>
+</div>
+<div class="article-body">
+<p>When OpenAI handed its most capable models a stack of 750 research problems written by working biotech and pharma scientists — the kind of messy, multi-step questions a lab actually wrestles with — the best system in the world cleared barely a third of them.</p>
+<p>That is the headline finding of <strong>LifeSciBench</strong>, a benchmark OpenAI released on June 17, 2026, built to measure how well AI supports real-world life-science research rather than how well it answers tidy textbook questions. The top scorer, OpenAI's own GPT-Rosalind, passed <strong>36.1%</strong> of tasks. Every other model tested did worse. Put plainly, nearly two of every three research-grade tasks still defeat the most advanced AI available.</p>
+<p>It is an unusually candid result for a lab that more often markets near-saturated scores, and it reframes a question the industry tends to skate past: not whether a model can recall biology, but whether it can do the judgment-heavy work of science.</p>
+<h2>What LifeSciBench Actually Measures</h2>
+<p>The benchmark was developed with <strong>173 PhD-level scientists</strong> drawn from biotechnology and pharmaceutical research, many of them active in drug-discovery programs. Together they authored 750 tasks spanning seven research workflows — evidence handling and analysis, design and optimization, scientific reasoning, validation and operations, translation, and scientific communication — across seven biological domains running from genomics to medicinal chemistry to clinical and translational science.</p>
+<p>What sets it apart from earlier AI-for-biology evaluations is the refusal to use multiple-choice questions with clean reference answers. LifeSciBench tasks are free-response. Each is graded against a detailed, task-specific rubric averaging <strong>25 criteria</strong> — roughly 19,020 grading criteria in total — that break an expected answer into discrete scientific claims, calculations, decisions, justifications, and caveats. A model does not get credit for landing near the right answer; it has to demonstrate the reasoning a reviewer would expect from a competent scientist.</p>
+<p>The tasks are deliberately hard. <strong>79%</strong> require multiple reasoning or decision steps, averaging about four steps each. And they are not text-only: the benchmark ships with <strong>1,062 attached artifacts</strong> — figures, PDFs, tables, sequence and structure files, chemical files, and web references — with over half the tasks requiring a model to interpret or synthesize information from those materials.</p>
+<h2>The Numbers Behind the Headline</h2>
+<p>GPT-Rosalind's 36.1% topped a field that fell off sharply behind it. According to results reported by MarkTechPost, GPT-5.5 reached 25.7%, Gemini 3.1 Pro scored 23.6%, GPT-5.4 hit 20.7%, and Grok 4.3 trailed at 13.0%.</p>
+<p>The most revealing split is internal to the leader. GPT-Rosalind passed <strong>45.1%</strong> of text-only tasks but just <strong>28.1%</strong> of tasks that came with attached data files — a 17-percentage-point collapse the moment the work resembled real research, where the answer lives inside a figure, a chromatogram, or a sequence file rather than in the prompt. That gap is arguably the benchmark's sharpest signal: today's models are markedly weaker precisely where lab work concentrates.</p>
+<p>OpenAI also invested heavily in making the grading trustworthy. Accepted tasks averaged six automated review cycles and at least two rounds of expert review, with at least 90% agreement among reviewers in the relevant domain. A separate cohort of <strong>453 independent expert reviewers</strong>, predominantly PhD holders, validated that the tasks reflect genuine research and meaningfully test scientific reasoning rather than trivia recall.</p>
+<h2>Why Scientific Judgment Is So Hard</h2>
+<p>The design choices read as an argument about what AI benchmarks have been missing. As OpenAI framed it, scientists spend their days analyzing conflicting evidence, interpreting incomplete datasets, designing experiments under uncertainty, troubleshooting failed assays, weighing risks, and communicating findings — work that demands judgment and domain expertise that conventional benchmarks rarely capture.</p>
+<p>A multiple-choice biology test can be aced by a model that has memorized the literature. It says little about whether that model can reconcile two contradictory Western blots, decide which follow-up experiment is worth the reagents, or flag the caveat that would stop a researcher from over-interpreting a noisy result. LifeSciBench's rubric-graded, artifact-laden format is built to reward exactly that kind of reasoning — and the low scores suggest the models are not there yet.</p>
+<p>One reading of the 36.1% figure, echoed in early coverage, is reassuringly concrete: a model that passes roughly a third of expert-designed research tasks can meaningfully assist a skilled scientist, but it cannot replace the human judgment required to safely interpret what it produces. In a domain where a confidently wrong answer can send a drug program down a dead end, the gap between "useful assistant" and "trusted colleague" is the whole story.</p>
+<h2>The Gap Between Benchmark Hype and the Bench</h2>
+<p>LifeSciBench lands at a moment when AI labs routinely tout scores in the 80s and 90s on coding, math, and reasoning evals. Against that backdrop, a flagship model topping out at 36% on the work it is increasingly marketed for is a useful corrective. The benchmarks the industry leans on for headlines have, in many cases, been saturated; the messy, multimodal, judgment-dependent reality of research has not.</p>
+<p>There is an obvious caveat: OpenAI built the benchmark, and its own model leads it. A company releasing an eval that its top system "wins" while still failing most of the time is making a more interesting bet than a simple victory lap — it is staking out the frontier it intends to climb, and inviting rivals onto a battlefield where everyone currently looks weak. The breadth of independent expert validation makes the tasks harder to dismiss as a home-field construction, but the field would still benefit from third-party labs running their own models against it and from OpenAI publishing the full methodology and, ideally, the tasks.</p>
+<h2>What to Watch</h2>
+<p>The first thing to track is movement on the data-file tasks. If models close the 45-to-28 gap between text and attached artifacts, it will signal real progress on the multimodal, figure-reading skills that lab work actually requires — and not just better prose. The second is whether competitors publish LifeSciBench results of their own, or whether the benchmark stays an OpenAI showcase. And the third is whether any lab can push past the mid-30s at all in the coming year. A jump into the 50s would suggest AI is genuinely encroaching on scientific judgment; another year stalled near a third would suggest that the hardest part of science — knowing what an ambiguous result means and what to do next — remains stubbornly human.</p>
+
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">750</div><div class="stat-label">Expert-authored tasks</div></div><div class="stat-cell"><div class="stat-value">36.1%</div><div class="stat-label">Best model pass rate</div></div><div class="stat-cell"><div class="stat-value">173</div><div class="stat-label">PhD scientists</div></div><div class="stat-cell"><div class="stat-value">28.1%</div><div class="stat-label">Pass rate w/ data files</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/introducing-life-sci-bench/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI</a><a href="https://www.marktechpost.com/2026/06/17/openai-releases-lifescibench-a-750-task-benchmark-grading-ai-models-on-real-life-science-research-with-expert-written-rubric/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=marktechpost.com&sz=32" alt="">MarkTechPost</a><a href="https://www.techtimes.com/articles/318638/20260618/openai-life-science-benchmark-reveals-ai-passes-only-1-3-scientific-research-tasks.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techtimes.com&sz=32" alt="">Tech Times</a><a href="https://www.startuphub.ai/ai-news/artificial-intelligence/2026/openai-unveils-lifescibench" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=startuphub.ai&sz=32" alt="">StartupHub.ai</a></div></div>
+<div class="article-nav"><a href="09-continuous-audio-thinking-audio-language-models.html" class="nav-prev">&larr; 'Continuous Audio Thinking' Aims to Give Large Aud</a><a href="11-pew-americans-ai-chatbot-adoption-2026.html" class="nav-next">Pew: Nearly Half of US Adults Now Use AI Chatbots, &rarr;</a></div>
+<footer>The Vault - AI Edition - Published June 18, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

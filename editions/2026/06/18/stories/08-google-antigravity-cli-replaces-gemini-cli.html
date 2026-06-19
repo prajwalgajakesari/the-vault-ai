@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google's Antigravity CLI Replaces the Gemini CLI as the Legacy Model Catalog Gets Cleared - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Google's Antigravity CLI Replaces the Gemini CLI as the Legacy Model Catalog Gets Cleared</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 955 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Google retired the open-source Gemini CLI on June 18 in favor of the closed-source Antigravity CLI while deprecating Gemini 2.0, image, and video preview models -- forcing developers onto the Gemini 3.5 agentic stack under tight, overlapping deadlines.</p>
+</div>
+<div class="article-body">
+<p>On June 18, 2026, the `gemini` command that thousands of developers had wired into their terminals, shell scripts, and CI/CD pipelines stopped serving requests. In its place Google is pushing the <strong>Antigravity CLI</strong> — a closed-source, Go-based binary called `agy` — as the front door to its Gemini 3.5 agentic stack. There was no grace period for consumer tiers. Any automation that still shelled out to `gemini` on the morning of June 18 simply broke.</p>
+<p>The cutover is the sharpest edge of a much wider consolidation. While Google retired the legacy CLI, it was simultaneously running one of the most aggressive Gemini API deprecation waves in the platform's history — clearing out an entire generation of 2.0 and image-and-video preview models in a matter of weeks. Taken together, the message to developers is unambiguous: the old surface area is being demolished, and everything is being funneled onto the Gemini 3.5 agentic platform Google unveiled at I/O 2026.</p>
+<h2>What changed on June 18</h2>
+<p>Gemini CLI and the Gemini Code Assist IDE extensions stopped serving requests for Google AI Pro and Ultra subscribers, as well as individuals on the free Gemini Code Assist tier, on June 18. Enterprise customers running through Google Cloud keep their legacy access for now, but Google is steering even them toward Antigravity with their existing GCP projects.</p>
+<p>The successor is not a drop-in rename. The original Gemini CLI was an open-source project with roughly 105,000 GitHub stars. Antigravity CLI is a closed-source rewrite with a new binary (`agy`), a new configuration layout, and a different quota model that swaps daily limits for weekly ones. It is one piece of a broader ecosystem: a standalone <strong>Antigravity 2.0</strong> desktop app, the CLI, managed agents, and an SDK, all sharing a single agent harness built for multi-agent orchestration.</p>
+<p>The breaking changes go deeper than the binary name. Reporting from migration guides and TechTimes coverage of the cutover describes an MCP configuration change that fails silently — copy an old config without renaming the relevant field and `agy` starts cleanly, but the MCP server never connects, leaving an agent running without the tool it expects and quietly producing wrong results. The free tier, by several accounts, dropped from roughly 1,000 requests per day on the old CLI to around 20 on Antigravity, a cut north of 95 percent for hobbyists and individual developers.</p>
+<h2>The model catalog gets cleared</h2>
+<p>The CLI swap landed in the middle of a deprecation blitz. Per Google's own release notes, the Gemini 2.0 family — `gemini-2.0-flash`, `gemini-2.0-flash-001`, `gemini-2.0-flash-lite`, and `gemini-2.0-flash-lite-001` — reached its shutdown on June 1, 2026, with Google directing teams to `gemini-3.5-flash` or `gemini-3.1-flash-lite`. The image preview models `gemini-3.1-flash-image-preview` and `gemini-3-pro-image-preview` are slated to shut down June 25, with video generation models following on June 30. For generation, Google points developers to <strong>Veo 3.1</strong> (`veo-3.1-generate-preview` and `veo-3.1-fast-generate-preview`), and the GA image replacements are the cheekily named "Nano Banana 2" (`gemini-3.1-flash-image`) and "Nano Banana Pro" (`gemini-3-pro-image`).</p>
+<p>The economics of the migration are not neutral. Independent analyses flagged that moving off the deprecated `gemini-2.0-flash` to `gemini-3.5-flash` can mean a roughly 15x jump in per-token cost — a meaningful jolt for high-volume, latency-tolerant workloads that were specifically built on the cheap 2.0 tier.</p>
+<h2>The agentic stack Google is betting on</h2>
+<p>Antigravity is the centerpiece of Google's I/O 2026 pivot to agent-first development. The platform pairs with Gemini 3.5 Flash, which Google says runs about four times faster than other frontier models measured by output tokens per second and is tuned for agentic coding workflows.</p>
+<p>CEO Sundar Pichai framed the bet in personal terms at I/O. "The new model has been a game-changer for us internally at Google," he said. "We've been using 3.5 Flash with the reimagined version of our agent-first development platform, Antigravity. And it's dramatically accelerated how we build."</p>
+<p>Developers were less enthusiastic. Within 24 hours of the May 19 transition announcement, the official GitHub thread reportedly drew roughly 143 thumbs-down reactions against 4 cheers. The complaints clustered: a closed-source successor replacing a beloved open-source tool, far tighter free-tier limits, dropped configuration knobs, and a roughly 30-day deadline that many teams felt was far too short to rewrite internal tooling. As one migration write-up put it bluntly, a deadline "announced mid-sprint means at most one sprint to plan, execute, and verify the migration before the old tool stops working."</p>
+<h2>Analysis: consolidation, lock-in, and the agentic tooling war</h2>
+<p>The strategic logic is clear. Google is collapsing a sprawl of consumer CLIs, IDE extensions, and preview model IDs into one agentic platform it fully controls. Antigravity being closed-source matters here: the open Gemini CLI let developers fork, audit, and self-host workflows; `agy` does not. That trades community goodwill for tighter control over the runtime, the quota model, and the upgrade cadence — a more defensible position in the agentic-coding fight against <strong>Claude Code, OpenAI's Codex, and Cursor</strong>, all of which are racing to own the developer's terminal and orchestration layer.</p>
+<p>But consolidation has a cost, and it is being paid in migration fatigue. Within roughly a month, a developer relying on Google's stack could face a CLI rewrite, a model-ID swap for 2.0 workloads, an image-model migration before June 25, a video-model migration before June 30, and a 15x cost recalculation — much of it on overlapping deadlines. Hard cutovers with no consumer grace period are a deliberate forcing function, but they also erode the trust that made the open Gemini CLI a 105,000-star project in the first place. Every silent breakage and every shrunk free tier is a reason for an indie developer to evaluate a competitor instead.</p>
+<h2>What to watch</h2>
+<p>- <strong>Enterprise timeline:</strong> Google has only deferred, not canceled, the legacy sunset for Cloud customers. Watch for a firm enterprise cutover date.
+- <strong>The June 25 and June 30 shutdowns:</strong> the image and video model retirements are the next hard deadlines; expect a fresh round of broken pipelines and Veo 3.1 migration scrambles.
+- <strong>Free-tier backlash:</strong> if the ~20-request daily cap holds, watch whether hobbyist mindshare drifts toward Cursor, Codex, or Claude Code.
+- <strong>Cost migration pain:</strong> the 15x jump from 2.0 to 3.5 Flash could push price-sensitive teams to `gemini-3.1-flash-lite` — or off Gemini entirely.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"The new model has been a game-changer for us internally at Google. We've been using 3.5 Flash with the reimagined version of our agent-first development platform, Antigravity."</blockquote>
+          <cite>-- Sundar Pichai, CEO, Google (at Google I/O 2026)</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">Jun 18</div><div class="stat-label">Gemini CLI retired</div></div><div class="stat-cell"><div class="stat-value">Jun 25/30</div><div class="stat-label">Image/video sunset</div></div><div class="stat-cell"><div class="stat-value">~105k</div><div class="stat-label">Gemini CLI GitHub stars</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://ai.google.dev/gemini-api/docs/changelog" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ai.google.dev&sz=32" alt="">Gemini API Changelog</a><a href="https://www.theregister.com/ai-ml/2026/05/20/bye-bye-gemini-cli-google-nudges-devs-toward-antigravity/5243605" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=theregister.com&sz=32" alt="">The Register</a><a href="https://ostechnix.com/google-is-replacing-gemini-cli-with-google-antigravity/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ostechnix.com&sz=32" alt="">OSTechNix</a><a href="https://ppc.land/gemini-3-5-and-antigravity-2-0-headline-google-i-o-2026-reveal/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ppc.land&sz=32" alt="">PPC Land</a></div></div>
+<div class="article-nav"><a href="07-openai-gpt-rosalind-life-sciences-upgrade.html" class="nav-prev">&larr; OpenAI Upgrades GPT-Rosalind, Its Life-Sciences Mo</a><a href="09-continuous-audio-thinking-audio-language-models.html" class="nav-next">'Continuous Audio Thinking' Aims to Give Large Aud &rarr;</a></div>
+<footer>The Vault - AI Edition - Published June 18, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
