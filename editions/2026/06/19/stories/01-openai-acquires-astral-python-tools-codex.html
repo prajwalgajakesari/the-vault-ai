@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Acquires Astral, Maker of uv and ruff, to Supercharge Codex's Python Workflow - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>OpenAI Acquires Astral, Maker of uv and ruff, to Supercharge Codex's Python Workflow</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 873 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI is acquiring Astral to embed its widely used open source Python tools-uv, Ruff, and ty-directly into Codex's agentic development workflow, gaining a structural edge over rival AI coding assistants while raising open questions about open source governance.</p>
+</div>
+<div class="article-body">
+<h2>OpenAI Acquires Astral, Maker of uv and ruff, to Supercharge Codex's Python Workflow</h2>
+<p><em>The Vault — AI Edition | Business | June 19, 2026</em></p>
+<p>OpenAI is buying its way deeper into the daily life of the working Python developer. The company announced it will acquire Astral, the four-year-old startup behind the breakout open source tools uv, Ruff, and ty — software that millions of developers already lean on to install dependencies, lint code, and check types. The move plants OpenAI's Codex agent directly inside the Python toolchain, a position no rival AI coding assistant currently occupies.</p>
+<p>The deal, disclosed alongside statements from both companies, would fold Astral's roughly 30-person team into OpenAI's Codex group after closing. Terms were not disclosed. The acquisition is still subject to "customary closing conditions, including receipt of regulatory approval," OpenAI said, and the two companies will operate independently until it closes.</p>
+<h2>What OpenAI is buying — and why</h2>
+<p>Astral's tools are not niche. uv handles dependency and environment management; Ruff delivers extremely fast linting and formatting; and ty, the company's newer type checker, enforces type safety across codebases. All three are open source under permissive MIT and Apache 2.0 licenses, and they have accumulated hundreds of GitHub contributors since founder and CEO Charlie Marsh — a former Khan Academy engineer — started the company in 2022 with the stated goal of making "programming more productive."</p>
+<p>For OpenAI, the strategic logic is about owning more of the loop. Codex, the company's coding assistant, has been on a tear: OpenAI says it has seen 3x user growth and a 5x jump in usage since the start of 2026, and now counts more than 2 million weekly active users. But OpenAI wants Codex to be more than an autocomplete engine.</p>
+<p>"Our goal with Codex is to move beyond AI that simply generates code and toward systems that can participate in the entire development workflow—helping plan changes, modify codebases, run tools, verify results, and maintain software over time," the company wrote in its announcement. Astral's tools "sit directly in that workflow." In practice, that means a Codex agent could write a change, then immediately reach for Ruff to format and lint it, uv to resolve dependencies, and ty to verify types — before a human ever sees the diff.</p>
+<p>Thibault Sottiaux, Codex Lead at OpenAI, framed the acquisition as an acceleration of that ambition. "Astral's tools are used by millions of Python developers. By bringing their expertise and ecosystem to OpenAI, we're accelerating our vision for Codex as the agent most capable of working across the entire software developer lifecycle," he said.</p>
+<p>Marsh, for his part, cast the deal as a continuation of Astral's founding mission rather than a departure from it. "Astral has always focused on building tools that transform how developers work with Python—helping them ship better software, faster. As part of Codex, we'll continue evolving our open source tools to push the frontier of software development," he said in OpenAI's announcement. In a separate blog post, he went further, writing that "if our goal is to make programming more productive, then building at the frontier of AI and software feels like the highest-leverage thing we can do. It is increasingly clear to me that Codex is that frontier."</p>
+<h2>Why it matters</h2>
+<p>The acquisition is a sharp escalation in the AI coding wars. Microsoft's GitHub Copilot, Google's Gemini Code Assist, and a crowd of startups are all racing to own the AI-assisted development workflow. By absorbing Astral, OpenAI gains a structural advantage that money alone is harder to replicate: deep integration into the plumbing Python developers run thousands of times a day. uv and Ruff are not features OpenAI is bolting on — they are infrastructure the broader ecosystem has already standardized around.</p>
+<p>That same fact is what worries parts of the open source community. Both companies have stressed an explicit commitment to keep the tools open. Marsh called open source "the heart" of Astral's story, saying "it sits at the center of everything we do," and OpenAI tied its pledge to a "developer-first philosophy." But as The New Stack reported, the announcements were conspicuously light on the details that actually determine long-term trust — governance, licensing arrangements, and contribution structures all remain unspecified.</p>
+<p>The permissive licenses offer a meaningful safety valve: MIT and Apache 2.0 code can be forked, modified, and redistributed, so the community is not strictly captive even if OpenAI's priorities shift. Yet the open questions are real. Will uv and Ruff continue to evolve for the independent developer who has no interest in Codex, or will roadmap decisions increasingly bend toward OpenAI's agentic ambitions? Who steers contribution policy once Astral's maintainers are OpenAI employees? An AI lab quietly setting the direction of foundational language tooling is a new kind of concentration for the Python world to digest.</p>
+<h2>What to watch</h2>
+<p>Three things will tell the real story. First, regulatory review: the deal is explicitly contingent on approval, and an AI giant acquiring widely adopted developer infrastructure is exactly the kind of transaction antitrust authorities have signaled interest in scrutinizing. Second, governance specifics — whether OpenAI publishes a concrete commitment on open source maintenance, contribution rights, and licensing, or lets the ambiguity linger. Third, the fork question: if developers sense the tools drifting toward Codex lock-in, the permissive licenses make a community fork technically straightforward, and the credible threat of one may matter as much as any fork that actually materializes.</p>
+<p>For now, uv, Ruff, and ty remain where they have always been — in millions of developers' workflows. The question is whose roadmap they will follow next.</p>
+<p>---</p>
+<p><strong>Sources:</strong> [OpenAI](https://openai.com/index/openai-to-acquire-astral/); [The New Stack](https://thenewstack.io/openai-astral-acquisition/); [Astral blog](https://astral.sh/blog/openai); [Simon Willison](https://simonwillison.net/2026/mar/19/openai-acquiring-astral/)</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735">
+          <blockquote>"Astral's tools are used by millions of Python developers. By bringing their expertise and ecosystem to OpenAI, we're accelerating our vision for Codex as the agent most capable of working across the entire software developer lifecycle."</blockquote>
+          <cite>- Thibault Sottiaux, Codex Lead, OpenAI</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">3x</div><div class="stat-label">Codex user growth since start of 2026</div></div><div class="stat-cell"><div class="stat-value">5x</div><div class="stat-label">Codex usage increase since start of 2026</div></div><div class="stat-cell"><div class="stat-value">2M+</div><div class="stat-label">Codex weekly active users</div></div><div class="stat-cell"><div class="stat-value">~30</div><div class="stat-label">Astral team members joining OpenAI</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/openai-to-acquire-astral/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI</a><a href="https://thenewstack.io/openai-astral-acquisition/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenewstack.io&sz=32" alt="">The New Stack</a><a href="https://astral.sh/blog/openai" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=astral.sh&sz=32" alt="">Astral Blog</a><a href="https://simonwillison.net/2026/mar/19/openai-acquiring-astral/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=simonwillison.net&sz=32" alt="">Simon Willison</a></div></div>
+<div class="article-nav"><a href="02-baseten-1-5-billion-inference-funding.html" class="nav-next">Baseten Nears $1.5 Billion Raise at Up to $13 Bill &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 19, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
