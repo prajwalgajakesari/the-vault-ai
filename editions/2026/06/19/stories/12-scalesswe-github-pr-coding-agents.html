@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ScaleSWE Mines Millions of GitHub Pull Requests to Turn Small Open Models Into Capable Coding Agents - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>ScaleSWE Mines Millions of GitHub Pull Requests to Turn Small Open Models Into Capable Coding Agents</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1015 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>ScaleSWE built an automated pipeline that mines 6 million GitHub pull requests into 100,000 verified executable training tasks, then fine-tuned the open Qwen3-30B-A3B model into a coding agent scoring ~64% on SWE-bench Verified, up from 22%, signaling that better synthetic data can let small open models rival frontier coding systems.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "ScaleSWE Mines Millions of GitHub Pull Requests to Turn Small Open Models Into Capable Coding Agents"
+slug: "scalesswe-github-pr-coding-agents"
+category: "research"
+story_number: 12
+date: "2026-06-19"
+---</p>
+<h2>ScaleSWE Mines Millions of GitHub Pull Requests to Turn Small Open Models Into Capable Coding Agents</h2>
+<p>The most valuable training resource for building a coding agent has been sitting in plain sight all along: the billions of merged pull requests that developers have already written, tested, and shipped on GitHub. A research effort called ScaleSWE has now built an automated pipeline to harvest that resource at industrial scale—sifting six million pull requests across thousands of repositories—and used it to push a comparatively small open model to a roughly 64% resolve rate on SWE-bench Verified, the field's most-watched benchmark for software-engineering agents.</p>
+<p>That number is the headline, but the method is the story. ScaleSWE is less a model than a factory for the data that models learn from, and it lands squarely in one of 2026's defining research arguments: whether the future of capable coding agents belongs to ever-larger frontier systems, or to small open models trained on better data.</p>
+<h2>What ScaleSWE actually built</h2>
+<p>The work is described in a paper titled "Immersion in the GitHub Universe: Scaling Coding Agents to Mastery," posted to arXiv (2602.09892). At its center is what the authors call an "automated, sandboxed multi-agent workflow" for constructing software-engineering training data without the manual curation that has bottlenecked earlier datasets.</p>
+<p>The pipeline coordinates three specialized agents. An environment-builder agent stands up an isolated Docker container for a target repository, autonomously reading files like `setup.py`, `pyproject.toml` and `README.md` to infer dependencies and resolve conflicts by parsing terminal feedback—work the paper notes "can be challenging even for experienced developers to set up correctly." A unit-test creator agent synthesizes executable Fail-to-Pass and Pass-to-Pass test cases, the validation backbone that determines whether a candidate fix actually works. A problem-statement agent then writes a clean, self-contained task description grounded in the pull request and its tests.</p>
+<p>Run that loop over GitHub at scale and you get Scale-SWE-Data: 100,000 verified, executable task instances drawn from 5,200 repositories, which the authors describe as the largest verified SWE dataset to date. The funnel is steep. The team began with roughly 23,000 repositories and 6 million merged pull requests, used an LLM-as-a-judge to filter for quality based on diffs, descriptions and merge messages, and narrowed toward about a million candidate PRs before the agentic construction stage produced the final 100,000 instances. To control compute, the pipeline builds at most ten full environments per repository and reuses the "nearest" environment for other PRs—yielding, on average, 19 test instances per repository.</p>
+<h2>Why the result matters</h2>
+<p>To prove the data was good for training and not just for benchmarking, the researchers distilled 71,498 high-quality solution trajectories from a 25,000-instance subset using DeepSeek-V3.2, then fine-tuned Qwen3-30B-A3B-Instruct on them. The resulting Scale-SWE-Agent reached a 64% resolve rate on SWE-bench Verified—up from the 22% the base Qwen model scored, a nearly three-fold improvement and what the authors call a substantial boost.</p>
+<p>The size of the model is the point. Qwen3-30B-A3B is a mixture-of-experts model that activates only about 3 billion parameters per token—small enough to run on modest hardware and entirely open-weight. Getting that class of model to resolve roughly two-thirds of SWE-bench Verified, a suite of real, human-validated GitHub issues, would have been the province of frontier proprietary systems not long ago. (For context, engineered agent stacks built on top-tier proprietary and large open models have been reported in the 70s and higher on the same benchmark, but at a very different cost and openness profile.)</p>
+<p>The implication for practitioners is concrete: if a 30B open model fine-tuned on synthetic-but-real trajectories can clear ~64%, then self-hostable, auditable coding agents become viable for teams that cannot or will not send their codebase to a frontier API.</p>
+<h2>The data-synthesis trend ScaleSWE belongs to</h2>
+<p>ScaleSWE is not alone, and that is the broader signal. A cluster of 2026 work—papers with names like SWE-Universe, SWE-Next and others scaling "real-world verifiable environments"—has converged on the same insight: the scarce ingredient for coding agents is no longer model capacity but verified, executable training tasks with trustworthy tests. The frontier labs have largely solved scale by spending on compute and proprietary data. The open-research counter-move is to manufacture high-quality data automatically and let smaller models close the gap.</p>
+<p>What distinguishes the ScaleSWE approach is its willingness to push the construction burden onto agents rather than rules. Earlier dataset efforts leaned on hand-crafted heuristics—predefined install commands, rigid filters—that break down as repository diversity grows. By letting an agent explore a codebase, fight through a dependency install, and write tests interactively, the pipeline trades determinism for reach, capturing the messy heterogeneity of real software that rule-based methods tend to discard.</p>
+<p>There are caveats worth keeping in view. SWE-bench Verified is a single benchmark, and the community has spent the past year documenting how agent scaffolding, test-harness quirks and even contamination can inflate or distort scores; a 64% figure from one fine-tune is a strong signal, not a settled verdict. The pipeline also leans on large proprietary and open teacher models—DeepSeek and Gemini-class systems—to build its data, so "small model" describes the deployed agent, not the full cost of producing it. And synthetic trajectories distilled from a teacher inherit that teacher's blind spots.</p>
+<h2>What to watch</h2>
+<p>The team has begun releasing pieces of its work—a portion of the dataset on Hugging Face and an accompanying agent framework—which means the central claims are increasingly checkable by outsiders rather than taken on faith. The questions that will decide ScaleSWE's significance are practical ones: Does the data hold up under independent evaluation and on benchmarks beyond SWE-bench? Do the fine-tuned small models generalize to real engineering tasks outside the test distribution, or do they overfit to the benchmark's shape? And can the pipeline extend cleanly beyond Python-heavy repositories into the polyglot reality of most production codebases?</p>
+<p>If the answers trend positive, the takeaway is uncomfortable for anyone betting that capable coding agents require frontier-scale models behind a paywall. The raw material—decades of human pull requests—is public, and pipelines like ScaleSWE are getting very good at turning it into something a 30-billion-parameter open model can learn from.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"By processing 6 million pull requests across 5,200 repositories, this workflow produces 100,000 verified instances, yielding the largest SWE dataset to date."</blockquote>
+          <cite>- ScaleSWE authors, arXiv paper 2602.09892, 'Immersion in the GitHub Universe'</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">6 million</div><div class="stat-label">GitHub pull requests processed by the pipeline</div></div><div class="stat-cell"><div class="stat-value">100,000</div><div class="stat-label">Verified executable SWE task instances produced</div></div><div class="stat-cell"><div class="stat-value">64%</div><div class="stat-label">Scale-SWE-Agent resolve rate on SWE-bench Verified</div></div><div class="stat-cell"><div class="stat-value">22%</div><div class="stat-label">Base Qwen3-30B-A3B resolve rate before fine-tuning</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2602.09892" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (2602.09892)</a><a href="https://github.com/AweAI-Team/ScaleSWE" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=32" alt="">ScaleSWE GitHub</a><a href="https://arxiv.org/html/2602.09892v4" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv HTML full text</a></div></div>
+<div class="article-nav"><a href="11-mit-daaam-robot-spatial-memory.html" class="nav-prev">&larr; MIT's DAAAM Gives Robots a Long-Term Memory of the</a><a href="13-microsoft-copilot-cve-2fa-exfiltration.html" class="nav-next">A Patched Microsoft Copilot Flaw Let a Single Clic &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 19, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
