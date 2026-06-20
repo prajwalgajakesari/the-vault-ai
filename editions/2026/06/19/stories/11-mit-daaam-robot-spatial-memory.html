@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MIT's DAAAM Gives Robots a Long-Term Memory of the Spaces They Move Through - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>MIT's DAAAM Gives Robots a Long-Term Memory of the Spaces They Move Through</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1006 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>MIT's DAAAM framework gives mobile robots a real-time, language-grounded long-term memory of complex environments, answering plain-language questions 21-53% more accurately than prior methods while describing objects roughly 10x faster.</p>
+</div>
+<div class="article-body">
+<h2>MIT's DAAAM Gives Robots a Long-Term Memory of the Spaces They Move Through</h2>
+<p>A factory worker can leave a half-assembled component in a storage bin at the end of her shift and walk straight back to it the next morning. The robot working beside her, until now, could not. It might map the room down to the centimeter, but it had no durable, language-grounded recollection of what it had seen there or when. A team at MIT says it has closed a meaningful part of that gap.</p>
+<p>In mid-June, researchers at MIT unveiled a long-term memory framework for robots called DAAAM, short for Describe Anything, Anywhere, Anytime, at Any Moment. The system lets a mobile robot build and rapidly recall a detailed mental model of large, cluttered environments, then answer plain-language questions about them. Tell it "go and grab the component we started assembling last night," the researchers say, and the goal is a robot that actually knows where to look.</p>
+<h2>A memory that speaks the robot's language and ours</h2>
+<p>DAAAM stitches together two research traditions that have historically lived apart: computer vision and robotic mapping. Multimodal vision models can describe what they see in rich detail, but they typically chew through one annotation at a time. Robotic mapping systems, by contrast, build sprawling 3D maps of an apartment or a campus, but those maps tend to be either thin on object descriptions or far too expensive to compute. DAAAM tries to take the strengths of both.</p>
+<p>As a robot moves through a space, DAAAM attaches descriptive text to the objects it encounters and files those descriptions into a spatially organized 3D map. It does not just register "object at these coordinates." It can note that a particular MIT building is the Stata Center with its distinctive architecture, or that a bike rack holds five bicycles and the red one has a flat tire, and then remember that the red bicycle with the flat tire sits in the rack outside the Stata Center.</p>
+<p>"If we want robots to work side-by-side with humans and interact better with humans, they must speak the same language," said Luca Carlone, an associate professor in MIT's Department of Aeronautics and Astronautics and director of the MIT SPARK Laboratory. "The robot must be able to reason about time and space the same way humans do... It is turning a traditional map into a language-based map that is easier for the robot to think about and access using language."</p>
+<p>Carlone frames the ambition in terms a chatbot user would recognize. "We want to design a new type of memory, a spatiotemporal memory, that enables an AI-powered robot to remember real interactions and sensor observations," he said. "Like ChatGPT, but grounded in the real world and capable of answering any question about the environment, like 'Where did I leave my wallet?'"</p>
+<h2>Speed is the trick</h2>
+<p>The hard problem was never describing a single object well. It was doing so for hundreds of objects, fast enough to keep up with a robot actually moving. Existing techniques that produce these rich descriptions can take several seconds just to annotate a handful of items, which is hopeless when a robot might glimpse hundreds of objects in a few minutes of exploration.</p>
+<p>DAAAM's answer is to work in batches. As the robot travels, it clusters nearby objects together and uses an optimization method to pick out key frames, the images that offer the clearest view of multiple objects at once, so it can describe several items in parallel. According to the researchers, that approach speeds up the description step roughly tenfold.</p>
+<p>"We annotate every object only once, so our framework can run in very large-scale environments in real time," said lead author Nicolas Gorlo, an MIT graduate student. "And by clustering objects into regions, it can answer a wide range of queries about objects and locations in the environment."</p>
+<p>Recall is its own engineering challenge: once the robot has accumulated an enormous database of objects and descriptions, it has to retrieve the right one quickly and without making things up. DAAAM leans on a large language model that calls a set of specialized tools, for instance a semantic search that retrieves information based on a word like "sculpture," or a separate tool that retrieves by location. The researchers say that tool-calling design reduces hallucinations and lets the system answer a query accurately in only a few seconds.</p>
+<p>The payoff showed up in testing. Compared against state-of-the-art methods, DAAAM was between 21 and 53 percent more accurate, depending on the type of question asked. The work was presented at the Conference on Computer Vision and Pattern Recognition (CVPR), and the paper was co-authored by Lukas Schmid, a former MIT research scientist now a professor at the University of Technology Nuremberg. Funding came in part from the U.S. Army Research Laboratory and the Office of Naval Research, a reminder that durable spatial memory has obvious value for autonomous systems operating in unfamiliar terrain.</p>
+<h2>Why spatial memory is the next frontier</h2>
+<p>The applications the team names are practical and near-term: industrial and warehouse robots that can be dispatched in natural language, autonomous inspection systems, and augmented-reality tools that help maintenance workers spot anomalies or guide commuters through unfamiliar buildings. In each case, the bottleneck is the same one DAAAM targets, an agent that can not only perceive a space but retain a usable, queryable account of it over time.</p>
+<p>That points at a broader shift in AI. Much of the field's recent progress has come from systems that reason brilliantly about text yet have no persistent connection to a physical place. Embodied AI is where that disconnect bites hardest. A robot that forgets everything between rooms, or that needs minutes to caption what it just saw, cannot be a useful collaborator. By making memory both rich in language and cheap enough to run live, DAAAM treats spatiotemporal recall as a first-class capability rather than an afterthought bolted onto a navigation stack. It is an attempt to give robots something closer to the human habit of remembering not just where things are, but what they were and when we last saw them.</p>
+<p>There are limits worth keeping in view. The reported gains are benchmark results against prior methods, not a track record in messy, occupant-filled, constantly changing real spaces, and the system's accuracy still depends on the underlying vision and language models it calls. The MIT team is candid about what is missing: they want DAAAM to capture significant events that happen in an environment, not just the objects in it, and to attach confidence levels to its answers so a robot can signal when it is unsure.</p>
+<h2>What to watch</h2>
+<p>The honest test of a memory system is whether it holds up over time and change, not in a single mapping run. Watch for whether DAAAM's tenfold speedup and accuracy edge survive long-duration deployments where objects move, lighting shifts, and the same space is revisited dozens of times. Watch, too, for the confidence-scoring work, because a robot that can say "I'm not sure where the wallet is" is far more trustworthy than one that confidently fetches the wrong thing. Gorlo framed the larger goal plainly: "we are trying to create the foundations to enable a generalist agent that can do anything you ask." Spatial memory, it turns out, may be one of the foundations that generalist robots have been missing.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"Like ChatGPT, but grounded in the real world and capable of answering any question about the environment, like 'Where did I leave my wallet?'"</blockquote>
+          <cite>- Luca Carlone, Associate professor, MIT AeroAstro; director of the MIT SPARK Laboratory</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">21-53%</div><div class="stat-label">Accuracy gain over state-of-the-art methods, by question type</div></div><div class="stat-cell"><div class="stat-value">~10x</div><div class="stat-label">Speedup in object description via key-frame batching</div></div><div class="stat-cell"><div class="stat-value">Seconds</div><div class="stat-label">Time to answer a user query from spatial memory</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://news.mit.edu/2026/could-ai-tell-you-where-you-left-your-keys-0617" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=news.mit.edu&sz=32" alt="">MIT News</a><a href="https://techxplore.com/news/2026-06-ai-left-keys.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techxplore.com&sz=32" alt="">TechXplore</a><a href="https://theaiinsider.tech/2026/06/18/mit-researchers-develop-long-term-memory-framework-for-robots/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=theaiinsider.tech&sz=32" alt="">The AI Insider</a></div></div>
+<div class="article-nav"><a href="10-warp-reddit-comment-ai-search-poisoning.html" class="nav-prev">&larr; A 13-Word Reddit Comment Can Hijack AI Search, Cor</a><a href="12-scalesswe-github-pr-coding-agents.html" class="nav-next">ScaleSWE Mines Millions of GitHub Pull Requests to &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 19, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
