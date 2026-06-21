@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>'Agentjacking' Hijacks AI Coding Agents Through Fake Sentry Error Alerts - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>'Agentjacking' Hijacks AI Coding Agents Through Fake Sentry Error Alerts</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 845 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Researchers showed AI coding agents can be hijacked into running attacker code simply by planting malicious instructions in fake Sentry error reports, with an 85% success rate against thousands of exposed organizations.</p>
+</div>
+<div class="article-body">
+<h2>'Agentjacking' Hijacks AI Coding Agents Through Fake Sentry Error Alerts</h2>
+<p>A developer asks their AI coding assistant to clean up a few unresolved bugs in Sentry. The agent dutifully pulls the error events, reads what looks like a suggested fix, and runs it. Seconds later, a beacon carrying the developer's environment variables, AWS keys, and Git credentials is on its way to a server the developer has never heard of. No phishing email was sent. No password was stolen. No system was breached. The developer simply trusted their agent, and the agent trusted its tools.</p>
+<p>That is the chain Tenet Security's Threat Labs documented in research published June 17, 2026, naming the technique "Agentjacking." Using nothing but public Sentry credentials, the team says it found 2,388 organizations exposed to the attack and watched more than 100 AI coding agents — including Claude Code, Cursor, and OpenAI's Codex — execute attacker-supplied code in controlled testing. Across validation waves, the researchers report an 85% exploitation success rate against injected errors, with confirmed agent execution at targets ranging from a $250 billion Fortune 100 technology company down to solo developers in more than 30 countries.</p>
+<h2>How a bug report becomes remote code execution</h2>
+<p>The attack lives in the seam between two systems that were each safe on their own. Sentry, the widely used error-monitoring platform, accepts crash reports from anyone holding a project's DSN — a write-only credential that Sentry intentionally documents as safe to embed in the JavaScript of public production websites. Separately, AI coding agents connect to Sentry through the Model Context Protocol (MCP) and treat whatever the Sentry server returns as authoritative system output.</p>
+<p>An attacker never needs to touch the victim's infrastructure. According to Tenet's write-up, the steps are mundane: harvest a target's public DSN from website source, a Censys scan, or GitHub code search; POST a crafted error event to Sentry's ingest endpoint, which returns HTTP 200 and processes it like any real crash. The trick is in the payload. The fake event embeds carefully formatted Markdown — a fake "## Resolution" section containing an `npx` command — that, when relayed through the Sentry MCP server, renders as headings, code blocks, and tables visually identical to Sentry's own remediation guidance.</p>
+<p>When the developer issues an ordinary request like "fix the unresolved Sentry issues," the agent reads the injected resolution as trusted advice and runs the suggested command with the developer's full privileges. In Tenet's controlled tests the package probed for credentials and phoned home. "AI coding agents cannot tell the difference between the data they read and an instruction to act," the researchers wrote — the core flaw, in their framing, sits in the models themselves, not in a misconfiguration that can be patched.</p>
+<h2>Why this is not your usual prompt injection</h2>
+<p>Indirect prompt injection — slipping instructions into content an AI will later read — is not new. What makes Agentjacking notable is the delivery path and the scale. The malicious instruction does not appear in a chat box where a user might catch it; it rides in through trusted telemetry data the company already relies on. There is no jailbreak and no "run this" prompt; a plain triage request is the entire trigger. And because every step in the chain is authorized, conventional defenses stay silent. Tenet says the attack slipped past EDR, WAF, IAM, VPN, and firewalls in its tests, and that even sandboxed, network-restricted CI agents holding GitHub tokens were reached because the payload arrived as data the agent was explicitly asked to read. The team calls this the "Authorized Intent Chain": security tooling is built to flag unauthorized behavior, and here there is none to flag.</p>
+<p>Crucially, the researchers report that prompt-layer defenses failed. Agents executed the payload even when system prompts and skills explicitly told them to ignore untrusted data. "You cannot fix this with a better prompt," the write-up states.</p>
+<p>Tenet disclosed the chain to Sentry on June 3, 2026. Sentry's leadership responded the same day, acknowledging the issue but declining to fix it at the root — calling it, in Tenet's account, "technically not defensible" at the ingestion layer, since the platform cannot reliably separate a malicious payload from a legitimate error message that happens to contain code and remediation notes. Sentry did activate a global content filter blocking the specific proof-of-concept string, a move Tenet characterizes as detecting the activity without addressing the cause.</p>
+<h2>The widening attack surface</h2>
+<p>The researchers are explicit that Sentry is the demonstrated entry point, not the disease. "The risk is not limited to Sentry," the write-up notes. "Any MCP tool integration that returns externally-influenced data to AI agents creates the same vulnerability class." For years, software supply-chain attacks meant compromising a real package or typosquatting a dependency. Agentjacking suggests a cheaper path: inject data the agent already trusts and let the observability platform serve as a command-and-control channel while the agent becomes the execution engine.</p>
+<p>Mitigations exist, but they live at the agent's runtime rather than at the data source. Tenet open-sourced a set of drop-in hardening configs called "agent-jackstop" for Cursor and Claude Code, aimed at cutting the risk from untrusted telemetry and log ingestion. The broader guidance to security leaders is structural: inventory which tools your agents connect to, identify which of those return externally influenced data, and allowlist verified, trusted sources rather than treating every MCP response as ground truth. Restricting agents to vetted integrations and gating any tool-suggested code execution behind human review are the practical near-term defenses.</p>
+<p>What to watch is whether this remains a Sentry story or becomes a pattern. As agents proliferate across IDEs, CI pipelines, and internal networks — each wired to a growing roster of MCP tools — every new integration that pipes outside data into an agent's context expands the blast radius. The deeper question Agentjacking raises is uncomfortable: if the model genuinely cannot distinguish data from instruction, and the platform owner considers the problem indefensible at the source, then the only place left to catch the attack is in the moment the agent decides to act. Whether vendors can build that runtime checkpoint before attackers move past proof-of-concept is the thing to keep an eye on.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"AI coding agents cannot tell the difference between the data they read and an instruction to act."</blockquote>
+          <cite>- Tenet Security Threat Labs, Agentjacking disclosure</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">85%</div><div class="stat-label">Exploitation rate</div></div><div class="stat-cell"><div class="stat-value">2,388</div><div class="stat-label">Organizations exposed</div></div><div class="stat-cell"><div class="stat-value">100+</div><div class="stat-label">Agents that ran injected code</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://tenetsecurity.ai/blog/agentjacking-coding-agents-with-fake-sentry-errors/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tenetsecurity.ai&sz=32" alt="">Tenet Security Threat Labs</a><a href="https://thehackernews.com/2026/06/agentjacking-attack-tricks-ai-coding.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thehackernews.com&sz=32" alt="">The Hacker News</a><a href="https://www.infosecurity-magazine.com/news/agentjacking-attacks-hijack-ai/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=infosecurity-magazine.com&sz=32" alt="">Infosecurity Magazine</a></div></div>
+<div class="article-nav"><a href="10-interactive-reasoning-executable-games-benchmark.html" class="nav-prev">&larr; A New Benchmark Tests LLM Reasoning Through Execut</a><a href="12-drugreasoner-drug-approval-prediction.html" class="nav-next">DrugReasoner Uses a Reasoning Language Model to Pr &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 20, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
