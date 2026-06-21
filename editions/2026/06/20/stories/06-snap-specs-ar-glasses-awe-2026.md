@@ -1,0 +1,31 @@
+# Snap Unveils $2,195 SPECS AR Glasses With Claude Code and GPT-5.5 Inside
+
+Evan Spiegel walked onto the stage at the Augmented World Expo in Long Beach on June 16 and made a bet that has defined and bedeviled his company for the better part of a decade: that the smartphone is on its way out, and the computer you wear on your face is what comes next. This time he attached a price tag to the wager. Snap's SPECS, the first fully standalone consumer augmented reality glasses the company has sold to the public, will cost $2,195 when they ship this fall.
+
+"Almost 20 years since the launch of the iPhone, people are ready to think about computing differently," Spiegel told the crowd, pitching SPECS as "the most capable, most aware, and most accessible spatial computer that's available today." Accessibility, at more than two thousand dollars, is relative. SPECS will be more expensive than any pair of smart glasses on the market and pricier than nearly every mixed-reality headset save Apple's Vision Pro.
+
+## What's actually in the glasses
+
+Snap is adamant that SPECS are a wearable computer, not camera glasses or AI earbuds with lenses bolted on. The frames are fully standalone, with no tether and no pocket puck, and are molded from Swiss TR90 polymer. Two Qualcomm Snapdragon processors do the work: one dedicated to computer vision, the other to running Snap's Lenses. The display is a proprietary liquid-crystal-on-silicon panel offering a 51-degree field of view and 16 million colors, with lenses that shift automatically between clear and tinted depending on ambient light.
+
+The hardware is light for the category, at 132 grams for the 47mm frame and 136 grams for the 52mm, though battery life lands at roughly four hours of active use. SPECS are available for pre-order now at SPECS.COM with a $200 refundable deposit, with shipping expected this fall in the United States, United Kingdom, and France. Critically for Snap, all roughly four million Lenses that developers have already built for Snapchat will run on the glasses at launch, giving SPECS a software catalog that headset rivals spent years assembling.
+
+## The AI bet sitting behind the lenses
+
+What separates this launch from Snap's earlier developer-only Spectacles is how openly it leans on outside AI. Snap is not building one model and locking the platform to it. Instead, Lens Studio, the company's developer environment, now ships integrations for Claude Code, OpenAI's Codex, and Cursor, so developers can build spatial experiences with the coding agents they already use. On the runtime side, Lenses themselves can call out to OpenAI and Gemini APIs, meaning the intelligence inside a given experience is whatever its creator chooses to wire in.
+
+To guide that choice, Snap built and published its own "Spatial Benchmark" measuring how well frontier models reason about the physical world a wearer is looking at. The result is notable: OpenAI's GPT-5.5 ranked first, with Google's Gemini 3 Flash close behind. That ordering matters beyond bragging rights. Spatial reasoning, understanding what objects are in a scene, where they sit relative to each other, and how a person might act on them, is the hard problem standing between today's voice assistants and glasses that genuinely augment what you see. Snap is effectively telling developers that the best brain for that job today is one it does not own.
+
+That is a deliberate, and somewhat humbling, strategic posture. Meta has tied its Ray-Ban glasses to its own Llama models; Apple keeps its on-device intelligence in-house. Snap, lacking the capital to win a frontier-model arms race, is positioning SPECS as neutral ground, a platform that wins by hosting everyone else's models rather than betting the company on a single one. It is the same instinct that made Snapchat Lenses a developer phenomenon, applied to the AI layer. The risk is that a hardware maker dependent on OpenAI and Google for its core intelligence has little control over pricing, latency, or roadmap, and Spiegel notably resisted calling SPECS "AI glasses" at all in interviews after the keynote, wary of the label that now sells Meta's cheaper hardware.
+
+## The commercial question
+
+Wall Street was unconvinced. Snap shares fell nearly 10 percent the day SPECS was unveiled, slid another 8 percent the following session, and closed the week down more than 11 percent. The skepticism is about arithmetic as much as ambition.
+
+"This is like the worst time for any company to be launching any kind of premium product," IDC research manager Jitesh Ubrani said. He pointed to a specific mismatch for Snap: "Their core audience has always skewed young, and typically that audience can't afford to spend a lot." A $2,195 device aimed implicitly at developers and early adopters is a long way from the teenagers who made Snapchat a habit, and it competes for the same enthusiast dollars as headsets with far deeper content libraries.
+
+Snap is clearly playing a longer game. The pre-order deposit is refundable, the launch markets are narrow, and the four-million-Lens catalog suggests the company sees SPECS as a developer beachhead rather than a holiday blockbuster. The bet is that getting capable AR glasses into builders' hands now, with the best available models a Lens Studio call away, seeds an ecosystem that matters when the hardware eventually gets cheaper and lighter.
+
+## What to watch
+
+Three things will tell us whether the wager pays off. First, developer uptake: do the Claude Code, Codex, and Cursor integrations actually pull builders onto the platform, or do they stay on phones? Second, whether Snap's multi-model neutrality holds, or whether the economics of leaning on OpenAI and Google force it back toward owning more of the stack. And third, the number Spiegel did not emphasize on stage, how many of those $200 deposits convert into $2,195 sales when the glasses ship this fall. Snap has been right about the long arc of computing before and early on the timing nearly every time. SPECS will test whether 2026 is finally the moment, or just the next one.
