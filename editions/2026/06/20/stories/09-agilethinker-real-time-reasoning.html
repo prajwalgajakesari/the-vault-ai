@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AgileThinker Tackles Real-Time Reasoning by Running Reactive and Planning Minds at Once - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>AgileThinker Tackles Real-Time Reasoning by Running Reactive and Planning Minds at Once</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 920 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Running a cheap reactive thread and a deeper planning thread concurrently lets AgileThinker keep acting on time as deadlines tighten, where reactive-only and planning-only agents collapse.</p>
+</div>
+<div class="article-body">
+<h2>AgileThinker Tackles Real-Time Reasoning by Running Reactive and Planning Minds at Once</h2>
+<p>Most AI agent benchmarks grant their subjects a quiet superpower: the world holds still while the model thinks. The browser page does not change, the simulated robot does not drift, the game board waits patiently for the next move. That is convenient for scoring and faintly absurd for deployment. A new paper from researchers at Tsinghua University, Shanghai Jiao Tong University, Georgia Tech, and Stanford takes that privilege away — and argues that doing so exposes a failure mode hiding underneath nearly every "real-time" agent shipped today.</p>
+<p>The work, titled "Real-Time Reasoning Agents in Evolving Environments" (arXiv:2511.04898), introduces a problem formulation the authors call real-time reasoning, a benchmark called the Real-Time Reasoning Gym, and an agent architecture named AgileThinker that, by their measurements, is the only approach that does not collapse as time pressure climbs. The authors are Yule Wen, Yixin Ye, Yanzhe Zhang, Diyi Yang, and Hao Zhu, with Wen and Ye listed as co-leading authors.</p>
+<h2>What "real-time reasoning under time pressure" actually means</h2>
+<p>The core idea is to make time part of the environment rather than a courtesy extended to the agent. In the Real-Time Reasoning Gym, the environment advances at a fixed rate whether or not the agent has finished reasoning. If the agent has not produced an action in time, a default action is applied for it. That single change converts inference latency from an engineering nuisance into part of the task itself. As the authors put it, "Agents in the real world must make not only logical but also timely judgments... hazards emerge, opportunities arise, and other agents act, while the agent's reasoning is still unfolding."</p>
+<p>The Gym uses three real-time games, each isolating a different kind of pressure. Freeway tests hazard avoidance — crossing lanes of moving cars. Snake tests opportunity capture — grabbing transient food without trapping yourself. Overcooked tests coordination — cooperating with an independently acting teammate. The researchers turn two dials independently: cognitive load (longer paths, more obstacles, larger kitchens) and time pressure, measured as the number of output tokens an agent may generate before the world advances. Using token count as a hardware-agnostic stand-in for elapsed inference time is a deliberate choice; it lets the benchmark compare reasoning styles without entangling the result in GPU speed or API throughput.</p>
+<p>Against that clock, the paper studies two familiar deployment paradigms and finds both wanting. Reactive agents use bounded computation for fast responses; they stay inside the update cycle but reason shallowly. Planning agents reason deeply across multiple steps but act on stale observations — solving, as one analysis put it, yesterday's problem beautifully. The paper's blunt conclusion is that even state-of-the-art models "struggle with making logical and timely judgments in either paradigm."</p>
+<h2>Two minds, running at the same time</h2>
+<p>AgileThinker's answer is to refuse the choice. It runs two LLM threads concurrently, borrowing the well-worn dual-process metaphor: a planning thread acts like deliberate "System 2" reasoning over a frozen snapshot of the game state, while a reactive thread acts like fast "System 1," producing a timely action within the environment's update window.</p>
+<p>The mechanism worth dwelling on is not "fast model plus slow model." It is that the reactive thread can reference the planning thread's partial, still-streaming reasoning trace before that reasoning is complete. The fast component does not wait for the grand plan; it treats unfinished thought as strategic guidance, then reconciles it against the latest observation. In a world that keeps moving, incomplete-but-timely guidance can beat complete-but-late analysis. The prompts even frame the planning output explicitly as guidance that may no longer perfectly match the current situation — the system does not pretend old reasoning is automatically current.</p>
+<p>The numbers track the architecture. In the cognitive-load experiments, with time pressure fixed at 8,000 tokens per step, a reactive agent built on DeepSeek-V3 degraded from an average score of 0.89 down to 0.15 as tasks grew harder; AgileThinker fell only from 0.88 to 0.50. Under the opposite stress test — cognitive load fixed, time pressure tightened — planning agents cratered from 0.92 to 0.05, while AgileThinker slid gently from 0.90 to 0.58. The single-paradigm agents do not merely degrade; under enough pressure the planner effectively disappears.</p>
+<p>The effect survives a harder test, too. In a wall-clock experiment using DeepSeek's official API under real elapsed time (rather than simulated token budgets), AgileThinker scored 0.88 on Freeway versus 0.24 reactive and 0.12 planning; 0.45 on Snake versus 0.37 and 0.04; and 0.89 on Overcooked versus 0.57 and 0.00 — that last zero meaning a planning-only agent completed essentially nothing as a teammate moved around it.</p>
+<h2>Why this matters for agentic and robotic AI</h2>
+<p>The unglamorous lesson is that "real-time AI" is not a synonym for "use a faster model." A faster monologue is still a monologue. Real deployments — autonomous vehicles, robotic manipulation, algorithmic trading, industrial control, incident response, dispatch, live customer escalation — share a property that frozen benchmarks erase: the state changes independently of the model while it thinks. An agent that reasons as though its input snapshot stays valid until completion is making a silent temporal bet, and in live operations that bet is an unpriced risk.</p>
+<p>AgileThinker reframes the problem as resource allocation between fast action and slow reasoning rather than a model-size contest wearing a latency badge. The paper's budget-allocation analysis reinforces the point: performance peaks when the reactive thread gets roughly enough tokens to match the reactive model's natural usage — around 5,000 on Freeway, closer to 2,000 on Snake and Overcooked — and AgileThinker stays ahead of single-paradigm baselines across a broad range of those settings. Latency budgets, in other words, are design parameters, not arbitrary API limits.</p>
+<p>There are honest boundaries. The environments are controlled games, not messy enterprise workflows with ambiguous goals and compliance constraints. And the strongest results lean on DeepSeek models precisely because AgileThinker needs access to transparent intermediate reasoning traces — many commercial providers do not expose them, which would force the architecture to approximate the trick through summaries or external scratchpads.</p>
+<p>What to watch: whether the concurrent reactive-plus-planning pattern generalizes beyond models that stream their reasoning, and whether it migrates from the Gym's three games into the physical-world domains the authors invoke. The benchmark, dataset, and a `realtimegym` Python package are public, which lowers the bar for others to push on it. The provocation underneath the work is almost anti-academic, and it lands: sometimes the best agent is the one that knows when to stop thinking and act.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"Agents in the real world must make not only logical but also timely judgments... hazards emerge, opportunities arise, and other agents act, while the agent's reasoning is still unfolding."</blockquote>
+          <cite>- Wen et al., Authors, Real-Time Reasoning Agents in Evolving Environments</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">0.90-0.58</div><div class="stat-label">Score as time pressure rises</div></div><div class="stat-cell"><div class="stat-value">0.88-0.50</div><div class="stat-label">Score as load rises</div></div><div class="stat-cell"><div class="stat-value">0.89 vs 0.00</div><div class="stat-label">AgileThinker vs planning-only</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2511.04898" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://realtimegym.saltlab.stanford.edu/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=saltlab.stanford.edu&sz=32" alt="">Stanford SALT Lab</a><a href="https://cognaptus.com/blog/2025-11-10-thinking-fast-and-flowing-slow-realtime-reasoning-for-autonomous-agents/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cognaptus.com&sz=32" alt="">Cognaptus</a></div></div>
+<div class="article-nav"><a href="08-snap-spatial-benchmark-gpt-55.html" class="nav-prev">&larr; Snap's 'Spatial Benchmark' Crowns GPT-5.5 the Best</a><a href="10-interactive-reasoning-executable-games-benchmark.html" class="nav-next">A New Benchmark Tests LLM Reasoning Through Execut &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 20, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
