@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DrugReasoner Uses a Reasoning Language Model to Predict and Explain Drug Approvals - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>DrugReasoner Uses a Reasoning Language Model to Predict and Explain Drug Approvals</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 870 words</span>
+    <span>2 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>DrugReasoner is a Llama-3.1-8B model fine-tuned with GRPO that predicts small-molecule drug approval while producing human-readable reasoning traces, matching or beating conventional baselines and outperforming ChemAP on an external dataset.</p>
+</div>
+<div class="article-body">
+<h2>DrugReasoner Uses a Reasoning Language Model to Predict — and Explain — Drug Approvals</h2>
+<p>Most AI models that try to guess whether a drug candidate will reach the market hand back a single number and little else. A research team in Iran wants to change that. In a new paper, scientists at Isfahan University of Medical Sciences and the Isfahan University of Technology introduce <strong>DrugReasoner</strong>, a reasoning-augmented large language model that not only predicts whether a small molecule is likely to win regulatory approval, but writes out the chain of reasoning behind its verdict — comparing the candidate to structurally similar drugs that did and did not make it.</p>
+<p>It is a small but pointed bet on where AI-for-drug-discovery is heading: away from black-box scores and toward systems that can show their work in a domain where every decision is expensive and every reviewer wants a rationale.</p>
+<h2>How DrugReasoner Works</h2>
+<p>The model is built on Meta's Llama-3.1-8B-Instruct and fine-tuned using group relative policy optimization (GRPO), the reinforcement-learning method popularized by DeepSeek for training reasoning models. Rather than scoring a molecule in isolation, DrugReasoner first analyzes the candidate compound's physicochemical descriptors — molecular weight, LogP, polar surface area, hydrogen-bond donors and acceptors, ring counts, structural-alert flags and the like, all computed with RDKit — and then compares it against the five most similar approved and five most similar unapproved molecules drawn from its training set. Those neighbors are surfaced through an XGBoost similarity search running over MOLFORMER embeddings.</p>
+<p>The output is deliberately structured. Each prediction arrives in three XML-tagged fields: a `<think>` block of comparative reasoning, a `<label>` of approved or unapproved, and a `<score>` confidence value between 0 and 1. The authors trained this behavior into the model with a five-part reward function that rewarded not just correct labels but coherent formatting, valid reasoning, and — notably — calibration, paying out more when the model was confident and right, and penalizing confident mistakes. By the end of training, the model's confidence scores had stabilized around 0.87 and it adhered to the expected output structure 100% of the time.</p>
+<p>One design choice stands out. The team deliberately excluded SMILES strings — the text representations of molecular structure — from the model's inputs. Because Llama was pretrained on internet-scale data, feeding it raw SMILES risked data leakage, letting the model simply recognize famous drugs rather than reason about them. Working from computed descriptors instead, the authors argue, both reduces that bias and improves interpretability. The dataset itself came from ChEMBL version 35: 2,255 approved small molecules and 2,255 unapproved ones, balanced by undersampling and split 8:1:1 into training, validation and test sets.</p>
+<h2>The Numbers</h2>
+<p>On the validation set, DrugReasoner posted an AUC of 0.732, accuracy of 0.732 and an F1 score of 0.729, edging out four conventional baselines — logistic regression, support vector machines, k-nearest neighbors and XGBoost — on overall balance. On the held-out test set it held up at an AUC of 0.725 and accuracy of 0.725, matching XGBoost's F1 of 0.718 while posting the highest recall of the group at 0.702.</p>
+<p>The more striking result came on an external, independent dataset — the same 17-approved, 8-unapproved drug benchmark used in the recent ChemAP study. There, DrugReasoner reached an AUC of 0.728, an F1 of 0.774 and precision of 0.857, while the conventional baselines collapsed to AUCs between 0.529 and 0.618 and barely registered any sensitivity. ChemAP itself, a purpose-built approval predictor, landed at an AUC of 0.64. As the authors put it, the results highlight "DrugReasoner's superior real-world applicability."</p>
+<p>The paper frames the broader stakes plainly: bringing a single compound to market "often requir[es] over a decade and substantial financial investment, reaching approximately 879 million dollars." When the cost of a wrong bet is that high, even modest improvements in early screening — and the ability to understand why the model is steering a portfolio one way or another — carry real weight.</p>
+<h2>Why Explainability Changes the Equation</h2>
+<p>Predictive accuracy in the low-0.7 AUC range is solid but not revolutionary; XGBoost was competitive on the in-distribution splits. What sets this work apart is the argument that interpretability is not a nice-to-have in pharmaceutical AI but a precondition for adoption. Drug-approval decisions sit inside a web of regulatory scrutiny, fiduciary responsibility and scientific judgment. A model that says "unapproved, 0.91" tells a research director nothing actionable. A model that explains it is flagging a candidate because its high LogP and a Brenk structural alert resemble a cluster of compounds that failed — that is something a chemist can argue with, verify, or act on.</p>
+<p>This is also where reasoning-augmented LLMs diverge from the prior generation of approval predictors. Models like DrugApp leaned on patent and clinical-trial features that only exist after a drug is already deep into development, limiting their use at the early stage where money is actually committed. DrugReasoner, like ChemAP, works from structure-derived features alone, but pairs that with a human-readable narrative — a combination the authors position as a new paradigm for trustworthy, early-stage decision support.</p>
+<h2>What to Watch</h2>
+<p>The authors are candid about the limits. The external benchmark is tiny — a couple dozen drugs — so the generalization claim, while encouraging, needs far larger real-world validation before anyone bets a program on it. Excluding SMILES protected against leakage but likely cost the model fine-grained structural detail; the team flags expanding the context window to reintroduce structure in a controlled way, scaling up model size, and running proper hyperparameter searches as obvious next steps. Training already consumed roughly 794 hours on a single V100 GPU, a reminder that reasoning models are not cheap to build.</p>
+<p>Still, DrugReasoner is a clean demonstration of a trend worth tracking: GRPO-style reinforcement learning, the same recipe behind frontier reasoning models, being pointed at narrow scientific prediction tasks where the explanation matters as much as the answer. The code, checkpoints and dataset are public on GitHub and Hugging Face. The open question is whether interpretable predictions like these earn enough trust to actually move money and molecules — or whether, in a field this risk-averse, a 0.73 AUC with a good story still isn't enough.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"DrugReasoner not only delivers competitive predictive accuracy but also enhances transparency through its reasoning outputs, thereby addressing a key bottleneck in AI-assisted drug discovery."</blockquote>
+          <cite>- Ghaffarzadeh-Esfahani et al., DrugReasoner authors, Isfahan University of Medical Sciences</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">0.732</div><div class="stat-label">Validation AUC</div></div><div class="stat-cell"><div class="stat-value">0.728</div><div class="stat-label">External AUC vs ChemAP 0.64</div></div><div class="stat-cell"><div class="stat-value">0.774</div><div class="stat-label">External F1 score</div></div><div class="stat-cell"><div class="stat-value">4,510</div><div class="stat-label">ChEMBL molecules</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12919791/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=pmc.ncbi.nlm.nih.gov&sz=32" alt="">PMC</a><a href="https://arxiv.org/abs/2508.18579" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a></div></div>
+<div class="article-nav"><a href="11-agentjacking-ai-coding-agents.html" class="nav-prev">&larr; 'Agentjacking' Hijacks AI Coding Agents Through Fa</a><a href="13-anthropic-claude-corps-fellowship.html" class="nav-next">Anthropic Launches Claude Corps, a National Fellow &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 20, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
