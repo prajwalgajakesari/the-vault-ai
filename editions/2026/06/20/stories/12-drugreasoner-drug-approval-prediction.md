@@ -1,0 +1,33 @@
+# DrugReasoner Uses a Reasoning Language Model to Predict — and Explain — Drug Approvals
+
+Most AI models that try to guess whether a drug candidate will reach the market hand back a single number and little else. A research team in Iran wants to change that. In a new paper, scientists at Isfahan University of Medical Sciences and the Isfahan University of Technology introduce **DrugReasoner**, a reasoning-augmented large language model that not only predicts whether a small molecule is likely to win regulatory approval, but writes out the chain of reasoning behind its verdict — comparing the candidate to structurally similar drugs that did and did not make it.
+
+It is a small but pointed bet on where AI-for-drug-discovery is heading: away from black-box scores and toward systems that can show their work in a domain where every decision is expensive and every reviewer wants a rationale.
+
+## How DrugReasoner Works
+
+The model is built on Meta's Llama-3.1-8B-Instruct and fine-tuned using group relative policy optimization (GRPO), the reinforcement-learning method popularized by DeepSeek for training reasoning models. Rather than scoring a molecule in isolation, DrugReasoner first analyzes the candidate compound's physicochemical descriptors — molecular weight, LogP, polar surface area, hydrogen-bond donors and acceptors, ring counts, structural-alert flags and the like, all computed with RDKit — and then compares it against the five most similar approved and five most similar unapproved molecules drawn from its training set. Those neighbors are surfaced through an XGBoost similarity search running over MOLFORMER embeddings.
+
+The output is deliberately structured. Each prediction arrives in three XML-tagged fields: a `<think>` block of comparative reasoning, a `<label>` of approved or unapproved, and a `<score>` confidence value between 0 and 1. The authors trained this behavior into the model with a five-part reward function that rewarded not just correct labels but coherent formatting, valid reasoning, and — notably — calibration, paying out more when the model was confident and right, and penalizing confident mistakes. By the end of training, the model's confidence scores had stabilized around 0.87 and it adhered to the expected output structure 100% of the time.
+
+One design choice stands out. The team deliberately excluded SMILES strings — the text representations of molecular structure — from the model's inputs. Because Llama was pretrained on internet-scale data, feeding it raw SMILES risked data leakage, letting the model simply recognize famous drugs rather than reason about them. Working from computed descriptors instead, the authors argue, both reduces that bias and improves interpretability. The dataset itself came from ChEMBL version 35: 2,255 approved small molecules and 2,255 unapproved ones, balanced by undersampling and split 8:1:1 into training, validation and test sets.
+
+## The Numbers
+
+On the validation set, DrugReasoner posted an AUC of 0.732, accuracy of 0.732 and an F1 score of 0.729, edging out four conventional baselines — logistic regression, support vector machines, k-nearest neighbors and XGBoost — on overall balance. On the held-out test set it held up at an AUC of 0.725 and accuracy of 0.725, matching XGBoost's F1 of 0.718 while posting the highest recall of the group at 0.702.
+
+The more striking result came on an external, independent dataset — the same 17-approved, 8-unapproved drug benchmark used in the recent ChemAP study. There, DrugReasoner reached an AUC of 0.728, an F1 of 0.774 and precision of 0.857, while the conventional baselines collapsed to AUCs between 0.529 and 0.618 and barely registered any sensitivity. ChemAP itself, a purpose-built approval predictor, landed at an AUC of 0.64. As the authors put it, the results highlight "DrugReasoner's superior real-world applicability."
+
+The paper frames the broader stakes plainly: bringing a single compound to market "often requir[es] over a decade and substantial financial investment, reaching approximately 879 million dollars." When the cost of a wrong bet is that high, even modest improvements in early screening — and the ability to understand why the model is steering a portfolio one way or another — carry real weight.
+
+## Why Explainability Changes the Equation
+
+Predictive accuracy in the low-0.7 AUC range is solid but not revolutionary; XGBoost was competitive on the in-distribution splits. What sets this work apart is the argument that interpretability is not a nice-to-have in pharmaceutical AI but a precondition for adoption. Drug-approval decisions sit inside a web of regulatory scrutiny, fiduciary responsibility and scientific judgment. A model that says "unapproved, 0.91" tells a research director nothing actionable. A model that explains it is flagging a candidate because its high LogP and a Brenk structural alert resemble a cluster of compounds that failed — that is something a chemist can argue with, verify, or act on.
+
+This is also where reasoning-augmented LLMs diverge from the prior generation of approval predictors. Models like DrugApp leaned on patent and clinical-trial features that only exist after a drug is already deep into development, limiting their use at the early stage where money is actually committed. DrugReasoner, like ChemAP, works from structure-derived features alone, but pairs that with a human-readable narrative — a combination the authors position as a new paradigm for trustworthy, early-stage decision support.
+
+## What to Watch
+
+The authors are candid about the limits. The external benchmark is tiny — a couple dozen drugs — so the generalization claim, while encouraging, needs far larger real-world validation before anyone bets a program on it. Excluding SMILES protected against leakage but likely cost the model fine-grained structural detail; the team flags expanding the context window to reintroduce structure in a controlled way, scaling up model size, and running proper hyperparameter searches as obvious next steps. Training already consumed roughly 794 hours on a single V100 GPU, a reminder that reasoning models are not cheap to build.
+
+Still, DrugReasoner is a clean demonstration of a trend worth tracking: GRPO-style reinforcement learning, the same recipe behind frontier reasoning models, being pointed at narrow scientific prediction tasks where the explanation matters as much as the answer. The code, checkpoints and dataset are public on GitHub and Hugging Face. The open question is whether interpretable predictions like these earn enough trust to actually move money and molecules — or whether, in a field this risk-averse, a 0.73 AUC with a good story still isn't enough.
