@@ -1,5 +1,3 @@
-## 97% of Developers Now Use AI Coding Tools, but Only a Third Have Governance, Black Duck Study Finds
-
 Artificial intelligence has won the developer. The question now is whether anyone is watching what it writes.
 
 A new study from application-security firm Black Duck finds that 97% of enterprise developers now use AI coding assistants, an adoption rate so close to universal that the tools have crossed the line from competitive edge to baseline expectation. But the same survey exposes a yawning gap on the other side of the ledger: only 30% of organizations have a full governance framework in place to track, review, and secure the code those tools produce. In other words, AI is writing software at nearly every company surveyed, and roughly two-thirds of them are merging it without a complete set of guardrails.

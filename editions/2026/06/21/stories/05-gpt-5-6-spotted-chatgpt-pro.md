@@ -1,5 +1,3 @@
-# GPT-5.6 Spotted Inside ChatGPT Pro as OpenAI Eyes a Late-June Launch
-
 Pro subscribers swear ChatGPT got smarter overnight. Prediction markets have wagered nearly a million dollars that they are right. And OpenAI, true to form, has confirmed nothing.
 
 Over the past week, developers and power users have flooded X and Reddit with side-by-side comparisons claiming that responses from ChatGPT Pro suddenly feel faster and sharper than the GPT-5.5 Pro they are nominally selecting. The leading theory, still unconfirmed, is that OpenAI is quietly stealth-testing its next model, GPT-5.6, on a slice of paying customers ahead of a launch that traders are betting lands before the end of June.

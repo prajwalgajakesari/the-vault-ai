@@ -1,5 +1,3 @@
-# DeepSeek V4 Preview Lands as a 1.6-Trillion-Parameter Model Trained on Huawei Ascend Chips
-
 When DeepSeek dropped a preview of its V4 series, the headline number was hard to miss: DeepSeek-V4-Pro carries 1.6 trillion parameters, making it the largest open-weight model the world has seen. But the figure that will preoccupy policymakers in Washington and Beijing sits one layer down in the architecture. For the first time, a major Chinese frontier-adjacent model has been built around Huawei's homegrown Ascend silicon rather than Nvidia's GPUs — a quiet but consequential shift in the hardware substrate of the global AI race.
 
 The Hangzhou startup released V4 across its website, mobile apps, and API, publishing the weights under a permissive license. The Pro variant uses a Mixture-of-Experts (MoE) design that activates just 49 billion of its 1.6 trillion parameters per token, paired with a one-million-token context window — an eightfold leap over V3's 128K. A smaller sibling, V4-Flash, runs 284 billion total parameters with 13 billion active, aimed at cheaper, faster inference.

@@ -1,5 +1,3 @@
-## Reuters Institute: 10% of Adults Worldwide Now Use AI Chatbots for News Each Week
-
 One in ten people on Earth now turns to an AI chatbot for news in any given week — and almost none of them click through to the journalism underneath. That is the headline tension running through the Reuters Institute Digital News Report 2026, the most authoritative annual read on global news consumption, published this month by the Reuters Institute for the Study of Journalism at the University of Oxford. The report finds that weekly use of standalone chatbots such as ChatGPT, Google Gemini, and Perplexity for news rose to 10% of audiences, up from 7% a year earlier. It is the clearest evidence yet that conversational AI is hardening into a genuine news interface — and, at the same time, quietly starving the publishers who supply the underlying reporting of the traffic they depend on.
 
 ## What the data shows

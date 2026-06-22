@@ -1,5 +1,3 @@
-# ChatGPT Falls Below 50% Market Share for the First Time as Rivals Close In
-
 For three and a half years, one number defined the generative-AI era: ChatGPT owned more than half of every conversation people had with an AI assistant. That era is over. By the end of May 2026, ChatGPT's share of the global AI assistant market had slipped to 46.4%, the first time it has held less than half the market since OpenAI launched the chatbot in late 2022, according to Sensor Tower's 2026 State of AI Report.
 
 The fall is not a collapse. ChatGPT remains, by a wide margin, the most-used AI assistant on the planet, with more than 1.1 billion monthly active users. But the symbolism is hard to ignore. The product that turned generative AI into a household word no longer commands the majority of the market it created, and the rivals chasing it are no longer rounding errors.

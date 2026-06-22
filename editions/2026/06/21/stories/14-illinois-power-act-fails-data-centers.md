@@ -1,13 +1,3 @@
----
-headline: "Illinois POWER Act Fails as AI Data Center Tax Incentives Survive and Grid Strain Mounts"
-slug: illinois-power-act-fails-data-centers
-category: policy
-story_number: 14
-date: 2026-06-21
----
-
-# Illinois POWER Act Fails as AI Data Center Tax Incentives Survive and Grid Strain Mounts
-
 When the Illinois General Assembly gaveled out its spring session on May 31, the most ambitious state-level attempt yet to make the AI data center boom pay its own way died quietly in committee. The POWER Act — the Protecting Our Water and Energy Resources Act — would have forced hyperscale data centers to report their energy and water use, meet new efficiency standards, and shoulder the cost of the electricity they consume. It never reached the floor. Days later, the state's lucrative data center tax incentive program rolled toward its July 1 anniversary intact, and Gov. JB Pritzker was left to do alone what lawmakers would not.
 
 ## A bill that stalled, an industry that did not

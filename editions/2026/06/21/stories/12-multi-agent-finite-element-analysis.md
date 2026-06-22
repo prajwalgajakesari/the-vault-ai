@@ -1,5 +1,3 @@
-# A Multi-Agent AI Framework Automates End-to-End Finite Element Analysis for Engineering
-
 Finite element analysis is the quiet engine behind almost every load-bearing object in modern life. The crashworthiness of a car door, the stress concentration around a bolt hole in an aircraft fuselage; all of it is checked, long before anything is built, by software that chops a structure into millions of tiny elements and solves the physics across each one. It is also notoriously hard to use well. Now a team of researchers says a coordinated crew of large language model agents can run the entire pipeline, from a plain-English problem description to a finished, visualized result, with little human hand-holding.
 
 In a June 2026 preprint titled "A Multi-AI-agent Framework Enabling End-to-end Finite Element Analysis for Solid Mechanics Problems," researchers from the University of Texas at Arlington and Rensselaer Polytechnic Institute introduce **AbaqusAgent**, a system that wraps the commercial FEA package Abaqus inside a team of specialized AI agents. The pitch is direct: tell the system what you want to simulate in natural language, and it does the rest.

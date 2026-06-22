@@ -1,7 +1,3 @@
-# The Economist's 'America's AI Power Grab' Frames the Fable 5 Ban as Geopolitical Strategy
-
-*The Vault — AI Edition · Policy · June 21, 2026*
-
 The Economist does not put an American eagle clutching a computer mouse on its cover for a story about a software bug. The newspaper's June 20, 2026 cover, headlined **"America's AI Power Grab,"** takes the ten-day-old shutdown of Anthropic's most capable models and reframes it as something far larger than a security dispute: the moment the United States decided that frontier artificial intelligence is an instrument of state power, to be switched on and off at Washington's discretion.
 
 The trigger was the U.S. Department of Commerce's June 12 export-control directive ordering Anthropic to block access to Fable 5 and Mythos 5 for any foreign national, inside or outside the country. Because filtering users by nationality proved technically unworkable, Anthropic pulled both models offline worldwide. The official rationale was a jailbreak vulnerability. The Economist's argument is that the rationale is almost beside the point — that the real story is what the action *demonstrates*.

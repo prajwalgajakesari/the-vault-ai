@@ -1,5 +1,3 @@
-# Anthropic Signs More Than 12 US Data Center Leases Exceeding 1 Gigawatt as Its IPO Nears
-
 Three weeks before it is expected to begin marketing one of the largest technology IPOs in history, Anthropic is quietly converting itself from a tenant into a landlord. The maker of Claude has signed more than a dozen letters of intent to lease US data centers with a combined capacity of over one gigawatt, according to a report from The Information, a move that for the first time gives the company direct control over the physical infrastructure it has so far rented from cloud giants. The non-binding agreements arrive as Anthropic races toward an October 2026 public listing at a valuation now pegged near $965 billion, and they underscore a single, unrelenting reality of the frontier AI business: the appetite for compute has outrun anyone's ability to buy it off the shelf.
 
 ## From Renter to Owner

@@ -1,7 +1,3 @@
-# Amazon Drops Luca Guadagnino's Nearly Finished Sam Altman Film 'Artificial' Amid $50 Billion OpenAI Deal
-
-*The Vault — AI Edition · Business · June 21, 2026*
-
 Hollywood does not often hand back a finished prestige film with an Oscar-nominated director attached and a cast worth a dozen red carpets. Amazon MGM Studios just did exactly that — and the reason has less to do with the movie than with the $50 billion the company has riding on its subject.
 
 Amazon has dropped *Artificial*, Luca Guadagnino's nearly completed drama about OpenAI chief executive Sam Altman, walking away from a project it commissioned, financed and tested for audiences. The film, which stars Andrew Garfield as Altman and dramatizes the chaotic five days in November 2023 when Altman was fired and rehired by OpenAI's board, will now be shopped to rival studios by Guadagnino's agency, CAA. The decision, first reported by Variety and confirmed across the trades this week, arrives barely four months after Amazon announced a $50 billion investment in OpenAI — the very company at the center of the film.

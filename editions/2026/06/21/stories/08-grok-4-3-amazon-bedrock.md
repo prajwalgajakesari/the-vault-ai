@@ -1,5 +1,3 @@
-## Grok 4.3 Arrives on Amazon Bedrock With a 1M-Token Context and a Low-Hallucination Claim
-
 xAI's Grok finally has a seat at enterprise computing's biggest table. On June 15, AWS made Grok 4.3 generally available on Amazon Bedrock, registering Elon Musk's AI lab as a first-party model provider on the platform that most Fortune 500 engineering teams already use to buy frontier intelligence. The model ships under the ID `xai.grok-4.3` at $1.25 per million input tokens and $2.50 per million output tokens, with a 1-million-token context window, configurable reasoning effort, and a headline pitch that lands squarely on enterprise anxieties: xAI says Grok 4.3 has the lowest hallucination rate among frontier models.
 
 For any AWS customer, the practical change is immediate. Bedrock teams can now call Grok alongside Anthropic's Claude and OpenAI's GPT models without setting up a separate xAI account, billing relationship, or security review. That distribution shift — not the benchmark numbers — is the real story.

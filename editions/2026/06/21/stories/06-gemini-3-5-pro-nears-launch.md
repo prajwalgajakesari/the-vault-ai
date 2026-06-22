@@ -1,5 +1,3 @@
-# Gemini 3.5 Pro Nears Launch With a 2-Million-Token Context Window and a 'Deep Think' Mode
-
 Google's most powerful model of the year is finished, demonstrated, and priced. There is just one problem: almost no one can use it yet. As of June 21, Gemini 3.5 Pro remains locked behind a limited preview open only to a handful of select Vertex AI enterprise customers, even as the calendar marches toward the general-availability window CEO Sundar Pichai promised the world from the Google I/O stage a month ago.
 
 The gap between announcement and availability has become the most-watched story in frontier AI this month, and it tightens by the day.
