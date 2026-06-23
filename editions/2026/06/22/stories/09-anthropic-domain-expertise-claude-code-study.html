@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anthropic Study of 400,000 Sessions Finds Domain Expertise Beats Coding Skill in Claude Code - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Anthropic Study of 400,000 Sessions Finds Domain Expertise Beats Coding Skill in Claude Code</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1114 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Across 400,000 Claude Code sessions, a user's domain expertise — not programming skill — determined how much autonomous work the model performed and how often sessions succeeded.</p>
+</div>
+<div class="article-body">
+<p>The conventional wisdom about coding assistants has been that the better a programmer you are, the more you get out of them. Anthropic just published evidence that the conventional wisdom is wrong.</p>
+<p>In a report released June 16, the company's economic research team analyzed roughly 400,000 Claude Code sessions recorded between October 2025 and April 2026 — drawn from about 235,000 people — and found that what separates the users who extract the most autonomous work from the model is not coding ability. It is domain expertise: a firm grasp of the problem being solved, the business logic, and the constraints that make an answer right or wrong.</p>
+<p>"Coding agents are not substituting for domain expertise," the authors write. "The more understanding a worker brings to an agent, the more quality work the agent is able to do."</p>
+<h2>What the numbers show</h2>
+<p>The study, titled "Agentic coding and persistent returns to expertise," used a privacy-preserving classification pipeline — no researcher read individual transcripts — to rate each session on a five-point expertise scale and sort it into one of nine "work modes." Crucially, the expertise rating is task-specific, not a proxy for seniority. The paper offers a sharp illustration: a senior engineer asking their first Rust question is a beginner at Rust, while "an accountant who has never used Python, but tells Claude exactly which reconciliation rules a Python script must enforce and catches the edge case it mishandles at month-end close, is an expert at that task."</p>
+<p>The expertise gradient turned out to be steep. In typical novice sessions, each prompt set off about five Claude actions and roughly 600 words of output. In expert sessions, a single prompt triggered action chains more than twice as long — about 12 actions — carrying five times the output, around 3,200 words. That gap, the authors note, "appears within every kind of work and every band of task value."</p>
+<p>Success followed the same curve. A novice-rated session reached the study's strictest bar, "verified success" — judged successful with hard evidence like passing tests, commits, or pull requests — just 15% of the time. Intermediate and expert sessions hit that bar 28% to 33% of the time. The pattern was even starker when sessions ran into trouble: among sessions that hit errors or repeated failures, only 4% of novice sessions still ended in verified success, versus 15% for experts. And 19% of struggling novice sessions were simply abandoned with zero lines of code written, against 5% to 7% for everyone else.</p>
+<p>"Part of the value of expertise appears to be the ability to steer the agent in the right direction," the researchers write.</p>
+<h2>Coding background, by contrast, barely mattered</h2>
+<p>The most striking control in the study compares occupations. Anthropic inferred each user's job from session context and mapped it to Bureau of Labor Statistics categories, explicitly instructing the classifier not to treat the act of coding as evidence of a coding profession. The result: in sessions that produced code, every one of the ten largest occupation groups landed within seven percentage points of software engineers on success. Users in software occupations reached verified success about 34% of the time in code-producing sessions; users from other professions, 29%. Management occupations actually edged out software engineers on the verified-success measure — possibly, the authors speculate, because management skills transfer to directing an agent.</p>
+<p>The picture is one of a clear and stable division of labor. Across sessions, people made roughly 70% of the planning decisions — what to build, which approach to take, what counts as done — while Claude made about 80% of the execution decisions: which files to change, what code to write, which commands to run. "People decide what to build," the report summarizes, "and the agent decides how to build it."</p>
+<p>The seven-month window also captured the work itself shifting. The share of sessions spent fixing broken code fell from 33% to 19%, nearly in half. In its place, operating software grew from 14% to 21%, and writing and data analysis roughly doubled, from about 10% to 20%. By Anthropic's freelance-marketplace-calibrated estimate, the value of the average session rose about 27% over the period — the authors caution those dollar figures are coarse and best read as relative comparisons.</p>
+<h2>Why It Matters</h2>
+<p>The finding rewrites the staffing math for anyone deploying Claude Code at scale. The dominant mental model — that you need a senior engineer in the loop reviewing every line — is, on this evidence, the wrong constraint. The expert in the chair needs to deeply understand the domain and its constraints, not necessarily the language the agent is writing in.</p>
+<p>That has a direct operational implication: if a Claude Code deployment is underperforming, the likeliest fix is not a better prompt or a newer model, but a genuine domain expert in the review seat. A team shipping financial reconciliation tooling is better served by an accountant who knows the edge cases than by a generalist engineer who knows TypeScript. It also reframes who can do technical work at all. As the authors put it, "A person with such command, in any field, may now be able to do technical work they previously could not. A person without any such expertise will get far less from the same tool."</p>
+<p>There is a caveat worth holding onto for hiring and training: the gains come "mostly from competence, not mastery." A working grasp of a domain captured most of the benefit; the jump from intermediate to expert added comparatively little.</p>
+<h2>What to Watch</h2>
+<p>Anthropic flagged the returns to expertise as a signal to track over time. If that premium begins to shrink in future reports, it would mean models are starting to supply the judgment users currently bring — and that the benefits are broadening beyond domain experts. If success rates for non-software occupations keep climbing, it could mean software production is becoming ordinary work in every field rather than the province of one profession.</p>
+<p>The study has limits the authors are candid about: it cannot observe real-world outcomes (whether code was actually shipped or discarded), it excludes substantial non-interactive and headless usage, and every classification rests on a model reading the transcript. But as an early read on where knowledge work is heading as agents spread beyond code, the message is unusually clear. The scarce input is understanding the problem — and that has never been a programming skill.</p>
+<h2>Sources</h2>
+<p>- [Agentic coding and persistent returns to expertise — Anthropic](https://www.anthropic.com/research/claude-code-expertise)
+- [What 400K Claude Code Sessions Reveal About Domain Expertise and Model Tier Routing — TheRouter.ai](https://therouter.ai/news/anthropic-claude-code-expertise-routing-session-data-2026/)
+- [Anthropic releases economic research on Claude Code usage — Crypto Briefing](https://cryptobriefing.com/anthropic-claude-code-economic-research/)</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"Coding agents are not substituting for domain expertise—the more understanding a worker brings to an agent, the more quality work the agent is able to do."</blockquote>
+          <cite>- Anthropic economic research team, Authors of 'Agentic coding and persistent returns to expertise'</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">400,000</div><div class="stat-label">Claude Code sessions analyzed</div></div><div class="stat-cell"><div class="stat-value">33% vs 15%</div><div class="stat-label">Verified-success rate, expert vs novice</div></div><div class="stat-cell"><div class="stat-value">12 vs 5</div><div class="stat-label">Claude actions per prompt, expert vs novice</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.anthropic.com/research/claude-code-expertise" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" alt="">Anthropic</a><a href="https://therouter.ai/news/anthropic-claude-code-expertise-routing-session-data-2026/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=therouter.ai&sz=32" alt="">TheRouter.ai</a><a href="https://cryptobriefing.com/anthropic-claude-code-economic-research/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cryptobriefing.com&sz=32" alt="">Crypto Briefing</a></div></div>
+<div class="article-nav"><a href="08-openai-record-replay-codex-skills.html" class="nav-prev">&larr; OpenAI's Record and Replay Turns One-Off Workflows</a><a href="10-automated-conjecture-resolution-lean4.html" class="nav-next">AI Agents Resolve Open Math Conjectures With Proof &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 22, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
