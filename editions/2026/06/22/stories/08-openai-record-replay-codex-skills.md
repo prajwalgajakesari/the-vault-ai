@@ -1,0 +1,31 @@
+OpenAI has quietly handed Codex a new way to learn: just show it what to do. With a feature called Record & Replay, the company is betting that the fastest path to automating an office task is not a carefully engineered prompt, but a single demonstration the agent can watch and then repeat on its own.
+
+Shipped on June 18 as part of Codex app version 26.616, Record & Replay lets eligible users of the macOS Codex app perform a workflow once while the agent observes, then converts that demonstration into a reusable "skill" that Codex can execute autonomously on demand. The feature is live for paid ChatGPT subscribers — including Business, Enterprise, Plus, Pro, and Edu tiers — but only outside the European Union, the United Kingdom, and Switzerland. It also requires Computer Use to be enabled.
+
+The pitch is simple and pointed at a real pain. Anyone who has tried to get an AI agent to file an expense report or pull a recurring dashboard knows the tax: you spend more time describing the steps than the steps would take to do yourself. Record & Replay inverts that. "Record & Replay lets you demonstrate a workflow on your Mac and turn it into a reusable skill," OpenAI writes in its developer documentation. "Use it when the workflow is repetitive, depends on your preferences, or is easier to show than to describe in a prompt."
+
+## How it works
+
+The mechanics are deliberately low-friction. Inside the Codex app, a user opens the Plugins panel, hits the "+" menu, and selects "Record a skill." Codex suggests a prompt, asks for any helpful context, then requests permission to watch. The user performs the task — filing the expense, booking the parking space, creating a correctly configured issue, publishing a video, downloading the report — and stops recording from the menu bar or by simply telling Codex they are done.
+
+What happens next is the interesting part. "During recording, Codex observes the actions and window content needed to learn the workflow," the documentation states. Once recording stops, the model inspects the captured sequence and drafts a skill: a human-readable instruction file that, per OpenAI, "explains when to use the workflow, what inputs it needs, what steps to follow, and how to verify the result." On future runs, Codex treats that file as reusable context and re-executes the task using whatever tools are available in the environment — Computer Use, browser actions, connected plugins, or a combination.
+
+That design is a meaningful departure from traditional robotic process automation. Tools like UiPath and Automation Anywhere capture pixel coordinates and UI element identifiers, recordings that shatter the moment an interface shifts a button or renames a field. Record & Replay instead has a language model author the skill from observation, so the agent can reason its way through small interface changes rather than blindly replaying clicks. The skill, in other words, is written by the model from what it saw — not by the user from a description.
+
+OpenAI is also clear about where the line sits. Record & Replay is for quick, personal skills built from a single demonstration. "If you want to distribute a separate stable package across a team, bundle multiple skills, include app integrations, add MCP servers, or manage install metadata, package that workflow as its own plugin," the company advises. The feature ships with guardrails-by-default too: it is gated behind Computer Use, and organizations that manage Codex with a `requirements.toml` file can switch it off entirely by setting `computer_use = false`.
+
+## Why It Matters
+
+The release is less about a single feature than about what OpenAI wants Codex to become. Launched as a coding assistant, Codex is increasingly being framed as a general workflow-automation platform — one that lives on your desktop, drives your apps, and absorbs the repetitive operational chores that fill a knowledge worker's day. Record & Replay accelerates that repositioning by removing the hardest part of agentic automation: the upfront specification. Demonstrate once, and the agent carries the task forward.
+
+That puts Codex squarely in contention with Anthropic's Claude, whose Cowork environment and broader agentic tooling are chasing the same prize: an assistant that does multi-step work across real applications rather than just answering questions. Notably, the two camps are converging on a shared substrate. The skills Record & Replay produces conform to the open Agent Skills standard — a SKILL.md format originally developed by Anthropic and since adopted across OpenAI, Google, Microsoft, and others. The battleground, then, is not the file format but the experience: who makes it easiest to turn a one-off task into durable, trustworthy automation.
+
+For business buyers, the value proposition is concrete. Teams accumulate dozens of small, idiosyncratic processes that no one wants to document. A feature that captures those processes by watching, rather than by interview, lowers the activation energy for automation across an entire organization.
+
+## What to Watch
+
+The most immediate question is geography. By excluding the EU, UK, and Switzerland at launch, OpenAI signals that a feature built on continuous screen observation carries regulatory weight — recording a user's actions and window contents invites scrutiny under privacy and data-protection regimes. How and when that availability expands will say a lot about how OpenAI is navigating those rules.
+
+Reliability is the next test. Demonstrations capture the happy path; they rarely capture edge cases, input validation, or failure modes. OpenAI itself nudges users to refine the generated skill afterward to encode hidden preferences and decision points — an admission that "show once" is a starting point, not a finished automation. Whether replayed skills hold up against the messiness of real enterprise software, with its permission prompts and shifting layouts, will determine if this becomes a daily tool or a demo.
+
+Finally, watch the platform play. If Record & Replay funnels naturally into Codex's plugin system — turning personal recordings into shareable, team-wide packages — OpenAI will have built a flywheel for distributing automation. That, more than any single skill, is what would turn Codex from a coding tool into infrastructure.
