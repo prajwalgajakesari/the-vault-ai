@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Launches GPT-5.5-Cyber, Its Most Capable Defensive Security Model Yet -- The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>OpenAI Launches GPT-5.5-Cyber, Its Most Capable Defensive Security Model Yet</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 860 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI released GPT-5.5-Cyber, a state-of-the-art (85.6% CyberGym) defensive security model limited to vetted defenders via Trusted Access for Cyber, positioning Daybreak as a governed answer to Anthropic's Project Glasswing.</p>
+</div>
+<div class="article-body">
+<p>---<br>headline: "OpenAI Launches GPT-5.5-Cyber, Its Most Capable Defensive Security Model Yet"<br>category: llms-genai<br>story_number: "06"<br>slug: openai-gpt-5-5-cyber-launch<br>date: 2026-06-23<br>---</p>
+<h2>OpenAI Launches GPT-5.5-Cyber, Its Most Capable Defensive Security Model Yet</h2>
+<p>On June 23, OpenAI put its strongest cyber model into the hands of the people it trusts to defend the internet — and pointedly out of reach of everyone else. The company released a more capable, more permissive version of GPT-5.5-Cyber as the centerpiece of its Daybreak platform, pairing it with an upgraded Codex Security plugin and a new open-source remediation drive called Patch the Planet. The pitch is blunt: the same frontier intelligence that lets attackers find and weaponize bugs faster than ever should be wielded, first and hardest, by defenders.</p>
+<p>The headline number is a benchmark. On CyberGym — a suite that asks an AI agent to reproduce known software vulnerabilities inside controlled testing environments — the updated GPT-5.5-Cyber scored 85.6%, a new state of the art. That edges out the standard GPT-5.5 at 81.8% and, more conspicuously, tops Anthropic's Mythos 5 at 83.8% and Claude Opus 4 at 73.1%. CyberGym, built at UC Berkeley, draws on 1,507 real vulnerabilities across 188 open-source projects, so the gains are not abstract.</p>
+<h2>What the model actually does</h2>
+<p>OpenAI describes GPT-5.5-Cyber as its "strongest model yet for finding and helping patch software vulnerabilities," and the capability list reads less like a chatbot and more like a tireless security engineer. The model can, in the company's words, "sustain deeper analysis across large codebases" — identifying security-relevant components, tracing the reachability of vulnerable code, validating issues in controlled environments, and then developing and testing patches end to end.</p>
+<p>The Linux kernel is the marquee demonstration. Turned loose on a codebase exceeding 30 million lines, the model surfaced security-relevant components and generated 8 kernel pointer information-leak proofs-of-concept alongside 24 local privilege-escalation exploits. The same Daybreak effort flagged a 23-year-old use-after-free in OpenBSD's System V semaphore implementation, 34 vulnerabilities in FreeBSD, exploitable bugs in Chrome's V8 engine and Apple's Safari, and a denial-of-service technique dubbed HTTP/2 Bomb affecting NGINX, Apache, IIS and Pingora.</p>
+<p>The upgraded Codex Security plugin is how most defenders will touch this. "Developers can run deep scans or review recent changes, generate reports with severity, affected code locations, validation evidence, and remediation guidance, trace attack paths, build threat models, validate findings, and generate codebase-specific patches for review," OpenAI said. It can also triage existing findings from scanners, advisories, bug-bounty reports and ticketing systems, then mass-generate patches to burn down a backlog.</p>
+<h2>A walled garden by design</h2>
+<p>None of this is open to the public. GPT-5.5-Cyber ships only to organizations vetted through OpenAI's Trusted Access for Cyber program, which lowers the model's classifier-based refusals for approved defensive work — secure code review, vulnerability triage, malware analysis, binary reverse engineering, detection engineering, red teaming and penetration testing — while continuing to block requests aimed at credential theft, stealth, persistence and malware deployment.</p>
+<p>"OpenAI is releasing a more permissive version of its cybersecurity model, which the company says is designed for advanced, authorized security work," Axios reporter Sam Sabin wrote, capturing the central tension. "AI developers face a difficult balancing act: getting powerful cyber capabilities into the hands of legitimate defenders and researchers while limiting opportunities for malicious use."</p>
+<p>OpenAI is also widening distribution through the new Daybreak Cyber Partner Program, which lets vetted vendors embed GPT-5.5 with Trusted Access for Cyber inside their own products. The roster spans much of the security and infrastructure industry — Akamai, Cisco, Cloudflare, CrowdStrike, Fortinet, Oracle, Palo Alto Networks and Zscaler among them. Until now, approved organizations mostly ran these models against systems they owned or were authorized to test; the partner program pushes the capability outward to customer environments.</p>
+<h2>The race nobody wants to lose — or stop</h2>
+<p>The launch lands as a deliberate answer to Anthropic, whose Project Glasswing used Claude Mythos to surface more than 10,000 high- or critical-severity vulnerabilities across systemically important open-source software. But Anthropic's effort has been snared in policy limbo, with the U.S. government ordering it to suspend Fable 5 and Mythos 5 access for foreign nationals — a cautionary tale OpenAI appears determined to route around through governance and partnerships rather than raw openness.</p>
+<p>That backdrop hints at the strategic logic underneath Daybreak: build a defensive capability so woven into the world's critical infrastructure — kernels, browsers, the open-source supply chain — that pulling the plug becomes its own security risk. Patch the Planet, launched with Trail of Bits and joined by projects including cURL, Python, the Go project and pyca/cryptography, is the clearest expression of that bet. "Patch the Planet is designed to put that full defensive loop in service of maintainers: discovery, validation, severity review, disclosure, patch development, testing, and deployment," OpenAI said, adding that the aim is "to give the people responsible for shared infrastructure better tools and more capacity, while preserving their agency over how changes land."</p>
+<p>The urgency is not self-generated. Intelligence agencies across the Five Eyes alliance warned this month that frontier models will "fundamentally transform both offensive and defensive cyber capabilities," and that "the timeline is not years, it is months." Canada's Centre for Cyber Security was blunter still: organizations should assume AI-driven exploitation "may bypass preventative controls" and outpace vendors' capacity to ship fixes.</p>
+<h2>What to watch</h2>
+<p>The bet is that defenders, armed with an 85.6% model and an industry-wide partner network, can close the gap between disclosure and exploitation faster than attackers can widen it. The open questions are whether Trusted Access vetting holds as distribution scales through dozens of vendors, whether maintainers welcome or drown in AI-generated patches, and whether regulators treat OpenAI's governed approach as the responsible template — or apply the same scrutiny that froze Anthropic's models. If GPT-5.5-Cyber genuinely tilts the kernel-and-browser layer toward defense, the "too important to shut down" strategy will have proved itself. If the floodgates spill, June 23 will be remembered as the day the cyber-AI arms race went fully mainstream.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"AI developers face a difficult balancing act: getting powerful cyber capabilities into the hands of legitimate defenders and researchers while limiting opportunities for malicious use."</blockquote>
+          <cite>-- Sam Sabin, Cybersecurity Reporter, Axios</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">85.6%</div><div class="stat-label">CyberGym score (SOTA)</div></div><div class="stat-cell"><div class="stat-value">81.8%</div><div class="stat-label">Standard GPT-5.5 score</div></div><div class="stat-cell"><div class="stat-value">24</div><div class="stat-label">Privilege-escalation exploits found</div></div><div class="stat-cell"><div class="stat-value">30M+</div><div class="stat-label">Lines of kernel code analyzed</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://thehackernews.com/2026/06/openai-expands-daybreak-with-gpt-55.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thehackernews.com&sz=32" alt="">The Hacker News</a><a href="https://www.axios.com/2026/06/22/openai-rolls-out-more-capable-version-of-cyber-model" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=axios.com&sz=32" alt="">Axios</a><a href="https://openai.com/index/daybreak-securing-the-world/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI</a></div></div>
+<div class="article-nav"><a href="05-suno-400m-series-d.html" class="nav-prev">&larr; Suno Raises $400 Million Series D at a $5.4 Billio</a><a href="07-fable-5-open-weight-shift.html" class="nav-next">Fable 5's Shutdown Is Accelerating the Enterprise  &rarr;</a></div>
+<footer>The Vault -- AI Edition &middot; Published June 23, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

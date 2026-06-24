@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI's 'Patch the Planet' Puts AI to Work Hardening the Open-Source Software the World Runs On -- The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>OpenAI's 'Patch the Planet' Puts AI to Work Hardening the Open-Source Software the World Runs On</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 960 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI's Patch the Planet pairs GPT-5.5-Cyber and Trail of Bits engineers to find and fix vulnerabilities in 30+ critical open-source projects, easing maintainer burden while building the regulatory goodwill that comes with hardening the software the world runs on.</p>
+</div>
+<div class="article-body">
+<p>---<br>headline: "OpenAI's 'Patch the Planet' Puts AI to Work Hardening the Open-Source Software the World Runs On"<br>slug: openai-patch-the-planet-open-source<br>category: llms-genai<br>story_number: "08"<br>date: 2026-06-23<br>---</p>
+<h2>OpenAI's 'Patch the Planet' Puts AI to Work Hardening the Open-Source Software the World Runs On</h2>
+<p>For decades the unglamorous truth of modern computing has been that the internet runs on code written and maintained by a handful of volunteers, many of them unpaid, most of them outnumbered. On Monday, OpenAI proposed an answer that is either a public service or a power play, depending on who you ask: point the most capable cyber AI it has ever built at that fragile foundation and start fixing it.</p>
+<p>The initiative, called <strong>Patch the Planet</strong>, launched June 23, 2026, alongside the full release of <strong>GPT-5.5-Cyber</strong>, OpenAI's strongest model yet for finding and helping patch software vulnerabilities. Built with the security firm <strong>Trail of Bits</strong> and in collaboration with <strong>HackerOne</strong>, the program pairs AI-assisted vulnerability research with full-time human expert review, then hands the results to the maintainers who actually own the code. More than 30 open-source projects have committed to participate, with initial participants including cURL, the Go project, Python, Sigstore, pyca/cryptography, NATS Server, aiohttp, and freenginx.</p>
+<h2>A five-day sprint that surfaced hundreds of issues</h2>
+<p>The numbers from the opening surge are the headline. Trail of Bits dedicated security engineers to work full-time with Codex and GPT-5.5-Cyber across 19 open-source projects and, in an initial sprint, "already identified hundreds of security issues and merged dozens of patches, with many more still undergoing coordinated disclosure," OpenAI said in its announcement.</p>
+<p>More striking than the bug count is what the engineers built to find them. The sprint produced reusable security infrastructure: fuzzing harnesses, historical-CVE analysis pipelines, differential-testing systems, threat models, expanded test suites, and workflows for deduplication, false-positive filtering, severity correction, and patch generation.</p>
+<p>The standout anecdote is a fuzzing lab built in under a day. Trail of Bits engineers used repeated Codex `/goal` runs with GPT-5.5-Cyber to assemble an entire fuzzing lab covering dozens of entry points, variant builds, platforms, and novel test seeds. "Engineers set the objectives and refined the prompts; the system then used coverage feedback to keep expanding into new surfaces, target edge cases, and filter weak or invalid candidates," OpenAI wrote. The completed setup took less than a day; Trail of Bits estimates building the same lab manually would ordinarily take at least several weeks.</p>
+<p>A second reusable pipeline ingests historical CVEs, extracts vulnerability patterns, searches target codebases for related flaws, and routes the strongest candidates to human engineers — turning years of public vulnerability history into a repeatable search strategy. Differential testing that has "historically taken weeks or months," OpenAI said, was compressed into days.</p>
+<p>The broader Daybreak body of work behind the program is sweeping. GPT-5.5-Cyber identified security-relevant components across more than 30 million lines of Linux kernel code and automatically generated 8 kernel pointer information-leak proofs-of-concept and 24 local privilege-escalation exploits. OpenAI's models surfaced a 23-year-old use-after-free in OpenBSD's kernel, confirmed 34 vulnerabilities in FreeBSD, flagged patterns matching four dnsmasq CVEs, and found exploitable bugs in Chrome's V8 engine, Safari's WebKit, and Firefox's WebAssembly implementation. GPT-5.5-Cyber scores 85.6% on the CyberGym benchmark, the highest single-model result to date.</p>
+<h2>The real bottleneck is no longer discovery</h2>
+<p>For years, the hard part of security was finding bugs. AI has flipped that. The challenge now is what to do with a firehose of findings — and who shoulders the cost of triaging them.</p>
+<p>That burden falls on maintainers, and Patch the Planet is explicitly framed as relief rather than another inbox. "AI is accelerating vulnerability discovery, but discovery alone does not protect users," OpenAI wrote. "Many maintainers are already being asked to sort through more reports, more quickly, with the same limited time and resources. Patch the Planet is built to reduce that burden, not add to it."</p>
+<p>The human-review step is the load-bearing design choice. "Trail of Bits engineers manually reviewed every security issue before it was submitted to a maintainer, and the added value of this step cannot be understated," OpenAI said. Frontier models, the company acknowledged, "produce a high volume of false positives that can contribute to the already overwhelming backlog maintainers are facing." Engineers reproduce evidence, check findings against project documentation, remove duplicates, reassess severity, and only then submit patches — with maintainers retaining control over what ships and how disclosure is handled.</p>
+<p>Participating projects receive ChatGPT Pro access, conditional access to the Codex Security plugin, and API credits. Codex Security, which embeds deep codebase scanning and automated patch generation directly into the developer's IDE, has scanned over 30 million commits across more than 30,000 codebases since its March 2026 research preview.</p>
+<h2>The economics — and the strategic logic</h2>
+<p>There is a generous reading and a cynical one, and both are probably true.</p>
+<p>The generous reading: AI-accelerated offense is already here, and defenders are losing the race. The Canadian Centre for Cyber Security warned in May that "threat actors with limited technical expertise can use publicly available AI models for malicious purposes," and a Five Eyes advisory cited by The Hacker News put the timeline for AI transforming cyber capability in "months, not years." If attackers get a fuzzing lab in a day, defenders need one too. Pouring expert hours and frontier compute into cURL and Python is a genuine public good for the millions of downstream products that depend on them.</p>
+<p>The cynical reading is about positioning. The strategic logic mirrors Anthropic's Project Glasswing: fix real vulnerabilities in critical infrastructure, build trust with governments, and earn de facto "too important to shut down" status. GPT-5.5-Cyber is not generally available — it ships only to verified, trusted defenders under access controls and governance. A lab that demonstrably hardens the software the world runs on becomes a national-security asset, and a national-security asset is far harder to regulate out of existence. "With Patch the Planet, we are working with researchers, maintainers, enterprises, and partners to make powerful cyber capability available to defenders with appropriate access, governance, and human oversight," OpenAI said — language that doubles as a pitch to regulators.</p>
+<p>The unresolved tension sits with the maintainers. The model treats them as the customer, not the labor. But corporate security organizations cannot babysit every open-source project forever, and what happens when the surge ends — when Trail of Bits redeploys and the API credits lapse — is the question the program's design papers over. A one-time hardening sprint is not a sustainable maintenance model, and the reusable workflows only help maintainers who have the time to run them.</p>
+<h2>What to watch</h2>
+<p>Three things will tell us whether Patch the Planet is infrastructure or theater. First, the promised technical reports: OpenAI says it will publish deeper write-ups of individual findings and validation methods as disclosures conclude — the proof of whether the patches hold up under scrutiny. Second, maintainer testimony: the program lives or dies on whether the projects themselves say it reduced their burden rather than reshaped it. Third, the durability question — whether the funding, credits, and engineering attention survive past the launch news cycle, or whether the planet gets one patch and is left to fend for itself again.</p>
+<p>For now, OpenAI has done something no amount of GitHub Sponsors money ever managed: it has made open-source security look like a strategic priority. The bet is that fixing the world's code is the surest way to make itself indispensable to it.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"AI is accelerating vulnerability discovery, but discovery alone does not protect users. Patch the Planet is built to reduce that burden, not add to it."</blockquote>
+          <cite>-- OpenAI, Patch the Planet announcement</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">30+</div><div class="stat-label">Open-source projects</div></div><div class="stat-cell"><div class="stat-value"><1 day</div><div class="stat-label">Fuzzing lab build time</div></div><div class="stat-cell"><div class="stat-value">85.6%</div><div class="stat-label">GPT-5.5-Cyber CyberGym</div></div><div class="stat-cell"><div class="stat-value">30M+</div><div class="stat-label">Lines of kernel code analyzed</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/patch-the-planet/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI</a><a href="https://thehackernews.com/2026/06/openai-expands-daybreak-with-gpt-55.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thehackernews.com&sz=32" alt="">The Hacker News</a><a href="https://siliconangle.com/2026/06/22/openai-expands-daybreak-patch-planet-full-gpt-5-5-cyber-release/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=siliconangle.com&sz=32" alt="">SiliconANGLE</a></div></div>
+<div class="article-nav"><a href="07-fable-5-open-weight-shift.html" class="nav-prev">&larr; Fable 5's Shutdown Is Accelerating the Enterprise </a><a href="09-meta-cwm-code-world-model.html" class="nav-next">Meta's Code World Model, a 32B Open-Weights LLM, B &rarr;</a></div>
+<footer>The Vault -- AI Edition &middot; Published June 23, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
