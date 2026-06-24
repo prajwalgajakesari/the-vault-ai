@@ -1,0 +1,33 @@
+# A Trust-First Neuro-Symbolic Architecture Aims to Make AI's Mathematical Reasoning Verifiable
+
+When a large language model says it has solved a hard math problem, the uncomfortable truth is that you mostly have to take its word for it. The model produces a plausible chain of steps, arrives at an answer, and presents both with the same fluent confidence whether the logic is airtight or quietly broken. In most domains a wrong-but-confident answer is an annoyance. In mathematics, where a single invalid step invalidates everything downstream, it is fatal. That gap between *sounds right* and *is right* is the problem a wave of 2026 research is trying to close, and the emerging answer has a name: trust-first, neuro-symbolic execution.
+
+## Why verifiable math is different
+
+Most efforts to make LLMs more reliable lean on more of the same machinery: more chain-of-thought, more self-consistency sampling, more reward models scoring whether an answer *looks* correct. These help, but they are statistical patches on a statistical system. None of them can actually *prove* a step is valid. A model can hallucinate a clean-looking algebraic manipulation, a non-existent lemma, or a sign error, and a reward model trained on surface patterns may wave it through.
+
+Mathematics is unusual in that it offers an escape hatch. Logical and arithmetic steps can be handed to symbolic engines, computer algebra systems, and formal proof assistants such as Lean or HOL Light, which do not guess. A proof-assistant kernel either accepts a step or rejects it. The insight animating the trust-first movement is to stop treating the neural model as the final authority and start treating it as a fast, creative proposer whose every consequential move is checked by a symbolic verifier that cannot be talked into a wrong answer.
+
+## How neuro-symbolic execution works
+
+The architecture splits labor between two very different kinds of system. The neural component, the LLM, does what it is genuinely good at: reading a problem in natural language, proposing strategies, and drafting candidate steps. The symbolic component does what neural networks cannot reliably do: enforce logical correctness with certainty.
+
+"Trust-first" describes the routing discipline that ties them together. Rather than letting the model reason freely and checking only the final answer, each critical step is formalized and routed through symbolic execution *before* the chain is allowed to continue. If the verifier rejects a step, the system does not proceed on a corrupted foundation; it loops back for a correction.
+
+Recent systems make the pattern concrete. **HERMES** — a hybrid agent for mathematical reasoning with neuro-symbolic Lean 4 verification, posted to arXiv in late 2025 and presented at ICML 2026 — interleaves informal reasoning with formally verified proofs. For each critical step it translates the natural-language claim into a Lean goal, checks that the formalization faithfully captures the original statement via back-translation, then invokes a prover to confirm or refute it, feeding the formal verdict back into the model to steer the next step. **ProofNet++**, another 2025 neuro-symbolic framework, pairs an LLM with a formal verifier in Lean or HOL Light and adds a self-correction loop: when a step fails verification, a correction module revises it and resubmits, repeating until every step passes the kernel. The shared principle across both is uncompromising — no LLM-proposed tactic or lemma is accepted unless the symbolic kernel accepts it.
+
+## The evidence so far
+
+The early results suggest this is more than architectural elegance. In its evaluation across several challenging math benchmarks, HERMES reports improving the accuracy of base models on hard problem sets — its authors cite gains of up to roughly 40 percent on difficult datasets such as AIME and HARDMath2 — while, notably, *reducing* total inference cost relative to heavy reward-model sampling, in their reported figures by around 80 percent fewer inference FLOPs. Those specific numbers come from the system's own paper and await broad independent replication, so they are best read as a promising direction rather than a settled benchmark. But the qualitative claim is the durable one: routing steps through a verifier improved both reliability and efficiency at once, because the system spent less effort re-sampling its way around errors it could instead catch and fix directly.
+
+A June 2026 integrated survey of AI for mathematical reasoning places these systems in a clear arc — from the rule-based and statistical solvers of earlier decades to today's convergence of reasoning models trained with verifiable rewards, Lean-based proof assistants, and verified-discovery systems. The throughline is the kernel-checker: neural proof search coupled to the formal kernel of an interactive theorem prover, which rejects anything it cannot certify.
+
+## Where this is heading
+
+The hard limits are honest ones. Formalizing a messy natural-language problem into something a verifier can check is itself error-prone — a faithful-looking translation that subtly changes the question can pass the kernel while answering the wrong problem, which is exactly why HERMES bothers to back-translate. Symbolic verification adds latency and engineering complexity, and large swaths of applied, probabilistic, or open-ended reasoning do not formalize cleanly at all. Trust-first execution shines brightest where ground truth is crisp: competition math, formal proofs, theorem verification.
+
+Still, the direction is significant beyond mathematics. A system that can *show its work to a checker that cannot be fooled* is a template for any high-stakes domain where confident-but-wrong is unacceptable. What to watch next: whether the verifier-checked accuracy gains hold up under independent replication, whether the autoformalization bottleneck loosens, and whether trust-first routing migrates from contest problems toward the verifiable parts of code, science, and engineering. The deeper shift is philosophical. For years the goal was to make models that sound trustworthy. The more useful goal, this work argues, is to build systems that do not ask for trust at all — they hand you a proof.
+
+---
+
+*Sources: [HERMES: Towards Efficient and Verifiable Mathematical Reasoning in LLMs (arXiv:2511.18760)](https://arxiv.org/abs/2511.18760); [ProofNet++: A Neuro-Symbolic System for Formal Proof Verification with Self-Correction (arXiv:2505.24230)](https://arxiv.org/html/2505.24230v1); [Artificial Intelligence for Mathematical Reasoning: An Integrated Survey (arXiv:2606.08728)](https://arxiv.org/html/2606.08728).*
