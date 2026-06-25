@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MiniMax M2.5 Delivers Near-Frontier Performance at a Fraction of the Cost - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>MiniMax M2.5 Delivers Near-Frontier Performance at a Fraction of the Cost</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 872 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>MiniMax M2.5 pairs near-frontier benchmark scores with output pricing roughly 10-20x cheaper than US flagships, and the Fable 5 suspension accelerated enterprise adoption of it and its open-weight Chinese peers.</p>
+</div>
+<div class="article-body">
+<p>MiniMax shipped M2.5 into a market that was already primed for it. The Shanghai lab's newest model lands as the latest entry in a June 2026 run of Chinese releases that share a single, disruptive proposition: near-frontier output at a fraction of frontier prices. For a growing roster of enterprise buyers — many of them shaken loose from their default provider just two weeks ago — that proposition is no longer academic.</p>
+<p>M2.5 is a Mixture-of-Experts model with 230 billion total parameters but only 10 billion active on any given inference pass, the architectural trick that lets it answer like a much larger model while billing like a much smaller one. It ships with open weights under an MIT license, a roughly 200K-token context window, and benchmark scores that put it within shouting distance of the closed frontier on the tasks most production teams actually run.</p>
+<h2>The numbers that matter</h2>
+<p>On SWE-Bench Verified, the industry's most-watched coding benchmark, M2.5 posts 80.2 percent. It scores 51.3 percent on Multi-SWE-Bench and 76.3 percent on BrowseComp, and lands at 34 on Artificial Analysis's composite Intelligence Index — comfortably above the average for models in its weight class. These are not chart-topping figures against the very best closed systems, and MiniMax does not pretend they are. The pitch is that they are <em>good enough</em> for the overwhelming majority of real workloads, and that the gap between "good enough" and "best" no longer justifies the price gap.</p>
+<p>That price gap is the headline. MiniMax's native API lists M2.5 at roughly $0.15 per million input tokens and well under a dollar per million output tokens, with a faster "Lightning" tier at $0.30 in / $2.40 out. Independent trackers peg the effective cost of frontier models like Opus 4.8, Fable 5, and GPT-5.5 at ten to twenty times that on output, and by some task-level estimates considerably more. One widely cited comparison framed an agentic coding task at roughly $0.15 on M2.5 versus around $3.00 on a flagship closed model — a 20x spread for output that lands in the same ballpark on the benchmark.</p>
+<p>> "MiniMax M2.5 matches frontier AI at a fraction of the cost."</p>
+<p>That framing, repeated across the analyst write-ups that followed the release, is the entire commercial thesis. It is also, increasingly, the thesis of an entire national cohort.</p>
+<h2>A pattern, not a one-off</h2>
+<p>M2.5 does not arrive alone. It joins GLM-5.2 from Zhipu AI, DeepSeek V4 Pro, and Kimi K2.7 as the primary open-weight, low-cost alternatives that enterprise platform teams are now wiring into multi-provider routing stacks. Each occupies a slightly different niche — GLM-5.2 currently tops the open-weight Intelligence Index and leads on long-horizon coding with a million-token context; DeepSeek V4 Pro is the price-per-capability workhorse; Kimi K2.7 has the strongest tool-use and agentic-orchestration scores. M2.5 slots in as the cost-per-token leader for general production traffic.</p>
+<p>The operational pattern is consistent across teams adopting them. Rather than betting on a single model, platform engineers route by workload: a cheap, fast model for classification and routing, a tool-calling specialist for agent steps, and a heavier model reserved only for the hardest multi-file or long-context problems. OpenRouter and self-hosted vLLM/SGLang deployments abstract the switching. In that architecture, the expensive American flagship is no longer the workhorse — it is the escalation tier, called only when the cheaper models demonstrably fall short. June 2026, by several analysts' reckoning, is the month the open-weight tier became genuinely competitive on capability for everything except the absolute hardest tasks.</p>
+<h2>The Fable 5 tailwind</h2>
+<p>The timing is what gives the release its edge. Anthropic suspended Fable 5 between roughly June 12 and June 18, and the interruption did more than inconvenience the teams that depended on it. It punctured an assumption — that a single premium provider could be a safe sole-source dependency — at exactly the moment a credible, cheaper bench of alternatives had matured.</p>
+<p>MiniMax and Zhipu AI both reported a jump in enterprise interest in the days immediately after the suspension. That is not a coincidence so much as a demonstration of the new market logic: when the premium tier wobbles, buyers who have already stood up multi-provider routing simply shift weight to the next-cheapest model that clears their quality bar. The suspension functioned as an involuntary advertisement for exactly the diversification strategy that M2.5 and its open-weight peers are built to serve.</p>
+<h2>The cost premium under pressure</h2>
+<p>The deeper story is what this does to the economics of the closed frontier. US labs have long defended a substantial price premium on the argument that their models are meaningfully better. That argument still holds at the very top of the difficulty curve. What has changed is the <em>shape</em> of demand: most enterprise inference is not the hardest task on the curve. It is summarization, classification, routing, retrieval-augmented answering, and bread-and-butter code generation — precisely the band where an 80-percent SWE-Bench model at one-twentieth the price is not a compromise but an obvious default.</p>
+<p>If that band is where the volume is, then the premium tier's addressable market narrows to the long tail of genuinely hard problems, even as that tier remains technically superior. Chinese open-weight labs are not winning by being best. They are winning by making "best" matter for a shrinking share of the bill.</p>
+<h2>What to watch</h2>
+<p>Three things over the coming weeks. First, whether the post-Fable-5 enterprise interest converts into durable production traffic or fades as the suspension recedes from memory. Second, how the American frontier labs respond — aggressive price cuts on their cheaper tiers would concede the thesis; standing pat would cede the volume. Third, whether the open-weight cohort's pace holds: M2.5, GLM-5.2, DeepSeek V4 Pro, and Kimi K2.7 all shipped inside a single quarter, and a release cadence that fast is itself a competitive weapon. The cost premium on US frontier models was always going to face this test. June 2026 is when the test arrived in earnest.</p>
+
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">80.2%</div><div class="stat-label">SWE-Bench Verified score</div></div><div class="stat-cell"><div class="stat-value">230B / 10B</div><div class="stat-label">Total vs active MoE params</div></div><div class="stat-cell"><div class="stat-value">~200K</div><div class="stat-label">Context window (tokens)</div></div><div class="stat-cell"><div class="stat-value">10-20x</div><div class="stat-label">Output cost advantage</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.minimax.io/news/minimax-m25" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=minimax.io&sz=32" alt="">MiniMax</a><a href="https://artificialanalysis.ai/models/minimax-m2-5" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=artificialanalysis.ai&sz=32" alt="">Artificial Analysis</a><a href="https://www.buildfastwithai.com/blogs/ai-news-today-june-24-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=buildfastwithai.com&sz=32" alt="">Build Fast with AI</a><a href="https://andrew.ooo/answers/glm-5-2-vs-deepseek-v4-pro-vs-kimi-k2-7-open-weight-june-2026/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=andrew.ooo&sz=32" alt="">andrew.ooo</a></div></div>
+<div class="article-nav"><a href="06-google-diffusion-gemma-local-model.html" class="nav-prev">&larr; Google's Diffusion Gemma Promises 4x-Faster, On-De</a><a href="08-bytedance-seedance-2-ai-video.html" class="nav-next">ByteDance Launches Seedance 2.0 AI Video as Platfo &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 24, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
