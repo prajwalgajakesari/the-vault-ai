@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google's Diffusion Gemma Promises 4x-Faster, On-Device Text Generation - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Google's Diffusion Gemma Promises 4x-Faster, On-Device Text Generation</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 920 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Google's experimental open DiffusionGemma generates text up to 4x faster than autoregressive models by drafting 256-token blocks in parallel, trading some quality for speed in on-device, code-infilling and interactive workflows.</p>
+</div>
+<div class="article-body">
+<p>For two decades, large language models have behaved like typewriters: hammering out one token after another, left to right, each word waiting for the one before it. Google wants to swap the typewriter for a printing press.</p>
+<p>This week the company released DiffusionGemma, an experimental open model that abandons sequential token generation in favor of a diffusion-based approach borrowed from image generators. Instead of producing words one at a time, it drafts an entire 256-token block at once and refines it over several passes — a design Google says delivers up to 4x faster text generation on dedicated GPUs while running entirely on local hardware. Released under a permissive Apache 2.0 license and arriving alongside the broader Gemini 3.5 family, it is pitched not as a flagship but as a speed-optimized companion for developers working on-device.</p>
+<h2>A printing press, not a typewriter</h2>
+<p>The core idea inverts how conventional models use hardware. Autoregressive LLMs generate text token by token, which means generating 1,000 tokens requires roughly 1,000 sequential steps. In the cloud, that inefficiency is hidden because servers batch thousands of user requests together to keep accelerators busy. Run locally for a single user, the same process leaves a GPU mostly idle — waiting, as Google's research team puts it, "for the next 'keystroke.'"</p>
+<p>DiffusionGemma reverses that. "Instead of predicting words sequentially, it drafts an entire 256-token paragraph simultaneously," wrote research scientists Brendan O'Donoghue and Sebastian Flennerhag in Google's announcement. "It upgrades your model inference from a single, sequential typewriter to a massive printing press that stamps the entire block of text simultaneously."</p>
+<p>Mechanically, the model works much like Stable Diffusion does for images. It begins with a canvas of random placeholder tokens, then makes multiple passes — locking in the tokens it is confident about and using them as context to refine the rest — until the block converges into clean output. That parallelism is the source of both its speed and its quirks.</p>
+<p>The performance numbers are concrete. Google reports more than 1,000 tokens per second on a single NVIDIA H100 and over 700 tokens per second on a consumer GeForce RTX 5090. Under the hood, DiffusionGemma is a 26-billion-parameter Mixture-of-Experts model that activates only 3.8B parameters per forward pass, letting it fit within roughly 18GB of VRAM when quantized — comfortably inside the limits of high-end consumer cards like the RTX 5090 and 4090.</p>
+<h2>Why bi-directional attention matters</h2>
+<p>The shift to parallel generation buys a structural advantage autoregressive models lack: every token in the 256-token block can attend to every other token, including ones that come "after" it. Google frames this bi-directional attention as DiffusionGemma's killer feature for a specific class of work — "in-line editing, code infilling, amino acid sequences or mathematical graphs." Filling a gap in the middle of a code file, where the completion has to fit both what precedes and what follows it, is exactly the kind of non-linear task that trips up a strictly left-to-right model.</p>
+<p>Google offered a vivid illustration: the model-tuning startup Unsloth fine-tuned DiffusionGemma to solve Sudoku, "a task autoregressive models struggle with because each token depends on future tokens." The model also iteratively self-corrects, re-evaluating the whole block to fix mistakes mid-generation — useful for cleanly closing complex markdown or rendering code in near real-time.</p>
+<p>That said, the company is unusually blunt about the trade-off. DiffusionGemma "trails standard Gemma 4 on every benchmark," and Google explicitly recommends deploying the autoregressive Gemma 4 "for applications that demand maximum quality." This is a tool for speed-critical, interactive local workflows — not a replacement for Gemini 3.5 Flash or Pro.</p>
+<h2>The diffusion-vs-autoregressive moment</h2>
+<p>DiffusionGemma lands in a year when text diffusion has gone from research curiosity to genuine competitive front. Inception Labs' Mercury 2 has claimed throughput north of 1,000 tokens per second, and Google's own cloud-hosted Gemini Diffusion — the research lineage DiffusionGemma is built on — reported inference several times faster than comparable autoregressive Flash models. The open-weights release pushes that frontier onto consumer hardware.</p>
+<p>The catch, well documented by researchers, is that diffusion models generate fixed-length outputs and refine globally rather than building step-by-step logical chains, which can make complex multi-step reasoning harder. Google's own caveats reinforce this: the speedup is "designed for local and low-concurrency inference." In high-QPS cloud serving, where autoregressive models can saturate compute through batching, parallel decoding "offers diminishing returns and can result in higher serving costs." There's even a hardware footnote — unified-memory machines like Apple Silicon Macs, with lower compute-to-memory-bandwidth ratios, "may not see the same acceleration."</p>
+<p>That positioning is the real story. DiffusionGemma is engineered for a precise niche: the developer who needs fast, interactive generation on a machine they control, for code or content that can't be sent to a cloud API. For enterprises with proprietary codebases barred from external endpoints, an on-device model that infills code at 700-plus tokens per second is a privacy-and-latency proposition, not merely a benchmark flex.</p>
+<h2>What to watch</h2>
+<p>The hard question is whether quality-for-speed is a trade developers will actually take. Google has seeded a deep tooling ecosystem to find out — weights on Hugging Face, serving via MLX, vLLM and Transformers, fine-tuning paths through Unsloth and NVIDIA NeMo, with llama.cpp support promised. The Sudoku demo hints that targeted fine-tuning can close some of the quality gap on structured tasks where bi-directional attention shines.</p>
+<p>Watch three things. First, whether independent benchmarks confirm the 4x figure outside Google's chosen hardware. Second, whether diffusion's reasoning limitations prove fatal for real coding assistants or merely a rough edge that fine-tuning smooths. And third, whether rivals follow Google's lead in releasing open-weights diffusion models for the desktop — because if the printing-press analogy holds, the next race in local AI may not be about who is smartest, but who can stamp out tokens fastest.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"It upgrades your model inference from a single, sequential typewriter to a massive printing press that stamps the entire block of text simultaneously."</blockquote>
+          <cite>- Brendan O'Donoghue and Sebastian Flennerhag, Research Scientists, Google</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">4x</div><div class="stat-label">Generation speedup</div></div><div class="stat-cell"><div class="stat-value">256</div><div class="stat-label">Tokens per chunk</div></div><div class="stat-cell"><div class="stat-value">1,000+</div><div class="stat-label">Tokens/sec on one H100</div></div><div class="stat-cell"><div class="stat-value">26B</div><div class="stat-label">Total MoE parameters</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.google&sz=32" alt="">Google</a><a href="https://www.marktechpost.com/2026/06/10/google-ai-releases-diffusiongemma-a-26b-moe-open-model-using-text-diffusion-for-up-to-4x-faster-generation/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=marktechpost.com&sz=32" alt="">MarkTechPost</a><a href="https://www.seangoedecke.com/limitations-of-text-diffusion-models/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=seangoedecke.com&sz=32" alt="">Sean Goedecke</a><a href="https://blogs.nvidia.com/blog/rtx-ai-garage-local-gemma-diffusion/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blogs.nvidia.com&sz=32" alt="">NVIDIA</a></div></div>
+<div class="article-nav"><a href="05-alphasense-350m-funding-round.html" class="nav-prev">&larr; AlphaSense Raises $350 Million at a $7.5 Billion V</a><a href="07-minimax-m25-near-frontier-low-cost.html" class="nav-next">MiniMax M2.5 Delivers Near-Frontier Performance at &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 24, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
