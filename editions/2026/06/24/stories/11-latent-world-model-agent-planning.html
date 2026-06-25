@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>New 'Latent World Models' Let LLM Agents Plan in Compressed State, Cutting Long-Task Cost - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>New 'Latent World Models' Let LLM Agents Plan in Compressed State, Cutting Long-Task Cost</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 980 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A fast-growing 2026 research thread trains world models that let LLM agents plan over compressed latent state instead of raw token transcripts, structurally cutting long-horizon inference cost while improving multi-step reliability.</p>
+</div>
+<div class="article-body">
+<p>For most of the past two years, the recipe for making a language model act like an agent has been almost embarrassingly literal: write the environment's state down as text, paste it into the prompt, let the model read it, and repeat. Every web page, every terminal output, every tool response gets serialized into tokens and re-ingested on each step. It works, but it is expensive, and on long-horizon tasks the bill compounds badly — the context grows, the model re-reads everything, and the cost of a single careful decision creeps upward with every turn.</p>
+<p>A cluster of 2026 research is attacking that problem from a different direction. Instead of asking the model to plan over raw token sequences, these systems train or induce a <em>world model</em> — a learned representation of how the environment changes in response to actions — and let the agent reason over compressed latent state. The pitch is twofold: better long-horizon decisions, and meaningfully cheaper inference on the tasks where cost actually hurts.</p>
+<h2>A trend, not a single announcement</h2>
+<p>It is worth being precise about what is and isn't true here, because the framing matters. There is not one headline paper this month that single-handedly invented "latent world models for LLM agents." What there is instead is a fast-thickening research thread, and several concrete June 2026 entries in it.</p>
+<p>The clearest survey-level marker arrived June 8, when a group led by Yixia Li and Hongru Wang published <em>Bridging the Agent-World Gap: Text World Models for LLM-based Agents</em> (arXiv 2606.09032). The paper organizes the whole emerging field around a simple object — a transition model that, given a state and a candidate action, predicts the resulting webpage, terminal output, API response, or user reply. That predictive model is what lets an agent look ahead without actually executing, and the authors taxonomize two competing paradigms: LLM-as-world-model, where the language model itself simulates outcomes, and code-as-world-model, where the model writes an explicit symbolic simulator.</p>
+<p>Running underneath that survey is a more mechanical efficiency story. <em>Looped World Models</em> (arXiv 2606.18208), also posted in June, recasts the recurrent "loop the forward pass to think harder" idea as a nonlinear dynamical system, with the explicit goal of stabilizing latent reasoning that scales test-time compute by iterating in latent space rather than by emitting more tokens. A companion line of work, <em>Latent Geometry Beyond Search: Amortizing Planning in World Models</em> (arXiv 2605.08732), pushes on the same nerve from the planning side — amortizing the search so the agent does not pay the full combinatorial cost of lookahead every time.</p>
+<h2>How the compression actually helps</h2>
+<p>The intuition for why latent planning can be cheaper is concrete. A naive lookahead search over an LLM is exponential in the planning horizon, and each simulated step drags the full textual context along with it. Compressing state changes that arithmetic in two ways. First, the search happens over dense vectors instead of long strings, so each simulated rollout is cheaper. Second, structured world models can plan at multiple time scales, collapsing long action sequences into a handful of high-level decisions.</p>
+<p>That second idea is the load-bearing one in <em>Hierarchical Planning with Latent World Models</em> (HWM, arXiv 2604.03208), published in April. HWM learns world models at several temporal resolutions inside a shared latent space and learns an action encoder that compresses chunks of primitive actions into latent "macro-actions," shrinking the high-level search space. On a real-world Franka robot pick-and-place task from a single goal image, the authors report 70% success with hierarchical planning versus 0% for single-level planning — a vivid illustration that compounding prediction error, not raw capability, is what kills long-horizon planners, and that planning in compressed state is how you contain it.</p>
+<p>The agentic precursor to all of this is LWM-Planner (<em>Improving LLM Agent Planning with In-Context Learning via Atomic Fact Augmentation and Lookahead Search</em>, arXiv 2506.09171), which uses the LLM itself as both a latent world model and a value function. After each episode it extracts task-critical "atomic facts," validates them with a consistency filter, and conditions a recursive, depth-limited lookahead on the accumulated facts — all in-context, with no weight updates. On interactive benchmarks like TextFrozenLake and ALFWorld, the authors report it delivering the highest return among the search baselines they tested, with behavior improving as experience accumulates.</p>
+<h2>Where the cost story stands</h2>
+<p>The reported direction — substantial gains on multi-step reasoning and tool-use benchmarks, with long-task inference cost falling by roughly a third — is consistent with this body of work, but readers should treat the precise "one-third" figure as a characterization of the trend rather than a single audited result. Different papers measure different things on different benchmarks, and the field has not converged on a shared cost metric. What is genuinely supported is the mechanism: planning over compressed latent state, with amortized or hierarchical search, structurally reduces the per-decision cost that dominates long agentic runs.</p>
+<p>There is also a sharp open debate the survey makes explicit. The code-as-world-model camp — exemplified by Meta's open-weights Code World Model (CWM), accepted at ICLR 2026 — argues that opaque latent states are a liability, and that agents should synthesize <em>executable programs</em> defining transition and reward dynamics so planning runs on verifiable, symbolic simulation. CWM, a 32-billion-parameter model mid-trained on observation-action trajectories from Python interpreters and agentic Docker environments, reports 65.8% pass@1 on SWE-bench Verified. The latent camp counters that not every environment compresses neatly into code, and that dense vectors generalize where symbolic simulators are brittle. Both are betting that the next reliability gains come from giving agents a model of the world, not just a transcript of it.</p>
+<h2>What to watch</h2>
+<p>Three things. Whether the cost savings hold up under independent, apples-to-apples benchmarking rather than per-paper claims. Whether latent or symbolic world models win in the messy, partially observable settings — long-running browser and software-engineering agents — where the economics bite hardest. And whether any lab ships a production agent that plans in compressed state by default. The research consensus is forming fast; the deployment evidence is still thin.</p>
+
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">70% vs 0%</div><div class="stat-label">HWM vs single-level planning success</div></div><div class="stat-cell"><div class="stat-value">~one-third</div><div class="stat-label">Reported long-task cost reduction (trend-level)</div></div><div class="stat-cell"><div class="stat-value">65.8%</div><div class="stat-label">Meta CWM (32B) SWE-bench Verified</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2606.09032" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">Text World Models for LLM Agents (arXiv)</a><a href="https://arxiv.org/abs/2604.03208" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">Hierarchical Planning with Latent World Models (arXiv)</a><a href="https://arxiv.org/html/2606.18208" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">Looped World Models (arXiv)</a><a href="https://arxiv.org/pdf/2510.02387" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">Meta CWM (arXiv)</a></div></div>
+<div class="article-nav"><a href="10-doe-aires-tide-ai-flight-vehicle.html" class="nav-prev">&larr; Energy Department Unveils 'Aires Tide,' an AI-Desi</a><a href="12-anthropic-mythos-classified-systems-vulnerabilities.html" class="nav-next">Anthropic Says Its Mythos Model Found Vulnerabilit &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 24, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
