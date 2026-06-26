@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apple's iOS 27 Siri Becomes a Standalone Chatbot Powered by Google Gemini &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header"><span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+<h1>Apple's iOS 27 Siri Becomes a Standalone Chatbot Powered by Google Gemini</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 761 words</span><span>4 sources</span></div></header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>Apple is rebuilding Siri for iOS 27 as a standalone ChatGPT-style chatbot powered by a custom 1.2-trillion-parameter Google Gemini model under a roughly $1 billion-a-year deal, handing Google a vast distribution win at OpenAI's expense.</p></div>
+<div class="article-body">
+<h2>Apple's iOS 27 Siri Becomes a Standalone Chatbot Powered by Google Gemini</h2>
+<p>Apple has settled the most consequential question hanging over its artificial intelligence strategy: the company is rebuilding Siri for iOS 27 as a standalone chatbot app, and the engine under the hood will be Google's Gemini, not Apple's own models and not OpenAI's. Bloomberg's leaked details, surfaced June 25, confirm that the redesigned assistant is being positioned as a direct competitor to ChatGPT, ending more than a year of speculation about who would actually power the brain of Apple's most visible AI product.</p>
+<p>The reporting closes a strategic loop that has been tightening since late 2025. After repeatedly delaying its promised "more personalized Siri," Apple conceded that its in-house Apple Intelligence models were not ready to anchor a flagship conversational assistant. The choice of Gemini over OpenAI marks a reversal of the distribution arrangement that had made ChatGPT the default fallback for certain Siri queries, and it hands Google a foothold on more than a billion iPhones.</p>
+<h2>The Deal</h2>
+<p>The commercial terms reported by Bloomberg's Mark Gurman are striking. Apple will pay Google roughly $1 billion per year for access to a custom, approximately 1.2-trillion-parameter Gemini model purpose-built to power Siri's cloud features, running alongside Apple's own on-device models. The arrangement was formalized as a multi-year partnership announced in January 2026, with Google's Gemini becoming the foundation for the rebuilt Siri and the next generation of Apple Intelligence.</p>
+<p>Crucially, Apple is not simply slapping its branding on Gemini. Queries are processed through Apple's Private Cloud Compute framework, which uses end-to-end encryption and hardware-isolated enclaves, with Apple stating that no user data is shared with Google and that data is not retained after processing. The custom Gemini model uses a mixture-of-experts design, routing each request to a relevant subset of specialized sub-networks rather than firing all 1.2 trillion parameters for every query.</p>
+<p>"The goal is to transform the technology from a traditional voice assistant into a systemwide AI agent with deep integration across applications," Gurman reported, describing Apple's ambition for the rebuilt assistant.</p>
+<h2>What Changes for Users</h2>
+<p>The new Siri is far more than a voice trigger. According to Bloomberg's reporting, the standalone app will surface past chat history, accept document and photo uploads, and support extended text conversations alongside the familiar voice interaction, mirroring the core feature set of ChatGPT, Claude and Gemini's own apps. iOS 27 will reportedly include a Dynamic Island mode for quick voice queries and a swipe-down "Search or Ask" gesture that replaces the classic Spotlight Search interaction with an AI-powered Siri interface.</p>
+<p>The redesign was unveiled at Apple's WWDC keynote on June 8, 2026, with general availability expected in September 2026. iOS 27 will also let users select among third-party chatbots, including Gemini, ChatGPT and Anthropic's Claude, for features such as Writing Tools and Image Playground, opening Apple Intelligence beyond the OpenAI exclusivity that defined the prior generation.</p>
+<h2>Apple's AI Struggle, in Plain View</h2>
+<p>The Gemini deal is, above all, an admission. Apple spent 2025 promising an AI-overhauled Siri it could not ship, watching delays pile up while competitors raced ahead. Outsourcing the core model to Google is a pragmatic concession that the company's own frontier models were not competitive enough to carry a flagship assistant on the timeline Apple needed. Gurman's reporting frames the choice as Apple's assessment that Gemini offered the best combination of multimodal capability and on-device integration for its ecosystem.</p>
+<p>There is a face-saving counter-narrative Apple is eager to push: that Siri is "not Gemini with Apple branding." The privacy architecture, the on-device model layer, and Apple's control over how and where queries are processed are meant to preserve the perception that Apple still owns the experience even if it rents the intelligence.</p>
+<h2>OpenAI's Loss, Google's Win</h2>
+<p>The competitive stakes are sharp. For OpenAI, losing the Siri engine is a meaningful setback. The existing ChatGPT-Siri integration was widely seen as one of OpenAI's most valuable distribution advantages, putting its models in front of hundreds of millions of iPhone users by default. That advantage now narrows to one option among several rather than the privileged fallback.</p>
+<p>For Google, the win is enormous. Gemini-powered Siri places Google's model in front of every iPhone user who interacts with the rebuilt assistant, an extraordinary distribution channel for a company whose Gemini consumer adoption has trailed ChatGPT's. The deal lands at an awkward moment for Google's research org, which has been bleeding senior AI talent, but commercially it is a coup: roughly $1 billion a year and a beachhead on Apple's hardware.</p>
+<h2>Distilling Gemini to the Device</h2>
+<p>Apple is separately reported to be working to distill Google's multi-trillion-parameter Gemini model into smaller, specialized variants that can run on-device, without an internet connection, on the iPhone's Neural Engine. The motivation is twofold: reducing the latency of cloud round-trips and addressing privacy concerns about cloud-dependent AI. The licensing structure reportedly grants Apple the right to modify and distill the Gemini models for this on-device deployment, a provision that distinguishes the arrangement from a simple API rental and gives Apple a path toward eventually reducing its dependence on Google's cloud.</p>
+<h2>The Bottom Line</h2>
+<p>The Siri-Gemini deal resolves Apple's most public AI failure with an arrangement that is equal parts humility and shrewdness: Apple gets a competitive assistant now, Google gets unmatched distribution, and OpenAI loses its quietest but most valuable channel. Whether Apple's distillation work eventually lets it wean Siri off Google's models, or whether $1 billion a year becomes a permanent line item, will define the next chapter. For now, the most personal device in the world is about to start thinking with someone else's brain.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"The goal is to transform the technology from a traditional voice assistant into a systemwide AI agent with deep integration across applications."</blockquote><cite>&mdash; Mark Gurman, Reporter, Bloomberg</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">$1B</div><div class="stat-label">Reported annual deal value</div></div><div class="stat-cell"><div class="stat-value">1.2T</div><div class="stat-label">Parameters in custom Gemini model</div></div><div class="stat-cell"><div class="stat-value">Sept 2026</div><div class="stat-label">Expected iOS 27 availability</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.bloomberg.com/news/articles/2026-03-24/ios-27-features-apple-ai-reboot-with-siri-app-new-interface-ask-siri-button" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=32" alt="">Bloomberg</a><a href="https://www.cnbc.com/2026/01/12/apple-google-ai-siri-gemini.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="">CNBC</a><a href="https://techcrunch.com/2026/01/12/googles-gemini-to-power-apples-ai-features-like-siri/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://www.macrumors.com/2026/04/22/google-gemini-powered-siri-2026/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=macrumors.com&sz=32" alt="">MacRumors</a></div></div>
+<div class="article-nav"><a href="06-gemini-25-pro-deep-think-benchmarks.html" class="nav-prev">&larr; Gemini 2.5 Pro Deep Think Resets the Science Leade</a><a href="08-karpathy-anthropic-pretraining.html" class="nav-next">Andrej Karpathy Joins Anthropic to Use Claude to M &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published June 25, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
