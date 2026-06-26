@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stanford's AI Index 2026: Faster Progress, Higher Costs, Falling Public Trust &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header"><span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+<h1>Stanford's AI Index 2026: Faster Progress, Higher Costs, Falling Public Trust</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 840 words</span><span>4 sources</span></div></header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>Stanford's 2026 AI Index finds AI capability racing toward commodity status while training costs concentrate power in a few firms and a 50-point expert-public trust gap deepens.</p></div>
+<div class="article-body">
+<p>---
+headline: "Stanford's AI Index 2026: Faster Progress, Higher Costs, Falling Public Trust"
+slug: stanford-ai-index-2026
+category: research
+story_number: 10
+date: 2026-06-25
+---</p>
+<h2>Stanford's AI Index 2026: Faster Progress, Higher Costs, Falling Public Trust</h2>
+<p>The ninth edition of Stanford's most closely watched AI report landed this spring with a verdict that resists a clean headline: artificial intelligence is advancing faster than the institutions, infrastructure, and public meant to absorb it can keep pace. Produced by the Stanford Institute for Human-Centered AI (HAI), the 2026 AI Index runs to more than 400 pages and tracks everything from benchmark scores to carbon emissions to how nervous people feel about the technology. Its through-line is a widening gap between what AI can do and our capacity to measure, govern, and trust it.</p>
+<p>"This year's AI Index report reveals AI's capabilities are advancing quickly; less so, our ability to measure and manage them," the report's authors write. Three macro trends define the year: capability is racing toward commodity status, the cost of building frontier systems is concentrating power in a handful of firms, and public sentiment remains fractured even as adoption explodes.</p>
+<h2>Progress Is Accelerating, and Compressing</h2>
+<p>The capability story is one of compression. Tasks that demanded a top-tier model only months ago are now within reach of cheaper, smaller systems. On Humanity's Last Exam, a benchmark of expert-level questions, the leading model answered just 8.8 percent correctly in the 2025 Index. By the 2026 report that figure had climbed to 38.3 percent, and the best models as of April 2026 top 50 percent. Agentic systems saw the steepest gains of all: the success rate of agents handling real-world tasks jumped from 20 percent in 2025 to 77.3 percent on Terminal-Bench, while AI handling cybersecurity problems solved them 93 percent of the time, up from 15 percent in 2024.</p>
+<p>Adoption has followed at historic speed. Generative AI reached 53 percent population adoption within three years, faster than the personal computer or the internet, and the estimated value of these tools to U.S. consumers hit 172 billion dollars annually by early 2026.</p>
+<p>But the report cautions against reading benchmarks as destiny. "We generally lack measures of how well a system needs to function in a particular setting," Ray Perrault, co-director of the AI Index steering committee, told IEEE Spectrum. "Knowing that a benchmark for legal reasoning has 75 percent accuracy tells us little about how well it would fit in a law practice's activities." The same models acing graduate science questions still fail at mundane tasks: the best performer on ClockBench read an analog clock correctly only half the time.</p>
+<h2>Costs Are Rising, and Concentrating Power</h2>
+<p>If capability is getting cheaper to use, it is getting vastly more expensive to create. The report estimates that training a frontier model such as xAI's Grok 4 generated more than 72,000 tons of carbon-equivalent emissions, roughly the output of 17,000 cars driven for a year, compared with an estimated 5,184 tons for GPT-4. World AI compute capacity has grown more than threefold every year since 2022, a 30-fold increase since 2021. Global corporate AI investment hit 581.7 billion dollars in 2025, up 130 percent year over year, with the United States alone accounting for 285.9 billion.</p>
+<p>That scale concentrates power. Nvidia's GPUs account for over 60 percent of the world's AI compute, and the most capable models are increasingly built and held by a small set of firms. The Foundation Model Transparency Index, which scores how openly companies disclose training data, compute, and risks, fell to an average of 40 points from 58 a year earlier. As the Index puts it bluntly: the most capable models often disclose the least.</p>
+<h2>Public Trust Is Falling, Unevenly</h2>
+<p>The third trend is the most politically charged. Overall optimism actually ticked up, with 59 percent of respondents saying AI's benefits outweigh its drawbacks, yet nervousness rose in parallel, with 52 percent saying AI products make them uneasy. Beneath the averages lies a stark expert-public divide: 73 percent of experts expect AI to improve how people do their jobs, against just 23 percent of the public, a 50-point gap.</p>
+<p>Geography matters enormously. Southeast Asian nations trend positive, while the United States is among the most wary. Only 33 percent of Americans expect AI to make their jobs better, and U.S. respondents reported the lowest trust of any surveyed country in their own government to regulate AI, at 31 percent. The labor anxiety is not abstract: employment among software developers aged 22 to 25 has fallen nearly 20 percent since 2024, even as headcount for older colleagues grew.</p>
+<h2>What It Means</h2>
+<p>Read together, the three trends sketch an uncomfortable structure for the industry. Falling costs at the point of use democratize access, but rising costs at the point of creation push the frontier into an oligopoly of compute owners, capital, and data centers. When the most powerful systems are also the least transparent, the public's trust deficit becomes harder to close, because the information needed to earn that trust is precisely what is being withheld. A 50-point gap between expert confidence and public skepticism is not a communications problem; it is a governance one.</p>
+<p>For an industry hurtling toward IPOs and ever-larger training runs, the 2026 Index is less a scoreboard than a warning. The technology is scaling faster than the systems around it can adapt. Whether that gap narrows or widens may matter more than any benchmark.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"Knowing that a benchmark for legal reasoning has 75 percent accuracy tells us little about how well it would fit in a law practice's activities."</blockquote><cite>&mdash; Ray Perrault, Co-director, AI Index steering committee, Stanford HAI</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">72,000+ t</div><div class="stat-label">CO2e to train a frontier model</div></div><div class="stat-cell"><div class="stat-value">40 of 100</div><div class="stat-label">Avg model transparency score</div></div><div class="stat-cell"><div class="stat-value">50-pt</div><div class="stat-label">Expert vs public trust gap</div></div><div class="stat-cell"><div class="stat-value">$581.7B</div><div class="stat-label">2025 corporate AI investment</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=hai.stanford.edu&sz=32" alt="">Stanford HAI</a><a href="https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=hai.stanford.edu&sz=32" alt="">Stanford HAI Takeaways</a><a href="https://spectrum.ieee.org/state-of-ai-index-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=spectrum.ieee.org&sz=32" alt="">IEEE Spectrum</a><a href="https://www.buildfastwithai.com/blogs/ai-news-today-june-25-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=buildfastwithai.com&sz=32" alt="">Build Fast with AI</a></div></div>
+<div class="article-nav"><a href="09-openai-goblin-incident-gpt56.html" class="nav-prev">&larr; The Goblin Incident: How a Reward-Model Glitch Is </a><a href="11-million-token-context-efficiency.html" class="nav-next">New Architectures Push Million-Token Context Towar &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published June 25, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
