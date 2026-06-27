@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Penn Researchers Build a Light-Matter Particle to Speed Up AI Computing at Lower Energy - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Penn Researchers Build a Light-Matter Particle to Speed Up AI Computing at Lower Energy</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 812 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Penn physicists used exciton-polaritons, hybrid light-matter quasiparticles, to demonstrate all-optical switching at roughly 4 femtojoules per operation, a step toward photonic AI hardware that computes without converting light back to electricity.</p>
+</div>
+<div class="article-body">
+<h2>Light learns a trick electrons have monopolized</h2>
+<p>Eighty years after Penn engineers switched on ENIAC and launched the electronic computing era, physicists at the same university are trying to take part of computing back from the electron. In a paper published in <em>Physical Review Letters</em>, a team led by Bo Zhen has demonstrated a way to make light do something it is notoriously bad at: flip a switch. Their tool is a hybrid light-matter particle called an exciton-polariton, and the demonstration hints at a future in which AI chips compute with photons end to end, sidestepping one of the technology's fastest-growing problems, its appetite for electricity.</p>
+<p>The result is a laboratory demonstration, not a product. But it targets a real and specific bottleneck in photonic computing, and the energy figure attached to it is striking.</p>
+<h2>Why photons need a partner</h2>
+<p>Electrons have run computing for decades precisely because they interact strongly with one another and with materials. That same property is their liability: pushing charge through a chip generates heat and resistance, and both get worse as transistors multiply and AI models balloon. Light has the opposite profile. Photons are fast, lossless over distance, and the backbone of modern communications, but they are almost antisocial.</p>
+<p>"Because they are charge-neutral and have zero rest mass, photons can carry information quickly over long distances with minimal loss, dominating communications technology," said Li He, co-first author of the study and a former postdoctoral researcher in the Zhen Lab who is now an assistant professor at Montana State University. "But that neutrality means they barely interact with their environment, making them bad at the sort of signal-switching logic that computers depend on."</p>
+<p>That is the crux of the field's problem. Many experimental photonic chips already perform the linear math at the heart of neural networks, the multiply-and-add operations, at the speed of light. But the nonlinear steps, the decision-like "activation" operations between layers, generally force the signal back into the electronic domain and then back to light again. Every round trip costs time and energy and erodes the advantage of going optical in the first place.</p>
+<h2>Making light interact with light</h2>
+<p>Zhen's team attacked the interaction problem directly. They built a nanoscale optical cavity around an atomically thin, gate-tunable semiconductor and coupled the trapped light so tightly to the material's electronic excitations that the two merged into a single quasiparticle, the exciton-polariton. The result is part photon, part matter: it inherits light's speed but borrows matter's willingness to interact. That borrowed sociability is enough for one optical signal to switch another, no detour through electronics required.</p>
+<p>The energy number is what makes physicists look twice. The team reported all-light switching at roughly four quadrillionths of a joule, about four femtojoules, far less than it takes to briefly light a tiny LED. If that efficiency survives the trip from a single device to a working circuit, all-optical nonlinear operations could become cheap enough to keep computation in the light domain through an entire neural-network layer.</p>
+<h2>A candidate answer to AI's power problem, with caveats</h2>
+<p>The context is hard to overstate. Data centers running large AI models are straining grids and reshaping energy planning, and the industry is openly hunting for hardware that breaks the link between more capability and more power. Photonic and analog approaches are among the most discussed escape routes, and a femtojoule-scale, all-optical nonlinearity is exactly the kind of missing ingredient those architectures have lacked.</p>
+<p>The honest caveats are equally large. This is a single, gate-tunable device demonstrated in a lab, not a fabricated chip. The leap from one polariton cavity to a manufacturable, room-temperature-stable, densely integrated array is the part where many promising optical-computing results have historically stalled. Scaling is the work, and the researchers say so plainly. Exciton-polariton systems can be finicky about temperature and material quality, and matching the density and yield of silicon manufacturing is a tall order. None of the speed-and-energy benefits reach an AI workload until those engineering problems are solved.</p>
+<h2>What to watch</h2>
+<p>The study, authored by Zhi Wang, Bumho Kim, Zhen and He and supported by the US Office of Naval Research and the Sloan Foundation, is best read as a physics milestone with a clear application in its sights. The questions that will decide its fate are concrete: Can the switching hold up when many of these cavities are wired together? Does the femtojoule efficiency survive integration and operation outside a cryostat? And can the platform be built with processes a foundry can actually run at volume? If the answers trend positive over the next few years, light-matter particles could move from a striking demonstration toward the photonic accelerators that AI's energy math increasingly demands. For now, the result is a credible proof of principle, and a reminder that the most interesting computing ideas sometimes come from physicists rethinking what a particle can do.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"Because they are charge-neutral and have zero rest mass, photons can carry information quickly over long distances with minimal loss. But that neutrality means they barely interact with their environment, making them bad at the sort of signal-switching logic that computers depend on."</blockquote><cite>- Li He, Co-first author; Assistant Professor, Montana State University</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">~4 femtojoules</div><div class="stat-label">Energy per all-light switching operation</div></div><div class="stat-cell"><div class="stat-value">1 monolayer</div><div class="stat-label">Atomically thin semiconductor hosting the polaritons</div></div><div class="stat-cell"><div class="stat-value">PRL 2026</div><div class="stat-label">Published in Physical Review Letters</div></div><div class="stat-cell"><div class="stat-value">ONR + Sloan</div><div class="stat-label">Funded by US Office of Naval Research and Sloan Foundation</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.sciencedaily.com/releases/2026/05/260518041341.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=sciencedaily.com&sz=32" alt="">ScienceDaily</a><a href="https://dataconomy.com/2026/05/29/penn-physicists-all-light-switching-photonic-ai-chips/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=dataconomy.com&sz=32" alt="">Dataconomy</a><a href="https://doi.org/10.1103/gc15-qsvf" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=doi.org&sz=32" alt="">Physical Review Letters</a><a href="https://scitechdaily.com/light-matter-particles-could-revolutionize-ai-computing/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=scitechdaily.com&sz=32" alt="">SciTechDaily</a></div></div>
+<div class="article-nav"><a href="11-context-aware-sparse-attention.html" class="nav-prev">&larr; Content-Adaptive Sparse Attention Cuts Long-Contex</a><a href="13-openai-gpt-5-6-government-staggered-rollout.html" class="nav-next">US Government Asks OpenAI to Stagger GPT-5.6 Rollo &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 26, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
