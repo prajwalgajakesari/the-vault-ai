@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI and Broadcom Unveil 'Jalapeño,' OpenAI's First Custom AI Inference Chip - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>OpenAI and Broadcom Unveil 'Jalapeño,' OpenAI's First Custom AI Inference Chip</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 861 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI and Broadcom have unveiled Jalapeño, OpenAI's first custom inference chip, a reticle-sized ASIC built in a record nine months that the companies say beats current state-of-the-art performance per watt and ships at gigawatt scale in late 2026.</p>
+</div>
+<div class="article-body">
+<p>OpenAI stepped onto the silicon stage this week, unveiling Jalapeño, its first custom AI chip and the clearest signal yet that the company intends to own the hardware that runs its models, not just rent it. Built in partnership with Broadcom and announced June 24, the accelerator, which OpenAI calls an "Intelligence Processor," was designed from scratch for large language model inference and reached manufacturing tape-out in just nine months, a pace both companies describe as the fastest high-performance ASIC development cycle they are aware of.</p>
+<p>The debut was staged for symbolism: Broadcom CEO Hock Tan and President Charlie Kawwas handed the first wafer to OpenAI CEO Sam Altman and President Greg Brockman. After years defined by models and consumer products, OpenAI is now reaching down into the physical layer of AI, taking on chip architecture while Broadcom contributes silicon implementation and networking, including its Tomahawk switch chips, and Celestica handles boards, racks, and system integration.</p>
+<p>Unlike accelerators repurposed from training workloads, Jalapeño was purpose-built for inference, the stage where trained models actually answer users. OpenAI says the architecture cuts data movement and balances compute, memory, and networking so that real-world utilization runs closer to the hardware's theoretical peak. Engineering samples are already executing machine learning workloads in the lab at target production clock speed and power, including the company's GPT-5.3-Codex-Spark model. OpenAI claims early testing shows performance per watt "substantially better" than current state-of-the-art hardware, though it cautioned the numbers are self-reported and not finalized, with a fuller technical report promised in the coming months.</p>
+<p>"Jalapeño was designed from the ground up for LLM inference using detailed insights from our close collaboration with OpenAI researchers," said Richard Ho, who leads OpenAI's hardware program. "We optimized the architecture around the kernels, memory movement, networking, and serving patterns that matter most for frontier AI models. Based on early testing, Jalapeño will efficiently execute our most important workloads close to the hardware's theoretical limits."</p>
+<p>Striking, too, is how the chip was built. The companies acknowledged using OpenAI's own models to accelerate parts of the design and optimization work, a recursive twist in which the AI tools sold to customers helped shape the infrastructure that will serve future generations of those same models. A typical ASIC takes 18 to 24 months to design from scratch; Broadcom's heavy reuse of proven logic blocks helped compress the rest. Tom's Hardware, analyzing a wafer photo, estimated the compute die at roughly 840 mm², just shy of the 858 mm² EUV reticle limit, flanked by six HBM modules, though the companies declined to confirm process node, transistor count, or power figures.</p>
+<h2>Why custom inference silicon matters</h2>
+<p>The move is fundamentally about economics. As ChatGPT, Codex, the API, and a coming wave of agentic products push usage higher, inference, not training, is becoming the dominant and most expensive slice of AI compute. By controlling chip, kernels, memory, networking, scheduling, and product as one stack, OpenAI argues it can serve more intelligence per dollar and per watt. The strategic subtext is dependence: every custom chip OpenAI deploys is one fewer Nvidia GPU it must buy at premium prices and scarce supply.</p>
+<p>Whether Jalapeño bends the curve against Nvidia is the open question. Tom's Hardware noted the chip can purportedly beat AMD's Instinct MI350-series and Nvidia's Blackwell accelerators, but it remains unproven against the next wave, Nvidia's Rubin and AMD's MI400. OpenAI is hardly alone in this gambit; Google, Amazon, Meta, and Microsoft have all built in-house silicon, and Broadcom has emerged as the quiet arms dealer behind many of those programs. For Broadcom, OpenAI is another marquee name validating its custom-ASIC business; for OpenAI, it is a hedge against being a price-taker in a market Nvidia still dominates.</p>
+<p>"Our collaboration with OpenAI represents a fundamental commitment to scaling the physical infrastructure required for the next decade of AI," said Hock Tan, President and CEO of Broadcom. "This is just the beginning of a multi-generation roadmap. By co-developing our industry-leading silicon directly with OpenAI, we are enabling the deployment of gigawatt-scale data centers with Microsoft and other partners beginning in 2026."</p>
+<p>Greg Brockman framed it in bigger terms: "The world is moving to a compute-powered economy," he said, calling Jalapeño "part of our long-term full-stack infrastructure strategy to make compute more abundant." By designing more of the stack itself, he added, OpenAI can "serve more intelligence with greater efficiency and keep pushing advanced AI toward broader access."</p>
+<h2>What to watch next</h2>
+<p>The near-term test arrives in late 2026, when large-scale deployment is slated to begin at gigawatt scale alongside Microsoft and other data center partners. A key tell of confidence: Broadcom has reportedly required Microsoft to commit to buying 40 percent of the first batch before fully committing to production. Watch for the promised technical report that should put real benchmarks behind the performance-per-watt claims, for whether OpenAI eventually sells Jalapeño-class capacity to third parties, and for how the chip stacks up once Nvidia's Rubin arrives. If a model lab can spin a competitive inference ASIC in nine months, the economics of the AI buildout, and Nvidia's grip on it, may be more contestable than the market has assumed.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>"The world is moving to a compute-powered economy. Jalapeño is part of our long-term full-stack infrastructure strategy to make compute more abundant, resulting in AI which is faster, more reliable, more affordable for people and businesses, and can be used to solve more important problems."</blockquote><cite>- Greg Brockman, President and Co-Founder, OpenAI</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">9 months</div><div class="stat-label">Design-to-tape-out cycle, claimed fastest ever for a high-performance ASIC</div></div><div class="stat-cell"><div class="stat-value">Late 2026</div><div class="stat-label">Start of large-scale deployment at gigawatt scale</div></div><div class="stat-cell"><div class="stat-value">40%</div><div class="stat-label">Share of first batch Microsoft is asked to commit to</div></div><div class="stat-cell"><div class="stat-value">~840 mm²</div><div class="stat-label">Estimated die size, near the EUV reticle limit</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI</a><a href="https://www.cnbc.com/2026/06/24/openai-and-broadcom-reveal-jalapeno-first-ai-chip-in-partnership.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="">CNBC</a><a href="https://venturebeat.com/infrastructure/openai-unveils-first-custom-ai-inference-chip-jalapeno-with-broadcom-and-its-development-was-sped-up-with-openais-own-models" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/broadcom-and-openai-unveil-custom-built-jalapeno-inference-processor-openais-first-chip-is-a-massive-reticle-sized-asic-built-in-an-ultra-fast-nine-month-development-cycle" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tomshardware.com&sz=32" alt="">Tom's Hardware</a></div></div>
+<div class="article-nav"><a href="02-a24-google-deepmind-filmmaking-deal.html" class="nav-next">Google Invests $75 Million in A24 for a DeepMind A &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 26, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
