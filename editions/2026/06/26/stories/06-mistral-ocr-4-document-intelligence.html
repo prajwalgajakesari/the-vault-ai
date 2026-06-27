@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mistral Releases OCR 4, a Single-Container Document Intelligence Tool Spanning 170 Languages - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Mistral Releases OCR 4, a Single-Container Document Intelligence Tool Spanning 170 Languages</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 812 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Mistral's OCR 4 turns document extraction into structured, citation-ready intelligence across 170 languages and can run entirely inside a customer's own infrastructure as a single container, a pitch aimed at regulated enterprises wary of US cloud dependency.</p>
+</div>
+<div class="article-body">
+<p>French AI lab Mistral released OCR 4 on June 23, 2026, and the pitch is no longer simply about reading documents. The new model returns a structured map of a page — text plus bounding boxes, typed-block classification for titles, tables, equations and signatures, and inline confidence scores for every page and word. It supports 170 languages across 10 language groups, accepts PDF, DOC, PPT and OpenDocument files, and, in the detail that distinguishes it from the hyperscalers, runs in a single container that enterprises can deploy entirely on their own infrastructure.</p>
+<p>"Today, we're releasing Mistral OCR 4, featuring bounding boxes, block classification, and inline confidence scores alongside extracted text," the company said in its announcement, framing the model as an ingestion layer for enterprise search, retrieval-augmented generation (RAG) and domain-specific retrieval pipelines. Where earlier generations converted a page into clean text and tables, Mistral says OCR 4 tells downstream systems not only what a document says but where each element sits, what role it plays, and how confident the model is in each region.</p>
+<h2>What's new and how it performs</h2>
+<p>Mistral positions OCR 4 as a small, focused model rather than a general-purpose LLM. On the public OlmOCRBench it posts a top overall score of 85.20, and it scores 93.07 on OmniDocBench — though the company is unusually candid that both benchmarks have known scoring artifacts, flagging ground-truth errors, equivalent-but-different LaTeX, and multi-column reading-order quirks that it says more often penalize correct output than reward wrong answers. "We therefore treat the aggregate score as directional rather than definitive," Mistral wrote.</p>
+<p>To compensate, the lab ran a blind human evaluation: 600-plus documents across 12-plus languages, with independent annotators ranking competitors' output against OCR 4's. Annotators preferred OCR 4 in the majority of documents, with win rates averaging 72%. The biggest gains, Mistral says, came in specialized and low-resource languages — Hindi, Georgian, Bengali, Armenian, Tamil, Malayalam and others — where rival systems degrade sharply.</p>
+<p>Customer numbers add some texture. "We benchmarked Mistral OCR 4 against the leading agentic document parsers across a chart and figure dense financial QA dataset and reached equivalent accuracy at roughly 8x lower cost and 17x lower latency," said Aidan Donohue, an AI engineer at financial-research firm Rogo. Ivan Mihailov, an AI engineer at IP-management company Anaqua, said Mistral OCR is "roughly 4x faster per page than our incumbent provider," which he called critical for high-volume docketing workflows.</p>
+<h2>Pricing and availability</h2>
+<p>Through the API, OCR 4 is priced at $4 per 1,000 pages, dropping to $2 per 1,000 with the 50% Batch-API discount; the no-code Document AI layer in Mistral Studio costs $5 per 1,000 pages. That single endpoint always returns extracted content, bounding boxes, block types, confidence scores and markdown — and optionally feeds the output to a smaller model to emit structured JSON against a schema the customer defines. The model is available via Mistral Studio, Amazon SageMaker and Microsoft Foundry, with Snowflake Parse Document listed as coming soon. Self-managed, on-prem deployment is offered to enterprise customers on request.</p>
+<h2>Why single-container, on-prem document AI matters</h2>
+<p>The deployment story is the strategic core. The mainstream document-AI market is dominated by US cloud services — Google Document AI, Amazon Textract and Azure Document Intelligence — that process customer documents inside the provider's cloud. Mistral's argument, echoed by analysts, is that data sovereignty follows corporate jurisdiction, not server location: under the US CLOUD Act, a US-headquartered provider can be compelled to produce data even when it is stored in an EU region. For banks, hospitals, law firms and public-sector bodies handling regulated records, that residual exposure is a procurement problem.</p>
+<p>A self-hosted, single-container model changes the calculus. Sensitive invoices, contracts, medical files and archives never leave the customer's environment, which simplifies data-processing agreements, compliance audits and residency requirements. Microsoft, notably, still endorsed the launch. "The availability of Mistral Document AI with OCR 4 in Microsoft Foundry marks an important milestone in our partnership," said Kimmi Grewal, VP of AI Ecosystem Partnerships at Microsoft, citing "scalable, trusted solutions for real-world business needs." The compact footprint also enables cost-efficient, high-throughput batch processing — the regime where the per-page math actually decides budgets.</p>
+<h2>What to watch</h2>
+<p>Mistral is clear about the guardrails: OCR 4 is a document-understanding model, "not a decision-maker," and is explicitly out of scope for medical diagnosis, legal judgment, high-stakes financial decisions and safety-critical or real-time systems. The competitive question is whether structured, citation-ready output plus sovereign deployment is enough to pull regulated European budgets away from entrenched US incumbents that undercut Mistral on basic OCR pricing. Watch enterprise adoption through Foundry, SageMaker and the forthcoming Snowflake integration, independent reproductions of the benchmark claims on customers' own documents, and how tightly OCR 4 binds into Mistral's broader Search Toolkit and agentic stack — the place where extraction stops being a feature and becomes a platform.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"We benchmarked Mistral OCR 4 against the leading agentic document parsers across a chart and figure dense financial QA dataset and reached equivalent accuracy at roughly 8x lower cost and 17x lower latency. For production use cases at scale, that delta compounds fast."</blockquote><cite>- Aidan Donohue, AI Engineer, Rogo</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">170</div><div class="stat-label">Languages supported, across 10 language groups</div></div><div class="stat-cell"><div class="stat-value">$4 / 1,000 pages</div><div class="stat-label">API price ($2 with Batch-API discount)</div></div><div class="stat-cell"><div class="stat-value">85.20</div><div class="stat-label">Top overall score on OlmOCRBench</div></div><div class="stat-cell"><div class="stat-value">72%</div><div class="stat-label">Average win rate in blind human evaluations</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://mistral.ai/news/ocr-4/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=mistral.ai&sz=32" alt="">Mistral AI</a><a href="https://venturebeat.com/data/mistral-launches-ocr-4-turning-document-extraction-into-a-full-enterprise-ai-play" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://www.techtimes.com/articles/318978/20260624/mistral-ocr-4-ships-structure-aware-document-ai-runs-your-own-infrastructure.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techtimes.com&sz=32" alt="">TechTimes</a><a href="https://www.marktechpost.com/2026/06/23/mistral-ocr-4/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=marktechpost.com&sz=32" alt="">MarkTechPost</a></div></div>
+<div class="article-nav"><a href="05-anthropic-first-operating-profit-q2.html" class="nav-prev">&larr; Anthropic Projects Its First-Ever Operating Profit</a><a href="07-sakana-fugu-ultra.html" class="nav-next">Sakana AI Releases Fugu Ultra, an Orchestration Mo &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 26, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
