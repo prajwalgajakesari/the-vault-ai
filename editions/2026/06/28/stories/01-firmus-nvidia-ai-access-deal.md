@@ -1,0 +1,29 @@
+A six-year-old company that began life mining Bitcoin in Tasmania has just placed one of the largest compute bets in the Asia-Pacific. On Monday, Australia's Firmus Technologies said it had struck a strategic partnership with Nvidia to deploy as many as 170,000 of the chipmaker's AI accelerators at a new data centre campus in Batam, Indonesia, an arrangement Firmus expects to generate up to $30 billion in revenue over its first six years.
+
+The deal hands a fast-rising infrastructure player privileged access to scarce silicon, gives Nvidia another flagship installation for its expanding "AI factory" program, and plants a major piece of AI compute on an Indonesian island that sits within sight of Singapore. It also crystallizes a thesis Firmus has been pushing for months: that the economics of the AI buildout are rigged in favor of the largest hyperscalers, and that the right partnership can pry the door open for everyone else.
+
+## Inside the agreement
+
+Under the terms disclosed, Firmus and Singapore-based developer DayOne will build a 360-megawatt Nvidia DSX AI Factory campus in Batam, with the facility slated to go live in the first quarter of 2027. The 170,000 GPUs will be delivered across 2027 and 2028 through what the company describes as a revenue-sharing and credit-support agreement, rather than a conventional upfront hardware purchase. Firmus will buy Nvidia infrastructure and sell Nvidia-powered cloud services to "AI Native" customers, an arrangement that earns the US-listed chip giant both product revenue and a share of the cloud revenue that follows.
+
+Firmus said it expects to earn up to $30 billion during the first six years of the deal, based on customer commitments, with reporting from Bloomberg putting the committed offtake range at $25 billion to $30 billion. The Batam campus will operate as a multi-tenant facility aimed at AI-native firms, a deliberate departure from Firmus's Australian projects, which are built primarily for hyperscaler clients.
+
+The company's pitch is explicitly about leveling a tilted playing field. "We have worked to figure out how to close the gap between the cost benefits that the large guys have access to, which they do because they have great credit ratings, and the guys that are up and comers," co-chief executive Tim Rosenfield told Reuters. "This is actually a really material way to level the playing field a little bit to give the next a chance to compete with the big guys."
+
+## From Tasmanian crypto rigs to a $5.5 billion valuation
+
+Firmus did not exist before 2019, when it launched as a cryptocurrency mining operation. It has since redirected its expertise in immersion and liquid cooling toward AI-optimized data centres, a pivot that has drawn more than $1 billion in total funding. In April, the company closed a $505 million round led by Coatue Management, with Nvidia participating as an investor, lifting Firmus to a $5.5 billion post-money valuation. The company has since appointed investment banks to work on a potential initial public offering and is widely expected to list this year, though Rosenfield declined to comment on those preparations.
+
+The Batam project is Firmus's first in Indonesia, but the company already runs operations in Singapore and is pursuing an aggressive Australian pipeline, including Project Southgate, a multi-gigawatt buildout across Tasmania and Melbourne whose first phase alone carries an AU$4.5 billion price tag. Firmus has also signed a deal with CDC Data Centres to develop up to 1.6 gigawatts across Australia by 2028, and counts STT GDC among its partners. Across all of it, the company deploys Nvidia's latest GB300 GPUs and leans on cooling techniques designed to cut energy use against traditional air-cooled facilities.
+
+## Why this matters
+
+The Firmus deal is a clean illustration of how the AI infrastructure race is being financed in 2026. Nvidia's DSX program partners with data centre operators to deploy GPU fleets on a revenue-sharing basis instead of demanding the staggering upfront capital that top-end clusters now require. For Nvidia, that converts chip sales into recurring cloud-revenue streams and deepens its grip on the full AI stack; for an operator like Firmus, it solves the credit-and-cash problem that has kept smaller players boxed out of the most advanced hardware.
+
+Geography matters too. By siting 360 megawatts of compute in Batam, Firmus positions the island as a regional AI hub that borrows Singapore's financial and technical gravity while sidestepping the city-state's tight power and land constraints. The move lands amid a wave of Asia-Pacific capital: Blackstone-backed AirTrunk has committed $30 billion to India, and demand for compute has grown so acute that Google has resorted to renting GPUs from SpaceX.
+
+Rosenfield, for his part, brushed aside the volatility now rippling through AI-linked stocks. The market gyrations, he told Bloomberg, are "largely irrelevant" to how Firmus is building. "We're building our business based on demand that we're seeing from customers and contracts that we're closing," he said.
+
+## What to watch
+
+The first test is execution: a 360-megawatt campus going live in Q1 2027 is an ambitious timeline, and the full 170,000-GPU deployment stretches into 2028. Just as important is whether the $25 billion to $30 billion in offtake holds firm if the AI investment cycle cools, since the entire structure rests on customer commitments converting into paid capacity. Looming over all of it is the expected IPO. A successful Batam launch, paired with the Australian pipeline, would give Firmus a compelling story to take to public markets, while any stumble in either would test how durable the revenue-sharing model really is when the cost of compute, and the patience of capital, are both in flux.
