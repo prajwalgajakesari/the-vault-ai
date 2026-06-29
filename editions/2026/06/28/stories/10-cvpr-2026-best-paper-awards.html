@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CVPR 2026 Honors the Year's Most Innovative Computer Vision Research - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>CVPR 2026 Honors the Year's Most Innovative Computer Vision Research</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 899 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>CVPR 2026's award winners, led by Google DeepMind's D4RT dynamic-scene reconstruction paper, show computer vision shifting decisively toward 3D/4D reconstruction, generative modeling, and embodied agents.</p>
+</div>
+<div class="article-body">
+<p>When the CVPR 2026 Awards Selection Committee climbed the stage at the Colorado Convention Center in Denver on June 5, the field it was about to honor had never been bigger. Out of 16,092 submissions, the conference accepted 4,089 papers — a record-shattering haul for the preeminent gathering in computer vision. From that ocean of research, the IEEE Computer Society and the Computer Vision Foundation singled out a handful of works that, taken together, read like a map of where the field is heading: into three dimensions, into generative modeling, and into systems that act in the physical and virtual world rather than merely describe it.</p>
+<p>The headline prize went to a paper with a deceptively playful title — "Efficiently Reconstructing Dynamic Scenes One D4RT at a Time" — and a serious technical claim behind it.</p>
+<h2>The winners</h2>
+<p>The <strong>CVPR 2026 Best Paper</strong> went to D4RT, the work of a team spanning Google DeepMind, University College London, and the University of Oxford, with authors including Chuhan Zhang, Guillaume Le Moing, Skanda Koppula, Andrew Zisserman, Zoubin Ghahramani, Raia Hadsell, and Mehdi S. M. Sajjadi, among others. D4RT is a transformer-based network that reconstructs the geometry and motion of dynamic 4D scenes directly from video. In a single unified architecture, it estimates depth, spatio-temporal correspondence, and full camera parameters, then lets a user independently probe the 3D position of any point in space and time.</p>
+<p>The significance is as much about engineering as elegance. Traditional 4D reconstruction stitches together separate models for depth, optical flow, and camera pose, often with costly test-time optimization. D4RT collapses that pipeline into one query interface: encode a video once, then answer depth, point-tracking, and camera-pose questions from the same latent representation, treating moving objects no differently from static ones. The result, its authors report, is a lightweight, highly scalable method enabling "remarkably efficient training and inference" — and, according to independent write-ups of the work, a new state of the art across the 4D benchmarks it was tested on, including scenes where prior methods stumble.</p>
+<p>The <strong>CVPR 2026 Best Student Paper</strong> went to "Native and Compact Structured Latents for 3D Generation," a collaboration among Tsinghua University, Microsoft Research, the University of Science and Technology of China, and Microsoft AI. Its authors — Jianfeng Xiang, Xiaoxue Chen, Sicheng Xu, Ruicheng Wang and colleagues — introduce O-Voxel, a representation designed to capture complex shapes and surface attributes more faithfully than existing approaches. The payoff is sharper, more realistic AI-generated 3D assets, a contribution the committee credited with meaningfully advancing 3D generative modeling.</p>
+<p>Three further papers earned honorable mentions, and their subjects are telling. Two received Best Paper honorable mentions: NitroGen, an open foundation model for generalist gaming agents from a team including NVIDIA, Stanford, Caltech, the University of Chicago, and UT Austin, trained on 40,000 hours of gameplay across more than 1,000 games; and SAM 3D: 3Dfy Anything in Images, from Meta Superintelligence Labs, which reconstructs the geometry, texture, and layout of objects from a single image and posted at least a 5:1 win rate in human-preference tests. The Best Student Paper honorable mention went to ChordEdit, a training-free, inversion-free image-editing method from a Chinese university consortium that the authors say achieves true real-time editing.</p>
+<h2>What the awards signal</h2>
+<p>Read as a set, the slate points unmistakably in one direction. "From advances in dynamic scene reconstruction to breakthroughs in 3D generative modeling, these works address fundamental challenges in computer vision while opening new possibilities for applications across AI, robotics, and more," said Alexander G. Schwing, an associate professor at the University of Illinois Urbana-Champaign and a CVPR 2026 Program Co-Chair.</p>
+<p>Four of the five honored papers are explicitly about 3D or 4D — recovering, generating, or manipulating structure in space and time rather than classifying flat pixels. That is a notable shift for a conference whose history is rooted in 2D recognition. The other throughline is agency: NitroGen learns to act inside thousands of games, and D4RT's per-point queryable geometry is precisely the kind of spatial scaffolding embodied agents and robots need to plan and move. Generative modeling, long associated with images and text, now sits squarely in the geometry stack.</p>
+<p>Chen Change Loy, the Tan Lip-Bu Professor in AI at Nanyang Technological University and a fellow Program Co-Chair, framed the stakes plainly. "These papers represent some of the most impactful and forward-looking research presented at CVPR 2026," he said. "The selected papers introduce concepts and practices that undoubtedly will help shape the next generation of computer vision systems and applications."</p>
+<h2>What to watch</h2>
+<p>The institutional fingerprints are worth noting too: Google DeepMind, Microsoft, Meta, and NVIDIA all appear among the winners, alongside Oxford, UCL, Tsinghua, Stanford, and others — a reminder that frontier computer-vision research increasingly runs on industrial-scale compute and data, even when the prize-winning ideas are conceptually lean.</p>
+<p>The papers were presented at the IEEE Computer Society's TCPAMI meeting on June 6, the day after the awards ceremony, capping a conference that ran June 3–7 and drew well over 10,000 attendees. The next test of these ideas is adoption: whether D4RT's unified query model becomes the default for 4D reconstruction, whether O-Voxel-style latents reshape 3D generation pipelines, and whether agents like NitroGen migrate from games to the messier physical world. CVPR 2027 — set for June 19–26 at the Seattle Convention Center — will be the venue where we find out.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"From advances in dynamic scene reconstruction to breakthroughs in 3D generative modeling, these works address fundamental challenges in computer vision while opening new possibilities for applications across AI, robotics, and more."</blockquote>
+          <cite>- Alexander G. Schwing, CVPR 2026 Program Co-Chair, UIUC</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">16,092</div><div class="stat-label">submissions</div></div><div class="stat-cell"><div class="stat-value">4,089</div><div class="stat-label">accepted papers</div></div><div class="stat-cell"><div class="stat-value">10,000+</div><div class="stat-label">attendees</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.newswise.com/articles/cvpr-2026-honors-the-year-s-most-innovative-computer-vision-and-ai-research" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=newswise.com&sz=32" alt="">Newswise / CVF</a><a href="https://voxel51.com/blog/d4rt-cvpr-2026-best-paper-4d-reconstruction" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=voxel51.com&sz=32" alt="">Voxel51</a><a href="https://cvpr.thecvf.com/Conferences/2026/News/Best_Papers" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cvpr.thecvf.com&sz=32" alt="">CVPR / CVF</a></div></div>
+<div class="article-nav"><a href="09-chatgpt-enterprise-memory-upgrade.html" class="nav-prev">&larr; ChatGPT Enterprise Gets Deeper Memory and a Simpli</a><a href="11-ai-protein-conformational-design.html" class="nav-next">AI Pushes Structural Biology Toward Full Protein L &rarr;</a></div>
+<footer>The Vault - AI Edition - Published June 28, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

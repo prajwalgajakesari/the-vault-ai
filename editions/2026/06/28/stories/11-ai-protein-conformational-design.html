@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Pushes Structural Biology Toward Full Protein Landscapes and Routine Binder Design - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>AI Pushes Structural Biology Toward Full Protein Landscapes and Routine Binder Design</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 965 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>AI in structural biology is moving past single static structures toward predicting full Boltzmann-weighted conformational ensembles and routinely designing high-affinity protein binders, with major drug-discovery upside and dual-use biosecurity concerns.</p>
+</div>
+<div class="article-body">
+<p>For five years, the defining image of AI in biology has been a single, frozen protein: AlphaFold's confident, multicolored ribbon snapping into place from a string of amino acids. That static snapshot rewired drug discovery and won a Nobel Prize. But a wave of 2026 research argues the snapshot was only the opening act. Structural biology is now racing toward two harder problems at once — predicting the full, jittering <em>landscape</em> of shapes a protein can adopt, and designing brand-new proteins that latch onto targets on demand. Together, researchers say, they amount to two more "AlphaFold moments" unfolding in parallel.</p>
+<p>The clearest statement of that thesis came on May 8 in <em>Communications Biology</em>, where EPFL computational biologist Luciano Abriata laid out the state of play. "Structural biology is entering a new phase beyond the original breakthrough of AlphaFold 2," he wrote, pointing to "the prediction of full protein conformational landscapes and the routine de novo design of high-affinity protein binders." A June 25 editorial in <em>Frontiers in Molecular Biosciences</em>, introducing a special issue on AI in structural biology, made the same broad case, noting that "emerging AI methodologies are enabling the characterization of biomolecular dynamics, conformational landscapes, molecular recognition, and protein-protein and protein-ligand interactions at unprecedented scale and resolution."</p>
+<h2>From one shape to a Boltzmann-weighted crowd</h2>
+<p>Proteins are not statues. They breathe, flex and flip between functional states, and that motion is often where biology actually happens — a kinase opening to admit a drug, a receptor shifting when a hormone binds. Capturing that has traditionally meant molecular dynamics (MD) simulations, which are brutally expensive: faithfully sampling one protein's motions can demand on the order of 100,000 GPU hours.</p>
+<p>The new approach is to teach generative models to emulate the answer directly. Abriata singles out Microsoft's <strong>BioEmu</strong> (Biomolecular Emulator), published in <em>Science</em> in 2025, as driving "the 'AlphaFold moment' for protein conformational landscapes." Rather than crank through physics step by step, BioEmu was trained on the Protein Data Bank, AlphaFold models and roughly 200 milliseconds of all-atom MD, then learned to spit out thousands of structures sampling a protein's Boltzmann distribution — the physically weighted population of states. The payoff, Abriata notes, is that "what would take 100,000 GPU hours of atomistic MD can be emulated in minutes," yielding direct estimates of free-energy differences and how populated each conformational state is.</p>
+<p>Why does the weighting matter? Because knowing a protein <em>can</em> adopt a druggable pocket is useless without knowing how often it does. Boltzmann-weighted ensembles turn structure prediction into something closer to thermodynamics, the currency drug designers actually trade in.</p>
+<h2>Binder design becomes an engineering discipline</h2>
+<p>The second frontier is generative design. Tools in the RFdiffusion and ProteinMPNN lineage already let researchers sketch a backbone and fill in a sequence; the 2026 story is that designing <em>binders</em> — proteins built to grip a chosen target — has gone from artisanal to industrial. Abriata highlights <strong>BindCraft</strong>, published in <em>Nature</em> in 2025 by Martin Pacesa and colleagues, which "leverages the architectures that made AlphaFold successful, using them as a 'fitness oracle' to guide the de novo creation of high-affinity binders."</p>
+<p>The results are concrete. In an experiment-based binder contest targeting the Nipah virus, submissions hit a better-than-8% success rate and produced 26 binders with single-digit nanomolar affinity or stronger. Striking, too: the startup Adaptyv Bio ran a closed-loop pipeline in which an AI agent built on Anthropic's Claude controlled the Boltz-2 structure model to propose sequences for wet-lab testing — meant only as a demonstration, it nonetheless yielded a working nanomolar binder.</p>
+<p>The two frontiers are now converging. A January preprint from Penn State, <strong>ProChoreo</strong>, attacks what its authors call a core blind spot: "most existing frameworks operate on a single static conformation and underutilize the conformational heterogeneity that governs protein binding and function." ProChoreo uses contrastive learning to align sequences with MD-derived ensembles, then designs binders that account for a target's flexibility, validating candidates against receptors including the human sweet-taste receptor TAS1R2 and FGFR2.</p>
+<h2>Why ensembles and binders matter — and where the risk lives</h2>
+<p>For drug discovery, the combination is potent. Ensemble prediction lets chemists target the <em>right</em> state of a flexible protein and screen for binders that selectively stabilize it; routine binder design promises faster paths to therapeutic antibodies, diagnostics and research reagents. The Frontiers editorial frames this as a broader shift toward "AI-driven integrative computational-experimental workflows."</p>
+<p>That same power is a biosecurity concern. Software that reliably designs high-affinity binders to arbitrary human proteins is dual-use by construction, and the field's reliance on opaque models sharpens the worry. A May 10 perspective in <em>Nature Machine Intelligence</em> from the Centre for Genomic Regulation argues that explainability cannot be an afterthought. "Protein language models are moving fast but our understanding of fundamental biological processes such as folding or catalysis has not advanced alongside these breakthroughs," said corresponding author Noelia Ferruz. "We risk building powerful tools that we cannot fully trust." Her team maps current explainability work onto five roles — Evaluator, Multitasker, Engineer, Coach and the still-unrealized "Teacher" — and calls for robust benchmarks, open-source tooling and, crucially, lab validation of any AI-derived insight.</p>
+<h2>What to watch</h2>
+<p>The Critical Assessment of Structure Prediction (CASP) is now pushing conformational-landscape prediction as a formal challenge, while experiment-based contests keep design honest by demanding real wet-lab hits. Watch whether ensemble emulators like BioEmu hold up on the floppy, disordered and membrane proteins where MD itself struggles; whether dynamics-aware design tools like ProChoreo translate from preprint to validated therapeutics; and whether the explainability roadmap gains traction before, not after, the next capability leap. If 2024 was the year AI nailed the single protein structure, 2026 is shaping up as the year it learned the protein never stops moving — and started building new ones to order.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"Structural biology is entering a new phase beyond the original breakthrough of AlphaFold 2, with two emerging frontiers poised to redefine the field: the prediction of full protein conformational landscapes and the routine de novo design of high-affinity protein binders."</blockquote>
+          <cite>- Luciano A. Abriata, Computational biologist, EPFL</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">>8%</div><div class="stat-label">Nipah binder contest hit rate</div></div><div class="stat-cell"><div class="stat-value">26</div><div class="stat-label">single-digit-nanomolar binders</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.nature.com/articles/s42003-026-10112-3" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=32" alt="">Communications Biology (Nature)</a><a href="https://www.frontiersin.org/journals/molecular-biosciences/articles/10.3389/fmolb.2026.1903318/full" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=frontiersin.org&sz=32" alt="">Frontiers in Molecular Biosciences</a><a href="https://phys.org/news/2026-05-roadmap-safer-protein-ai.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=phys.org&sz=32" alt="">phys.org</a></div></div>
+<div class="article-nav"><a href="10-cvpr-2026-best-paper-awards.html" class="nav-prev">&larr; CVPR 2026 Honors the Year's Most Innovative Comput</a><a href="12-agentic-software-paradigm-paper.html" class="nav-next">A New Paper Argues AI Agents Are Fundamentally Rew &rarr;</a></div>
+<footer>The Vault - AI Edition - Published June 28, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
