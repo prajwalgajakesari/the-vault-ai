@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A New Benchmark Tests Whether AI Agents Can Reason in Real Time as the World Changes Around Them — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>A New Benchmark Tests Whether AI Agents Can Reason in Real Time as the World Changes Around Them</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 960 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A new open-source benchmark, the Real-Time Reasoning Gym, shows that even state-of-the-art LLM agents fail when an environment keeps evolving while they think, and that a parallel reaction-plus-planning architecture called AgileThinker beats single-mode agents under time pressure.</p>
+</div>
+<div class="article-body">
+<h2>A New Benchmark Tests Whether AI Agents Can Reason in Real Time as the World Changes Around Them</h2>
+<p><strong>June 29, 2026</strong></p>
+<p>Remember your first highway drive: knuckles white on the wheel, eyes locked on the car ahead, when your exit suddenly appears three lanes over. You react and you plan at the same time, and somehow you make the merge. That ordinary act of cognition turns out to be one of the things today's most capable AI agents are worst at. A new benchmark from researchers at Stanford, Tsinghua, Shanghai Jiao Tong and Georgia Tech is built to expose exactly that weakness, and it offers an early blueprint for fixing it.</p>
+<p>The paper, "Real-Time Reasoning Agents in Evolving Environments," introduces what the authors call real-time reasoning as a distinct problem for language agents, along with a software platform, the Real-Time Reasoning Gym, for measuring it. The core claim is uncomfortable for an industry racing to deploy autonomous agents: even state-of-the-art models "struggle with making logical and timely judgments" when the environment refuses to wait for them to finish thinking.</p>
+<h2>The gap: a benchmark world that stands still</h2>
+<p>Most agent benchmarks share a hidden assumption. They present the model with a frozen snapshot, grant it effectively unlimited time to deliberate, and grade only the final answer. SWE-bench waits while an agent grinds through a codebase. Math and tool-use evaluations reward the correct result no matter how many seconds, or in some reported cases hours, it took to produce. The clock is not part of the test.</p>
+<p>The real world is not so patient. Hazards emerge, opportunities open and close, and other agents act while your agent is still mid-thought. The authors frame this as a collision between two cognitive modes that humans blend instinctively: fast, intuitive reaction and slow, deliberate planning. For machines, the two have been an either/or choice, and that choice is precisely where deployed systems break.</p>
+<p>To study the trade-off without the noise of differing hardware, the team made time itself a tunable knob. Their Gym is built around non-turn-based games, so the environment keeps evolving whether or not the agent has committed to an action. Three games anchor the benchmark: Freeway, where an agent crosses lanes of bidirectional traffic; Snake, where it chases time-limited food while its own body grows into an obstacle; and Overcooked, where it must coordinate with a scripted partner that follows a shifting, non-stationary policy. Two dials, cognitive load and time pressure, can be turned up independently to stress either the depth of reasoning required or the speed at which it must be delivered.</p>
+<h2>Two paradigms, both failing</h2>
+<p>The researchers pit two standard agent designs against each other. Reactive agents use "bounded reasoning computation for rapid responses," answering quickly but shallowly. Planning agents use "extended reasoning computation for complex problems," thinking deeply but too slowly to keep pace.</p>
+<p>The benchmark makes the failure modes concrete and almost intuitive. In Snake, the paper's project page notes, "reactive agents often get trapped into cul-de-sacs while planning agents miss new food due to slower reactions." In Freeway, the planning agent reasons carefully but freezes mid-road as traffic closes in; the reactive agent moves on time but lacks the foresight to avoid a collision. Neither paradigm wins as the dials are turned up. The agent that thinks fast is too dumb, and the agent that thinks well is too late.</p>
+<p>That result reframes a tension the broader field has been circling. A separate 2025 study, "Win Fast or Lose Slow," found that in latency-sensitive games such as Street Fighter, win rate rises as latency falls until a Pareto-optimal point, then collapses when rushing degrades accuracy too far. Speed and quality are not a smooth dial you can simply tune; past a certain pressure, single-mode agents have no good setting.</p>
+<h2>AgileThinker: think and react at once</h2>
+<p>The paper's proposed fix is an architecture called AgileThinker, and its idea is structurally simple. Rather than choose between reaction and planning, it runs both in parallel threads. A planning thread performs extended reasoning over a frozen view of the game state. A reactive thread outputs a decision within the environment's update window, and crucially it can reference the planner's partial, still-streaming reasoning trace instead of waiting for a finished plan.</p>
+<p>That detail is what separates AgileThinker from earlier dual-process systems, in which the two halves either run independently or one must fully complete before the other can use its output. Here the fast system reads the slow system's work-in-progress. As the authors put it, AgileThinker "consistently outperforms agents engaging only one reasoning paradigm as the task difficulty and time pressure rise, effectively balancing reasoning depth and response latency." The team reports that the advantage holds up not just in token-budget simulations but in wall-clock-time experiments, using DeepSeek V3 and R1 because their open weights expose the transparent reasoning trajectories the architecture depends on.</p>
+<h2>Why this matters for deployed agents</h2>
+<p>The stakes are not academic. The agents companies are rushing into production increasingly operate in evolving environments by definition. A trading agent reasoning about a position while the order book moves underneath it faces the same structure as Freeway. A warehouse or humanoid robot must avoid a person who is already walking, not the person who was standing still when planning began; prior work on human-robot collaboration notes that coordination degrades when responses lag past a few hundred milliseconds, even as slower deliberate planning of two to five seconds stays acceptable. An incident-response or ops agent triaging a live outage cannot pause the cascade while it composes the perfect remediation.</p>
+<p>In each case, the dominant benchmarks have been quietly rewarding the wrong thing: an answer that would have been right several seconds ago. By making the clock a first-class variable and showing that a parallel architecture beats single-mode reasoning under pressure, the paper argues that timeliness is not a deployment detail to be optimized later but a capability to be trained and measured from the start.</p>
+<h2>What to watch</h2>
+<p>The Real-Time Reasoning Gym is open source, shipped as a `realtimegym` Python package with a Hugging Face dataset, which lowers the bar for other labs to report numbers under time pressure rather than in its absence. The open questions the authors flag, chiefly how to balance compute between the reactive and planning threads, are the kind that invite fast follow-up work. Watch for whether AgileThinker-style parallelism shows up in agent frameworks aimed at robotics, trading, and live operations, and watch whether the next wave of agent leaderboards finally puts a clock on the wall. If they do, some of today's most impressive agents may look a good deal less ready for the real world than their static scores suggest.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>“AgileThinker consistently outperforms agents engaging only one reasoning paradigm as the task difficulty and time pressure rise, effectively balancing reasoning depth and response latency.”</blockquote><cite>— The authors, Stanford, Tsinghua, Shanghai Jiao Tong, Georgia Tech</cite></div>
+
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2511.04898" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://realtimegym.saltlab.stanford.edu/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=saltlab.stanford.edu&sz=32" alt="">Stanford SALT Lab</a><a href="https://arxiv.org/pdf/2505.19481" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (Win Fast or Lose Slow)</a></div></div>
+<div class="article-nav"><a href="11-roboalign-vla-test-time-reasoning.html" class="nav-prev">← 'RoboAlign' Teaches Robot Policies to Reason at Te</a><a href="13-mythos-5-partial-restoration-infrastructure.html" class="nav-next">US Partially Restores Anthropic's Claude Mythos 5  →</a></div>
+<footer>The Vault — AI Edition · Published June 29, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
