@@ -1,0 +1,33 @@
+# As Its June 30 Effective Date Arrives, Colorado's Landmark AI Act Is Already Hobbled by a Hold on Enforcement
+
+**June 29, 2026**
+
+On Tuesday, the first comprehensive "high-risk" artificial intelligence statute in the United States is supposed to come to life. Colorado's Artificial Intelligence Act, SB 24-205, takes effect June 30, 2026, imposing duty-of-care, impact-assessment and disclosure obligations on the companies that build and deploy AI systems making consequential decisions about people's jobs, housing, credit and health care. But the law arrives at its own debut already wounded: a federal magistrate judge has barred the state from enforcing it, Elon Musk's xAI is suing to kill it, the Trump administration's Justice Department has joined the fight, and Colorado's own legislature has already voted to repeal and replace it. The most-watched state AI law in the country goes into effect this week as something close to a dead letter on arrival.
+
+## A court order that blocks the enforcer, not the law
+
+On April 27, 2026, a Colorado magistrate judge ordered Attorney General Phil Weiser's office not to initiate enforcement of SB 24-205 until the office completes the rulemaking needed to implement it — rules that are not finished and have no public completion date. The order grew out of a lawsuit xAI filed on April 9 in federal court seeking to enjoin the Act on First Amendment, dormant Commerce Clause, due process and equal protection grounds. The company argued the law's algorithmic-discrimination provisions would compel AI developers "to reengineer model outputs to conform to state-preferred viewpoints."
+
+Crucially, the order pauses the regulator, not the statute. As the law firm Launch Legal put it in an April analysis, "The court order buys time on enforcement, not on obligations. The June 30 deadline is still on the books." Obligations that attach Tuesday — impact assessments, risk-management programs, consumer disclosures and developer documentation — remain live legal duties even though the attorney general cannot, for now, sue over violations. And the reprieve is conditional: if the AG finishes rulemaking, enforcement authority restores, potentially reaching back to conduct that occurred after June 30.
+
+## What the law actually requires
+
+SB 24-205 splits the world into "developers," who build and sell AI systems, and "deployers," who use them to make "consequential decisions" about Colorado consumers — decisions touching employment, housing, credit, insurance, health care, education and legal services. A system that makes, or is a substantial factor in making, such a decision is "high-risk" and falls in scope regardless of where the company is based.
+
+Developers must hand deployers detailed documentation — model and dataset cards, training-data summaries, known harmful uses — and notify the attorney general and known deployers within 90 days of discovering a risk of algorithmic discrimination. Deployers must stand up a risk-management program aligned to the NIST AI Risk Management Framework, complete annual impact assessments, disclose to consumers when AI drives an adverse decision, and offer human-review appeals where feasible. Violations are deceptive trade practices under the Colorado Consumer Protection Act, carrying civil penalties of up to $20,000 each, enforceable only by the AG. State Senator Robert Rodriguez, the bill's author, has described it as a "framework for accountability, for biases and discrimination and just making sure that people know when they're interacting with" high-risk AI.
+
+## A law amended, delayed, and now rewritten
+
+Tuesday's date is itself a product of retreat. The Act was originally set to take effect February 1, 2026, but Governor Jared Polis signed SB 25B-004 on August 28, 2025, pushing implementation to June 30, 2026 amid industry complaints that the framework was unworkable. That bought only a partial truce. This spring, a governor-convened working group produced a full repeal-and-reenactment — SB 26-189 — that strips out the original law's affirmative duty to avoid algorithmic discrimination, drops the risk-management and impact-assessment mandates, and refocuses the statute on transparency around "automated decision-making technology," resetting the clock to January 1, 2027. The Colorado legislature passed the rewrite and Polis signed it in May, formally ending the original Act's risk-based, EU-style approach.
+
+Rodriguez, who wrote the 2024 law and then sponsored the compromise unwinding much of it, was blunt about why his landmark statute did not survive intact, telling Colorado Newsline that "massive amounts of money" from the tech industry doomed it.
+
+## The federal hammer
+
+The litigation is also the opening shot in a national power struggle. On December 11, 2025, President Trump signed an executive order, "Ensuring a National Policy Framework for Artificial Intelligence," directing the Justice Department to stand up an AI Litigation Task Force "whose sole responsibility shall be to challenge State AI laws" the administration deems inconsistent with federal policy — on interstate-commerce, preemption or other grounds. The order singled out the Colorado law as an example of a statute "requiring entities to embed ideological bias within models," and David Sacks, the White House AI and crypto adviser, called Colorado's Act "probably the most excessive" in the country. Roughly two weeks after xAI sued, the Trump DOJ intervened — the first time the federal government has moved to invalidate a state AI law under the December order.
+
+## What businesses should do — and what to watch
+
+For companies, the danger is mistaking the chaos for a holiday. The enforcement pause is temporary and the rewrite, though signed, does not erase the period in which SB 24-205 was technically operative. Counsel are advising clients to build NIST-aligned governance programs now — both as compliance hygiene and as the statute's own affirmative defense — and to treat the obligations as live regardless of who can sue. Such programs travel: they also map to California's 2027 rules and the EU AI Act.
+
+Three tracks bear watching. First, the federal case: how the court rules on xAI's injunction, and whether the DOJ's preemption theory gains traction, could set the template for every state AI law. Second, the transition to SB 26-189 and its January 1, 2027 effective date. Third, whether other states hold the line or retreat under Washington's pressure. Colorado set out to be the model for American AI regulation. Whether it becomes a model for state ambition — or a cautionary tale about how quickly federal power and industry money can hollow one out — is the question its troubled debut now poses.
