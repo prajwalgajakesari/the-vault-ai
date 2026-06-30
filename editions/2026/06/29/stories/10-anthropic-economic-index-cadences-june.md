@@ -1,0 +1,37 @@
+# Anthropic's Economic Index Finds 35% of Workers Expect AI to Do Most of Their Job Within a Year
+
+**June 29, 2026**
+
+Ask the people closest to the frontier of AI how much of their job a machine will be doing a year from now, and a striking share answer: most of it. In the first survey of its kind, more than 35% of Claude users told Anthropic they expect AI to handle most or nearly all of their work tasks within 12 months. And in a twist that upends the standard anxiety narrative, the workers who delegate the most to AI today are the ones who feel best about what that future holds.
+
+That finding anchors the sixth Anthropic Economic Index report, subtitled "Cadences" and published June 26, 2026. Drawing on Claude usage sampled between April 10 and June 10, the report pairs behavioral telemetry with the first results from the Anthropic Economic Index Survey, launched in April. After linking responses to actual usage through a privacy-preserving system, Anthropic arrived at a final sample of roughly 9,700 respondents. It is the first time the company has connected what people do with Claude to what they believe about it.
+
+## What the survey found
+
+The survey asked respondents what share of their work tasks AI could do entirely on its own today, and what share they expected it to do in a year, choosing from five bands running from "almost none" to "nearly all." Close to 6 in 10 picked a higher band for next year than for today. "Asked to forecast next year's capabilities," the authors write, "over 35% predicted that AI would be able to do *most* of their work."
+
+What is notable is not just the optimism but its uniformity. People in roles already heavily exposed to AI did not forecast steeper gains than those in less-exposed jobs. A software engineer and a construction manager, the report observes, "anticipate roughly the same increment of progress within their profession." Anthropic frames this as a "rising tide" of expectations, in which AI capabilities are assumed to improve broadly rather than to sprint ahead in any one occupation.
+
+The belief outruns the behavior. Respondents reported AI could do more of their work than Anthropic's own observed-exposure measure shows it actually doing, a gap the authors attribute partly to selection, since the survey reaches the heaviest users, and partly to how the bands are coded. The report is also blunt about its limits: the sample is not representative of the workforce. Computer and mathematical occupations make up about 30% of respondents against a 4% share of US employment, and management another 23%.
+
+## The augmentation-versus-automation split
+
+The most consequential pattern in the report is who feels good about all this. Anthropic separates usage into "automation," where Claude completes a task with little user input, and "augmentation," where the human stays in the loop. Across all six dimensions it measured, pay, job security, ability to find a new job, meaning, autonomy and human interaction, respondents with a higher share of automated sessions were *more* optimistic, not less. The largest effects showed up on expected future pay and ability to find a job, with job security close behind.
+
+That cuts directly against the intuition that the people handing entire tasks to AI should feel most replaceable. The relationship survived a control for how long someone had been on Claude.ai, a rough proxy for early-adopter enthusiasm, suggesting it is not purely a story of optimists self-selecting into automation. "Heavier delegators report learning at the same rate as everyone else," the authors note, and the share who say AI is making their skills more valuable actually rises with automation. They are careful to add the caveat that these are self-assessments, and that "skills can erode even as they become more valuable."
+
+The split also shows up across surfaces. On the first-party API, traffic skews automated and directive; on Claude.ai, augmentation and iterative collaboration lead. The same divide is visible inside the product: a median blog post takes 13 rounds of back-and-forth in chat but a single human prompt in Claude Code, which runs 0.37 points higher on Anthropic's 1-to-5 autonomy scale across nearly every output type. Tellingly, that gap persists even on the same underlying model, "suggesting that the product used is likely more important than the underlying model."
+
+## The experienced-user gap
+
+If junior workers are the most exposed, experienced ones are the most skeptical, and the report explains why. Reported and anticipated exposure both fall with tenure: people with at least 15 years of experience put the share of tasks AI can do for them roughly 10 percentage points lower than first-year workers. Pressed in follow-up questions on what AI will never do, veterans pointed to judgment, contextual awareness and situational reasoning, and disproportionately to "the relational and interpersonal dimensions of their jobs, building trust and managing people, as things AI cannot replicate."
+
+This is where the labor and onboarding implications sharpen. The report surfaces a textbook optimism bias: more than a third of respondents said it was likely a junior colleague would lose their job in the next year, while only 10% rated their own job loss as likely. Early-career workers simultaneously report the highest AI task share and the most personal displacement worry, which makes them both the most exposed and the most anxious. The danger for enterprises is that the belief becomes self-fulfilling. If managers thin junior pipelines because peers assume entry-level work is now automatable, the craft and judgment that experienced workers cite as AI's hard limit may have nowhere to develop. Onboarding designed around the tacit, relational skills AI handles poorly, rather than the first-draft tasks it does well, looks less like a perk and more like a hedge.
+
+## Cadences and what people produce
+
+The report's namesake findings come from new hourly telemetry. Personal use jumps from about 35% of conversations on weekdays to just under 50% on weekends. People ask for news at 7 a.m. and recipes at 6 p.m., which are 2.3 times more common at that hour. Tax-related queries ran eight times their May average on April 14, the eve of the US filing deadline, then collapsed. A new classifier labeled the primary "artifact" in 93% of conversations, most often explanations (17%), documents and reports (15%), and guidance (11%). Compute tracks economic value: conversations mapped to higher-wage occupations consume more tokens, with about 44% of that gradient explained by the mix of outputs those jobs produce.
+
+## What to watch
+
+The report is best read, in Anthropic's own framing, as a high-frequency weather map of its own users rather than a labor-market forecast, and the authors concede that AI's true impact "will be visible in economic aggregates like employment and productivity as much as its usage logs." Three things are worth watching as the index continues at its new monthly cadence: whether the automation-optimism link holds when agents are rolled out to skeptics rather than enthusiasts; whether the 35% who expect AI to do most of their work next year prove right or merely confident; and whether junior hiring contracts on belief before the technology justifies it. The survey captures expectations shifting faster than usage. The open question is which one the labor market follows.
