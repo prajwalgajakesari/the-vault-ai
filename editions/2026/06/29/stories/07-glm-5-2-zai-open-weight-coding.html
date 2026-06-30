@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Z.AI's GLM-5.2 Pushes Open-Weight Coding to the Frontier With a 1M-Token Context — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Z.AI's GLM-5.2 Pushes Open-Weight Coding to the Frontier With a 1M-Token Context</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 990 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Z.ai's MIT-licensed, 753B-parameter GLM-5.2 pairs a usable 1M-token context with near-frontier agentic-coding scores at a fraction of closed-model prices, making it the leading open-weight model and intensifying the Chinese open-weight surge.</p>
+</div>
+<div class="article-body">
+<h2>Z.AI's GLM-5.2 Pushes Open-Weight Coding to the Frontier With a 1M-Token Context</h2>
+<p>BEIJING — For two years the unspoken rule of the AI race was that the most capable coding models stayed locked behind a closed API. On June 13, Z.ai — the Beijing lab formerly known as Zhipu AI — broke that rule a little harder than usual. It shipped GLM-5.2 to its coding-plan subscribers, then three days later, on June 16, dropped the full weights of a 753-billion-parameter model onto Hugging Face under an MIT license. By the time independent evaluators finished their runs, GLM-5.2 had become, by at least one widely watched measure, the most capable openly available language model in the world — and it had done so on a one-million-token context window built specifically to let coding agents grind through hours-long engineering tasks.</p>
+<p>The release lands at a moment when "open" and "Chinese" have become nearly synonymous at the frontier of model weights, and when Western labs are watching the cost of frontier-level coding collapse beneath them.</p>
+<h2>What Z.ai actually shipped</h2>
+<p>GLM-5.2 is a sparse mixture-of-experts model: roughly 753 billion total parameters with about 40 billion active per token, a 1.51-terabyte download in its native precision. It is text-only — Z.ai keeps its vision models in a separate, non-open family — and its headline feature is the jump from GLM-5.1's 200,000-token context to a "solid 1M-token context," to use the company's phrasing, a fivefold expansion aimed squarely at full-repository, long-horizon work.</p>
+<p>"We're introducing GLM-5.2, our latest flagship model for long-horizon tasks," Z.ai's team wrote in its launch post. "It marks a substantial leap in long-horizon task capability over its predecessor GLM-5.1 and, for the first time, delivers that capability on a solid 1M-token context."</p>
+<p>Hitting a usable million tokens required architectural work, not just a bigger window. Z.ai introduced a technique it calls IndexShare, which reuses a single lightweight attention indexer across every four sparse-attention layers — cutting per-token compute by 2.9x at the 1M mark, by the company's accounting — and rebuilt its speculative-decoding layer to raise the acceptance length by roughly 20 percent. The model also ships with selectable "thinking effort" levels, High and Max, letting users trade latency and cost against raw capability.</p>
+<h2>The benchmarks</h2>
+<p>On Z.ai's own numbers, GLM-5.2 is comfortably the strongest open-weight coder available and a near-peer to the closed frontier on agentic tasks. It posts 81.0 on Terminal-Bench 2.1, up sharply from GLM-5.1's 63.5 and within striking distance of Claude Opus 4.8's 85.0, while edging out OpenAI's GPT-5.5 (84) and Google's Gemini 3.1 Pro (74). On SWE-bench Pro it scores 62.1, ahead of GPT-5.5 and Gemini 3.1 Pro though still trailing Opus 4.8's 69.2. On the long-horizon FrontierSWE benchmark — which measures whether an agent can finish open-ended technical projects spanning hours — Z.ai says the model trails Opus 4.8 by a single point while beating GPT-5.5 by one.</p>
+<p>Those are vendor figures, and worth treating as such. But the independent reads largely back the story. Artificial Analysis, which runs one of the most respected third-party benchmark suites, declared GLM-5.2 "the leading open weights model on the Intelligence Index v4.1," scoring 51 to top MiniMax-M3 (44), DeepSeek V4 Pro (44) and Kimi K2.6 (43). The same evaluator flagged a real cost: GLM-5.2 is token-hungry, burning about 43,000 output tokens per benchmark task versus 26,000 for GLM-5.1 — a tax the Max effort level only deepens.</p>
+<p>Developer Simon Willison, who put the model through his own informal tests, called it "probably the most powerful text-only open weights LLM," and noted it had climbed to second on the Code Arena WebDev leaderboard, behind only Anthropic's Claude Fable 5 — striking for a model with no image input at all.</p>
+<h2>Cheap, and everywhere fast</h2>
+<p>The economics are the other half of the pitch. Across the nine providers serving GLM-5.2 on OpenRouter, most charge about $1.40 per million input tokens and $4.40 per million output. Set against GPT-5.5 at $5/$30 and Claude Opus at roughly $5/$25, that is a fraction of the cost for work that lands in the same neighborhood — even accounting for GLM-5.2's heavier token appetite. Z.ai's flat coding-plan subscriptions start in the high-teens of dollars per month.</p>
+<p>Because the weights are open and MIT-licensed — "no regional limits, technical access without borders," as Z.ai put it — the model spread through the agent ecosystem within days. It plugs into Claude Code, OpenCode and Z.ai's own ZCode desktop agent, and Nous Research's Hermes Agent framework can launch it through Ollama with a single command. That speed of adoption, more than any single benchmark, is what unsettles the incumbents.</p>
+<h2>The open-weight Chinese surge</h2>
+<p>GLM-5.2 is not an outlier; it is the leading edge of a pattern. DeepSeek, Alibaba's Qwen, Moonshot's Kimi and MiniMax have spent the past year shipping increasingly capable open-weight models, and GLM-5.2 now tops that pack on independent rankings. The strategic logic is hard to miss: as Western labs tighten access — and as U.S. policy moves to restrict foreign use of the most advanced American models — Chinese labs have leaned the opposite way, treating openness as both a distribution strategy and a geopolitical statement.</p>
+<p>For Western frontier labs, the squeeze is structural. The premium they charge rests on a capability gap that GLM-5.2 has narrowed to single-digit benchmark points on agentic coding — while undercutting them by 3x to 6x on price and handing the weights away for free. When a self-hostable model lands "between Claude Opus 4.7 and 4.8," in Z.ai's framing, the question for enterprise buyers shifts from "which is best" to "which is good enough, and how much cheaper."</p>
+<h2>What to watch</h2>
+<p>The open questions are concrete. Does GLM-5.2's million-token window hold up in messy production trajectories, or fray under real engineering pressure the way long-context claims often do? Does its token-hungry profile erase the headline price advantage on long agentic runs? And will Western labs answer with their own open-weight releases, or double down on closed frontier capability and proprietary tooling? Z.ai has set the bar for what "open" now means at the coding frontier. The next move belongs to everyone else.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>“It marks a substantial leap in long-horizon task capability over its predecessor GLM-5.1 and, for the first time, delivers that capability on a solid 1M-token context.”</blockquote><cite>— Z.ai, GLM-5.2 launch post</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">1M</div><div class="stat-label">Context window (tokens)</div></div><div class="stat-cell"><div class="stat-value">753B</div><div class="stat-label">Total parameters (MoE)</div></div><div class="stat-cell"><div class="stat-value">81.0</div><div class="stat-label">Terminal-Bench 2.1 score</div></div><div class="stat-cell"><div class="stat-value">$1.40 / $4.40</div><div class="stat-label">Price per 1M tokens (in/out)</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://huggingface.co/blog/zai-org/glm-52-blog" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Z.ai (Hugging Face)</a><a href="https://simonwillison.net/2026/jun/17/glm-52/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=simonwillison.net&sz=32" alt="">Simon Willison</a><a href="https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://artificialanalysis.ai/articles/glm-5-2-is-the-new-leading-open-weights-model-on-the-artificial-analysis-intelligence-index" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=artificialanalysis.ai&sz=32" alt="">Artificial Analysis</a></div></div>
+<div class="article-nav"><a href="06-gpt-5-6-sol-terra-luna-preview.html" class="nav-prev">← OpenAI Previews GPT-5.6 as Three Tiers — Sol, Terr</a><a href="08-kimi-k2-6-moonshot-multimodal.html" class="nav-next">Moonshot's Kimi K2.6 Bets on Open-Weight, Multimod →</a></div>
+<footer>The Vault — AI Edition · Published June 29, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
