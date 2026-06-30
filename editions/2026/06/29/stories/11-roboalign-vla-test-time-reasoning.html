@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>'RoboAlign' Teaches Robot Policies to Reason at Test Time, Tightening Language-Action Alignment — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>'RoboAlign' Teaches Robot Policies to Reason at Test Time, Tightening Language-Action Alignment</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 980 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>RoboAlign makes vision-language-action models reason their way to an action and then grades that reasoning by whether the action succeeds, closing the language-action gap and beating supervised-fine-tuning baselines across simulated and real-robot benchmarks.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "'RoboAlign' Teaches Robot Policies to Reason at Test Time, Tightening Language-Action Alignment"
+slug: roboalign-vla-test-time-reasoning
+category: research
+story_number: 11
+date: 2026-06-29
+sources:
+  - name: "arXiv (RoboAlign)"
+    url: "https://arxiv.org/abs/2603.21341"
+    domain: arxiv.org
+  - name: "Do What You Say (runtime reasoning-action alignment)"
+    url: "https://arxiv.org/abs/2510.16281"
+    domain: arxiv.org
+  - name: "The Robot Report (VLA explainer)"
+    url: "https://www.therobotreport.com/vision-language-action-models-are-the-next-leap-in-autonomous-robotics/"
+    domain: therobotreport.com
+---</p>
+<h2>'RoboAlign' Teaches Robot Policies to Reason at Test Time, Tightening Language-Action Alignment</h2>
+<p>For the past two years, the dominant recipe for building robot brains has looked deceptively simple: take a powerful multimodal language model, teach it to "think" about the physical world through question-and-answer training, and trust that better reasoning will produce better actions. A new paper argues the recipe has a quiet flaw — and that fixing it means letting robots reason their way to an action, then grading the reasoning by whether the action actually works.</p>
+<p>The work, titled <em>RoboAlign: Learning Test-Time Reasoning for Language-Action Alignment in Vision-Language-Action Models</em> and posted to arXiv in late March 2026, comes from a team led by Dongyoung Kim with collaborators across KAIST, the robotics startup RLWRLD, Yonsei University, and UC Berkeley. Its central claim is blunt: improving a model's embodied reasoning does not reliably improve how well a robot moves. RoboAlign is the authors' attempt to close that gap.</p>
+<h2>The problem: smarter talk, clumsier hands</h2>
+<p>Vision-language-action models, or VLAs, are the foundation-model bet in robotics. As The Robot Report puts it, VLAs integrate "visual perception, language understanding, and common-sense knowledge to provide a foundation for training generalizable robotic policies." The appeal is obvious — pretrained multimodal models already know what a "cup" is and roughly where one sits on a table, so a robot built on top of one needs far less hand-collected demonstration data to generalize.</p>
+<p>The trouble is that knowing about the world and acting in it are different skills. "The performance and generalization of VLAs are often limited by the underlying MLLMs, which struggle with key embodied tasks required for action generation, such as spatial reasoning and temporal reasoning," the authors write. The field's standard fix has been to bolt on more reasoning training — visual question-answering about object relationships, affordances, or future trajectories. But that supervision is indirect. It teaches the model to describe a plan in language, not to emit the precise low-level motor commands a gripper consumes.</p>
+<p>RoboAlign's most striking evidence is a counterexample. The authors note that RoboBrain 2.0, a model that "achieved the highest reasoning scores among evaluated MLLMs and even outperformed GPT-4o on major benchmarks," nonetheless "yielded the lowest VLA performance" in their tests. More reasoning, worse robot. The authors attribute this to "the modality gap between language and low-level actions; optimizing embodied reasoning purely through language supervision does not guarantee improvements in actual action generation."</p>
+<h2>The method: reason first, then grade the reasoning by the action</h2>
+<p>RoboAlign reframes the objective. Instead of training a model to answer questions and hoping the skill transfers, it makes the model generate low-level action tokens <em>as the direct outcome of reasoning</em>, then judges that reasoning by how accurate the resulting action is.</p>
+<p>There are two stages. First, supervised fine-tuning teaches the model to produce actions via zero-shot natural-language reasoning — literally thinking step by step inside `&lt;think&gt;` tags before committing to a motion. The paper shows the difference plainly: a model trained with reasoning data narrates, "the robot needs to move its gripper towards the cup, position it correctly, close the gripper to secure the cup, and then lift it up," whereas a model trained without it collapses into a degenerate loop ("Go to the cup. cup./think&gt;cup./think&gt;"). The coherent reasoning is what makes the second stage possible.</p>
+<p>That second stage is reinforcement learning. Using GRPO — the same family of RL algorithm popularized by DeepSeek-R1 — RoboAlign samples diverse reasoning trajectories and rewards them based on a blend of correct output format and "FAST token prediction accuracy," measured as the prefix similarity between the generated action sequence and the target. In effect, the action becomes the verifier for the thought. This is the "test-time reasoning" in the title: the model deliberates before each action, and that deliberation has been tuned to land on motions that succeed.</p>
+<p>Crucially, the alignment stage is cheap. The team reports doing it with "less than 1% of the data" used for the main fine-tuning.</p>
+<h2>What the numbers show</h2>
+<p>RoboAlign was evaluated on two standard simulation suites — LIBERO and CALVIN, both using a Franka Panda arm — plus a real robot. The headline figures are relative improvements over a supervised-fine-tuning baseline of 17.5% on LIBERO, 18.9% on CALVIN, and 106.6% in the real-world setup.</p>
+<p>The detail beneath those averages is more telling. On LIBERO, RoboAlign lifts the average success rate to 86.8%, ahead of strong recent reasoning-based VLAs like CoT-VLA (83.9%) and ThinkAct (84.4%). The biggest gains land on the hardest categories — long-horizon and goal-conditioned tasks — exactly where chained reasoning should help most. On CALVIN's zero-shot transfer to an unseen environment, the authors note that "while all baselines show drops in task completions of length 4 and 5, RoboAlign consistently improves performance across all sequence" lengths. And the approach beat alternative alignment targets: rewarding low-level actions outperformed rewarding high-level language plans (17.5% vs. 13.1%) or 2D point trajectories (15.2%).</p>
+<h2>Why test-time reasoning for robots matters</h2>
+<p>The bet RoboAlign represents is bigger than one benchmark. Embodied AI is converging on the same lesson language models learned in 2024 and 2025: spending more compute to <em>think</em> at inference time can beat simply training a bigger or more knowledgeable model. The wrinkle in robotics is that there is no human grader for "did the robot succeed" — the physical outcome itself is the reward signal, which is exactly what RoboAlign exploits.</p>
+<p>It is also part of a visible cluster of 2026 work attacking the same seam. Papers like <em>Do What You Say</em> propose runtime verification that a robot's textual plan and its actual motion agree, while others pursue verifier-free test-time sampling. The shared premise is that the language-action gap, not raw model size, is the binding constraint on generalist robots. If that holds, the next wave of robotics foundation models may compete less on parameter count and more on how well they reason in the half-second before they move.</p>
+<h2>What to watch</h2>
+<p>RoboAlign is a preprint, and its real-robot evaluation rests on a modest 96 trials per task — promising, but a long way from the messy diversity of homes and warehouses. The open questions are whether action-grounded RL holds up across robot embodiments beyond the Franka arm, whether the reasoning overhead is tolerable for real-time control, and whether the approach scales to the dexterous, multi-step manipulation that generalist robots will ultimately need. The authors report that RoboAlign improves general embodied reasoning <em>without</em> degrading broad image understanding — a sign the alignment is additive rather than a trade-off. If that generalizes, "reason, then act, then learn from the result" could become a default loop for embodied models, the way chain-of-thought became one for chatbots.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>“We attribute this discrepancy to the modality gap between language and low-level actions; optimizing embodied reasoning purely through language supervision does not guarantee improvements in actual action generation.”</blockquote><cite>— The authors, RoboAlign, KAIST / RLWRLD / Yonsei / UC Berkeley</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">17.5%</div><div class="stat-label">Gain over SFT on LIBERO</div></div><div class="stat-cell"><div class="stat-value">18.9%</div><div class="stat-label">Gain over SFT on CALVIN</div></div><div class="stat-cell"><div class="stat-value">106.6%</div><div class="stat-label">Gain over SFT on a real robot</div></div><div class="stat-cell"><div class="stat-value">86.8%</div><div class="stat-label">Average success rate on LIBERO</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2603.21341" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (RoboAlign)</a><a href="https://arxiv.org/abs/2510.16281" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (Do What You Say)</a><a href="https://www.therobotreport.com/vision-language-action-models-are-the-next-leap-in-autonomous-robotics/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=therobotreport.com&sz=32" alt="">The Robot Report</a></div></div>
+<div class="article-nav"><a href="10-anthropic-economic-index-cadences-june.html" class="nav-prev">← Anthropic's Economic Index Finds 35% of Workers Ex</a><a href="12-real-time-reasoning-agents-evolving.html" class="nav-next">A New Benchmark Tests Whether AI Agents Can Reason →</a></div>
+<footer>The Vault — AI Edition · Published June 29, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
