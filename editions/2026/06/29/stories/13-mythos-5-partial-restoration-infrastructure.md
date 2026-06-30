@@ -1,0 +1,33 @@
+# US Partially Restores Anthropic's Claude Mythos 5 for Critical-Infrastructure Defenders — Fable 5 Stays Banned
+
+Fifteen days after the federal government forced Anthropic to pull the plug on its two most powerful models worldwide, Washington has cracked the door back open — but only for a vetted few. Anthropic said it has received notice from the U.S. government that Mythos 5, its strongest cybersecurity model, can be redeployed to a small group of organizations that operate and defend American critical infrastructure. The mechanism is a June 26 letter from Commerce Secretary Howard Lutnick that waives the export-license requirement for roughly 100 approved entities. Everyone else — and Mythos 5's public-facing sibling Fable 5 — remains locked out.
+
+The reprieve resolves, for a narrow slice of users, a confrontation that stunned the AI industry when it erupted on June 12. It does not end it.
+
+## What the letter actually does
+
+On June 12, 2026, the government handed Anthropic an emergency export-control directive under the Export Control Reform Act, ordering it to suspend access to Fable 5 and Mythos 5 for any foreign national anywhere in the world — including Anthropic's own non-citizen employees. The company complied by disabling both systems globally. The trigger, according to the administration, was a jailbreaking concern raised after Amazon researchers flagged that the models could be coaxed into producing material useful for cyberattacks.
+
+Lutnick's June 26 letter, addressed to Anthropic's chief compute officer and reviewed by Axios and Bloomberg, partially unwinds that order. "Anthropic has worked with the US government to address risks associated with the Covered Models," Lutnick wrote. "These efforts have yielded significant progress." The operative line is narrow and specific: "A license will no longer be required to export, reexport, or in-country transfer (including deemed exports and reexports) the Claude Mythos 5 Model to entities identified in Annex A to this letter and their foreign national employees, or to Anthropic's foreign national employees."
+
+That carve-out covers three groups: the entities named on "Annex A" — a roughly 100-organization list of vetted critical-infrastructure operators and defenders, plus their foreign-national staff; Anthropic's own foreign-national employees; and U.S. civilian government agencies and national laboratories. The Annex A list itself has not been published, and the specific technical mitigations Anthropic offered to satisfy the government's "diversion-risk" assessment remain undisclosed.
+
+Two restrictions explicitly survive. Fable 5 — the public-facing, partially guardrailed version of the Mythos-class model — is not mentioned anywhere in the letter, meaning its June 12 ban and associated penalties remain fully in force. And for everyone outside Annex A — Claude Pro, Max, Team and Enterprise subscribers, API developers, and non-approved commercial partners — an export license is still required to touch Mythos 5.
+
+## The numbers behind the rollback
+
+The scale of the clawback is worth pinning down. Mythos 5 had been distributed through an invite-only program called Project Glasswing; as of early June, roughly 200 firms had access, including Apple, Google, Cisco, Nvidia and Microsoft. The June 12 order cut that to zero. The June 26 letter restores access to about 100 vetted entities — a partial, government-curated reconstitution of a list Anthropic once managed itself.
+
+Anthropic framed the news as forward motion. "We received notice from the US government that Mythos 5, our strongest cybersecurity model, can be redeployed to a small group of cyber defenders and infrastructure providers," the company said in a statement. "We are working to provision the approved set of providers and restore their access to Mythos 5 as quickly as possible. We are pleased to see this progress and continue to work with the government to expand access to Mythos 5 and make Fable 5 available for general use again."
+
+Commerce cast it as a security win delivered fast. "In just two weeks, we have worked diligently to ensure America remains the global leader in AI while safeguarding our security," said department spokesman Benno Kass. Lutnick, for his part, reserved sweeping discretion: "I reserve the right to reevaluate and adjust the scope of license requirements on the Covered Models, should circumstances change," he wrote, also claiming the right to revise the Annex A roster "at any time."
+
+## A frontier model treated as a munition
+
+Strip away the product names and what happened is striking: the U.S. government took a commercial software product and regulated it like a dual-use export — the same legal regime that governs encryption, centrifuge components, and missile-guidance technology. A frontier AI model is now, in practice, an export-controlled good whose distribution list is approved entity-by-entity in Washington.
+
+That precedent reverberates beyond Anthropic. The same week, OpenAI limited the release of its new GPT-5.6 (Sol) model to a small set of government-cleared partners under administration pressure — a near-identical arrangement, born of the same June 2 cyber executive order. The pattern emerging is that a model's cyber-offense capability, not its commercial readiness, now determines who may use it, and that the labs with the deepest compliance machinery and Washington relationships gain a moat unrelated to model quality. Anthropic warned in its June protest that if this standard "was applied across the industry, we believe it would essentially halt all new model deployments for all frontier model providers," and cautioned that "perfect jailbreak resistance is not currently possible for any model provider." Both claims now read less like hyperbole and more like a description of the new operating environment.
+
+## What to watch
+
+Two dates anchor the next chapter. On July 8, Anthropic's updated privacy policy takes effect, authorizing government-ID and facial-biometric verification for flagged consumer Claude users — the plumbing that could let the company police a tiered, geofenced, identity-gated access regime. And around August 1, a roughly 60-day deadline arrives for federal agencies to stand up the formal AI cyber-assessment framework mandated by the June 2 executive order — the process that will decide whether ad hoc letters like Lutnick's harden into permanent policy. Whether Fable 5 returns for general use, and whether the Annex A model becomes the template for every frontier release, are the questions that will define the second half of 2026.
