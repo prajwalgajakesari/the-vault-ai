@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anthropic Launches Claude Sonnet 5, a Cheaper, More Agentic Model That Rivals Opus - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Anthropic Launches Claude Sonnet 5, a Cheaper, More Agentic Model That Rivals Opus</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 870 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Anthropic's Claude Sonnet 5 delivers near-flagship agentic performance at less than half the price of Opus 4.8, signaling that cheap, reliable autonomy is now the industry's competitive frontier.</p>
+</div>
+<div class="article-body">
+<p>---<br>headline: Anthropic Launches Claude Sonnet 5, a Cheaper, More Agentic Model That Rivals Opus<br>category: llms-genai<br>story_number: 01<br>slug: claude-sonnet-5-agentic-launch<br>date: 2026-06-30<br>---</p>
+<h2>Anthropic Launches Claude Sonnet 5, a Cheaper, More Agentic Model That Rivals Opus</h2>
+<p>Anthropic is betting that the next race in artificial intelligence will be won not by the model that thinks hardest, but by the one that works cheapest. On June 30, the company released Claude Sonnet 5, the most agentic version of its midsize model to date, and priced it aggressively enough to undercut its own flagship, Opus 4.8, as well as competing models from OpenAI and Google. Starting Tuesday, it became the default model for Free and Pro users of Claude.</p>
+<p>The pitch is straightforward: Sonnet 5 can do the autonomous work that only larger, pricier models could handle a few months ago, and it can do it for a fraction of the cost. Anthropic said the model can make plans, use tools like browsers and terminals, and run autonomously for long stretches without human oversight. The company is positioning it as a workhorse for developers building AI agents, where every million tokens of input and output translates directly into an operating expense.</p>
+<h2>Priced to move</h2>
+<p>At launch, Sonnet 5 costs 2 dollars per million input tokens and 10 dollars per million output tokens, an introductory rate that holds through August 31, 2026. After that, pricing rises to 3 dollars and 15 dollars. Even at the higher post-promotion rate, Sonnet 5 remains dramatically cheaper than Opus 4.8, which runs 5 dollars per million input tokens and 25 dollars per million output tokens, and it comes in below OpenAI GPT-5.5 and Google Gemini 3.1 Pro. Anthropic said developers can push costs down further, citing up to 90 percent savings with prompt caching and 50 percent with batch processing.</p>
+<p>The model is available immediately across Anthropics full lineup: Free, Pro, Max, Team, and Enterprise plans, plus Claude Code and the Claude Developer Platform. Alongside the launch, the company also introduced Claude Science, an AI research workbench designed to help scientists analyze data, manage computing workflows, and produce auditable artifacts.</p>
+<h2>Closing the gap with Opus</h2>
+<p>What makes Sonnet 5 notable is not just its price but how close it lands to Anthropics most capable model. On a knowledge-work benchmark (GDPval-AA v2), Sonnet 5 scored 1,618 to Opus 4.8s 1,615, a razor-thin margin that puts the cheaper model slightly ahead on tasks associated with subtle judgment calls and deep research. On Humanitys Last Exam with tools, Sonnet 5 hit 57.4 percent against Opus 4.8s 57.9 percent. On computer use (OSWorld-Verified), it posted 81.2 percent, up from Sonnet 4.6s 78.5 percent.</p>
+<p>Opus still leads where it counts most for engineers. On agentic coding (SWE-bench Pro), Sonnet 5 scored 63.2 percent, well ahead of the 58.1 percent that predecessor Sonnet 4.6 managed in February, but short of Opus 4.8s 69.2 percent. Anthropic was candid about the tradeoff. "Opus 4.8 is still the model of choice for higher accuracy on these tasks, but Sonnet 5 provides developers with lower-priced options that are of much higher quality than what was previously available," the company said. "Between Sonnet 5 and Opus 4.8, users can adjust the effort level to find the right balance of cost and performance."</p>
+<p>Early testers pointed to the models ability to finish jobs that older versions would abandon midway. "We handed Claude Sonnet 5 a two-part job - update Salesforce account tiers, send a launch announcement to enterprise contacts - and it finished end to end," said Daniel Shepard, a senior engineer at Zapier. "That used to stall halfway. For day-to-day automation, its a no-brainer."</p>
+<h2>Why it matters</h2>
+<p>Sonnet 5s release is a signal about where the industry is heading. When Anthropic frames a midsize model around planning, tool use, and autonomy, it echoes the language OpenAI used for its GPT-5.6 Sol preview and Google used for Gemini 3.5 Flash. Agentic capability, once a premium feature reserved for flagship models, is now the baseline expectation at every price tier. The competitive frontier is shifting from who can perform agentic work best to who can do it most cheaply and most reliably without a human watching.</p>
+<p>That shift favors buyers. For companies deploying fleets of AI agents that run continuously, a model that approaches flagship quality at less than half the price changes the math on what is economically viable to automate. It also pressures rivals to justify premium pricing when a cheaper model scores within a rounding error on knowledge work.</p>
+<p>Anthropic paired the launch with a safety pitch, which matters as agents gain autonomy. The company said Sonnet 5 shows lower rates of undesirable behaviors like deception and cooperation with misuse than its predecessor, hallucinates less, and is better at resisting prompt-injection attacks. "At Lovable, were putting powerful tools in the hands of millions of builders," said co-founder Fabian Hedin, who said the model refuses unsafe requests cleanly and consistently. "A model that knows when to say no is just as important as one that knows how to build." Anthropic noted the model still trails Opus on certain misalignment measures and has a much lower ability to perform dangerous cybersecurity tasks.</p>
+<h2>What to watch</h2>
+<p>The introductory pricing expires August 31, and the 50 percent jump in output costs will test how sticky Sonnet 5 proves once the discount ends. Watch, too, whether developers migrate agent workloads down from Opus to Sonnet in bulk, which would validate Anthropics cost-first strategy but could cannibalize its flagship revenue. And with OpenAI and Google shipping their own agentic models on similar timelines, the real contest will be measured not in benchmark points but in how many autonomous tasks these models can complete unattended, and how cheaply.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"We handed Claude Sonnet 5 a two-part job - update Salesforce account tiers, send a launch announcement to enterprise contacts - and it finished end to end. That used to stall halfway. For day-to-day automation, it's a no-brainer."</blockquote>
+          <cite>- Daniel Shepard, Senior Engineer, Zapier</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">$2/$10</div><div class="stat-label">Intro price per M input/output tokens</div></div><div class="stat-cell"><div class="stat-value">$3/$15</div><div class="stat-label">Standard price after Aug 31</div></div><div class="stat-cell"><div class="stat-value">1,618 vs 1,615</div><div class="stat-label">Sonnet 5 vs Opus 4.8 knowledge work</div></div><div class="stat-cell"><div class="stat-value">63.2%</div><div class="stat-label">Agentic coding (SWE-bench Pro)</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techcrunch.com/2026/06/30/anthropic-launches-claude-sonnet-5-as-a-cheaper-way-to-run-agents/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" alt="">Anthropic</a><a href="https://9to5mac.com/2026/06/30/anthropic-upgrades-claude-with-new-sonnet-5-model-details-here/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=9to5mac.com&sz=32" alt="">9to5Mac</a><a href="https://the-decoder.com/anthropics-new-claude-sonnet-5-closes-the-gap-to-the-pricier-opus-model-series/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&sz=32" alt="">The Decoder</a></div></div>
+<div class="article-nav"><a href="02-meituan-longcat-2-domestic-chips.html" class="nav-next">Meituan Open-Sources LongCat-2.0, a 1.6-Trillion-P &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 30, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

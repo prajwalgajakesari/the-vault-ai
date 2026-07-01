@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meituan Open-Sources LongCat-2.0, a 1.6-Trillion-Parameter Model Trained Entirely on Chinese Chips - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Meituan Open-Sources LongCat-2.0, a 1.6-Trillion-Parameter Model Trained Entirely on Chinese Chips</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 873 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Meituan says LongCat-2.0 is the first trillion-parameter model to complete both pre-training and inference entirely on domestic Chinese chips, weakening a core assumption behind US export controls on advanced AI hardware.</p>
+</div>
+<div class="article-body">
+<p>---<br>headline: "Meituan Open-Sources LongCat-2.0, a 1.6-Trillion-Parameter Model Trained Entirely on Chinese Chips"<br>slug: meituan-longcat-2-domestic-chips<br>category: llms-genai<br>story_number: "02"<br>date: 2026-06-30<br>sources:<br>  - name: South China Morning Post<br>    url: https://www.scmp.com/tech/tech-trends/article/3358854/china-debuts-biggest-ai-model-trained-local-chips-meituan-releases-longcat-20<br>    domain: scmp.com<br>  - name: VentureBeat<br>    url: https://venturebeat.com/technology/meituan-open-sources-longcat-2-0-the-1-6t-near-frontier-agentic-coding-model-thats-been-leading-openrouter-trained-entirely-on-chinese-chips<br>    domain: venturebeat.com<br>  - name: SiliconANGLE<br>    url: https://siliconangle.com/2026/06/30/chinas-meituan-open-sources-massive-longcat-2-0-ai-model-saying-trained-domestic-chips/<br>    domain: siliconangle.com<br>  - name: Geopolitechs<br>    url: https://www.geopolitechs.org/p/longcat-20-chinas-most-unexpected<br>    domain: geopolitechs.org<br>  - name: Crypto Briefing<br>    url: https://cryptobriefing.com/meituan-longcat-2-coding-model/<br>    domain: cryptobriefing.com<br>---</p>
+<h2>Meituan Open-Sources LongCat-2.0, a 1.6-Trillion-Parameter Model Trained Entirely on Chinese Chips</h2>
+<p>A company most of the world files under "food delivery" just moved the goalposts in the U.S.-China chip war. On Tuesday, June 30, 2026, Meituan, the Beijing-based on-demand services giant, open-sourced LongCat-2.0, a 1.6-trillion-parameter large language model that it says is the first trillion-parameter system in the industry to complete both full pre-training and inference on a cluster of entirely domestic Chinese chips. If the claim holds up to independent scrutiny, it punctures one of the load-bearing assumptions behind Washington's export-control strategy: that denying China the newest Nvidia hardware would keep it from training frontier-scale models at home.</p>
+<p>The distinction matters more than the parameter count. Chinese labs have run finished models on home-grown silicon for a while now. DeepSeek's flagship V4-pro, launched in April, leaned on domestic chips only for inference — the comparatively light task of answering user queries once a model is already built. Pre-training, by contrast, is where the real compute burden lives: the model chews through trillions of tokens to learn its basic patterns, and it is here that stability, memory pressure and chip-to-chip communication break down at scale. LongCat-2.0, Meituan says, cleared both hurdles on the same hardware.</p>
+<p>"LongCat-2.0 was the industry's first trillion-parameter model to complete full-process training and inference on a 50,000-card domestic computing power cluster," the company said, describing a system built entirely on "large-scale clusters of tens of thousands of AI ASIC superpods" that demonstrate its ability to "conduct frontier-scale training on alternative hardware platforms." An ASIC, or application-specific integrated circuit, is a chip customized for a narrow workload rather than a general-purpose processor.</p>
+<h2>A coding model that leaked out under a false name</h2>
+<p>LongCat-2.0 is a Mixture-of-Experts model: of its 1.6 trillion total parameters, only about 48 billion fire on any given token, which keeps inference costs manageable. Meituan trained it from scratch on more than 30 trillion tokens and tuned the architecture — sparse attention, dynamic token-level compute allocation — for agentic coding rather than generic chatbot performance. It ships with a 1-million-token context window, on par with DeepSeek's latest flagship.</p>
+<p>The performance claims are not trivial either. Meituan reports a score of 59.5 on SWE-bench Pro, edging past GPT-5.5's 58.6 on the same coding benchmark. And developers had, in a sense, already been road-testing it. For weeks the model circulated anonymously on OpenRouter under the codename "Owl Alpha," climbing into the global top three by daily volume before Meituan pulled off the mask. "Owl Alpha on OpenRouter — that's us," the company's LongCat account wrote on X on June 29, confirming the stealth model had ranked first on Hermes Agent and second on Claude Code by monthly volume. The reveal meant LongCat-2.0 arrived with usage and a reputation already attached, rather than waiting for adoption to trickle in.</p>
+<h2>Why it matters</h2>
+<p>The hardware stack is where the geopolitics concentrates — and also where the story gets murky. Meituan integrated the Huawei Collective Communication Library, the chip-to-chip plumbing that replaces Nvidia's NCCL and keeps a distributed training run from collapsing, and observers have pointed to Huawei's Atlas-950 SuperPods as the likely backbone. Yet Meituan has pointedly declined to name a chip supplier or SKU. Its official language, echoed across Xinhua and other state outlets, stops at "domestic chips." Huawei's Ascend line is the market's leading guess, but it remains a guess.</p>
+<p>That silence has not blunted the significance. "In 2026, frontier-scale AI work can emerge from places that American policy and foreign investors were not watching closely enough," wrote the analyst behind the Geopolitechs newsletter, arguing that the binding constraint has quietly shifted. The old question was whether Chinese silicon could, in principle, replace imported accelerators at the high end. The newer, sharper question is whether domestic hardware plus enough brute-force systems engineering can support serious models for real users. LongCat-2.0 is an attempt to answer the second, and Meituan stresses it finished the run with "no rollback and no unrecoverable loss spike" — a nod to just how brittle 50,000-card training jobs can be.</p>
+<p>None of this invalidates the logic behind U.S. export controls. Restrictions still raise costs, slow access and force Chinese firms into harder engineering trade-offs; LongCat-2.0 needed more tokens and more custom plumbing than a comparable Nvidia run might have. But the controls were meant to be a ceiling, not a speed bump, and a food-delivery company clearing that ceiling on open weights is not the outcome Washington was aiming for. It also feeds a broader open-weight contest in which Chinese labs — DeepSeek, Zhipu, Alibaba's Qwen and now Meituan — keep shipping capable models for free while U.S. frontier labs guard their best systems behind paid APIs.</p>
+<h2>What to watch</h2>
+<p>Three things will determine whether LongCat-2.0 is a genuine milestone or a well-staged news cycle. First, whether the open weights and technical reports let outside researchers reproduce the performance and stability claims away from Meituan's own infrastructure. Second, whether the OpenRouter buzz hardens into durable developer adoption under the LongCat name, not just curiosity about the unmasking of Owl Alpha. Third, whether anyone — Meituan, its chip vendor or credible reporting — finally names the silicon that did the work. Until that last question is answered, the most precise thing to say is also the most tantalizing: China has claimed full-scale training on domestic chips, and has not yet said which ones.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"LongCat-2.0 was the industry's first trillion-parameter model to complete full-process training and inference on a 50,000-card domestic computing power cluster."</blockquote>
+          <cite>- Meituan, Company statement</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">1.6T</div><div class="stat-label">Parameters</div></div><div class="stat-cell"><div class="stat-value">1M</div><div class="stat-label">Token context window</div></div><div class="stat-cell"><div class="stat-value">50,000</div><div class="stat-label">Domestic chip cluster cards</div></div><div class="stat-cell"><div class="stat-value">59.5</div><div class="stat-label">SWE-bench Pro score</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.scmp.com/tech/tech-trends/article/3358854/china-debuts-biggest-ai-model-trained-local-chips-meituan-releases-longcat-20" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=scmp.com&sz=32" alt="">South China Morning Post</a><a href="https://venturebeat.com/technology/meituan-open-sources-longcat-2-0-the-1-6t-near-frontier-agentic-coding-model-thats-been-leading-openrouter-trained-entirely-on-chinese-chips" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://siliconangle.com/2026/06/30/chinas-meituan-open-sources-massive-longcat-2-0-ai-model-saying-trained-domestic-chips/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=siliconangle.com&sz=32" alt="">SiliconANGLE</a><a href="https://cryptobriefing.com/meituan-longcat-2-coding-model/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cryptobriefing.com&sz=32" alt="">Crypto Briefing</a></div></div>
+<div class="article-nav"><a href="01-claude-sonnet-5-agentic-launch.html" class="nav-prev">&larr; Anthropic Launches Claude Sonnet 5, a Cheaper, Mor</a><a href="03-google-coding-strike-team-midtraining.html" class="nav-next">Google's AI Coding Strike Team Pivots to Midtraini &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published June 30, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
