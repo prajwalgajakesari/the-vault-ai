@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Vault - AI Edition &middot; June 30, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc}
+*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem}nav .nav-right{margin-left:auto;display:flex;gap:1rem}
+.edition-header{text-align:center;padding:3rem 1.5rem 1.5rem}
+.edition-header .overline{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--accent)}
+.edition-header h1{font-size:2rem;font-weight:800;color:var(--text-strong);margin:.5rem 0}
+.edition-header .date-line{font-size:.9rem;color:var(--text-muted)}
+.stats-row{display:flex;justify-content:center;gap:1.5rem;padding:1rem;flex-wrap:wrap}
+.stats-row .chip{display:flex;align-items:center;gap:.35rem;padding:.3rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:20px;font-size:.8rem;color:var(--text-muted)}
+.stats-row .chip svg{width:14px;height:14px}
+.featured-area{max-width:800px;margin:2rem auto;padding:0 1.5rem}
+.featured-card{display:block;padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:border-color .2s}
+.featured-card:hover{border-color:var(--border-hover)}
+.featured-card .cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:.25rem .6rem;border-radius:4px;margin-bottom:.8rem}
+.featured-card .cat-tag svg{width:12px;height:12px}
+.featured-card h2{font-size:1.4rem;font-weight:700;color:var(--text-strong);margin-bottom:.6rem;line-height:1.3}
+.featured-card p{font-size:.9rem;color:var(--text);margin-bottom:1rem;line-height:1.5}
+.featured-card .read-link{font-size:.85rem;font-weight:600}
+.filter-bar{max-width:800px;margin:1.5rem auto;padding:0 1.5rem;display:flex;gap:.5rem;flex-wrap:wrap}
+.filter-btn{display:flex;align-items:center;gap:.35rem;padding:.4rem .8rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);cursor:pointer;transition:all .2s}
+.filter-btn:hover,.filter-btn.active{border-color:var(--border-hover);color:var(--text-strong)}
+.filter-btn svg{width:14px;height:14px}
+.cat-section{max-width:800px;margin:2rem auto;padding:0 1.5rem}
+.cat-header{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
+.cat-icon{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.cat-icon svg{width:18px;height:18px}
+.cat-header h2{font-size:1.1rem;font-weight:700;color:var(--text-strong)}
+.cat-count{font-size:.75rem;color:var(--text-muted);background:var(--surface);padding:.15rem .5rem;border-radius:10px}
+.card-grid{display:flex;flex-direction:column;gap:.6rem}
+.story-card{display:flex;align-items:flex-start;gap:.8rem;padding:1rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;text-decoration:none;transition:border-color .2s;position:relative;overflow:hidden}
+.story-card:hover{border-color:var(--border-hover)}
+.card-accent{position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .2s}
+.story-card:hover .card-accent{opacity:1}
+.card-num{font-size:.75rem;font-weight:700;min-width:24px;text-align:center;padding-top:.1rem}
+.card-body{flex:1;min-width:0}
+.card-body h3{font-size:.95rem;font-weight:600;color:var(--text-strong);line-height:1.3;margin-bottom:.3rem}
+.card-body .excerpt{font-size:.8rem;color:var(--text-muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:.5rem}
+.card-meta{display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-muted)}
+.read-link{font-weight:600}
+footer{text-align:center;padding:3rem 1.5rem;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:3rem}
+</style></head><body>
+<nav>
+  <a href="../../.."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Home</a>
+  <span class="brand">THE VAULT</span>
+  <div class="nav-right">
+    <a href="../../../archive/">Archive</a>
+    <a href="../../../feed.xml"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
+  </div>
+</nav>
+<header class="edition-header">
+  <div class="overline">DAILY INTELLIGENCE BRIEF</div>
+  <h1>The Vault - AI Edition</h1>
+  <div class="date-line">Tuesday, June 30, 2026</div>
+</header>
+<div class="stats-row">
+  <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> 15 stories</div>
+  <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 14,111 words</div>
+  <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 70 min read</div>
+</div>
+<div class="featured-area">
+      <a href="stories/01-claude-sonnet-5-agentic-launch.html" class="featured-card">
+        <span class="cat-tag" style="color:#a78bfa;background:color-mix(in srgb,#a78bfa 10%,transparent)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+        <h2>Anthropic Launches Claude Sonnet 5, a Cheaper, More Agentic Model That Rivals Opus</h2>
+        <p>Anthropic is betting that the next race in AI will be won not by the model that thinks hardest, but by the one that works cheapest.</p>
+        <span class="read-link" style="color:#a78bfa">Read full story &rarr;</span>
+      </a>
+    </div>
+<div class="filter-bar"><button class="filter-btn active" data-filter="all"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> All</button><button class="filter-btn" data-filter="business" style="--fc:#e8a735"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</button><button class="filter-btn" data-filter="llms-genai" style="--fc:#a78bfa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</button><button class="filter-btn" data-filter="research" style="--fc:#5eead4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</button><button class="filter-btn" data-filter="policy" style="--fc:#fb7185"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</button></div>
+<section class="cat-section" data-cat="business">
+      <div class="cat-header"><div class="cat-icon" style="background:color-mix(in srgb,#e8a735 15%,transparent);color:#e8a735"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h2>Business</h2><span class="cat-count">5</span></div>
+      <div class="card-grid"><a href="stories/06-alphabet-84-billion-equity-raise.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">06</div>
+          <div class="card-body">
+            <h3>Alphabet Closes $84.75 Billion Equity Raise, the Largest AI Infrastructure Financing in Corporate History</h3>
+            <p class="excerpt">Alphabet went to market asking for $80 billion on a Monday. By Tuesday, investors had handed it $84.75 billion and asked to give more.</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#e8a735">Read &rarr;</span></div>
+          </div>
+        </a><a href="stories/07-berkshire-hathaway-alphabet-stake.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">07</div>
+          <div class="card-body">
+            <h3>Berkshire Hathaway Anchors Alphabet's AI Raise With a $10 Billion Private Placement</h3>
+            <p class="excerpt">When Alphabet needed an anchor for the largest equity raise in tech history, it turned to the most famously patient buyer in American finance.</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#e8a735">Read &rarr;</span></div>
+          </div>
+        </a><a href="stories/08-amazon-custom-silicon-20-billion.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">08</div>
+          <div class="card-body">
+            <h3>Amazon's Custom Silicon Hits a $20 Billion Annual Run Rate as AI Chip Diversification Turns Real</h3>
+            <p class="excerpt">Every hyperscaler talked about building its own chips, then kept writing checks to Nvidia. Amazon just put a number on the alternative.</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#e8a735">Read &rarr;</span></div>
+          </div>
+        </a><a href="stories/09-bmw-300-million-ai-fund.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">09</div>
+          <div class="card-body">
+            <h3>BMW i Ventures Launches a $300 Million Fund Targeting Agentic and Physical AI Startups</h3>
+            <p class="excerpt">BMW's venture arm has decided the future of the automobile will be decided as much on the factory floor as on the road.</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#e8a735">Read &rarr;</span></div>
+          </div>
+        </a><a href="stories/10-pocket-ai-note-taking-funding.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">10</div>
+          <div class="card-body">
+            <h3>Pocket Raises $11 Million as AI Note-Taking Hardware Finds a Real Market</h3>
+            <p class="excerpt">The graveyard of AI hardware is littered with gadgets that promised to replace the phone. Pocket's difference this time is traction.</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#e8a735">Read &rarr;</span></div>
+          </div>
+        </a></div>
+    </section><section class="cat-section" data-cat="llms-genai">
+      <div class="cat-header"><div class="cat-icon" style="background:color-mix(in srgb,#a78bfa 15%,transparent);color:#a78bfa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><h2>Llms Genai</h2><span class="cat-count">5</span></div>
+      <div class="card-grid"><a href="stories/01-claude-sonnet-5-agentic-launch.html" class="story-card" data-cat="llms-genai">
+          <div class="card-accent" style="background:#a78bfa"></div>
+          <div class="card-num" style="color:#a78bfa">01</div>
+          <div class="card-body">
+            <h3>Anthropic Launches Claude Sonnet 5, a Cheaper, More Agentic Model That Rivals Opus</h3>
+            <p class="excerpt">Anthropic is betting that the next race in AI will be won not by the model that thinks hardest, but by the one that works cheapest.</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#a78bfa">Read &rarr;</span></div>
+          </div>
+        </a><a href="stories/02-meituan-longcat-2-domestic-chips.html" class="story-card" data-cat="llms-genai">
+          <div class="card-accent" style="background:#a78bfa"></div>
+          <div class="card-num" style="color:#a78bfa">02</div>
+          <div class="card-body">
+            <h3>Meituan Open-Sources LongCat-2.0, a 1.6-Trillion-Parameter Model Trained Entirely on Chinese Chips</h3>
+            <p class="excerpt">A company most of the world files under food delivery just moved the goalposts in the U.S.-China chip war with a 1.6-trillion-parameter open model.</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#a78bfa">Read &rarr;</span></div>
+          </div>
+        </a><a href="stories/03-google-coding-strike-team-midtraining.html" class="story-card" data-cat="llms-genai">
+          <div class="card-accent" style="background:#a78bfa"></div>
+          <div class="card-num" style="color:#a78bfa">03</div>
+          <div class="card-body">
+            <h3>Google's AI Coding Strike Team Pivots to Midtraining After Losing Six Researchers in Five Months</h3>
+            <p class="excerpt">Ten weeks after Sergey Brin scrambled an emergency strike team to rescue Google from Anthropic's lead in AI coding, the effort has been redrawn.</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#a78bfa">Read &rarr;</span></div>
+          </div>
+        </a><a href="stories/04-github-copilot-metered-billing-fallout.html" class="story-card" data-cat="llms-genai">
+          <div class="card-accent" style="background:#a78bfa"></div>
+          <div class="card-num" style="color:#a78bfa">04</div>
+          <div class="card-body">
+            <h3>GitHub Copilot's First Metered Billing Cycle Closes With Bills 10x to 50x Higher for Power Users</h3>
+            <p class="excerpt">GitHub promised a fairer system that would charge developers for what they consumed. On June 30, the first full cycle closed and the invoices landed.</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#a78bfa">Read &rarr;</span></div>
+          </div>
+        </a><a href="stories/05-google-nano-banana-free-expansion.html" class="story-card" data-cat="llms-genai">
+          <div class="card-accent" style="background:#a78bfa"></div>
+          <div class="card-num" style="color:#a78bfa">05</div>
+          <div class="card-body">
+            <h3>Google Opens Nano Banana Personalized Image Generation to Free Gemini Users in the US</h3>
+            <p class="excerpt">Google is betting the fastest way to hook casual users on generative AI is to let them turn themselves and their pets into custom artwork for free.</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#a78bfa">Read &rarr;</span></div>
+          </div>
+        </a></div>
+    </section><section class="cat-section" data-cat="research">
+      <div class="cat-header"><div class="cat-icon" style="background:color-mix(in srgb,#5eead4 15%,transparent);color:#5eead4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><h2>Research</h2><span class="cat-count">1</span></div>
+      <div class="card-grid"><a href="stories/15-neuromorphic-artificial-skin-robots.html" class="story-card" data-cat="research">
+          <div class="card-accent" style="background:#5eead4"></div>
+          <div class="card-num" style="color:#5eead4">15</div>
+          <div class="card-body">
+            <h3>Researchers Unveil Neuromorphic Artificial Skin That Lets Robots Feel Touch and Pain in Real Time</h3>
+            <p class="excerpt">A team at City University of Hong Kong built an artificial skin that fires protective reflexes for robots without routing the emergency through a brain.</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#5eead4">Read &rarr;</span></div>
+          </div>
+        </a></div>
+    </section><section class="cat-section" data-cat="policy">
+      <div class="cat-header"><div class="cat-icon" style="background:color-mix(in srgb,#fb7185 15%,transparent);color:#fb7185"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h2>Policy</h2><span class="cat-count">4</span></div>
+      <div class="card-grid"><a href="stories/11-raise-us-worker-retraining.html" class="story-card" data-cat="policy">
+          <div class="card-accent" style="background:#fb7185"></div>
+          <div class="card-num" style="color:#fb7185">11</div>
+          <div class="card-body">
+            <h3>RAISE US Launches With $500 Million to Retrain American Workers for the AI Economy</h3>
+            <p class="excerpt">America has a plan to win the race to build AI. It does not yet have a plan for the people the technology leaves behind.</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#fb7185">Read &rarr;</span></div>
+          </div>
+        </a><a href="stories/12-meta-contractors-minors-chatbot-testing.html" class="story-card" data-cat="policy">
+          <div class="card-accent" style="background:#fb7185"></div>
+          <div class="card-num" style="color:#fb7185">12</div>
+          <div class="card-body">
+            <h3>Meta Hired Hundreds of Contractors to Pose as Minors and Probe Rival AI Chatbots</h3>
+            <p class="excerpt">Meta ran a covert operation in which contractors posed as children to stress-test the guardrails of its rivals' chatbots, a WIRED investigation found.</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#fb7185">Read &rarr;</span></div>
+          </div>
+        </a><a href="stories/13-taiwan-supermicro-server-diversion.html" class="story-card" data-cat="policy">
+          <div class="card-accent" style="background:#fb7185"></div>
+          <div class="card-num" style="color:#fb7185">13</div>
+          <div class="card-body">
+            <h3>Taiwan Investigates Alleged Diversion of Super Micro AI Servers to China</h3>
+            <p class="excerpt">Taiwanese prosecutors raided Super Micro's local offices in a widening probe into whether high-end AI servers were illegally diverted to China.</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#fb7185">Read &rarr;</span></div>
+          </div>
+        </a><a href="stories/14-scotus-geofence-warrant-ruling.html" class="story-card" data-cat="policy">
+          <div class="card-accent" style="background:#fb7185"></div>
+          <div class="card-num" style="color:#fb7185">14</div>
+          <div class="card-body">
+            <h3>Supreme Court Limits Geofence Warrants in a Landmark Digital-Privacy Ruling</h3>
+            <p class="excerpt">The Supreme Court ruled that compelling a tech company to sweep up location data from everyone near a crime scene is a Fourth Amendment search.</p>
+            <div class="card-meta"><span>4 min</span><span class="read-link" style="color:#fb7185">Read &rarr;</span></div>
+          </div>
+        </a></div>
+    </section>
+<footer>The Vault - AI Edition &middot; June 30, 2026<br>Curated daily at <a href="https://news.promtvault.app" style="color:var(--accent);text-decoration:none">news.promtvault.app</a></footer>
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.cat-section').forEach(s=>{s.style.display=(f==='all'||s.dataset.cat===f)?'':'none'});
+  });
+});
+</script>
+</body></html>
