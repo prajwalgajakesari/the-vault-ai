@@ -1,0 +1,35 @@
+# Alphabet Closes $84.75 Billion Equity Raise, the Largest AI Infrastructure Financing in Corporate History
+
+Alphabet went to the market asking for $80 billion on a Monday. By Tuesday, investors had handed it $84.75 billion and asked to give more. The upsizing of Google's parent company's equity raise, priced on June 2, 2026, after being announced just a day earlier, is the largest equity capital raise ever undertaken by a major technology company, a single-stroke financing of the artificial intelligence buildout on a scale that reframes what the AI arms race now costs to enter. The underwritten portion was oversubscribed, with roughly $35 billion in orders chasing an offering originally sized at $30 billion, and the whole package is engineered to pour capital into the one thing Alphabet says it does not have enough of: compute.
+
+The rationale, stated plainly in Alphabet's filing with the Securities and Exchange Commission, is that the company is "experiencing strong demand for its AI solutions and services from enterprises and consumers, at levels that are exceeding the company's available supply." That is the compressed corporate version of a warning CEO Sundar Pichai has been sounding for months: Google can sell more AI than it can currently build the infrastructure to deliver. "By scaling its investments, the company seeks to expand its foundational infrastructure to support the significant growth opportunity ahead," the company said.
+
+## How the $84.75 billion breaks down
+
+The raise is built from three distinct instruments. The centerpiece is a $30 billion underwritten public offering, split between roughly $15 billion in Class A and Class C common stock and $15 billion in depositary shares representing 6.25% mandatory convertible preferred stock that converts into common equity no later than 2029. Goldman Sachs, J.P. Morgan and Morgan Stanley led the book, and demand ran hot enough that allocations settled closer to $35 billion once over-allotment options and upsized tranches were folded in.
+
+The second instrument is a $40 billion at-the-market program, under which Alphabet can drip Class A and Class C shares into the open market at prevailing prices beginning in the third quarter of 2026. Notably, that tranche is not primarily aimed at AI capital expenditure; its main function is covering roughly $30 billion in tax obligations tied to employee equity-award vesting. Only the underwritten offering and the third instrument are explicitly directed at infrastructure.
+
+That third instrument is the one that made the deal impossible to ignore: a $10 billion private placement to Berkshire Hathaway. The conglomerate, now led by Greg Abel after Warren Buffett's decades at the helm, first bought Alphabet in the third quarter of 2025 and tripled the position in early 2026. Its participation here, at prices modestly below market, hands the raise an anchor of blue-chip conviction from a firm historically allergic to capital-hungry technology bets. Combined with earlier purchases, Berkshire's total Alphabet exposure now exceeds $26 billion.
+
+## The compute constraint driving the spend
+
+Pichai has framed the entire buildout as a scarcity problem rather than a demand problem. "We are compute constrained in the near term," he told analysts, adding that cloud revenue "would have been higher if we were able to meet the demand." Google Cloud posted roughly $20 billion in first-quarter revenue, up 63% year over year, and its contracted backlog swelled past $460 billion, orders the company physically cannot fill without more data centers, more custom silicon and more networking to lash it all together.
+
+The efficiency story runs alongside the scarcity one. Since the launch of Gemini 3, Alphabet says it has cut the cost of core AI responses by more than 30%, a gain it can only capture because it designs both the models and the Tensor Processing Units that run them. Those savings, in turn, make each incremental dollar of infrastructure spend more productive, which is the economic argument for spending tens of billions more.
+
+And more is coming. Alphabet's 2026 capital-expenditure guidance stands at $180 billion to $190 billion, nearly double the prior year, with first-quarter capex alone hitting $35.7 billion. CFO Anat Ashkenazi has told investors that 2027 spending will "significantly increase" again. This equity raise, in other words, is not a one-time top-up. It is the opening move of a multi-year financing posture.
+
+## Out-investing the field
+
+The strategic logic is that in AI, capacity is destiny. Troy Hooper, co-head of equity capital markets for the Americas at Mergermarket, said Alphabet's move underscored the intensity of the race. "For hyperscalers, compute capacity is a direct driver of future revenue," he said. "By leaning into equity, Alphabet is bringing in permanent capital rather than burdening a balance sheet already absorbing record capex."
+
+Hooper laid out the calculus that every hyperscaler is now running. "The logic is simple: under-investing is an existential risk; over-investing is merely expensive," he said. "Ownership at scale lowers the marginal cost of training advanced models, building a moat smaller competitors will struggle to match. The winners of the AI era will be decided not just by algorithms, but by who owns the largest and most efficient compute platforms."
+
+The numbers around Alphabet make the point. The four largest US cloud players are collectively on track to spend more than $700 billion on infrastructure in 2026 by Goldman Sachs' count, roughly three-quarters of it aimed at AI. Choosing equity over debt is itself a statement: Alphabet had already raised more than $85 billion in bonds over the prior year, pushing long-term debt from $46.5 billion to $77.5 billion in a single quarter, and equity brings permanent capital without adding to that load.
+
+The cost is dilution, and it reverses a decade of habit. Alphabet has repurchased more than $346 billion of its own stock since 2016, shrinking its share count and lifting earnings per share. This raise ends that tailwind and, through the ATM program, will feed new shares into the market for quarters to come. The stock's reaction reflected the tension: GOOGL fell about 3.5% when the raise was announced and slipped further on pricing, even as the Berkshire anchor cushioned the blow.
+
+## What to watch
+
+The raise lands at a delicate moment. Talent departures wiped an estimated $269 billion from Alphabet's market capitalization in the week of June 18 to 24, a reminder that the AI advantage rests on people as much as on silicon. The question the market is now pricing is not whether AI demand is real, but whether returns on infrastructure of this magnitude arrive fast enough to justify diluting shareholders today. Watch the pace of the ATM sales through the back half of 2026, whether Google Cloud's backlog keeps compounding faster than capacity, and whether rivals answer $84.75 billion with raises of their own. Alphabet has just set the ante for the most expensive table in technology.
