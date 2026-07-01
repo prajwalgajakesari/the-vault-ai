@@ -1,0 +1,31 @@
+# Taiwan Investigates Alleged Diversion of Super Micro AI Servers to China
+
+Taiwanese prosecutors have escalated the island democracy first criminal crackdown on artificial-intelligence hardware smuggling, raiding the local offices of Super Micro Computer and sweeping through nine sites in a widening investigation into whether high-end AI servers were illegally diverted to China in violation of U.S. export controls.
+
+On June 29, investigators from Taiwan Keelung District Prosecutors Office searched 12 locations in total, according to reporting by Bloomberg, Reuters, and the Wall Street Journal. Among the targets were Super Micro Taiwan branch and two publicly listed local firms, Albatron Technology Co. and Chief Telecom Inc., along with the private residences of six individuals. The number of people under investigation grew from three to nine as the probe expanded. Super Micro shares fell as much as 9 percent on the news.
+
+At the center of the case are roughly 50 high-end Super Micro servers equipped with Nvidia AI accelerators that authorities allege were routed into China, Hong Kong, and Macau using forged documents and fraudulent customs declarations. Prosecutors say at least a portion of the machines cleared Taiwan customs inspection before being re-routed to China by way of Japan. The servers seized earlier in the year form the physical backbone of the widening inquiry.
+
+## A Company Already Under the Microscope
+
+The Taiwan raids do not exist in a vacuum. In March 2026, the U.S. Department of Justice unsealed an indictment charging Super Micro co-founder Yih-Shyan "Wally" Liaw, then a board member and senior vice president of business development, with conspiring to divert roughly \$2.5 billion worth of Nvidia-equipped servers to China through a Southeast Asian front company. Prosecutors describe an elaborate scheme involving dummy servers, a warehouse stocked with thousands of fakes, and serial-number labels peeled off with hair dryers to deceive auditors about where the real hardware was headed.
+
+Liaw pleaded not guilty, was released on a \$5 million bond, and resigned all his positions the day after his March 19 arrest. His trial is set for November 2. Two alleged co-conspirators were also charged: Super Micro Taiwan general manager Ruei-Tsang "Steven" Chang, who remains a fugitive, and a third-party fixer, Ting-Wei "Willy" Sun. Liaw faces up to 20 years in prison if convicted.
+
+Crucially, Super Micro itself has not been charged in either the U.S. or Taiwan proceedings. In a statement responding to the raids, the company said it is "working closely with Taiwanese authorities" and "remains committed to protecting its technology and intellectual property," adding that its products "continued to be targeted in the smuggling cases" and that it is cooperating with law enforcement in Taiwan and other jurisdictions. Chief Executive Charles Liang has insisted that no one beyond the indicted employees was involved.
+
+Yet the San Jose company brings a long compliance shadow to the matter. In 2020, the SEC charged Super Micro over understated expenses and aggressive revenue recognition between 2015 and 2017, a case settled for a \$17.5 million penalty and financial restatements. The firm was briefly delisted from Nasdaq in 2018. In 2024, short-seller Hindenburg Research alleged fresh accounting irregularities and export-control violations, and the company auditor, Ernst and Young, resigned rather than stand behind management financials.
+
+## AI Servers as Strategic Assets
+
+The probe lands at a moment when advanced AI hardware has become one of the most contested commodities in geopolitics. Since 2022, Washington has restricted exports of Nvidia most powerful accelerators, cutting China off from the A100, H100, and later the H200. Nvidia responded by designing throttled parts such as the H20 for the Chinese market. In January 2026, the Trump administration eased some restrictions on the H200 under strict conditions, but unauthorized exports remain a serious federal crime.
+
+That patchwork of rules, combined with insatiable Chinese demand for training-grade silicon, has fueled a thriving gray and black market. In late 2025, federal prosecutors in Texas shut down a China-linked ring accused of smuggling at least \$160 million in Nvidia H100 and H200 GPUs. Chinese customs authorities, meanwhile, have launched their own port crackdown on Nvidia shipments, targeting H20 and RTX 6000D hardware bound for data centers.
+
+"The Super Micro case exposes the limits of U.S. AI export controls," analysts have noted, pointing to how easily complete servers, not just loose chips, can be laundered through intermediary firms and third countries. Because export enforcement historically focused on individual components, fully assembled systems packed with restricted GPUs have proven a lucrative and harder-to-track vector. Taiwan willingness to raid a major U.S. supplier signals that the choke points in the AI supply chain now run through Taipei as much as Washington.
+
+## What to Watch
+
+The immediate questions are how far up the corporate chain the alleged conduct reaches and whether Taiwan prosecutors, following the U.S. lead, will file formal charges against corporate entities rather than only individuals. The involvement of listed firms Albatron and Chief Telecom suggests investigators are mapping a broader logistics network, not a lone bad actor.
+
+For Super Micro, the reputational and financial stakes are steep: a company that has spent two years rebuilding investor trust after accounting scandals now faces a second sovereign investigation into the very product line driving its AI-era growth. For policymakers, the case is a live test of whether export controls can be enforced at the assembled-system level, or whether AI compute will keep leaking across borders faster than regulators can plug the gaps. The November trial of Wally Liaw, and any expansion of the Taiwan probe beyond its current nine subjects, will show which way the enforcement tide is turning.
