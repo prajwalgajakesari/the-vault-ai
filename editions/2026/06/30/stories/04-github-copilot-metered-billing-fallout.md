@@ -1,0 +1,31 @@
+# GitHub Copilot's First Metered Billing Cycle Closes With Bills 10x to 50x Higher for Power Users
+
+When GitHub flipped the switch to usage-based billing on June 1, 2026, the company promised a fairer system that would charge developers for what they actually consumed. On June 30, the first full 30-day cycle closed and the invoices landed. For the platform's heaviest users, fairness looked a lot like sticker shock: agentic developers who spent the month running autonomous coding sessions on frontier models reported bills 10 to 50 times higher than the flat subscriptions they had grown comfortable paying.
+
+The math is brutal at the top end. On Reddit and X, one developer posted that a plan costing roughly "$29 per month" was on track to balloon to nearly "$750 a month" under the new model. "This new usage model is just stupidly expensive," the developer wrote. "I'm adjusting mine by cancelling. At that cost, it is no longer cost-effective or useful in any practical way." Another user shared a screenshot suggesting their costs had jumped from around $50 to some $3,000 for the month, writing simply: "WOW, didn't expect new pricing model to be this ridiculous."
+
+## How the meter runs
+
+The mechanics are straightforward, even if the outcomes are not. GitHub replaced its old premium-request counters with GitHub AI Credits, priced at 1 credit = $0.01 and consumed at each model's published per-token API rate for input, output, and cached tokens. Every plan ships with a monthly allotment: Copilot Pro includes 1,500 credits, Pro+ 7,000, Business 1,900 per user, and Enterprise 3,900 per user. Paid plans can buy more once the allotment runs dry, with no ceiling unless the user sets one manually.
+
+Crucially, the everyday features most developers rely on stay free. Inline code completions and Next Edit suggestions do not touch the meter. What burns credits are the expensive, compute-heavy workloads: agentic sessions, premium frontier models, multi-step tasks, and automated code review. And those workloads are precisely where costs spiral. GitHub's own research, published in May 2026, found that agentic coding tasks can consume roughly 1,000 times more tokens than a standard single-turn query. When Copilot runs an agent, the model decides how many internal calls to make, how much context to load, and how many iterations to run. A developer who kicks off one task can trigger dozens of metered calls without ever seeing them. A single agentic session can cost $30 to $40 on its own.
+
+## "Not the same product it was a year ago"
+
+GitHub has not shied away from the shift. CPO Mario Rodriguez, who first announced the transition, framed it as a reckoning with what Copilot has become. "Copilot is not the same product it was a year ago," Rodriguez said. The tool that once autocompleted a line of Python now dispatches swarms of sub-agents that churn for hours, and the flat $10 and $19 seats built for the autocomplete era were never designed to absorb that.
+
+The subsidy math backs him up. "Holy fuck how much money was copilot losing," one developer asked in a widely upvoted thread, and it is a fair question. For years the flat rate meant heavy agentic users were being underwritten by the company and, indirectly, by casual users. The GitHub community discussion announcing the change drew more than 400 comments and roughly 900 downvotes, a clear signal that the people affected were the ones who had leaned into agentic workflows hardest.
+
+Not everyone is sympathetic. "The only way it gets crazy like that is if you are purely vibe coding with a ton of bloated iterations," one Copilot user shot back at the $3,000 screenshots. "It's pretty affordable for even small outfits if used as a tool." Others pointed the finger at Microsoft for building a system that made it trivially easy to spawn hundreds of sub-agents on a single request, then changing the rules.
+
+## The end of flat-rate AI
+
+Zoom out and the Copilot fallout is less an anomaly than a milestone. The economics of inference do not bend to flat pricing: every token an agent consumes costs real GPU time, and a subscription that charges the vibe-coder and the light user the same $19 either overcharges the casual developer or hemorrhages money on the power user. The industry has been converging on this reality for a year. Cursor moved to usage-based billing in June 2025; Windsurf followed in March 2026. The market is settling into a recognizable shape: a roughly $20 Pro tier for everyday work and a roughly $200 power tier for heavy consumption, with metered overages beyond that.
+
+GitHub is also retiring its annual plans, removing the one mechanism that let customers lock in predictable costs, a move that reinforces the pivot to consumption-based revenue. Notably, one competitor is swimming against the tide: Claude Code applies no token metering on its Pro plan, a positioning that suddenly looks like a deliberate migration magnet for developers nursing $750 invoices.
+
+There is a twist, too. GitHub CTO Vladimir Fedorov told employees that June set an internal usage record, arguing the metered model removed adoption barriers in cost-sensitive markets where the old subscription was out of reach. In other words, the same pricing change that enraged power users may have expanded the base of casual ones, whose bills can run as low as $2 to $3 a month.
+
+## What to watch
+
+The real test is retention. A record June following a fundamental pricing change could be a novelty spike; July and August churn will reveal whether the outrage translates into an exodus or subsides once developers add spending caps and prune their agent usage. Watch whether rivals like Cursor and Anthropic capitalize on the discontent, whether GitHub sweetens its allotments or tightens its cost-control dashboards, and whether enterprise customers, who ran budget simulations for weeks before June 1, quietly expand or quietly cap. What is no longer in question is the direction: the era of all-you-can-eat AI coding is over, and the meter is running.
