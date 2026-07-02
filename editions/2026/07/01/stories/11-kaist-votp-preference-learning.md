@@ -1,0 +1,33 @@
+Teaching a robot what humans actually want has long been one of the most expensive problems in artificial intelligence. To build the internal scorecard that tells a machine which action is better than another, engineers have typically paid people to sit and judge thousands to tens of thousands of robot behaviors, one clip at a time. A team at KAIST says it can now do the same job with roughly ten videos.
+
+On June 10, the Korea Advanced Institute of Science and Technology announced VOTP — Video-based Optimal TransPort Preference — a technique that lets an AI system learn human judgment criteria from just a handful of preference videos rather than an ocean of hand-labeled comparisons. The work, titled "Video-Based Optimal Transport for Feedback-Efficient Offline Preference-Based Reinforcement Learning," was accepted to ICML 2026 and selected for an Oral presentation, a distinction reserved for 168 papers — the top 0.7% — out of 23,918 submissions. The conference runs this July at COEX in Seoul.
+
+## The reward-function bottleneck
+
+The problem VOTP attacks sits at the heart of physical AI, the label the field now uses for machines that move and act in the real world: factory robots, autonomous vehicles, surgical systems, drones. Before any of them can behave the way people want, they need a reward function — a mathematical yardstick that separates good behavior from bad. A surgical robot deciding how to suture, or a self-driving car threading a crowded intersection, is choosing among enormous numbers of possible actions, and the reward function is what steers it toward the ones a human would approve of.
+
+Building that yardstick has historically meant brute-force human labor. People watch robot actions and rank them, again and again, thousands to tens of thousands of times, until the model has enough signal to generalize. It is slow, costly, and — as KAIST frames it — a genuine barrier to commercializing physical AI.
+
+VOTP's premise borrows from how people learn. Humans do not need thousands of examples to grasp a new task; a few good and bad demonstrations usually suffice. The KAIST team, led by Professor Chang D. Yoo of the School of Electrical Engineering, built a system that works the same way. According to the researchers, VOTP can grasp human-preferred behavior patterns from only around ten "good" demonstration videos and ten "bad" ones.
+
+## How optimal transport does the heavy lifting
+
+The technical machinery has two parts. First, VOTP leans on video foundation models — large models pretrained to understand motion and visual scenes — to build a rich representation of what robot behavior looks like. Second, it applies optimal transport, a mathematical method for measuring and aligning distributions, to compare unlabeled robot trajectories against the small set of labeled examples.
+
+In practice, the system uses optimal transport to align visual trajectories inside the foundation model's representation space, then automatically generates high-fidelity pseudo-labels for large quantities of unlabeled data. That is what collapses the annotation burden: instead of a human scoring every clip, an expert labels a few, and the algorithm infers likely preferences across the rest. KAIST describes VOTP as a semi-supervised framework that learns an effective reward function from only a handful of labels, and says it validated the approach on real robotic tasks, reporting strong efficiency and generalization across varied environments.
+
+"The core of physical AI is making machines understand human intentions and choose the correct actions," Professor Yoo said in the announcement. "Since VOTP can learn human judgment criteria with only a small number of videos, it is a core technology that will accelerate the era of robots making human-like judgments."
+
+The first author is Tung M. Luu, a PhD student in the School of Electrical Engineering, with M.S. candidate Hwanhee Kim listed as a co-author. The work was supported by Korea's Institute for Information & Communication Technology Planning & Evaluation and the National Research Foundation, funded by the Ministry of Science and ICT.
+
+## Why sample-efficient preference learning matters
+
+VOTP lands in the middle of one of AI's most consequential trends: the shift from learning by labels to learning by preference. The same reward-modeling machinery that aligns chatbots through reinforcement learning from human feedback (RLHF) is what physical AI needs to align robots — and in both domains, human annotation is the expensive, rate-limiting step. Every time a lab wants a model to reflect nuanced human judgment, it pays for the labels, and those costs scale badly.
+
+Cutting the required feedback from tens of thousands of comparisons to a couple dozen videos changes the economics. It means a domain expert — a surgeon, a warehouse supervisor, a driving instructor — could sit down, pick a few representative clips of right and wrong behavior, and let the system extrapolate. KAIST argues that when introducing a new robot to an industrial site, an expert could evaluate just a few field videos and let the AI learn optimal behavior from there, compressing testing periods and data-building costs. The team also points to software agents that operate a computer screen as a candidate beneficiary, since they, too, need to learn what a satisfactory outcome looks like.
+
+The offline framing matters as well. Because VOTP is designed for offline, feedback-efficient preference-based reinforcement learning, it can learn from pre-recorded data without an expensive interactive loop — a practical fit for high-stakes settings where letting a half-trained robot explore freely is unsafe.
+
+## What to watch
+
+The claims to test are the ones that always separate a striking demo from a deployable method. First, generalization: whether ten-video training holds up on messy, long-horizon, real-world tasks rather than curated benchmarks, and how gracefully performance degrades when the demonstrations are imperfect or ambiguous. Second, the pseudo-label trap — a reward model built on machine-inferred preferences can quietly encode the wrong objective, and reward hacking is a well-documented failure mode in RLHF that VOTP will have to prove it resists. Third, adoption: the paper goes public at ICML in Seoul this month, and the real signal will be whether robotics and agent labs beyond KAIST pick up optimal-transport pseudo-labeling as a standard tool for stretching scarce human feedback. If they do, the handful-of-videos approach could become one of the quieter but more important cost curves bending in physical AI.
