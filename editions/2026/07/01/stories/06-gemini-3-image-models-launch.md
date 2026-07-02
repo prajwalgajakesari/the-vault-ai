@@ -1,0 +1,29 @@
+Google shipped two image models on Tuesday, and neither one was the model everybody is waiting for.
+
+On June 30, 2026, Google released Gemini 3.1 Flash Image and Gemini 3 Pro Image, both available immediately through Google AI Studio and the Gemini API. Flash Image is priced at $0.50 per million input tokens and $3.00 per million output; Pro Image runs $2.00 input and $12.00 output. They arrive as Gemini 3.5 Pro, Google's next flagship language model, continues to slip its launch date, leaving the company to fill its lineup with the models it can ship on time rather than the one it promised.
+
+The split is deliberate. Flash Image targets high-volume, cost-sensitive generation, where teams will trade some quality for speed and a cheaper per-image bill. Pro Image targets the opposite end: quality-first work for design, marketing, and enterprise creative production, where a single hero image justifies a higher token cost. Both plug into what Google describes as a unified multimodal endpoint that handles text and image generation in a single API call, cutting the integration overhead for applications that mix content types instead of routing image jobs to a separate model like Imagen.
+
+## Two models, two price points
+
+The pricing tells the whole positioning story. At $0.50 input and $3.00 output, Flash Image is built for scale: think product-catalog generation, social-content pipelines, and any workflow where a company generates thousands of images a day and cares more about unit economics than about a jury-worthy composition. Pro Image, at $2.00 input and $12.00 output, costs four times as much on both sides of the ledger and is aimed at the jobs where that premium is defensible.
+
+That four-times spread is a bet that image generation is bifurcating the same way text generation already has, into a cheap-and-fast tier and a slow-and-premium tier, with buyers self-sorting by use case. The unified endpoint is the connective tissue: rather than maintaining a separate image pipeline, developers already calling Gemini for text can request an image in the same round trip. For teams building multimodal apps, that is a real reduction in plumbing, and it is the kind of developer-experience advantage that is easy to underrate and hard for rivals to match quickly.
+
+## Filling the lineup while the flagship slips
+
+The subtext of Tuesday's launch is timing. Gemini 3.5 Pro did not ship in June, the window Sundar Pichai pointed to at Google I/O on May 19. It is now expected in July, with Google citing feedback from enterprise testers about excessive token consumption in extended agentic tasks, the long-horizon workflows where a model chews through context and runs up bills faster than customers can stomach. No firm July date has been confirmed.
+
+Google has been explicit that the image models are not a stand-in for that flagship. As the company's July 1 recap framed it, the two image models are separate models in the Gemini lineup that do not substitute for the 3.5 Pro launch. The releases expand Google's multimodal coverage without forcing 3.5 Pro to carry the entire summer narrative on its own. For a company under constant pressure to show cadence, shipping two production models on schedule is a way to keep the release drumbeat going while the headline act finishes rehearsing.
+
+That the delay traces to token consumption is telling. Enterprises spent the second quarter of 2026 recoiling from agentic AI bills, a phenomenon the industry took to calling tokenmaxxing, where autonomous agents burned through annual budgets in weeks. Google is refusing to ship a flagship that makes the problem worse, and it is willing to eat the optics of a slipped deadline to avoid it. Given that Gemini 3.5 Flash already drew criticism for burning tokens too quickly, the caution is understandable, even if the delay is not a good look.
+
+## Cadence versus the competition
+
+The move lands in a market defined by relentless release velocity. The same week, Anthropic launched Claude Sonnet 5 and made it the default for every free and Pro user, pricing it at an introductory $2 input and $10 output specifically to answer enterprise sticker shock on agent costs. OpenAI, meanwhile, is preparing to deploy GPT-5.6 on Cerebras hardware for select customers and has slipped its own timelines. Everyone is shipping constantly, and everyone is fighting the same battle over the cost of running agents at scale.
+
+Against that backdrop, Google's image releases read as a hedge. Where Anthropic is leaning hard into cheaper agentic coding and OpenAI is chasing raw inference speed, Google is quietly widening its multimodal moat, an area where its unified-endpoint approach and existing Imagen lineage give it a structural edge. Image generation is not where the frontier-model prestige battle is being fought, which is precisely why it is a safe place to demonstrate cadence while the riskier flagship gets another month of tuning. It keeps developers inside the Gemini ecosystem and gives Google something concrete to point to in a quarter when its most important launch keeps sliding.
+
+## What to watch
+
+Three things over the next few weeks. First, whether Gemini 3.5 Pro actually ships in July, or slips again; a second miss would turn a schedule story into a credibility story. Second, whether the token-consumption fixes cited for the delay show up as measurably lower agentic costs when the model lands, because that is the metric enterprises will judge it on. Third, how Flash Image and Pro Image perform on independent image-generation leaderboards against rivals from OpenAI, Black Forest Labs, and others, which will reveal whether the four-times price spread between Google's own two tiers reflects a genuine quality gap or just clever segmentation. For now, Google has bought itself time, and a little more of the multimodal market, without its flagship having to say a word.
