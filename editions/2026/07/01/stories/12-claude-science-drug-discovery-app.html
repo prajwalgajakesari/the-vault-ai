@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anthropic Launches Claude Science, a Dedicated AI App for Drug Discovery and Biology &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Anthropic Launches Claude Science, a Dedicated AI App for Drug Discovery and Biology</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 980 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Anthropic launched Claude Science, a dedicated AI workbench for drug discovery and biology, backed by a $400M Coefficient Bio acquisition and Nobel laureate John Jumper, escalating a three-way AI-for-science race with OpenAI and Google.</p>
+</div>
+<div class="article-body">
+<p>When Dario Amodei stood up in San Francisco on Tuesday to launch Anthropic's newest product, he did not pitch it as a chatbot with a lab coat. He pitched it as an attempt to do to biology what the company already did to software.</p>
+<p>Anthropic on June 30 released Claude Science, a dedicated application that reshapes its large language models for scientific research, with an unmistakable focus on drug discovery, protein structure analysis, genomics and computational biology. The product is available in beta now for Pro, Max, Team and Enterprise users, running locally on macOS and Linux or over SSH to a lab's own cluster. It is the most concrete expression yet of Amodei's repeated claim that AI could compress the timeline of life-sciences R&D by something on the order of 10x, turning decades of biological progress into years.</p>
+<p>"It's going to be a general purpose technology that helps us to make sense of that complexity, in its full complexity, better," Amodei said at the launch event, according to STAT News. He was candid about the uncertainty, adding: "We don't know for sure if that's going to work out. But I think we're seeing signs that we're seeing the beginnings of it."</p>
+<h2>What Claude Science actually does</h2>
+<p>The pitch is that scientific research is tedious plumbing as much as insight. Researchers bounce between dozens of databases with incompatible schemas, wrestle bespoke file formats, and shuttle between PubMed, Jupyter, R and a cluster terminal to get anything done. Claude Science folds those fragmented tools into a single environment coordinated by a generalist agent with access to more than 60 curated skills and connectors, pre-configured for genomics, single-cell analysis, proteomics, structural biology and cheminformatics.</p>
+<p>Two design choices are aimed squarely at the credibility problem that has kept scientists wary of large language models. First, every output carries an auditable history: when Claude Science generates a figure, it ships the exact code, the computing environment and a plain-language account of how it was made, so results can be reproduced months later. Second, a dedicated reviewer agent inspects outputs as the pipeline runs, flagging incorrect citations, untraceable numbers and figures that do not match their underlying code, then self-correcting. Lower hallucination on technical biochemistry is not a marketing footnote here; it is the entire wager.</p>
+<p>The app renders 3D protein structures, genome browser tracks and chemical structures natively, and queries specialist sources such as UniProt, PDB, Ensembl, ClinVar and ChEMBL on a researcher's behalf. It also connects to NVIDIA's BioNeMo toolkit, tapping open life-sciences models including Evo 2, Boltz-2 and OpenFold3, and can push heavy jobs to a lab's HPC cluster or to on-demand GPUs through Modal.</p>
+<h2>The build-up: a $400M deal and a Nobel hire</h2>
+<p>Claude Science did not appear from nowhere. Over roughly eight months Anthropic assembled a deliberate AI-for-science stack. In April it paid about $400 million in stock for Coefficient Bio, a stealth biotech with fewer than 10 employees, most of them former Genentech computational-biology researchers, folding protein-design and biomolecule-modeling expertise into a healthcare and life-sciences division led by Eric Kauder. The company also announced founding partnerships with the Allen Institute and Howard Hughes Medical Institute earlier this year.</p>
+<p>The signal hire came in June, when John Jumper announced he was leaving Google DeepMind after nearly nine years to join Anthropic. Jumper led AlphaFold, the system that cracked protein-structure prediction, and shared the 2024 Nobel Prize in Chemistry for it. Recruiting the single person whose work most convincingly proved AI could crack biology reads as a statement of intent about where Anthropic thinks the frontier is moving.</p>
+<h2>Early results, and the caveats</h2>
+<p>Anthropic points to concrete beta work. Jerome Lecoq, a neuroscientist at the Allen Institute, built a multi-agent "computational review template" of about 20 custom skills; sub-agents read through thousands of papers, extract central claims and quantitative findings into an evidence database, then draft long-form reviews section by section with actor-critic pairs checking accuracy and citations. Reviews that once took his team up to two years now number about 10 drafts, many over 100 pages.</p>
+<p>At the UCSF Brain Tumor Center, epidemiologist Stephen Francis used the app for germline-variant studies in glioma and reported comprehensive workups in roughly one-tenth the time, with his group independently validating the results. Manifold Bio used it to nominate targets for tissue-targeting medicines, assessing surface expression, trafficking and safety end-to-end. These are curated success stories, not peer-reviewed benchmarks, and the reproducibility features exist precisely because AI-generated science still has to earn trust it does not yet have.</p>
+<h2>A three-way race among the same labs</h2>
+<p>Claude Science lands in a market defined by the same frontier labs now converging on biology. OpenAI launched GPT-Rosalind in April alongside Amgen, Moderna and Thermo Fisher. Google's Isomorphic Labs, spun out of DeepMind and built on AlphaFold lineage, has been chasing AI-designed drugs for years. The result is a three-way contest in which Anthropic, OpenAI and Google are competing not just for pharma contracts but for the same scarce pool of computational biologists, Jumper's move being the loudest example.</p>
+<p>The strategic logic is also commercial. Anthropic is widening its enterprise footprint, and pharma R&D budgets are among the deepest and least price-sensitive in any industry, a useful revenue narrative for a company reportedly eyeing an IPO. To seed adoption, Anthropic is offering discounted lab seats, up to $30,000 in credits across as many as 50 research projects, and up to $2,000 in Modal compute; applications close July 15, with awards by July 31.</p>
+<h2>What to watch</h2>
+<p>Three things. First, whether independent, published results validate the 10x-compression claim, or whether the reproducibility layer merely makes plausible-looking work easier to check, not more correct. Second, how quickly pharma buyers commit real budgets versus running cautious pilots, and whether they pick Claude Science, GPT-Rosalind or Isomorphic's approach. Third, what role Jumper actually takes, and whether Anthropic can turn a Nobel-caliber hire into shipping capability rather than a recruiting headline. Amodei has staked a large claim on biology being as tractable as code. The next year of results will show whether that was foresight or wishful thinking.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"It's going to be a general purpose technology that helps us to make sense of that complexity, in its full complexity, better. We don't know for sure if that's going to work out. But I think we're seeing the beginnings of it."</blockquote>
+          <cite>&mdash; Dario Amodei, CEO, Anthropic</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">$400M</div><div class="stat-label">Coefficient Bio acquisition</div></div><div class="stat-cell"><div class="stat-value">10x</div><div class="stat-label">Target R&amp;D compression</div></div><div class="stat-cell"><div class="stat-value">60+</div><div class="stat-label">Databases integrated</div></div><div class="stat-cell"><div class="stat-value">$30,000</div><div class="stat-label">Credits per research project</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.anthropic.com/news/claude-science-ai-workbench" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" alt="">Anthropic</a><a href="https://www.statnews.com/2026/06/30/anthropic-release-claude-science-ceo-dario-amodei/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=statnews.com&sz=32" alt="">STAT News</a><a href="https://www.cnbc.com/2026/06/30/anthropic-launches-ai-drug-discovery-program-claude-science.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="">CNBC</a></div></div>
+<div class="article-nav"><a href="11-kaist-votp-preference-learning.html" class="nav-prev">&larr; KAIST's VOTP Teaches Robots Human Judgment From a </a><a href="13-five-eyes-ai-cyberattack-warning.html" class="nav-next">Five Eyes Issue Rare Joint Warning: AI-Powered Cyb &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 1, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

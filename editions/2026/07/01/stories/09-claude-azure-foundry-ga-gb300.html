@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anthropic's Claude Goes Generally Available in Microsoft Foundry on Nvidia GB300 Blackwell Ultra &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Anthropic's Claude Goes Generally Available in Microsoft Foundry on Nvidia GB300 Blackwell Ultra</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 920 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Claude is now generally available in Microsoft Foundry on Azure, running on Nvidia's newest GB300 Blackwell Ultra GPUs, giving enterprises a Microsoft-governed third path to Anthropic's models and deepening the Microsoft-Nvidia-Anthropic alliance even as Microsoft remains a major OpenAI backer.</p>
+</div>
+<div class="article-body">
+<p>Enterprise AI rarely stalls on model quality. It stalls on procurement, on governance sign-offs, on data-residency reviews, on the tangle of vendor contracts that every new model provider drags behind it. On June 29, 2026, Microsoft and Anthropic moved to erase that friction for one of the most sought-after models in the market. Claude is now generally available in Microsoft Foundry, hosted on Azure, and running on Nvidia's GB300 Blackwell Ultra GPUs, the first time Anthropic's models have shipped to production on Nvidia's most capable inference silicon.</p>
+<p>The move gives Azure's enterprise customers direct access to Claude Opus 4.8 and Claude Haiku 4 through their existing Azure accounts, wrapped in Microsoft's compliance, security, and governance layer, without routing through Anthropic's own API or Amazon Bedrock. It also plants Claude on frontier hardware ahead of rivals, arriving weeks before OpenAI's GPT-5.6 Sol is expected to reach general availability on comparable infrastructure.</p>
+<h2>What actually shipped</h2>
+<p>Claude in Foundry runs on Nvidia GB300 NVL72 rack-scale systems connected by Nvidia Quantum-X800 InfiniBand networking, the configuration Nvidia positions as its top production platform for large-scale inference in mid-2026. Developers reach the models through the Messages API with core Anthropic capabilities intact, including prompt caching, extended thinking, and tool streaming. For teams building agents, Foundry Agent Service uses Claude as the reasoning core to orchestrate multi-step planning, tool use, and task execution across enterprise systems.</p>
+<p>The enterprise plumbing is the real pitch. Inference is processed in Azure, with a choice of Global and US data zones for teams with residency requirements, and Anthropic operates the inference as data processor and SLA provider. Customers authenticate with Microsoft Entra ID, apply Azure role-based access controls, and track usage through the Azure management tools they already run. Zero data retention is available for high-sensitivity workloads, so prompts and completions are not kept by Anthropic after an API call completes. Billing folds into a single consolidated line on the Azure bill, denominated in Claude Consumption Units, with Microsoft Azure Consumption Commitment drawdown intact.</p>
+<p>"Claude in Microsoft Foundry is the production path enterprises have been asking for: true frontier model choice, Azure-native controls, simplified procurement, and faster time to value," wrote Steve Sweetman, Azure Product Lead for Foundry Models, in Microsoft's announcement.</p>
+<p>Foundry's model router can automatically send queries to the most appropriate Claude model, which Microsoft says can save up to 50 percent while improving user satisfaction, with the Foundry Control Plane running continuous evaluations and blocking responses that violate rules before they reach users.</p>
+<h2>The Nvidia angle</h2>
+<p>For Nvidia, the deployment is a proof point for GB300 as an inference workhorse, not just a training chip. "With Claude now available in Microsoft Foundry running on NVIDIA GB300 GPUs, more organizations can run advanced, specialized AI agents with the performance, scale and security needed for production," said Justin Boitano, vice president and general manager of enterprise computing at Nvidia, adding that Nvidia itself uses autonomous AI agents daily and finds Claude's reasoning and coding capabilities valuable for complex technical work.</p>
+<p>Nvidia is also extending the partnership beyond raw compute, integrating its tooling into the Anthropic stack so Claude agents can pick up domain-specific abilities through Nvidia-verified agent skills, and offering a Secure Agent Workspace Reference Design for running autonomous agents in a governed environment.</p>
+<p>Early customers are already in production. Bolt's Gary Ballabio said running Anthropic's models on Azure delivered "the sustained throughput and reliability our enterprise customers expect," calling the combination "what makes Bolt viable for the Fortune 500." Everstar's Matt Huang put it more vividly, saying the pairing let his team compress "a safety analysis that would have taken 200 human days into a single day."</p>
+<h2>The Microsoft-Anthropic-OpenAI triangle</h2>
+<p>The strategic subtext is hard to miss. Microsoft's AI identity was for years synonymous with OpenAI, in which it remains a major backer. Placing Anthropic's frontier model natively inside Foundry, on Microsoft's newest Nvidia hardware, is the clearest signal yet that Microsoft intends to be a multi-model marketplace rather than a single-lab storefront. Foundry now offers Azure OpenAI models and Claude side by side, and Microsoft is betting that the convenience of one vendor relationship, one bill, and one governance layer will win enterprise workloads regardless of whose model sits underneath.</p>
+<p>The launch builds on the strategic partnership Microsoft, Nvidia, and Anthropic announced in November 2025 to expand enterprise access to Claude on Nvidia accelerated computing, deepening a three-way alignment that cuts across the usual competitive lines. It also broadens Claude's distribution footprint. Anthropic already sells through its own API and through Amazon Bedrock, its earliest cloud partner; adding native Azure availability gives enterprises a third, Microsoft-governed path and reduces Anthropic's dependence on any single distribution channel.</p>
+<p>The timing is pointed. Anthropic reported promotional launch pricing of $2 per million input tokens and $10 per million output tokens through August 31, 2026, before standard rates of $3 and $15 take effect, and the general-availability push lands amid renewed scrutiny of Microsoft's AI pricing following the backlash over GitHub Copilot's metered-billing model. In a quarter when enterprises have recoiled from ballooning agentic-AI bills, a consolidated Azure billing line and up-to-50-percent routing savings are as much a sales argument as any benchmark.</p>
+<h2>What to watch</h2>
+<p>Watch whether Anthropic's promotional pricing holds or standard rates snap back on September 1, a live question for teams sizing high-volume agent workloads against Bedrock's competing economics. Watch the regional rollout: Claude on Foundry launched in Azure East US, West Europe, and Southeast Asia, with more regions slated through the third quarter, and availability will shape who can adopt it under data-residency rules. Watch how OpenAI responds as GPT-5.6 Sol approaches its own general availability on frontier hardware, and whether Microsoft continues to sell a direct Anthropic competitor as aggressively as it sells its longtime partner. And watch the broader signal: with Claude now running natively on three major clouds, the frontier-model distribution war is settling into a multi-cloud pattern where the platform, not the lab, increasingly owns the enterprise relationship.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"With Claude now available in Microsoft Foundry running on NVIDIA GB300 GPUs, more organizations can run advanced, specialized AI agents with the performance, scale and security needed for production."</blockquote>
+          <cite>&mdash; Justin Boitano, VP and GM of Enterprise Computing, Nvidia</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">GB300 NVL72</div><div class="stat-label">Blackwell Ultra systems</div></div><div class="stat-cell"><div class="stat-value">Up to 50%</div><div class="stat-label">Foundry router savings</div></div><div class="stat-cell"><div class="stat-value">3 clouds</div><div class="stat-label">API, Bedrock, Azure</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://azure.microsoft.com/en-us/blog/claude-in-microsoft-foundry-is-now-generally-available/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=azure.microsoft.com&sz=32" alt="">Microsoft Azure Blog</a><a href="https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blogs.nvidia.com&sz=32" alt="">NVIDIA Blog</a><a href="https://claude.com/blog/claude-in-microsoft-foundry" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=claude.com&sz=32" alt="">Anthropic</a></div></div>
+<div class="article-nav"><a href="08-grok-43-amazon-bedrock.html" class="nav-prev">&larr; xAI's Grok 4.3 Arrives on Amazon Bedrock as the Ch</a><a href="10-squidbleed-claude-mythos-squid-cve.html" class="nav-next">'Squidbleed': Claude Mythos Uncovers a 29-Year-Old &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 1, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
