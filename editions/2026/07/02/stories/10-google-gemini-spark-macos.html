@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google Brings Gemini to the Mac Desktop With Gemini Spark and Adds Conversational Video Generation &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 40%,transparent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Google Brings Gemini to the Mac Desktop With Gemini Spark and Adds Conversational Video Generation</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1071 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Google put its agentic Gemini Spark assistant on macOS with local file access and custom MCP support, while launching Gemini Omni Flash for conversational video generation.</p>
+</div>
+<div class="article-body">
+<p>Google is planting Gemini firmly on the Mac. On July 2, 2026, the company began rolling out Gemini Spark, its agentic assistant, inside a native Gemini app for macOS, giving the model the ability to read, sort, and act on files stored directly on a user's computer. Alongside the desktop push, Google shipped a wave of developer tooling and a new media model, Gemini Omni Flash, that treats video creation as a back-and-forth conversation rather than a one-shot prompt. Taken together, the announcements mark Google's most aggressive move yet to embed Gemini into the places where people actually work: the desktop, and the apps developers build.</p>
+<h2>From Chat Window to Desktop Agent</h2>
+<p>The headline change is that Spark no longer lives only in a browser tab. "We're bringing Spark to the Gemini macOS app to help you automate time-consuming tasks across your desktop," Google wrote in its announcement, adding that "Gemini Spark can now move beyond the chat window, and tackle the heavy lifting across your desktop files and apps."</p>
+<p>In practice, that means asking Spark to sort every PDF in a Downloads folder into labeled directories, or to build a budget spreadsheet from the latest invoices saved locally and keep it updated on a schedule. Google says Spark connects the desktop to Google Workspace and, critically, only touches files the user explicitly permits: "To keep your information secure, Gemini Spark only has access to the files you give it permission to use."</p>
+<p>Coming soon, Google says, users will be able to trigger Mac tasks remotely from their phone, assigning a multi-step job, such as finding a sales report on the Mac, pulling the revenue figure, and emailing it, and letting the computer execute it while the user is away.</p>
+<p>Gemini Spark for macOS is available in beta to Google AI Ultra subscribers aged 18 and over, starting in the United States. Ultra runs $100 per month, and the app can be downloaded at gemini.google/mac.</p>
+<h2>Connected Apps and Custom MCP</h2>
+<p>The desktop release arrives with a broadened roster of integrations. Spark now works with Google Tasks and Google Keep, letting users convert scattered notes into structured action items, and Google is adding partnerships with Canva, Dropbox, Instacart, OpenTable, and Zillow Rentals for designing flyers, sharing files, booking tables, ordering groceries, and scheduling apartment tours. Those connected apps roll out first on web and mobile, then reach the macOS app in the coming weeks.</p>
+<p>The most consequential addition for power users and developers is custom Model Context Protocol support. "We're also rolling out support for custom Model Context Protocol (MCP), giving you the ability to connect your favorite apps directly into Spark to build a more tailored assistant," Google said. MCP, the open standard first adopted by Anthropic and since embraced across the industry, lets Spark reach beyond Google's curated partner list to any MCP-compatible server, effectively opening the assistant to a community-built ecosystem of tools.</p>
+<p>Google also gave Spark the ability to track topics and react to events in real time, monitoring blogs, news, social media, finance, shopping, weather, sports, and email, and alerting users when specified conditions are met, such as a stock crossing a threshold or a favorite team finishing a match.</p>
+<h2>Video as a Conversation</h2>
+<p>On the media and developer side, Google widened availability of Gemini Omni Flash, a model built for fast, conversational video generation and editing. Rather than accepting a single prompt, Omni Flash is designed around iteration: it supports four task types through the API, text-to-video, image-to-video, reference-to-video, and edit, and pairs with the Interactions API so creators can refine clips through natural-language dialogue while the model preserves the parts they want to keep.</p>
+<p>The model produces short clips, roughly 3 to 10 seconds at 720p with native audio, from text, reference images, or uploaded footage, priced at $0.10 per second of output, or about $1 for a ten-second clip. Google also showed a demo app, Omni Product Studio, that converts static product images into cinematic e-commerce videos. To round out the agentic story, Google introduced developer tooling, including Genkit Agents and ADK 2.0, aimed at building full-stack agentic applications on top of Gemini.</p>
+<h2>Why It Matters</h2>
+<p>The center of gravity in consumer AI is shifting from the browser tab to the operating system, and the Mac has become the contested ground. Anthropic's Claude reached the desktop with local task execution earlier this year, and OpenAI has pushed ChatGPT deeper into agentic workflows. By putting Spark on macOS with local file access, real-time monitoring, and remote task execution, Google is matching, and in places exceeding, the capabilities of its rivals rather than merely porting a chatbot to a new window.</p>
+<p>The MCP decision is the strategic tell. By adopting the same open protocol as its competitors, Google concedes that no single vendor will own the connector ecosystem, and instead bets that the assistant with the deepest reach into a user's files, apps, and Workspace data wins. That plays to Google's incumbency: it already sits inside billions of inboxes, calendars, and documents. Extending that footprint to the desktop, and letting developers wire in anything via MCP, is how Google turns a model into a habit.</p>
+<p>Omni Flash and the new developer kits, meanwhile, signal that Google wants to own the plumbing beneath the next wave of AI apps, not just the chat interface on top. Conversational video editing at a dime per second could reshape how ad, social, and e-commerce content gets made, and the low, per-second pricing is aimed squarely at high-volume generative-media startups.</p>
+<h2>What to Watch</h2>
+<p>The immediate questions are about reach and trust. Spark's macOS beta is gated to U.S. Ultra subscribers, so Google's willingness to widen availability, and its promised remote-execution feature, will show how confident it is in the agent's reliability and security on real machines. Watch, too, whether the custom MCP support draws a genuine developer ecosystem or stays a niche feature, and whether Omni Flash's conversational editing holds up outside polished demos. Google says more Spark news is coming this summer; the pace of that follow-through will indicate whether the desktop is a serious front in the assistant wars or a checkbox.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"Gemini Spark can now move beyond the chat window, and tackle the heavy lifting across your desktop files and apps."</blockquote>
+          <cite>&mdash; Google, Gemini Spark announcement</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">$100/mo</div><div class="stat-label">AI Ultra tier for beta</div></div><div class="stat-cell"><div class="stat-value">$0.10/sec</div><div class="stat-label">Omni Flash video pricing</div></div><div class="stat-cell"><div class="stat-value">5</div><div class="stat-label">New connected apps</div></div><div class="stat-cell"><div class="stat-value">720p</div><div class="stat-label">Omni Flash output</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://blog.google/innovation-and-ai/products/gemini-app/gemini-spark-updates-june-2026/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.google&sz=32" alt="">Google Blog</a><a href="https://ai.google.dev/gemini-api/docs/omni" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ai.google.dev&sz=32" alt="">Google AI Docs</a><a href="https://techcrunch.com/2026/07/01/gemini-spark-googles-agentic-assistant-is-now-available-on-mac/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://venturebeat.com/technology/googles-gemini-omni-flash-hits-the-api-turning-enterprise-video-production-into-a-conversation" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a></div></div>
+<div class="article-nav"><a href="09-nvidia-nemotron-twotower-diffusion.html" class="nav-prev">&larr; NVIDIA's Nemotron TwoTower Is a Diffusion Language</a><a href="11-cais-remote-labor-index.html" class="nav-next">New Remote Labor Index Finds the Best AI Models Co &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 2, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
