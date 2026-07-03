@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NVIDIA's Generative Pretrained Controllers Bring GPT-Style Pretraining to Robot Motor Control &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 40%,transparent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>NVIDIA's Generative Pretrained Controllers Bring GPT-Style Pretraining to Robot Motor Control</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 955 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>NVIDIA's GPC tokenizes motor skills and trains a GPT-style transformer on 600+ hours of motion, hitting 99.98% reproduction accuracy while showing emergent balance and fall-recovery behaviors.</p>
+</div>
+<div class="article-body">
+<p>For the better part of a decade, teaching a simulated body to move has been a bespoke craft. Every skill - a walk, a vault, a recovery from a shove - was its own engineering project, coaxed out of a physics engine one reward function at a time. NVIDIA researchers now argue that motion can be learned the way language models learn text: chop it into tokens, pile up hundreds of hours of it, and let a transformer predict what comes next. The result is a system they call Generative Pretrained Controllers, or GPC, and it borrows the GPT playbook almost move for move.</p>
+<p>Presented in a paper accepted to SIGGRAPH 2026 and authored by NVIDIA and Simon Fraser University researchers Yi Shi, Yifeng Jiang, Chen Tessler, and Xue Bin Peng, GPC reports a 99.98% success rate at reproducing a corpus of motion clips spanning more than 600 hours of movement data. More striking than the raw accuracy are the behaviors the team says nobody programmed: characters that catch their balance when shoved and pick themselves up after falling, none of it explicitly trained.</p>
+<h2>Tokenizing the Body</h2>
+<p>The core idea is to treat a motor skill the way a language model treats a word. GPC first learns a "motion vocabulary" - a discrete set of codes that stand in for chunks of movement - using a technique called Finite Scalar Quantization, or FSQ. Where earlier discrete-motion methods leaned on VQ-VAE-style codebooks that demand auxiliary losses and fiddly tricks like reinitializing "dead" codes, FSQ needs no explicit codebook at all. Each dimension of a latent vector is simply snapped to a fixed number of scalar levels, defining an implicit vocabulary that, the paper notes, is far simpler to train.</p>
+<p>That vocabulary is optimized end-to-end with reinforcement learning against a plain motion-tracking objective - reproduce the reference clip. From that single goal, the researchers report, the model absorbs a startling range of skills, including highly dynamic ones like cartwheels, flips, and vaulting.</p>
+<p>With the vocabulary in hand, stage two is pure GPT. A transformer decoder with causal self-attention learns the distribution over those skill tokens, generating each new token from the character's current state and every token that came before. At inference time it samples the next move using nucleus (top-p) sampling, the same trick that keeps language-model prose from wandering into gibberish. "Crucially," the authors write, "the resulting learned policy is robust and capable of learning recovery skills without explicit training procedures."</p>
+<h2>Adapting Without Forgetting</h2>
+<p>A pretrained controller is only useful if you can point it at new jobs. GPC's third stage introduces CoLA, a parameter-efficient fine-tuning method inspired by low-rank adaptation techniques that, according to the paper, adds less than 1% new parameters. That lets the base controller be steered toward downstream tasks - following a trajectory, crossing gapped terrain, navigating a scene - while the diversity and naturalness of the pretrained repertoire stay intact. Users can even nudge it toward specific stylized skills through a supervised warm-up before reinforcement learning takes over.</p>
+<p>The design echoes the now-familiar large-model recipe: pretrain once at scale, adapt cheaply many times. Prior physics-based control work such as MoConVQ explored discrete motion representations, but GPC's contribution is scaling that idea to a 600-hour dataset and wrapping it in the pretrain-then-adapt structure that made language models general-purpose.</p>
+<h2>Why It Matters</h2>
+<p>NVIDIA has spent the past two years selling "physical AI" as the next platform shift, a story with three legs: simulation (Omniverse and Isaac Sim), foundation models (the GR00T line for humanoids), and onboard compute (Jetson Thor). GPC slots neatly into the middle leg. If motor skills can be pretrained and transferred the way text understanding is, robot makers could stop hand-building every gait and grasp and instead fine-tune a shared controller for their hardware - the same economics that let a thousand startups build on a handful of language models.</p>
+<p>The emergent recovery behavior is the part worth dwelling on. A robot that improvises its way back to standing after an unplanned shove, without a dedicated "get up" policy, hints at the kind of robustness that has kept humanoids tethered to the lab. Movement that generalizes to situations it was never shown is precisely what a warehouse floor or a home demands.</p>
+<h2>What to Watch</h2>
+<p>The heavy caveat is that GPC's headline results live in physics simulation and character animation, not on a real robot dropped on a real floor. The paper's own showcase is a SIGGRAPH graphics demo, and the leap from simulated character to hardware - the notorious sim-to-real gap - has humbled many promising controllers. NVIDIA has open-sourced the work through its ProtoMotions codebase, so independent groups will soon test how far the tokenized-skill approach travels.</p>
+<p>Three questions will decide GPC's reach. Does the pretrain-and-adapt structure hold up when the target is a specific humanoid with its own joints and quirks, rather than a general simulated body? How does 600 hours of motion compare to the tens of thousands of hours of egocentric video now feeding models like GR00T N1.7 - and can the two approaches be fused? And does emergent recovery survive contact with real actuators, sensor noise, and gravity that does not pause for a reset? If the answers trend positive, teaching robots to move may start to look a lot less like engineering and a lot more like prompting.</p>
+<p>---</p>
+<p><strong>Sources</strong></p>
+<p>- <a href="https://arxiv.org/abs/2606.29148" target="_blank" rel="noopener">GPC: Large-Scale Generative Pretraining for Transferable Motor Control (arXiv:2606.29148)</a><br>- <a href="https://yi-shi94.github.io/gpc-page/" target="_blank" rel="noopener">GPC Project Page - Shi, Jiang, Tessler, Peng (SIGGRAPH 2026)</a><br>- <a href="https://x.com/NVIDIAAI/status/2072069361792413878" target="_blank" rel="noopener">NVIDIA AI on X</a><br>- <a href="https://nvidianews.nvidia.com/news/nvidia-releases-new-physical-ai-models-as-global-partners-unveil-next-generation-robots" target="_blank" rel="noopener">NVIDIA Newsroom: Physical AI Models and Next-Generation Robots</a></p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"The resulting learned policy is robust and capable of learning recovery skills without explicit training procedures."</blockquote>
+          <cite>&mdash; Shi, Jiang, Tessler, and Peng, GPC authors, NVIDIA and Simon Fraser University</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">600+ hrs</div><div class="stat-label">Motion data</div></div><div class="stat-cell"><div class="stat-value">99.98%</div><div class="stat-label">Reproduction success</div></div><div class="stat-cell"><div class="stat-value"><1%</div><div class="stat-label">Added fine-tune params</div></div><div class="stat-cell"><div class="stat-value">3</div><div class="stat-label">Training stages</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2606.29148" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://yi-shi94.github.io/gpc-page/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=github.io&sz=32" alt="">GPC Project Page</a><a href="https://x.com/NVIDIAAI/status/2072069361792413878" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=x.com&sz=32" alt="">NVIDIA AI (X)</a><a href="https://nvidianews.nvidia.com/news/nvidia-releases-new-physical-ai-models-as-global-partners-unveil-next-generation-robots" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nvidianews.nvidia.com&sz=32" alt="">NVIDIA Newsroom</a></div></div>
+<div class="article-nav"><a href="11-cais-remote-labor-index.html" class="nav-prev">&larr; New Remote Labor Index Finds the Best AI Models Co</a><a href="13-synthetic-cell-grows-divides.html" class="nav-next">Scientists Build a Cell From Scratch That Grows, C &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 2, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
