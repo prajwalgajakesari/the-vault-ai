@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anthropic Backtracks on a Claude Code Feature That Would Have Tracked Users' Locations &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 40%,transparent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>Anthropic Backtracks on a Claude Code Feature That Would Have Tracked Users' Locations</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1004 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Anthropic pulled a hidden Claude Code feature that covertly detected whether users were in China or tied to Chinese AI labs, after reverse-engineers exposed it; the company called it an anti-distillation experiment.</p>
+</div>
+<div class="article-body">
+<p>The evidence sat in plain sight for three months, hidden in the one place developers were least likely to look: the invisible characters of a greeting. Since Claude Code version 2.1.91, released on April 2, 2026, Anthropic's popular command-line coding tool had been quietly checking whether the person typing into it was in China or routing traffic through a Chinese AI lab — and then, according to reverse-engineering published in late June, smuggling that determination back to Anthropic by subtly altering the phrase "Today's date is" in the model's system prompt.</p>
+<p>On June 30, a Reddit user posting as LegitMichel777 laid out the mechanism in detail. Within two days, Anthropic said it was pulling the feature. The Information, which first reported the reversal, characterized the episode as Anthropic backtracking on spyware-like code meant to identify users affiliated with Chinese AI labs after a wave of public backlash. It is a small technical change with an outsized message: the line between a national-security safeguard and covert surveillance can come down to a single apostrophe.</p>
+<h2>What the Code Did</h2>
+<p>The detection logic activated only when Claude Code detected an active proxy — a common setup for developers routing requests through intermediaries. Once triggered, according to the published analysis and subsequent reporting from The Decoder and Cybernews, the tool ran a multi-factor check: it compared the system timezone against "Asia/Shanghai" or "Asia/Urumqi," and it scanned the proxy URL against a hardcoded list of Chinese domains and known Chinese AI-lab hostnames.</p>
+<p>The result was not sent as an obvious data field. Instead, it was encoded steganographically — hidden inside otherwise normal text. Researchers described the tool tweaking the date format and swapping in a subtly different apostrophe character in the phrase "Today's date is," changes imperceptible to a human but machine-readable on Anthropic's end. The relevant logic had also been obfuscated with XOR encryption using the key 91, and it appeared in the April release with no mention in the changelog.</p>
+<p>That combination — covert activation, invisible signaling, no disclosure — is what turned a plausibly defensible anti-abuse measure into what critics called spyware.</p>
+<h2>Anthropic's Explanation</h2>
+<p>An Anthropic engineer responding to the disclosure did not dispute the mechanism's existence. "This is an experiment we launched in March that was meant to prevent account abuse from unauthorized resellers and protect against distillation," the employee wrote, according to reporting on the exchange. The same engineer added that "the team has landed stronger mitigations since then and we've actually been meaning to take this down for a while," and said a fix would ship around July 1. The pull request removing the code was merged and slated for that week's Claude Code release.</p>
+<p>The stated rationale connects directly to a fight Anthropic has been waging publicly. In a letter to the U.S. Senate Banking Committee, the company alleged that Alibaba and its Qwen AI lab used nearly 25,000 fraudulent accounts to generate roughly 28.8 million exchanges with Claude — an apparent large-scale distillation campaign to extract the model's capabilities for a competitor. Seen through that lens, geolocating proxy users affiliated with Chinese labs was, in Anthropic's telling, a shield against theft rather than a tool for surveillance.</p>
+<h2>The Larger Pattern</h2>
+<p>The timing is hard to ignore. The rollback landed the same week the Trump administration lifted export controls on Anthropic's most powerful models, Fable 5 and Mythos 5, which the government had ordered restricted in mid-June to non-U.S. nationals over fears an adversary could reverse-engineer or distill them. Commerce Secretary Howard Lutnick said Anthropic agreed to "proactively detect and address security risks associated with the models" and to inform the government of malicious activity as a condition of the reprieve.</p>
+<p>That is the throughline. Anthropic increasingly operates as an instrument of U.S. technology policy toward China — restricting frontier models to approved organizations, reporting distillation to lawmakers, and, it turns out, building quiet detection into everyday developer tools. The location-tracking feature was arguably the same strategy pushed one step too far: from governing who can access a model to silently profiling who is already using one.</p>
+<h2>Why It Matters</h2>
+<p>The defense of the feature and the objection to it are both coherent, which is exactly the problem. Distillation attacks are real, and a company under pressure from Washington to police adversarial use has a legitimate interest in fingerprinting abuse. But the method matters as much as the motive. A tool that covertly inspects a user's timezone and network path, then exfiltrates the verdict through invisible character swaps with no notice, is indistinguishable in technique from the surveillance software AI companies claim to oppose. Consent and transparency are what separate an anti-abuse control from spyware, and here there was neither.</p>
+<p>For developers, the trust cost is concrete. Claude Code runs locally with deep access to a user's machine and code. Discovering that it had been silently making and transmitting inferences about the user's identity — even a narrow, geography-based one — invites the question of what else runs beneath the changelog. National-security framing can justify a great deal, but it does not automatically make covert client-side profiling acceptable, and the backlash suggests the developer community drew that line clearly.</p>
+<h2>What to Watch</h2>
+<p>Watch whether Anthropic publishes a full accounting of what data the feature collected, how long it was retained, and whether any of it was shared with the government under its new reporting commitments. Watch for scrutiny of what other undisclosed logic may live in Claude Code and similar tools now that reverse-engineers are looking. And watch how regulators respond to a precedent in which a private AI lab, acting partly at Washington's behest, embedded location detection in software running on millions of private machines — a model of public-private enforcement that this episode has just made visible.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185">
+          <blockquote>"This is an experiment we launched in March that was meant to prevent account abuse from unauthorized resellers and protect against distillation."</blockquote>
+          <cite>&mdash; Anthropic engineer, responding to the disclosure</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">2.1.91</div><div class="stat-label">Version that shipped the code</div></div><div class="stat-cell"><div class="stat-value">~25,000</div><div class="stat-label">Alleged fraudulent accounts</div></div><div class="stat-cell"><div class="stat-value">28.8M</div><div class="stat-label">Exchanges in alleged campaign</div></div><div class="stat-cell"><div class="stat-value">Mar 2026</div><div class="stat-label">Experiment launched</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.theinformation.com/briefings/anthropic-backtracks-spyware-targeting-chinese-users-controversy" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=theinformation.com&sz=32" alt="">The Information</a><a href="https://the-decoder.com/hidden-code-in-claude-code-secretly-flagged-chinese-users/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&sz=32" alt="">The Decoder</a><a href="https://cybernews.com/ai-news/claude-code-steganography-china-users/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cybernews.com&sz=32" alt="">Cybernews</a><a href="https://www.semafor.com/article/07/01/2026/anthropic-rolls-back-china-tracking-code" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=semafor.com&sz=32" alt="">Semafor</a></div></div>
+<div class="article-nav"><a href="15-california-ai-gas-price-fixing-lawsuit.html" class="nav-prev">&larr; California Lawsuit Accuses Gas Stations of Using A</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 2, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
