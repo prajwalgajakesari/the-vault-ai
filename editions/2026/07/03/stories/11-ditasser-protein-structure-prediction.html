@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>D-I-TASSER Fuses AI With Physics to Crack Complex Protein Structures - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>D-I-TASSER Fuses AI With Physics to Crack Complex Protein Structures</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 885 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>D-I-TASSER, a hybrid AI-plus-physics pipeline from NUS's Zhang Lab, reports beating AlphaFold2 and AlphaFold3 on complex multi-domain proteins by roughly 13%, showing that grounding deep learning in physical simulation still wins on the hardest targets.</p>
+</div>
+<div class="article-body">
+<p>For most of the last five years, the story of computational biology has been the story of AlphaFold — the deep-learning system from Google DeepMind that made protein-structure prediction look, at times, like a solved problem. A quieter rival has been arguing otherwise. It is called <strong>D-I-TASSER</strong>, and its central claim is that pure deep learning is not enough: to get the hardest proteins right, you also need physics.</p>
+<p>Developed by a team led by <strong>Professor Zhang Yang</strong> at the National University of Singapore — spanning the Cancer Science Institute of Singapore, the School of Computing and the Yong Loo Lin School of Medicine — D-I-TASSER is a hybrid pipeline that couples neural-network predictions with old-fashioned physics-based folding simulations. Published in <strong>Nature Biotechnology</strong> in 2025 and spotlighted by NUS in February 2026, the method reports beating both AlphaFold2 and AlphaFold3 on the proteins that matter most to disease research: the large, floppy, multi-domain molecules that make up much of the human body.</p>
+<p>"For most proteins, we still do not know their 3D structures, and that remains a major blind spot in biology," Zhang said. "A protein's shape determines what it does in the body, but many large, multi-domain proteins are too complex for existing tools to model reliably."</p>
+<h2>How D-I-TASSER works</h2>
+<p>D-I-TASSER — the "D" stands for deep-learning, grafted onto the lab's long-running I-TASSER (Iterative Threading ASSEmbly Refinement) engine — takes a divide-and-conquer approach. Rather than feed an entire sprawling protein into a single model, it slices the molecule into smaller, tractable domains, predicts the shape of each fragment using multi-source deep-learning restraints, and then reassembles the pieces under strict physical constraints through simulated folding.</p>
+<p>"The system breaks a complex protein into smaller sections, predicts the shape of each section first, and then uses physical modelling to assemble them into a complete three-dimensional structure," the NUS team explained — a domain-splitting and reassembly protocol that gives D-I-TASSER a notable edge on the interdomain geometry that trips up end-to-end AI models.</p>
+<p>The benchmark numbers are specific. Across <strong>500 nonredundant hard protein domains</strong>, D-I-TASSER posted an average TM-score of <strong>0.870</strong> — roughly 5% higher than AlphaFold2 and higher than all AlphaFold versions including v3. On <strong>230 multidomain proteins</strong>, it produced better full-chain TM-scores in <strong>88% of cases</strong>, with an average improvement of <strong>12.9%</strong> over AlphaFold2. That translates to the headline figure NUS emphasized: complex protein structures predicted about <strong>13% more accurately</strong> than existing state-of-the-art methods.</p>
+<p>The pedigree runs deep. Earlier incarnations of the pipeline, entered as "Zhang-Server" and "UM-TBM," ranked as the No. 1 automated server in the community-wide <strong>CASP14 and CASP15</strong> blind assessments, in both single-domain and multi-domain categories. CASP16, the round that gave the field its first look at AlphaFold3, kept the Zhang group's approach in the top tier.</p>
+<p>The team then did what benchmark champions rarely do: it ran the method at scale. D-I-TASSER was applied to the entire human proteome — roughly <strong>19,512 human proteins</strong> — and, according to the researchers, covered a larger fraction of foldable sequences than the widely used AlphaFold Structure Database. Those genome-wide models and the software itself have been released freely through zhanggroup.org.</p>
+<h2>Why It Matters</h2>
+<p>The significance here is less "AlphaFold has been dethroned" and more "the winning recipe may be a blend." AlphaFold's triumph convinced much of the field that structure prediction was fundamentally a pattern-recognition problem best left to ever-larger neural networks. D-I-TASSER is a well-credentialed counterargument: for the gnarliest targets — big multi-domain proteins whose parts hinge and swivel relative to one another — grounding the AI's guesses in physical laws produces measurably better models.</p>
+<p>That matters most for <strong>drug discovery</strong>. A protein's 3D shape dictates where a drug molecule can bind, and errors in interdomain orientation can send a computational drug-design campaign chasing pockets that do not exist. "When we can see a protein's structure more clearly, we can better understand what goes wrong in disease and how potential drugs might interact with it," Zhang said. Multi-domain proteins — receptors, signaling scaffolds, many cancer-relevant targets — are exactly the molecules where accuracy has lagged and where better models could shorten the path to targeted therapies.</p>
+<p>There is also a strategic dimension. A freely available, physics-augmented alternative to a DeepMind product keeps the field's methodological diversity alive and gives academic labs a competitive tool that does not depend on a single company's roadmap.</p>
+<h2>What to Watch</h2>
+<p>The obvious caveat: the core research is a 2025 Nature Biotechnology paper amplified by a February 2026 institutional announcement, not a fresh July 2026 release. Independent CASP16 write-ups and third-party benchmarks will ultimately decide how durable the "beats AlphaFold3" claim proves once other groups reproduce it on their own test sets.</p>
+<p>The more interesting frontier is where Zhang's team is heading next. The lab is extending the framework beyond static structures to <strong>RNA prediction</strong> and <strong>protein–protein interactions</strong>, with a stated focus on antibody–antigen complexes — a direct entry into the therapeutics arena. Further out, the researchers want to use the same AI-plus-physics marriage to model the <strong>folding pathways</strong> proteins actually follow inside living cells, not just their final shapes.</p>
+<p>If that works, it would push the field past the question AlphaFold answered — what does a protein look like? — toward the harder one physics was always meant to address: how does it get there?</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"A protein's shape determines what it does in the body, but many large, multi-domain proteins are too complex for existing tools to model reliably."</blockquote>
+          <cite>&mdash; Zhang Yang, Professor, National University of Singapore</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">0.870</div><div class="stat-label">Avg TM-score, 500 hard domains</div></div><div class="stat-cell"><div class="stat-value">12.9%</div><div class="stat-label">Gain over AlphaFold2 (multidomain)</div></div><div class="stat-cell"><div class="stat-value">19,512</div><div class="stat-label">Human proteins modeled</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://news.nus.edu.sg/ai-unlocks-complex-protein-structures" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=news.nus.edu.sg&sz=32" alt="">NUS News</a><a href="https://www.nature.com/articles/s41587-025-02654-4" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=32" alt="">Nature Biotechnology</a><a href="https://zhanggroup.org/D-I-TASSER/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=zhanggroup.org&sz=32" alt="">Zhang Lab</a></div></div>
+<div class="article-nav"><a href="10-student-ai-cosmic-phenomena-discovery.html" class="nav-prev">&larr; A High Schooler's AI Uncovers 1.5 Million Previous</a><a href="12-white-house-voluntary-ai-release-standards.html" class="nav-next">White House Races to Finalize Voluntary Standards  &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published July 03, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

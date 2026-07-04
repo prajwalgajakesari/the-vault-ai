@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Enterprise Adds Admin Analytics, Model Entitlements, and Spend Alerts - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Claude Enterprise Adds Admin Analytics, Model Entitlements, and Spend Alerts</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 998 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Anthropic added per-group cost analytics, model-level entitlements, and spend-threshold alerts to Claude Enterprise on July 2, 2026, giving admins and finance teams the guardrails to govern agentic AI spend as adoption scales.</p>
+</div>
+<div class="article-body">
+<p>Anthropic wants the people who sign the checks for Claude to stop being surprised by them. On July 2, the company rolled out a batch of new governance features for Claude Enterprise — richer admin analytics, model-level entitlements, and spend-threshold alerts — aimed squarely at the finance leaders and IT admins now responsible for AI budgets that behave nothing like a flat SaaS subscription.</p>
+<p>The pitch, laid out in a company blog post, is that agentic AI has broken the old cost model. "As Claude takes on increasingly difficult and complex agentic work across the organization, usage and cost patterns look different from a standard chat tool," Anthropic wrote. Where a chatbot generated predictable per-seat costs, an agent that edits files, runs skills, and grinds through multi-step tasks in Claude Code can burn very different amounts of compute from one user to the next. The new controls are meant to give admins both the visibility to see where that money goes and the levers to keep it in check.</p>
+<h2>Seeing the spend</h2>
+<p>The centerpiece is a beefed-up analytics dashboard that now breaks down usage and cost <strong>by group and by user</strong>, with outputs — artifacts created, files edited, skills and connectors used — displayed directly next to what they cost. Admins can filter by the SCIM groups their IT team already manages, so the cost breakdown mirrors the existing org chart rather than forcing a new taxonomy.</p>
+<p>Claude Code gets two dedicated tabs inside the admin console. A <strong>Usage</strong> tab surfaces active developers, session counts, and top commands across the org, updated daily. A <strong>Value</strong> tab attempts something more ambitious: estimating productivity lift, cost per commit, and annualized value. Notably, Anthropic says every formula behind those numbers is visible and the inputs are adjustable — an acknowledgment that "AI ROI" claims tend to invite skepticism unless the math is shown.</p>
+<p>There's also an <strong>Analytics chat</strong> that lets admins ask plain-language questions like "Which teams doubled their Claude usage this month?" or "Where are we getting the most value per seat?" and get back exportable charts. For teams that would rather not click around a dashboard, the <strong>Analytics API</strong> pipes usage and cost data straight into tools like Datadog Cloud Cost Management and CloudZero, filterable by date, team, product, or model.</p>
+<h2>Controlling the spend</h2>
+<p>Two features do the actual gatekeeping. <strong>Model defaults and entitlements</strong> let admins decide which Claude model new conversations start with across chat, Cowork, and Claude Code — so routine work doesn't automatically reach for the priciest option — and restrict which models are available to specific roles or the whole organization.</p>
+<p><strong>Spend-threshold alerts</strong> are the guardrail against sticker shock. Admins get notified at 75% and 90% of an org-level spend limit, buying time to raise the cap before anyone is cut off mid-task. Users, meanwhile, see in-app warnings at 75% and 95% and can request a limit increase from their admin without leaving Claude. For larger organizations, an Admin API moves those workflows into scripts — automating increase-request reviews, flagging members near their limits, and surfacing rapidly changing usage at scale.</p>
+<p>The company framed the release as an extension of a control surface it has been building for months, alongside existing spend caps, access and model routing, and effort controls.</p>
+<h2>What customers are saying</h2>
+<p>Anthropic backed the launch with named quotes from three customers. Kyra Abbu, a product manager at Workato, zeroed in on the alerting cadence: "Cost visibility isn't a once-a-month exercise. Granular spend data and alerts give teams regular nudges to reassess how they're using Claude, instead of a surprise at the end of the billing cycle."</p>
+<p>Workato CIO Carter Busse made the ROI case bluntly: "I'm not going to slow down the people driving our best quarter, and my CFO isn't asking me to. He's asking for ROI. We've tied Claude, connected to our enterprise MCP servers, to a 4% revenue lift, and seeing cost next to business impact by team is how I make that case stick."</p>
+<p>And Ciro Yamada, a product director at Nubank, pointed past raw consumption toward a better signal of value: "Token usage alone doesn't tell you much. What I actually want to see is which skills get run again and again across the org — that's the real signal of value."</p>
+<h2>Why It Matters</h2>
+<p>As AI moves from pilot to production, the bottleneck is shifting from capability to governance. Enterprises are no longer asking whether Claude can do the work; they're asking who can see it, who can control it, and how to keep an agentic workload from quietly overrunning a quarterly budget. Cost control becomes existential precisely as adoption scales — a metered, consumption-based model rewards heavy use but punishes organizations that can't attribute or forecast it.</p>
+<p>That makes admin tooling a genuine competitive battleground. OpenAI, Google, and Microsoft are all racing to wrap their models in enterprise-grade dashboards, permissioning, and spend controls, because the buyer increasingly is not the developer but the CIO and the CFO standing behind her. Features like per-group cost attribution, model entitlements, and threshold alerts are unglamorous, but they are what turns a promising tool into an approved standard. Anthropic's earlier moves — a Compliance API, seat management, premium bundles — sit in the same lane: making Claude legible to the people who own risk and budgets.</p>
+<h2>What to Watch</h2>
+<p>The open question is whether the "Value" tab's productivity math earns trust or invites more scrutiny — self-reported ROI is easy to publish and hard to audit, even with visible formulas. Watch, too, how these controls interact with the rate limits Anthropic began enforcing in 2025, which drew customer pushback; spend alerts soften the blow of a hard cap, but they don't remove it. And keep an eye on whether rivals answer with comparable per-user cost attribution, the feature enterprises have been demanding most loudly. In a market where every model is converging on similar capability, the winner may be decided in the admin console.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"Cost visibility isn't a once-a-month exercise. Granular spend data and alerts give teams regular nudges to reassess how they're using Claude, instead of a surprise at the end of the billing cycle."</blockquote>
+          <cite>&mdash; Kyra Abbu, Product Manager, Workato</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">75% / 90%</div><div class="stat-label">Admin spend-alert thresholds</div></div><div class="stat-cell"><div class="stat-value">75% / 95%</div><div class="stat-label">User spend-alert thresholds</div></div><div class="stat-cell"><div class="stat-value">Jul 2</div><div class="stat-label">Announcement date</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=claude.com&sz=32" alt="">Claude Blog</a><a href="https://venturebeat.com/ai/enterprise-claude-gets-admin-compliance-tools-just-not-unlimited-usage" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=support.claude.com&sz=32" alt="">Claude Help Center</a></div></div>
+<div class="article-nav"><a href="08-unisound-u2-moe-agent.html" class="nav-prev">&larr; Unisound's U2 Is a 266-Billion-Parameter MoE Model</a><a href="10-student-ai-cosmic-phenomena-discovery.html" class="nav-next">A High Schooler's AI Uncovers 1.5 Million Previous &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published July 03, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
