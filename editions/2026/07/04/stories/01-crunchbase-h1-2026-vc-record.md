@@ -1,0 +1,23 @@
+Global venture capital just had its biggest six months on record, and almost half of it went to two companies.
+
+According to a Crunchbase funding report released July 2, investors poured a record $510 billion into startups worldwide during the first half of 2026 — surpassing the $440 billion deployed across all of 2025 and setting a new high for any half-year period on record. Yet the headline number obscures a more striking reality beneath it: OpenAI and Anthropic alone accounted for $217 billion, or 43% of all global startup capital. Never before has so much venture money flowed to so few companies.
+
+## A record built on concentration
+
+The pace was relentless through both quarters. After a record-shattering Q1 that saw $305 billion invested, VCs deployed another $205 billion across more than 5,000 startups in Q2 — the second-largest quarter ever, trailing only the one before it. Together, the two quarters lifted H1 well past the previous half-year peak of $375 billion set in the second half of 2021, at the height of the last funding boom.
+
+Anthropic was the single largest force in the market. The foundation lab raised $65 billion in Q2 alone — close to a third of all global venture funding for the quarter — and overtook OpenAI to become the most valuable private company on the Crunchbase Unicorn Board after SpaceX went public. By Crunchbase's count, more than 70% of global startup capital in Q2 went to AI-focused companies, up from just under 50% a year earlier. Sixteen companies raised billion-dollar rounds in the quarter, totaling $108.6 billion, or 53% of all Q2 funding; seven of those megadeals went to frontier AI labs, including China's DeepSeek and Moonshot AI and the U.K.'s Ineffable Intelligence.
+
+The United States again dominated geographically, capturing two-thirds of Q2 capital — though that was down from a remarkable 83% in Q1. Late-stage funding hit $134 billion for the quarter, up 141% year over year, while the return of a functioning exit market added fuel: 32 companies went public above $1 billion, led by SpaceX's $1.77 trillion IPO, and 24 startups were acquired at $1 billion or more.
+
+## Why this matters
+
+The defining feature of this cycle is not the record itself but its lopsidedness. A market where 43% of capital lands on two balance sheets is a market making an enormous concentrated bet — one that rewards firms positioned early and squeezes everyone else. The clearest illustration arrived days before the Crunchbase report: Menlo Ventures announced a $3 billion fund, the largest in its 50-year history, built substantially on the strength of a single 2024 wager. Menlo led Anthropic's $750 million Series D that year — structuring roughly $500 million of it as a special-purpose vehicle in a market where almost no one was writing nine-figure checks — and that stake is now worth close to $14 billion, according to sources cited by Bloomberg and TechCrunch. Anthropic's valuation has since climbed past $900 billion.
+
+That is the promise driving today's concentration: a single conviction bet can return a firm's entire fund many times over. But it is also the risk. When a handful of pre-profit labs absorb the bulk of available capital, the returns of the entire asset class become tethered to whether those specific companies deliver. Crunchbase's own data hints at the bifurcation — global seed funding held at $12 billion in Q2, but the gap between a few enormous financings and the traditional seed market kept widening, with $2.8 billion flowing to seed rounds of $100 million or more even as ordinary early-stage founders competed for a shrinking slice of attention.
+
+There are genuine signs of breadth. Billion-dollar rounds spread into AI infrastructure, defense, robotics and healthcare, and funding rose across every stage. The reopening of the IPO and M&A markets — the strongest exit environment since 2021 — means paper gains can finally become real returns. As Crunchbase framed it, 2026 may be remembered not just for record investment but as the start of a cycle in which private capital and a working exit market reinforce one another.
+
+## What to watch
+
+The question for the second half of 2026 is whether the base broadens or the top narrows further. Watch whether AI's share of funding climbs past 70% or plateaus as capital diffuses into adjacent sectors; whether the exit window that opened with SpaceX stays open long enough to validate the megaround math; and whether OpenAI answers Anthropic's $65 billion quarter with a raise of its own. If two companies keep commanding 40-plus percent of global venture dollars, the industry's fortunes — and those of the LPs behind funds like Menlo's — will rise or fall on a bet narrower than any in venture history.
