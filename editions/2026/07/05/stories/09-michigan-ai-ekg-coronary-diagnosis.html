@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A 10-Second EKG and AI: Michigan Researchers Target a Heart Condition That Hides From Standard Tests - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>A 10-Second EKG and AI: Michigan Researchers Target a Heart Condition That Hides From Standard Tests</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 885 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>University of Michigan researchers built a self-supervised AI model that detects coronary microvascular dysfunction - often missed in women - from a standard 10-second EKG rather than costly PET imaging, hitting an AUROC of 0.763 for impaired myocardial flow reserve.</p>
+</div>
+<div class="article-body">
+<p>A woman walks into an emergency room with crushing chest pain. Doctors run the tests, thread a catheter into her arteries, and find nothing. The angiogram is "clear." She is sent home, sometimes with a diagnosis of anxiety, even though her heart is genuinely starved of blood. The culprit is coronary microvascular dysfunction, or CMVD, a disease of the heart's smallest vessels that standard imaging routinely misses and that disproportionately strikes women.</p>
+<p>Now researchers at the University of Michigan say they have built an artificial intelligence system that can flag the condition in the time it takes to record a routine heartbeat: a single 10-second EKG strip, no specialized scanner required.</p>
+<p>The study, published in NEJM AI, a journal from the New England Journal of Medicine family, describes a model that outperformed earlier EKG-based AI on nearly every diagnostic task the team threw at it, including predicting myocardial flow reserve, the gold-standard measurement used to diagnose CMVD.</p>
+<p>"Our model creates a way for clinicians to accurately identify a condition that is notoriously hard to diagnose, and often missed in emergency department visits, using a 10-second EKG strip," said senior author Venkatesh L. Murthy, M.D., Ph.D., associate chief of cardiology for translational research and innovation at the U-M Health Frankel Cardiovascular Center.</p>
+<h2>How the Model Was Built</h2>
+<p>The central obstacle was data. Diagnosing CMVD today typically requires PET myocardial perfusion imaging, scans that are expensive and largely confined to specialty centers. That scarcity meant the team had very few labeled examples to train on.</p>
+<p>Their workaround was self-supervised learning. The researchers first pretrained a modified vision transformer on 800,035 unlabeled EKG waveforms drawn from the public MIMIC-IV-ECG database, teaching the model the underlying grammar of the heart's electrical signal before it ever saw a diagnosis. "Essentially, we taught the model to 'understand' the electrical language of the heart without human supervision," Murthy said.</p>
+<p>Only then did the team fine-tune it on the scarce, high-value labels: PET-derived measurements from 3,126 patients and clinical report labels from 13,704 more, across 12 different clinical and demographic prediction tasks, several of which are not possible with existing EKG-AI tools.</p>
+<h2>What the Numbers Show</h2>
+<p>Performance varied by task. The model's area under the receiver operating characteristic curve, a standard accuracy measure where 1.0 is perfect and 0.5 is a coin flip, ran from 0.763 for detecting impaired myocardial flow reserve to 0.955 for spotting a severely weakened left ventricle. In plainer terms, Michigan Medicine says the tool correctly identified coronary microvascular dysfunction roughly 70 to 80 percent of the time.</p>
+<p>Crucially, the model held up when tested outside the data it was trained on. Across three external and two internal cross-modality databases, its accuracy for impaired flow reserve held near 0.771, and self-supervised pretraining improved results in 11 of 12 tasks compared with training from scratch. The team also found only a minimal performance bump when using EKGs recorded during exercise stress tests versus ordinary resting strips, a practical advantage for busy or under-resourced hospitals.</p>
+<h2>Why It Matters</h2>
+<p>CMVD is a case study in how medicine can overlook a condition it cannot easily see, and in how that blind spot falls unevenly. The disease produces chest pain and raises the risk of heart attack, yet because it affects vessels too small to show up on a conventional angiogram, patients are frequently told their hearts are fine. The pattern is especially common in women, whose ischemic heart disease has long been under-recognized.</p>
+<p>"People who come to the ER for chest pain might have CMVD, but their angiogram will show up as 'clear,'" said co-author Sascha N. Goonewardena, M.D., an associate professor of internal medicine-cardiology at U-M Medical School. "In hospitals with limited resources or non-specialty centers, using our EKG-AI model to predict myocardial flow reserve and CMVD will be an easy, cost-effective and non-invasive way to identify when a patient would benefit from advanced testing for a serious condition."</p>
+<p>That is the equity argument for accessible AI diagnostics in a nutshell. Around 14 million people visit an ER or outpatient clinic for chest pain each year in the U.S., and the vast majority will never be near a PET scanner. An EKG, by contrast, is cheap, ubiquitous, and takes seconds. Pushing a specialty-center capability onto a machine that already sits in nearly every clinic could turn CMVD screening from a privilege into a default, precisely the kind of leveling that democratized diagnostics promise.</p>
+<h2>What to Watch</h2>
+<p>Important caveats remain. The model is a research tool, not an approved clinical device, and it was developed and validated largely on Michigan and registry data; broader, prospective testing across diverse populations and health systems will be needed before it reaches bedsides. An AUROC of 0.763 for the flagship flow-reserve task is promising but far from definitive, and the tool is designed to flag patients for further testing, not to replace PET imaging.</p>
+<p>There are also disclosures to weigh: several co-authors are affiliated with INVIA, a cardiac imaging software company, and Murthy has a paid relationship with the firm and is a recused NEJM AI editor. The next milestones to watch are prospective clinical trials, regulatory review, and evidence that catching CMVD earlier actually changes outcomes for the patients, many of them women, who have spent years being told nothing was wrong.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"People who come to the ER for chest pain might have CMVD, but their angiogram will show up as 'clear.' In hospitals with limited resources or non-specialty centers, using our EKG-AI model will be an easy, cost-effective and non-invasive way to identify when a patient would benefit from advanced testing."</blockquote><cite>- Sascha N. Goonewardena, M.D., Associate professor of internal medicine-cardiology, U-M Medical School</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">800,035</div><div class="stat-label">unlabeled EKG waveforms used to pretrain the model</div></div><div class="stat-cell"><div class="stat-value">0.763</div><div class="stat-label">AUROC for detecting impaired myocardial flow reserve</div></div><div class="stat-cell"><div class="stat-value">10 sec</div><div class="stat-label">length of the EKG strip the model needs</div></div><div class="stat-cell"><div class="stat-value">~14M</div><div class="stat-label">annual U.S. ER/outpatient visits for chest pain</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://ai.nejm.org/doi/full/10.1056/AIoa2500164" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ai.nejm.org&sz=32" alt="">NEJM AI</a><a href="https://www.michiganmedicine.org/health-lab/ai-model-helps-diagnose-often-undetected-heart-disease-simple-ekg" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=michiganmedicine.org&sz=32" alt="">Michigan Medicine Health Lab</a><a href="https://www.eurekalert.org/news-releases/1110002" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=eurekalert.org&sz=32" alt="">EurekAlert!</a><a href="https://www.medrxiv.org/content/10.1101/2023.10.25.23297552v3" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=medrxiv.org&sz=32" alt="">medRxiv preprint</a></div></div>
+<div class="article-nav"><a href="08-deepseek-v4-pro-coding-lead.html" class="nav-prev">&larr; DeepSeek V4 Pro Tops the Open-Weight Coding Charts</a><a href="10-ames-ductgpt-rare-earth-free-magnets.html" class="nav-next">An AI Called DuctGPT Is Hunting for Magnets That D &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published July 5, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
