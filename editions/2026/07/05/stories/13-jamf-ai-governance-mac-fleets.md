@@ -1,0 +1,25 @@
+Enterprise IT has spent two years quietly losing a race it never agreed to enter. As employees pasted source code, contracts and customer records into ChatGPT, Claude and a sprawl of AI coding assistants, the tools themselves stayed invisible to the software meant to secure the fleet. On July 1, Jamf — the dominant vendor for managing Apple devices at work — moved to close that gap, announcing general availability of AI Governance, a capability it bills as the first native, OS-level control plane for AI on the Mac.
+
+The feature, built into Jamf for Mac, does three things: it discovers which AI tools are actively running across a fleet, enforces access policies directly on the endpoint, and generates audit-ready reports for compliance teams. Jamf calls itself first-to-market with governance that operates at the operating-system layer rather than the network or cloud. "This move makes Jamf first-to-market to deliver native, OS-level AI governance controls for Mac," the company said in announcing the launch, which it will showcase at Jamf Nation events in Sydney, Kuala Lumpur and Hong Kong in August.
+
+## The shadow-AI problem
+
+The target is what the industry now calls shadow AI — employees reaching for unsanctioned tools outside any IT approval. The numbers are stark. TechTimes reported in June that 45% of workers use unsanctioned AI tools on corporate devices, and other 2026 surveys put the share of AI users bringing their own tools as high as 78%. IBM's Cost of a Data Breach research, widely cited through 2025, found that breaches involving shadow AI added roughly $670,000 to the average incident, with about one in five breached organizations compromised through it. In one emblematic case, a senior US cybersecurity official was reported to have pasted documents marked "For Official Use Only" into public ChatGPT despite an internal ban.
+
+## How it works on managed Macs
+
+Jamf's pitch rests on a technical argument about where AI actually runs. Modern AI tools execute natively on Apple Silicon as local processes — CLI developer tools, desktop clients and background agents — that network proxies and cloud gateways "cannot fully see or govern," the company says. Jamf's approach leans on the telemetry agent already deployed on managed Macs, so no new software is required. It surfaces AI runtime across the fleet, lets administrators define sanctioned tools and push "vendor-correct" configurations at scale, and scopes different postures to different teams.
+
+Crucially, the controls apply offline and before a user's first login to an AI agent — what Jamf describes as a "day-zero and tamper-resistant policy baseline." Launch support covers Claude Code, Claude Desktop and OpenAI Codex, with governance reaching into model access, tenancy, network permissions, file-system controls and restrictions on MCP servers, the connectors that let AI agents call external tools. A tracking engine monitors those platforms for new controls, and an executive AI posture report gives CIOs and CISOs a snapshot for compliance frameworks, with SIEM compatibility for security operations.
+
+"What impressed us about Jamf's AI Governance was how quickly we could apply policy across our Mac fleet without adding another point solution or creating friction for developers," said Sam Lalli, security engineering and SOC manager at Eventbrite, in Jamf's announcement.
+
+## Why It Matters
+
+Governance and compliance are fast becoming the next enterprise-AI battleground. The first wave of corporate AI was about adoption; the second is about proving control. Jamf's own survey found that organizations with deeply integrated AI are 40% more likely to report an incident than those still exploring — evidence that usage is outrunning oversight. Gartner projects spending on AI governance will reach $492 million in 2026 and surpass $1 billion by 2030, and has told security leaders they must identify both sanctioned and unsanctioned AI agents and build incident-response playbooks for each.
+
+Jamf is not alone. Microsoft has extended Purview with data-loss-prevention rules that block Copilot and browser-based AI tools from ingesting sensitive data, unveiling shadow-AI protections at RSAC 2026, and DLP vendors including Netskope and Forcepoint now ship AI-aware templates. What distinguishes Jamf's move is the endpoint-native angle on Apple hardware — governing the process, not just the network path — for the 35 million-plus devices it manages across some 78,000 organizations.
+
+## What to Watch
+
+The open questions are coverage and cadence. Jamf launched with three tools; the sprawl of shadow AI runs to browser extensions, embedded SaaS features and countless consumer apps, so how fast its tracking engine adds vendors will determine whether governance keeps pace with usage. Watch, too, whether rivals answer with their own OS-level controls — and whether regulators and auditors begin treating tamper-resistant AI logging as a baseline expectation rather than a competitive feature. If they do, the audit-ready report may prove the most consequential part of the launch.
