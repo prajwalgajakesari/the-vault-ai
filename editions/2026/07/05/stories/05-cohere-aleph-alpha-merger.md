@@ -1,0 +1,27 @@
+Toronto-based Cohere and Heidelberg's Aleph Alpha said on April 24, 2026, that they would merge into a single transatlantic artificial-intelligence company valued at roughly $20 billion, an ambitious wager that nations and regulated industries will increasingly refuse to run their most sensitive workloads on infrastructure controlled by American hyperscalers.
+
+The combined entity will keep the Cohere name and be led by co-founder and chief executive Aidan Gomez. Under terms reported by German outlet Handelsblatt and confirmed by multiple outlets, Cohere shareholders will hold about 90 percent of the merged company and Aleph Alpha shareholders roughly 10 percent — a split that makes the deal, structured as a simultaneous acquisition and Series E financing round, effectively a Cohere takeover dressed in the language of a merger. It fuses Cohere's pre-deal valuation of about $7 billion with Aleph Alpha's roughly $3 billion book value.
+
+"Combining the strengths of Cohere and Aleph Alpha accelerates our global expansion and advances our mission to deliver sovereign AI to nations around the world," Gomez said in announcing the deal.
+
+The transaction is anchored by Germany's Schwarz Group, the retail conglomerate behind Lidl and Kaufland and an existing Aleph Alpha shareholder. Schwarz will become a strategic backer of the combined company with €500 million (about $600 million) in structured financing, serving as lead investor in the new Series E round. In return, the retailer expects the merged entity to run on STACKIT, the sovereign cloud platform operated by its IT arm, Schwarz Digits — handing Schwarz a marquee enterprise customer for its own cloud business.
+
+## The Reporting
+
+The logic of the deal is complementary rather than duplicative. Cohere brings enterprise large language models and retrieval-augmented generation technology built for corporate deployment; Aleph Alpha contributes smaller models tuned for European languages, custom tokenizers, and — crucially — deep customer relationships and a sovereign-AI brand across the continent. Aleph Alpha's client roster includes Deutsche Bank, SAP, Bosch and Schwarz itself. The merged company says it will target highly regulated sectors including the public sector, finance, defense, energy, manufacturing, telecommunications and healthcare.
+
+Aleph Alpha arrives at the table from a position of weakness. Co-founder and chief executive Jonas Andrulis stepped down in October 2025, and by early 2026 the company had cut roughly 50 jobs, leaving its strategy and leadership direction unsettled. In February, Ilhan Scheer was named co-CEO alongside Reto Sporri. Once hailed as Germany's best hope for a homegrown frontier lab, Aleph Alpha entered negotiations without the momentum it once had.
+
+Both national governments blessed the combination — a notable feature in an era when AI capacity is treated as strategic infrastructure. Cohere had already received the equivalent of $240 million CAD in compute through Canada's Sovereign AI Compute Strategy before the deal, and the merger folds two state-favored national champions into one cross-border entity with political cover on both sides of the Atlantic.
+
+## Why It Matters
+
+The deal is the clearest sign yet that "sovereign AI" has moved from a marketing slogan to a procurement requirement. The term refers to systems in which governments and companies keep full control over their models, data and infrastructure rather than routing them through US giants such as Microsoft, Google, OpenAI or Anthropic. In Europe, that demand has intensified: certification standards like Germany's BSI C5 and France's SecNumCloud are becoming effective gates for public-sector and regulated-industry contracts, and dependence on American clouds has grown politically uncomfortable.
+
+The merger also reshapes the competitive map. France's Mistral, backed by the French state and reported deployments at institutions such as HSBC, has positioned itself as Europe's default sovereign alternative. A combined Cohere–Aleph Alpha creates a second, larger transatlantic contender pitched explicitly at governments and regulated buyers — while US labs continue to dominate raw capability. The fragility of the American-infrastructure model was underscored the same week the UK Sovereign AI Fund launched, when OpenAI paused its Stargate UK data-center project, exposing Britain's dependence on US firms.
+
+For European tech independence, the symbolism cuts both ways: the continent's leading standalone lab is being absorbed into a Canadian-led company, even as the combined firm promises to keep European data on European soil.
+
+## What to Watch
+
+The deal remains subject to regulatory and shareholder approval, and antitrust and foreign-investment reviews on both continents could shape final terms. Watch whether Aleph Alpha's European customers — and its government relationships — survive the transition to Cohere's leadership, and how aggressively the merged company can win public-sector contracts against Mistral. Also key: whether the Schwarz-STACKIT arrangement becomes a template for retailer-backed sovereign cloud, and whether other national champions pursue similar cross-border tie-ups as sovereign-AI demand accelerates.
