@@ -1,0 +1,27 @@
+Agility Robotics said it will go public through a $2.5 billion merger with a blank-check company run by veteran dealmaker Michael Klein, a bet that a humanoid robot with tens of thousands of hours of real factory work behind it can succeed on the public markets where flashier rivals have stayed private.
+
+The Salem, Oregon-based company announced on June 24 that it had signed a definitive agreement to combine with Churchill Capital Corp XI, a special purpose acquisition company. The deal values Agility at $2.5 billion in pre-money equity and is expected to deliver more than $620 million in gross proceeds. Once the transaction closes, expected later this year, the combined company will trade on a major North American exchange under the ticker **AGLT** — making Agility, by its own account, "the only U.S. publicly listed pure-play humanoid company with proven, active commercial deployments."
+
+The structure leans heavily on strategic money rather than the froth that sank earlier robotics SPACs. Churchill said the $620 million includes roughly $420 million held in its trust account, assuming no redemptions, plus about $200 million in a common-stock PIPE priced at $10.00 per share and led by Foxconn. Every existing Agility shareholder — a roster that includes NVIDIA, Amazon, SoftBank Vision Fund 2, Schaeffler, and DCVC — is rolling 100% of its equity into the combined company and accepting a 180-day lockup.
+
+## A robot that already clocks in
+
+What separates Agility from the humanoid pack is that its bipedal Digit robot is already on the job. Through commitments across nine customer facilities, Digit has accumulated more than 65,000 hours of operation in live production environments, moving totes and tending machines for enterprises including Schaeffler, Toyota Motor Manufacturing Canada, and Mercado Libre. Agility says it has secured more than $300 million in multi-year orders for its next-generation Digit v5, subject to contractual milestones, and a pipeline of more than 30 customers.
+
+"Humanoid robots are a critical driver of American technology leadership and the future of global industry," said Peggy Johnson, Agility's chief executive. "With category-defining commercially deployed humanoid robots operating in real customer environments today, Agility is at the forefront of a new era where safety-first, AI-powered technology can reliably work alongside people to bridge labor shortages, increase productivity, and strengthen the resilience of our supply chains."
+
+Johnson, a former Microsoft and Magic Leap executive, has been blunt about why customers sign on. "Companies don't buy tech; they buy solutions," she said during an investor briefing. "At Agility, we're doing just that. That's missing from the headlines about AI — companies still have to solve real physical problems." Agility pegs its addressable market across U.S. manufacturing, distribution, and logistics at roughly $1 trillion.
+
+To meet demand, Agility has built RoboFab, a modular factory in Salem designed to produce up to 10,000 units annually, and says it sources about 75% of Digit's parts within the United States. Digit v5, engineered to work alongside people rather than behind a safety fence, can lift up to 40 pounds and operate for about 16 hours — a sharp step up from the four-hour runtime of the current v4.
+
+For Klein, the SPAC sponsor behind public debuts for nuclear startup Oklo and EV maker Lucid, Agility is a bet on substance over spectacle. "Agility is a humanoid first mover with proven technology, real-world deployments, and the trust of some of the world's most demanding enterprises," he said. "We are excited to support Peggy, Jonathan, and the Agility team as they scale deployment of Digit."
+
+## Why It Matters
+
+Agility is choosing to test public investors at a moment when private humanoid valuations have gone vertical. Figure AI has reportedly reached a $39 billion valuation, and Apptronik raised $520 million in February at a $5 billion valuation, with backing from Google. Tesla's Optimus commands enormous attention, but Elon Musk has conceded it remains in an early R&D stage. Against that backdrop, Agility's $2.5 billion price tag looks modest — and that is arguably the point. By going public first, Agility gets a permanent capital base, a currency for deals, and a claim to be the category's proof-of-revenue benchmark while competitors chase demos.
+
+The risk is memory. Robotics SPACs from the 2021 boom — Berkshire Grey, Sarcos, Vicarious Surgical — largely disappointed, and skeptics will ask whether 65,000 hours across nine sites is traction or a rounding error against the trillion-dollar market Agility invokes. The deal's heavy reliance on strategic insiders rolling equity, rather than new outside conviction, cuts both ways: it signals commitment, but leaves public shareholders exposed if redemptions run high.
+
+## What to Watch
+
+The near-term tells are the SEC's review of the Form S-4, Churchill XI shareholder redemption levels, and whether that $300 million v5 order book converts into revenue on schedule once large-scale deployment begins. If Digit v5 can, as chief robot officer Jonathan Hurst put it, "walk out of a fenced area" and into open warehouse floors at volume, Agility's public debut could set the valuation template for every humanoid maker that follows.
