@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jamf Ships AI Governance for Mac Fleets, Taking Aim at 'Shadow AI' in the Enterprise - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>Jamf Ships AI Governance for Mac Fleets, Taking Aim at 'Shadow AI' in the Enterprise</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 812 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Jamf's new AI Governance feature, generally available July 1, gives IT teams native, OS-level visibility and policy control over which AI tools run on managed Macs - turning unmonitored 'shadow AI' into an auditable layer and staking out governance as the next enterprise-AI battleground.</p>
+</div>
+<div class="article-body">
+<p>Enterprise IT has spent two years quietly losing a race it never agreed to enter. As employees pasted source code, contracts and customer records into ChatGPT, Claude and a sprawl of AI coding assistants, the tools themselves stayed invisible to the software meant to secure the fleet. On July 1, Jamf — the dominant vendor for managing Apple devices at work — moved to close that gap, announcing general availability of AI Governance, a capability it bills as the first native, OS-level control plane for AI on the Mac.</p>
+<p>The feature, built into Jamf for Mac, does three things: it discovers which AI tools are actively running across a fleet, enforces access policies directly on the endpoint, and generates audit-ready reports for compliance teams. Jamf calls itself first-to-market with governance that operates at the operating-system layer rather than the network or cloud. "This move makes Jamf first-to-market to deliver native, OS-level AI governance controls for Mac," the company said in announcing the launch, which it will showcase at Jamf Nation events in Sydney, Kuala Lumpur and Hong Kong in August.</p>
+<h2>The shadow-AI problem</h2>
+<p>The target is what the industry now calls shadow AI — employees reaching for unsanctioned tools outside any IT approval. The numbers are stark. TechTimes reported in June that 45% of workers use unsanctioned AI tools on corporate devices, and other 2026 surveys put the share of AI users bringing their own tools as high as 78%. IBM's Cost of a Data Breach research, widely cited through 2025, found that breaches involving shadow AI added roughly $670,000 to the average incident, with about one in five breached organizations compromised through it. In one emblematic case, a senior US cybersecurity official was reported to have pasted documents marked "For Official Use Only" into public ChatGPT despite an internal ban.</p>
+<h2>How it works on managed Macs</h2>
+<p>Jamf's pitch rests on a technical argument about where AI actually runs. Modern AI tools execute natively on Apple Silicon as local processes — CLI developer tools, desktop clients and background agents — that network proxies and cloud gateways "cannot fully see or govern," the company says. Jamf's approach leans on the telemetry agent already deployed on managed Macs, so no new software is required. It surfaces AI runtime across the fleet, lets administrators define sanctioned tools and push "vendor-correct" configurations at scale, and scopes different postures to different teams.</p>
+<p>Crucially, the controls apply offline and before a user's first login to an AI agent — what Jamf describes as a "day-zero and tamper-resistant policy baseline." Launch support covers Claude Code, Claude Desktop and OpenAI Codex, with governance reaching into model access, tenancy, network permissions, file-system controls and restrictions on MCP servers, the connectors that let AI agents call external tools. A tracking engine monitors those platforms for new controls, and an executive AI posture report gives CIOs and CISOs a snapshot for compliance frameworks, with SIEM compatibility for security operations.</p>
+<p>"What impressed us about Jamf's AI Governance was how quickly we could apply policy across our Mac fleet without adding another point solution or creating friction for developers," said Sam Lalli, security engineering and SOC manager at Eventbrite, in Jamf's announcement.</p>
+<h2>Why It Matters</h2>
+<p>Governance and compliance are fast becoming the next enterprise-AI battleground. The first wave of corporate AI was about adoption; the second is about proving control. Jamf's own survey found that organizations with deeply integrated AI are 40% more likely to report an incident than those still exploring — evidence that usage is outrunning oversight. Gartner projects spending on AI governance will reach $492 million in 2026 and surpass $1 billion by 2030, and has told security leaders they must identify both sanctioned and unsanctioned AI agents and build incident-response playbooks for each.</p>
+<p>Jamf is not alone. Microsoft has extended Purview with data-loss-prevention rules that block Copilot and browser-based AI tools from ingesting sensitive data, unveiling shadow-AI protections at RSAC 2026, and DLP vendors including Netskope and Forcepoint now ship AI-aware templates. What distinguishes Jamf's move is the endpoint-native angle on Apple hardware — governing the process, not just the network path — for the 35 million-plus devices it manages across some 78,000 organizations.</p>
+<h2>What to Watch</h2>
+<p>The open questions are coverage and cadence. Jamf launched with three tools; the sprawl of shadow AI runs to browser extensions, embedded SaaS features and countless consumer apps, so how fast its tracking engine adds vendors will determine whether governance keeps pace with usage. Watch, too, whether rivals answer with their own OS-level controls — and whether regulators and auditors begin treating tamper-resistant AI logging as a baseline expectation rather than a competitive feature. If they do, the audit-ready report may prove the most consequential part of the launch.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185"><blockquote>"AI adoption across the enterprise is moving faster than existing technology policies can keep up. Organizations need governance that matches the way AI tools actually operate on Mac."</blockquote><cite>- Jamf, launch announcement</cite></div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">45%</div><div class="stat-label">of workers use unsanctioned AI tools on corporate devices</div></div><div class="stat-cell"><div class="stat-value">$670K</div><div class="stat-label">average added cost of a shadow-AI-linked breach (IBM)</div></div><div class="stat-cell"><div class="stat-value">$492M</div><div class="stat-label">projected 2026 AI-governance spend (Gartner)</div></div><div class="stat-cell"><div class="stat-value">35M+</div><div class="stat-label">devices Jamf manages</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.jamf.com/resources/press-releases/jamf-launches-ai-governance-a-first-of-its-kind-native-ai-control-plane-for-mac/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=jamf.com&sz=32" alt="">Jamf press release</a><a href="https://finance.yahoo.com/technology/ai/articles/jamf-launches-ai-governance-first-020000800.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=finance.yahoo.com&sz=32" alt="">Yahoo Finance / PR Newswire</a><a href="https://www.techtimes.com/articles/318438/20260615/shadow-ai-cybersecurity-risk-spikes-45-workers-use-unsanctioned-tools.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techtimes.com&sz=32" alt="">TechTimes</a><a href="https://blogs.windows.com/msedgedev/2026/03/23/protect-your-enterprise-from-shadow-ai-and-more-announcements-at-rsac-2026/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blogs.windows.com&sz=32" alt="">Microsoft Edge Blog (RSAC 2026)</a></div></div>
+<div class="article-nav"><a href="12-five-eyes-agentic-ai-guidance.html" class="nav-prev">&larr; Five Eyes Agencies Issue Joint Guidance on Securin</a><a href="14-thomson-reuters-ross-copyright-appeal.html" class="nav-next">The AI Copyright Case That Could Reshape Fair Use  &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published July 5, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
