@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google Rolls Out Gemini 3.5 Pro With a 2M-Token Window at the Cheapest Frontier-Tier Price Yet &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Google Rolls Out Gemini 3.5 Pro With a 2M-Token Window at the Cheapest Frontier-Tier Price Yet</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 950 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Gemini 3.5 Pro is nearing its delayed July 2026 launch with a confirmed 2M-token context window and Deep Think mode, but Google has not published benchmarks or pricing; whether it lands at a market-leading price will determine if it can claim the cheapest frontier-tier mantle amid an intensifying token-price war.</p>
+</div>
+<div class="article-body">
+<p># Google Rolls Out Gemini 3.5 Pro With a 2M-Token Window at the Cheapest Frontier-Tier Price Yet</p>
+<p>Google's long-awaited flagship is finally moving from the waiting room to the launch pad. After a two-month slip that erased roughly $225 billion of Alphabet's market value in a single June session and cost the company two of its most celebrated researchers, Gemini 3.5 Pro is entering July 2026 on the cusp of general availability, carrying a headline specification no rival can match: a 2-million-token context window, double the 1M ceiling on Gemini 3.5 Flash and the largest of any production frontier model. Just as important is the number Google is expected to attach to it. If the aggressive pricing scenario circulating among enterprise testers holds, Gemini 3.5 Pro would arrive as the cheapest frontier-tier model on the market, a direct shot in a token-price war that is quietly commoditizing the very top of the industry.</p>
+<p>A caveat belongs up front, because Google itself has not yet removed it. As of the first working week of July, Gemini 3.5 Pro remains in limited Vertex AI enterprise preview, with no published model card, no official benchmark suite, and no confirmed API rates. What is on the record is the shape of the model; what is circulating is a set of expectations. This story treats them as such.</p>
+<h2>What Google has actually confirmed</h2>
+<p>Google unveiled Gemini 3.5 Pro at its I/O developer conference on May 19, 2026, positioning it to absorb the workloads once reserved for the retired Gemini Ultra tier: the hardest reasoning tasks, deep multimodal analysis across text and images, and very long-context retrieval. Two capabilities are officially announced. The first is the 2-million-token context window, enough to hold entire code repositories, book-length documents, or sprawling contract sets in a single prompt. The second is a built-in "Deep Think" reasoning mode that trades latency for accuracy on the hardest scientific, mathematical, and coding problems, extending the approach Google introduced with Gemini 3 Deep Think.</p>
+<p>Everything past those two specifications is inference. There is no public benchmark suite, and Google has warned against precise figures: any GPQA, ARC-AGI-2, or SWE-bench number attached to 3.5 Pro today is, in the words of one analysis, "quoting a guess." One unverified report cited internal data suggesting 10-to-15-point SWE-bench Verified gains over the 3.1 generation, but that has not been confirmed.</p>
+<h2>The delay that became the story</h2>
+<p>Gemini 3.5 Pro was originally targeted for a June general availability. That window closed with no public launch. At I/O, chief executive Sundar Pichai had asked the audience to "give us until next month" — a promise the company has now missed twice.</p>
+<p>Google has framed the slip as a quality decision rather than a stumble, and the reporting points to three linked problems: token-efficiency issues flagged by early enterprise testers, coding performance that was not yet at flagship standard, and long-task, multi-step reasoning that fell short of the bar Google set at I/O. Token efficiency is the most telling of the three. "Intelligence per dollar" has become a procurement metric in 2026, not a marketing line, and a flagship that burns more tokens than its own Flash sibling to reach the same answer is one enterprise buyers will avoid.</p>
+<p>The delay would have been a footnote had it landed in a quiet month. Instead it coincided with the exit of Gemini co-lead Noam Shazeer, co-author of the foundational "Attention Is All You Need" transformer paper, to OpenAI, and of Google DeepMind vice-president John Jumper, a 2024 Nobel laureate for AlphaFold, to Anthropic. On June 22, Alphabet shares fell as much as 7.2% intraday and closed down roughly 5% — the company's worst day in more than a year — wiping an estimated $225 billion from its market capitalization. Bloomberg's reporting tied the departures to a product gap: staff worried Google lacked a clear commercial product for businesses building AI coding tools, precisely the arena where the delayed flagship was supposed to compete.</p>
+<h2>The price war Google is walking into</h2>
+<p>Pricing is where the "cheapest frontier-tier" framing lives, and it deserves a clear label: Google has not published Gemini 3.5 Pro's API rates. Two reference points dominate the estimates. The conservative case has Pro matching the current Gemini 3.1 Pro at roughly $2 input and $12 output per million tokens. The aggressive case, floated in some coverage, runs as high as $15 input and $60 output — roughly ten times the Flash tier.</p>
+<p>The competitive backdrop argues hard for the low end. xAI's Grok 4.3 prices its frontier API near $1.25 input and $2.50 output. Open-weight challenger GLM-5.2 from Z.ai lands around $1.40 input and $4.40 output under an MIT license. On OpenRouter, Chinese providers now serve roughly 45% of all traffic, up from under 2% a year ago, with DeepSeek V4-Pro undercutting Western frontier models by an order of magnitude at $0.44 input. A $15 input rate would price Gemini 3.5 Pro out of exactly the cost-sensitive agent workloads Google is trying to recapture. That pressure is the entire reason Google delayed to fix token efficiency in the first place — and it is why a genuinely aggressive launch price, undercutting the frontier field, is the scenario that would let Google claim the "cheapest frontier-tier" mantle. Whether Google prices to win volume or to protect margin is the single most-watched number of the launch.</p>
+<p>Consumer access is expected to route through Google's paid Gemini subscriptions first, reported around $20 a month for the AI Pro plan and $99.99-to-$250 for the Ultra tier, alongside metered pay-as-you-go pricing for developers.</p>
+<h2>Where it sits against the field</h2>
+<p>A clean, same-harness comparison is not yet possible because Google has published nothing. Directionally, Gemini 3.5 Pro is expected to extend Google's lead on context length and multimodal breadth and to challenge Anthropic's Claude Opus 4.8 and OpenAI's GPT-5.5 at the frontier. But the competition has not stood still: Claude Opus 4.8 resolves 88.6% of SWE-bench Verified issues, the current coding leader, at $5/$25 per million tokens; OpenAI's newest tier, GPT-5.6, remains gated to roughly 20 government-vetted partners, turning the true frontier into a walled garden. Google's opening is to be the strongest broadly available flagship — provided the July model finally delivers the coding and reasoning numbers that forced the delay.</p>
+<p>The deeper trend the launch illustrates is commoditization. When a 2M-token frontier model can plausibly ship near the price of a mid-tier model from two years ago, and when open-weight labs give away MIT-licensed weights that undercut closed models by 3x or more, raw capability stops being the moat. Distribution, token efficiency, and price-per-completed-task become the battleground. Google still holds the most compute, the widest distribution, and one of the deepest research benches in the industry; what June cost it was narrative momentum, the intangible that pulls both enterprise buyers and top researchers toward perceived winners.</p>
+<h2>What to watch next</h2>
+<p>Three things will define whether Gemini 3.5 Pro's July arrival resets Google's story or extends its bad month. First, the launch benchmarks: strong, verifiable coding and long-context numbers would vindicate the delay, while a third slip would make the harder questions unavoidable. Second, the confirmed price — a rate at or below the $2/$12 conservative case would validate the "cheapest frontier-tier" positioning and escalate the token-price war; an aggressive premium would concede the cost-sensitive market to Grok, GLM, and the Chinese challengers. Third, whether the talent bleed stops, with reports of additional DeepMind staff eyeing Anthropic. Alphabet's $225 billion drop was sentiment, not fundamentals; a launch that lands cleanly could unwind much of it within a quarter. A launch that stumbles would not.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"give us until next month"</blockquote>
+          <cite>&mdash; Sundar Pichai, CEO, Google and Alphabet</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">2M tokens</div><div class="stat-label">Context window, largest of any production frontier model</div></div><div class="stat-cell"><div class="stat-value">~$2 / $12</div><div class="stat-label">Conservative expected pricing per 1M tokens (unconfirmed)</div></div><div class="stat-cell"><div class="stat-value">~$225B</div><div class="stat-label">Alphabet market value swing amid delay, June 22</div></div><div class="stat-cell"><div class="stat-value">May 19</div><div class="stat-label">Announced at Google I/O; GA slipped to July 2026</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.buildfastwithai.com/blogs/ai-news-today-july-6-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=buildfastwithai.com&sz=32" alt="">Build Fast with AI</a><a href="https://theairankings.com/google/gemini-3-5-pro/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=theairankings.com&sz=32" alt="">The AI Rankings</a><a href="https://tech-insider.org/au/gemini-3-5-pro-delayed-july-2026/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tech-insider.org&sz=32" alt="">Tech Insider</a><a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.google&sz=32" alt="">Google Blog</a></div></div>
+<div class="article-nav"><a href="05-servicenow-accenture-forward-deployed.html" class="nav-prev">&larr; ServiceNow and Accenture Launch a Forward Deployed</a><a href="07-profound-aim-marketing-agent.html" class="nav-next">Profound Launches 'Aim,' an Always-On Agent That O &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 6, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
