@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Boston Dynamics Puts the Electric Atlas Into Production With Google DeepMind's Gemini Brain &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Boston Dynamics Puts the Electric Atlas Into Production With Google DeepMind's Gemini Brain</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 972 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Boston Dynamics has moved its all-electric Atlas from research prototype to production humanoid, and partnered with Google DeepMind to run it on Gemini Robotics foundation models -- signaling that the 2026 humanoid race now hinges on whose AI 'brain' generalizes best, not whose hardware moves best.</p>
+</div>
+<div class="article-body">
+<p># Boston Dynamics Puts the Electric Atlas Into Production With Google DeepMind's Gemini Brain</p>
+<p>The company that spent two decades teaching robots to backflip has decided that acrobatics were never the point. When Boston Dynamics rolled the production version of its all-electric Atlas humanoid onto a Las Vegas stage at CES 2026, the news was not that the robot could move. It was that Atlas is now a product headed to a factory floor, and that its mind will be built by Google DeepMind.</p>
+<p>Announced January 5 during Hyundai Motor Group's CES media presentation, the partnership reunites Boston Dynamics with its former parent company after nearly a decade apart and marks the clearest signal yet that the humanoid-robot race has moved from hardware demos to shipping units. Atlas is in production. The first machines are headed to Hyundai's plant in Savannah, Georgia. And the software steering them will be DeepMind's Gemini Robotics foundation models.</p>
+<h2>From Athletic Intelligence to a Working Product</h2>
+<p>For years, Atlas was a research platform famous for parkour and dance routines. That version is retired. The commercial Atlas is fully electric, and its spec sheet reads like an industrial tool rather than a viral video star: 56 degrees of freedom, rotational joints that can swivel in ways no human limb can, human-scale hands with tactile sensing, and 360-degree cameras that let it track people approaching from any direction. It can lift up to 110 pounds and is built for the repetitive, load-bearing tasks that dominate manufacturing.</p>
+<p>"Making Atlas into a product requires more than athletic performance," said Alberto Rodriguez, Director of Robot Behavior for Atlas at Boston Dynamics. "For humanoids to really deliver on their promise, they have to be able to interact with people naturally." Boston Dynamics only committed to building a commercial humanoid in 2024, after concluding that AI advances had finally made real-world deployment plausible rather than aspirational.</p>
+<h2>Why DeepMind, and Why Now</h2>
+<p>The hardware was the easy part. Boston Dynamics has always been able to build extraordinary machines; what it lacked was a general-purpose brain capable of letting one robot handle wildly different jobs without being reprogrammed for each. That is precisely what DeepMind's Gemini Robotics models — visual-language-action systems built on the multimodal Gemini foundation model — are designed to provide.</p>
+<p>"We are building the world's most capable humanoid, and we knew we needed a partner that could help us establish new kinds of visual-language-action models for these complex robots," Rodriguez said. "Nobody in the world is better suited than DeepMind to build reliable, scalable models that can be deployed safely and efficiently across a wide variety of tasks and industries."</p>
+<p>Carolina Parada, Senior Director of Robotics at Google DeepMind, framed the ambition in terms of learning rather than programming. "Rather than having a set of predefined, loaded tasks onto the robot, we think robots should understand the physical world the same way we do," she said onstage. "Whether it is to assemble a new car part or to tie your shoelaces, robots should learn the same way we do from a handful of examples, and then get better very quickly with a little bit of practice."</p>
+<p>Atlas will be the first test case for the joint research, which both companies say will begin in earnest in the coming months and run at both organizations' labs.</p>
+<h2>Hyundai's Manufacturing Bet</h2>
+<p>The commercial logic runs through Hyundai, Boston Dynamics' majority shareholder. Atlas is headed to Hyundai's Metaplant in Savannah, Georgia, with the automaker planning to deploy the robots for parts-sequencing tasks by 2028. To feed the models, Hyundai is opening a Robot Metaplant Application Center, or RMAC, that will teach robots how to execute movements such as lifts and turns; that training data gets combined with real-world data from the Georgia factory to continuously improve performance.</p>
+<p>Boston Dynamics is not starting from zero on deployment. Its quadruped Spot is already in customers' hands across more than 40 countries, and its Stretch warehouse robot has unloaded more than 20 million boxes globally since launching in 2023. Atlas is the next, and most ambitious, rung on that ladder.</p>
+<h2>The Foundation-Model Race Is the Real Story</h2>
+<p>Strip away the branding and the 2026 humanoid contest is increasingly a fight over whose foundation model becomes the standard "brain." Tesla has pushed Optimus with its own end-to-end neural networks trained on the same vision stack as its cars. Figure broke away from OpenAI to build its Helix model in-house. Boston Dynamics has taken the opposite path, betting that DeepMind — a frontier lab whose entire premise is generalization across hardware — can do for robots what large language models did for text.</p>
+<p>That choice reframes the competition. The winners of the humanoid era may not be the companies with the most graceful machines but the ones whose robots learn fastest from the fewest examples and adapt to a task they have never seen. Boston Dynamics is wagering that world-class hardware plus a world-class model beats trying to do both alone. It is a notably different philosophy from the vertically integrated approach at Tesla and Figure, and 2026 will start to reveal which bet pays off.</p>
+<h2>What to Watch Next</h2>
+<p>The near-term milestones are concrete. Watch for the first Gemini-powered Atlas units to actually reach the Savannah plant this year and for early results from the RMAC training pipeline — the proof will be in whether Atlas can generalize across sequencing tasks without hand-coded routines. Watch, too, for how Hyundai's plans to scale robot production stack up against Tesla's and Figure's stated ambitions. And watch DeepMind: if Gemini Robotics performs on Atlas, expect Google to pitch it as a horizontal platform for humanoids far beyond Boston Dynamics — the Android of physical AI. That, more than any single robot, is the outcome that would reshape the industry.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"We are building the world's most capable humanoid, and we knew we needed a partner that could help us establish new kinds of visual-language-action models for these complex robots. Nobody in the world is better suited than DeepMind."</blockquote>
+          <cite>&mdash; Alberto Rodriguez, Director of Robot Behavior for Atlas, Boston Dynamics</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">56</div><div class="stat-label">Degrees of freedom in the production Atlas</div></div><div class="stat-cell"><div class="stat-value">110 lbs</div><div class="stat-label">Maximum lift capacity of Atlas</div></div><div class="stat-cell"><div class="stat-value">2028</div><div class="stat-label">Target year for Hyundai parts-sequencing deployment</div></div><div class="stat-cell"><div class="stat-value">40+</div><div class="stat-label">Countries where Boston Dynamics' Spot already operates</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://bostondynamics.com/blog/boston-dynamics-google-deepmind-form-new-ai-partnership/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bostondynamics.com&sz=32" alt="">Boston Dynamics</a><a href="https://techcrunch.com/2026/01/05/boston-dynamicss-next-gen-humanoid-robot-will-have-google-deepmind-dna/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://www.therobotreport.com/boston-dynamics-google-reunite-on-next-gen-atlas-humanoid/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=therobotreport.com&sz=32" alt="">The Robot Report</a><a href="https://www.automate.org/robotics/industry-insights/boston-dynamics-to-begin-production-on-redesigned-atlas-humanoid-in-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=automate.org&sz=32" alt="">Automate.org</a></div></div>
+<div class="article-nav"><a href="08-candidly-intelligence-center-agents.html" class="nav-prev">&larr; Candidly Expands Its AI 'Intelligence Center' With</a><a href="10-researcherbench-deep-research-eval.html" class="nav-next">ResearcherBench Puts 'Deep Research' AI Agents to  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 6, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
