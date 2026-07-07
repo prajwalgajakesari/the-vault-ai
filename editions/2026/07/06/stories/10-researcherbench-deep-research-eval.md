@@ -1,0 +1,35 @@
+# ResearcherBench Puts 'Deep Research' AI Agents to the Test on Real Scientific Frontiers
+
+When OpenAI, Google, and their rivals began shipping "deep research" agents in 2025 — systems that spend minutes browsing the web, planning multi-step investigations, and returning cited reports — the pitch was seductive: not a chatbot, but a research partner. The problem was that almost nobody had a rigorous way to test whether these agents could actually do research, as opposed to merely summarizing what a good search engine already surfaces. A team from Shanghai Jiao Tong University and the GAIR lab set out to change that with ResearcherBench, which its authors call "the first benchmark focused on evaluating the capabilities of these advanced, agentic systems — which we refer to as Deep AI Research Systems (DARS) — on frontier AI scientific questions."
+
+The result, released on arXiv in July 2025 and re-scrutinized across a wave of follow-up benchmarks this year, delivers a mixed verdict. The best agents are genuinely useful brainstorming collaborators. But when it comes to grounding their claims in verifiable sources — the bedrock of actual science — even the leaders fall short.
+
+## What the benchmark measures
+
+Most existing evaluations, the authors argue, treat deep research agents "as agents for web retrieval and report generation, overlooking their potential to discover novel insights on the frontiers of scientific research." ResearcherBench flips that emphasis. Its 65 research questions were hand-selected from real scientific scenarios — laboratory discussions, interviews with leading AI researchers, and forum debates — then filtered down from several hundred candidates. Each was scored 1 to 5 by at least two experienced computer-science researchers, with only questions averaging 4.0 or higher retained.
+
+The 65 questions span 35 distinct AI subjects, from scaling laws and reinforcement learning to multimodal models and AI policy, and fall into three buckets: technical details (12 questions), literature review (20), and open consulting (33). The tilt toward open-ended consulting is deliberate — these are the emergent, unsolved problems where a system has to reason rather than recite.
+
+## A two-pronged scoring method
+
+ResearcherBench's methodological contribution is a dual evaluation framework. The first prong, rubric assessment, tackles insight quality. Because a simple "LLM-as-a-judge" score is too blunt for frontier questions, the team decomposed each question into weighted rubric items — core insights weighted 3, supporting points 2, nice-to-haves 1 — built by pairs of AI researchers, one drafting and one reviewing. A judge model (OpenAI's o3-mini, chosen after validation against human experts) then checks each response item by item, producing a "coverage score."
+
+The second prong, factual assessment, audits trustworthiness. It extracts every factual claim from a report, checks whether each carries a citation, fetches the cited source text, and asks a judge model whether the source actually supports the claim. That yields two numbers: faithfulness (of the cited claims, how many the sources genuinely support) and groundedness (of all claims, how many are backed by any citation at all). The distinction matters — a report can be scrupulously accurate about the sources it does cite while leaving most of its assertions ungrounded.
+
+## Who won, and where they broke
+
+The team evaluated leading commercial systems — OpenAI Deep Research, Gemini Deep Research (on Gemini 2.5 Pro), Perplexity Deep Research, and xAI's Grok3 DeepSearch and DeeperSearch — plus web-search-equipped baselines like GPT-4o Search Preview and Perplexity's Sonar Reasoning Pro. Evaluations ran between March and April 2025.
+
+"Results show that OpenAI Deep Research and Gemini Deep Research significantly outperform other systems, with particular strength in open-ended consulting questions," the authors write. OpenAI led on rubric coverage at 0.703, with Gemini a hair behind at 0.693 — both roughly 20 to 30 percent ahead of the pack. Dedicated agents crushed the search-augmented baselines: OpenAI's 0.703 versus GPT-4o Search Preview's 0.358. Every system did best on open consulting, with top performers clearing 76 percent coverage, and the authors conclude that DARS are "particularly effective as innovative research ideation partners rather than precision technical implementation guides."
+
+The unsettling finding was a near-total disconnect between quality and grounding. OpenAI Deep Research, the coverage champion, scored just 0.34 on groundedness — meaning roughly two-thirds of its factual claims had no citation at all. Sonar Reasoning Pro, the most grounded system at 0.68, was only middling on insight. Faithfulness was generally high (most systems above 0.8), but that only measures the citations a model bothers to include. In other words, the smartest-sounding reports lean heavily on the models' internal knowledge and implicit reasoning rather than checkable evidence.
+
+## Can you trust an AI "researcher"?
+
+That gap is the crux of the trustworthiness question, and it has only sharpened since. Follow-up work through 2025 and into 2026 keeps finding the same fault line. External analyses put commercial deep-research citation accuracy in the 78-to-94-percent range and note that hallucinated citations still appear in over 30 percent of chatbot answers in research contexts. A raft of new benchmarks — DeepResearch Bench, ResearchRubrics, DRBench, and others — has arrived to probe report quality and citation fidelity separately, precisely because a single headline score hides how a system fails.
+
+Which points to the benchmark-saturation problem. ResearcherBench is deliberately narrow: 65 questions, all in AI, drawn from black-box commercial systems the authors couldn't inspect. They flag these limits themselves, noting the dataset is "a relatively small sample" and confined to one field. As leaderboards proliferate and vendors optimize against them, the risk is that agents learn to ace the rubric while the underlying reliability — can a scientist stake a paper on this output? — improves more slowly. Grounding, not coverage, may be the metric that actually matters, and it is the one the leaders score worst on.
+
+## What to watch next
+
+Three things bear watching. First, whether the next generation of agents closes the groundedness gap — several 2026 papers now target claim-level auditability and reference-hallucination correction directly. Second, whether ResearcherBench-style rubric evaluation extends beyond AI into biology, chemistry, and physics, where the stakes of a fabricated claim are higher. And third, whether "AI researching AI" — the recursive-self-improvement vision the authors invoke when they call these capabilities "a meaningful step toward AI self-improvement" — turns out to be a genuine flywheel or a hall of mirrors in which agents cite each other's confident, unverified prose. For now, the benchmark's message to working scientists is pragmatic: use these systems to spark ideas, but check the footnotes yourself.
