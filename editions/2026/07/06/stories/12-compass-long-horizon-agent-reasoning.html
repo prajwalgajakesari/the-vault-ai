@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>COMPASS Tackles the Hardest Problem in AI Agents: Staying Coherent Over Long Horizons &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>COMPASS Tackles the Hardest Problem in AI Agents: Staying Coherent Over Long Horizons</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 851 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>COMPASS identifies context management, not model size, as the core bottleneck for long-horizon AI agents, and splits execution, oversight, and memory curation across three roles to report up to 20% accuracy gains over single- and multi-agent baselines.</p>
+</div>
+<div class="article-body">
+<p># COMPASS Tackles the Hardest Problem in AI Agents: Staying Coherent Over Long Horizons</p>
+<p>Ask any AI agent to book a flight, and it will manage. Ask it to plan a two-week research trip across a dozen websites, cross-check prices, revise its plan when a hotel falls through, and remember why it made each choice, and it will very likely lose the thread somewhere around step forty. Small errors compound. The model hallucinates a fact it confirmed an hour earlier, gets distracted by a stale search result, and never circles back to fix the mistake that quietly poisoned everything downstream.</p>
+<p>That failure mode is the subject of a paper from a team of researchers, several affiliated with Google, that has become one of the more talked-about entries in the agent-reasoning literature since it landed on arXiv on October 9, 2025. Titled "COMPASS: Enhancing Agent Long-Horizon Reasoning with Evolving Context," and currently under review for the ACL conference, the work does something refreshingly direct: it names the bottleneck, then builds a system around it.</p>
+<h2>The Diagnosis: Context Is the Bottleneck</h2>
+<p>The authors are blunt about where long-horizon agents break. "Long-horizon tasks that require sustained reasoning and multiple tool interactions remain challenging for LLM agents," they write. "Small errors compound across steps, and even state-of-the-art models often hallucinate or lose coherence."</p>
+<p>Their central claim is that the culprit is not raw model capability but the management of the agent's own growing memory. As they put it, "We identify context management as the central bottleneck -- extended histories cause agents to overlook critical evidence or become distracted by irrelevant information, thus failing to replan or reflect from previous mistakes."</p>
+<p>This reframes a problem the field has often treated as a matter of scale. The instinct in 2024 and 2025 was to throw longer context windows at the issue: if the agent can hold a million tokens, surely it will not forget. But a bigger window is not the same as a better-organized one. An agent drowning in its own transcript is not helped by being handed a larger bucket. What COMPASS argues is that the history needs to be actively curated as the task unfolds, not merely accumulated.</p>
+<h2>The Method: Splitting the Brain Into Three</h2>
+<p>COMPASS, which stands for Context-Organized Multi-Agent Planning and Strategy System, is described by the authors as a "lightweight hierarchical framework." Rather than asking one model to simultaneously execute, supervise, and remember, it divides those jobs across three specialized components.</p>
+<p>The first is a Main Agent that does the actual work: reasoning through the problem and calling tools. The second is a Meta-Thinker, which sits above the Main Agent, monitors progress, and issues what the paper calls "strategic interventions" when the agent appears to be drifting or stuck. The third, and arguably the star of the design, is a Context Manager, which "maintains concise, relevant progress briefs for different reasoning stages."</p>
+<p>The division of labor mirrors how a well-run human team operates. One person executes, another watches the strategy, and a third keeps the shared notes clean and current. Critically, the Context Manager is not just summarizing for the record; it is tailoring what the Main Agent sees at each stage so the working memory stays sharp instead of ballooning into noise. This is the "evolving context" of the title: the context is not a static log but a living, pruned artifact.</p>
+<h2>The Results</h2>
+<p>The team evaluated COMPASS on three of the harder benchmarks in the agentic-reasoning world: GAIA, which tests general assistant abilities across multi-step real-world tasks; BrowseComp, a web-browsing benchmark; and Humanity's Last Exam, a notoriously difficult knowledge test. Across all three, the authors report that COMPASS "improves accuracy by up to 20% relative to both single- and multi-agent baselines."</p>
+<p>A 20% relative gain is the headline figure, and it is worth being precise about the framing: this is an improvement over baseline agent architectures, not an absolute score, and the paper describes it as an upper bound ("up to"). Readers should treat it as the paper's own reported result pending peer review.</p>
+<p>The team also describes two extensions. A test-time scaling variant, they write, "elevates performance to match established DeepResearch agents" -- the class of heavyweight research-oriented systems that have set the bar for autonomous web investigation. And a post-training pipeline "delegates context management to smaller models for enhanced efficiency," suggesting the curation role does not require a frontier-scale model to run and could be offloaded cheaply in production.</p>
+<h2>Why This Matters in 2026</h2>
+<p>The timing is not incidental. Through 2025, the AI industry pivoted hard from chatbots to agents, and the gap between demo and dependability became the defining commercial problem. Agents that dazzle on a five-step task quietly fall apart on the fifty-step ones that actually justify their cost. Enterprises piloting agentic workflows have run into the same wall over and over: coherence decays with horizon length, and no amount of prompt engineering fully patches it.</p>
+<p>COMPASS is part of a broader shift toward treating context as an engineered resource rather than a passive buffer -- a discipline some now call context engineering. If the paper's thesis holds, the competitive frontier for agents is moving away from who has the biggest model and toward who manages the agent's attention most intelligently. That is a more architectural, and more tractable, problem than perpetually scaling parameters.</p>
+<h2>What to Watch Next</h2>
+<p>Three things are worth tracking. First, peer review: the paper is still under review for ACL, and independent replication of the up-to-20% figure across labs will determine how durable the result is. Second, the smaller-model context manager -- if a cheap model can reliably do the curation, the approach becomes economically attractive for real deployments, not just benchmarks. Third, whether the three-role decomposition generalizes beyond the research-and-browse benchmarks tested here to messier domains like coding, operations, and multi-day workflows.</p>
+<p>For now, COMPASS offers something the agent field has been short on: a clear-eyed diagnosis and a modular, testable fix. The hardest problem in agentic AI is not getting a model to think. It is getting it to keep thinking straight, for a long time, without losing the plot.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"We identify context management as the central bottleneck -- extended histories cause agents to overlook critical evidence or become distracted by irrelevant information, thus failing to replan or reflect from previous mistakes."</blockquote>
+          <cite>&mdash; the authors, COMPASS paper</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">20%</div><div class="stat-label">Reported accuracy gain over baselines</div></div><div class="stat-cell"><div class="stat-value">3</div><div class="stat-label">Benchmarks: GAIA, BrowseComp, Humanity's Last Exam</div></div><div class="stat-cell"><div class="stat-value">3</div><div class="stat-label">Components: Main Agent, Meta-Thinker, Context Manager</div></div><div class="stat-cell"><div class="stat-value">Oct 2025</div><div class="stat-label">arXiv submission; under review for ACL</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2510.08790" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (abstract)</a><a href="https://arxiv.org/pdf/2510.08790" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (PDF)</a><a href="https://arxiv.org/list/cs.AI/current" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv cs.AI listings</a></div></div>
+<div class="article-nav"><a href="11-nvidia-isaac-rheo-hospital-agents.html" class="nav-prev">&larr; NVIDIA's Isaac for Healthcare Brings Multi-Agent A</a><a href="13-un-global-dialogue-ai-governance-geneva.html" class="nav-next">UN Opens Its First Global Dialogue on AI Governanc &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 6, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
