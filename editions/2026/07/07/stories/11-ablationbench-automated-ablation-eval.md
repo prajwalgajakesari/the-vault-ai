@@ -1,0 +1,27 @@
+Every credible machine-learning paper carries a quiet, unglamorous section that does most of the intellectual heavy lifting: the ablation study. It is where researchers strip a system down component by component to prove which pieces actually matter. Remove the attention mechanism, retrain, and see whether accuracy collapses. Swap the loss function and watch what happens. Ablations are how the field separates real contributions from lucky accidents. So as a new generation of "AI scientist" agents promises to automate research end to end, a natural question follows: can a language model figure out which experiments a paper needs in the first place?
+
+A benchmark called AblationBench sets out to measure exactly that, and the early answer is a sobering one. The best system the authors tested identified at most 38% of the ablations that human researchers actually ran.
+
+## What AblationBench measures
+
+AblationBench comes from Talor Abramovich of Tel Aviv University and Gal Chechik, a professor at Bar-Ilan University and senior director of AI research at NVIDIA in Israel. Released as arXiv:2507.08038 and accepted to the AI4Science workshop at ICML 2026, it is, in the authors' framing, a suite "for evaluating ablation planning in empirical AI research" — not code-writing or execution, but the upstream act of research judgment.
+
+The benchmark splits into two tasks that mirror two roles in the scientific process. The first, AuthorAblation, hands a model a paper's method section with the experiments removed and asks it to propose the ablations the authors should run. It is built from 83 research papers annotated with 230 human-labeled ablations drawn from the full versions of those papers, split into 21 development and 62 test instances. The second task, ReviewerAblation, plays critic instead of author: given a complete submission, the model must flag the ablations that are missing but should have been included. That half of the benchmark is assembled from 350 ICLR submissions from 2023 to 2025, using the missing-ablation requests that real peer reviewers wrote as the gold labels.
+
+Because there is no simple string-matching way to grade "did you propose the right experiment," the authors built LM-based judges that compare a model's proposed ablations against the ground truth semantically. A match, they write, "means that the proposed ablation captures the same idea" as the reference one — targeting the same part of the method and applying a similar type of change. It is an automated pipeline in which models must infer full ablation plans directly from raw paper content rather than from tidied, pre-structured inputs.
+
+## Frontier models fall short of humans
+
+The results establish a clear gap between machine and human research instinct. Across both tasks, the strongest "planner" the team tested recovered no more than 38% of the original ablations. On a ten-instance subset of AuthorAblation where the authors ran a direct human comparison, people scored an F1 of 0.65 against 0.42 for the best-performing model — a wide margin on a task that, for a working researcher, is close to second nature.
+
+Two findings cut against the prevailing enthusiasm for elaborate agent scaffolding. First, the authors report that "chain-of-thought prompting outperforms an agent-based approach" — the simpler reasoning setup beat the more autonomous, tool-using agent pipeline. Second, the models displayed a telling blind spot: for AuthorAblation, they were more likely to identify ablations that completely remove a key component than those that merely modify or tune one. In other words, the systems grasp the blunt "delete this and see what breaks" logic but miss the subtler design choices — the ones that often carry a paper's most interesting insights.
+
+## Why ablation planning is the harder test
+
+The wave of autonomous-research systems — Sakana's AI Scientist, and benchmarks like FML-bench, ResearcherBench and SUPER — has largely focused on whether agents can write code, set up repositories and run experiments. AblationBench probes something more demanding than execution: taste. Knowing which experiment to run requires a model to understand what a method's load-bearing assumptions are, which alternatives a skeptical reviewer would demand, and where a result might be fragile. That is the reasoning that turns a working demo into a defensible scientific claim.
+
+It also matters for the reviewer side of science. With submission volumes overwhelming peer review, a reliable model that could surface missing ablations would be a genuine assistive tool. The 350-submission ReviewerAblation set, grounded in what human reviewers actually asked for, is a first attempt to measure that capability rigorously — and the current gap suggests such tools are not ready to be trusted unsupervised.
+
+## What to watch next
+
+The authors deliberately leave open the hardest evaluation problem: judging genuinely novel ablation ideas that no human happened to run, where no ground truth exists and proposals must be weighed for both relevance and feasibility. Expect follow-up work — AblationBench arrives alongside a companion effort, AbGen, targeting the same terrain — to push there. The near-term signal for readers tracking autonomous research is simple: until agents can reliably plan the experiments that validate a method, "AI that does science" remains a claim in search of its own ablation study.
