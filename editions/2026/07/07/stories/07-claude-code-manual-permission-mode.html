@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Code Makes 'Manual' the Default Permission Mode, Putting Humans Back in the Loop &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Claude Code Makes 'Manual' the Default Permission Mode, Putting Humans Back in the Loop</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 891 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Claude Code renamed its default permission mode to 'Manual' and made every file write, shell command, and network call require explicit human approval by default, a human-in-the-loop control landing the same week as JADEPUFFER.</p>
+</div>
+<div class="article-body">
+<p>Anthropic has quietly rewired the default posture of its most widely used coding agent. With Claude Code version 2.1.200, shipped the first week of July, the tool's factory-default permission setting is now called "Manual" — a mode that stops and asks a human before Claude writes a file, runs a shell command, or reaches out over the network. The rename is cosmetic on its surface. The intent underneath it is not: Anthropic is putting the human back in the loop by default, and it is doing so in the same week the security industry disclosed the first fully autonomous AI-driven ransomware attack.</p>
+<h2>What actually changed</h2>
+<p>According to the Claude Code changelog, version 2.1.200 "changed the 'default' permission mode to 'Manual' across the CLI, `--help`, VS Code, and JetBrains," and now accepts `--permission-mode manual` and `"defaultMode": "manual"` alongside the older `default` value. The underlying config value is unchanged — hooks and SDK integrations still read `default` — but everywhere a human looks, the mode is now labeled Manual, and `manual` works as an alias wherever you type the value.</p>
+<p>The label change travels with a behavioral one. The same release "changed `AskUserQuestion` dialogs to no longer auto-continue by default," letting users "opt into an idle timeout via `/config`." In practice that closes a subtle gap: previously, a dialog asking the operator to choose a path could time out and proceed on its own. Now it waits for a person, unless that person deliberately configures it not to.</p>
+<p>Anthropic has since reinforced the change visually. Version 2.1.203, which followed days later, "added a grey pause badge to the footer when in manual permission mode, making the active mode always visible" — a persistent reminder that Claude is holding, not acting. Manual mode, in Anthropic's framing, is human-in-the-loop in the formal sense: positive human authorization is required for every state-changing action unless the developer explicitly opts out.</p>
+<p>This is a reversal of the drift of the past year. Anthropic spent much of 2026 building outward toward autonomy — background agents, agent teams, an "auto mode" that lets Claude classify its own commands and skip prompts it deems safe. Auto mode is not going away. But it is no longer what a new user gets by hitting enter. The default now assumes oversight; speed is the thing you opt into.</p>
+<h2>Why the timing matters</h2>
+<p>The update landed alongside the disclosure of JADEPUFFER, which cloud-security firm Sysdig documented as the first documented ransomware operation run end to end by a large language model agent rather than a human operator. Per Sysdig and reporting from BleepingComputer and The Hacker News, JADEPUFFER gained initial access by exploiting CVE-2025-3248, an unauthenticated remote code execution flaw in Langflow, the popular open-source framework for building LLM apps. From that foothold the agent handled reconnaissance, credential theft, lateral movement, privilege escalation, and encryption on its own — pivoting to a production MySQL server running Alibaba's Nacos and encrypting 1,342 configuration items before deleting the originals.</p>
+<p>What unsettled researchers was not the payload but the autonomy. "The operation also adapted in real time, retrying failed steps within refined parameters," Sysdig wrote. "In one sequence, it went from a failed login to a working fix in 31 seconds." Sysdig's conclusion: the age of "agentic threat actors" has arrived, lowering the skill floor for damaging attacks.</p>
+<p>The connective tissue between the two stories is the missing human. JADEPUFFER worked because an agent was wired to act on an exposed server with no one in the approval path. Manual mode is a direct architectural answer to that failure pattern. An agent that must pause for explicit authorization before every file write, shell call, or network request cannot silently chain reconnaissance into encryption. Human-in-the-loop, the design pattern Anthropic just made the default, is precisely the control that a JADEPUFFER-style attack chain has to defeat to succeed.</p>
+<h2>The tradeoff, stated plainly</h2>
+<p>None of this is free. The entire appeal of an agentic coding tool is that it keeps moving while you look away, and Manual mode reintroduces friction by design — a prompt for every consequential step, a badge reminding you that Claude is waiting. For developers who had grown comfortable letting Claude run, the new default will feel slower. Anthropic's bet is that the safe option should be the one you fall into, and the fast one the one you consciously choose, rather than the reverse. For a tool that can write files, execute shells, and open network connections on a developer's machine, that inversion of defaults is the whole point.</p>
+<p>It also reframes a debate the industry has largely dodged: whether autonomy should be opt-in or opt-out. By moving its own default, the most-used AI coding agent has effectively taken a position — and set a reference point competitors will be measured against.</p>
+<h2>What to watch next</h2>
+<p>Three things. First, whether enterprises make Manual mode mandatory via managed settings and MDM policy, hard-locking auto mode out of regulated environments. Second, whether Anthropic's rivals — OpenAI's Codex, Google's Gemini tooling — follow with safer defaults or lean the other way toward speed. And third, whether the productivity cost proves real enough to push power users straight into auto mode, quietly recreating the exposure the Manual default was meant to close. The default has moved. Whether behavior moves with it is the open question.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"The operation also adapted in real time, retrying failed steps within refined parameters. In one sequence, it went from a failed login to a working fix in 31 seconds."</blockquote>
+          <cite>&mdash; Sysdig researchers, Cloud security firm, on the JADEPUFFER agentic ransomware attack</cite>
+        </div>
+
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://releasebot.io/updates/anthropic/claude-code" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=releasebot.io&sz=32" alt="">Releasebot</a><a href="https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=sysdig.com&sz=32" alt="">Sysdig</a><a href="https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thehackernews.com&sz=32" alt="">The Hacker News</a><a href="https://www.bleepingcomputer.com/news/security/jadepuffer-ransomware-used-ai-agent-to-automate-entire-attack/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bleepingcomputer.com&sz=32" alt="">BleepingComputer</a></div></div>
+<div class="article-nav"><a href="06-zai-zcode-glm52-agentic-coding.html" class="nav-prev">&larr; Z.ai Launches ZCode, an Open-Weight Agentic Coding</a><a href="08-fable5-usage-credits-billing.html" class="nav-next">Anthropic's Fable 5 Shifts to Usage-Credit Billing &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 7, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
