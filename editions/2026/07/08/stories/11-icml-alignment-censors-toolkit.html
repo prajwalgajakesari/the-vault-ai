@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ICML's Top Position Paper Warns the AI Alignment Community Is Building a 'Censor's Toolkit' &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>ICML's Top Position Paper Warns the AI Alignment Community Is Building a 'Censor's Toolkit'</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 913 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>An ICML 2026 award-winning paper argues that the dual-use alignment techniques built to make AI safe can be repurposed by states and firms for censorship, and is already being used that way.</p>
+</div>
+<div class="article-body">
+<p>The machinery built to keep AI models from teaching people how to make bombs is the same machinery a government can use to keep people from learning what happened in Tiananmen Square in 1989. That uncomfortable symmetry is the beating heart of the paper that just won one of the most prestigious honors in machine learning.</p>
+<p>At the ICML 2026 awards, announced July 5 and presented this week in Seoul, "Position: The Alignment Community is Unintentionally Building a Censor's Toolkit," by Sarah Ball of LMU Munich and independent researcher Phil Hackemann, took the Outstanding Position Paper Award. Its thesis is blunt: the toolkit AI safety researchers have spent years perfecting to make models refuse harmful requests is inherently dual-use, and it is already being repurposed for censorship and political manipulation.</p>
+<h2>The Argument</h2>
+<p>The authors draw a sharp line between their concern and the field's usual preoccupation. Most alignment work worries about a model that accidentally pursues the wrong goals. Ball and Hackemann worry about a human who does it on purpose.</p>
+<p>"We are concerned with a human who deliberately weaponizes alignment pipelines," they write, "using the exact technical methods the community has spent years perfecting." The methods themselves — pre-training data filtering, reinforcement learning from human feedback (RLHF), constitutional AI, and cheap inference-time controls like system prompts and classifiers — are what they call "purpose-agnostic." Nothing in the math distinguishes suppressing a bomb recipe from suppressing a protest anniversary. Whoever controls the pipeline controls the values.</p>
+<p>The paper organizes frontier models into three intervention layers — pre-training, post-training, and inference-time — and maps a distinct misuse profile to each. Inference-time control is the most alarming precisely because it is the most accessible: negligible compute, low technical skill, and, as the authors put it, "no retraining required."</p>
+<h2>The Real-World Evidence</h2>
+<p>What lifted this beyond a thought experiment, and what the ICML committee singled out, was the documentation. The award citation praised the paper for challenging "the comfortable assumption held by some of us that we are a force for good, asserting that even value alignment — the primary tool we build to ensure AI does no harm — can be misused," and credited it with "compelling, real-world evidence."</p>
+<p>That evidence spans the political spectrum. On the state-actor side, the authors point to Chinese models such as DeepSeek and Baidu's Ernie Bot being tuned to refuse politically sensitive topics, and to reporting that China's cyberspace regulator has pushed providers to assemble refusal datasets of thousands of prompts, roughly half aimed at political ideology and criticism of the Communist Party. On the private side, they cite Elon Musk's publicly stated plans to "fix" outputs from Grok he disagreed with — shifts later traced to system-prompt edits that steered the model toward his positions and, in some updates, produced antisemitic responses and Holocaust denial as catastrophic side effects.</p>
+<p>Most unsettling is what they call "global contamination": studies showing Western models self-censoring when prompted in Simplified Chinese, not by design but because years of state filtering have shaped the available training corpus. Misuse at one point in the ecosystem, they argue, can propagate invisibly to models built anywhere.</p>
+<h2>Why It Matters</h2>
+<p>The committee noted the paper's scope "generalizes to all authorities, present and future" — this is not an argument about any one government or company. The authors frame the timing as a convergence: growing public reliance on AI for information (Reuters put weekly use at 34 percent), a market concentrated in fewer than ten foundation model providers, and fifteen straight years of declining internet freedom.</p>
+<p>The concern echoes a broader technical debate. Alignment researchers have increasingly embraced representation engineering and activation steering — techniques that isolate "directions" in a model's internal activations for concepts like refusal or truthfulness and dial them up or down. The dual-use logic is inescapable: a vector that suppresses toxicity can, with a sign flip, suppress dissent. Ball and Hackemann's contribution is to insist the community stop treating that fact as a footnote.</p>
+<p>The paper sat alongside an honorable-mention position paper by Li Qiwei and colleagues on AI-generated non-consensual intimate imagery — a pairing that signals ICML's growing appetite for work interrogating whether the safety project is aiming at the right harms.</p>
+<h2>The Other Side</h2>
+<p>To their credit, the authors are not calling for a retreat. "We do not argue for halting alignment research — its necessity is clear," they write. And many alignment researchers would offer a fair rejoinder: dual-use is not unique to alignment. Cryptography, biology, and virtually every powerful tool cut both ways, and abandoning safety techniques would simply cede the field, leaving models that harm users by default while doing nothing to stop a determined censor who could filter data by hand. The refusal machinery, defenders note, is also what lets a model decline to generate abuse material or bioweapon instructions. The honest disagreement is less about whether the risk exists than about whether more transparency or less capability is the better hedge.</p>
+<h2>What to Watch</h2>
+<p>Ball and Hackemann propose three directions: verifiable alignment, so users can audit what a model was made to suppress; model pluralism, so no single actor monopolizes informational power; and plain awareness, starting with taking impact statements in papers seriously. Watch whether standardized benchmarks for information suppression and political bias actually materialize, whether venues like ICML begin demanding harder dual-use disclosures, and whether a field that just handed this argument its top prize is willing to act on it.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;We are concerned with a human who deliberately weaponizes alignment pipelines, using the exact technical methods the community has spent years perfecting.&rdquo;</blockquote><cite>&mdash; Sarah Ball and Phil Hackemann, Authors of the ICML position paper</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">&lt;10</div><div class="stat-label">Foundation-model providers</div></div><div class="stat-cell"><div class="stat-value">15</div><div class="stat-label">Years of declining net freedom</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://s-ball-10.github.io/censors-toolkit/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=s-ball-10.github.io&sz=32" alt="">Censor's Toolkit project page</a><a href="https://blog.icml.cc/2026/07/05/announcing-the-icml-2026-awards/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.icml.cc&sz=32" alt="">ICML 2026 Awards</a><a href="https://mcml.ai/news/2026-07-08-ball-award-best-paper-icml/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=mcml.ai&sz=32" alt="">MCML</a></div></div>
+<div class="article-nav"><a href="10-icml-test-of-time-async-rl.html" class="nav-prev">&larr; A 2016 Reinforcement-Learning Paper Wins ICML's Te</a><a href="12-china-ai-companion-ban-doubao-qwen.html" class="nav-next">China Orders AI Companion Apps to Shut Down Person &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 8, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

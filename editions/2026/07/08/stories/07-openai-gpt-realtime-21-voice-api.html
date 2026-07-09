@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Ships GPT-Realtime-2.1 for Low-Latency Voice Agents in the API &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>OpenAI Ships GPT-Realtime-2.1 for Low-Latency Voice Agents in the API</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 3 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 769 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI's GPT-Realtime-2.1 and mini add configurable reasoning and cut p95 voice latency at least 25%, targeting production voice-agent builders rather than consumers.</p>
+</div>
+<div class="article-body">
+<p>OpenAI has quietly done the unglamorous work that voice-agent builders have been begging for: it made the tail faster.</p>
+<p>On July 6, 2026, the company added two models to its Realtime API — `gpt-realtime-2.1` and a distilled `gpt-realtime-2.1-mini` — and said the update cuts 95th-percentile (p95) latency across its Realtime voice models by at least 25 percent through improved caching. There is no splashy consumer demo here, no new frontier benchmark. This is a serving-layer release aimed squarely at the developers wiring these models into call centers, IVR replacements, and in-app voice copilots. It is the API-side counterpart to the consumer GPT-Live rollout, and for builders the distinction matters: GPT-Live is a product you talk to, while GPT-Realtime-2.1 is a model you ship.</p>
+<h2>What Shipped</h2>
+<p>Both models are speech-to-speech: the Realtime API processes and generates audio through a single model rather than chaining separate speech-to-text and text-to-speech systems, which is what keeps end-to-end turn latency low and preserves vocal nuance. The headline addition is reasoning. Per OpenAI's API changelog, `gpt-realtime-2.1` is "an updated realtime reasoning model" with better alphanumeric recognition, silence handling, noise handling, and interruption behavior. The mini variant is described as a faster, lower-cost distilled reasoning model for realtime voice applications.</p>
+<p>Reasoning effort is configurable across five levels — minimal, low, medium, high, and xhigh — with low as the default. OpenAI advises starting low for most production voice agents, since higher effort raises both latency and output-token usage. Both models support function calling, so an agent can plan a step, narrate it, call a tool, and answer — the pattern that makes multi-step phone tasks feel coherent instead of dead-air-then-answer.</p>
+<h2>The Numbers Builders Care About</h2>
+<p>The 25 percent p95 improvement is the figure OpenAI leads with, and it is deliberately about the tail. As MarkTechPost put it, "p95 latency is the 95th-percentile response time. It captures the slow tail that users actually feel." Voice agents fail in that tail — a caller notices a pause, a missed confirmation code, or an awkward interruption long before they notice a benchmark delta.</p>
+<p>Caching drives both the latency and the cost story. According to OpenAI's published pricing, `gpt-realtime-2.1-mini` bills fresh audio input at $10.00 per 1M tokens but cached audio input at just $0.30 per 1M — roughly a 97 percent discount on reused context, with the system prompt caching after the first turn so long sessions benefit most. The gap between tiers is stark: the full model charges $32.00 per 1M audio input and $64.00 per 1M audio output, versus $10.00 and $20.00 for mini — about a 3x spread on audio output. For high-volume support and sales flows where every spoken turn carries marginal cost, that spread is the whole business case for choosing mini and configuring effort down.</p>
+<h2>Why It Matters</h2>
+<p>The voice-agent market is now a knife fight over the tail, not the transcript. OpenAI's move lands in a field where Deepgram runs speech-to-text, orchestration, and text-to-speech in one shared runtime to cut pipeline delay, ElevenLabs competes on raw speed, and Google pushes its own low-latency streaming stack. Independent testing suggests no single winner. In Deepgram's own VAQI analysis, "OpenAI shows the best Miss Rate, Deepgram has the fewest Interruptions with sub-second-ish Latency, and ElevenLabs remains the fastest — but with significantly more Interruptions and Misses."</p>
+<p>That is the competitive frame builders should read this release through. OpenAI has historically been dinged for responding too slowly and occasionally missing user input; shaving the p95 tail and adding a spoken preamble via reasoning targets exactly those complaints. Meanwhile, pricing pressure is real — some third-party estimates peg full Realtime sessions with a system prompt at well above a dollar per minute, versus flat rates near $4.50 per hour from rivals. A cheaper reasoning-capable mini tier is OpenAI's answer to that math.</p>
+<p>The strategic signal, as Let's Data Science framed it, is cadence: "OpenAI is iterating on the serving layer, not only model capability." That is what turns a demo-quality assistant into a contact-center workhorse.</p>
+<h2>What to Watch</h2>
+<p>Teams already on `gpt-realtime-2` should treat 2.1 as a regression-test candidate, not a blind swap — re-run latency under real network conditions, interruption behavior with live callers, tool-call timing, and any workflow that requires exact alphanumeric capture, where reasoning effort and audio pricing interact. Beyond that, watch the release cadence itself. If OpenAI keeps shipping latency and reliability fixes every few months, the metric that matters will not be a reasoning score but whether voice agents measurably lower call abandonment and repeat-contact rates. That is the number the entire category is now racing to move.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;OpenAI shows the best Miss Rate, Deepgram has the fewest Interruptions with sub-second-ish Latency, and ElevenLabs remains the fastest.&rdquo;</blockquote><cite>&mdash; Deepgram, VAQI voice-agent benchmark analysis</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">25%+</div><div class="stat-label">p95 latency cut</div></div><div class="stat-cell"><div class="stat-value">$0.30</div><div class="stat-label">Cached audio in / 1M (mini)</div></div><div class="stat-cell"><div class="stat-value">$64</div><div class="stat-label">Audio out / 1M (full)</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.marktechpost.com/2026/07/06/openai-gpt-realtime-2-1-mini-reasoning-realtime-api/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=marktechpost.com&sz=32" alt="">MarkTechPost</a><a href="https://community.openai.com/t/new-realtime-models-on-the-api-gpt-realtime-2-1-and-gpt-realtime-2-1-mini/1385896" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=community.openai.com&sz=32" alt="">OpenAI Developer Community</a><a href="https://deepgram.com/learn/vaqi-openai-gpt-realtime-test-with-sensitivity-analysis" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=deepgram.com&sz=32" alt="">Deepgram</a></div></div>
+<div class="article-nav"><a href="06-openai-gpt-live-full-duplex-voice.html" class="nav-prev">&larr; OpenAI Launches GPT-Live, a Full-Duplex Voice Mode</a><a href="08-icml-flexibility-trap-diffusion-llms.html" class="nav-next">ICML's Top Paper Says Diffusion Language Models Ar &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 8, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
