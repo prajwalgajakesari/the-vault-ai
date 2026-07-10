@@ -1,0 +1,27 @@
+Kaon AI wants to replace the streaming catalog with a story that writes itself around you. On July 8, the Bay Area startup said it had closed a $60 million Series B to fund that ambition, a round that values the company in the several hundreds of millions and hands its Berkeley-educated founders fresh capital to push generative AI out of the office and into entertainment.
+
+The round was backed by B Capital, Redpoint Ace, Goodwater Capital and DCM. Kaon builds what it calls personalized story worlds through a pair of products, FlowGPT and Emochi, letting users generate interactive narratives shaped by their own "intent, emotion and creative direction." The company is led by chief executive Jay Dang, chief technology officer Alex Xi and chief operating officer Lifan Wang, all UC Berkeley alumni now scaling the operation from a new headquarters in San Mateo.
+
+## From an AI app store to a story engine
+
+Kaon's origin is FlowGPT, first pitched as an "app store" for generative AI models where users could discover and run different systems. That framing has largely given way to Emochi, the company's flagship consumer product and the engine behind its momentum. Rather than matching a viewer to something already made, Emochi writes, illustrates and evolves multimedia stories frame by frame as the user talks to it, answering questions and steering the plot while the platform generates the accompanying text, visuals and video in real time.
+
+The engagement numbers are the pitch. Kaon says Emochi generates $45 million in annual recurring revenue and draws more than 2 million daily active users who spend an average of 150 minutes on the platform each day, a session length that dwarfs most general-purpose AI apps. The United States is its largest market, with a median user age between 23 and 25. To serve that volume, the company runs a custom full-stack inference setup spanning more than a thousand GPUs across partners including Nebius and DigitalOcean, processing what it describes as trillion-level daily token volumes at roughly a tenth of the cost of a legacy cloud arrangement.
+
+"Every streaming platform today recommends what could be your next favorite show from a long list of preset options. In the generative AI era, though, this finite catalog is poised to become the 'Blockbuster' of the 2020s," Dang said. "At Kaon, we're building a new type of content engine to create individualized narratives that truly resonate, moving the industry past static text prompts and into real-time multimedia."
+
+Alongside the raise, Kaon introduced a research arm, Kaon Labs, which it says will use its consumer base as a live testing ground to move new models into production in days rather than months. The company also lists two further products, Tickle and Branches, in its expanding ecosystem.
+
+## A bet on "interactive AI entertainment" as a category
+
+For investors, the appeal is less any single app than the claim that Kaon owns its entire stack, from front-end consumer experience and token economy down to the inference infrastructure. That vertical integration, they argue, is a moat in a market where access to raw models is rapidly commoditizing.
+
+"We believe interactive AI entertainment is emerging as the next distinct consumer category," said Daisy Cai, general partner at B Capital. "Kaon stands out because Jay, Alex, and Lifan have built a full-stack powerhouse that owns its data pipeline from the ground up. That level of integration creates a compounding advantage in performance, data, and product iteration that is difficult to replicate."
+
+The thesis lands in a market that is heating up fast. Consumer AI companion and character-chat apps generated an estimated $82 million in the first half of 2025 and crossed roughly $120 million by year's end, with 2026 revenue expected to push past $200 million. Longer-range forecasts for the broader relational-AI market run into the tens of billions of dollars. Kaon's 150-minute daily sessions put it squarely in the same attention economy as Character.AI and a wave of companion startups chasing users who treat these apps less like tools than like company.
+
+## Rising engagement, rising scrutiny
+
+That intimacy is also what regulators are now watching. Character.AI spent 2024 and 2025 fighting wrongful-death litigation from families who said the platform's chatbots failed vulnerable minors, and in early 2026 it settled several such suits. The fallout reshaped the policy landscape: by mid-2026, dozens of states had filed chatbot-specific legislation, and California's SB 243, the first US companion-chatbot law, took effect January 1, mandating AI disclosure, self-harm protocols, break reminders for minors and a private right of action. China imposed its own rules in April targeting anthropomorphic AI services above certain user thresholds.
+
+Kaon frames Emochi as interactive storytelling rather than companionship, a distinction that may matter as lawmakers draw lines around emotional simulation. But with millions of young users logging multi-hour daily sessions, the company's core strength, sustained engagement, is precisely the metric that now invites scrutiny. Its $60 million is a wager that the personalized story engine becomes the next consumer category before the rules catch up with it.
