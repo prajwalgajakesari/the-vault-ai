@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SpaceXAI Rushes Grok 4.5 to the Public With an 'Opus-Class' Claim and No Benchmarks -- The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+.footer,footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>SpaceXAI Rushes Grok 4.5 to the Public With an 'Opus-Class' Claim and No Benchmarks</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 872 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>SpaceXAI launched Grok 4.5 as a cheaper 'Opus-class' model but shipped it without a system card, reproducible benchmarks, or context specs, leaving an enterprise credibility gap it filled with price and speed instead.</p>
+</div>
+<div class="article-body">
+<p>On July 8, Elon Musk did what has become a familiar ritual: he announced a frontier AI model with a social-media post rather than a technical report. "Based on strong positive feedback from customers in our beta test program, @SpaceXAI will make Grok 4.5 available to the public tomorrow," Musk wrote on X, the platform his own company now owns. "It is an Opus-class model, but faster, more token-efficient and lower cost."</p>
+<p>The claim is bold, and the framing is deliberate. "Opus-class" measures Grok 4.5 against Claude Opus 4.8, the model widely regarded as the high-water mark for complex reasoning and agentic coding. What Musk did not provide alongside the boast was the evidence enterprises typically demand before betting production workloads on a new model: no formal system card, no independently reproducible benchmark table, no published context-window specification, and, at the moment of the announcement, no per-token price sheet from the company itself.</p>
+<h2>What SpaceXAI actually shipped</h2>
+<p>Grok 4.5 went public on July 9, roughly two weeks after a private beta that began June 28 across SpaceX and Tesla. It is the first major model release since xAI rebranded to SpaceXAI on July 6, the final step in an absorption that started with SpaceX's February 2 acquisition of xAI and continued with its roughly $60 billion, all-stock purchase of Cursor maker Anysphere in June.</p>
+<p>That acquisition is baked directly into the product. Grok 4.5 is built on the V9 foundation model, a 1.5-trillion-parameter base that triples the scale of the V8 series behind Grok 4.3 and shifts the training emphasis toward coding and agentic tasks. Crucially, SpaceXAI supplemented that base with training data drawn from Cursor, the AI code editor it now owns, positioning the model squarely at software developers.</p>
+<p>The pricing that emerged tells the real story of the launch. Through the API, where the model ships under the ID `grok-4.5` on an OpenAI-compatible endpoint, SpaceXAI is charging $2 per million input tokens and $6 per million output tokens, with cached input at $0.50. Set against Opus 4.8 at $5 and $25, that is a discount of more than 60 percent on input and roughly 75 percent on output. Consumers reach the model through SuperGrok Heavy (a $99-per-month promotional rate rising to $149 standard) or X Premium+ at around $16 per month.</p>
+<h2>The benchmark that wasn't</h2>
+<p>SpaceXAI did circulate a marketing chart on launch day suggesting Grok 4.5 edges past rivals on selected coding and agentic tests. But a promotional graphic is not a system card, and the gaps are conspicuous. As one review of the release put it bluntly: "There is no system card, no benchmark sheet, and no API note from xAI for Grok 4.5" - a problem for "any regulated workload that needs a model card to clear review."</p>
+<p>The independent numbers that have trickled in complicate the Opus-class narrative. On the Artificial Analysis Intelligence Index, Grok 4.5 scored 54 and ranked fourth, behind Claude Fable 5, Claude Opus 4.8, and GPT-5.5, though it topped the field on agentic tool use and posted 51.4 percent on the AutomationBench-AA agent test, ahead of Opus 4.8's 48.5 percent. More troubling for a model pitched at enterprise work: its accuracy on the AA-Omniscience Index climbed from 35 to 52 percent over Grok 4.3, but its hallucination rate jumped from 25 to 54 percent. Grok 4.5 is more often right, and, when wrong, more confidently so. Cursor was also forced to strike its own CursorBench scores from the launch after an earlier snapshot of its codebase turned up in the training data, handing the model an unearned edge.</p>
+<p>Musk himself dialed back the headline in a follow-up post: "Our internal assessment is that Grok 4.5 is roughly comparable to Opus 4.7, but much faster." That is a notably softer claim than "Opus-class" against the newer 4.8.</p>
+<h2>Why it matters</h2>
+<p>The strategy is legible even without the paperwork. In a market where token cost has become the dominant procurement concern, SpaceXAI is buying attention with price and speed rather than winning it on raw capability. If Grok 4.5's "twice greater token efficiency" holds in real workloads, the effective cost gap versus Opus widens further, and for high-volume coding agents that math can matter more than a few benchmark points.</p>
+<p>But the credibility gap is real, and it is not only about missing charts. Skeptics have flagged a trust problem specific to this vendor. "How can you trust their models to be reliable in a business setting," one asked, "with the foreknowledge that their models are being nudged around in the backend?" For risk-averse enterprises, an undocumented model from a company with a history of steering Grok's outputs is a hard sell, however cheap the tokens.</p>
+<h2>What to watch</h2>
+<p>Three things over the coming weeks. First, whether SpaceXAI publishes an actual system card, benchmark methodology, and context-window spec - the absence of which currently blocks regulated buyers. Second, how Grok 4.5 fares against OpenAI's GPT-5.6, which was slated to arrive within a day of the launch, turning the week into a direct frontier collision. And third, whether independent evaluators confirm or puncture the "Opus-class" label. Until then, the claim rests where Musk left it: on a post, not a paper.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"It is an Opus-class model, but faster, more token-efficient and lower cost."</blockquote><cite>-- Elon Musk, CEO, SpaceX</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">1.5T</div><div class="stat-label">V9 foundation parameters</div></div><div class="stat-cell"><div class="stat-value">$99/mo</div><div class="stat-label">SuperGrok Heavy (promo)</div></div><div class="stat-cell"><div class="stat-value">$60B</div><div class="stat-label">Anysphere/Cursor acquisition</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techcrunch.com/2026/07/08/spacexai-releases-grok-4-5-which-elon-describes-as-an-opus-class-model/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://www.axios.com/2026/07/08/spacexai-grok-new-model" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=axios.com&sz=32" alt="">Axios</a><a href="https://explainx.ai/blog/grok-4-5-public-launch-spacexai-july-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=explainx.ai&sz=32" alt="">ExplainX</a></div></div>
+<div class="article-nav"><a href="01-gpt-56-sol-terra-luna-public-launch.html" class="nav-prev">&larr; OpenAI Launches GPT-5.6 Sol, Terra, and Luna, Endi</a><a href="03-gpt-56-sol-ultra-cerebras-subagents.html" class="nav-next">Inside GPT-5.6 Sol's Ultra Mode: Parallel Subagent &rarr;</a></div>
+<footer>The Vault -- AI Edition &middot; Published July 09, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

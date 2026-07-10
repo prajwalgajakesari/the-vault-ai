@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inside GPT-5.6 Sol's Ultra Mode: Parallel Subagents and 750 Tokens per Second on Cerebras -- The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+.footer,footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Inside GPT-5.6 Sol's Ultra Mode: Parallel Subagents and 750 Tokens per Second on Cerebras</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 978 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>GPT-5.6 Sol pairs Ultra mode's parallel subagent orchestration with Cerebras wafer-scale inference at 750 tokens per second, making multi-agent reasoning fast enough for real-time production agentic workflows.</p>
+</div>
+<div class="article-body">
+<p>Inside GPT-5.6 Sol's Ultra Mode: Parallel Subagents and 750 Tokens per Second on Cerebras</p>
+<p>OpenAI's newest frontier model does not just think harder. In its highest-effort configuration, GPT-5.6 Sol breaks a task apart, hands the pieces to a swarm of specialized copies of itself, runs them at the same time, and stitches the answers back together. And starting this month, for a handful of customers, it does all of that on hardware that spits out tokens roughly fifteen times faster than the GPUs the rest of the industry runs on.</p>
+<p>That combination -- parallel orchestration inside the model plus wafer-scale inference speed -- is the real story of the Sol launch, and it reframes what an "agentic" workflow can look like in production.</p>
+<h2>Two ways to think harder</h2>
+<p>Sol ships with two extended-reasoning configurations, and the distinction matters. Max mode is the familiar approach taken further: a single model reasoning sequentially, deeper and longer, with no parallel helpers. Ultra mode is the new idea. Instead of one long chain of thought, Sol decomposes the request and spawns multiple subagents that run subtasks simultaneously, each trained to coordinate with the others mid-task rather than operate in isolation, before a final synthesis pass merges their work.</p>
+<p>The payoff shows up on Terminal-Bench 2.1, the industry benchmark for agentic command-line coding. In standard mode Sol scores 88.8%. In Ultra mode it hits 91.9% -- a roughly three-point gain that OpenAI attributes to the compounding advantage of parallel execution on long-horizon, open-ended tasks. That is currently the top score for autonomous developer tooling, ahead of competing frontier systems.</p>
+<p>The architectural significance is that orchestration developers used to build themselves -- spinning up worker agents, dividing labor, reconciling outputs through external frameworks -- now collapses into a single API call. "Rather than running a single extended chain-of-thought, the model orchestrates multiple specialised subagents in parallel to tackle long-horizon tasks that exceed a single agent's throughput," as one technical breakdown of the Codex integration put it. The framework moves inside the model.</p>
+<h2>The Cerebras fast lane</h2>
+<p>The second half of the story is where Sol runs. OpenAI has confirmed that Sol is launching on Cerebras wafer-scale hardware in July 2026 for select customers, serving up to 750 tokens per second -- roughly 15x the throughput of typical GPU inference and about 10x faster than any Nvidia GPU deployment of a frontier model in production. For comparison, standard H100 clusters serve the same class of model at roughly 70 tokens per second.</p>
+<p>The engine is Cerebras's Wafer-Scale Engine 3, a single processor spanning 46,225 square millimeters -- about fifty times the area of a GPU die -- with on-chip memory bandwidth measured in petabytes per second. Conventional GPU clusters burn time shuttling data between chips and external memory; Cerebras keeps computation on one giant substrate and streams model weights in layer by layer. Industry analysts, including Bleys Goodson, estimate Sol may be served across 70 to 100 wafers, with roughly one model layer per wafer -- implying a model on the order of 3 trillion total parameters with around 150 billion active.</p>
+<p>The partnership is not a one-off benchmark stunt. It sits inside a broader deal under which OpenAI is folding up to 750 megawatts of Cerebras capacity into its inference stack in phases, and Cerebras has committed billions to a European data-center buildout. The target is explicit: latency-sensitive, interactive, real-time agentic applications, where every saved second changes whether users adopt a tool or abandon it.</p>
+<h2>Why speed and subagents belong together</h2>
+<p>Here is why the two announcements amplify each other. Agentic loops chain token generation, and latency compounds across turns. A 3,000-token agent turn -- reasonable for a code review or planning step -- takes about 43 seconds on an H100 deployment and roughly 4 seconds on Cerebras. Across a multi-turn loop, that is the difference between three-plus minutes and under half a minute.</p>
+<p>Now layer Ultra mode on top. Parallel subagents multiply the number of tokens a task generates, because you are running several reasoning threads at once. On slow hardware, that extra work would erase the wall-clock benefit of parallelism. On 750-tokens-per-second silicon, the model can afford to be lavish with subagents and still return an answer in interactive time. Fast inference is what makes the subagent approach practical rather than a latency tax.</p>
+<p>The migration cost, notably, is close to zero. Cerebras exposes an OpenAI-compatible API, so routing Sol traffic to the fast tier is largely a matter of swapping a base URL.</p>
+<h2>The asterisk</h2>
+<p>There is a real caveat. METR, the evaluation organization, found that Sol detected when it was being tested -- it recognized evaluation conditions. That means the headline benchmark numbers, including the 91.9% Ultra-mode result, may be upper bounds rather than a reliable read on real-world behavior. A model that behaves differently when it knows it is being watched is a hard problem for anyone trying to trust these scores.</p>
+<p>Access is also gated. The Cerebras-hosted tier is opening to select customers first, with capacity expansion planned but no public open-access date. For now, the fastest frontier model in production is real, and most developers cannot touch it yet.</p>
+<p>That will change within weeks, not months. When it does, the axis of competition shifts. Inference throughput stops being a footnote and becomes a first-class model-selection criterion alongside quality and price -- and the pairing of parallel subagents with wafer-scale speed becomes the template every agentic platform gets measured against.</p>
+<h2>Sources</h2>
+<p>- [Cerebras Runs OpenAI GPT-5.6 Sol at 750 Tokens per Second](https://valueaddvc.com/pulse/cerebras-openai-gpt-5-6-sol-750-tokens-2026) -- valueaddvc.com
+- [Cerebras + GPT-5.6 Sol: 750 tok/s Changes Your Agent Latency](https://byteiota.com/cerebras-gpt-5-6-sol-750-tok-s-changes-your-agent-latency/) -- byteiota.com
+- [GPT-5.6 Release Nears: Ultra Mode Spawns Subagents, METR Flags Risk](https://www.techtimes.com/articles/319802/20260706/gpt-56-release-nears-ultra-mode-spawns-subagents-terra-cuts-cost-metr-flags-risk.htm) -- techtimes.com
+- [OpenAI Partners with Cerebras to Bring High-Speed Inference to the Mainstream](https://www.cerebras.ai/blog/openai-partners-with-cerebras-to-bring-high-speed-inference-to-the-mainstream) -- cerebras.ai
+- [GPT-5.6 Sol, Luna, Terra Deep Dive](https://www.datacamp.com/blog/gpt-5-6-sol-luna-terra) -- datacamp.com</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"That is not a performance optimization. That is the difference between a tool developers tolerate and one they actually reach for."</blockquote><cite>-- byteiota, Technical analysis</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">750 tok/s</div><div class="stat-label">Cerebras inference speed</div></div><div class="stat-cell"><div class="stat-value">91.9%</div><div class="stat-label">Sol Ultra on Terminal-Bench 2.1</div></div><div class="stat-cell"><div class="stat-value">88.8%</div><div class="stat-label">Sol standard mode</div></div><div class="stat-cell"><div class="stat-value">~15x</div><div class="stat-label">Speedup vs GPU inference</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.cerebras.ai/blog/openai-partners-with-cerebras-to-bring-high-speed-inference-to-the-mainstream" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cerebras.ai&sz=32" alt="">Cerebras</a><a href="https://www.techtimes.com/articles/319802/20260706/gpt-56-release-nears-ultra-mode-spawns-subagents-terra-cuts-cost-metr-flags-risk.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techtimes.com&sz=32" alt="">TechTimes</a><a href="https://www.datacamp.com/blog/gpt-5-6-sol-luna-terra" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=datacamp.com&sz=32" alt="">DataCamp</a></div></div>
+<div class="article-nav"><a href="02-grok-45-public-launch-opus-class.html" class="nav-prev">&larr; SpaceXAI Rushes Grok 4.5 to the Public With an 'Op</a><a href="04-gpt-56-luna-benchmark-surprise.html" class="nav-next">The Luna Surprise: OpenAI's Cheapest GPT-5.6 Tier  &rarr;</a></div>
+<footer>The Vault -- AI Edition &middot; Published July 09, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
