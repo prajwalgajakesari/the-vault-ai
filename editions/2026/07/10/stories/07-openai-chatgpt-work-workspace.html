@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Launches ChatGPT Work, Folding Coding and Productivity Into One AI Workspace &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>OpenAI Launches ChatGPT Work, Folding Coding and Productivity Into One AI Workspace</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 925 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>ChatGPT Work productizes OpenAI's agent layer into a single workspace uniting chat, Codex coding, and productivity, delivering finished spreadsheets, slides, docs, and web apps in direct competition with Microsoft Copilot and Google Workspace.</p>
+</div>
+<div class="article-body">
+<p>For three years, "using AI at work" meant a chat window sitting beside the work. On July 9, OpenAI tried to collapse that gap. Alongside its GPT-5.6 model family, the company launched <strong>ChatGPT Work</strong> — an agentic workspace that folds conversational AI, coding, and productivity workflows into a single product and, in OpenAI's framing, moves the assistant "beyond answering questions to getting real work done across web, mobile, and desktop."</p>
+<p>The pitch is deceptively simple: you hand ChatGPT Work an outcome rather than a prompt, and it gathers context across your connected apps, breaks the job into steps, and stays with a complex project for hours before returning finished artifacts — spreadsheets, slides, documents, and shareable web apps. The output is not a chat transcript. It is the deliverable itself.</p>
+<h2>One app for Chat, Work, and Codex</h2>
+<p>The most consequential structural move is a merger. OpenAI's standalone Codex app is folding into a new unified ChatGPT desktop application that puts three surfaces — Chat, Work, and Codex — under one roof, on every plan including Free. The old desktop app is being renamed ChatGPT Classic, and OpenAI said it will "begin sunsetting the standalone Atlas browser," absorbing its agentic-browsing capabilities into the desktop app's built-in browser and an updated Chrome extension.</p>
+<p>That consolidation is why this is a workspace story, not just a model story. ChatGPT Work is the productized layer tying together pieces OpenAI assembled all year: the ChatGPT-Codex team merge, the Sites feature for building interactive web apps, desktop computer use, and a plugin directory. In the merge, a developer's coding agent and a marketer's reporting agent now live in the same window.</p>
+<p>The adoption base OpenAI inherits is substantial. The company says more than 5 million people use Codex every week, and more than 1 million already use it for work outside software development — the demand signal that turned a coding tool into a general productivity workspace.</p>
+<h2>Connectors, plans, and metered pricing</h2>
+<p>Context flows in through a unified directory of more than <strong>1,400 plugins</strong>. Users can @-mention an app to pull its data into a task, and ChatGPT auto-suggests relevant connectors as work unfolds — with integrations spanning Microsoft 365, Google Drive, Slack, and Notion. A Plan mode lets the agent ask clarifying questions and produce a step-by-step plan for approval before any work begins, and Scheduled Tasks can run jobs once, on a recurring cadence, or continuously as monitors.</p>
+<p>The rollout is staged. Web and mobile reached Pro, Enterprise, and Edu subscribers on July 9, with Plus and Business "over the next few days." The macOS desktop app went live the same day for all plans, with Windows following shortly.</p>
+<p>Pricing for the workspace itself carries a catch worth flagging: ChatGPT Work is not a flat feature of a subscription. OpenAI says it "follows the same usage structure as Codex" — longer, more involved tasks consume more of a plan's included usage, and no per-task rates were published at launch. Enterprise and Edu admins get spend controls in the Admin Console, including workspace defaults, group limits, and individual overrides.</p>
+<p>Early testers cited concrete, marketing-heavy workflows. Zapier's head of enterprise marketing, Angela Ferrante, described an agent-built system that triages sales leads across HubSpot, Gong, and email — inspection that previously took 35 to 45 minutes per lead.</p>
+<p>> "That helped us identify and hand off seven figures in pipeline every month to sales." — Angela Ferrante, Head of Enterprise Marketing, Zapier</p>
+<p>Virgin Atlantic's head of digital products, Nathan Bolt, reported compressing a competitor-analysis cycle from weeks to hours.</p>
+<p>> "A competitor analysis cycle that would normally take weeks now takes hours, helping us move from insight to product decisions much faster." — Nathan Bolt, Head of Digital Products, Virgin Atlantic</p>
+<h2>Why It Matters</h2>
+<p>ChatGPT Work is OpenAI's clearest move up the stack — from selling model access and a chat interface to owning the enterprise productivity suite itself. That puts it on a direct collision course with Microsoft Copilot, embedded across Word, Excel, and Teams, and Google's Gemini-infused Workspace. The difference in OpenAI's bet is that it is not enhancing an existing office suite; it is trying to make the agent the suite, with finished sheets, slides, docs, and sites as native outputs and 1,400-plus connectors reaching into the tools where work already lives.</p>
+<p>The governance layer signals the enterprise ambition. ChatGPT Work is built on ChatGPT Enterprise's security and compliance foundation, with a Compliance API for audit trails and a new auto-review mechanism in which advanced models vet sensitive actions before they execute. OpenAI reported that during adversarial red teaming, auto-review "blocked 100% of attempts to extract protected data" — a red-teaming result, not a production guarantee, but a sign the company knows regulated buyers are the prize.</p>
+<p>OpenAI now holds the model, the agent, the desktop, and the plugin directory in one product, shifting the competitive question from whose model is smartest to whose agent sits closest to the work.</p>
+<h2>What to Watch</h2>
+<p>The open question is cost. A workspace designed to run autonomously for hours, billed on metered usage with no published per-task rates, invites exactly the "bill shock" analysts have warned about — the risk of a team burning a month's allowance in a week of enthusiastic agent use. Watch whether enterprises pilot narrowly with approvals on, or dive in and hit their limits. Watch, too, how Microsoft and Google respond now that OpenAI is no longer a component vendor inside their suites but a direct competitor for the same enterprise seat. And watch the tester numbers: every headline result so far is self-reported through OpenAI's early-access program. The real proof will be whether the second and third workflows land as cleanly as the demo-day first one.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"That helped us identify and hand off seven figures in pipeline every month to sales."</blockquote>
+          <cite>&mdash; Angela Ferrante, Head of Enterprise Marketing, Zapier</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">1,400+</div><div class="stat-label">plugins/connectors</div></div><div class="stat-cell"><div class="stat-value">5M+</div><div class="stat-label">weekly Codex users</div></div><div class="stat-cell"><div class="stat-value">$5/$30</div><div class="stat-label">GPT-5.6 Sol per-M tokens</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.infoworld.com/article/4195478/openai-launches-chatgpt-work-as-it-broadens-gpt-5-6-rollout.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=infoworld.com&sz=32" alt="">InfoWorld</a><a href="https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://www.digitalapplied.com/blog/chatgpt-work-openai-agent-launch-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=digitalapplied.com&sz=32" alt="">Digital Applied</a></div></div>
+<div class="article-nav"><a href="06-meta-muse-spark-11.html" class="nav-prev">&larr; Meta's Muse Spark 1.1 Is a Cheap, Agent-Native Mul</a><a href="08-nvidia-nemotron-3-ultra.html" class="nav-next">NVIDIA's Nemotron 3 Ultra Undercuts Closed Models  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 10, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
