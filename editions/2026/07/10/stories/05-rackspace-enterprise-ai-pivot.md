@@ -1,0 +1,29 @@
+Rackspace Technology spent a quarter-century renting out servers. On July 9, the San Antonio company told investors it now intends to sell something far more ambitious: the entire enterprise AI stack, governed end to end. To pay for that transformation, Rackspace unveiled a capital raise of up to $250 million, cut its 2026 revenue outlook by $150 million, and watched its shares fall roughly 25% in a single session. The market's verdict on the pivot was immediate and harsh. Management's message was that the pain is the point.
+
+"The best-of-breed partnerships we have signed during 2026 — with AMD, Palantir, Rubrik, Uniphore and VMware by Broadcom — combined with the data center capacity and 25+ years of expertise that Rackspace brings to the table, represent a unique positional advantage for Rackspace," said Chief Executive Officer Gajen Kandiah. "Today's capital raise announcement is meaningful because it will enable us to expedite our AI Enterprise strategy and unlock a meaningful revenue and EBITDA growth vector for Rackspace, starting in 2027."
+
+The reframing is total. Rackspace now describes itself as "the operator of the full enterprise AI stack from governed private cloud to AI inference and agents in production." The pitch targets regulated and sovereign customers — hospitals guarding patient records, banks running on regulated data, energy operators with air-gapped systems — who want control over their compute, their models, and their data without shipping proprietary knowledge outside their walls. Rackspace's positioning is deliberately model-agnostic: it operates the governed layer that lets enterprises run open, closed, or homegrown models on private cloud where control matters and public cloud where elasticity matters.
+
+## The Palantir Anchor
+
+The centerpiece is Palantir, which in a separate July 9 release named Rackspace a preferred partner in regulated and sovereign markets under a new definitive operating framework to deploy Palantir Foundry and AIP in mid-market and regulated environments. Since the two companies first announced their tie-up in February 2026, Rackspace says it has scaled to approximately 400 Palantir certifications across sales, engineering, delivery, and operations, including a large global cohort of Palantir-certified forward deployed engineers, or FDEs.
+
+The proof point Rackspace is leaning on hardest is a single deployment. The first joint project closed in less than two months, with Rackspace FDEs deploying AI-enabled workflows on Palantir Foundry inside a U.S.-based solar tracking manufacturer. The result, according to the company: a 94% reduction in the manufacturer's quote cycle time. Rackspace framed the deal as "a marker of the partnership's early success" — a template it hopes to repeat across healthcare, financial services, energy, private equity, and the mid-market.
+
+## The Numbers Behind the Bet
+
+The financials explain the stock's reaction. Rackspace now expects full-year 2026 revenue of $2.45 billion to $2.55 billion, down from a prior range of $2.6 billion to $2.7 billion, and cut adjusted EBITDA guidance to $285 million to $295 million from $305 million to $315 million. Management attributed the reductions to exiting low-margin public cloud resale as hyperscalers move customers to direct contracts, exiting colocation and basic hosting to reserve capacity for AI, plus supply timing and geopolitical factors.
+
+Preliminary second-quarter results were similarly sobering: revenue of $641 million to $649 million, a GAAP net loss of $62 million to $91 million, and adjusted EBITDA of $58 million to $62 million. The company is also absorbing restructuring costs as it realigns its workforce toward the AI mission.
+
+Against that, Rackspace is asking investors to underwrite a future that does not yet exist on its income statement. The $250 million at-the-market equity offering, run through Goldman Sachs, is meant to fund a ramp of AMD-based AI capacity: 2 megawatts deployed by the end of 2026, 15 MW by the end of 2027, and 30 MW by the end of 2028. At an expected $15 million to $20 million of annual revenue per megawatt, a fully built 30 MW footprint would generate $450 million to $600 million a year at adjusted EBITDA margins the company pegs above 50% — a dramatically richer profile than its roughly 12%-margin legacy business.
+
+Apollo Global Management, a longtime Rackspace backer, signaled its support. "Apollo remains highly supportive of Rackspace's strategy and believes the Company is taking the right steps to fund its next phase of growth," said Aaron Sobel, a Partner at Apollo and a member of Rackspace's board.
+
+## Why It Matters
+
+Rackspace is a bellwether for an entire category of legacy hosting and managed-services firms trying to reinvent themselves as AI integrators before their core businesses erode. The old model — reselling public cloud and renting basic infrastructure — is being squeezed from both sides as hyperscalers pull customers into direct contracts and margins compress. Rackspace's answer is to move up the stack into governed, sovereign AI deployment, a niche the giants are less suited to serve. If it works, it validates a survival path for a generation of infrastructure incumbents. The 25% one-day drop is the market pricing the risk that dilutive equity, shrinking revenue, and a still-tiny AI base add up to a bet placed too early.
+
+## What to Watch
+
+The tell will be whether the Palantir framework converts certifications into signed, recurring contracts — and whether that 94% case study becomes a pattern or a one-off. Watch the 2 MW year-end 2026 milestone as the first hard checkpoint on the AMD ramp, the pace at which public cloud resale bleeds off, and how much of the $250 million shelf Rackspace actually draws down. By the time full second-quarter results land, investors will want evidence that 2027 is a growth year, not just a slide.
