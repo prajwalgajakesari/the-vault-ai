@@ -1,0 +1,27 @@
+On July 10, 2026, in a Seoul convention hall better known for peer-reviewed dermatology than for robotics demos, a Chinese startup made hair loss a proving ground for autonomous surgery. At the 14th World Congress for Hair Research (WCHR 2026), Puncture Robotic unveiled HAIRO, which it bills as China's first NMPA Class III-certified hair-transplant robot and the world's first end-to-end, AI-driven robotic system for hair restoration. The claim is less about vanity than about a broader question now facing medicine: how far can a machine be trusted to cut, extract and plan on its own?
+
+## What HAIRO actually does
+
+HAIRO is not a single instrument but a workflow. According to Puncture Robotic, the system spans the full arc of a transplant, from hair-loss assessment and surgical planning through robotic execution and postoperative management. It begins upstream of the operating room, with an intelligent hair-detection device that measures and classifies a patient's degree of hair loss, and an AI mini-program that generates personalized visual simulations of likely outcomes.
+
+In the operating room, the machine leans on computer vision. HAIRO pairs 20-megapixel binocular cameras with millisecond-level image-processing algorithms, and the company says it reaches sub-surface positioning accuracy of up to 0.1 millimeters. A dynamic machine-learning algorithm analyzes data gathered during extraction and adjusts operating parameters on the fly to account for differences in follicular structure and scalp condition, a form of real-time procedural adaptation rather than a fixed, pre-programmed routine.
+
+The headline specifications are concrete. HAIRO can process up to 2,400 follicles per hour and supports ultra-fine extraction needles ranging from 0.7 to 1.0 millimeter. The company reports a follicular-unit damage rate below 7.5% under specified operating conditions. Its proprietary Single-Hair Skipping algorithm is designed to identify and prioritize multi-hair follicular units while selectively passing over single-hair units, yielding a multi-hair extraction rate the company puts at up to 95%. The logic is clinical, not cosmetic marketing: prioritizing denser grafts can raise visual density while sparing the donor area.
+
+## How it compares to ARTAS
+
+For a decade, robotic hair restoration has effectively meant one platform: ARTAS, now sold by Venus Concept. ARTAS iX is FDA-cleared, uses image-guided robotics for follicular-unit dissection, site-making and implantation, and has added AI to help design extraction and placement. Venus Concept cites implantation of up to 1,000 grafts per hour and roughly one to three seconds per graft.
+
+HAIRO's pitch is that it goes further along two axes: throughput, with a stated 2,400 follicles per hour, and scope, extending AI from the surgical step outward into assessment, simulation and follow-up. Both systems share the same governing philosophy. Puncture Robotic is explicit that HAIRO is meant to assist rather than replace physicians, handling the repetitive, precision-intensive stages so surgeons can concentrate on treatment planning, aesthetic design and patient care.
+
+## From teleoperation to autonomy
+
+The deeper story is regulatory. Surgical robots have historically been teleoperators, extensions of a surgeon's hands, with the human closing every loop. HAIRO's dynamic, self-adjusting extraction represents a step toward machines that make bounded decisions during a procedure. That is precisely why the NMPA Class III designation matters. Class III is China's highest-risk medical-device category, reserved for products that support or sustain life or carry significant risk, and it demands the most stringent clinical and safety evidence. Certifying an AI-driven, semi-autonomous surgical robot at that tier is a signal that a national regulator is prepared to write approval pathways for adaptive automation, not just fixed-function tools.
+
+Endorsements at the conference were measured. "I was impressed by the progress robotic hair transplantation technology has made," said Dr. Guanzhou Zhu, founder of DCDC Hair Transplant Hospital. "The system's speed, stability and ability to operate with ultra-fine needles demonstrate its potential to become an effective clinical partner for experienced surgeons." The framing, partner rather than replacement, is the industry's careful consensus as autonomy creeps forward.
+
+## What to watch next
+
+Puncture Robotic says it recently closed a multi-million-dollar Series B round led by what it describes as a globally leading AI technology company, and is now pursuing FDA clearance and CE certification, the gateways to the U.S. and European markets where ARTAS is entrenched. A regulatory clash between an incumbent FDA-cleared platform and an NMPA-certified challenger would be a useful stress test of how differently jurisdictions treat adaptive surgical AI.
+
+Three things are worth tracking. First, independent, peer-reviewed graft-survival data, since the company's damage-rate and extraction figures are, for now, self-reported. Second, the promised long-hair extraction version, which would let patients avoid fully shaving the donor area and could reshape demand. Third, whether Western regulators accept the same autonomy that China's Class III pathway just blessed. If they do, HAIRO will be remembered less as a hair-transplant story than as an early template for certifying robots that decide for themselves.
