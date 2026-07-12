@@ -1,0 +1,27 @@
+A large language model can walk you through a chess tactic, debug a function, or lay out the steps of a science experiment. Ask that same model to run as an autonomous agent for twenty or thirty steps — booking travel, navigating a knowledge base, executing a chain of tool calls — and it tends to wander off course, double back, and fail in ways that look nothing like the crisp reasoning it showed a moment earlier. A paper posted to arXiv this year offers an unusually precise explanation for that gap, and it lands on a blunt conclusion: reasoning and planning are not the same capability, and getting better at the first does not fix the second.
+
+## The core question
+
+The paper, "Why Reasoning Fails to Plan: A Planning-Centric Analysis of Long-Horizon Decision Making in LLM Agents" (arXiv:2601.22311), is led by Zehong Wang with a team of co-authors including senior author Yanfang Ye. Its starting point is a puzzle that has dogged agentic AI products all year: models with strong chain-of-thought reasoning still stumble on tasks that require sustained, multi-step decision making.
+
+The authors reframe the problem in the language of decision theory. Chain-of-thought reasoning, they argue, behaves like a *step-wise greedy policy* — at each state the model picks whichever next action scores highest under local plausibility, then moves on. That is fine when the horizon is short. But long-horizon planning demands that early moves account for delayed consequences, and a greedy policy has no mechanism to do that. It optimizes the next step, not the trajectory.
+
+## What they found
+
+To isolate the mechanism, the researchers studied agents in deterministic, fully structured environments where the state transitions and evaluation signals are explicitly available — so any failure is a failure of decision-making, not of missing information. The dominant failure mode they identify is *early myopic commitment*: locally optimal choices that lead into globally bad regions, get "systematically amplified over time," and become difficult to recover from. They construct deliberate "myopic traps" — actions that look best locally but lead nowhere — and show that both greedy selection and beam search fall into them at the very first decision step.
+
+Crucially, the paper backs the empirical story with theory. The authors prove that a step-wise greedy policy can be *arbitrarily* suboptimal on long-horizon tasks, that widening the search via beam search does not resolve the limitation, and that even a single step of explicit lookahead is enough to strictly improve what an agent can achieve. In other words, the problem is structural, not a matter of a bigger model or a wider beam.
+
+## The fix, and why it matters
+
+To demonstrate the point constructively, the team introduces FLARE (Future-aware Lookahead with Reward Estimation), described as a minimal instantiation of future-aware planning. FLARE does three things a greedy reasoner does not: it simulates candidate future trajectories (lookahead), propagates their outcomes backward to revise the value of early actions (value propagation), and commits only to the next action before replanning (limited commitment under a receding horizon).
+
+The results are the paper's headline evidence that reasoning and planning are separable. Across knowledge-graph QA benchmarks — CWQ, WebQSP and GrailQA — and the ALFWorld tool-use environment, FLARE improves accuracy over single-step reasoning, beam search, and shallow lookahead. On CWQ the average jumps from 59.8 to 71.8. Most striking, the authors report that FLARE "frequently" lets LLaMA-8B outperform GPT-4o running standard step-by-step reasoning: on WebQSP, LLaMA-8B with FLARE scores 85.6 against GPT-4o's 78.3. A better decision procedure, in these tests, beats a much larger brain.
+
+## Implications for agentic products
+
+The finding cuts against a comfortable industry assumption — that as base models get more capable at reasoning, autonomous agents will simply inherit the reliability. This paper says the bottleneck lives elsewhere. It also aligns with a broader 2026 research theme: small per-step error rates compound non-linearly across dependent steps, and popular remedies like self-reflection and self-correction largely stay inside the same step-wise loop, trimming local mistakes without reshaping early decisions. For teams shipping agents that promise autonomous multi-step task completion, the practical message is that scaffolding — lookahead, backtracking, value estimation, replanning — may matter as much as the underlying model, and that benchmark reasoning scores are a poor proxy for long-horizon reliability.
+
+## What to watch next
+
+The paper's cleanest results come from deterministic environments with reliable evaluation signals, and the authors are candid that ALFWorld does not fully satisfy those assumptions. The open question is how well future-aware planning holds up in messy, partially observed settings where the model must *also* estimate its own reward signal — exactly the conditions real agents face. Watch for whether lookahead-style planning gets folded into mainstream agent frameworks, how much extra compute it costs at inference time, and whether the field starts reporting a distinct "planning" metric alongside reasoning benchmarks. If the reasoning-versus-planning distinction holds, it could reshape how the next generation of agents is built and measured.
