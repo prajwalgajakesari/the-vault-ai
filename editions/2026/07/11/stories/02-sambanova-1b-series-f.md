@@ -1,0 +1,25 @@
+## An $11 Billion Bet on Inference
+
+SambaNova Systems, the nine-year-old chip company betting that the next phase of the AI boom will be won on inference rather than training, has raised $1 billion in the first close of a Series F round, valuing the San Jose-based startup at $11 billion post-money. General Atlantic led the financing, which was announced July 8 from the RAISE conference in Paris, with significant participation from Seligman Ventures, T. Rowe Price Associates and Capital Group. The round landed roughly five months after SambaNova closed a $350 million Series E and unveiled its latest chip, an unusually fast cadence that underscores how hungry investors have become for credible challengers to Nvidia.
+
+"SambaNova's $11 billion valuation highlights the central role that fast inference now plays in the enterprise AI stack," said Rodrigo Liang, co-founder and CEO of SambaNova. Inference, the process of generating outputs from an already-trained model, is where the company has concentrated its custom silicon and full-stack systems business, arguing that as enterprises move models into production, the economics of serving them at speed and scale will matter more than the one-time cost of training.
+
+## The JPMorgan Signal
+
+Alongside the funding, SambaNova disclosed that JPMorganChase has selected it as an inference-infrastructure partner, deploying its SN40L and SN50 systems to power secure, on-premises AI inference at the bank. The company frames the win as validation that regulated industries want to run their most sensitive models on private hardware rather than lean entirely on cloud providers.
+
+"Having JPMorgan Chase decide they're going to use SambaNova for their inference solution is a big deal," Liang told TechCrunch. "It sends a message to the banking industry that it's time not to completely depend on cloud services. These banks want heterogeneous infrastructure." Darrin Alves, CIO of Infrastructure Platforms at JPMorganChase, said in the funding announcement that the firm was "excited to deploy SambaNova's RDU architecture" to test "its speed and security for on-prem inference in our demanding enterprise AI workloads."
+
+SambaNova says its customer base breaks into three buckets: sovereign clouds funded by governments, so-called neoclouds, and enterprises building for their own use. In addition to JPMorgan, the company counts Saudi Aramco, Intel and several Japanese firms among its customers, and named SoftBank as the first deployment partner for its next-generation SN50 chip, which is due to begin shipping in the second half of 2026. Its prior-generation SN40L launched in September 2023.
+
+## The Race Against Nvidia
+
+SambaNova's pitch rests on architecture. The company builds what it calls reconfigurable dataflow units, or RDUs, rather than GPUs, and says the design lets it fit multi-trillion-parameter frontier models onto a single rack so they run faster. SambaNova has claimed its SN50 accelerator can deliver more than three times the throughput of Nvidia's B200 GPU. Liang describes the company's edge as "premium inference" — running the very largest models, and running them quickly.
+
+That positions SambaNova in an increasingly crowded field of specialized inference players, including Cerebras and Groq, all chasing the slice of the market Nvidia does not fully lock up. General Atlantic's Martín Escobari, Co-President and Head of Global Growth Equity, said the firm backed the company because "demand for inference is accelerating well ahead of supply." Seligman Ventures Managing Partner Umesh Padval, a board observer, argued the decisive battleground will be unit economics: "As AI moves into production, lowering cost per token while maintaining performance and efficiency will be critical for enterprise adoption."
+
+The raise also resolves, at least for now, questions about SambaNova's independence. The company had been in acquisition talks with Intel late last year in a deal reportedly valuing it around $1.6 billion, according to Bloomberg, before those talks stalled. Intel, a backer since SambaNova's Series C, instead deepened its ties, joining the Series F and entering a multi-year partnership to co-develop Xeon-based inference products. Asked whether the back-to-back rounds meant SambaNova had settled on staying independent, Liang was noncommittal, saying the company is "always being approached" but that momentum would most likely push it toward "being public at some point."
+
+## What to Watch Next
+
+The near-term test is execution. SambaNova said it will use the fresh capital primarily to secure its supply chain against what Liang called "an incredible wave of demand," buying the materials needed to fulfill orders over the next 12 months. A second close of the Series F is expected within weeks as additional investors join. Watch whether the JPMorgan deployment translates into other regulated-industry wins, whether SN50 ships on schedule with SoftBank, and whether SambaNova can convert marquee logos into the recurring revenue that would justify an $11 billion valuation — and, eventually, a path to the public markets.
