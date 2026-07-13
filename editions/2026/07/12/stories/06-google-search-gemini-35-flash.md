@@ -1,0 +1,21 @@
+## The model behind the answer
+
+When you type a question into Google today, the odds are overwhelming that the summary staring back at you was written by a single artificial intelligence model: Gemini 3.5 Flash. As of mid-2026, Google's AI-generated answers — the AI Overviews atop classic results and the conversational AI Mode behind them — run on Flash by default worldwide, capping the fastest and most consequential rewrite of how the world's dominant search engine answers questions.
+
+Google confirmed the switch at I/O 2026. "Starting today, we're upgrading Search with Gemini 3.5 Flash — our newest Flash model delivering sustained frontier performance for agents and coding — as the new default model in AI Mode for everyone globally," wrote Elizabeth Reid, Google's VP of Search. In the weeks since, that default has propagated across AI Mode and the seamless AI Overview-to-AI Mode handoff Google says is now "live today across desktop and mobile, worldwide." A precise "everything, everywhere" cutover date is not something Google has published; what is confirmed is that Flash is the default engine and that the two AI surfaces have been merged into one experience.
+
+## What actually changed
+
+The shift is less a new feature than a change of substrate. Where earlier Overviews leaned on a patchwork of smaller, task-specific models, Flash is a single general-purpose engine handling the full pipeline — reading the query, reasoning across web results, and drafting the answer. Google reports that AI Mode has now surpassed one billion monthly users, "with queries more than doubling every quarter since launch," and that its systems processed roughly 3.2 quadrillion tokens per month as of I/O.
+
+Gemini 3.5 Flash was engineered for exactly this kind of scale. Independent trackers put its input context window at 1 million tokens with a 64,000-token output cap and throughput around 278 tokens per second — the kind of speed that makes generating a fresh summary for billions of daily queries economically plausible. Google claims Flash runs about four times faster than comparable frontier models on output tokens per second, a framing worth treating as the company's own until independent latency benchmarks land. On coding and agentic suites, Flash reportedly edges out the larger Gemini 3.1 Pro — the technical basis for Google's push into "Search agents" and generative UI that builds custom tools on the fly.
+
+## The publisher reckoning
+
+For the open web, the more powerful the answer, the sharper the pain. The better Flash gets at resolving a query in place, the less reason a user has to click through — and the data reflects it. An Ahrefs study cited in Penske Media's 2026 antitrust filing found AI Overviews correlate with a 58% reduction in click-through rates for top-ranking pages, nearly double the 34.5% decline logged in April 2025. Press Gazette reported that global Google search traffic to publishers fell by roughly a third in the year to November 2025, with U.S. publishers down about 38%. Similarweb has pegged zero-click searches at 69% of all queries.
+
+Google has responded with cosmetic countermeasures — "Further Exploration" links, subscription labels, follow-up prompts that surface "even more relevant" supporting articles as users go deeper. But publishers describe the trend not as death so much as a managed decline, and the antitrust suits now landing argue the arrangement is structural: Google harvests the content, Flash reassembles it, and the traffic that once funded the reporting never arrives.
+
+## What to watch
+
+Three things. First, monetization: Google has not detailed how ads survive inside a Flash-authored answer, and Search remains the company's profit engine — expect ad formats native to AI Mode to define the next quarter. Second, accuracy at scale: a single default model answering a billion-plus queries means a single point of failure, and any systematic Flash hallucination becomes a global one overnight. Third, the legal front: with Penske's filing and European regulators circling, the question of whether Google can keep summarizing the web it no longer sends traffic to is now a courtroom matter, not just a product one. As Sundar Pichai put it at I/O, "It's clear we're firmly in our agentic Gemini era." The web that feeds that era is still deciding what it gets in return.
