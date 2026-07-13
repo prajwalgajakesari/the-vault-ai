@@ -1,0 +1,25 @@
+Taiwan's top central banker has told the island's investors to stop betting the house on the AI boom. On July 9, 2026, Yang Chin-long, governor of the Central Bank of the Republic of China (Taiwan), used a report to lawmakers to caution against the borrowing binge fueling a record-breaking run in Taipei stocks, while carefully declining to call the market a bubble outright.
+
+"I can only say that we hope investors do not use excessive leverage in their investments," Yang told the legislature's Finance Committee, according to reporting by TNW and Bloomberg, adding that the market as a whole still rested on solid fundamentals. In separate remarks reported by Reuters, he was blunter about the underlying anxiety: "We do have concerns about the possibility of an AI bubble. AI is driven by real growth potential, but it's the possibility of over-expansion via over-leveraging that concerns us."
+
+## A rally built on chips
+
+The backdrop is one of the world's hottest equity markets. Taiwan's benchmark TAIEX index climbed roughly 60% from the start of the year, hitting a record 46,459 points on June 3 before slipping into a correction. That surge has tracked the fortunes of the companies at the heart of the AI hardware supply chain, above all TSMC, whose weighting dominates the index. As orders for AI accelerators have swelled, so has the temptation for retail investors to borrow against homes and other assets to pile in. TSMC's price-to-earnings ratio sat near 33, close to a 10-year high, a level that has left analysts debating whether the stock is priced for perfection.
+
+Taiwanese lawmakers have coined a phrase for the borrowing they fear: the "four loans" problem, meaning mortgages, margin financing, personal credit loans and car loans being redirected into equities. Yang acknowledged the rapid inflows but said regulators were watching them closely and saw no sign of a broad financial-stability threat. He also drew a careful line under his own institution's financial-stability report, which had noted fast-growing financing linked to AI-related sectors; those references, he said, drew on International Monetary Fund analysis rather than the central bank's independent assessment.
+
+## The nuance in the warning
+
+That distinction matters. The headline risk global markets fret about is a sudden repricing of AI stocks. Yang's concern was narrower and more domestic: that leverage can turn an ordinary correction into forced selling and losses households cannot absorb. His prescription was restraint, not intervention. He stopped short of proposing new curbs on margin lending, though he noted regulators have tools if froth builds, from raising margin requirements to tightening credit. As he put it in remarks carried by Taiwan's Radio Taiwan International, the stock leverage concerns looked "distant" and the recent correction appeared "healthy."
+
+Still, the governor's caution lands as part of a widening chorus of official unease. In its 2026 annual economic report, the Bank for International Settlements warned that the gap between stock market valuations and the actual productivity delivered by AI had widened dangerously, drawing explicit comparisons to the late-1990s dot-com boom. The IMF's managing director, Kristalina Georgieva, has made the same comparison, cautioning that a sharp correction could stunt global growth and hit developing economies hardest. The Bank of England has flagged the risk of an "abrupt" market repricing.
+
+## Why concentration is the real fault line
+
+The common thread in these warnings is concentration. Market breadth has narrowed to a degree not seen in decades: the top 10 stocks now account for roughly 35% of the S&P 500, up from about 25% at the dot-com peak, according to figures cited by the BIS and others. A handful of firms with fortress balance sheets, Nvidia and Microsoft among them, anchor global indices, which means a shock to AI sentiment need not be systemic in origin to become systemic in effect.
+
+Taiwan sits in an unusually exposed spot in that debate. Its export-driven economy has been one of the biggest winners of the boom, with forecasters pencilling in some of its fastest growth in years on the strength of chip shipments, much of it flowing through a small number of companies. The same concentration that has lifted the island's growth leaves it vulnerable if the AI trade turns, and leaves ordinary savers exposed if they have borrowed to ride it.
+
+## What to watch
+
+The near-term signal is behavioral, not structural: watch Taiwan's margin-financing balances and the "four loans" credit flows for signs that retail leverage keeps climbing after the correction. If it does, expect Yang to move from moral suasion toward concrete tools, higher margin requirements or tighter credit, that he has so far only hinted at. Globally, the next BIS and IMF financial-stability updates, and any wobble in the megacap AI names that dominate both the S&P 500 and the TAIEX, will test whether these warnings were prescient or premature.
