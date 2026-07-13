@@ -1,0 +1,25 @@
+OpenAI is quietly assembling the paperwork for what could be the largest technology IPO in history. According to people familiar with the process, the company has engaged Goldman Sachs and Morgan Stanley to lead a confidential filing and is eyeing a public debut as soon as September 2026, at a private-market valuation hovering around $730 billion. If it prices anywhere near that mark, the offering would eclipse every technology listing that came before it — and become the defining stress test of whether public investors will pay the prices the private market has stamped on artificial intelligence.
+
+The move caps a frantic stretch for the ChatGPT maker. In January, Chief Financial Officer Sarah Friar confirmed the company had crossed a $20 billion annualized revenue run-rate; by early 2026 that figure had reportedly pushed past $25 billion, or roughly $2 billion a month, up from about $6 billion for all of 2024. That growth curve is the engine behind the valuation — and behind Sam Altman's insistence that OpenAI is worth even more than the current filing implies.
+
+## The Filing and the Banks
+
+OpenAI confidentially submitted a draft S-1 registration statement to the Securities and Exchange Commission earlier this year, with Goldman Sachs and Morgan Stanley installed as lead underwriters. A confidential filing lets a company begin the regulatory clock and negotiate with the SEC out of public view before committing to a date or a price — useful cover for a business whose economics remain unusually volatile.
+
+The timing is deliberate. OpenAI's draft landed within days of rival Anthropic's own confidential S-1, setting up the second half of 2026 as a head-to-head referendum on frontier-AI valuations. But the September target is not locked. In late June, reports emerged that OpenAI was weighing a delay into 2027 after a rocky market debut by SpaceX rattled sentiment for richly priced tech names. The hesitation traces back to Altman himself: when advisers floated accepting a lower valuation in exchange for a faster listing, he reportedly called any cut below the $1 trillion threshold a "nonstarter." OpenAI's last private round valued the company at roughly $852 billion, and Altman is said to be holding out for a four-comma debut.
+
+## Legal and Policy Overhang
+
+Complicating the pitch to public investors is a lawsuit filed July 11 by Apple in federal court in Northern California. The complaint accuses OpenAI of an orchestrated campaign to steal trade secrets tied to unreleased Apple hardware, alleging coordinated employee poaching and illegal data access. "At every level, from members of its Technical Staff to its Chief Hardware Officer, and in coordination with business partners, OpenAI has been stealing Apple's trade secrets and confidential information," the complaint states. It claims more than 400 former Apple employees now work at OpenAI, and singles out hardware chief Tang Tan, a former Apple vice president, and ex-Apple engineer Chang Liu. The suit is a striking reversal for two companies that struck a marquee partnership in 2024 to embed ChatGPT into the iPhone.
+
+On the policy front, OpenAI on July 6 brought in Dean Ball — a primary author of the White House's "AI Action Plan" — to lead a newly created Strategic Futures team reporting to Chief Strategy Officer Jason Kwon. The unit will cover "public-facing policy (for example, proposals for legislation) and internal governance within the lab," spanning catastrophic risk, recursive self-improvement and labor-market effects — a signal that OpenAI is hardening its Washington posture just as it courts public shareholders.
+
+## Why It Matters
+
+A $730 billion-plus listing would do more than mint a new corporate giant; it would drag the entire AI investment thesis into the daylight of quarterly disclosure. To date, OpenAI's valuation has been set by a small circle of private backers willing to underwrite enormous losses. The company is burning cash aggressively — an estimated $8 billion in 2025, with projections of roughly $27 billion in 2026 and as much as $63 billion in 2027 under its renegotiated Microsoft arrangement — driven by compute and data-center commitments that dwarf its revenue.
+
+That is the crux of the public-market gamble. Index funds, pensions and retail buyers will, for the first time, have to decide whether a business losing tens of billions annually deserves a trillion-dollar price tag on the strength of its growth alone. A successful debut would validate the AI boom and unlock liquidity for employees and early investors. A stumble — or a discounted price Altman refuses to accept — would ripple across every AI startup marked to OpenAI's benchmark.
+
+## What to Watch Next
+
+The near-term tells are timing and price. Watch whether OpenAI holds the September window or slips to 2027, whether the Apple litigation forces expanded risk disclosures in an amended S-1, and whether the eventual valuation range starts with a seven or an eight. Also worth tracking: Anthropic's parallel filing, which could set the comparable the market uses to judge whether Altman's trillion-dollar line is conviction or bluff.
