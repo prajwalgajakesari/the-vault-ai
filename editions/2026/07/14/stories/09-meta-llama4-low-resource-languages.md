@@ -1,0 +1,29 @@
+When Meta shipped Llama 4 in April 2025, the open-weight model was pretrained on roughly 30 trillion tokens spanning some 200 languages. But there was a catch buried in the fine print of its model card: the instruction-tuned versions were officially supported in just 12 of them — Arabic, English, French, German, Hindi, Indonesian, Italian, Portuguese, Spanish, Tagalog, Thai and Vietnamese. The other 188 languages the model had glimpsed during pretraining were, in practice, second-class citizens.
+
+This month, Meta moved to close part of that gap. The company released an updated instruction-tuned fine-tune of Llama 4, optimized specifically for following instructions in low-resource languages and extending reliable, usable coverage from a dozen languages into dozens more. The release, distributed under the same open-weight Llama 4 Community License, is aimed squarely at the languages that most commercial chatbots still stumble over — from West African and South Asian tongues to Southeast Asian and Andean languages with tens of millions of speakers but only a sliver of the digital text that English enjoys.
+
+## What Meta actually shipped
+
+The new checkpoint is a fine-tune, not a new base model. It builds on the existing Llama 4 Scout and Maverick weights — Meta's mixture-of-experts, early-fusion multimodal architecture — and layers on instruction tuning targeted at languages that were underrepresented in the original post-training mix. The technical bet is the same one that powered Meta's earlier No Language Left Behind (NLLB) work: use a model's strength in high-resource languages to bootstrap competence in low-resource ones through cross-lingual transfer, rather than waiting for billions of tokens of native instruction data that simply do not exist.
+
+That approach has a track record inside Meta. The NLLB-200 translation system, described in a 2024 Nature paper led by researcher Marta Costa-jussà, covered 200 languages — three times as many low-resource as high-resource — and scored 44% higher than prior systems on quality benchmarks, despite the team having as few as 1,000 to 2,000 clean samples for many languages. The new Llama 4 fine-tune ports that philosophy from pure translation into general instruction following, so a user can ask a question, request a summary, or draft a document in a language that a year ago would have produced garbled output.
+
+Meta is leaning on the FLORES family of benchmarks to make its case. FLORES-200, the evaluation suite that underpinned NLLB and now lives on as the community-maintained FLORES+ (released under a CC-BY-SA-4.0 license), spans 200 languages and more than 40,000 translation directions, making it the most comprehensive public yardstick for exactly the kind of long-tail languages this fine-tune targets. Multilingual instruction-following evals sit alongside it as the second axis of measurement.
+
+## The competitive backdrop
+
+Meta is not alone in chasing multilingual equity, and it is arguably not even in front. Cohere's Aya program, run out of Cohere Labs, has made language coverage its central identity. Its Tiny Aya models, released in February 2026, pack support for more than 70 languages into a 3.35-billion-parameter footprint — though under a research-only license that limits commercial deployment. The original Aya effort was built with more than 3,000 collaborators across 119 countries.
+
+"From the beginning, we doubled the number of languages that were covered by generative AI," Sara Hooker, who leads Cohere Labs, told Fortune, describing the mission that has defined the Aya line. That framing — measuring progress in languages added rather than benchmarks topped — is the standard Meta is now implicitly being judged against, alongside the earlier open BigScience BLOOM effort and Google's own multilingual work.
+
+Where Meta hopes to differentiate is distribution. Aya's strongest models remain research-licensed; Meta's fine-tune ships under a license that permits commercial use, and its weights can be downloaded, quantized and run on local hardware. That matters most in exactly the regions where low-resource languages are spoken, where cloud API budgets are thin and data-sovereignty concerns run high.
+
+## Why this matters
+
+The stakes here are about who gets to participate in the AI economy at all. Most frontier models remain heavily skewed toward English and a handful of dominant languages, and researchers such as David Adelani, a low-resource NLP specialist affiliated with the grassroots Masakhane collective, have repeatedly warned that African and other underserved languages risk being left behind, widening the digital divide rather than closing it.
+
+Open weights change that calculus. Because the fine-tune can be run, inspected and further adapted locally, community groups and national institutions can build on top of it without asking Meta's permission — filing off rough edges for their own dialects and use cases. It is the concrete expression of the argument Mark Zuckerberg made when he committed Meta to open models: "I believe that open source is necessary for a positive AI future." For a farmer, student or clinic worker whose first language has never had a capable assistant, "usable" is not a benchmark abstraction; it is the difference between access and exclusion.
+
+## What to watch
+
+Three things will determine whether this release is a milestone or a footnote. First, the independent FLORES+ and multilingual instruction-following numbers — Meta's internal claims will need to survive outside replication, especially on the hardest long-tail languages. Second, whether the community actually adopts and re-fine-tunes the weights, the true test of any open release. And third, Cohere's response: if Aya loosens its licensing or Google pushes further into open multilingual territory, the race to erase AI's language gap could accelerate faster than anyone expected.
