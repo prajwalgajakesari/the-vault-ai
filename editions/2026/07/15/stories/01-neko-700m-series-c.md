@@ -1,0 +1,31 @@
+Three years after opening a single clinic in Stockholm, Neko Health has convinced some of the world's largest investors that the annual physical is a technology problem worth billions of dollars. On Wednesday, the Swedish preventive-health company founded by Spotify's Daniel Ek and Hjalmar Nilsonne announced a $700 million Series C — one of the largest rounds ever raised by a European health technology company — led by Lightspeed Venture Partners and co-led by O.G. Venture Partners, the fund of billionaire shipping magnate Eyal Ofer.
+
+The round nearly triples the total capital Neko has raised and comes just eighteen months after a $260 million Series B in January 2025 that valued the company at roughly $1.8 billion. Multiple outlets reported the new round values Neko at close to $7 billion, though the company declined to confirm a figure in its announcement. Existing backers Atomico, General Catalyst and Lakestar returned, joined by new investors Liberty City Ventures, Positive Sum, and BDT & MSD. David Ofer of O.G. Venture Partners will take a board seat, subject to regulatory approval.
+
+The capital has one immediate destination: the United States. Neko will open its first American clinic in New York later this year, with additional cities to follow — a market entry that pits a European consumer-health brand against a fragmented, insurance-mediated system that has swallowed better-funded ambitions before.
+
+## What Neko actually sells
+
+The product is deceptively simple. The Neko Health Scan is a 60-minute, non-invasive, radiation-free assessment that captures millions of data points using proprietary sensors paired with blood analysis. It screens skin for moles and marks, flags biomarkers for pre-diabetes risk and blood abnormalities, and assesses risk factors tied to metabolic syndrome, stroke and heart attack. Results arrive on-site within minutes and are walked through in person with a clinician. It costs £299 in the UK and 2,750 SEK in Sweden — a price point deliberately set below the concierge-medicine tier that dominates American preventive screening.
+
+The traction numbers are the argument. More than 350,000 people have registered or joined the waitlist; more than 100,000 in the UK and Sweden have completed a scan. Most striking for investors: 75% of members book and prepay for the following year's scan at the end of their first appointment — a retention figure that looks less like healthcare and more like a subscription business.
+
+Neko also released outcome data alongside the raise. Among returning members who had previously been flagged with severe or life-threatening conditions, three in four were in good health or had the condition under control. Five of seven key biomarkers showed statistically significant improvement between a member's first and second scan. It is company-reported data, not a peer-reviewed trial, but it is the kind of evidence the consumer-screening category has conspicuously lacked.
+
+"This funding is a strong vote of confidence in what we set out to do when we opened our first clinic three years ago: a completely new healthcare experience designed to keep people healthy, catch problems early and help prevent disease before it even starts," said Hjalmar Nilsonne, Neko Health's co-founder and CEO. "With this round, we're taking that mission to the US for the first time, while continuing to invest in the research and technology that make prevention possible at scale."
+
+The company has been shipping hardware, too. Last month it opened a Stockholm clinic built around next-generation in-house devices — Derma-2, Echo-2 and Spectrum-2 — designed to capture higher-fidelity signals across skin, heart and circulation with more automation. Three weeks ago it added body-composition measurement and clinician review of wearable data across all clinics, pulling Apple Health data into the assessment.
+
+## Why this matters
+
+Neko is a bet that vertical integration beats software-only healthcare. The company builds its own sensors, its own software, and runs its own clinics — a capital-intensive posture that runs directly against the asset-light AI-health playbook of the past three years. The wager is that owning the full stack produces proprietary data at a scale no model-layer startup can license, and that the scan hardware improves faster when the same company designs the clinic around it.
+
+That argument is now getting tested by competition. TechCrunch noted that Midjourney — the AI image lab — is building a body scanner of its own, aiming for a San Francisco spa-and-sauna concept in 2027. When an image-generation company and a Spotify founder converge on the same product category, it signals that scanning has become an AI perception problem more than a medical-device one.
+
+"Over the past eighteen months, Neko Health has demonstrated remarkable innovation and growth, attacking one of the largest markets in the world with breakthrough technology, proven consumer demand, and a clear path to global scale," said Bejul Somaia, Global Partner at Lightspeed Venture Partners. "We believe this is one of the most important healthcare companies of our generation."
+
+The cap table reads like a marketing budget: Mark Zuckerberg and Priscilla Chan, Tim Ferriss, Maria Sharapova, Thierry Henry, Jimmy Iovine, Claudia Schiffer, Danny Meyer, Ari Emanuel and will.i.am all participated, joining earlier backers including Alexis Ohanian and Steven Bartlett. That is distribution disguised as capital — and a reminder that Neko's category still runs on trust it has to manufacture.
+
+## What to watch
+
+New York is the real test. Neko's UK and Swedish growth has been organic and waitlist-driven, in markets where a £299 scan sits clearly outside a functioning public system. In the US, it will compete against Function Health, Prenuvo and a dense field of executive-physical providers, in a country where consumers are conditioned to ask what insurance covers. Watch for three things: whether the New York clinic sustains the 75% prepay rate, whether Neko publishes peer-reviewed outcome data to blunt the overdiagnosis critique that has dogged whole-body screening for a decade, and whether the $7 billion valuation reported around this round holds up once the company is scaling clinics in the world's most expensive healthcare market.
