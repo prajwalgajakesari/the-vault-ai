@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The FTC Wants to Treat 'Steered' AI Answers as Deceptive — and Override State Laws &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>The FTC Wants to Treat 'Steered' AI Answers as Deceptive — and Override State Laws</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 975 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>The FTC's proposed policy statement declares that quietly steering an AI system toward undisclosed objectives can be a deceptive act under Section 5 — and that complying with state AI laws is no defense, setting up a federal-vs-state preemption fight.</p>
+</div>
+<div class="article-body">
+<p>The Federal Trade Commission has decided that the way an AI system answers you is not just a product feature. It might be a promise — and breaking it quietly, the agency now argues, can be a federal crime against consumers.</p>
+<p>In a proposed policy statement published in the Federal Register on July 7, 2026, the FTC laid out a novel theory: if an AI company secretly steers its model toward objectives users never asked for and would not expect — nudging factual answers to fit an ideology, engineering "equity" goals into outputs, or dodging politically sensitive topics — it may be committing a <em>deceptive act</em> under Section 5 of the FTC Act. The document carries a bureaucratic title, "Policy Statement Concerning the Suppression of Accuracy in Artificial Intelligence Systems," and a combustible subtext. Buried in its reasoning is a claim that could reshape the federal-state balance over AI: complying with a state law, the FTC says, is <em>no defense</em> to a federal deception charge.</p>
+<h2>What the FTC is actually proposing</h2>
+<p>The Commission's logic starts with marketing. AI companies, the statement argues, have told the public for years — explicitly and implicitly — that their systems aim to deliver the most accurate, objective answer the technology allows. Consumers believe them. The FTC cites data suggesting people accept AI outputs without independently fact-checking them more than 90% of the time. Given that trust, the agency reasons, quietly redesigning a model to serve a hidden agenda is a "material misrepresentation" — consumers pay for and rely on a product that is "worse by design rather than by technical limitations," as the law firm Spencer Fane summarized in a July 8 analysis.</p>
+<p>Crucially, the FTC drew a line that spares the industry's most common failure. Ordinary <em>hallucinations</em> — wrong answers that stem from genuine technical limits — do "not, by themselves, raise Section 5 concerns," the statement says. Blocking illegal content or thwarting cyberattacks is fine too. The target is <em>intentional</em> steering that is not clearly disclosed. And disclosure, the FTC stresses, is a real safe harbor: a company can prioritize other objectives if it says so "clearly and conspicuously." A line buried in the terms of service will not cut it; the further a practice strays from what users expect, the more prominent the warning must be.</p>
+<p>The Commission voted 2-0 to seek comment, and Chairman Andrew N. Ferguson framed the effort in unmistakably political terms. "The FTC wants to hear from businesses and consumers about their experiences and concerns regarding the subversion of AI systems for ideological ends," Ferguson said in the July 1 announcement. The input, he added, "will help the Commission formulate a final policy that advances President Donald Trump's goal of expanding America's global dominance in artificial intelligence." The statement was issued pursuant to Executive Order 14365, <em>Ensuring a National Policy Framework for Artificial Intelligence</em>, which Trump signed on December 11, 2025, and which directed the FTC to address state laws that force alterations to the "truthful outputs of AI models."</p>
+<h2>The preemption fight underneath</h2>
+<p>The most far-reaching passage is not about hallucinations at all. It is about federalism. The FTC singles out Colorado's Artificial Intelligence Act — recently revised as S.B. 26-189, enacted May 14, 2026 — as a law that could pressure companies to suppress accuracy in the name of avoiding "disparate impact" liability. The agency's position is blunt: Section 5 contains no state-law safe harbor, and any state statute that pushes a firm toward deception is "impliedly preempted to the extent it conflicts with a federal regulatory scheme." As the statement puts it, "State law that requires an AI firm to deceive its consumers obviously conflicts with [FTC Act] Section 5's express purpose of protecting consumers from such conduct."</p>
+<p>That is where consumer protection blurs into a preemption weapon. Read against the executive order that spawned it — and against the administration's broader push for one national AI rulebook instead of a "patchwork" of state laws — the statement is widely understood as aimed squarely at state "bias" and anti-discrimination measures. The FTC even floats a First Amendment argument, suggesting a state law that restricts truthful AI speech because it <em>might</em> lead someone else to discriminate would likely fail constitutional scrutiny.</p>
+<h2>Who wins, who loses, and the double edge</h2>
+<p>For AI developers, the practical bind is real: Colorado-style laws may push them to adjust outputs while the FTC says those very adjustments can be deceptive unless loudly disclosed. Compliance with one regime creates exposure under the other. Winston's attorneys noted the same tension extends to Illinois and California laws touching algorithmic discrimination.</p>
+<p>Critics — and even sympathetic analysts — see a structural risk. The Spencer Fane team warned that the FTC "is using UDAP as a free-floating shield against state laws that go further than the current administration likes," but cautioned the same theory "could also easily be used as an expansive sword" by a future, more aggressive regulator. A tool built to block one kind of state law can, under different management, dismantle another. Vagueness compounds the worry: terms like <em>accurate</em>, <em>objective</em>, and <em>ideological</em> are notoriously hard to pin down, and could be enforced inconsistently.</p>
+<h2>What to watch</h2>
+<p>Public comments are due July 31, 2026, and the volume and heat of the filings — from AI firms, state attorneys general, and free-speech groups — will shape any final version, which observers expect by late summer or fall. The deeper question the policy statement cannot resolve on its own is whether its preemption theory survives a courtroom. As Spencer Fane put it, "The preemption question will likely be resolved in court." When it gets there, a fight the FTC has framed as protecting consumers will be litigated as what it more plainly is: a battle over who gets to govern what AI is allowed to say.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185"><blockquote>"State law that requires an AI firm to deceive its consumers obviously conflicts with [FTC Act] Section 5's express purpose of protecting consumers from such conduct."</blockquote><cite>&mdash; Federal Trade Commission, Proposed Policy Statement</cite></div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">July 31</div><div class="stat-label">Public comment deadline</div></div><div class="stat-cell"><div class="stat-value">2-0</div><div class="stat-label">Commission vote to seek comment</div></div><div class="stat-cell"><div class="stat-value">Dec 2025</div><div class="stat-label">Executive Order 14365 that ordered it</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-seeks-public-comment-policy-statement-addressing-ai-accuracy" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ftc.gov&sz=32" alt="">FTC</a><a href="https://www.federalregister.gov/documents/2026/07/07/2026-13628/policy-statement-concerning-the-suppression-of-accuracy-in-artificial-intelligence-systems" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=federalregister.gov&sz=32" alt="">Federal Register</a><a href="https://www.spencerfane.com/insight/ftc-proposes-new-policy-on-ai-accuracy-hiding-how-an-ai-system-is-steered-may-violate-federal-law/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=spencerfane.com&sz=32" alt="">Spencer Fane</a><a href="https://www.insideprivacy.com/consumer-protection/ftc-seeks-comment-on-proposed-policy-statement-addressing-ai-accuracy-and-output-steering/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=insideprivacy.com&sz=32" alt="">Covington Inside Privacy</a></div></div>
+<div class="article-nav"><a href="07-xi-waico-29-nation-ai-body.html" class="nav-prev">&larr; Xi Launches a 29-Nation AI Governance Body as Chin</a><a href="09-wonder-650m-series-d.html" class="nav-next">Wonder Raises $650 Million at a $9 Billion Valuati &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 17, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
