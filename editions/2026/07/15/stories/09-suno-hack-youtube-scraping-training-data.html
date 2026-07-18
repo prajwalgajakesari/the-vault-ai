@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hack of AI Music Generator Suno Suggests It Scraped YouTube, Deezer and Genius for Training Audio &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.4rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--accent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>Hack of AI Music Generator Suno Suggests It Scraped YouTube, Deezer and Genius for Training Audio</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1017 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Source code stolen from Suno appears to corroborate the record labels&#x27; DMCA circumvention claim that Suno stream-ripped its training audio from YouTube — the one question fair use cannot answer — while also exposing an undisclosed November 2025 breach of customer data.</p>
+</div>
+<div class="article-body">
+<p>For two years, the record industry has been trying to prove how Suno got its music. On Wednesday, a criminal did it for them.</p>
+<p>404 Media reported on July 15 that a hacker breached the AI music generation startup and walked away with internal source code that appears to document, in the company's own engineering comments, where Suno's training audio came from: YouTube Music, Deezer, Genius, the stock libraries Pond5, Jamendo and Freesound, the sheet-music archive IMSLP, and podcasts pulled through RSS feeds.</p>
+<p>The material is dated — Suno says it is "outdated source code that is no longer in use" — but its timing is the point. The Recording Industry Association of America has spent months alleging Suno obtained its training corpus by "stream ripping" audio out of YouTube in violation of the Digital Millennium Copyright Act. The leaked code, if authentic, speaks to the one question that theory turns on: not whether Suno copied music, which it has conceded, but how it got the files.</p>
+<h2>What the code appears to show</h2>
+<p>The scale in the comments is the kind of number that usually only surfaces in discovery. One file inventories Suno's datasets: "113,879 hours of youtube_music," "152,162 hours of ytm_tagged," "62,117 hours of pond5_music," "19,514 hours of imslp," "17,615 hours of genius_hq," "12,287 hours of deezer," "3,726 hours of jamendo," plus smaller pulls from Freesound and MuseScore. A file named "youtube_music" logged 2,013,545 ingested music clips as of its last update. Another comment lists the intended sources — "genius_hq, youtube_music, freesound, jamendo, imp, deezer, ytm_tagged" — and notes "non-music will be filtered out."</p>
+<p>Taken together, that is decades of audio. Pond5, a Shutterstock-owned library that sells tracks individually or by subscription, claims roughly 2.5 million music tracks; Suno's files suggest a substantial fraction of it. Genius doesn't host audio at all.</p>
+<p>Two details matter more than the raw hours. Per 404 Media, some code searched YouTube specifically for a cappella versions — which is to say it hunted for isolated vocals. And the code indicates Suno routed its YouTube scraping through proxies sold by Bright Data, a commercial scraping vendor.</p>
+<h2>Why the "how" is the whole case</h2>
+<p>Suno has never seriously contested the copying. In a court filing it said its training data "includes essentially all music files of reasonable quality that are accessible on the open internet, abiding by paywalls, password protections, and the like." Its defense is fair use — a fact-intensive doctrine that has gone both ways in AI litigation.</p>
+<p>But the labels' amended complaint, filed in September 2025, added a claim fair use cannot touch. Section 1201 of the DMCA bars circumventing technological protection measures, independently of whether the underlying use infringes. If Suno defeated YouTube's rolling cipher to extract audio, fair use is no defense to the circumvention itself.</p>
+<p>"For Suno specifically, this process involved copying decades worth of the world's most popular sound recordings and then ingesting those copies into Suno's AI models so they can generate outputs that imitate the qualities of genuine human sound recordings," the RIAA wrote in its complaint. "And to make matters worse, Suno obtained those copies in the first instance by unlawfully 'stream ripping' them from the popular streaming platform YouTube, and circumventing the technological measures designed specifically to prevent such unauthorized copying."</p>
+<p>Suno moved to dismiss in October 2025, arguing YouTube's rolling cipher is a copy control rather than an access control, and that §1201 reaches only the latter. The court has not ruled; in the parallel Udio case, a judge declined in May 2026 to toss the equivalent claim. The labels seek $2,500 per act of circumvention, stacked on statutory copyright damages that can run to $150,000 per work — against a corpus the leaked files measure in millions of clips.</p>
+<h2>The evidentiary irony, and a second problem</h2>
+<p>There is something uncomfortable here. Discovery is the mechanism the legal system built for exactly this question, and it has been grinding: Sony and UMG sued in 2024 over 560 works, then moved this spring to add more than 61,000 after discovery showed training on millions of their recordings. A stranger with stolen credentials produced a cleaner answer in an afternoon.</p>
+<p>That is not a vindication of the hack. Stolen evidence carries real admissibility problems, and the hacker — who told 404 Media they had no particular motive, saying "I like to hack anything and everything" — is not a whistleblower by any definition the law recognizes. What the breach does is make the shape of the record harder to argue about.</p>
+<p>The second problem is separate and touches more people. The intrusion dates to November 2025 and reached customer emails, phone numbers and Stripe payment details for what 404 Media describes as hundreds of thousands of users. Suno never told them. "Based on the limited nature of the customer information believed to be involved, we determined that individual notifications were not warranted under applicable privacy laws," a spokesperson said, adding that Suno "does not have access to customers' full credit card numbers in Stripe." Customers 404 Media contacted confirmed they had signed up with phone numbers and had never heard of a breach. State breach-notification statutes are not uniform, and that judgment call is the company's to defend.</p>
+<h2>What to watch</h2>
+<p>Three things. Whether the labels try to put any of this in front of the court, and whether a ruling on the pending §1201 motion lands before fact discovery closes on September 30. Whether any state attorney general takes an interest in a November 2025 incident disclosed by a reporter in July 2026. And whether investors care: Suno raised a $400 million Series D on June 3 at a $5.4 billion valuation — up from $2.45 billion seven months earlier, on roughly $200 million in revenue and more than 7 million songs generated a day.</p>
+<p>Warner Music settled and signed a licensing deal last November. Sony, UMG and GEMA did not. The gap between those two outcomes is now worth several billion dollars, and it may hinge on comments an engineer typed into a file in 2023.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185"><blockquote>&ldquo;Suno obtained those copies in the first instance by unlawfully 'stream ripping' them from the popular streaming platform YouTube, and circumventing the technological measures designed specifically to prevent such unauthorized copying.&rdquo;</blockquote><cite>&mdash; Recording Industry Association of America, from its complaint against Suno</cite></div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">113,879 hours</div><div class="stat-label">YouTube Music audio in Suno's datasets</div></div><div class="stat-cell"><div class="stat-value">2,013,545</div><div class="stat-label">Music clips ingested</div></div><div class="stat-cell"><div class="stat-value">$5.4B</div><div class="stat-label">Suno's valuation after $400M Series D</div></div><div class="stat-cell"><div class="stat-value">$2,500</div><div class="stat-label">Statutory damages per circumvention act</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.404media.co/hack-reveals-suno-ai-music-generator-scraped-youtube-deezer-and-genius/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=404media.co&sz=32" alt="">404 Media</a><a href="https://techcrunch.com/2026/07/15/hack-suggests-ai-music-generator-suno-scraped-youtube-for-training-data/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://variety.com/2026/music/news/suno-hack-youtube-music-deezer-genius-data-trained-ai-music-1236811772/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=variety.com&sz=32" alt="">Variety</a><a href="https://www.musicbusinessworldwide.com/suno-urges-court-to-throw-out-record-labels-stream-ripping-allegations/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=musicbusinessworldwide.com&sz=32" alt="">Music Business Worldwide</a></div></div>
+<div class="article-nav"><a href="08-publishers-sue-google-gemini-book-training.html" class="nav-prev">&larr; Hachette, Cengage, Elsevier and Scott Turow File C</a><a href="10-hassabis-independent-frontier-ai-standards-body.html" class="nav-next">Hassabis Wants a FINRA for Frontier AI — Industry- &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 15, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

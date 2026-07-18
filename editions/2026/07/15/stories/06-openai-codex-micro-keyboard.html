@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI&#x27;s First Shipped Hardware Is a $230 Macro Pad for Babysitting Codex Agents &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.4rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--accent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>OpenAI&#x27;s First Shipped Hardware Is a $230 Macro Pad for Babysitting Codex Agents</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1007 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI&#x27;s first shipped hardware is a limited-run $230 Codex Micro macro pad built with Work Louder, and its six status-lit Agent Keys only make sense if developers are supervising several concurrent coding agents — a bigger claim about how work is changing than the product itself.</p>
+</div>
+<div class="article-body">
+<p>The first piece of hardware OpenAI has ever actually sold you is not the Jony Ive object that $6.5 billion was supposed to buy. It is a $230 macro pad the size of a coaster, with a joystick, a knob, and six frosted keys that glow different colors to tell you what your robots are doing.</p>
+<p>Orders for the Codex Micro — formally the kbd-1.0-codex-micro, co-designed with boutique keyboard maker Work Louder — opened Wednesday on OpenAI's Supply Co. store and Work Louder's own site. It is a limited run. OpenAI confirmed as much to TechCrunch, and Work Louder's product page cops to a "limited quantity," which is the polite hardware term for <em>when it's gone, it's gone</em>.</p>
+<h2>What it actually is</h2>
+<p>The Codex Micro is a shortcut box that sits next to your real keyboard. Per OpenAI's spec sheet, it packs 13 mechanical switches, one touch sensor, one rotary encoder, and one planar joystick into a CNC'd polycarbonate-and-aluminum body. It connects over Bluetooth or USB-C, works on Mac and Windows, ships with a Codex icon keyset of 32 custom keycaps plus 11 solid-color caps, and comes in "clicky" or "silent" switches rated to 50 million keystrokes.</p>
+<p>The interesting part is what the controls are mapped to. Six of the keys are "Agent Keys," and each one lights up with live RGB status pulled from Codex, so you can see which agent is thinking, running, waiting on you, or finished without tabbing into anything. The remaining Command Keys handle the actions you'd otherwise be hunting for: accept, reject, push-to-talk, branch a thread, start a new chat. Flick the joystick and you launch a workflow — review a PR, debug an error, refactor. Twist the dial and you change the model's reasoning level in the moment, dialing compute up or down depending on whether the task deserves it.</p>
+<p>If the form factor looks familiar, it should. TechRadar noted it appears to be built on Work Louder's existing Creator Micro 2, the same chassis the company previously skinned for the website builder Framer. OpenAI's engineering org, in other words, did not stop what it was doing to invent a keyboard. It picked a good one and painted it.</p>
+<p>OpenAI's own copy calls the thing "your command center for agentic work." An OpenAI spokesperson, speaking at the AI Engineer World's Fair in June when the collab was first teased, described it more plainly as a keyboard meant to "supercharge people's Codex usage."</p>
+<h2>The bigger tell</h2>
+<p>Here is the part worth more than $230 of attention: this device is only coherent if you are running several agents at once.</p>
+<p>A single agent does not need six status lights. You don't need a glanceable RGB grid to track one process — you just look at the window it's in. The Codex Micro is designed around the assumption that a developer's screen no longer holds the whole picture, that work is now happening in parallel across multiple semi-autonomous processes, and that the human's job has shifted from <em>writing</em> to <em>dispatching, monitoring, and approving</em>. The dial is the giveaway. Adjusting reasoning level per task, on the fly, by feel, is a compute-budgeting gesture. It treats thinking as a resource you meter out, like throttle.</p>
+<p>That's a real claim about how OpenAI thinks coding is changing, and the same claim its product line has been making all year — Codex reportedly reached 5 million weekly users as of June.</p>
+<p>Axios's Megan Morrone offered a useful reality check on how many people actually live that way yet. "I rarely use more than one agent at a time, but I will often give an agent a project and then go work on something else," she wrote. "It would be nice to have a physical lighted key to know my agent's status at a glance." She also flagged the obvious hazard: there's a key that approves an agent's access request. "That seems like an easy way to accidentally give an agent access or approve a task that you didn't mean to approve."</p>
+<p>The honest read is that this could equally be merch. A limited-run branded desk toy from a company with enormous brand recognition and a developer audience it is actively fighting Anthropic to keep is a low-cost, low-compute, high-affection play. It consumes no GPUs and ships from someone else's factory. TechRadar drily observed that it arrives weeks after CEO of Applications Fidji Simo reportedly told staff to stop chasing side quests — though a keyboard someone else manufactures is about the cheapest side quest available.</p>
+<h2>The timing, which is not subtle</h2>
+<p>The Micro landed a day after Bloomberg reported that OpenAI's actual first consumer device is a portable, screenless smart speaker with "mechanical elements that can move on their own," slated for an unveiling this year and availability in 2027. And it landed five days after Apple sued OpenAI for trade-secret theft, alleging a deliberate leadership-level strategy to extract confidential information for use in exactly that hardware. The suit names current OpenAI employees Tang Yew Tan and Chang Liu, both Apple alumni; Apple's filing calls OpenAI's hardware business "rotten to its core." OpenAI denies wrongdoing.</p>
+<p>So the company accused of stealing an iPhone maker's hardware secrets shipped its first hardware, and it's a keypad Work Louder built. Deft counterprogramming or coincidental store update, it establishes something: OpenAI can now say it ships physical goods, and this one is unimpeachably its own.</p>
+<h2>What to watch</h2>
+<p>Three things. Whether the Micro sells out fast enough that OpenAI does a second run. Whether agent status lighting shows up as an API rather than a $230 accessory — that's where the multi-agent workflow idea gets real. And whether Apple's suit slows the speaker's 2027 date. Microsoft put a Copilot key on Windows keyboards in January 2024; it was one button, for chatting with one assistant. Two years later the pitch is a whole control surface for people managing a staff. That escalation is the story, even if the hardware turns out to be a very handsome paperweight.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>&ldquo;I rarely use more than one agent at a time, but I will often give an agent a project and then go work on something else. It would be nice to have a physical lighted key to know my agent's status at a glance.&rdquo;</blockquote><cite>&mdash; Megan Morrone, Technology reporter, Axios</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">$230</div><div class="stat-label">Price</div></div><div class="stat-cell"><div class="stat-value">6</div><div class="stat-label">RGB-lit Agent Keys</div></div><div class="stat-cell"><div class="stat-value">13</div><div class="stat-label">Mechanical switches</div></div><div class="stat-cell"><div class="stat-value">5 million</div><div class="stat-label">Codex weekly users as of June</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techcrunch.com/2026/07/15/amid-hardware-legal-battle-openai-releases-a-230-keyboard-for-codex/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://www.engadget.com/2215952/openai-launches-a-physical-keypad-for-controlling-agents/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=engadget.com&sz=32" alt="">Engadget</a><a href="https://www.axios.com/2026/07/15/openai-keyboard-codex-agents" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=axios.com&sz=32" alt="">Axios</a><a href="https://openai.com/supply/co-lab/work-louder/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI Supply Co.</a></div></div>
+<div class="article-nav"><a href="05-oak-60m-seed-ai-agent-identity.html" class="nav-prev">&larr; Oak Exits Stealth With $60M Seed Co-Led by Accel, </a><a href="07-australia-ai-data-centre-copyright-laws.html" class="nav-next">Albanese Says AI Data Centres Must Be Net Power Ge &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 15, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
