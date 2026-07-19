@@ -1,0 +1,29 @@
+# AI Co-Mathematicians Graduate From Solving Problems to Discovering Them
+
+*The Vault — AI Edition · Research · Story 11 · July 18, 2026*
+
+For a decade, the yardstick for machine mathematics was the exam. Could a model win an Olympiad medal? Could it clear a benchmark of set problems with known answers? In the spring of 2026, a cluster of research groups quietly changed the question. The new goal is not to answer mathematics but to *do* it — to sit beside a working mathematician through the messy, months-long process of hunting for a result nobody has written down yet.
+
+The clearest statement of the shift arrived on May 7, 2026, when Google DeepMind posted "AI co-mathematician: Accelerating mathematicians with agentic AI" (arXiv:2605.06651), a paper led by Daniel Zheng with Alex Davies and Pushmeet Kohli among its senior authors. Rather than a chatbot that returns a single answer, the system behaves like a shared workbench. A team of specialized agents runs in parallel: some scour the literature for overlooked references, others write and execute code to test hypotheses, others attempt formal proofs — all while a stateful workspace tracks the live conjectures, the partial results, and the dead ends. The human steers; the machine explores.
+
+## From benchmark medals to open problems
+
+The lineage is easy to trace. In 2024, DeepMind's AlphaProof, an AlphaZero-inspired agent trained by reinforcement learning on millions of auto-formalized problems, proved three of five problems at the International Mathematical Olympiad for a silver-medal score — work later published in *Nature* (s41586-025-09833-y). Those were still *set* problems: hard, but with answers waiting at the back of the book.
+
+The 2026 thread aims past that. On May 21, DeepMind released a companion effort, "Advancing Mathematics Research with AI-Driven Formal Proof Search" (arXiv:2605.22763), describing an AlphaProof-derived agent that autonomously produced Lean proofs for **9 of 353 open Erdős problems** and **44 of 492 open conjectures** from the Online Encyclopedia of Integer Sequences. Two of the Erdős problems had stood open for 56 years. The reported inference cost was a few hundred dollars per problem. Crucially, these were not benchmark items — they were problems that had defeated humans for decades, and the outputs are machine-checkable Lean proofs that any user can verify in seconds.
+
+That last detail is the load-bearing one. In the co-mathematician setup, a mathematician can hand the system a Lean theorem with `sorry` in place of a proof, plus natural-language context. A prover subagent refines proof sketches and may call AlphaProof as a tool; if every goal closes, the agent emits a finished, formally verified Lean proof. Retrieval and brainstorming are fallible, but the proof kernel is not negotiable — a claim either type-checks or it does not.
+
+## Verifiable results, and a real collaboration
+
+The systems are already touching live mathematics. According to DeepMind's account and reporting from Aarhus University — whose mathematician Gergely Zábrádi co-authored the DeepMind work on machine-verified proofs of open problems — the co-mathematician has helped researchers close open questions, surface forgotten literature, and open new directions. Coverage in May described the system assisting an Oxford professor on a problem that had resisted attack for roughly six decades. On the benchmark side, the co-mathematician reported a state-of-the-art **48% on FrontierMath Tier 4**, Epoch AI's hardest, research-level tier.
+
+## Analysis: what "discovery" is worth here
+
+The honest caveats live inside DeepMind's own paper, not just the skeptics' commentary. The authors describe a failure mode they call, colloquially, a "death spiral": over successive autonomous iterations, they write, "the loop often degrades into increasingly hallucinated reasoning." Language-model agents frequently disagree with each other, and without a check they can wander into confident nonsense. The team's answer is twofold — hard programmatic constraints that fence off certain failures, and active human steering. Early users, the paper notes, learn to recognize when a workstream has entered a bad state and down-weight its output accordingly.
+
+This is why formal verification, not eloquence, is the spine of the credible work. When AI produces a new result *with* a formal proof in Lean, the question "was this proved or merely retrieved and paraphrased?" is settled by the kernel. When it produces prose, it is not. The distinction also complicates the word "discovery." The Erdős and OEIS wins are genuine and checkable, but many are individual problems rather than new *theory* — new definitions, new conjectures, new frameworks that reshape a field. The co-mathematician's most interesting claim is precisely that it helps at the theory-building layer, and that is the hardest thing to benchmark or verify. A caution worth remembering: a June 12 FrontierMath update corrected errors in a sizable share of its problems, a reminder that even the rulers we measure with have bugs.
+
+## What to watch next
+
+Three threads. First, independent verification: watch for the Lean proofs to be released and re-checked by outside mathematicians, and for peer-reviewed publication of the co-mathematician results beyond the arXiv preprints. Second, the human-credit question — as agents contribute steps to published theorems, journals and departments will have to decide what authorship and novelty mean. Third, generalization: the Erdős and OEIS results skew toward number theory and combinatorics, where formalization is tractable. The real test is whether the workbench model travels to areas of mathematics where Lean libraries are thin and "discovery" cannot lean on a proof checker to keep it honest.
