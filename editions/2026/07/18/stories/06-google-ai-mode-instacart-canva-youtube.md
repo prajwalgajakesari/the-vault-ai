@@ -1,0 +1,27 @@
+# Google Expands AI Mode in Search With Instacart, Canva, and YouTube Music
+
+Google spent the week of July 14 watching its frontier ambitions wobble. Gemini 3.5 Pro, the flagship model the industry expected to headline the calendar, slipped again after falling short on coding and reasoning tests, and Alphabet shares dropped roughly 4 percent on the reports. Then, on July 16, Google threw the punch it is best positioned to land. It began rolling out connected app integrations inside AI Mode in Search, letting U.S. users link Instacart, Canva, and YouTube Music so the AI-generated answer can actually do the thing it just described.
+
+The distinction is the whole story. Until now, AI Mode summarized, compared, and planned. It answered questions. With the new connectors, a search becomes a set of completed actions: it can populate an Instacart cart with barbecue ingredients, surface editable Canva templates for a flyer, or assemble a party playlist and save it straight to your YouTube Music library. Google is quietly converting the internet's highest-traffic surface from an information tool into an agent that finishes tasks.
+
+## What Google actually shipped
+
+The rollout began the week of July 16 for U.S. users searching in English, on both desktop and the Google Search iOS app, according to reporting from [Search Engine Land](https://searchengineland.com/google-ai-mode-adds-instacart-canva-and-youtube-music-integrations-482547) and [Engadget](https://www.engadget.com/2216707/google-ai-mode-now-integrates-with-canva-youtube-music-and-instacart/). Users on personal Google accounts opt in by connecting each app individually, and the connection is designed to collapse the steps between planning something in Search and completing it in a third-party service.
+
+The examples Google offered are deliberately mundane, which is the point. Planning a cookout? Connect Instacart, and AI Mode builds a cart you check out through Instacart's own app or site. Designing a flyer? Connect Canva, describe the project, and Search returns template options you can open and edit. Throwing a party? Ask AI Mode to build a playlist, then save it to YouTube Music and press play. Each integration removes a hop that used to require leaving Search, opening a new app, and re-entering the request.
+
+These connectors sit atop machinery Google has been assembling for a year. As the company described when it introduced agentic AI Mode, the feature draws on the live web-browsing capability of Project Mariner, direct partner integrations, and Google's Knowledge Graph and Maps to take action on the web. The reservation-and-ticketing partner roster already includes OpenTable, Resy, Tock, Ticketmaster, StubHub, SeatGeek, and Booksy; the Instacart, Canva, and YouTube Music connectors extend the same handoff logic from booking a table to filling a grocery cart. Google says more apps are coming but has not published a full list.
+
+"We're bringing more agentic capabilities and personalized responses to AI Mode in Search, so Google can do more on your behalf and help you get things done," Robby Stein, Google Search's vice president of product, wrote when the company laid out the agentic roadmap that this week's connectors build on. The framing has stayed consistent: Search should move from telling you the answer to doing the work.
+
+## Analysis: distribution as the counterpunch
+
+The timing is not subtle. In a week when Google could not ship its frontier model, it shipped distribution instead — and distribution is the one asset no competitor can copy. Billions of people already open the Google search box daily. Weaving agentic actions directly into that surface is a structural advantage that no standalone AI product, however capable its model, can match from a standing start.
+
+It is the same super-app logic OpenAI is pursuing by folding shopping, apps, and actions into ChatGPT. The difference is the starting line. OpenAI is building a destination and hoping to grow into ubiquity; Google is bolting agents onto ubiquity it already owns. If the future of search is completed tasks rather than blue links, the company that controls the default search bar starts several laps ahead.
+
+The catch is that Google's model stumble and its distribution strength are not fully independent. Agentic actions are only as trustworthy as the reasoning behind them, and a search agent that orders the wrong groceries or misreads a design brief erodes exactly the trust that Search has spent decades accruing. A delayed flagship is survivable; an agent that acts wrong at billion-user scale is a harder problem. Google's advantage in reach only pays off if the underlying intelligence holds up, and that is the very capability this week's Gemini news called into question.
+
+## What to watch next
+
+Watch the partner list — how fast Google adds connectors beyond groceries, design, and music will signal whether this is a genuine platform or a demo. Watch for pricing and gating: agentic features have historically launched behind Google AI Ultra and Labs experiments before going broad. Watch the monetization question, because inserting commerce actions into Search reshapes the ad-and-affiliate economics that fund the entire company. And watch OpenAI's response. The race is no longer who has the best benchmark; it is who can turn a query into a finished task first, and Google just reminded everyone which surface most people start from.
