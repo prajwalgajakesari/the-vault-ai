@@ -1,0 +1,29 @@
+# The New Reasoning Research Is About Thinking Less, Not More
+
+For two years the story of AI reasoning was addition. Give a model more room to think, more tokens to spend, more chains of thought to explore, and accuracy climbed. In 2026 the most interesting research has quietly flipped that logic. The frontier question is no longer how much a model can think, but how little it needs to.
+
+The reason is economic as much as scientific. Long chains of thought are expensive, slow, and, it turns out, frequently wasteful. A wave of papers this year has documented a phenomenon researchers now call overthinking: reasoning models burn thousands of tokens deliberating over problems a smaller model would answer in one line, and sometimes the extra deliberation actively hurts. "Reasoning models always consume excessive tokens even for simple queries, leading to resource waste and prolonged user latency," the authors of SelfBudgeter, a token-allocation method released this year, write in their abstract. Multiple independent studies have found the same counterintuitive result: on average, shorter answers are often more accurate than longer ones, and past a certain point accuracy can decline as the thinking budget grows.
+
+## The problem: compute that scales the wrong way
+
+The overthinking critique is now well enough established to have its own literature. A July 2026 survey, "Reasoning on a Budget: A Survey of Adaptive and Controllable Test-Time Compute in LLMs," frames the core failure bluntly: current models apply a roughly fixed amount of inference-time compute regardless of task difficulty, overthinking easy problems while underthinking hard ones. Test-time reasoning methods can consume more than ten times the compute of a single forward pass, and much of that spend produces repetitive output rather than better answers. Papers with titles like "When More Thinking Hurts" and "THOUGHTTERMINATOR" capture the mood. The scaling curve that once pointed only up has visible diminishing returns, and beyond the peak it bends back down.
+
+That reframing matters because inference, not training, is where deployed models spend money. Every extra reasoning token is paid for on every query, forever. Halving the tokens a model spends to reach the same answer is a direct halving of serving cost and latency, which is why efficiency has become a first-class research target rather than an afterthought.
+
+## The techniques: budgets, latent thought, and knowing when to stop
+
+Three families of methods dominate the 2026 work. The first is explicit budget control. Systems like SelfBudgeter and BudgetThinker train models to estimate, before they start reasoning, roughly how many tokens a problem should require, then reason within that self-imposed cap. SelfBudgeter reports an average 61 percent reduction in response length on math reasoning tasks while maintaining accuracy, and lets users set the budget themselves and see how long an answer will take before committing to it. BudgetThinker uses control tokens to give operators precise handles on chain length.
+
+The second family is latent, or continuous, reasoning: letting a model think in its internal representation space rather than by emitting every intermediate step as text. Because latent steps are not spelled out token by token, they are cheaper. "Adaptive Latent Agentic Reasoning," posted to arXiv in June 2026, routes between the two modes: the agent reasons in compact latent form by default and falls back to explicit chain-of-thought only on turns that genuinely require deeper planning. The insight is that an agent whose next action depends mostly on an external observation does not need a paragraph of verbal deliberation to decide it.
+
+The third is adaptive stopping and budget-aware search. "Inference-Time Budget Control for LLM Search Agents" (arXiv 2605.05701) tackles agents that call tools under hard limits on both tool calls and tokens. Its training-free controller assigns each candidate action a Value-of-Information score, an estimate of marginal task value per unit of remaining budget, and uses it to decide whether to retrieve more, decompose the question, or commit an answer. Across four multi-hop question-answering benchmarks, three model backbones, and four budget levels, the authors report consistent aggregate gains over audited baselines under identical budget constraints.
+
+## Analysis
+
+What ties these threads together is a shift from capability as the only axis to capability-per-token as the metric that matters. This is also why pass@k efficiency has become a headline theme, with a widely circulated roundup of the top 2026 LLM papers organized around models solving problems in fewer attempts. The efficiency framing has a second, less obvious payoff: forcing a model to be economical often surfaces the overthinking pathologies that longer budgets hide.
+
+The caveats are real. Latent reasoning is harder to inspect, and at least one 2026 paper questions how interpretable such models actually are, a genuine concern for safety and debugging. Budget estimators can misjudge difficulty and starve a genuinely hard problem. And many of the eye-catching compression numbers come from math benchmarks with clean, verifiable answers, which may not transfer to open-ended agentic work.
+
+## What to watch next
+
+The near-term signal to watch is whether frontier labs ship efficiency as a user-facing dial rather than a research demo, letting developers trade accuracy for cost per call the way they already trade model size. Watch, too, for benchmarks that report accuracy per token rather than accuracy alone, and for the interpretability community to push back on latent reasoning before it becomes the default. If 2025 was the year reasoning models learned to think, 2026 is the year they are being taught to stop.
