@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The New Reasoning Research Is About Thinking Less, Not More - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>The New Reasoning Research Is About Thinking Less, Not More</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 760 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>The 2026 reasoning frontier is efficiency, not raw capability: models overthink, wasting compute and sometimes hurting accuracy, and new methods (self-imposed token budgets, latent reasoning, and budget-aware search controllers) aim for comparable accuracy with far fewer reasoning tokens.</p>
+</div>
+<div class="article-body">
+<p>For two years the story of AI reasoning was addition. Give a model more room to think, more tokens to spend, more chains of thought to explore, and accuracy climbed. In 2026 the most interesting research has quietly flipped that logic. The frontier question is no longer how much a model can think, but how little it needs to.</p>
+<p>The reason is economic as much as scientific. Long chains of thought are expensive, slow, and, it turns out, frequently wasteful. A wave of papers this year has documented a phenomenon researchers now call overthinking: reasoning models burn thousands of tokens deliberating over problems a smaller model would answer in one line, and sometimes the extra deliberation actively hurts. "Reasoning models always consume excessive tokens even for simple queries, leading to resource waste and prolonged user latency," the authors of SelfBudgeter, a token-allocation method released this year, write in their abstract. Multiple independent studies have found the same counterintuitive result: on average, shorter answers are often more accurate than longer ones, and past a certain point accuracy can decline as the thinking budget grows.</p>
+<h2>The problem: compute that scales the wrong way</h2>
+<p>The overthinking critique is now well enough established to have its own literature. A July 2026 survey, "Reasoning on a Budget: A Survey of Adaptive and Controllable Test-Time Compute in LLMs," frames the core failure bluntly: current models apply a roughly fixed amount of inference-time compute regardless of task difficulty, overthinking easy problems while underthinking hard ones. Test-time reasoning methods can consume more than ten times the compute of a single forward pass, and much of that spend produces repetitive output rather than better answers. Papers with titles like "When More Thinking Hurts" and "THOUGHTTERMINATOR" capture the mood. The scaling curve that once pointed only up has visible diminishing returns, and beyond the peak it bends back down.</p>
+<p>That reframing matters because inference, not training, is where deployed models spend money. Every extra reasoning token is paid for on every query, forever. Halving the tokens a model spends to reach the same answer is a direct halving of serving cost and latency, which is why efficiency has become a first-class research target rather than an afterthought.</p>
+<h2>The techniques: budgets, latent thought, and knowing when to stop</h2>
+<p>Three families of methods dominate the 2026 work. The first is explicit budget control. Systems like SelfBudgeter and BudgetThinker train models to estimate, before they start reasoning, roughly how many tokens a problem should require, then reason within that self-imposed cap. SelfBudgeter reports an average 61 percent reduction in response length on math reasoning tasks while maintaining accuracy, and lets users set the budget themselves and see how long an answer will take before committing to it. BudgetThinker uses control tokens to give operators precise handles on chain length.</p>
+<p>The second family is latent, or continuous, reasoning: letting a model think in its internal representation space rather than by emitting every intermediate step as text. Because latent steps are not spelled out token by token, they are cheaper. "Adaptive Latent Agentic Reasoning," posted to arXiv in June 2026, routes between the two modes: the agent reasons in compact latent form by default and falls back to explicit chain-of-thought only on turns that genuinely require deeper planning. The insight is that an agent whose next action depends mostly on an external observation does not need a paragraph of verbal deliberation to decide it.</p>
+<p>The third is adaptive stopping and budget-aware search. "Inference-Time Budget Control for LLM Search Agents" (arXiv 2605.05701) tackles agents that call tools under hard limits on both tool calls and tokens. Its training-free controller assigns each candidate action a Value-of-Information score, an estimate of marginal task value per unit of remaining budget, and uses it to decide whether to retrieve more, decompose the question, or commit an answer. Across four multi-hop question-answering benchmarks, three model backbones, and four budget levels, the authors report consistent aggregate gains over audited baselines under identical budget constraints.</p>
+<h2>Analysis</h2>
+<p>What ties these threads together is a shift from capability as the only axis to capability-per-token as the metric that matters. This is also why pass@k efficiency has become a headline theme, with a widely circulated roundup of the top 2026 LLM papers organized around models solving problems in fewer attempts. The efficiency framing has a second, less obvious payoff: forcing a model to be economical often surfaces the overthinking pathologies that longer budgets hide.</p>
+<p>The caveats are real. Latent reasoning is harder to inspect, and at least one 2026 paper questions how interpretable such models actually are, a genuine concern for safety and debugging. Budget estimators can misjudge difficulty and starve a genuinely hard problem. And many of the eye-catching compression numbers come from math benchmarks with clean, verifiable answers, which may not transfer to open-ended agentic work.</p>
+<h2>What to watch next</h2>
+<p>The near-term signal to watch is whether frontier labs ship efficiency as a user-facing dial rather than a research demo, letting developers trade accuracy for cost per call the way they already trade model size. Watch, too, for benchmarks that report accuracy per token rather than accuracy alone, and for the interpretability community to push back on latent reasoning before it becomes the default. If 2025 was the year reasoning models learned to think, 2026 is the year they are being taught to stop.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"Reasoning models always consume excessive tokens even for simple queries, leading to resource waste and prolonged user latency."</blockquote><cite>- SelfBudgeter authors, arXiv paper on adaptive token allocation</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">61%</div><div class="stat-label">Response-length cut on math tasks with SelfBudgeter, accuracy held</div></div><div class="stat-cell"><div class="stat-value">10x+</div><div class="stat-label">Compute test-time reasoning can consume vs a single forward pass</div></div><div class="stat-cell"><div class="stat-value">4 benchmarks</div><div class="stat-label">Scope of consistent gains for budget-controlled search agents</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/html/2505.11274v6" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">SelfBudgeter: Adaptive Token Allocation for Efficient LLM Reasoning</a><a href="https://arxiv.org/abs/2605.05701" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">Inference-Time Budget Control for LLM Search Agents</a><a href="https://arxiv.org/html/2507.02076v1" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">Reasoning on a Budget: A Survey of Adaptive Test-Time Compute</a><a href="https://aidailypost.com/news/top-10-2026-llm-papers-highlight-passk-efficiency-reasoning-models" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=aidailypost.com&sz=32" alt="">Top 10 2026 LLM Papers Highlight Pass@k Efficiency</a></div></div>
+<div class="article-nav"><a href="11-ai-co-mathematician-discovery-agents.html" class="nav-prev">&larr; AI Co-Mathematicians Graduate From Solving Problem</a><a href="13-sf-orders-nudify-apps-pulled.html" class="nav-next">San Francisco Orders Apple and Google to Pull 13 ' &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published July 18, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
