@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meta&#x27;s Muse Spark 1.1 Adds a Million-Token Window and Computer Use, and Tops the Agent Benchmarks &mdash; The Vault AI</title>
+<meta name="description" content="Muse Spark 1.1 delivers a million-token window, cross-platform computer use and top JobBench and Finance Agent scores, but trails Claude Opus 4.8 on coding and OSWorld, and one Meta-reported score has already failed independent replication.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body a{color:var(--accent)}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem}
+.article-body blockquote{margin:0 0 1.3rem;padding-left:1rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.4}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+<span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+<h1>Meta&#x27;s Muse Spark 1.1 Adds a Million-Token Window and Computer Use, and Tops the Agent Benchmarks</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 986 words</span><span>4 sources</span></div>
+</header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>Muse Spark 1.1 delivers a million-token window, cross-platform computer use and top JobBench and Finance Agent scores, but trails Claude Opus 4.8 on coding and OSWorld, and one Meta-reported score has already failed independent replication.</p></div>
+<div class="article-body">
+<p>Mark Zuckerberg had not posted on X in three years. On July 9, he broke the silence to announce a model that undercuts Anthropic and OpenAI on price while claiming the top spot on the benchmarks that measure whether an AI can actually finish a job.</p>
+<p>Muse Spark 1.1, the first major release from Meta Superintelligence Labs since the unit was reorganized under chief AI officer Alexandr Wang, arrived with a 1-million-token context window, computer-use training across desktop, browser and mobile interfaces, and a public-preview API priced at $1.25 per million input tokens and $4.25 per million output tokens. That is roughly a quarter of what rivals charge for comparable frontier tiers. New sign-ups get $20 in free credits.</p>
+<h2>What Meta Is Claiming</h2>
+<p>The headline numbers are agentic ones. On JobBench, a professional tool-use evaluation, Meta reports Muse Spark 1.1 at 54.7, against 48.4 for Claude Opus 4.8 and 38.3 for GPT-5.5 — the widest margin anywhere in the release. On Finance Agent v2 it posts 57.2, ahead of Opus 4.8 at 53.9, GPT-5.5 at 51.8 and Gemini 3.1 Pro at 43.0. It also leads the compared set on MCP Atlas (88.1) and Humanity&#x27;s Last Exam with tools (62.1).</p>
+<p>All of that is verifiable: the million-token window, the computer-use features and the two first-place finishes appear in Meta&#x27;s published evaluation report and in independent coverage from Fortune, CNBC and a wide field of trade outlets.</p>
+<p>What does not check out is the implication that Muse Spark 1.1 sweeps the board. It does not. On SWE-Bench Pro, Opus 4.8 leads 69.2 to 61.5. On Terminal-Bench 2.1, Muse Spark 1.1&#x27;s 80.0 trails GPT-5.5 at 83.4 and Opus 4.8 at 82.7. On OSWorld-Verified — the computer-use benchmark most directly relevant to the feature Meta is advertising — Opus 4.8 wins 83.4 to 80.8. And on the harder OSWorld 2.0, a set of 108 long-horizon workflows on a full Ubuntu desktop VM, Muse Spark 1.1 scores 14.2 binary and 47.3 partial, well behind Opus 4.8 at 20.6 and 54.8. Meta is first where tools and enterprise workflows are concerned, and second or third where raw coding and desktop control are.</p>
+<p>The context-window claim is more interesting than the raw number. Meta&#x27;s pitch is not that the model holds a million tokens but that it manages them: retrieving from much earlier in a session, remembering prior actions, and compacting history in a way that preserves the steps needed later. On the computer-use side, the training goal was judgment about method — write a script when automation is faster, click when direct interaction is simpler, and emit batches of actions rather than reasoning one click at a time. The model can also delegate execution to sub-agents running in parallel.</p>
+<h2>The Price Is the Product</h2>
+<p>Zuckerberg was unusually direct about strategy. “Our focus is on delivering strong agentic and multimodal models at very low cost,” he wrote in the X post announcing the model. Speaking to Bloomberg, he sharpened it into a competitive thesis: “Some other labs have very extreme pricing with very high margins. We believe there&#x27;s an ability to deliver frontier or very high-level intelligence at a more affordable cost.”</p>
+<p>Wang, who called the pricing “very aggressive and attractive” relative to Anthropic and OpenAI, framed the coding work as instrumental rather than central. “You kind of have to build coding capabilities as part of that in service of overall agentic capabilities,” he said.</p>
+<p>That framing explains the benchmark profile. Meta optimized for the jobs-to-be-done evals — JobBench, Finance Agent v2, MCP Atlas — rather than for the leaderboard positions that dominate developer mindshare. It is a bet that enterprises care more about task completion than leaderboard position, and that a four-times price gap wins the argument.</p>
+<h2>Read the Benchmarks Skeptically</h2>
+<p>There is a real caveat, and it deserves prominence. These are vendor-reported numbers, and at least one has already failed independent replication. Vals AI ran Terminal-Bench 2.1 and got 69.29, more than ten points below Meta&#x27;s self-reported 80.0.</p>
+<p>The methodology has drawn scrutiny too. Commenters on Hacker News flagged that Meta&#x27;s evaluation harness allocated 6 CPU cores and 8GB of RAM per task — above the official per-task ceilings for all 89 Terminal-Bench 2.1 tasks. The benchmark&#x27;s highest per-task CPU cap is 4, and only for a single task; just 8 of 89 tasks permit 8GB of RAM. Those ceilings exist to test environment awareness, so exceeding them arguably changes what is being measured.</p>
+<p>Meta&#x27;s own report is candid about the rest: for coding and agentic evals it uses competitors&#x27; self-reported figures where available and internal runs where not, and elsewhere reports the more favorable of self-reported or internally reproduced scores. It also labels third-party agentic evaluations as best-effort. That is more transparency than most labs offer, but it is still a scoreboard the home team is keeping.</p>
+<h2>What to Watch</h2>
+<p>Three things. First, whether independent harnesses — Vals AI, Artificial Analysis, LMArena and the agentic evaluation shops — reproduce the JobBench and Finance Agent v2 leads, or whether the Terminal-Bench gap turns out to be a pattern rather than an outlier. Second, whether the price holds once the public preview ends; $1.25/$4.25 with $20 in credits is a customer-acquisition number, and Meta has no obligation to keep it. Third, availability. The API launched in preview for US developers only, and reporting suggests non-US access via OpenRouter has been restricted — a meaningful limit on a model whose main selling point is that anyone can afford to run it at volume.</p>
+<p>The more consequential shift may be structural. Meta built its AI reputation on open weights. Muse Spark 1.1 is a closed, paid, metered API. The company is no longer trying to commoditize the model layer by giving it away. It is trying to commoditize it by underpricing everyone else.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Some other labs have very extreme pricing with very high margins. We believe there&#x27;s an ability to deliver frontier or very high-level intelligence at a more affordable cost.&rdquo;</blockquote><cite>&mdash; Mark Zuckerberg, CEO, Meta</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">54.7</div><div class="stat-label">JobBench score, vs 48.4 for Claude Opus 4.8 and 38.3 for GPT-5.5</div></div><div class="stat-cell"><div class="stat-value">1M tokens</div><div class="stat-label">Context window, with active compaction and retrieval</div></div><div class="stat-cell"><div class="stat-value">$1.25 / $4.25</div><div class="stat-label">Per million input / output tokens on the Meta Model API</div></div><div class="stat-cell"><div class="stat-value">69.29 vs 80.0</div><div class="stat-label">Terminal-Bench 2.1: independent run vs Meta&#x27;s self-reported score</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://fortune.com/2026/07/09/meta-muse-spark-1-1-release-alexandr-wang-superintelligence-labs-mark-zuckerberg/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=fortune.com&sz=32" alt="">Fortune</a><a href="https://www.cnbc.com/2026/07/09/meta-jumps-into-ai-coding-market-to-chase-anthropic-and-openai.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="">CNBC</a><a href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ai.meta.com&sz=32" alt="">Meta AI</a><a href="https://www.techtimes.com/articles/320088/20260710/metas-muse-spark-11-opens-paid-api-one-quarter-anthropic-openai-rates.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techtimes.com&sz=32" alt="">TechTimes</a></div></div>
+<div class="article-nav"><a href="05-nvidia-cosmos-3-edge-japan.html" class="nav-prev">&larr; NVIDIA&#x27;s Cosmos 3 Edge Pushes Physical AI to the R</a><a href="07-grok-45-token-efficiency.html" class="nav-next">Grok 4.5&#x27;s Real Claim Isn&#x27;t the Score. It&#x27;s Doing  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 19, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
