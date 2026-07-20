@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Borrowing From Distributed Databases, a New Paper Lets Agents Merge Their KV Caches Instead of Their Words &mdash; The Vault AI</title>
+<meta name="description" content="CRDT co-creator Carlos Baquero and Luis Brito show the standard KV-cache merge in multi-agent latent reasoning is order-sensitive with no safe ordering, and replace it with a content-sorted, duplicate-absorbing convergent replicated state.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body a{color:var(--accent)}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem}
+.article-body blockquote{margin:0 0 1.3rem;padding-left:1rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.4}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+<span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+<h1>Borrowing From Distributed Databases, a New Paper Lets Agents Merge Their KV Caches Instead of Their Words</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 997 words</span><span>4 sources</span></div>
+</header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>CRDT co-creator Carlos Baquero and Luis Brito show the standard KV-cache merge in multi-agent latent reasoning is order-sensitive with no safe ordering, and replace it with a content-sorted, duplicate-absorbing convergent replicated state.</p></div>
+<div class="article-body">
+<p>When two AI agents solve halves of the same problem and hand their thinking to a third, something absurdly fragile decides the answer: which one got listed first.</p>
+<p>That is the finding of a preprint posted to arXiv on July 1, 2026, by Carlos Baquero of the University of Porto and Luis Brito of ESTG, Politecnico de Viana do Castelo. <em>Cache Merging as a Convergent Replicated State for Multi-Agent Latent Reasoning</em> argues that the way multi-agent systems fuse agents&#x27; internal state is order-sensitive in a way nobody has been measuring, and that the fix has sat in distributed systems for fifteen years. Baquero would know: he co-created conflict-free replicated data types (CRDTs), the convergence machinery underneath Riak and Akka distributed data.</p>
+<p><em>Corrected identifier: arXiv:2607.01308 (assigned as 2607.01367).</em></p>
+<h2>What a KV cache is, and why agents are trading them</h2>
+<p>When a transformer reads text, each token leaves behind a key and a value vector per layer. Together these form the KV cache, the model&#x27;s compressed working memory - normally a private optimization.</p>
+<p>Recent work repurposes it as a communication channel: instead of writing a paragraph for agent B, agent A hands over its raw cache. Agents, the paper notes, &quot;pass intermediate KV-cache state directly, giving a downstream agent access to richer, higher-bandwidth representations than decoded text.&quot; The field calls this latent reasoning, and it is cheap: the Agent Primitives work this paper builds on reports roughly 3-4x reductions in token usage and inference latency versus text-based multi-agent systems.</p>
+<p>The catch is the merge. To give a final agent both contributors&#x27; state, you concatenate the caches along the sequence axis and re-encode positions with RoPE, the rotary embedding most modern models use. Baquero and Brito name this operator BagMerge. Concatenation is ordered, and RoPE makes that order load-bearing: whichever agent occupies the privileged position-0 prefix slot gets a measurable advantage, and the decoded answer changes.</p>
+<p>There is no safe default. On Qwen3-1.7B, swapping the agents was better when they could see the query (0.90 and 0.91 accuracy at 20 and 40 latent steps) and worse when they could not (0.83 and 0.77, against 0.90 and 0.85). On Qwen3-4B the inversion vanishes and swap wins both regimes. Across four model-by-regime cells the best ordering runs swap / default / swap / swap - six to fourteen points riding on a coin flip nobody can call in advance.</p>
+<h2>The CRDT move</h2>
+<p>A CRDT is a data structure built so replicas receiving the same updates in any order, on any schedule, with arbitrary duplication, still converge to identical state. The guarantee is structural, proven about the merge itself rather than enforced by a coordinator.</p>
+<p>First, CanonicalMerge fixes the layout by content rather than caller: it scores each cache by mean key-norm at a middle transformer layer and sorts on that. Because the score is symmetric in the content, the merged cache is byte-identical under any permutation of the inputs - verified across all permutations for two to five agents, and bit-for-bit on real Qwen3-1.7B (28 layers) and Qwen3-4B (36 layers) KV state.</p>
+<p>Second, they separate durable state from decode-time layout. The state becomes LatentFragmentSet, a set of content-addressed fragments whose merge is plain set union - a state-based CvRDT that is &quot;commutative, associative, idempotent, and absorbing by one-line proofs.&quot; CanonicalMerge is just its deterministic render.</p>
+<p>The payoff appears under repeated delivery, the redundancy gossip and retry produce. Naive re-concatenation degrades from 0.93 accuracy at one copy to 0.45 at four, the cache growing linearly from 308 to 1,232 tokens. The CRDT policy absorbs byte-identical copies by content hash: accuracy holds at 0.93 and length at 308 tokens regardless.</p>
+<h2>The honest accounting</h2>
+<p>CanonicalMerge does not win on accuracy, and the authors say so. It lands within 4 percentage points of the best BagMerge ordering in every cell, trading &quot;a small, statistically insignificant accuracy margin for an unconditional structural guarantee.&quot; On 50 HotpotQA bridge questions it scores 0.605 F1 against a full-context baseline&#x27;s 0.610, EM tied at 0.460, though BagMerge default edges both at 0.632.</p>
+<p>The lopsided number is against output-level fusion: PackLLM, which blends output logits rather than caches, trails by 45 points at matched generation budget. By the output head each agent has compressed its reasoning into a sparse vocabulary distribution, and averaging two such vectors cannot synthesize content neither emits alone.</p>
+<p>Limitations are front-loaded. Byte-identity assumes matched arithmetic and deterministic kernels; across heterogeneous accelerators, low-order bits may differ, breaking content-hash absorption. Convergence is syntactic - exact duplicates absorb, semantic near-duplicates do not. Both models are one family, and the benchmark is largely synthetic.</p>
+<h2>Beyond two agents, it breaks</h2>
+<p>The negative result is most interesting. At three agents, a flat CanonicalMerge collapses to 0.07 and 0.03 accuracy on families whose full-text ceilings are 1.00 and 0.97; a pairwise merge tree does no better. Quality returns only when the model reprocesses a seam: one attention seam recovers 0.73 on chain-structured problems, a full sequential chain 0.97. The authors are blunt - &quot;CRDT cache merge is a transport and colocation operator, not a composition operator.&quot;</p>
+<h2>Why latent communication is an emerging direction</h2>
+<p>Text is the default agent interface because it is legible, but every handoff compresses continuous internal state into discrete tokens and re-expands it, paying in tokens, latency and fidelity. This paper&#x27;s contribution may be less the algorithm than the framing. Once agents exchange state instead of messages, the hard problems stop being NLP ones and become distributed-systems ones: ordering, idempotence, convergence, provenance.</p>
+<h2>What to watch</h2>
+<p>Whether anyone turns transport into composition beyond two agents without full sequential reprocessing - the problem the authors leave open. And the safety question: work like LCGuard is already asking what it means to accept a stranger&#x27;s raw KV cache, unreadable by construction. This is a v1 preprint, not peer reviewed. Read the structural guarantees as proven and the accuracy story as preliminary.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;CRDT cache merge is a transport and colocation operator, not a composition operator.&rdquo;</blockquote><cite>&mdash; Carlos Baquero and Luis Brito, Authors, arXiv:2607.01308</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">45 points</div><div class="stat-label">CanonicalMerge&#x27;s lead over PackLLM output-logit fusion at matched budget</div></div><div class="stat-cell"><div class="stat-value">0.93 to 0.45</div><div class="stat-label">Accuracy collapse of naive re-concatenation under 4x fragment re-delivery</div></div><div class="stat-cell"><div class="stat-value">308 vs 1,232</div><div class="stat-label">Merged cache tokens under 4x re-delivery: CRDT vs naive</div></div><div class="stat-cell"><div class="stat-value">&lt;=4 pp</div><div class="stat-label">Worst-case gap to the best hand-picked merge ordering</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2607.01308" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv:2607.01308</a><a href="https://arxiv.org/html/2607.01308" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">Full paper HTML</a><a href="https://arxiv.org/abs/2602.03695" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">Agent Primitives (arXiv:2602.03695)</a><a href="https://www.inesctec.pt/en/people/carlos-baquero" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=inesctec.pt&sz=32" alt="">INESC TEC profile</a></div></div>
+<div class="article-nav"><a href="12-multi-agent-debate-latent-objectives.html" class="nav-prev">&larr; LLM Agents Say Different Things Off the Record, an</a><a href="14-mlsys-2026-systems-ml-convergence.html" class="nav-next">The Next Big Gains Aren&#x27;t Coming From Bigger Model &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 19, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
