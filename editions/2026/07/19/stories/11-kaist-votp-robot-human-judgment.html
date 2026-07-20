@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KAIST&#x27;s VOTP Teaches Robots Human Judgment From a Handful of Videos &mdash; The Vault AI</title>
+<meta name="description" content="KAIST&#x27;s VOTP uses optimal transport over video-foundation-model embeddings to turn as few as 5-10 human preference labels into a usable robot reward function, lifting real-arm task success to 70-80 percent versus 50 percent for the nearest baseline.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body a{color:var(--accent)}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem}
+.article-body blockquote{margin:0 0 1.3rem;padding-left:1rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.4}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+<span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+<h1>KAIST&#x27;s VOTP Teaches Robots Human Judgment From a Handful of Videos</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1017 words</span><span>4 sources</span></div>
+</header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>KAIST&#x27;s VOTP uses optimal transport over video-foundation-model embeddings to turn as few as 5-10 human preference labels into a usable robot reward function, lifting real-arm task success to 70-80 percent versus 50 percent for the nearest baseline.</p></div>
+<div class="article-body">
+<p>Five labels. That is how many human preference judgments a KAIST team needed to teach a robot arm to pick up a banana more reliably than standard baselines. Ten sufficed for opening a drawer. Aligning a machine to human intent normally means paying annotators to compare thousands of short clips, so that is a startling reduction — and it carried a paper from Professor Chang D. Yoo&#x27;s lab at the Korea Advanced Institute of Science and Technology onto the Oral stage at ICML 2026 in Seoul this month.</p>
+<p>The method is VOTP, which KAIST expands as Video-based Optimal Transport Preference; the paper&#x27;s title is more literal: <em>Video-Based Optimal Transport for Feedback-Efficient Offline Preference-Based Reinforcement Learning</em>. Its authors are PhD candidate Tung Minh Luu (first author), master&#x27;s candidate Hwanhee Kim, Younghwan Lee, and Yoo, all of KAIST&#x27;s School of Electrical Engineering. It was selected as an Oral, a slot given to 168 papers out of 23,918 submissions — roughly 0.7 percent — at the conference held at COEX in Seoul.</p>
+<h2>The bottleneck</h2>
+<p>Reinforcement learning needs a reward function: a number that says whether what the agent just did was good. For a board game, that number is obvious. For a surgical robot placing a suture, or an autonomous vehicle threading a crowded intersection, it is not. Hand-engineering a reward that captures what a surgeon or a driver wants is brittle, so the field turned to preference-based RL: show a person two clips, ask which is better, fit a reward model to the answers.</p>
+<p>That works, and it scales badly. As the authors put it, preference-based RL is a promising alternative to reward engineering, but its scalability is hindered by the large amount of feedback required. Every new task, robot, or definition of success restarts the labeling bill.</p>
+<h2>How it works</h2>
+<p>The intuition is human: someone who watches a few good and bad demonstrations can recognize the same distinction in a clip they have never seen. VOTP tries to give a learning system that transfer.</p>
+<p>Short slices of robot trajectory are treated as video and pushed through a pretrained video foundation model, which turns each clip into a vector in a latent space where behaviorally similar motions land near each other. Then — the actual contribution — the system applies optimal transport, a classical framework for moving one probability distribution onto another at minimum total cost, to align the small pool of human-labeled clips with a much larger pool of unlabeled ones. The resulting correspondences become pseudo-labels, and the reward model trains on human labels and pseudo-labels together.</p>
+<p>The point is not to remove the human, but to make each judgment cover far more ground.</p>
+<h2>What the numbers show</h2>
+<p>The team evaluated on D4RL locomotion benchmarks, MetaWorld manipulation tasks, and real hardware: a 7-degree-of-freedom Rethink Sawyer arm on a tabletop.</p>
+<p>On D4RL locomotion, VOTP came close to an Oracle baseline handed synthetic labels for the unlabeled data — effectively an upper bound. On MetaWorld it beat P-IQL, a preference-learning baseline restricted to the same small labeled set. The most quotable result is the door-open task, where VOTP with 10 labels outperformed a policy trained on ground-truth rewards. Altering lighting, textures, and backgrounds in modified MetaWorld environments did not break it, which matters because real cameras do not see laboratory-clean scenes.</p>
+<p>The hardware results deserve the most weight. From 50 teleoperated demonstrations collected by keyboard, themselves only 50 percent successful, the team used 5 preference labels for a LiftBanana task and 10 for DrawerOpen, then filled in the rest with pseudo-labels. Behavior cloning reached 20 percent success on LiftBanana and 40 percent on DrawerOpen. P-IQL reached 50 percent on both. VOTP reached 80 and 70 percent. Inspecting reward over time, the authors found P-IQL rewarding parts of trajectories that ultimately failed, while VOTP separated success from failure cleanly.</p>
+<h2>Why few-shot preference learning matters</h2>
+<p>Preference data is the quiet cost center of embodied AI. Language models bootstrapped alignment from crowdworkers rating text; robotics cannot, because every label means watching a physical system move in a specific environment for a specific task. That cost is why so much robot learning still runs on hand-tuned rewards that generalize poorly.</p>
+<p>A method that turns 10 labels into a usable reward signal changes who can afford this work: an engineer commissioning a new arm on a factory line could label a handful of on-site clips instead of funding a labeling campaign. Yoo frames it in those terms. The core of physical AI, he said, is making machines understand human intentions and choose the correct actions — and because VOTP can learn human judgment criteria from only a small number of videos, he called it a core technology that will accelerate the era of robots making human-like judgments.</p>
+<h2>The caveats</h2>
+<p>This is a benchmark result, not a product. The tasks are LiftBanana and DrawerOpen, not suturing; the surgical-robot and autonomous-vehicle framing in KAIST&#x27;s announcement is potential, not demonstrated capability. Seventy to 80 percent on a tabletop pick is strong against baselines and nowhere near safety-critical. The setting is offline RL, so pseudo-labels can only be as good as the fixed dataset&#x27;s coverage. KAIST&#x27;s world-first claim reads as institutional press language; semi-supervised and optimal-transport approaches to preference learning have prior art.</p>
+<p>One oddity worth flagging: the public OpenReview record for this exact title and abstract sits under ICLR 2026, submitted September 2025, while KAIST and Korean outlets describe an ICML 2026 Oral. The venue trail is not fully documented publicly.</p>
+<h2>What to watch</h2>
+<p>Whether VOTP holds up on long-horizon tasks with subtle failure modes, where a video encoder may not distinguish a good suture from a bad one at all. Whether the code and the choice of video foundation model are released — the method rests on that embedding space, and public materials do not name the backbone or its parameter count. And whether anyone reproduces the door-open result; a policy that beats ground-truth rewards on 10 labels is either a real signal or an artifact of one benchmark.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;Since VOTP can learn human judgment criteria with only a small number of videos, it is a core technology that will accelerate the era of robots making human-like judgments.&rdquo;</blockquote><cite>&mdash; Chang D. Yoo, Professor, School of Electrical Engineering, KAIST</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">5 and 10</div><div class="stat-label">Human preference labels used for the real-robot tasks</div></div><div class="stat-cell"><div class="stat-value">80% / 70%</div><div class="stat-label">VOTP success on LiftBanana / DrawerOpen vs 50% for the nearest baseline</div></div><div class="stat-cell"><div class="stat-value">7-DoF</div><div class="stat-label">Rethink Sawyer arm used for real tabletop validation</div></div><div class="stat-cell"><div class="stat-value">~0.7%</div><div class="stat-label">ICML 2026 Oral acceptance rate</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openreview.net/forum?id=wWvrC9oajI" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openreview.net&sz=32" alt="">OpenReview</a><a href="https://www.miragenews.com/kaist-breakthrough-robots-now-mimic-human-1689467/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=miragenews.com&sz=32" alt="">Mirage News</a><a href="https://en.sedaily.com/technology/2026/06/10/kaist-develops-physical-ai-breakthrough-that-learns-human" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=en.sedaily.com&sz=32" alt="">Seoul Economic Daily</a><a href="https://www.thebrighterside.news/post/robots-that-make-judgments-like-humans-are-coming-faster-than-we-think/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thebrighterside.news&sz=32" alt="">The Brighter Side of News</a></div></div>
+<div class="article-nav"><a href="10-colorado-ai-act-repeal-admt.html" class="nav-prev">&larr; America&#x27;s First Comprehensive AI Law Never Took Ef</a><a href="12-multi-agent-debate-latent-objectives.html" class="nav-next">LLM Agents Say Different Things Off the Record, an &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 19, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
