@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amazon's Custom Chip Business Passed a $20 Billion Run Rate, and Its Biggest Customers Are Nvidia's &mdash; The Vault AI</title>
+<meta name="description" content="Amazon's in-house silicon unit has crossed a $20 billion run rate with over $225 billion in Trainium commitments from Anthropic, OpenAI, Meta and Uber, eroding Nvidia's pricing power from inside the hyperscalers rather than beating it on benchmarks.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.15)}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.02rem}
+.inline-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:130px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>Amazon's Custom Chip Business Passed a $20 Billion Run Rate, and Its Biggest Customers Are Nvidia's</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1008 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Amazon's in-house silicon unit has crossed a $20 billion run rate with over $225 billion in Trainium commitments from Anthropic, OpenAI, Meta and Uber, eroding Nvidia's pricing power from inside the hyperscalers rather than beating it on benchmarks.</p>
+</div>
+<div class="article-body">
+<p>Somewhere between the Prime Day promos and the warehouse robots, Amazon quietly became one of the three largest datacenter chip businesses on earth — and it did it without selling a single chip to anyone.</p>
+<p>That is the strange, load-bearing fact underneath a number Andy Jassy dropped on Amazon's first-quarter earnings call in April and that Wall Street has spent the months since slowly digesting: the company's custom silicon operation — Graviton server CPUs, Trainium AI accelerators, and Nitro data-plane chips — is running above a $20 billion annual revenue run rate, growing at triple-digit rates year over year and roughly 40% quarter over quarter. All of it consumed internally, by AWS, on behalf of customers who rent the capacity rather than buy the parts.</p>
+<p>“As best as we can tell, our custom silicon business is now one of the top three datacenter chip businesses in the world,” Jassy said on the call, adding the counterfactual that has become the most-quoted line of the quarter: “If our chips business was a standalone business and sold chips produced this year to AWS and other third parties as other leading chip companies do, our annual revenue run rate would be $50 billion.”</p>
+<h2>The backlog is the story</h2>
+<p>The run rate is impressive. The order book is the part that should worry Santa Clara.</p>
+<p>Jassy disclosed more than $225 billion in multi-year revenue commitments tied to Trainium. Unlike a bookings pipeline, these are contracted — and the names attached are precisely the customers Nvidia has spent three years courting. Anthropic has committed to securing up to five gigawatts of current and future Trainium generations, part of a multi-year arrangement tied to well over $100 billion in AWS spend. OpenAI, which spent most of the AI era as a Microsoft-and-Nvidia story, has committed to roughly two gigawatts of Trainium capacity, ramping in 2027. Meta signed on to deploy tens of millions of Graviton cores for agentic workloads. Uber moved real-time ride-matching onto Graviton4 and began piloting Trainium3 for dispatch and ranking models.</p>
+<p>A caveat worth stating plainly: the shape of these commitments is uneven. The Anthropic and OpenAI deals are disclosed in gigawatts, not dollars, and capacity converts to revenue only as power and racks come online. Meta's commitment is to Graviton CPUs, not to AI accelerators — a real win, but not a Nvidia substitution. Uber's Trainium exposure was described at pilot scale as of April, with Graviton4 carrying the production workload. Secondary outlets have also published conflicting figures for the size of OpenAI's underlying AWS pact, ranging from $38 billion to $50 billion. And the $20 billion, the $50 billion hypothetical and the $225 billion all trace to one primary source: Jassy, on one earnings call. Treat them as management disclosure rather than audited segment reporting. Amazon does not break out the chip unit's profitability at all.</p>
+<h2>Why customers are signing</h2>
+<p>The pitch is not that Trainium beats Nvidia's best silicon. It is that it does not have to.</p>
+<p>“Our Trainium2 chip has about 30% better price-performance than comparable GPUs, and has largely sold out,” Jassy said. Trainium3, which began shipping at the start of 2026, is 30% to 40% more price-performant than Trainium2 and is nearly fully subscribed. Much of Trainium4, still roughly 18 months from broad availability, has already been reserved. On the CPU side, Jassy said Graviton delivers up to 40% better price-performance than any x86 processor and is now used by 98% of the top 1,000 EC2 customers.</p>
+<p>Independent analyses put Trainium3 behind Nvidia's Blackwell B200 on raw dense throughput but competitive with the H200 — and materially cheaper per chip-hour. For workloads that are power-limited rather than FLOPS-limited, which is now most of them, that is an easy trade.</p>
+<h2>Analysis: the erosion is structural, not competitive</h2>
+<p>The usual framing — Trainium versus Blackwell, challenger versus incumbent — misses what is actually happening. Nvidia is not losing a bake-off. It is losing the ability to set the price of its own alternative.</p>
+<p>Amazon remains an enormous Nvidia customer; the same quarter that touted Trainium also announced plans to deploy more than a million Nvidia GPUs starting in 2026. But every gigawatt AWS fills with its own silicon is a gigawatt whose margin Amazon keeps, and every Trainium quote a customer can wave at a Nvidia sales rep is leverage. Nvidia's extraordinary gross margins were never purely a function of technology; they were a function of there being no credible substitute at scale. Google has TPUs, Microsoft has Maia, Meta is building its own training silicon. Amazon is furthest along at converting that bet into contracted revenue.</p>
+<p>The bear case is real, and it is about capital rather than competition. Amazon expects roughly $200 billion in capital expenditures in 2026, and trailing-twelve-month free cash flow has collapsed to $1.2 billion from $25.9 billion a year earlier. A $225 billion backlog is only an asset if the demand behind it survives contact with an AI spending correction — and investor patience with unmonetized infrastructure is visibly thinning across the sector.</p>
+<p>Motley Fool analyst Daniel Sparks framed the shareholder calculus about as cleanly as anyone: “I don't think Trainium needs to beat Nvidia for Amazon shareholders to win.”</p>
+<h2>What to watch next</h2>
+<p>Three things. First, whether Amazon goes merchant. Reports that it is exploring direct sales of Trainium chips and full server racks to outside datacenters remain unconfirmed by the company; that decision would convert Jassy's $50 billion hypothetical into a real income statement and a real war with Nvidia. Second, Amazon's Q2 results, which will show whether the sequential 40% jump in the silicon unit was a step function or a trend line. Third, Nvidia's Vera Rubin ramp: if Rubin lands on schedule, Trainium's price advantage compresses fast. If it slips, the hyperscalers get another four quarters to entrench their own designs — and pricing power, once surrendered from the inside, is very hard to take back.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>&ldquo;As best as we can tell, our custom silicon business is now one of the top three datacenter chip businesses in the world.&rdquo;</blockquote><cite>&mdash; Andy Jassy, CEO, Amazon</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73533"><div class="stat-cell"><div class="stat-value">$20B</div><div class="stat-label">Silicon annual run rate</div></div><div class="stat-cell"><div class="stat-value">$225B</div><div class="stat-label">Trainium commitments</div></div><div class="stat-cell"><div class="stat-value">30-40%</div><div class="stat-label">Trainium3 perf gain</div></div><div class="stat-cell"><div class="stat-value">Top 3</div><div class="stat-label">Global datacenter chip rank</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.theregister.com/software/2026/04/30/amazons-chips-become-a-20b-business/5221236" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=theregister.com&sz=32" alt="">The Register</a><a href="https://www.fool.com/investing/2026/07/16/andy-jassy-says-amazons-chip-business-already-has/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=fool.com&sz=32" alt="">The Motley Fool</a><a href="https://cryptobriefing.com/amazon-trainium-chip-225-billion-commitments/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cryptobriefing.com&sz=32" alt="">Crypto Briefing</a><a href="https://techstartups.com/2026/07/20/top-tech-news-today-july-20-2026-alibaba-bezos-blackstone-google-moonshot-ai-nvidia-samsung-more/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techstartups.com&sz=32" alt="">Tech Startups</a></div></div>
+<div class="article-nav"><a href="03-microsoft-frontier-company-deployment.html" class="nav-prev">&larr; Microsoft Frontier Company Puts $2.5 Billion and 6</a><a href="05-cuspai-400m-bezos-materials-discovery.html" class="nav-next">Bezos Backs CuspAI at $2.6 Billion, Quadrupling a  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 20, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

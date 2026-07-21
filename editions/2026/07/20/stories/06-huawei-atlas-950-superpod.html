@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Huawei's Atlas 950 SuperPoD Chains 8,192 Ascend Chips and Claims 6.7x Nvidia's NVL144 &mdash; The Vault AI</title>
+<meta name="description" content="Huawei's Atlas 950 SuperPoD beats Nvidia's NVL144 by brute scale-out - 56.8x more chips for 6.7x the compute - proving China can build frontier-class AI racks without US silicon, at an undisclosed per-watt penalty.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.15)}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.02rem}
+.inline-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:130px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Huawei's Atlas 950 SuperPoD Chains 8,192 Ascend Chips and Claims 6.7x Nvidia's NVL144</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 955 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Huawei's Atlas 950 SuperPoD beats Nvidia's NVL144 by brute scale-out - 56.8x more chips for 6.7x the compute - proving China can build frontier-class AI racks without US silicon, at an undisclosed per-watt penalty.</p>
+</div>
+<div class="article-body">
+<p>For ten months, Huawei's Atlas 950 SuperPoD existed only as a slide deck and a promise. On July 16, it showed up in a room in Shanghai with the doors open.</p>
+<p>At the World Artificial Intelligence Conference, Huawei rolled a working Atlas 950 SuperPoD onto the floor of the Shanghai World Expo Exhibition and Convention Center — 1,024 Ascend NPUs wired across 16 cabinets, running as a single logical machine. The configuration on display delivers 1 EFLOPS at FP8 and 2 EFLOPS at FP4, with 256 TB of globally addressable memory, terabyte-scale NPU interconnect bandwidth and a round-trip latency of roughly 3 microseconds. It is one-eighth of the full system. At maximum scale, Huawei says a single Atlas 950 SuperPoD links 8,192 Ascend 950DT chips across 160 cabinets — 128 for compute, 32 for communications — occupying about 1,000 square meters of floor space. General availability: the fourth quarter of 2026.</p>
+<p>The number Huawei wants repeated is 6.7. That is the multiple by which the company says the full Atlas 950 SuperPoD beats Nvidia's NVL144, the rack-scale Blackwell-generation system Nvidia has slated for the back half of this year. Huawei also claims 15x the memory capacity and 62x the interconnect bandwidth.</p>
+<h2>What was actually shown, and what was not</h2>
+<p>The gap between the show floor and the spec sheet matters here, and it is worth being precise about it.</p>
+<p>The unit demonstrated at WAIC was the 1,024-chip base configuration. Every comparative claim against Nvidia — the 6.7x, the 15x — refers to the 8,192-chip full build, which has not been publicly demonstrated running as one machine. Huawei's own numbers for that full configuration, laid out by Deputy Chairman Eric Xu at Huawei Connect last September, are 8 EFLOPS FP8, 16 EFLOPS FP4, 1,152 TB of memory and 16 PB/s of interconnect bandwidth.</p>
+<p>There is also an unreconciled figure. Xu's spec puts 144 GB of HiZQ 2.0 HBM on each Ascend 950DT, which works out to 147 TB of NPU memory across 1,024 chips — not the 256 TB Huawei quoted at WAIC. The larger number presumably counts pooled host and system memory addressable over UnifiedBus, Huawei's proprietary interconnect protocol, but the company did not break it out. None of the performance figures have been independently benchmarked by a third party.</p>
+<p>Huawei paired the hardware reveal with commercial numbers meant to argue that this is a shipping business, not a demo: more than 750 commercial deployments of the previous-generation Atlas 900 A3 (384 chips), over 3,000 ecosystem partners, 7,000 co-developed solutions, and a CANN open-source community that has grown to 67 projects and 12.44 million lines of code since Huawei open-sourced the stack at the end of last year.</p>
+<h2>Interrogating the 6.7x</h2>
+<p>Run Huawei's comparison backwards and the story changes shape.</p>
+<p>The Atlas 950 SuperPoD at full scale carries 8,192 NPUs. NVL144 carries 144 GPU packages. That is 56.8 times as much silicon — a ratio Xu stated himself on stage — producing 6.7 times the compute. Per chip, in other words, Nvidia's Blackwell-generation part is roughly eight and a half times ahead of the Ascend 950DT. The Ascend 950 die is rated at 1 PFLOPS FP8 and 2 PFLOPS FP4, with 2 TB/s of interconnect bandwidth. It is a competent chip. It is not a competitive chip on a one-to-one basis, and Huawei has never claimed otherwise.</p>
+<p>Xu was unusually blunt about why the architecture looks the way it does. "For reasons we all know, we don't have access to advanced process nodes, so we've decided to focus our efforts on making breakthroughs by combining chips — essentially connecting more computing resources," he said in his keynote. The Atlas 950 is not an attempt to out-engineer TSMC's leading edge. It is an attempt to route around it with optics, protocol design and floor space.</p>
+<p>That trade has a price tag, and Huawei did not put it on a slide. No power figure for the Atlas 950 SuperPoD has been published. Independent analysis of the previous-generation CloudMatrix 384 — the Huawei Cloud instance built on Atlas 900 A3 SuperPoDs — estimated it drew several times the power of an equivalent Nvidia NVL72 rack for comparable output. Scaling to 8,192 chips across 160 cabinets does not make that ratio better. In a market where power, not silicon, is the binding constraint on new data centers, that is the number to ask for.</p>
+<p>"We're pretty confident that, for the next few years, the Atlas 950 SuperPoD will remain the world's most powerful SuperPoD," Xu said. "And it will far exceed its counterparts across all major metrics." Nvidia's response, issued after the September roadmap reveal, was terser: "The competition has undeniably arrived and is gaining momentum," a company spokesperson told CNBC.</p>
+<h2>The actual stakes</h2>
+<p>Export controls were designed to deny China leading-edge chips. They were not designed to deny China cabinets, optical modules, interconnect protocols and floor space, and those are the axes Huawei is now competing on. If a Chinese lab can train a trillion-parameter model on a domestically built, US-component-free rack — at worse efficiency and higher power cost, but on schedule — then the control regime has bought time rather than capability.</p>
+<p>Whether that is true is not yet knowable from a WAIC demo. What to watch: a customer running a frontier-scale training job on the full 8,192-chip configuration, published power-per-token figures, and whether Huawei can supply enough of its in-house HiBL and HiZQ HBM to build the Atlas 950 SuperCluster it has promised for the same quarter — 64 SuperPoDs, 520,000 chips, 524 EFLOPS FP8. Memory supply, not compute design, is the most likely place this roadmap slips.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;For reasons we all know, we don't have access to advanced process nodes, so we've decided to focus our efforts on making breakthroughs by combining chips - essentially connecting more computing resources.&rdquo;</blockquote><cite>&mdash; Eric Xu, Deputy Chairman and Rotating Chairman, Huawei</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa33"><div class="stat-cell"><div class="stat-value">8,192</div><div class="stat-label">Ascend NPUs at max scale</div></div><div class="stat-cell"><div class="stat-value">56.8x</div><div class="stat-label">More chips than NVL144</div></div><div class="stat-cell"><div class="stat-value">256 TB</div><div class="stat-label">Unified memory</div></div><div class="stat-cell"><div class="stat-value">Q4 2026</div><div class="stat-label">Stated availability</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.cnbc.com/2025/09/18/huawei-atlas-950-960-ai-chip-cluster-node-processor-nvidia-china-us-rtx-blackwell.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="">CNBC</a><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/huawei-unveils-atlas-950-supercluster-touting-1-fp4-zettaflops-performance-for-ai-inference-and-524-fp8-exaflops-for-ai-training-features-hundreds-of-thousands-of-950dt-apus" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tomshardware.com&sz=32" alt="">Tom's Hardware</a><a href="https://global.chinadaily.com.cn/a/202607/18/WS6a5b259ca310986e2b465fcc.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=chinadaily.com.cn&sz=32" alt="">China Daily</a><a href="https://www.huawei.com/en/news/2025/9/hc-xu-keynote-speech" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huawei.com&sz=32" alt="">Huawei</a></div></div>
+<div class="article-nav"><a href="05-cuspai-400m-bezos-materials-discovery.html" class="nav-prev">&larr; Bezos Backs CuspAI at $2.6 Billion, Quadrupling a </a><a href="07-glm-52-open-weight-leaderboard.html" class="nav-next">GLM-5.2 Holds the Open-Weight Crown, but Only Unti &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 20, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

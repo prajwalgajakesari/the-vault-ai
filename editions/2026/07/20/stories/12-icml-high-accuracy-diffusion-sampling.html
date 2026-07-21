@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Other Diffusion Win at ICML Was Theoretical, and It Makes Every Sampler Cheaper &mdash; The Vault AI</title>
+<meta name="description" content="An ICML 2026 Outstanding Paper proves diffusion samplers can hit a target accuracy in polylogarithmically many denoising steps instead of polynomially many, using score queries alone - an exponential theoretical cut to the dominant cost of generative media inference.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.15)}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.02rem}
+.inline-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:130px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>The Other Diffusion Win at ICML Was Theoretical, and It Makes Every Sampler Cheaper</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 985 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>An ICML 2026 Outstanding Paper proves diffusion samplers can hit a target accuracy in polylogarithmically many denoising steps instead of polynomially many, using score queries alone - an exponential theoretical cut to the dominant cost of generative media inference.</p>
+</div>
+<div class="article-body">
+<p>Every image a diffusion model generates is the end of a countdown. Twenty steps, fifty steps, a thousand steps — each one a full forward pass through a neural network, each one billed to somebody's GPU. That step count is the single dominant cost of generative media inference, and for four years the theory community has been unable to say whether it needed to be that high.</p>
+<p>At ICML 2026 in Seoul, it answered. Alongside the conference's flashier diffusion win — a Tsinghua-led paper puncturing the arbitrary-order hype in diffusion language models — the Outstanding Paper Award also went to "High-Accuracy Sampling for Diffusion Models and Log-Concave Distributions," by Fan Chen, Constantinos Daskalakis and Alexander Rakhlin of MIT and Sinho Chewi of Yale. It contains no benchmarks, no model releases, and no code. What it contains is a proof that the denoising step count can, in principle, collapse from polynomial to polylogarithmic in the target error.</p>
+<p>The authors do not hedge in the abstract. Their algorithm reaches δ-error in polylog(1/δ) steps given score estimates accurate to Õ(δ) in L2 — and, they write, "this is an exponential improvement over all previous results."</p>
+<h2>What "high-accuracy" actually means</h2>
+<p>The jargon is unusually literal. A sampler's cost is measured in queries to the score function — the gradient of the log-density, which in a diffusion model is exactly what the denoising network computes. "Complexity bounds which scale as polylog(1/δ), indicating that algorithms converge exponentially fast, are known as 'high-accuracy' guarantees," the paper explains, "as they ensure that one can draw an extremely accurate sample without too many iterations."</p>
+<p>The baseline is far worse. The foundational 2023 analysis of DDPMs by Chen, Chewi and coauthors established a query complexity of 1/δ² in total variation distance — halve your error, quadruple your steps. That penalty is not an artifact of loose analysis. It comes from discretization: diffusion samplers approximate a continuous reverse-time stochastic differential equation with finite steps, and, as the paper puts it, "the need to control the discretization error precludes high-accuracy guarantees." The authors flag the contrast with optimization, where gradient descent converges exponentially under strong convexity because discretization there does not bias the answer. In sampling, it biases the stationary distribution itself.</p>
+<p>Classical MCMC has always had an escape hatch: Metropolis-Hastings, which corrects bias by accepting or rejecting proposals based on density ratios. But diffusion models never learn a density. They learn only its gradient. That is the trap the field has been stuck in — the correction mechanism requires information the architecture does not produce.</p>
+<h2>The Bernoulli factory trick</h2>
+<p>The paper's answer is First-Order Rejection Sampling, or FORS: a training-free meta-algorithm that simulates an accept-reject test using score queries alone. The construction routes through a "Bernoulli factory," a device for flipping a coin with a probability you can only estimate, never evaluate. The unknown log-density ratio is written as a line integral along a randomized path between the candidate sample and a proximal base point; differences in the score function evaluated along that path give unbiased estimates of the integrand. Draw a Poisson number of independent paths, multiply the clipped estimates together, and the acceptance probability comes out exactly right — the Taylor series of the exponential does the work.</p>
+<p>The resulting bounds are the headline. Under minimal data assumptions — essentially a finite second moment — the complexity is Õ(d⋆ polylog(1/δ)), where d⋆ is the <em>intrinsic</em> dimension of the data rather than the ambient pixel count. Under a non-uniform L-Lipschitz condition it falls further, to Õ(L polylog(1/δ)), which is effectively dimension-free. As a byproduct, the paper delivers the first polylog(1/δ) sampler for general log-concave distributions — the workhorse family in Bayesian inference, where "log-concave" simply means the log-density is concave, a single-peaked, no-hidden-valleys shape that makes sampling tractable — using only gradients.</p>
+<h2>Analysis: what this is and is not worth</h2>
+<p>The ICML committee was careful with its verbs. The result "settles a long-standing question in the theory of score-based sampling," its citation reads, and "for diffusion models specifically, the result shows that the number of denoising steps (score-function evaluations) needed to reach a target sample accuracy can in principle drop from polynomial to polylogarithmic in 1/ε, suggesting that highly accurate diffusion sampling can be obtained with a smaller number of function evaluations."</p>
+<p><em>In principle</em> is load-bearing. Nobody has run FORS on a production image or video model. Rejection samplers degrade badly in high dimensions when the proposal drifts from the target — acceptance rates crater and wall-clock time becomes variable. The clipping parameter that keeps the estimator bounded introduces bias when the score fluctuates locally, and the analysis assumes L2-accurate scores everywhere, including the out-of-distribution regions where real denoisers are worst.</p>
+<p>But the economics of the target are not in doubt. Inference for generative media is priced almost entirely in function evaluations, and every practical trick the field has adopted — distillation, consistency models, higher-order ODE solvers, learned schedules — is an empirical attack on the same quantity, usually trading fidelity for speed. This paper says the tradeoff is not fundamental: the poly(1/δ) wall was an artifact of how we discretize, not a law about what score functions can tell you.</p>
+<h2>What to watch</h2>
+<p>The obvious next move is an implementation. FORS is training-free and architecture-agnostic by construction, which means a competent engineer can bolt it onto an existing sampler as a correction step and measure the acceptance rate empirically — the number that will decide whether the theory survives contact with a 1024×1024 latent space. Watch also for the concurrent line of work: Gatmiry et al. reached high-accuracy guarantees under a stronger sub-exponential score assumption, and Chewi's group published a companion COLT 2026 paper on high-accuracy log-concave sampling with stochastic queries. If the acceptance rates hold up in even a restricted regime, the cheapest inference optimization of 2027 may turn out to have been written in 2026 with no experiments at all.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;We present algorithms for diffusion model sampling which obtain error in polylog steps, given access to accurate score estimates. This is an exponential improvement over all previous results.&rdquo;</blockquote><cite>&mdash; Chen, Chewi, Daskalakis and Rakhlin, Authors, MIT and Yale</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead433"><div class="stat-cell"><div class="stat-value">1/d^2</div><div class="stat-label">Prior DDPM query complexity</div></div><div class="stat-cell"><div class="stat-value">polylog</div><div class="stat-label">New step-count dependence on error</div></div><div class="stat-cell"><div class="stat-value">2 of 2</div><div class="stat-label">ICML outstanding papers on diffusion</div></div><div class="stat-cell"><div class="stat-value">53 to 22</div><div class="stat-label">Candidates narrowed to shortlist</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2602.01338" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://blog.icml.cc/2026/07/05/announcing-the-icml-2026-awards/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.icml.cc&sz=32" alt="">ICML 2026 Awards</a><a href="https://arxiviq.substack.com/p/icml-2026-high-accuracy-sampling" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiviq.substack.com&sz=32" alt="">ArXivIQ</a><a href="https://chewisinho.github.io/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=chewisinho.github.io&sz=32" alt="">Sinho Chewi</a></div></div>
+<div class="article-nav"><a href="11-icml-flexibility-trap-diffusion-lms.html" class="nav-prev">&larr; ICML's Distinguished Paper Says Diffusion Language</a><a href="13-ai-drug-manufacturing-timeline-compression.html" class="nav-next">AI Is Cutting 20 to 30 Percent Off the Time It Tak &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 20, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
