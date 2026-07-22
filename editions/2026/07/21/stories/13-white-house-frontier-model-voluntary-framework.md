@@ -1,0 +1,29 @@
+# The White House Is Close to a Deal Giving Agencies a 30-Day Look at Frontier Models Before Launch
+
+The White House is finalizing an arrangement that would hand federal agencies a first look at the most powerful AI systems in America before the public ever touches them. Under a voluntary framework being negotiated with OpenAI, Anthropic, and Google, developers would give the government up to 30 days of pre-release access to qualifying "covered frontier models" so national-security evaluators can probe them for advanced cyber capabilities. Administration officials expect to announce the framework before August 1, 2026 — the statutory deadline set by the executive order that created it.
+
+That order is the engine behind the deal. On June 2, 2026, President Trump signed Executive Order 14409, "Promoting Advanced Artificial Intelligence Innovation and Security," which directs a cluster of agencies to build three things: a voluntary early-access channel for frontier models, a classified benchmarking process to decide which models qualify, and an "AI cybersecurity clearinghouse" housed at the Treasury Department to coordinate vulnerability discovery across industry. The clearinghouse was due to stand up by July 2; the early-access framework and the model-designation rules are due August 1.
+
+## How the review would work
+
+The mechanics are deliberately narrow. The government is not trying to review every chatbot. The benchmarking process — described in the order as a "classified benchmarking process" to assess the "advanced cyber capabilities of AI models" — is meant to flag only systems whose offensive-cyber potential clears a secret threshold. Those systems get designated "covered frontier models," and only they would flow into the 30-day window.
+
+Reporting indicates the evaluations run through the Commerce Department's Center for AI Standards and Innovation, known as CAISI, which operates a national-security testing program, with the National Security Agency playing a central role in the capability determinations. Crucially, the technical bar is not public. The executive order does not spell out the criteria a model must cross to be deemed "covered," which means developers have little advance guidance on what will trip the wire or what evidence evaluators will weigh.
+
+The 30-day clock is a ceiling, not a mandatory hold. Companies participating agree to give the government a look before releasing a covered model "to other trusted partners," and to help the government choose which trusted partners also get early access. Confidentiality and intellectual-property protections are baked in. Early testing suggests the reviews may run well short of the cap: reports around GPT-5.6's launch described a government gate that cleared in roughly 12 days.
+
+Not every major lab is at the table. OpenAI and Anthropic first agreed to comparable pre-release testing terms in 2024, and Google DeepMind, Microsoft, and xAI joined similar CAISI arrangements in May 2026. Meta is the conspicuous holdout — the only major U.S. frontier developer not party to a CAISI pre-release testing agreement, and reportedly the target of a White House push to bring it in.
+
+## Why it matters
+
+The framework's defining word is *voluntary*, and the order goes out of its way to say so. EO 14409 "does not authorize the creation of any mandatory licensing, preclearance, or permitting requirement for AI model development." That framing is the whole ballgame. Rather than legislating a binding safety regime — the kind Congress has failed to pass and that industry has lobbied hard against — the administration is building a national-security-flavored channel that companies opt into. It sidesteps the political fight over regulation while still giving Washington a window into the labs' most sensitive work.
+
+Supporters see a pragmatic bargain: the government gets visibility into models that could supercharge cyberattacks, and companies get a cooperative relationship instead of a licensing regime. Analysts at Norton Rose Fulbright framed the order as signaling "a more active federal role in evaluating advanced AI models with cyber capabilities, while continuing to frame that engagement as voluntary rather than mandatory."
+
+But voluntary arrangements built around a handful of favored firms invite familiar worries. The same three-to-five companies helping the government define "covered frontier model" are the ones being reviewed — a setup critics will read as regulatory capture dressed in a national-security frame. The classified benchmarks compound the concern: if the pass/fail bar is secret, there is no public way to check whether the government is being rigorous, lax, or inconsistent, and smaller or open-source developers get no roadmap for compliance. Some observers have argued the net effect could tilt the field toward open-weight models that route around the whole apparatus.
+
+There is also the patchwork problem. With no binding federal statute, states continue to legislate their own AI rules, and a voluntary federal handshake does nothing to preempt them. Companies still face a fragmented map of state obligations layered under a national-security overlay that carries no clear enforcement teeth or, so far, defined incentives for participating.
+
+## What to watch
+
+Three things over the next two weeks. First, whether the announcement actually lands before the August 1 deadline, and whether Google signs alongside OpenAI and Anthropic as expected. Second, whether Meta is coaxed in — its absence is the framework's biggest credibility gap. Third, the fine print on the "covered frontier model" definition and any incentives for participation, plus the fallout from the abrupt resignation of CAISI's leader, reported July 20, just as the agency's most consequential program is meant to go live.
