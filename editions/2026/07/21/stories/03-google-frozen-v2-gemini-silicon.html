@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google's 'Frozen v2' Chip Would Hardwire Gemini Straight Into Silicon - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>Google's 'Frozen v2' Chip Would Hardwire Gemini Straight Into Silicon</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 899 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Google is reportedly developing 'Frozen v2,' a chip that etches Gemini's architecture directly into silicon for a projected 6-10x tokens-per-watt gain over its latest TPUs, betting on architectural stability at the cost of hardware flexibility.</p>
+</div>
+<div class="article-body">
+<p># Google's 'Frozen v2' Chip Would Hardwire Gemini Straight Into Silicon</p>
+<p>For fifteen years the guiding logic of AI hardware has been flexibility: build a general-purpose accelerator, then let software decide what runs on it. Google is now reportedly exploring the opposite bet. According to a report published Monday by <em>The Information</em>, the company is developing a server chip informally dubbed "Frozen v2" that would etch part of Gemini's architecture directly into the silicon itself — trading away flexibility in exchange for an efficiency leap engineers on the project estimate at six to ten times the tokens-per-watt of Google's newest Tensor Processing Units.</p>
+<p>Google has not confirmed the project, and the numbers have not been independently benchmarked. But if the projection holds, it would rank among the largest single-generation efficiency gains the inference market has seen — and it would signal that at least one hyperscaler now believes its flagship model is stable enough to freeze into hardware.</p>
+<h2>What "frozen" actually means</h2>
+<p>Modern AI chips make a cascade of runtime decisions as a query passes through a model: how to route tokens, how to schedule operations, how to move data between memory and compute. Those decisions are flexible precisely because the hardware doesn't know in advance which model it will run.</p>
+<p>Frozen v2 would take some of those decisions for Gemini and fix them in the transistors themselves, cutting the number of steps the chip performs and the volume of data it shuttles around per query, according to the report. The scheduling and routing that a general TPU computes on the fly would instead be physically built into the circuitry. Less computation and less data movement is where the projected 6-to-10x tokens-per-watt improvement is said to come from.</p>
+<p>Crucially, the chip freezes Gemini's <em>architecture</em>, not its <em>weights</em>. An earlier, more radical version of the concept — reportedly overseen by Google DeepMind chief scientist Jeff Dean — would have baked the model's weights directly into the silicon. Google set that proposal aside because a chip tied to a single frozen model version would have too short a useful life, per the report. Frozen v2's compromise leaves the weights updatable while hardwiring the underlying design, so the chip can serve future Gemini releases as long as their skeleton stays the same.</p>
+<h2>The reporting is unconfirmed</h2>
+<p>Every figure here traces back to <em>The Information</em>'s two sources; Google itself has stayed noncommittal. A company spokesperson told the outlet that not every project moves into production and that "this rigorous exploration is central to our full stack approach" — an acknowledgment of the research culture without confirmation of a shipping product.</p>
+<p>Deployment, if it happens, is targeted for as early as 2028. Google reportedly does not plan to manufacture Frozen v2 at anything like TPU volumes, viewing it partly as a trial run for more specialized silicon as model designs settle. The chip would sit alongside — not replace — Google's TPU line, which split into distinct training and inference variants with the eighth generation unveiled at Cloud Next in April. The project is also described as partly a response to an AI compute shortage severe enough that Google Cloud has turned down deals with outside customers.</p>
+<h2>Why it matters</h2>
+<p>The economics of AI have quietly shifted from training to inference. Training a frontier model is a one-time capital event; serving it to hundreds of millions of users is a recurring cost measured in electricity. At that scale, tokens-per-watt is the metric that decides margins, and a 6-to-10x improvement — even a fraction of it in practice — would reset the unit economics of running Gemini. It would also ease the compute crunch that has Google turning away cloud customers.</p>
+<p>It lands in the middle of a custom-silicon arms race. Nvidia still dominates, but every major buyer is building an escape hatch: Google has its TPUs, Amazon its Trainium and Inferentia, Meta its MTIA, and Broadcom has become the quiet enabler behind much hyperscaler ASIC design. Frozen v2 pushes that logic to its extreme — not a general accelerator that happens to run your model, but a chip that <em>is</em> your model. Model-hardwired inference silicon is no longer purely theoretical: Taalas, a Toronto startup that has raised more than $200 million from investors including Quiet Capital and Fidelity, launched its model-baked HC1 chip in February.</p>
+<p>The trade-off is the whole story. A frozen chip is only as durable as the architecture it enshrines. If Google preserves Gemini's core design across versions, Frozen v2 keeps paying dividends for years. If a future Gemini adopts a fundamentally different structure — a new attention mechanism, a different routing scheme — the specialized silicon risks obsolescence the day the model changes. That is a bet on architectural stability, and the AI field's track record on staying still is short.</p>
+<h2>What to watch</h2>
+<p>Watch whether Google confirms the project at all, or whether it surfaces only through further leaks. Watch for any independent benchmark of the tokens-per-watt claim, which remains a projection, not a measurement. Watch how committed Google stays to Gemini's current architecture in its next model generations — the single variable that determines whether a frozen chip is a masterstroke or a stranded asset. And watch the rivals: if Amazon, Meta, or a startup like Taalas signals a similar move toward model-specific silicon, "frozen" stops being an experiment and starts becoming a strategy.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>"This rigorous exploration is central to our full-stack approach."</blockquote><cite>-- Google spokesperson, Statement to The Information</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">6-10x</div><div class="stat-label">Projected tokens/watt vs TPU</div></div><div class="stat-cell"><div class="stat-value">2028</div><div class="stat-label">Earliest deployment</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://the-decoder.com/googles-frozen-v2-chip-reportedly-bakes-geminis-architecture-directly-into-silicon-for-efficiency-gains/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&sz=32" alt="">The Decoder</a><a href="https://www.tomshardware.com/tech-industry/google-reportedly-developing-frozen-v2-chip-with-geminis-architecture-etched-into-the-silicon" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tomshardware.com&sz=32" alt="">Tom's Hardware</a><a href="https://decrypt.co/373967/google-ai-chip-gemini-frozenv2" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=decrypt.co&sz=32" alt="">Decrypt</a><a href="https://www.techtimes.com/articles/321152/20260721/googles-frozen-v2-chip-hardwires-gemini-architecture-tenfold-inference-efficiency.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techtimes.com&sz=32" alt="">TechTimes</a></div></div>
+<div class="article-nav"><a href="02-microsoft-mistral-sovereign-cloud-expansion.html" class="nav-prev">&larr; Microsoft and Mistral Expand Their Pact Into Sover</a><a href="04-nvidia-vera-rubin-gigascale-launch.html" class="nav-next">Nvidia's Vera Rubin Platform Goes Live, Ushering I &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published July 21, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
