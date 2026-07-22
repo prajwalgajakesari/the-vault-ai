@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DeepMind's 'Prospective Credit Assignment' Teaches Agents to Think Several Moves Ahead - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>DeepMind's 'Prospective Credit Assignment' Teaches Agents to Think Several Moves Ahead</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1026 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>DeepMind's reported 'prospective credit assignment' trains models to anticipate the downstream effects of their actions, improving SWE-Bench success rates on issues that require more than 10 steps to resolve — a step toward reliable long-horizon agents.</p>
+</div>
+<div class="article-body">
+<p># DeepMind's 'Prospective Credit Assignment' Teaches Agents to Think Several Moves Ahead</p>
+<p>Ask a modern AI agent to fix a one-line typo in a codebase and it will usually breeze through. Ask it to trace a bug across a dozen files, run the tests, read the failures, and patch the real cause, and something else tends to happen: an early wrong turn quietly poisons everything that follows, and twenty steps later the agent is confidently wrong. That compounding failure — small mistakes early, large messes late — is the wall that separates flashy demos from software you can leave running unattended.</p>
+<p>This month, researchers at Google DeepMind put a name and a method to the problem. According to reporting in a July 2026 research roundup, the lab published work on a training approach it calls "prospective credit assignment" — a technique for teaching a model to anticipate how the decision it makes right now will shape an outcome that may not arrive for many steps. The most eye-catching result: on SWE-Bench, the industry-standard test that asks models to resolve real GitHub issues in large codebases, the approach delivered a meaningful improvement in success rates specifically on issues that take more than 10 steps to solve.</p>
+<p>A note on sourcing before going further. The Vault has confirmed the method name, the benchmark, and the shape of the result through the reporting cited below, but has not independently reviewed a DeepMind preprint or obtained on-the-record comment from the authors. Treat the specific figures as reported rather than verified, and the framing here as an account of what the lab is claiming to have done.</p>
+<h2>The problem hiding in every long task</h2>
+<p>To understand why this is hard, it helps to know the term of art it descends from: temporal credit assignment. It is one of the oldest problems in reinforcement learning — the challenge of figuring out which of an agent's many past actions actually deserves credit (or blame) for a result that shows up much later. A 2024 survey of the field, "A Survey of Temporal Credit Assignment in Deep Reinforcement Learning," frames the core difficulty plainly: real decision problems provide feedback that is "noisy, delayed, and with little or no information about the causes."</p>
+<p>For a coding agent, the delayed-feedback problem is brutal. The signal that matters — did the patch fix the issue and pass the tests? — arrives only at the very end, after dozens of intermediate choices about which files to open, what to search for, and what to edit. When the reward is that sparse and that late, standard training struggles to teach the model that, say, the decision to skip reading a config file on step three is what doomed the run on step nineteen.</p>
+<p>Most existing fixes are <em>retrospective</em>: after an episode ends, algorithms like RUDDER and its descendants look backward and try to redistribute the final reward across the steps that earned it. DeepMind's reported twist is to flip the direction. "Prospective" credit assignment, as described in the reporting, trains the model to look <em>forward</em> — to form an internal estimate of how a candidate action will affect the eventual outcome before committing to it. In effect, the agent learns to think several moves ahead, weighing not just what an action does now but what it sets up later.</p>
+<h2>Where the gains show up</h2>
+<p>The benchmark choice is telling. SWE-Bench issues vary enormously in how many steps they demand, and the DeepMind result was not a uniform lift across the board — it concentrated on the hard tail, the issues requiring more than 10 steps to resolve. That is precisely the regime where compounding error dominates and where today's agents are least reliable, which makes it the most meaningful place to move the needle.</p>
+<p>It also fits a broader 2026 research current. Real coding agents on SWE-Bench-style tasks routinely run 50 to 100-plus turns and burn hundreds of thousands of tokens per issue, and a cluster of recent papers — on long-horizon software agents, on reward design for multi-turn RL, on trajectory quality — are all circling the same target: making agents that stay coherent over long stretches rather than drifting.</p>
+<h2>Why it matters</h2>
+<p>Long-horizon reliability is not a nice-to-have; it is the whole ballgame for autonomous agents. The reason companies still keep a human hovering over every agentic workflow is that failure is non-linear. An agent that is 95% reliable per step is only about 60% reliable over ten steps and roughly 36% over twenty — errors multiply. That math is why agents look magical on short tasks and fall apart on the multi-hour, multi-file work that actually fills an engineer's day.</p>
+<p>If prospective credit assignment holds up under independent scrutiny, its significance is less about SWE-Bench leaderboard bragging rights and more about the direction it points. A model that has been trained to internalize the downstream consequences of its own actions is, in principle, a model you can trust to plan — to sequence a refactor, run a multi-day experiment, or drive a long desktop workflow without a babysitter. That is the capability the entire agent industry is currently missing, and it is why "boring" training-methods research on credit assignment may end up mattering more than the next model release.</p>
+<h2>What to watch</h2>
+<p>The open questions are the usual ones for a result reported ahead of a full paper. Watch for a DeepMind preprint with the exact SWE-Bench numbers, the base model used, and — crucially — the size of the gain, since "meaningful improvement" covers a lot of ground. Watch whether the technique generalizes beyond code to other long-horizon domains like web navigation and scientific research agents. And watch whether the forward-looking estimate adds enough training or inference cost to matter in practice. The prize, if it works, is an agent that finally earns the word: reliable.</p>
+<h2>Sources</h2>
+<p>- [AI Research Breakthroughs in July 2026: What Happened — Skycrumbs](https://skycrumbs.com/blog/ai-research-july-2026)
+- [Latest AI News and Updates — Crescendo AI](https://www.crescendo.ai/news/latest-ai-news-and-updates)
+- [A Survey of Temporal Credit Assignment in Deep Reinforcement Learning — arXiv](https://arxiv.org/abs/2312.01072)
+- [Investing in multi-agent AI safety research — Google DeepMind](https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/)</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"Credit assignment in reinforcement learning is noisy, delayed, and with little or no information about the causes."</blockquote><cite>-- A Survey of Temporal Credit Assignment in Deep RL, 2024 survey paper, arXiv</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">&gt;10 steps</div><div class="stat-label">Where the gains concentrate</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://skycrumbs.com/blog/ai-research-july-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=skycrumbs.com&sz=32" alt="">Skycrumbs</a><a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=crescendo.ai&sz=32" alt="">Crescendo AI</a><a href="https://arxiv.org/abs/2312.01072" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=deepmind.google&sz=32" alt="">Google DeepMind</a></div></div>
+<div class="article-nav"><a href="09-sony-ai-ace-table-tennis-robot.html" class="nav-prev">&larr; Sony's 'Ace' Robot Can Beat Pros at Table Tennis —</a><a href="11-allen-institute-hallucination-research.html" class="nav-next">The Allen Institute Says It Knows Why Language Mod &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published July 21, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
