@@ -1,0 +1,29 @@
+Google wants the market to look past the flagship it still cannot deliver.
+
+On Tuesday, in the same update where Google DeepMind conceded that Gemini 3.5 Pro remains unreleased after a string of missed internal deadlines, the company said it had begun what it describes as its most ambitious pretraining run yet — not for the delayed Pro, but for the generation after it, Gemini 4. The message, delivered largely through a product executive's posts on X rather than a formal announcement, was unusually candid: the flagship you were promised is late, so watch the horizon instead.
+
+"We are currently testing Gemini 3.5 Pro with partners and hope to land soon," Google DeepMind product lead Logan Kilpatrick wrote, before adding, in a separate note, that the team had "started its most ambitious pre-training run yet for Gemini 4." The juxtaposition was the story. Google shipped three new models on July 21 — Gemini 3.6 Flash, 3.5 Flash-Lite, and a security-tuned 3.5 Flash Cyber — but the one model enterprise customers and investors have waited on since February, the high-capability Gemini Pro, was again a no-show.
+
+## A flagship that keeps slipping
+
+Gemini Pro was last refreshed in February. Google teased its successor alongside a May Flash release, telling customers the new Pro was "already being used internally" and would roll out "next month." It did not. Bloomberg reported on July 16 that the launch had stalled because the model was falling short of internal performance goals, particularly on coding — the exact capability where OpenAI and Anthropic have set the pace. Google DeepMind, according to multiple reports, went further than tuning: it scrapped a near-ready base model and ordered a ground-up pretraining restart on a native Gemini 3 foundation. By mid-July, trade coverage described the rebuilt 3.5 Pro as having missed a third deadline, with Google weighing a stopgap release.
+
+The competitive backdrop makes the delay conspicuous. Since Gemini Pro's February update, OpenAI has shipped GPT-5.5 and begun rolling out GPT-5.6, while Anthropic has released Claude Opus 4.8, Claude Sonnet 5, and widened access to its frontier Fable 5 model. Rivals are iterating on a roughly monthly cadence at the top of the stack; Google's flagship has been frozen for five months. Even the framing of Gemini 4 as a leap is contested. One analysis of the rumor mill argued the eventual model is expected to land "roughly at the level of OpenAI's GPT-5.5 and meaningfully short of Anthropic's" frontier — incremental catch-up, not a generational leapfrog.
+
+## The chip that makes the pitch plausible
+
+If there is a substantive reason to take the Gemini 4 announcement seriously, it sits in silicon. Reports surfacing the same week describe a custom Google server chip, informally codenamed "Frozen v2," that bakes elements of Gemini's architecture directly into hardware rather than running the model on a general-purpose accelerator. By hardwiring frequently used model components, the design cuts memory movement, power draw, and the volume of general instructions needed to generate a response.
+
+The claimed payoff is steep: Google engineers estimate Frozen v2 could serve Gemini between six and 10 times more efficiently — six to 10 times more tokens per watt — than the company's current Tensor Processing Units. That kind of efficiency is precisely what an "ambitious pretraining run" demands, since frontier training and serving are gated as much by power and compute capacity as by algorithms. Google reportedly pursued the chip in part to relieve a severe internal capacity crunch, one acute enough that Google Cloud has turned away external business.
+
+The caveats are significant. Frozen v2 remains at an early stage, is not expected to deploy before roughly 2028, and has not been publicly confirmed by Google, which has named no manufacturing partner nor specified which Gemini models it would first support. In other words, the asset underwriting the Gemini 4 ambition is years from production.
+
+## Why it matters
+
+Announcing the next generation while the current flagship is unshipped is a high-wire move. Done from strength, teasing the future rallies developers and buys patience. Done from a position of visible weakness — three missed deadlines, a discarded base model, a five-month-old flagship, and a stock heading into earnings on mounting AI skepticism — it risks reading as misdirection. Google is effectively asking the market to discount a product it can point to today in favor of one that exists only as a training run, validated by a chip that won't ship for two years.
+
+There is also an expectations trap. By branding this the "most ambitious pretraining run yet," Google raises the bar Gemini 4 must clear to justify skipping past the Pro stumble. If 3.5 Pro eventually ships as a merely competitive model and Gemini 4 lands as incremental, the gap between rhetoric and result widens at the worst possible moment — with Chinese labs like Moonshot, whose Kimi K3 claims to top some US frontier benchmarks, compressing the field from below and OpenAI and Anthropic pulling from above. The narrative race, as more than one analyst has noted, is one Google is losing even where its underlying research remains strong.
+
+## What to watch
+
+Three signals matter in the coming weeks. First, whether Gemini 3.5 Pro actually "lands soon" as Kilpatrick promised — and whether it ships as a full flagship or a face-saving stopgap. Second, Google's Q2 earnings commentary: watch for any executive framing that leans on Gemini 4 and custom silicon to explain the flagship delay, and how investors receive it. Third, any hard detail on Frozen v2 — a named foundry partner, a firmer timeline, or a benchmark — that would convert the six-to-10x efficiency claim from a reason to wait into a reason to believe. Until then, Google is selling a horizon, and the clock on its current flagship is still running.
