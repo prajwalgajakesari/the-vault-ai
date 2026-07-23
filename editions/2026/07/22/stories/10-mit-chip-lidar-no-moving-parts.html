@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MIT Gives Chip-Based Lidar a Wider View Without Any Moving Parts &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+.article-nav .nav-next{text-align:right;margin-left:auto}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>MIT Gives Chip-Based Lidar a Wider View Without Any Moving Parts</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1014 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>MIT engineers redesigned a silicon-photonics lidar chip's antennas into three different shapes to slash crosstalk from roughly 100% to about 1%, letting solid-state lidar scan a wider, cleaner field of view with no moving parts.</p>
+</div>
+<div class="article-body">
+<p>For years, putting lidar on a chip has run into the same wall: shrink the sensor to a fingernail-sized slab of silicon, and its field of view collapses. A spinning mechanical lidar can sweep a full circle around a car; a solid-state chip could only peer through a narrow keyhole. MIT engineers say they have now pried that keyhole open — not with better lasers or software, but by giving the chip's tiny light-emitting antennas different shapes.</p>
+<p>In a paper published May 7 in <em>Nature Communications</em>, a team from MIT's Research Laboratory of Electronics reported a redesigned antenna array that lets a silicon-photonics lidar chip scan a much wider, cleaner field of view with no moving parts, tackling a trade-off that has hobbled chip-based lidar for years.</p>
+<p>"The functionality we demonstrated in this work solves a fundamental problem for integrated optical-phased-array technology, enabling future lidar sensors that can achieve significantly higher performance than we could demonstrate previously," said Jelena Notaros, the Robert J. Shillman Career Development Associate Professor of Electrical Engineering and Computer Science at MIT and the paper's senior author.</p>
+<h2>The grating-lobe trap</h2>
+<p>Lidar builds a 3D map by firing rapid pulses of infrared light and timing their reflections. Traditional units aim mechanically — the familiar spinning canister on a self-driving car's roof. Those systems work, but they are bulky, expensive, and full of moving parts that wear out.</p>
+<p>Silicon photonics offers an alternative: a semiconductor chip that steers light electronically, using a system called an integrated optical phased array, or OPA. The chip carries a row of tiny antennas, each etched with periodic corrugations that scatter light up and out of the chip. By tuning the phase of the light fed to each antenna, engineers can swing the beam across a scene with nothing physically moving.</p>
+<p>The catch is geometry. To steer a beam across a wide angle, the antennas need to sit very close together. But pack identical antennas too tightly and they "couple" — their light bleeds into one another and the beam turns to mush. Space them farther apart, and the array starts emitting duplicate beams pointed in the wrong directions. These phantom copies, called grating lobes, cap how far the real beam can be steered before it becomes indistinguishable from its clones.</p>
+<p>"This limits our field of view, so the autonomous vehicle now only knows what is in front of it for a certain angular range," said Andres Garcia Coleto, an EECS graduate student and co-author. The stray lobes can also trigger false positives and waste laser power.</p>
+<h2>Antennas that ignore their neighbors</h2>
+<p>The MIT team's insight was to stop making every antenna identical. Lead author and EECS graduate student Henry Crawford-Eng and his colleagues designed three distinct antenna geometries, varying each one's width and the size and spacing of its corrugations. That gives each a different "propagation coefficient" — how light travels down its length.</p>
+<p>The effect is a kind of mutual invisibility. "Because the antennas have very different propagation coefficients, when we put them close together, essentially each antenna doesn't 'see' the antenna next to it. Therefore, it won't couple with its neighbor," Garcia Coleto explained.</p>
+<p>The hard part was making antennas that behave differently internally yet emit light identically to the outside world — the same brightness, the same beam angle for a given wavelength, and a uniform shift in that angle as the array is steered.</p>
+<p>"We require the antennas to have different geometries to reduce the crosstalk, but we need to simultaneously design the antennas to have the same emission characteristics," Crawford-Eng said. "It is extremely difficult because, typically, when antennas are designed with different geometries, they tend to behave differently."</p>
+<p>After working out the electromagnetic theory describing how the antennas' radiative modes interact, the researchers simulated and fabricated the array. In a conventional OPA with antennas packed that closely, coupling between neighbors would run near 100 percent; in the MIT design, it dropped to roughly 1 percent while the chip still produced a single, precise beam, steered across a wide field of view with no grating lobes.</p>
+<h2>Why it matters</h2>
+<p>Lidar is one of the primary sensory feeds for machine perception, and AI systems are only as good as the data they are fed. An autonomous vehicle's neural networks can't reason about a pedestrian stepping off a curb in the periphery if the sensor never catches them. Mechanical lidar delivers wide coverage but at a cost — thousands of dollars per unit, physical fragility, and bulk. Solid-state lidar-on-a-chip flips that equation: it can be mass-produced in semiconductor foundries for a fraction of the price and has no moving parts to fail.</p>
+<p>The missing piece has been field of view. A cheap, durable chip that can only see straight ahead is of limited use to a car watching its flanks, a drone mapping terrain below, or an AR headset tracking a room. By breaking the crosstalk-versus-coverage trade-off, the MIT work removes one of the last technical excuses for why solid-state lidar can't match its mechanical cousin, feeding richer, wider 3D data into the perception stacks that autonomy and robotics depend on — a reminder that gains in AI systems don't always come from bigger models, but sometimes from the physical layer.</p>
+<h2>What to watch</h2>
+<p>The demonstration is a lab result, not a shipping product, and the field of view, while wider, is not yet a full panorama. Notaros's team plans to push the coverage further and is already chasing a second wide-angle approach it found while developing the theory. The bigger questions are commercial: whether the reduced-crosstalk design can be manufactured reliably at scale, integrated with the lasers and detectors a complete lidar needs, and hardened for the road.</p>
+<p>Joyce Poon, a professor at the University of Toronto and director of the Max Planck Institute of Microstructure Physics who was not involved in the research, called it "an important step forward for chip-scale, solid-state beam-steering technology." Watch whether lidar startups and automotive suppliers — long promised affordable solid-state sensors that never quite arrived — begin licensing designs like this.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;The functionality we demonstrated in this work solves a fundamental problem for integrated optical-phased-array technology, enabling future lidar sensors that can achieve significantly higher performance than we could demonstrate previously.&rdquo;</blockquote><cite>&mdash; Jelena Notaros, Associate Professor of EECS, MIT</cite></div>
+
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://news.mit.edu/2026/photonics-advance-could-enable-compact-high-performance-lidar-sensors-0507" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=news.mit.edu&sz=32" alt="">MIT News</a><a href="https://www.nature.com/articles/s41467-026-71832-y" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=32" alt="">Nature Communications</a><a href="https://scitechdaily.com/mit-engineers-solve-a-major-lidar-problem-that-has-stumped-researchers-for-years/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=scitechdaily.com&sz=32" alt="">SciTechDaily</a></div></div>
+<div class="article-nav"><a href="09-block-buzz-agent-workspace.html" class="nav-prev">&larr; Block Launches Buzz, an Open Workspace Where AI Ag</a><a href="11-substack-pangram-detection-limits.html" class="nav-next">Substack Adds AI Detection Just as Research Docume &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 22, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>

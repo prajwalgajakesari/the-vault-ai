@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Cowork Turns Screen Recordings Into Reusable Skills &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+.article-nav .nav-next{text-align:right;margin-left:auto}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Claude Cowork Turns Screen Recordings Into Reusable Skills</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 911 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Claude Cowork can now turn a narrated screen recording into a reusable AI skill, replacing prompt-writing with learning by demonstration to unlock the undocumented workplace tasks that stall enterprise AI adoption.</p>
+</div>
+<div class="article-body">
+<p>Anthropic wants you to stop typing instructions to your AI and start showing it what to do instead.</p>
+<p>On July 21, the company quietly began rolling out a feature inside its Claude "Cowork" desktop app that lets users record their screen while narrating a task out loud, then have Claude convert the recording into a reusable "skill" it can perform on its own later. The option, labeled "Record a Skill" and surfaced in the app's early messaging as "Teach Claude a skill," appears under the plus (+) menu in Cowork's chat box, alongside existing tools for adding files, browsing skills, and connecting apps. It is live now for Pro, Max, and Team subscribers.</p>
+<p>The pitch is disarmingly simple. You hit record, do a task the way you normally would — organizing invoices in a spreadsheet, renaming a folder of image files, assembling a weekly sales report — and explain your reasoning as you go. Claude watches the screen activity, the clicks, and the keystrokes, listens to the commentary, and synthesizes all of it into a structured skill saved to your library. The next time the job comes up, you ask Claude to run the skill rather than re-explaining every step.</p>
+<p>"It's a little like training a new coworker who keeps forgetting the workflow," Android Authority's Shimul Sood wrote of the status quo the feature is meant to replace, describing the familiar cycle of re-typing instructions, saving detailed prompts, and uploading documents full of steps only to watch the model miss one anyway. Sood, who tested the feature on a Pro account, reported it was already live and accessible in a few clicks.</p>
+<p>That framing — teaching by demonstration rather than specification — is the heart of the update. Anthropic's existing Skills system, launched in October 2025, already lets Claude load reusable, filesystem-based instructions packaged in a `SKILL.md` file that turns a general-purpose model into a specialist for a given task. But building those skills has largely meant writing them: describing a workflow in structured text or code. The new recorder collapses that authoring step. Instead of documenting a process, you perform it once and let the model write the skill for you.</p>
+<h2>The enterprise angle</h2>
+<p>Anthropic has spent months positioning Cowork as a "digital teammate" rather than a chatbot, and the recording feature leans hard into a workplace problem that has dogged AI adoption: most of what employees actually do is never written down. Companies run on thousands of undocumented micro-processes — the quirky way one team reconciles a report, the specific order in which files get renamed and filed, the tacit rules for what "done" looks like — all of it locked in individual heads and impossible to hand to an AI through a prompt.</p>
+<p>Learning by demonstration is a bet that this tacit knowledge is easier to show than to describe. An analyst framing that circulated alongside the launch put it plainly: the bottleneck to workplace AI has never been raw model capability so much as the labor of translating human routines into machine-readable instructions. A screen recorder with a microphone sidesteps that translation entirely.</p>
+<p>There is precedent for the ambition. Since Anthropic introduced Agent Skills, the company says more than 30 AI tools have adopted the open standard, so a single skill file can, in principle, travel across Claude, Cursor, and other environments. Turning demonstrations into that same portable format is a natural extension.</p>
+<h2>Why it matters</h2>
+<p>The gap between what AI can theoretically do and what it actually does inside real companies has always been an adoption problem, not just a capability one. Enterprises have spent the past two years discovering that a brilliant model is useless if nobody can be bothered to write down how their job works — and knowledge workers, reasonably, do not want to spend hours documenting processes they perform on autopilot.</p>
+<p>Learning by demonstration attacks that friction directly. If teaching an AI a workflow costs one narrated run-through instead of an afternoon of prompt engineering, the economics of automating long-tail internal tasks change. A finance clerk who has never touched code could, in theory, hand off a recurring reconciliation. The skill, once captured, becomes an asset the organization owns rather than institutional knowledge that walks out the door when an employee leaves. That is a meaningfully different value proposition from a faster autocomplete.</p>
+<p>It also reframes the competitive field. Meta shipped Muse Spark 1.1 on July 9, an agentic model built for multi-app desktop workflows with computer-use capabilities, undercutting rivals on price. OpenAI has been consolidating its products toward a single "super app." Anthropic's answer is not a flashier agent but a cheaper on-ramp for teaching one — a distribution strategy as much as a technical one.</p>
+<h2>What to watch</h2>
+<p>The obvious hurdle is trust. Recording your screen — with everything visible on it — and narrating your reasoning means handing an AI vendor a rich stream of exactly the sensitive material enterprises are most nervous about. How Anthropic handles storage, redaction, and whether demonstrations are used for training will shape whether IT departments greenlight the feature at all.</p>
+<p>Watch, too, for reliability. A demonstration captures what a user did once; it does not guarantee Claude generalizes correctly to the messy edge cases of the tenth run. And with Meta and OpenAI racing to make computer-use agents both cheaper and more capable, the differentiator may not be who can watch your screen — but who employees actually trust to.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;It's a little like training a new coworker — except this one never forgets the workflow once it's learned.&rdquo;</blockquote><cite>&mdash; Shimul Sood, Writer, Android Authority</cite></div>
+
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.androidauthority.com/claude-cowork-record-skills-feature-3689919/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=androidauthority.com&sz=32" alt="">Android Authority</a><a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=platform.claude.com&sz=32" alt="">Anthropic Docs</a><a href="https://dataconomy.com/2026/07/22/anthropic-teach-claude-screen-recording-feature/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=dataconomy.com&sz=32" alt="">Dataconomy</a></div></div>
+<div class="article-nav"><a href="07-gemini-35-flash-cyber-security-race.html" class="nav-prev">&larr; Gemini 3.5 Flash Cyber Turns AI Security Into a Th</a><a href="09-block-buzz-agent-workspace.html" class="nav-next">Block Launches Buzz, an Open Workspace Where AI Ag &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 22, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>

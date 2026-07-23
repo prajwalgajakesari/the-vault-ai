@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google Says It's Begun Its Most Ambitious Pretraining Run Yet, for Gemini 4 &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+.article-nav .nav-next{text-align:right;margin-left:auto}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Google Says It's Begun Its Most Ambitious Pretraining Run Yet, for Gemini 4</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 969 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Google announced its most ambitious pretraining run yet for Gemini 4 in the same breath as conceding the delayed Gemini 3.5 Pro still isn't shipping, asking the market to look past a stalled flagship.</p>
+</div>
+<div class="article-body">
+<p>Google wants the market to look past the flagship it still cannot deliver.</p>
+<p>On Tuesday, in the same update where Google DeepMind conceded that Gemini 3.5 Pro remains unreleased after a string of missed internal deadlines, the company said it had begun what it describes as its most ambitious pretraining run yet — not for the delayed Pro, but for the generation after it, Gemini 4. The message, delivered largely through a product executive's posts on X rather than a formal announcement, was unusually candid: the flagship you were promised is late, so watch the horizon instead.</p>
+<p>"We are currently testing Gemini 3.5 Pro with partners and hope to land soon," Google DeepMind product lead Logan Kilpatrick wrote, before adding, in a separate note, that the team had "started its most ambitious pre-training run yet for Gemini 4." The juxtaposition was the story. Google shipped three new models on July 21 — Gemini 3.6 Flash, 3.5 Flash-Lite, and a security-tuned 3.5 Flash Cyber — but the one model enterprise customers and investors have waited on since February, the high-capability Gemini Pro, was again a no-show.</p>
+<h2>A flagship that keeps slipping</h2>
+<p>Gemini Pro was last refreshed in February. Google teased its successor alongside a May Flash release, telling customers the new Pro was "already being used internally" and would roll out "next month." It did not. Bloomberg reported on July 16 that the launch had stalled because the model was falling short of internal performance goals, particularly on coding — the exact capability where OpenAI and Anthropic have set the pace. Google DeepMind, according to multiple reports, went further than tuning: it scrapped a near-ready base model and ordered a ground-up pretraining restart on a native Gemini 3 foundation. By mid-July, trade coverage described the rebuilt 3.5 Pro as having missed a third deadline, with Google weighing a stopgap release.</p>
+<p>The competitive backdrop makes the delay conspicuous. Since Gemini Pro's February update, OpenAI has shipped GPT-5.5 and begun rolling out GPT-5.6, while Anthropic has released Claude Opus 4.8, Claude Sonnet 5, and widened access to its frontier Fable 5 model. Rivals are iterating on a roughly monthly cadence at the top of the stack; Google's flagship has been frozen for five months. Even the framing of Gemini 4 as a leap is contested. One analysis of the rumor mill argued the eventual model is expected to land "roughly at the level of OpenAI's GPT-5.5 and meaningfully short of Anthropic's" frontier — incremental catch-up, not a generational leapfrog.</p>
+<h2>The chip that makes the pitch plausible</h2>
+<p>If there is a substantive reason to take the Gemini 4 announcement seriously, it sits in silicon. Reports surfacing the same week describe a custom Google server chip, informally codenamed "Frozen v2," that bakes elements of Gemini's architecture directly into hardware rather than running the model on a general-purpose accelerator. By hardwiring frequently used model components, the design cuts memory movement, power draw, and the volume of general instructions needed to generate a response.</p>
+<p>The claimed payoff is steep: Google engineers estimate Frozen v2 could serve Gemini between six and 10 times more efficiently — six to 10 times more tokens per watt — than the company's current Tensor Processing Units. That kind of efficiency is precisely what an "ambitious pretraining run" demands, since frontier training and serving are gated as much by power and compute capacity as by algorithms. Google reportedly pursued the chip in part to relieve a severe internal capacity crunch, one acute enough that Google Cloud has turned away external business.</p>
+<p>The caveats are significant. Frozen v2 remains at an early stage, is not expected to deploy before roughly 2028, and has not been publicly confirmed by Google, which has named no manufacturing partner nor specified which Gemini models it would first support. In other words, the asset underwriting the Gemini 4 ambition is years from production.</p>
+<h2>Why it matters</h2>
+<p>Announcing the next generation while the current flagship is unshipped is a high-wire move. Done from strength, teasing the future rallies developers and buys patience. Done from a position of visible weakness — three missed deadlines, a discarded base model, a five-month-old flagship, and a stock heading into earnings on mounting AI skepticism — it risks reading as misdirection. Google is effectively asking the market to discount a product it can point to today in favor of one that exists only as a training run, validated by a chip that won't ship for two years.</p>
+<p>There is also an expectations trap. By branding this the "most ambitious pretraining run yet," Google raises the bar Gemini 4 must clear to justify skipping past the Pro stumble. If 3.5 Pro eventually ships as a merely competitive model and Gemini 4 lands as incremental, the gap between rhetoric and result widens at the worst possible moment — with Chinese labs like Moonshot, whose Kimi K3 claims to top some US frontier benchmarks, compressing the field from below and OpenAI and Anthropic pulling from above. The narrative race, as more than one analyst has noted, is one Google is losing even where its underlying research remains strong.</p>
+<h2>What to watch</h2>
+<p>Three signals matter in the coming weeks. First, whether Gemini 3.5 Pro actually "lands soon" as Kilpatrick promised — and whether it ships as a full flagship or a face-saving stopgap. Second, Google's Q2 earnings commentary: watch for any executive framing that leans on Gemini 4 and custom silicon to explain the flagship delay, and how investors receive it. Third, any hard detail on Frozen v2 — a named foundry partner, a firmer timeline, or a benchmark — that would convert the six-to-10x efficiency claim from a reason to wait into a reason to believe. Until then, Google is selling a horizon, and the clock on its current flagship is still running.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;We are currently testing Gemini 3.5 Pro with partners and hope to land soon, and the team has started its most ambitious pre-training run yet for Gemini 4.&rdquo;</blockquote><cite>&mdash; Logan Kilpatrick, Product Lead, Google DeepMind</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">6-10x</div><div class="stat-label">Frozen v2 efficiency claim</div></div><div class="stat-cell"><div class="stat-value">3</div><div class="stat-label">Missed 3.5 Pro deadlines</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techcrunch.com/2026/07/21/google-releases-three-new-gemini-models-but-no-3-5-pro/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://9to5google.com/2026/07/21/gemini-3-6-flash-launch/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=9to5google.com&sz=32" alt="">9to5Google</a><a href="https://techcrunch.com/2026/07/20/google-is-working-on-a-new-ai-chip-designed-to-make-gemini-more-efficient/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch (Frozen v2 chip)</a></div></div>
+<div class="article-nav"><a href="05-google-gemini-36-flash-no-pro.html" class="nav-prev">&larr; Google Ships Three Gemini Flash Models — but Still</a><a href="07-gemini-35-flash-cyber-security-race.html" class="nav-next">Gemini 3.5 Flash Cyber Turns AI Security Into a Th &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 22, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>

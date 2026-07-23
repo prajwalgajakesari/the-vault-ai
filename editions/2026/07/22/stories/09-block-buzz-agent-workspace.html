@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Block Launches Buzz, an Open Workspace Where AI Agents Are First-Class &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+.article-nav .nav-next{text-align:right;margin-left:auto}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Block Launches Buzz, an Open Workspace Where AI Agents Are First-Class</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1017 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Block's Buzz is an open-source, Nostr-based workspace that gives AI agents their own cryptographic identities and treats them as first-class participants alongside humans, challenging the proprietary model of Slack and GitHub.</p>
+</div>
+<div class="article-body">
+<p>Jack Dorsey has spent the better part of a decade making the same bet: that the open protocol beats the proprietary platform. On Tuesday, he pointed that bet at the software tools most companies now run their engineering on. Block, the payments company Dorsey leads, launched Buzz, a free, open-source workspace where humans and AI agents share the same channels, code repositories and audit log — and where, for the first time in a mainstream product, the agents are not bolted-on assistants but full participants with identities of their own.</p>
+<p>"we're launching BUZZ," Dorsey wrote on X, describing "a new groupchat platform for teams of people and agents of all sizes" built to "reduce our dependency on slack and github." He called it "model-agnostic, decentralized, self-sovereign, and open source." The tool shipped as version 0.4.21, with desktop builds for macOS, Windows and Linux, under an Apache 2.0 license at github.com/block/buzz.</p>
+<p>The pitch rests on an observation about how the current generation of collaboration software was built. Slack, GitHub, Jira, Linear and the rest were designed for people, with AI later grafted on as a sidebar chatbot or a code-review suggestion. Buzz inverts that order. It bundles channels, threads, direct messages, voice, media sharing, code repositories and automated workflows into one interface, then treats a running agent as an entity that can post, review code, execute approved automations and open its own channels, all under permissions a human sets per channel or per thread.</p>
+<h2>Agents that sign their own work</h2>
+<p>What makes that more than a marketing frame is the plumbing underneath. Buzz is built on Nostr, the relay-based protocol Dorsey has personally funded for years. On Nostr there is no central account server; every participant holds a cryptographic keypair that belongs to them, not the platform. In Buzz, every human and every agent gets one, and an agent receives a second signature tying it back to its human owner, creating a verifiable chain of custody for anything it does. Each message, reaction, workflow step, review approval and git event is recorded as a single signed event in one log — a hash-chained audit trail that reads the same whether the author was a person or a process.</p>
+<p>"Every company is going to need a place where humans and agents work together," Bradley Axen, Block's head of AI capabilities, said in the company's launch statement. "The question is whether that place is proprietary or open."</p>
+<p>Because identity lives in the keypair rather than the platform, an agent's history and reputation can, in principle, travel across any Nostr-compatible system rather than evaporating when a subscription lapses. Buzz is also agent-agnostic: teams can deploy agents powered by Anthropic's Claude Code, OpenAI's Codex, or goose, the open-source framework Block first released in January 2025. And unlike much that carries a "decentralized" label, Buzz involves no token of any kind.</p>
+<p>Block did not just build Buzz for agents; it built it with them. Thomas Petersen, a principal designer and AI strategist at the company, said "the entire platform" was developed using agents, including an interface he described as "more sculpted over time than designed up front."</p>
+<p>That points at Buzz's more radical claim: not that agents get a seat, but that the shape of the work changes once the tool stops dictating the process. Lucas Isaza, who works on AI and product at Block, argued that tools like Asana, Jira and Linear once baked sprints and Kanban boards into company rituals, shaping the operating model as much as the work. Strip those constraints away, he said, and "the bottleneck becomes the operating model." In Buzz, a single thread can hold the diagnosis, task, fix and surrounding conversation — condensing what used to sprawl across four SaaS products. Block has run the approach internally for months and, Isaza conceded, has "yet to figure out" the configuration that gets the most out of it.</p>
+<h2>Why it matters</h2>
+<p>Strip away the crypto lineage and Buzz poses a question the AI industry has mostly been answering by default: who owns the environment agents operate in? Today, an agent is almost always a guest — acting through a human's account, behind an API integration, inside a workspace some vendor controls and can revoke. As companies wire more autonomous software into operations, that makes the workspace itself a chokepoint. Microsoft paid $7.5 billion for GitHub in 2018 precisely because developer tooling is a place to stand; Salesforce owns Slack for similar reasons. Block is offering a decentralized alternative to that chokepoint at zero cost, and giving agents cryptographic identities no single company issues or can take away.</p>
+<p>The audit trail matters just as much. If agents are going to take real actions — merging code, running automations, moving work forward without a human in the loop for every step — then a tamper-evident record of who (or what) did what, signed and chained, is closer to a governance requirement than a feature.</p>
+<p>The skeptic's case is equally clear. "Decentralized" is doing heavy lifting: each Buzz workspace currently runs on a single relay that the project's own repository calls its "single source of truth" — a server by another name. The software is early, with mobile clients unfinished and a version number that begins with a zero. And Block's own posture underscores the stakes: the company cut more than 4,000 jobs, roughly 40% of staff, in February, with Dorsey noting that AI "fundamentally changes what it means to build and run a company."</p>
+<h2>What to watch</h2>
+<p>The real test is adoption outside Block's walls. An Apache 2.0 license means anyone can fork, self-host and commercialize Buzz, but open protocols live or die on whether a second and third serious team show up. Watch whether the single-relay architecture evolves toward something genuinely federated, whether agent identities prove portable across other Nostr apps, and whether any company that isn't Block will run its code and internal communications on it. If they do, the more interesting story won't be a Slack rival. It will be the first workspace designed on the assumption that most of the participants aren't human.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Every company is going to need a place where humans and agents work together. The question is whether that place is proprietary or open.&rdquo;</blockquote><cite>&mdash; Bradley Axen, Head of AI Capabilities, Block</cite></div>
+
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://decrypt.co/374026/jack-dorseys-block-launches-buzz-a-nostr-based-slack-and-github-rival-for-ai-agents" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=decrypt.co&sz=32" alt="">Decrypt</a><a href="https://cryptobriefing.com/block-launches-buzz-nostr-workspace/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cryptobriefing.com&sz=32" alt="">Crypto Briefing</a><a href="https://venturebeat.com/programming-development/jack-dorsey-is-back-with-goose-a-new-ultra-simple-open-source-ai-agent-building-platform-from-his-startup-block" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a></div></div>
+<div class="article-nav"><a href="08-anthropic-cowork-screen-recording-skills.html" class="nav-prev">&larr; Claude Cowork Turns Screen Recordings Into Reusabl</a><a href="10-mit-chip-lidar-no-moving-parts.html" class="nav-next">MIT Gives Chip-Based Lidar a Wider View Without An &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 22, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
