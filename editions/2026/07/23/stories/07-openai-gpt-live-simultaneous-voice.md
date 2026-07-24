@@ -1,0 +1,27 @@
+# OpenAI's GPT-Live Pushes Voice AI Past Turn-Taking Into Real-Time, Interruptible Conversation
+
+For three years, talking to an AI meant taking turns. You spoke, it waited for silence, then it answered. On July 8, 2026, OpenAI tried to retire that walkie-talkie ritual for good. The company launched GPT-Live, a new family of voice models built on what it calls a full-duplex architecture, meaning the system can listen and speak at the same time. The result, OpenAI says, is a voice experience that behaves less like dictation into a machine and more like a phone call with a person who can hear you interrupt, notice when you pause, and murmur "mhmm" while you are still forming a thought.
+
+GPT-Live is now the default engine behind ChatGPT Voice, rolling out globally across iOS, Android, and the web. Paid Go, Plus, and Pro subscribers get GPT-Live-1; free users get GPT-Live-1 mini. It arrived inside a dense week of OpenAI releases, landing a day before the GPT-5.6 lineup, Sol, Terra, and Luna, went public on July 9.
+
+## From walkie-talkie to phone call
+
+The technical shift is the whole story. Earlier voice AI came in two flavors, and both had a wall built in. The original ChatGPT Voice was a cascade: a speech-to-text model transcribed you, a language model wrote a reply, and a text-to-speech model spoke it. Meaning leaked between the stages and the pauses were long. Advanced Voice Mode, the 2024 successor, folded that into a single speech-to-speech model and cut the latency, but it still ran on discrete turns. It waited for silence to decide you were finished. As OpenAI itself notes, because that turn detection keyed on silence, a brief pause to think or a burst of background noise could be mistaken for the end of your turn, so the model cut in at the wrong moment.
+
+Full-duplex removes the turn boundary. GPT-Live processes incoming audio while it is generating outgoing audio, and it makes an interaction decision many times per second: keep listening, speak, pause, interrupt, or call a tool. That continuous loop is what lets it back-channel with "got it," hold its tongue when you ask it to, focus on your voice over passing traffic, and, critically, translate live, because it no longer needs a finished sentence before it can start producing output.
+
+The second architectural change is delegation. GPT-Live is a lightweight, low-latency conversational model, not a heavyweight reasoner. When a query needs web search, hard math, or multi-step agent work, it hands off to a frontier model, GPT-5.5 at launch, running in the background, and keeps chatting with you while that work completes. OpenAI frames this as solving the core tradeoff between conversational speed and answer quality by refusing to make you pick one. As the company puts it, the goal is a world where "collaborating with AI feels as fluid and responsive as working with another person, while reasoning and complex task execution happen seamlessly in the background."
+
+## The numbers, and their limits
+
+OpenAI's own evaluations, reported by MLQ and The Decoder, show the delegation approach paying off on paper. GPT-Live-1 at its high reasoning setting scored 84.2 percent on GPQA, a graduate-level science benchmark, against 45.3 percent for Advanced Voice Mode. On BrowseComp, an agentic web-search test, the gap was cartoonish: 75.2 percent versus 0.7 percent, a direct reflection of the background handoff to GPT-5.5. In OpenAI's human preference testing, people chose GPT-Live-1 over the old voice mode 75.7 percent of the time. These are first-party figures, worth treating as directional until independent testing catches up.
+
+## Why full-duplex matters for agents and interfaces
+
+The obvious wins are the human ones. Real-time translation that overlaps the speaker instead of waiting for a turn to end changes what a travel counter or a hospital intake conversation feels like. Customer support agents that can be interrupted, that acknowledge a frustrated caller mid-sentence, are closer to usable than any phone tree. And for accessibility, a system that waits patiently when you need time, and does not bail out on a pause, is a meaningfully better assistant.
+
+The deeper significance is architectural. Voice has been the weakest interface for agentic AI precisely because turn-taking forces a stop-and-wait rhythm that breaks the moment a task takes longer than a sentence. By decoupling fast conversation from slow reasoning, OpenAI has drawn a template for voice agents that can run long background jobs, book the trip, dig through the docs, without going silent. That is the bridge from voice as a novelty to voice as a control surface for real work. OpenAI says as much, arguing the research will "unlock the ability to use voice for increasingly complex, longer-running, and more agentic work."
+
+## What to watch
+
+Two things are still missing. GPT-Live has no API yet, only a signup form, and no video or screen sharing at launch, so developers cannot build on it and the richest use cases wait. Competitively, Google's Gemini Live and Meta's assistant have chased the same full-duplex frontier, and OpenAI's own Realtime API, refreshed days earlier with GPT-Realtime-2.1, remains where builders actually ship. The question now is whether OpenAI moves the full-duplex model into developer hands fast enough to make it the default substrate, or whether the consumer app stays ahead of the platform. Watch the API date, the independent benchmarks, and how quickly rivals answer.
