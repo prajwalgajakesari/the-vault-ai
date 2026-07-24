@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The New Frontier in Agent Research Isn't Bigger Models - It's Teaching Them to Plan - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:48%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>The New Frontier in Agent Research Isn't Bigger Models - It's Teaching Them to Plan</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 885 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>The biggest 2026 gains in long-horizon AI agents are coming from better planning, context management, and memory rather than from larger models.</p>
+</div>
+<div class="article-body">
+<h2>The New Frontier in Agent Research Isn't Bigger Models — It's Teaching Them to Plan</h2>
+<p>For most of the last three years, the recipe for a smarter AI agent was simple: make the model bigger. But a cluster of research landing on arXiv through 2026 points somewhere else entirely. The teams pushing the frontier of long-horizon agents — systems that chain dozens of tool calls and reasoning steps toward a distant goal — have largely stopped asking for more parameters. They are asking a different question: how do you teach a model to plan, and to keep its head straight over a long task?</p>
+<h2>Why long tasks break</h2>
+<p>The failure mode is now well documented. An agent can ace a single reasoning step and still fall apart across fifty of them. Small errors compound. Context histories balloon until the model overlooks the one piece of evidence that mattered, or gets distracted by noise it should have discarded. Researchers behind COMPASS, a framework out of Google Cloud AI, name the culprit directly: the central bottleneck for long-horizon agents is not raw capability but <strong>context management</strong>. Extended histories cause agents to lose the thread, fail to replan, and forget to reflect on earlier mistakes.</p>
+<p>Put simply, the problem is rarely that the model cannot do the next step. It is that the model has lost track of what it was trying to do, why, and what it already learned. That reframing — from capability to planning and memory — is what unites the year's most interesting agent papers.</p>
+<h2>Teaching the plan, not just the answer</h2>
+<p>The most literal answer to the problem is "plan-tuning." In <em>Plan-Tuning: Post-Training Language Models to Learn Step-by-Step Planning for Complex Problem Solving</em> (arXiv:2507.07495), researchers distill planning trajectories — synthetic task decompositions — from large frontier models, then bake that planning behavior into smaller open-source models through post-training rather than leaving it to inference-time prompts.</p>
+<p>The method pairs two objectives: supervised fine-tuning to imitate high-quality decompositions, and a reinforcement-learning stage (GRPO) that rewards both plan quality and answer correctness. The payoff is concrete. On the GSM8k and MATH benchmarks, plan-tuned models beat strong baselines by roughly 7% on average. More striking is the generalization: about 10% gains on OlympiadBench and 12% on AIME 2024, out-of-domain sets the models were not trained on. The planning skill, in other words, transfers.</p>
+<h2>Managing context as a first-class job</h2>
+<p>COMPASS (arXiv:2510.08790) takes the memory problem head-on by splitting the agent into specialized roles. A Main Agent does the reasoning and tool use. A Meta-Thinker watches progress and issues strategic interventions when the run drifts. And a Context Manager maintains concise, relevant progress briefs tailored to each stage of reasoning. The design deliberately separates tactical execution from strategic oversight — a structure the authors describe as lightweight and hierarchical, rather than a heavier multi-model ensemble.</p>
+<p>A different paper attacks the same wound from the memory side. <em>Memory in the Loop: In-Process Retrieval as Extended Working Memory for Language Agents</em> (arXiv:2607.05690) observes that today's agents run an observe-reason-act loop while their memory sits outside it — a store queried at most once per turn. The authors move memory inside the loop, read and written on every step. Their argument hinges on latency: an in-process store answers in roughly 100 microseconds, three orders of magnitude faster than a networked store, and at that speed the per-step cost of consulting memory effectively collapses. Grounded in the philosophical "extended mind" thesis, they draw a sharp line — a 100-millisecond store is a tool an agent consults, but a 100-microsecond store wired into the loop becomes genuine extended working memory.</p>
+<h2>Planning smarter, not just harder</h2>
+<p>If plan-tuning teaches models to plan and COMPASS helps them remember, SR²AM asks a subtler question: when should an agent bother to plan at all? <em>Efficient Agentic Reasoning Through Self-Regulated Simulative Planning</em> (arXiv:2605.22138), from Eric Xing's lab, decomposes deliberation into three systems — reactive execution, simulative reasoning that predicts the consequences of actions using the LLM as its own world model, and a self-regulation layer that decides when and how deeply to plan.</p>
+<p>The efficiency numbers are the headline. Across math, science, tabular analysis, and web search, the team reports that an 8B and a 30B model reach Pass@1 competitive with systems from 120B to over a trillion parameters — while the 30B version uses 25.8% to 95.3% fewer reasoning tokens than comparable agentic models. Overthinking, it turns out, is as costly as underthinking.</p>
+<h2>Why this is where the gains are</h2>
+<p>The through-line is that agent performance is increasingly bottlenecked by orchestration, not intelligence. When a model already knows how to take any given step, the marginal return on more parameters shrinks — and the return on better planning, tighter context, and smarter allocation of reasoning effort grows. That is a cheaper frontier to work on, and one accessible to labs without frontier-scale compute.</p>
+<h2>What to watch</h2>
+<p>Three things. First, whether plan-tuning's out-of-domain transfer holds up on messier real-world agent benchmarks, not just math sets. Second, whether in-the-loop memory architectures move from research prototypes into production agent stacks. And third, whether self-regulated planning's efficiency claims survive contact with adversarial, open-ended tasks — because if a 30B model can match a trillion-parameter system by planning well, the economics of agents change fast.</p>
+
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">~7%</div><div class="stat-label">GSM8k/MATH gain</div></div><div class="stat-cell"><div class="stat-value">~12%</div><div class="stat-label">AIME 2024 gain</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/pdf/2507.07495" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv - Plan-Tuning</a><a href="https://arxiv.org/pdf/2510.08790" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv - COMPASS</a><a href="https://arxiv.org/abs/2607.05690" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv - Memory in the Loop</a></div></div>
+<div class="article-nav"><a href="10-agentredbench-agent-security-guard.html" class="nav-prev">&larr; New Benchmarks Expose How Easily AI Agents Get Hij</a><a href="12-white-house-moonshot-fable-distillation-sanctions.html" class="nav-next">White House Accuses Moonshot of Distilling Anthrop &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published July 23, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

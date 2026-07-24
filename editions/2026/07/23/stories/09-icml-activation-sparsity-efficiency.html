@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Activation-Sparsity Research Is Making LLM Inference Cheaper Without Sacrificing Accuracy - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:48%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Activation-Sparsity Research Is Making LLM Inference Cheaper Without Sacrificing Accuracy</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 872 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Training-free activation-sparsity methods like LaRoSA and Amber Pruner cut LLM inference compute and memory traffic with measurable wall-clock speedups and near-negligible accuracy loss, reshaping the economics of serving frontier models.</p>
+</div>
+<div class="article-body">
+<h2>Activation-Sparsity Research Is Making LLM Inference Cheaper Without Sacrificing Accuracy</h2>
+<p><em>The Vault — AI Edition · Research</em></p>
+<p>At the scale that frontier models now run, the expensive part is not training a model once but serving it billions of times. A cluster of papers converging at ICML 2026 in Seoul (July 6–11) argues that a large share of that serving cost is simply wasted: for any given input, most of a network's neurons contribute almost nothing to the answer. The emerging discipline of activation sparsity is about finding those idle neurons and skipping them, and the 2026 results suggest it can be done with speedups you can measure on a wall clock and accuracy losses you can barely find.</p>
+<h2>What activation sparsity actually is</h2>
+<p>Every time a transformer processes a token, it multiplies that token's representation through enormous weight matrices, producing activation vectors deep inside each layer. Activation sparsity exploits a well-documented quirk of these vectors: at any moment, only a fraction of the entries carry meaningful signal. If a system can predict which entries will be near zero, it can avoid loading the corresponding weights from memory and skip the multiplications entirely.</p>
+<p>That matters because modern LLM inference is bottlenecked less by raw arithmetic than by memory movement — shuttling weights from high-bandwidth memory into the compute units. Reducing the number of weights touched per token cuts both the compute and, more importantly, the memory traffic. Unlike weight pruning, which permanently deletes parameters and tends to degrade quality, activation sparsity is dynamic and input-adaptive: the full model is preserved, and a different subset of it fires for each token.</p>
+<h2>The 2026 numbers</h2>
+<p>The clearest headline result comes from LaRoSA (Layerwise Rotated Sparse Activation). By applying a learned rotation to activations before selecting the Top-K largest entries, LaRoSA reports a 0.17 perplexity gap at 40% sparsity with a consistent 1.30x wall-clock speedup on LLaMA2-7B — and it does so as a training-free method that generalizes across model sizes and families. A 30% latency reduction for a fraction of a perplexity point is the kind of trade that changes deployment math.</p>
+<p>Two broad camps are visible across the literature. Input-based methods, such as LaRoSA and R-Sparse (an ICLR 2025 rank-aware approach from UT Austin and Meta AI), decide what to skip by inspecting the incoming activation magnitudes. R-Sparse's insight is that a linear layer's output can be approximated by an appropriate combination of a few dominant input channels and weight singular values, letting it hit high sparsity on non-ReLU models without retraining. Gate-based and structured methods, by contrast, impose a fixed pattern the hardware can exploit directly.</p>
+<p>The most hardware-aligned strand is <strong>N:M activation sparsity</strong>, which keeps only N nonzero values in every block of M — a format GPUs and NPUs accelerate natively. Amber Pruner (accepted to AAAI 2026) is a training-free N:M method aimed specifically at the prefill stage, where linear projections dominate compute. Across 2:4, 4:8, and 8:16 patterns it sparsifies and accelerates more than 55% of linear computations without any retraining, and pairs with W8A8 quantization for further gains. Complementary work on lightweight error mitigation for post-training N:M activation sparsity finds that pruning activations preserves generative quality better than pruning weights at equal sparsity, with a 16:32 pattern landing nearly on par with fully unstructured sparsity.</p>
+<p>How far can this go? Research on the "Sparsing Law" trained a 2.4B-parameter model to a 93.52% sparsity ratio and reported a 4.1x speedup over its dense counterpart — a sign that sparsity can be a first-class design target, not just a post-hoc trick. Work on the universal properties of activation sparsity in modern LLMs is now trying to explain why these patterns appear so reliably across architectures, which is what turns a bag of tricks into an engineering discipline.</p>
+<p>As the Amber Pruner authors put it, the work "pioneers a new frontier in activation sparsity, providing foundational insights that are poised to guide the co-evolution of algorithms and architectures in the design of next-generation AI systems."</p>
+<h2>Why the economics bend</h2>
+<p>Inference cost is the dominant cost of operating a model at scale, and it recurs on every request. A durable 1.3x on latency, or 55% of a stage's compute removed, compounds directly into lower serving cost, higher throughput per GPU, and a lower barrier to running capable models on constrained or on-device hardware. Because leading methods here are training-free, they can be bolted onto already-deployed checkpoints — no expensive retraining run, no risk of disturbing a model's behavior. That lowers the barrier to adoption and makes sparsity a lever available to teams that will never train a frontier model themselves.</p>
+<h2>What to watch</h2>
+<p>The open questions are about scale and generality. Most reported speedups are strongest in single-batch or on-device settings; sustaining them under high-batch server traffic, where the memory-bandwidth bottleneck shifts, is the harder problem. Watch whether N:M activation formats get first-class support in inference runtimes and next-generation accelerators, whether input-based and structured methods can be combined, and whether the "universal properties" line of work yields a predictive theory of how much sparsity a given architecture can safely give up. If it does, sparsity stops being an optimization and becomes part of how models are designed.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"This work pioneers a new frontier in activation sparsity, providing foundational insights that are poised to guide the co-evolution of algorithms and architectures in the design of next-generation AI systems."</blockquote>
+          <cite>- Tai An et al., Amber Pruner, Huawei Technologies</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">1.30x</div><div class="stat-label">Inference speedup</div></div><div class="stat-cell"><div class="stat-value">40%</div><div class="stat-label">Activation sparsity</div></div><div class="stat-cell"><div class="stat-value">0.17</div><div class="stat-label">Perplexity gap</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2507.01299" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv - LaRoSA</a><a href="https://arxiv.org/abs/2508.02128" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv - Amber Pruner</a><a href="https://arxiv.org/pdf/2509.00454" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv - Activation Sparsity Properties</a></div></div>
+<div class="article-nav"><a href="08-anthropic-jspace-global-workspace-claude.html" class="nav-prev">&larr; Anthropic Says It Found a "Global Workspace" Insid</a><a href="10-agentredbench-agent-security-guard.html" class="nav-next">New Benchmarks Expose How Easily AI Agents Get Hij &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published July 23, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
