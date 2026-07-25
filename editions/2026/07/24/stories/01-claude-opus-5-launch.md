@@ -1,0 +1,27 @@
+# Anthropic Launches Claude Opus 5, a Cheaper Flagship With a Dial for How Hard It Thinks
+
+Anthropic on Friday released Claude Opus 5, a new frontier model that undercuts the company's own most powerful public system on price while beating it on most of the benchmarks that businesses actually care about — and it ships with an unusual new control: a dial that lets users decide how hard the model thinks before it answers.
+
+Available immediately as `claude-opus-5` across the Claude API, Amazon Bedrock, Google Cloud's Vertex AI, Microsoft Foundry, claude.ai, Claude Code and Cowork, the model arrives priced at $5 per million input tokens and $25 per million output tokens — identical to its predecessor, Opus 4.8, and exactly half the input cost of Claude Fable 5, the Mythos-class system Anthropic had positioned as its everyday frontier product for paying subscribers. It carries a 1-million-token context window and becomes the default model on Claude Max.
+
+The headline feature is what Anthropic calls the effort setting. Alongside the usual model selector, users can now toggle how much reasoning Opus 5 expends on a task — low, medium or high — trading depth for speed and cost on a prompt-by-prompt basis. For enterprise teams that have spent two years watching token bills balloon unpredictably, it is a way to turn a research capability into a budget knob. A separate Fast mode roughly doubles output speed at twice the base rate ($10 per million input, $50 per million output), and is switched off by default for Team and Enterprise organizations until an owner explicitly enables it.
+
+## The benchmarks
+
+The numbers are what make the pricing look aggressive. On Frontier-Bench v0.1, an agentic-coding evaluation that scores whether AI agents can carry real software-engineering tasks end to end, Opus 5 hit 43.3% — well ahead of Fable 5 at 33.7% and OpenAI's GPT-5.6 Sol at 34.4%, and roughly double Opus 4.8's 21.1%. The widest gap came on ARC-AGI-3, a test built around novel puzzles a model cannot have memorized: Opus 5 scored 30.2%, against 7.8% for GPT-5.6 Sol, tripling the previous best posted by any model. Fable 5 was not entered. On GDPval-AA v2, a knowledge-work benchmark scored with chess-style Elo ratings, Opus 5 reached 1,861 versus 1,747 for Fable 5 and 1,736 for GPT-5.6 Sol.
+
+Early customers echoed the scores. Lovable, a developer platform with millions of users, ran the model on its internal evaluations. "It isn't just better on our hardest agentic coding tasks, up 22% over Opus 4.7, it's steadier, with far less variance run to run," Fabian Hedin said in a statement shared by Anthropic. Zapier reported that on its AutomationBench workflow test, "previous models didn't pass; Opus 5 hit 100%," describing a full churn-prevention sequence run end to end. Ultima Genomics, a DNA-sequencing firm, said the model "behaves more like a careful scientist than any model we've run," reaching for the right statistical tests and cross-checking its own results across long analyses.
+
+Fable 5 held a slim edge in only two domains, legal and health — a narrow moat for a model that costs twice as much to run.
+
+## Why it matters
+
+Opus 5 lands in the middle of the most compressed release window the industry has seen. OpenAI shipped its GPT-5.6 Sol flagship two weeks ago; Beijing-based Moonshot AI unveiled Kimi K3, a 2.8-trillion-parameter open-weight system it bills as the largest ever built, eight days ago; and Google has let its own next-generation Gemini deadline slip by roughly two months. The competitive question has quietly shifted. It is no longer only about who can train the smartest model, but about who can deliver near-frontier capability at the lowest cost per task — a contest that rewards operational efficiency as much as research brilliance.
+
+That is the logic behind holding Opus pricing flat while nearly matching a model twice its price. On CursorBench 3.2, Opus 5 lands within half a percentage point of Fable 5 at half the per-task cost; on OSWorld 2.0, which tests a model driving a real computer, it beats Fable 5 at roughly a third of the cost. The effort dial extends the same idea to the demand side, letting customers spend frontier-grade reasoning only where it pays off. For Anthropic, which is preparing an IPO later this year, a cheaper flagship that improves gross margins on every inference is as much a financial statement as a technical one.
+
+The move also cleans up an awkward chapter. Fable 5 launched June 9, was pulled globally three days later under an emergency U.S. export-control order citing a jailbreak vulnerability, and returned June 30 on a credits-only basis, no longer bundled into standard plans. Opus 5 quietly fills the slot Fable 5 could never reliably hold — and makes top-tier Claude available to every subscriber again.
+
+## What to watch
+
+The open question is whether independent testers reproduce Anthropic's benchmark sweep, particularly the ARC-AGI-3 gap, once the model faces workloads it was not tuned for. Watch, too, how the effort dial changes real spending: a knob that saves money on easy prompts also invites teams to leave it on high. And with Google's delayed Gemini refresh still pending and OpenAI certain to answer on price, Opus 5 may prove less a finish line than the opening bid in a discount war over frontier-class AI.
