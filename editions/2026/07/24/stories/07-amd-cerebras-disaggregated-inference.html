@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AMD and Cerebras Pair Up on 'Disaggregated' Inference, Claiming 5x Better Tokens-per-Watt &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>AMD and Cerebras Pair Up on 'Disaggregated' Inference, Claiming 5x Better Tokens-per-Watt</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 883 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>AMD and Cerebras are splitting AI inference across their two chip architectures to challenge Nvidia's dominance, claiming up to 5x better tokens-per-watt, though that figure is modeled against Cerebras-only hardware.</p>
+</div>
+<div class="article-body">
+<p># AMD and Cerebras Pair Up on 'Disaggregated' Inference, Claiming 5x Better Tokens-per-Watt</p>
+<p>Two of Nvidia's most determined challengers have decided the best way to fight the incumbent is to stop fighting each other. On July 23, 2026, at AMD's Advancing AI 2026 event in San Francisco, AMD (NASDAQ: AMD) and Cerebras Systems (NASDAQ: CBRS) unveiled a technical partnership that splits the work of AI inference between their two very different chips, a design they call "disaggregated" inference that they claim can deliver up to 5x higher tokens per second per watt.</p>
+<p>The pitch rests on a simple observation about how modern AI actually runs. Answering a prompt involves two distinct phases with opposite hardware appetites: chewing through a long input prompt and its context window, and then generating the response one token at a time. The first is a throughput problem; the second is a latency problem. Rather than force one chip to do both, the companies are handing each phase to the silicon best suited for it.</p>
+<p>AMD's Helios rack-scale system, built from EPYC CPUs and Instinct GPUs, serves as the "high-throughput prompt engine," ingesting large context windows at scale. The token generation, the memory-bandwidth-bound part that users experience as speed, is offloaded to the Cerebras Wafer-Scale Engine, a single dinner-plate-sized chip purpose-built for ultra-low-latency decode. The two are stitched into "a single disaggregated inference workflow."</p>
+<p>"AI inference is becoming one of the largest infrastructure opportunities in AI, and its growing diversity requires a more flexible approach," said Dr. Lisa Su, AMD's chair and CEO. "AMD Helios delivers leadership performance and scale for the broadest range of inference workloads. Together with Cerebras, we are extending that leadership into the most latency-sensitive applications and creating a powerful new platform for real-time agentic AI."</p>
+<p>Cerebras CEO and co-founder Andrew Feldman framed it as a reach for scale. "The demand for ultra-fast inference is growing at an unprecedented pace. Cerebras delivers the world's fastest, ultra-low-latency inference," he said. "Partnering with AMD gives us an incredible opportunity to bring that performance to even more customers."</p>
+<p>Under the arrangement, Cerebras plans to deploy AMD Helios systems inside its own data centers, and the joint solution is expected to reach customers first through Cerebras Cloud in the second half of 2026. The companies are aiming it squarely at workloads where response time is the product: software development and coding copilots, autonomous agents, robotics, and scientific discovery.</p>
+<h2>Reading the footnote on that 5x claim</h2>
+<p>The headline number deserves a careful read. According to the fine print, the up-to-5x tokens-per-second-per-watt figure comes from July 2026 modelling by AMD Performance Labs and Cerebras, measured at a comparable interactivity point on the Kimi 2.6 1T model. Crucially, the comparison is an AMD Helios plus Cerebras WSE configuration versus a Cerebras WSE-only configuration, not against Nvidia and not against an AMD rack on its own. In other words, it is a claim about the value of adding AMD's throughput engine to Cerebras' setup, not a broadside benchmark against the market leader. It is also a model, not a measured production result, and configurations will vary.</p>
+<h2>Why it matters: an anti-Nvidia inference alliance takes shape</h2>
+<p>Strip away the engineering and this is a story about market structure. Nvidia controls the vast majority of AI training and inference silicon, and it has been methodically closing off the escape routes. In December it paid roughly $20 billion for Groq, the inference startup whose SRAM-based architecture was the most credible threat to GPU economics, then announced custom Groq Language Processing Units at GTC in March. That acquisition put Nvidia in direct competition with Cerebras, which attacks inference with the same fast-SRAM philosophy.</p>
+<p>Neither AMD nor Cerebras can match Nvidia's scale alone. AMD has the rack-scale manufacturing muscle and enterprise relationships but has struggled to dislodge Nvidia's software moat; Cerebras has the fastest decode chip on the market but limited deployment reach and a customer base concentrated in a handful of names, including OpenAI, G42, and AWS. Bolting the two together is an attempt to assemble, piecemeal, the kind of full-stack, workload-optimized answer Nvidia offers as a single vendor. The bet is that heterogeneous, best-of-breed hardware can beat a monolith, an argument that only works if the interconnect and orchestration between two radically different architectures actually holds up under real traffic.</p>
+<p>The timing is pointed. Cerebras went public on May 14, 2026, pricing at $185 a share and raising $5.55 billion at a roughly $56 billion valuation, the largest U.S. IPO of the year. Announcing a marquee AMD partnership just weeks later gives its newly public story a powerful validation, and CBRS shares hit a one-month high on the news.</p>
+<h2>What to watch</h2>
+<p>The proof will be in the H2 2026 Cerebras Cloud rollout, and in numbers that compare against Nvidia rather than against Cerebras' own hardware. Watch whether real workloads confirm the efficiency claim once the AMD-to-Cerebras handoff crosses a network rather than a diagram. Watch pricing, since disaggregation only wins if the combined cost per token undercuts a single-vendor Nvidia rack. And watch whether other Nvidia challengers, from Tenstorrent to hyperscaler custom silicon, follow the same mix-and-match logic. If they do, "disaggregated inference" may become the template for how the rest of the industry tries to compete without owning the whole stack.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>"Together with Cerebras, we are extending that leadership into the most latency-sensitive applications and creating a powerful new platform for real-time agentic AI."</blockquote><cite>&mdash; Dr. Lisa Su, Chair and CEO, AMD</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">5x</div><div class="stat-label">Tokens/sec/watt gain</div></div><div class="stat-cell"><div class="stat-value">H2 2026</div><div class="stat-label">Cerebras Cloud availability</div></div><div class="stat-cell"><div class="stat-value">$5.55B</div><div class="stat-label">Cerebras IPO raise</div></div><div class="stat-cell"><div class="stat-value">$20B</div><div class="stat-label">Nvidia's Groq acquisition</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.cerebras.ai/press-release/amd-and-cerebras-announce-industry-leading-ultra-low-latency-and-high-throughput-ai-inference" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cerebras.ai&sz=32" alt="">Cerebras</a><a href="https://ir.amd.com/news-events/press-releases/detail/1293/amd-and-cerebras-announce-industry-leading-ultra-low-latency-and-high-throughput-ai-inference-solution" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ir.amd.com&sz=32" alt="">AMD Investor Relations</a><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/amd-and-cerebras-partner-on-low-latency-high-throughput-ai-inference-epyc-processors-in-helios-rack-scale-infrastructure-paired-with-cerebras-wafer-scale-engine-wse-solutions" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tomshardware.com&sz=32" alt="">Tom's Hardware</a><a href="https://www.cnbc.com/2026/05/15/nvidia-cerebras-stock-price-ipo.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="">CNBC</a></div></div>
+<div class="article-nav"><a href="06-stripe-openrouter-10b-acquisition.html" class="nav-prev">&larr; Stripe Is in Talks to Buy AI Model Marketplace Ope</a><a href="08-metax-hong-kong-ipo-confidential.html" class="nav-next">China's Nvidia Challenger MetaX Files Confidential &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 24, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
