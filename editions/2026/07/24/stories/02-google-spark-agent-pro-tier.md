@@ -1,0 +1,27 @@
+# Google Pushes Its Spark Agent Down to the $20 Tier and Makes It 50% Faster
+
+Google just took the autonomous assistant it had been reserving for its most expensive customers and handed it to the mainstream. On July 23, the company began rolling out Gemini Spark, its background AI agent, to Google AI Pro subscribers in the United States, moving a feature that had lived exclusively on the $100 and $200 AI Ultra plans down to the $19.99-a-month tier. In the same stretch, Google made Spark more than 50% faster and taught it to edit shared Workspace files, sharpening a product now aimed at a vastly larger audience.
+
+"Gemini Spark is now also starting to roll out to Google AI Pro subscribers in the U.S., and we'll be bringing it to AI Pro subscribers in more countries soon," the Gemini team wrote on X, confirming the expansion.
+
+The timing was not incidental. The move capped a week-long agent-and-efficiency push that began July 21, when Google released three new Gemini models led by Gemini 3.6 Flash, the "workhorse" it positions for coding and agentic workloads. That launch landed one day before Alphabet reported second-quarter earnings, giving executives fresh product and cost news to tout on the call. The company reported $119.8 billion in quarterly revenue, up 24% year over year, and said the Gemini app now reaches 950 million monthly users while its models process 22 billion API tokens per minute.
+
+## What Spark actually does
+
+Spark is not a chatbot. Introduced at Google's I/O conference in May, it runs on Gemini 3.5 Flash and Google's Antigravity harness, and it works in the background even after a user closes the app. Hand it a goal, such as planning a business trip, and it will triage a Gmail inbox, update a calendar, and edit documents across Docs, Sheets and Slides. It ships with "Skills" for reusable instructions and "Schedules" for automated triggers, so it can watch for an event like a flight delay and act on it without being asked. June updates connected it to Google Tasks, Google Keep and third-party apps through Model Context Protocol servers.
+
+The July changes tuned the machine. Google said the more-than-50% speed gain comes from parallel source retrieval, meaning Spark now pulls and reviews multiple reference sources at once rather than working through them one at a time. The new ability to edit shared Workspace files, not just personal ones, pushes the agent closer to real collaborative work.
+
+The company was deliberate about sequencing the rollout. After debuting Spark at I/O, Google shipped it to US Ultra subscribers later in May, brought it to macOS in June, and extended it to Ultra users in more regions earlier in July. This week's Pro rollout is the first time Spark has reached anyone outside the Ultra tier. It is not yet everywhere: subscribers in the European Economic Area, Nigeria, Switzerland and the United Kingdom remain locked out regardless of which plan they pay for.
+
+## Why it matters
+
+The price drop is the story. Analysts framed the feature upgrades as secondary to the distribution change. "The rollout to AI Pro subscribers matters more than any single feature," wrote Forbes senior contributor Janakiram MSV. "It moves an autonomous agent from Google's AI Ultra plans, priced at $100 and $200 per month, to the $19.99 tier, potentially exposing Spark to a much larger audience."
+
+That is the democratization play in miniature. Autonomous agents that can touch a user's email, calendar and files have until now been a premium, enterprise-adjacent capability. By dropping Spark to a consumer price point, Google is betting that agentic AI becomes an everyday utility rather than a luxury tier, and it is doing so while pressing a cost advantage. The new Flash models are engineered to make the tokens these agents burn cheaper: Gemini 3.6 Flash uses 17% fewer output tokens than its predecessor and cut output pricing from $9 to $7.50 per million, while 3.5 Flash-Lite pushes 350 output tokens per second for low-latency jobs. Cheaper inference plus wider reach is a coherent strategy for a consumer AI race where OpenAI's ChatGPT agent mode and Perplexity's assistant are chasing the same "let the AI do it for you" promise.
+
+The catch is that Google is racing at the efficiency tier while its flagship slips. Gemini 3.5 Pro remains in partner testing months after its I/O reveal, even as the company says pre-training for Gemini 4 has begun. And Spark itself still carries constraints: newly eligible US Pro users get it in English only, and it requires a personal Google account rather than a managed Workspace identity, keeping it outside governed enterprise environments. Google's own documentation warns Spark can perform bulk actions in Google Tasks without confirmation, a reminder that handing tasks to an agent still demands supervision.
+
+## What to watch
+
+Three things. First, how fast Google extends Spark to AI Pro subscribers outside the US and adds language support beyond English. Second, whether the agent ever reaches managed Workspace accounts, which would open the enterprise market Google has so far walled off. Third, the frontier timeline: if Gemini 3.5 Pro ships broadly and Gemini 4 follows, Google would field a full stack of efficient models plus a consumer-grade agent, and the pressure on rivals to match its pricing would only intensify.
