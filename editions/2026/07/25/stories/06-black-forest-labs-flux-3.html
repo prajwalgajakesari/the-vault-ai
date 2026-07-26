@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Black Forest Labs' FLUX 3 Folds Image, Video, Audio and Robot Control Into One Model &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Black Forest Labs' FLUX 3 Folds Image, Video, Audio and Robot Control Into One Model</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 823 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Black Forest Labs' FLUX 3 unifies image, video, audio and robot action prediction in one architecture, and its FLUX-mimic model is already running robots on a factory floor, marking the lab's decisive move into physical AI.</p>
+</div>
+<div class="article-body">
+<h2>Black Forest Labs FLUX 3 Folds Image, Video, Audio and Robot Control Into One Model</h2>
+<p>The German lab that taught the internet to generate photorealistic images now wants to teach machines to move. On July 23, 2026, Black Forest Labs (BFL) unveiled FLUX 3, a multimodal frontier model that generates images, produces up to 20 seconds of video with synchronized audio, and, in a decisive break from the companys past, predicts the physical actions a robot should take. The same architecture that renders a coffee cup can now help a robotic arm pick one up.</p>
+<p>It is a striking pivot for a company best known for the FLUX text-to-image models that power a large share of open-weight image generation, and whose valuation has climbed to roughly $3.25 billion. With FLUX 3, BFL is arguing that the boundary between generating pixels and controlling robots was never real to begin with.</p>
+<h2>One Backbone For Pixels And Actions</h2>
+<p>The technical bet underlying FLUX 3 is that image, video, audio and action are all facets of the same modeling problem. BFL says the model jointly learns from images, video and audio within a single unified architecture built on a method it calls Self-Flow, and that the same backbone can be extended to predict actions. In the companys telling, testing showed that video generation and action prediction do not require separate foundations.</p>
+<p>Co-founder and Chief Executive Robin Rombach framed the thesis bluntly. "A model trained only on images can only generate images," he said. The deeper claim is about physics: "The process of predicting video is the process of learning principles of the real physical world such as weight, contact and timing." Learn to predict the next frame convincingly, the argument goes, and you have implicitly learned how objects behave, which is exactly what a robot needs to know.</p>
+<p>On the generative side, FLUX 3 produces up to 20 seconds of video complete with dialogue, sound effects and background music. In human preference testing, BFL reported win rates of 77 percent against Runway Gen-4.5 and 93 percent against Luma Ray 3.2, and said it held an advantage in 52 percent of evaluations against Google Gemini Omni and Seedance. The company is candid that these are human-preference comparisons rather than quantitative benchmarks.</p>
+<h2>FLUX-mimic Is Already On A Factory Floor</h2>
+<p>The most consequential piece of the announcement is not a video demo but a robot. BFL built FLUX-mimic, a video-action model that pairs the FLUX 3 backbone with the robot-learning expertise of Swiss startup mimic robotics AG. It is not a lab curiosity: FLUX-mimic is running on real hardware that has been tested and deployed at automaker Audi.</p>
+<p>The tasks are exactly the kind that have long frustrated conventional automation: kitting parts into structured trays, inserting electronic control units into tight-fitting fixtures, assembling components, and manipulating soft materials such as seals and cables. Audi describes these as categories that traditional programmed robotics cannot handle cost-effectively in premium-vehicle production, because the variant diversity of each model breaks rigid, hand-coded routines.</p>
+<p>BFL also claims a sharp efficiency gain in teaching the system new skills. FLUX-mimic can reportedly be fine-tuned for a specific manipulation task with as little as 30 minutes of robot data, where prior approaches often required 30 hours or more. If that holds up in production, it reframes robot deployment from a months-long engineering project into something closer to a same-day setup.</p>
+<h2>Why The Convergence Matters</h2>
+<p>FLUX 3 lands squarely in the industrys hottest fault line: the collision of multimodal generative AI and physical AI. The premise that world models trained on video are the shortest path to capable robots is now shared, in various forms, by Nvidia, Google DeepMind and a wave of humanoid startups. BFLs contribution is to insist that content creation and robot control are literally the same foundation, not adjacent products, and to put a model on a factory floor to prove it.</p>
+<p>That framing also sets up a direct rivalry with OpenAI, which has signaled its own ambitions in physical AI and robotics. A European lab reaching a paying industrial customer, Audi, before the incumbents ship comparable hardware deployments is a meaningful marker, and a rare instance of a frontier lab monetizing physical AI through manufacturing rather than chatbots.</p>
+<h2>What To Watch</h2>
+<p>For now, access is deliberately narrow. FLUX 3 Video is in gated early access via API and private weights for selected partners, while FLUX 3 Action, including FLUX-mimic, is limited to selected research and commercial robotics partners. BFL has said a public-weights model is due in the second half of 2026.</p>
+<p>The open questions are whether FLUX-mimics 30-minute fine-tuning holds outside Audis carefully chosen tasks, whether BFL can scale from one flagship customer to a robotics business, and whether the unified-architecture thesis survives contact with the messiest parts of the real world. If it does, the company that made images may end up remembered for making robots move.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"The process of predicting video is the process of learning principles of the real physical world such as weight, contact and timing."</blockquote>
+          <cite>&mdash; Robin Rombach, Co-founder and CEO, Black Forest Labs</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">$3.25B</div><div class="stat-label">BFL valuation</div></div><div class="stat-cell"><div class="stat-value">20 sec</div><div class="stat-label">Max video with audio</div></div><div class="stat-cell"><div class="stat-value">77%</div><div class="stat-label">Preference win vs Gen-4.5</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.bloomberg.com/news/articles/2026-07-23/black-forest-labs-unveils-first-model-for-robotics-in-shift-to-physical-ai" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=32" alt="">Bloomberg</a><a href="https://venturebeat.com/technology/black-forest-labs-launches-flux-3-capable-of-generating-images-and-20-second-video-with-audio-but-in-limited-release-to-start" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://bfl.ai/blog/flux-3-mimic" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bfl.ai&sz=32" alt="">Black Forest Labs</a></div></div>
+<div class="article-nav"><a href="05-elio-21m-machine-perception-sensors.html" class="nav-prev">&larr; Elio Raises $21 Million to Build Sensors Made for </a><a href="07-genspark-workspace-6-secondbrain.html" class="nav-next">Genspark's 'AI Workspace 6.0' Adds a Perpetual Mem &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 25, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

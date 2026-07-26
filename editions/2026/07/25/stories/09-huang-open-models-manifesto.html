@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jensen Huang Makes His X Debut With a Manifesto for Open AI Models &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Jensen Huang Makes His X Debut With a Manifesto for Open AI Models</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 946 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Nvidia CEO Jensen Huang broke his silence on X to publish a letter arguing open AI models are essential to safety, innovation and sovereignty, framing openness as an American strength just as Chinese open-weight models surge.</p>
+</div>
+<div class="article-body">
+<h2>Jensen Huang Makes His X Debut With a Manifesto for Open AI Models</h2>
+<p>Jensen Huang has run Nvidia for more than three decades and built it into one of the most valuable companies on earth without ever posting to X. That streak ended on Friday, July 24, 2026, at 1:51 p.m. Eastern. His first message on the platform was not a product tease or a photo from a keynote stage. It was a policy argument, delivered as a signed letter titled "Open Weights and American AI Leadership," urging Washington to protect open AI models rather than wall them off.</p>
+<p>"For my first post, I'm sharing a letter @NVIDIA signed on why open models matter," Huang wrote. "AI will transform every industry, power every company, and be built by every country. Open models strengthen safety and cybersecurity, accelerate innovation and diffusion, and enable sovereignty. The world needs both frontier closed models and frontier open models."</p>
+<p>For a chief executive who avoids the platform entirely, choosing it as the venue for a policy manifesto was the point. Huang did not use his debut to sell chips. He used it to plant a flag in the year's loudest fight in AI: whether the open, downloadable "weights" that let anyone run and modify a model should be embraced as a national asset or treated as a security liability.</p>
+<h2>What the letter actually argues</h2>
+<p>The letter carries roughly 25 signatories, a coalition that reads like a cross-section of the American technology industry: Nvidia, Microsoft, Meta, Dell, IBM, Palantir, Hugging Face, Mozilla, Mistral, Perplexity, Replit, Y Combinator and Andreessen Horowitz among them. Two names are conspicuously missing: OpenAI and Anthropic, the two labs most committed to closed frontier models, both of which have warned Washington about the risks of powerful open models.</p>
+<p>The document makes three central claims. Open models expand economic access, letting startups and universities build on frontier-grade systems they could never train themselves. They strengthen competition by preventing a handful of firms from controlling the technology. And they improve security, because more researchers can audit open weights, run them in isolation and patch vulnerabilities, rather than trusting a few closed "single points of failure."</p>
+<p>Huang reached back four decades for his central analogy, warning against a mistake the software industry narrowly avoided. Just as open-source code became foundational to the modern internet despite early skepticism, the letter argues, open AI models should be allowed to flourish rather than face "premature restrictions." Open source, the signatories wrote, did more than lower the cost of software; it created a shared foundation of knowledge on which generations of American engineers built. The letter also defends distillation, the practice of training one model on another's outputs, as a legitimate research technique that should not be conflated with theft.</p>
+<h2>The China problem hiding in plain sight</h2>
+<p>The timing is not subtle. The letter lands as Washington debates how to respond to a surge of Chinese open-weight models. Moonshot AI released Kimi K3 on July 16, a 2.8-trillion-parameter model with a one-million-token context window and benchmark scores that, for the first time, put an open model next to the best closed ones. It arrived alongside a wave that includes DeepSeek, Alibaba's Qwen, Zhipu's GLM and MiniMax, families now widely reported to run 15 to 30 times cheaper than comparable Western systems.</p>
+<p>That surge has scrambled the politics. White House adviser Michael Kratsios has accused Moonshot of using distillation to copy a U.S. model, which is why the letter's defense of the technique matters. And a week before Huang posted, Chinese President Xi Jinping made his own debut at the World AI Conference in Shanghai, calling for "a symphony of global cooperation" rather than "a solo performance by any single country" and warning against overstretching national security in AI. Xi is now occupying the same pro-openness rhetorical ground that Huang's coalition wants to claim for American industry.</p>
+<h2>Why Nvidia wants the ecosystem open</h2>
+<p>Huang is not a neutral party, and he does not pretend to be. Nvidia sells the GPUs that train and run nearly every serious model, open or closed, American or Chinese. A world with two or three closed labs is a world with a handful of large customers. A world with thousands of open models, fine-tuned and self-hosted by startups, universities, hospitals and governments, is a world with far more buyers of compute. Huang has previously called Chinese open models "excellent" and once said "China will win the AI race" before clarifying, positioning himself closer to Beijing's framing than to the more hawkish stance of OpenAI and Anthropic. An open, diffuse ecosystem is precisely the market that maximizes demand for the one thing Nvidia sells.</p>
+<p>That does not make the argument wrong. The security and sovereignty case for open weights is one that many independent researchers share. But it does mean the manifesto is both a public-interest brief and a business plan, and the two happen to point in the same direction.</p>
+<h2>What to watch</h2>
+<p>The immediate question is whether Washington bites. The letter is aimed at policymakers weighing whether to restrict Chinese open models or the distillation techniques behind them, and the coalition is betting that framing openness as an American strength beats framing it as a Chinese threat. Watch for a formal administration response, for whether more U.S. labs sign on or stay pointedly absent, and for whether Huang's debut post is a one-off or the start of a louder political voice from the industry's most powerful vendor. And watch the next Chinese release: every model that ships from Beijing under a permissive license makes Huang's argument harder to ignore and Washington's decision harder to make.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"The world needs both frontier closed models and frontier open models."</blockquote>
+          <cite>&mdash; Jensen Huang, CEO, Nvidia</cite>
+        </div>
+
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://fortune.com/2026/07/24/jensen-huang-open-source-letter-nvidia-kimi/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=fortune.com&sz=32" alt="">Fortune</a><a href="https://www.foxbusiness.com/technology/nvidia-microsoft-urge-us-avoid-broad-restrictions-open-ai-models" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=foxbusiness.com&sz=32" alt="">Fox Business</a><a href="https://hothardware.com/news/nvidia-ceo-jensen-huang-x-debut-push-open-weight-ai-models" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=hothardware.com&sz=32" alt="">HotHardware</a></div></div>
+<div class="article-nav"><a href="08-openai-codex-voice-10m-users.html" class="nav-prev">&larr; OpenAI's Codex Doubles to 10 Million Users and Lea</a><a href="10-robot-io-rio-framework.html" class="nav-next">A New Open-Source Framework Lets AI Move Between R &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 25, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

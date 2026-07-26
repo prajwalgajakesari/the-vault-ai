@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI's Codex Doubles to 10 Million Users and Learns to Take Voice Commands &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>OpenAI's Codex Doubles to 10 Million Users and Learns to Take Voice Commands</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 841 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI's Codex and ChatGPT Work agents together doubled to 10 million weekly users while gaining full-duplex voice control that can be operated remotely from a phone.</p>
+</div>
+<div class="article-body">
+<h2>OpenAI's Codex Doubles to 10 Million Users and Learns to Take Voice Commands</h2>
+<p><em>The Vault — AI Edition | llms-genai | Story 08 | July 25, 2026</em></p>
+<p>OpenAI's coding agent is no longer a niche tool for early adopters tinkering at a keyboard. This week the company said the combined weekly user base for Codex and its new ChatGPT Work agent has crossed 10 million — roughly double the count from two weeks earlier — and, in the same stretch, gave those agents a new way to be commanded: the human voice.</p>
+<h2>The Numbers</h2>
+<p>OpenAI disclosed on July 21 that Codex and ChatGPT Work, the two products it groups under a single "agent" banner, together surpass 10 million weekly active users. That is up from roughly 5 million just two weeks prior, a doubling that OpenAI ties to the July 9 launch of ChatGPT Work, its agentic assistant for knowledge and office tasks. As recently as early June, the company had put Codex alone at more than 5 million weekly active users.</p>
+<p>A caveat worth stating plainly: OpenAI reports the 10 million as a blended figure for both products, not for Codex in isolation, and it has not spelled out precisely how it defines an "active" user across daily, weekly, or point-in-time snapshots. The headline growth is real and steep, but the cleanest way to read it is as momentum for OpenAI's agent layer as a whole, with ChatGPT Work acting as the accelerant that pulled Codex further into the mainstream.</p>
+<p>Even with those asterisks, the trajectory is striking. Codex went from an experimental command-line tool to a product measured in eight figures of weekly users inside a single year, putting it in direct competition with Anthropic's Claude Code and GitHub Copilot's own agent modes.</p>
+<h2>Now Take a Deep Breath and Just Talk</h2>
+<p>The second half of the week's news is what makes the growth story more than a chart. On July 23, OpenAI began rolling out ChatGPT Voice inside the desktop app, and it is wired directly into the agents.</p>
+<p>"ChatGPT Voice is now in the desktop app," the company wrote in its announcement. "Control your computer and direct multiple agents running in ChatGPT Work or Codex, using just your voice."</p>
+<p>The feature is powered by GPT-Live, the full-duplex voice model OpenAI shipped on mobile earlier in July, which can listen and speak at the same time rather than waiting for the user to finish. In practice that means a developer can dictate a task, interrupt, redirect, and keep talking while agents grind through work in the background. OpenAI says the voice mode can also lean on computer-use skills to look up websites and open apps, and users can bind a hotkey to summon it while working inside other applications.</p>
+<p>Crucially, the reach extends beyond the machine in front of you. OpenAI says ChatGPT Voice in Codex can be operated from the ChatGPT iOS app through paired remote access — meaning a user can speak into a phone to drive Codex sessions running on a desktop elsewhere, effectively issuing voice commands to multiple AI agents at once. An Android version is expected to follow. The rollout is global on macOS and Windows, covering Plus, Pro, Business, Edu, and Enterprise plans.</p>
+<h2>Why It Matters</h2>
+<p>Two threads converge here. The first is that agentic coding has quietly gone mainstream. A tool that writes, tests, and ships code with limited human supervision was, a year ago, a demo. At 10 million weekly users across OpenAI's agent products, it is now infrastructure, and the competitive pressure on Anthropic, Google, and GitHub is no longer theoretical.</p>
+<p>The second thread is the interface. For decades, programming has been an act of typing. Layering full-duplex voice onto a fleet of coding and office agents reframes the developer as an orchestrator — someone who describes intent and supervises several agents in parallel rather than authoring every line. Remote control from a phone pushes that further, decoupling the work from the desk entirely. If it holds up outside the demo, it is a genuine shift in how software gets made.</p>
+<p>There are real questions the launch does not answer. Voice is a low-friction way to trigger high-consequence actions, and dictating commands to agents that can touch files, browsers, and production systems raises obvious concerns about misfires, confirmation steps, and auditability. Accuracy in noisy environments, the risk of ambiguous spoken instructions, and enterprise controls will all be tested quickly at this scale.</p>
+<h2>What to Watch</h2>
+<p>Three things over the coming weeks. First, whether OpenAI breaks out Codex-only numbers again, which would clarify how much of the 10 million is genuine coding adoption versus ChatGPT Work's broader office pull. Second, the Android rollout and how remote voice control behaves across devices in the wild. And third, the competitive response: Anthropic's Claude Code and GitHub's agents now face an OpenAI product that is not just larger but reachable by voice from a pocket. The coding wars just changed shape, and the next move belongs to everyone else.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"ChatGPT Voice is now in the desktop app. Control your computer and direct multiple agents running in ChatGPT Work or Codex, using just your voice."</blockquote>
+          <cite>&mdash; OpenAI, Official announcement</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">10M</div><div class="stat-label">Weekly active users</div></div><div class="stat-cell"><div class="stat-value">2x</div><div class="stat-label">Growth in two weeks</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techcrunch.com/2026/07/24/openais-new-voice-mode-makes-it-to-the-chatgpt-desktop-app/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://fortune.com/2026/07/23/openai-launches-chatgpt-voice-desktop-programming/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=fortune.com&sz=32" alt="">Fortune</a><a href="https://venturebeat.com/orchestration/agentic-coding-goes-hands-free-as-openai-brings-gpt-lives-full-duplex-voice-control-to-codex-and-chatgpt-on-the-desktop" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a></div></div>
+<div class="article-nav"><a href="07-genspark-workspace-6-secondbrain.html" class="nav-prev">&larr; Genspark's 'AI Workspace 6.0' Adds a Perpetual Mem</a><a href="09-huang-open-models-manifesto.html" class="nav-next">Jensen Huang Makes His X Debut With a Manifesto fo &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 25, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
