@@ -1,8 +1,8 @@
 # OpenAI's Codex Doubles to 10 Million Users and Learns to Take Voice Commands
 
-*The Vault Ñ AI Edition | llms-genai | Story 08 | July 25, 2026*
+*The Vault â€” AI Edition | llms-genai | Story 08 | July 25, 2026*
 
-OpenAI's coding agent is no longer a niche tool for early adopters tinkering at a keyboard. This week the company said the combined weekly user base for Codex and its new ChatGPT Work agent has crossed 10 million Ñ roughly double the count from two weeks earlier Ñ and, in the same stretch, gave those agents a new way to be commanded: the human voice.
+OpenAI's coding agent is no longer a niche tool for early adopters tinkering at a keyboard. This week the company said the combined weekly user base for Codex and its new ChatGPT Work agent has crossed 10 million â€” roughly double the count from two weeks earlier â€” and, in the same stretch, gave those agents a new way to be commanded: the human voice.
 
 ## The Numbers
 
@@ -20,13 +20,13 @@ The second half of the week's news is what makes the growth story more than a ch
 
 The feature is powered by GPT-Live, the full-duplex voice model OpenAI shipped on mobile earlier in July, which can listen and speak at the same time rather than waiting for the user to finish. In practice that means a developer can dictate a task, interrupt, redirect, and keep talking while agents grind through work in the background. OpenAI says the voice mode can also lean on computer-use skills to look up websites and open apps, and users can bind a hotkey to summon it while working inside other applications.
 
-Crucially, the reach extends beyond the machine in front of you. OpenAI says ChatGPT Voice in Codex can be operated from the ChatGPT iOS app through paired remote access Ñ meaning a user can speak into a phone to drive Codex sessions running on a desktop elsewhere, effectively issuing voice commands to multiple AI agents at once. An Android version is expected to follow. The rollout is global on macOS and Windows, covering Plus, Pro, Business, Edu, and Enterprise plans.
+Crucially, the reach extends beyond the machine in front of you. OpenAI says ChatGPT Voice in Codex can be operated from the ChatGPT iOS app through paired remote access â€” meaning a user can speak into a phone to drive Codex sessions running on a desktop elsewhere, effectively issuing voice commands to multiple AI agents at once. An Android version is expected to follow. The rollout is global on macOS and Windows, covering Plus, Pro, Business, Edu, and Enterprise plans.
 
 ## Why It Matters
 
 Two threads converge here. The first is that agentic coding has quietly gone mainstream. A tool that writes, tests, and ships code with limited human supervision was, a year ago, a demo. At 10 million weekly users across OpenAI's agent products, it is now infrastructure, and the competitive pressure on Anthropic, Google, and GitHub is no longer theoretical.
 
-The second thread is the interface. For decades, programming has been an act of typing. Layering full-duplex voice onto a fleet of coding and office agents reframes the developer as an orchestrator Ñ someone who describes intent and supervises several agents in parallel rather than authoring every line. Remote control from a phone pushes that further, decoupling the work from the desk entirely. If it holds up outside the demo, it is a genuine shift in how software gets made.
+The second thread is the interface. For decades, programming has been an act of typing. Layering full-duplex voice onto a fleet of coding and office agents reframes the developer as an orchestrator â€” someone who describes intent and supervises several agents in parallel rather than authoring every line. Remote control from a phone pushes that further, decoupling the work from the desk entirely. If it holds up outside the demo, it is a genuine shift in how software gets made.
 
 There are real questions the launch does not answer. Voice is a low-friction way to trigger high-consequence actions, and dictating commands to agents that can touch files, browsers, and production systems raises obvious concerns about misfires, confirmation steps, and auditability. Accuracy in noisy environments, the risk of ambiguous spoken instructions, and enterprise controls will all be tested quickly at this scale.
 
