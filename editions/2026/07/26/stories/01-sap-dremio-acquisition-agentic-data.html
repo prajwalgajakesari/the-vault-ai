@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SAP Completes Dremio Acquisition to Anchor Its Agentic AI Data Layer &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>SAP Completes Dremio Acquisition to Anchor Its Agentic AI Data Layer</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 947 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>SAP has closed its Dremio acquisition to make Business Data Cloud an Iceberg-native lakehouse, unifying SAP and non-SAP data without movement to power agentic AI across its enterprise installed base.</p>
+</div>
+<div class="article-body">
+<p>SAP has closed the book on one of the year's most closely watched enterprise data deals. On July 6, the Walldorf-based software giant confirmed it had completed its acquisition of Dremio, the Austin-based data lakehouse company, moving to plug the single biggest hole standing between its vast installed base and the agentic AI future it has been promising customers for the better part of two years: data that is actually ready for machines to reason over.</p>
+<p>The message from SAP was blunt about why the deal matters. "Enterprise AI doesn't stall because the models aren't good enough; it stalls because the data isn't ready for AI agents," said Philipp Herzig, chief technology officer at SAP SE, when the acquisition was announced in May. "Dremio eliminates that bottleneck. Combined with SAP Business Data Cloud, we can now take customers from raw, fragmented data to governed, AI-ready intelligence on a single open platform."</p>
+<h2>What SAP just bought</h2>
+<p>Dremio describes itself as an "Agentic Lakehouse" — an Iceberg-native data platform built for AI agents and, increasingly, managed by them. In practice, its appeal to SAP is architectural. Dremio lets organizations run analytical and AI queries directly across data wherever it lives, SAP or non-SAP, without first copying, moving, or converting it into a proprietary format. That eliminates the costly, brittle extract-transform-load (ETL) pipelines that enterprises have historically built to feed analytics engines.</p>
+<p>Under SAP, Dremio becomes the foundation of an Apache Iceberg-native version of SAP Business Data Cloud, the company's unified data offering. Iceberg is the industry-standard open table format, and SAP says its data cloud will now support it natively. The technical payoff is that SAP and non-SAP data can coexist on one open foundation, with federated reach across every enterprise source, while SAP HANA Cloud's in-memory engine continues to handle real-time transactions. Dremio's platform is serverless and elastic, scaling up when query demand spikes and back down when it subsides, which SAP argues will "vastly improve the economics of enterprise analytics."</p>
+<p>The deal also hands SAP the open-source pedigree it needs to sell an open-platform story. Dremio has been a lead contributor to Apache Iceberg and a co-creator of Apache Arrow and Apache Polaris. SAP will use Dremio to deliver a universal open catalog built on Polaris and the Iceberg REST Catalog API, serving as the discovery and semantic layer of Business Data Cloud and forming the backbone of the emerging SAP Knowledge Graph — the layer that encodes business relationships, organizational hierarchies, regulatory classifications and cross-system data lineage as native properties. SAP has pledged to keep investing in those open-source projects, an important signal to a developer community wary of a large vendor absorbing a key steward.</p>
+<h2>The terms, and the timeline</h2>
+<p>SAP did not disclose the financial terms of the transaction, and it has not done so at completion either. The company announced the agreement on May 4, 2026, said it expected the deal to close in the third quarter subject to regulatory approvals, and confirmed completion on July 6 — comfortably ahead of that window. Dremio's customer roster, cited by the company, includes Shell, TD Bank and Michelin, alongside thousands of other organizations.</p>
+<p>The Dremio close is not an isolated move. Just eleven days later, on July 17, SAP completed its acquisition of Prior Labs, and the company placed a 3.5 billion euro Eurobond in late May — evidence of an acquisitive posture as it builds out an AI-native data and application stack. SAP reported its Q2 and half-year 2026 results on July 23, framing the data-layer buildout as central to its growth narrative.</p>
+<h2>Why this matters for enterprise AI</h2>
+<p>The strategic logic is best understood through the numbers on enterprise demand. According to Futurum Group's Enterprise Software Decision Maker Survey for the first half of 2026 (n=830), data integration and application management ranks as the number-one technology priority for 26.8% of enterprise buyers and sits in the top two for more than 51% — trailing only generative AI at 32.8%. Crucially, 55.2% of buyers say improved integration capabilities would increase their confidence in allocating more software budget. In other words, SAP is buying directly into the criteria customers use to justify spend.</p>
+<p>That advantage is amplified by SAP's installed base. The company holds 33.9% of the ERP market, worth roughly 16 billion dollars in 2025 revenue, and 28.4% of the supply chain software market, worth about 5 billion dollars. That footprint is a ready-made distribution channel for Dremio's lakehouse. It matters most in exactly the domain where agentic AI is arriving fastest: 33.8% of enterprises plan to deploy agentic AI in supply chain operations within the next 18 months — a market SAP already dominates.</p>
+<p>"SAP's Dremio acquisition is a direct response to a well-documented enterprise requirement," wrote Keith Kirkpatrick, vice president and research director for enterprise software at Futurum Group, in his analysis of the deal. "SAP is filling a gap its customers have been signaling for years. The move is strategically coherent and operationally timely." Futurum projects the broader enterprise software market to grow 11.6% year over year in 2026, reaching 424 billion dollars — with the AI-driven analytics segment among the fastest-growing slices.</p>
+<p>The deeper significance is that the competitive battle in enterprise AI is shifting from models to plumbing. As foundation models commoditize, differentiation increasingly rests on whose data layer can deliver governed, contextualized, movement-free access to an agent at query time. By betting on open formats rather than a walled garden, SAP is wagering that customers will pay a premium for openness plus business context — the semantic and lineage layer that lets an enterprise explain how an AI reached a decision, a growing compliance necessity.</p>
+<h2>What to watch next</h2>
+<p>The real test is adoption. Watch how quickly existing SAP ERP and supply chain customers turn on Dremio-enabled workloads, and how fast SAP ships agentic AI features built on the combined Business Data Cloud and Dremio infrastructure. Watch, too, for the competitive response: Oracle, Microsoft, Databricks, Snowflake and Salesforce are all racing to make unified lakehouse capabilities table stakes, and SAP's open-Iceberg positioning puts it in direct contention with them. Finally, the open-source community will be watching whether SAP honors its commitment to Iceberg, Arrow and Polaris now that it owns one of their most prominent stewards. If integration capabilities translate into measurable budget expansion across SAP's base — the metric buyers themselves flagged — the Dremio bet will have paid off.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>"Enterprise AI doesn't stall because the models aren't good enough; it stalls because the data isn't ready for AI agents. Dremio eliminates that bottleneck."</blockquote><cite>&mdash; Philipp Herzig, Chief Technology Officer, SAP SE</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">33.9%</div><div class="stat-label">SAP's share of the ERP market</div></div><div class="stat-cell"><div class="stat-value">28.4%</div><div class="stat-label">SAP's share of supply-chain software</div></div><div class="stat-cell"><div class="stat-value">$424B</div><div class="stat-label">Projected 2026 enterprise software market</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://news.sap.com/2026/07/sap-completes-dremio-acquisition/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=news.sap.com&sz=32" alt="">SAP News Center</a><a href="https://news.sap.com/2026/05/sap-to-acquire-dremio-unify-sap-and-non-sap-data-power-agentic-ai/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=news.sap.com&sz=32" alt="">SAP News Center (announcement)</a><a href="https://futurumgroup.com/insights/saps-dremio-acquisition-provides-agentic-ai-data-foundation/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=futurumgroup.com&sz=32" alt="">Futurum Group</a></div></div>
+<div class="article-nav"><a href="02-qualcomm-ai200-ai250-humain.html" class="nav-next">Qualcomm's AI200 and AI250 Take the Data-Center Fi &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 26, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
