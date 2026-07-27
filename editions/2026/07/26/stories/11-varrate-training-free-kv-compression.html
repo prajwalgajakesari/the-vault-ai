@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Training-Free KV-Cache Compression Aims to Make Long-Context LLMs Affordable &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Training-Free KV-Cache Compression Aims to Make Long-Context LLMs Affordable</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 968 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Training-free KV-cache compression that assigns variable eviction rates across heads and layers can cut long-context memory 8x to 64x while retaining ~85-90% of full-cache quality, lowering per-query costs without retraining.</p>
+</div>
+<div class="article-body">
+<p>The pitch for long-context language models is seductive: paste in a whole codebase, a full quarter of customer transcripts, or a 300-page contract, and let the model reason over all of it at once. The problem is what happens on the server. As the context window grows, so does a hidden memory tax that scales linearly with every token in the prompt — and for cost-sensitive deployments, that tax is often the difference between a feature that ships and one that stays a demo. A cluster of recent training-free compression techniques is trying to shrink the bill without retraining a single weight.</p>
+<p>A quick note on naming before we go further. "VarRate" is a convenient label for the idea at the center of this thread — assigning <em>variable</em> compression <em>rates</em> across a model's internal structure — but it is not, as far as public arXiv records show, the title of a single canonical paper. The concept is best documented in a handful of specific works, and this article names them rather than invent a paper that does not exist.</p>
+<h2>Why the KV cache eats your memory budget</h2>
+<p>Transformers generate text one token at a time. To produce each new token, the model attends back over everything it has already seen. Rather than recompute the representations of all prior tokens at every step — which would be ruinously slow — it stores them. Those stored representations are the <strong>key-value (KV) cache</strong>: for every token, in every attention head, in every layer, the model keeps a key vector and a value vector.</p>
+<p>The consequence is arithmetic. The KV cache grows linearly with sequence length, layer count, and head count. At short prompts it is a rounding error. At 128,000-token context — now a standard offering — it can balloon into tens of gigabytes per request, frequently dwarfing the memory occupied by the model's own weights during inference. Because GPU memory caps how many requests can run concurrently, the KV cache, not raw compute, is often the true ceiling on how many long-context users a server can handle at once. As the author of one of the key papers puts it, "efficiently supporting long-context inference remains challenging as the memory allocated for KV cache scales with context length."</p>
+<h2>Training-free means no retraining tax</h2>
+<p>The methods in this thread share a crucial property: they are <strong>training-free</strong>. They do not fine-tune the model or bolt on learned modules. Instead they exploit a structural observation — that most entries in the KV cache are barely attended to — and evict or compress the least useful ones at inference time. That makes them cheap to adopt: a deployment can drop them in without a training run, new data, or a fresh round of evaluation on a modified model.</p>
+<p>The sharpest version of the "variable rate" idea appears in <strong>KV-Compress</strong>, by Isaac Rehg of Cloudflare. Its central insight is in the subtitle: <em>Variable Compression Rates per Attention Head</em>. Uniform compression — throwing away the same fraction of tokens everywhere — leaves value on the table, because some attention heads genuinely need their full history while others can be pruned aggressively. Letting the eviction rate vary across heads yields higher effective compression. The catch, historically, has been that ragged per-head eviction fragments memory and never realizes its theoretical savings in practice. KV-Compress addresses this by evicting contiguous KV blocks inside a PagedAttention framework, so the memory footprint actually shrinks in proportion to the compression rate.</p>
+<p>The reported numbers are concrete. On Llama-3.1-8B-Instruct and a quantized Llama-3.1-70B, KV-Compress reaches <strong>up to 8x compression with negligible impact on performance</strong>, and <strong>up to 64x while retaining over 90 percent of full-cache performance</strong> for all but three subsets of the LongBench suite. For the 70B model, nearly all non-summarization subtasks hold above 90 percent even at 64x. A query-group-compression variant for grouped-query-attention models adds another 4x over prior methods, and integration with vLLM raised total throughput up to 5.18x by allowing larger decoding batches.</p>
+<p>Two other training-free methods extend the idea from heads to layers. <strong>LAVa</strong> (Shen, Yuan, Zhang, Wang, Jiang, and Nguyen, EMNLP 2025 Findings) frames compression as minimizing information loss in the transformer's residual stream, deriving a single metric that both ranks cache entries across heads and sets dynamic budgets per layer — the authors describe it as the first unified strategy for eviction and budget allocation that does not rely on training. <strong>DynamicKV</strong> (EMNLP 2025 Findings) allocates cache budgets adaptively by task and layer, reporting that it retains just <strong>1.7 percent of the KV cache while preserving roughly 85 percent</strong> of full-cache performance on LongBench, and that even at 0.9 percent it beats prior state of the art by 11 percent on a needle-in-a-haystack test.</p>
+<h2>Why this matters for deployment economics</h2>
+<p>The through-line is that memory, not intelligence, is often what makes long-context features unaffordable. If a technique lets you fit 8x or more requests into the same GPU, the per-query cost of a long-context feature can fall by a comparable factor — and it does so on hardware you already own, using a method that requires no retraining. For a startup weighing whether to offer document-wide reasoning, or an enterprise sizing a fleet, that changes the calculus from "buy more GPUs" to "reconfigure the ones you have."</p>
+<p>The training-free property compounds the appeal. Learned compression can outperform in principle, but every learned scheme is one more thing to train, validate, and re-validate whenever the base model updates. Drop-in eviction sidesteps that maintenance burden entirely.</p>
+<h2>What to watch</h2>
+<p>The honest caveats are in the fine print. "Over 90 percent of full performance" still concedes a real quality gap, and the papers are candid that summarization and certain retrieval-heavy tasks degrade fastest under aggressive compression — the worst places to lose fidelity if your product is, say, legal summarization. Benchmarks like LongBench and RULER also do not perfectly mirror production traffic. The signals to track next: whether these methods land in mainstream serving stacks like vLLM as default options rather than research forks; how they interact with quantization, which attacks the same memory problem from a different angle; and whether the quality loss holds up on the messy, adversarial prompts real users send. If it does, the economics of long context may quietly tilt toward affordable.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"efficiently supporting long-context inference remains challenging as the memory allocated for KV cache scales with context length"</blockquote><cite>&mdash; The authors, KV-Compress, arXiv</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">8x</div><div class="stat-label">Compression with negligible impact</div></div><div class="stat-cell"><div class="stat-value">64x</div><div class="stat-label">Compression retaining >90% on most tasks</div></div><div class="stat-cell"><div class="stat-value">5.18x</div><div class="stat-label">Throughput gain via vLLM</div></div><div class="stat-cell"><div class="stat-value">1.7%</div><div class="stat-label">Cache retained by DynamicKV at ~85% quality</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2410.00161" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">KV-Compress (arXiv:2410.00161)</a><a href="https://arxiv.org/abs/2509.09754" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">LAVa (arXiv:2509.09754)</a><a href="https://arxiv.org/abs/2412.14838" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">DynamicKV (arXiv:2412.14838)</a></div></div>
+<div class="article-nav"><a href="10-memory-architecture-language-emergence.html" class="nav-prev">&larr; New Research Shows How an Agent's Memory Architect</a><a href="12-apple-openai-trade-secret-suit.html" class="nav-next">Apple and OpenAI Head Into a Trade-Secret Fight as &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 26, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
