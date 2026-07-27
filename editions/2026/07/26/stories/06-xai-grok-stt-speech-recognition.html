@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>xAI Ships Grok STT 1.0, Pushing Into the Speech-to-Text Race &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>xAI Ships Grok STT 1.0, Pushing Into the Speech-to-Text Race</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 942 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>xAI's Grok STT 1.0, live on OpenRouter as of July 23, 2026, formalizes the company's speech-to-text push with $0.10/hour batch pricing and vendor-claimed accuracy that undercuts Deepgram, ElevenLabs and AssemblyAI, though benchmarks remain independently unverified.</p>
+</div>
+<div class="article-body">
+<p>Elon Musk's xAI has planted a flag in the speech-to-text market, with <strong>Grok STT 1.0</strong> surfacing on the OpenRouter model catalog on July 23, 2026 — a versioned, generally available transcription model that turns the company's earlier audio experiment into a production-grade product aimed squarely at Deepgram, ElevenLabs, and OpenAI's Whisper.</p>
+<p>The 1.0 release formalizes an audio push that began in the spring. xAI first announced standalone <strong>Grok Speech to Text (STT)</strong> and <strong>Text to Speech (TTS)</strong> APIs on April 17, 2026, describing them as "two powerful standalone audio APIs" built "on the same stack that powers Grok Voice, Tesla vehicles, and Starlink customer support." The July arrival of Grok STT 1.0 as a discretely versioned endpoint — priced and benchmarked — is the clearest signal yet that xAI intends to compete for enterprise transcription budgets, not just power its own consumer chatbot.</p>
+<h2>What xAI is shipping</h2>
+<p>Grok STT 1.0 is available through a REST endpoint (`/v1/stt`) for batch transcription of large audio files and a WebSocket API for real-time streaming. xAI lists the same feature set that leading transcription providers treat as table stakes: <strong>word-level timestamps</strong>, <strong>speaker diarization</strong> (identifying who said what), and <strong>multichannel audio</strong> support for cleanly separating callers on, say, a two-line phone recording.</p>
+<p>The model also performs what xAI calls intelligent <strong>Inverse Text Normalization</strong> — converting spoken language into properly structured text, so a dictated "four one four five five five one two three four" becomes a formatted phone number, and spoken currency, dates, and account numbers land as clean, machine-usable strings rather than raw words. On the language front, xAI advertises support for <strong>25+ languages</strong> with the ability to switch mid-stream.</p>
+<p>Pricing is the headline pitch. Grok STT costs <strong>$0.10 per hour of audio for batch</strong> processing and <strong>$0.20 per hour for streaming</strong>, with the accompanying TTS model billed at $15.00 per million characters. Those STT numbers undercut much of the established market and reflect a familiar Musk-company strategy: use vertically integrated infrastructure to compete aggressively on cost.</p>
+<h2>The accuracy claims</h2>
+<p>xAI's most pointed marketing is aimed at accuracy, and the company published a head-to-head benchmark table pitting Grok STT against ElevenLabs, Deepgram, and AssemblyAI across domains measured by <strong>word error rate (WER)</strong>, where lower is better.</p>
+<p>By xAI's own numbers, Grok STT posts a <strong>6.9% overall WER</strong>, versus 9.0% for ElevenLabs, 11.0% for Deepgram, and 12.9% for AssemblyAI. The gaps widen dramatically on the domain xAI most wants to sell into — telephony and business calls:</p>
+<p>- <strong>Phone call entity recognition</strong> (names, account numbers, dates): Grok STT <strong>5.0%</strong>, ElevenLabs 12.0%, Deepgram 13.5%, AssemblyAI 21.3%
+- <strong>Meetings</strong>: Grok STT <strong>10.9%</strong>, ElevenLabs 12.2%, AssemblyAI 15.7%, Deepgram 16.3%
+- <strong>Telephone</strong>: Grok STT <strong>9.3%</strong>, ElevenLabs 9.4%, Deepgram 11.0%, AssemblyAI 11.2%
+- <strong>Video/Podcasts</strong>: Grok STT and ElevenLabs tied at <strong>2.4%</strong>, ahead of Deepgram (3.0%) and AssemblyAI (3.2%)</p>
+<p>xAI frames the model as excelling at "entity recognition and business use cases like medical, legal, and financial" — the high-value, error-intolerant workflows where a single mistranscribed account number or drug name carries real cost.</p>
+<p><strong>An important caveat:</strong> these are vendor-published benchmarks. They have not been independently verified, and the specific test sets, audio conditions, and formatting settings behind the numbers are xAI's own. Transcription accuracy is notoriously sensitive to accents, background noise, and domain jargon, so real-world WER for any provider often diverges from marketing tables.</p>
+<h2>Where it fits in the Grok lineup</h2>
+<p>Grok STT slots into an increasingly broad xAI product surface that spans the Grok chatbot, the Grok Voice conversational assistant, the Grok CLI for developers, and image tools. By carving speech recognition out as its own priced, versioned API rather than burying it inside Grok Voice, xAI is following the same playbook OpenAI used when it exposed Whisper as a standalone transcription endpoint — turning an internal capability into a revenue line and a developer on-ramp. The company's claim that the model runs on the same audio stack behind Tesla's in-car assistant and Starlink's customer support hints at the enormous volume of real-world voice data xAI can draw on.</p>
+<h2>The competitive landscape</h2>
+<p>The speech-to-text market xAI is entering is crowded and maturing fast. <strong>OpenAI's Whisper</strong> remains the default open-weight reference point and powers countless downstream tools, while OpenAI's newer hosted transcription models compete on the API side. <strong>Deepgram</strong> has built an enterprise business on low-latency streaming and per-minute pricing; <strong>AssemblyAI</strong> leans on developer-friendly speech intelligence features; and <strong>ElevenLabs</strong>, better known for voice synthesis, has pushed hard into transcription and is the closest competitor to Grok STT on xAI's own charts.</p>
+<p>xAI's wedge is the combination of aggressive per-hour pricing and claimed accuracy in telephony and business audio — the segments where transcription is a cost center that companies would love to shrink. If the 6.9% overall WER holds up under independent testing, xAI has a credible product. If it doesn't, the low price alone may still win latency-tolerant, high-volume batch workloads.</p>
+<h2>What to watch</h2>
+<p>Three things will determine whether Grok STT 1.0 is a genuine contender or a spec-sheet entry. First, <strong>independent WER validation</strong> — third-party benchmarks on standard datasets and messy real-world audio will reveal whether xAI's numbers survive contact with accents, noise, and jargon. Second, <strong>latency and uptime</strong> in production, the metrics that actually decide voice-agent deals and that OpenRouter tracks live. Third, whether xAI's rock-bottom <strong>$0.10-per-hour</strong> pricing forces Deepgram and ElevenLabs to respond — a price war would be the clearest sign xAI has arrived. For now, the speech-to-text race has a loud new entrant, and it is undercutting the field on day one.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"Today, we are excited to announce two powerful standalone audio APIs: Grok Speech to Text (STT) and Grok Text to Speech (TTS). Built on the same stack that powers Grok Voice, Tesla vehicles, and Starlink customer support."</blockquote><cite>&mdash; xAI, Official announcement</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">6.9%</div><div class="stat-label">Grok STT overall word error rate (vendor-published)</div></div><div class="stat-cell"><div class="stat-value">$0.10/hr</div><div class="stat-label">Batch transcription price</div></div><div class="stat-cell"><div class="stat-value">25+</div><div class="stat-label">Languages supported</div></div><div class="stat-cell"><div class="stat-value">Jul 23</div><div class="stat-label">Release date on OpenRouter</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://x.ai/news/grok-stt-and-tts-apis" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=x.ai&sz=32" alt="">xAI</a><a href="https://openrouter.ai/x-ai/grok-stt-1.0" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openrouter.ai&sz=32" alt="">OpenRouter</a><a href="https://www.marktechpost.com/2026/04/18/xai-launches-standalone-grok-speech-to-text-and-text-to-speech-apis-targeting-enterprise-voice-developers/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=marktechpost.com&sz=32" alt="">MarkTechPost</a></div></div>
+<div class="article-nav"><a href="05-katalyze-ai-biomanufacturing.html" class="nav-prev">&larr; Katalyze AI Raises $10.5 Million to Bring Agentic </a><a href="07-openscience-open-source-science-workbench.html" class="nav-next">OpenScience Debuts an Apache-Licensed, Model-Agnos &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 26, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
