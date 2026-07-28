@@ -1,0 +1,29 @@
+The pitch to America's teachers this summer sounds almost too generous to question: premium artificial intelligence, built for the classroom, free of charge. On July 14, Anthropic became the latest AI giant to make that offer, launching Claude for Teachers with free access to its top-tier assistant, a library of "teaching skills," and lesson plans mapped to academic standards in all 50 states. It joined a field already crowded with the same word attached to expensive technology: free.
+
+That word is doing an enormous amount of strategic work. As Financial Times reporting noted in late July, OpenAI, Google, Anthropic and Microsoft are racing to place their tools inside schools and campuses at little or no cost, in what increasingly resembles a land-grab for the next generation of users. The educational case is real. So is the commercial one.
+
+## Three giants, one giveaway
+
+The offers have arrived in quick succession. OpenAI launched ChatGPT for Teachers last November, giving verified U.S. educators free access, an offer its plan pages now advertise into 2028. Google, at the BETT conference in London, folded select Gemini capabilities into every tier of Google Workspace for Education at no extra cost, reaching schools that already run on its email, docs and Chromebooks. Microsoft has pushed its Copilot tools and an "Elevate" training initiative. Anthropic's entry, built in partnership with the Chan Zuckerberg Initiative's Learning Commons, lets teachers sign up free through June 30, 2027 for a full year of access.
+
+In higher education, the same dynamic plays out through institutional deals. OpenAI's ChatGPT Edu is now embedded across large public systems, including the 23-campus California State University, Indiana University's roughly 120,000 students and faculty, and a University of Colorado rollout serving about 100,000 users. For a student on one of those campuses, the most powerful commercial AI is simply there, free at the point of use.
+
+The strategic logic is not subtle. Education is a vast market and, more valuably, a channel for building lifelong habits. A student who drafts, studies and thinks inside one company's assistant for four years of college, or twelve years of school, is unlikely to switch on graduation day. It echoes the classroom battles of the last era, when Google's cheap Chromebooks and free Workspace tools routed Apple and Microsoft and captured a generation of default users. The winners then went on to dominate the workplaces those students entered.
+
+Anthropic frames its motives differently. "Our education team doesn't have revenue goals; we are focused on impact and improving student learning," Drew Bent, the company's education lead, told Education Week, adding that Anthropic hopes to keep the product free "beyond the first year." Whether an offer with no stated revenue target is charity or customer acquisition is precisely the question schools are now being asked to weigh.
+
+## The benefit, and the data underneath it
+
+The pedagogical appeal is concrete. Anthropic's tool connects to Learning Commons' Knowledge Graph, so a requested lesson plan arrives aligned to a state's standards rather than generically stitched together. Teachers can, Bent said, pull in a student's past assessment data, assignment history and prior lessons and ask Claude to build individualized plans overnight. Sandra Liu Huang, president of Learning Commons, argued the underlying data set is what separates useful help from guesswork: "Otherwise, AI is guessing on those connections versus knowing."
+
+But that same capability, uploading rosters, diagnostics and attendance for minors into a third-party system, is where the concern concentrates. Not everyone in the field is convinced the marketing matches the reality. "It doesn't look any different than anything I've seen from OpenAI or from Google," said Benjamin Riley, founder of the think tank Cognitive Resonance, after testing the tool. "There's really no differentiator here."
+
+The sharper worry is about who is being asked to say yes. Mark Racine, a former Boston Public Schools technology leader now working as an ed-tech consultant, welcomed the competition but criticized Anthropic for marketing directly to individual teachers and encouraging them to upload student data, bypassing the district leaders whose job is to vet such tools. "We're trying to get [teachers] to second-guess uploading data to a third-party tool," Racine said. "There are federal and state laws that govern this stuff, and it has been a gray area that a lot of companies have kind of ignored for the last few years."
+
+Companies lean on FERPA compliance as reassurance, but Amelia Vance, president of the Public Interest Privacy Center, notes the law governs districts, not vendors, and only a district can decide how student data is shared. Anthropic says its data is not used to train models, that student information is covered by a K-12 addendum written for FERPA, and that most K-12 students cannot use Claude directly because of an under-18 age restriction. It says a district-level offering is coming.
+
+Regulators are moving in parallel. Some 134 AI-in-education bills have been introduced across 31 states in 2026, several aimed squarely at barring student data from training commercial models. In June, a group of New York City council members pressed for a two-year moratorium on AI in schools, citing student privacy.
+
+## What to watch
+
+The tell will be what happens when the free year ends. Watch whether teacher-level giveaways convert into paid district contracts, the model Anthropic has already signaled. Watch the state legislation on training data and minors, which could constrain how far these tools reach into classrooms. And watch adoption: if students arrive on campus already fluent in one assistant, the land-grab will have worked exactly as designed, long before anyone sends an invoice.
