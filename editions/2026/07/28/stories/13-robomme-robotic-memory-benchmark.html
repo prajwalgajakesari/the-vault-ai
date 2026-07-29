@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A New Benchmark Probes What Robots Actually Remember - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>A New Benchmark Probes What Robots Actually Remember</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 848 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>RoboMME, an ICML 2026 Oral, shows that today's generalist robot policies barely remember: the best memory-augmented variant hits 44.51% success versus 84% for an oracle and 90.5% for humans, making memory a measurable frontier for embodied AI.</p>
+</div>
+<div class="article-body">
+<p>Ask a household robot to return three books to their original spots on a shelf, wipe a table for exactly five passes, or fold laundry the way it just watched you do it, and you are asking for something today's most capable robot policies quietly fail at. Not because the arms are clumsy or the cameras are blind, but because the moment an object slips behind another one, or a count creeps past two, the machine forgets. A new benchmark accepted for oral presentation at ICML 2026 sets out to measure exactly how much robots remember, and the early numbers are humbling.</p>
+<p>The paper, "RoboMME: Benchmarking and Understanding Memory for Robotic Generalist Policies," comes from a team at the University of Michigan's SLED lab and Stanford, including Yinpei Dai, Hongze Fu, Jayjun Lee, Yuejiang Liu, Chelsea Finn, Nima Fazeli, and Joyce Chai. It was selected as an ICML 2026 Oral, a slot reserved for roughly the top 0.7 percent of submissions. The work lands in the middle of a broader wave of 2026 research on memory in agents and embodied AI, and it makes a pointed argument: the generalist robot policies everyone is excited about have been graded on tasks that never really tested whether they can hold a thought.</p>
+<h2>What generalist policies forget</h2>
+<p>The models in question are vision-language-action (VLA) systems, the robotics cousins of large multimodal models. They take in camera images and a natural-language instruction and output motor actions. The dominant ones, like the π0.5 backbone RoboMME builds on, are trained on enormous piles of demonstrations and can generalize across many manipulation tasks. But as the authors note, most existing manipulation benchmarks only "implicitly involve temporal memory but rarely require it." A policy that looks only at the current camera frame can already ace them, because the scene itself tells the robot what to do next. That is perception, not memory.</p>
+<p>RoboMME is designed to break that shortcut. Drawing on classical cognitive theory of human memory, the benchmark carves memory into four dimensions: temporal (accumulating and ordering events), spatial (tracking where objects went, including under occlusion), object (recognizing that a thing referred to earlier is the same thing now), and procedural (reproducing a motion you were just shown). Those map to four task suites named Counting, Permanence, Reference, and Imitation, each with four tasks. Altogether there are 16 long-horizon tasks backed by 1,600 demonstrations and about 770,000 high-quality timesteps, a scale the authors argue prior efforts like MemoryBench (three near-solved tasks) and MIKASA-Robo (short-horizon, thin on demonstrations) never reached.</p>
+<h2>A leaderboard with a lot of empty space</h2>
+<p>To find out what actually helps, the team built a family of 14 memory-augmented variants on the same π0.5 backbone, so differences reflect the memory design rather than the underlying model. They sorted memory into three flavors: symbolic (history summarized as language subgoals or tracked points), perceptual (banks of visual features and multi-frame tokens), and recurrent (compressing the past into a fixed-size latent state). Each neural memory could be wired in three ways: as extra context, as a modulator on the action expert, or as a dedicated memory expert.</p>
+<p>The headline result is that there is no headline winner. "No single memory representation or integration strategy consistently performs well across all tasks," the authors write, warning that "conclusions from prior work may not generalize." Effectiveness was sharply task-dependent: symbolic memory shone at counting and short-horizon reasoning, while perceptual memory mattered most for time-sensitive, motion-heavy behavior. The best all-around variant paired perceptual memory with a modulator design and landed at a 44.51 percent overall success rate, the strongest score in the suite and the best balance of performance and compute.</p>
+<p>That number is worth sitting with. An oracle version fed ground-truth symbolic state reached 84 percent, showing the tasks are solvable and that language is a powerful vehicle for high-level reasoning when the information is handed over cleanly. Humans scored 90.5 percent. The gap between the best learned policy and human performance, roughly 46 points, is the size of the problem RoboMME is trying to make visible.</p>
+<h2>Why memory is the frontier</h2>
+<p>For years, embodied AI progress has been narrated through scaling: more data, bigger backbones, broader task coverage. RoboMME is part of an argument that the next bottleneck is architectural, not just bigger. A robot that cannot remember cannot do the mundane, extended chores that make home and warehouse robots economically interesting, the ones defined by counting, occlusion, reference, and imitation over minutes rather than seconds. The paper's most useful contribution may be diagnostic: by isolating four memory types and holding the backbone fixed, it turns a fuzzy complaint ("robots forget") into a measurable, comparable axis of progress.</p>
+<p>What to watch: whether the RoboMME leaderboard, now public with code and demos, starts to climb as labs stress-test their own memory modules against it, and whether the sim results transfer to real hardware. Also watch for hybrid designs that combine symbolic counting with perceptual tracking, since the paper strongly implies no single mechanism will close the gap to human-level recall alone.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"No single memory representation or integration strategy consistently performs well across all tasks, indicating that conclusions from prior work may not generalize."</blockquote>
+          <cite>- The authors, RoboMME paper, U. Michigan SLED lab and Stanford</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">44.51%</div><div class="stat-label">Best VLA success</div></div><div class="stat-cell"><div class="stat-value">84%</div><div class="stat-label">Oracle upper bound</div></div><div class="stat-cell"><div class="stat-value">90.5%</div><div class="stat-label">Human performance</div></div><div class="stat-cell"><div class="stat-value">16 tasks</div><div class="stat-label">Benchmark scale</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2603.04639" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://icml.cc/virtual/2026/oral/71077" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=icml.cc&sz=32" alt="">ICML 2026 (Oral)</a><a href="https://robomme.github.io/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=robomme.github.io&sz=32" alt="">RoboMME Project Page</a><a href="https://sled.eecs.umich.edu/publication/dai-2026-robomme/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=sled.eecs.umich.edu&sz=32" alt="">U. Michigan SLED Lab</a></div></div>
+<div class="article-nav"><a href="12-cooperative-llm-agents-credit-assignment.html" class="nav-prev">&larr; 'Exact Is Easier': New Research Rethinks How Teams</a><a href="14-senate-deepfake-digital-replication-bill.html" class="nav-next">A Bipartisan Push Would Give Americans a 'Digital  &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published July 28, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

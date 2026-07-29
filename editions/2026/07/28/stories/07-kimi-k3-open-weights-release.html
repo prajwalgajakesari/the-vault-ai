@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moonshot Open-Sources Kimi K3's 2.8-Trillion-Parameter Weights Under a Near-Permissive License - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Moonshot Open-Sources Kimi K3's 2.8-Trillion-Parameter Weights Under a Near-Permissive License</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 870 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Moonshot AI open-sourced the full 2.8-trillion-parameter Kimi K3 weights under a near-permissive custom license, releasing the strongest open-weight model yet and sharpening the open-vs-closed and US-vs-China competition.</p>
+</div>
+<div class="article-body">
+<p>On the morning of July 27, 2026, Moonshot AI did something no lab with a genuinely frontier-class model had done before: it uploaded the whole thing. In 96 shards totaling roughly 1.56 terabytes, the full weights of Kimi K3 — a 2.8-trillion-parameter Mixture-of-Experts model with a 1,048,576-token context window and native vision — landed on Hugging Face, accompanied by a technical report and three pieces of training infrastructure. The company branded the event "Kimi K3 Open Day." What it actually amounted to was the largest open-weight model ever released, handed to anyone with the disks and GPUs to run it.</p>
+<p>"This is a watershed moment because frontier open-weight models are now real," wrote Nathan Lambert, the AI researcher whose Interconnects newsletter has tracked the Chinese labs for years. In an essay published the week of the release, Lambert called K3 "clearly the strongest open model ever released" and argued that the gap between open and closed — long debated at six-to-nine months — has now compressed to something closer to three-to-five.</p>
+<h2>An architecture built to be cheap</h2>
+<p>Kimi K3's headline number, 2.8 trillion parameters, is misleading in the way MoE models always are. Only 16 of its 896 routed experts fire per token, activating roughly 104 billion parameters at inference. The interesting engineering sits in two changes Moonshot detailed in its report. Kimi Delta Attention (KDA), a hybrid linear-attention mechanism mixed with Gated MLA at a 3-to-1 ratio, holds down the cost of attention as sequences stretch toward a million tokens. Attention Residuals (AttnRes) let deeper layers reach back to earlier attention outputs rather than only the layer immediately below. Together with a "Stable LatentMoE" training recipe, Moonshot claims these yield "an approximate 2.5x improvement in overall scaling efficiency" over its previous Kimi K2 — "each unit of compute now produces roughly 2.5 times as much intelligence as before," the company wrote.</p>
+<p>The model was also engineered to be servable. Moonshot ran quantization-aware training from the supervised-fine-tuning stage onward, shipping MXFP4 weights with MXFP8 activations so K3 runs across a wide range of hardware rather than only the newest accelerators. Depending on quantization, the download runs from roughly 594GB to about 1.4TB. When KDA broke conventional prefix caching, Moonshot wrote a new implementation and contributed it to vLLM before launch.</p>
+<p>That work paid off in day-zero hosting. Together AI and Modal both stood up endpoints on release day; Modal reported serving K3 at 460 tokens per second using a custom DFlash speculator, and priced Shared-API access on a token basis. On the intelligence indexes, K3 lands as the top open model and roughly fourth overall — Artificial Analysis scored it 57 on its Intelligence Index against 61 for Claude Opus 5 and 60 for Claude Fable 5 — while topping the Frontend Code Arena and posting a rollout cost of about $4.65 per task versus $13.41 for Claude Fable 5.</p>
+<h2>"Near-permissive," not quite MIT</h2>
+<p>The license is where the marketing and the fine print diverge. Early coverage described K3 as shipping under a "Modified MIT" license, the framing Moonshot used for K2. In practice, the weights carry a bespoke "Kimi K3 License." It permits use, modification, distribution and commercial sale — but a model-as-a-service business earning more than $20 million in any 12-month period must negotiate a separate agreement, and any product with more than 100 million monthly active users must display "Kimi K3" on screen. It is near-permissive: unrestricted for the overwhelming majority of developers, with tripwires calibrated to catch only hyperscale competitors. Training data and training code were not released, so this remains open-weight, not open-source.</p>
+<h2>The escalation, and the China angle</h2>
+<p>The strategic subtext is hard to miss. Moonshot is going "toe to toe with Anthropic and OpenAI with far, far fewer resources," as Lambert put it, and it is giving the result away. That reframes open weights as, in the words of OpenAI's Dean Ball, "inherently decelerationist" for the frontier labs — strong free models compress the margins that fund the next training run. Mozilla CTO Raffi Krikorian told Axios that U.S. labs are "clearly worried," noting their CEOs would have little reason to lobby Washington against open-weight models unless they saw a genuine threat.</p>
+<p>The release also arrived the same week Xi Jinping used a World AI Conference keynote to commit China's ecosystem to open source and global diffusion — a rare top-level signal, paired in time with the strongest open model yet. Alibaba answered within days, announcing a 2.4-trillion-parameter Qwen 3.8 to be released with open weights.</p>
+<h2>What to watch</h2>
+<p>Three things. First, adoption friction: a 3-trillion-class model is free but expensive to run, and how quickly inference providers drive its cost down will decide whether "open" means "usable." Second, the license's commercial thresholds — the $20 million and 100-million-user lines are new territory, and the first enterprise to test them will set the precedent. Third, Washington: the interconnects reporting notes the Commerce Department has already weighed Entity-List actions and hosting restrictions aimed at Chinese models. K3 is now the concrete case those debates will be argued over. The buffer between open and closed, Lambert warns, is "our natural buffer to mitigate the risks" — and it just got thinner.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"This is a watershed moment because frontier open-weight models are now real."</blockquote>
+          <cite>- Nathan Lambert, AI researcher, author of Interconnects</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">2.8T</div><div class="stat-label">Parameters</div></div><div class="stat-cell"><div class="stat-value">1M</div><div class="stat-label">Context tokens</div></div><div class="stat-cell"><div class="stat-value">16/896</div><div class="stat-label">Active/total experts</div></div><div class="stat-cell"><div class="stat-value">2.5x</div><div class="stat-label">Efficiency vs K2</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.interconnects.ai/p/kimi-k3-the-open-weights-escalation" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=interconnects.ai&sz=32" alt="">Interconnects</a><a href="https://mlq.ai/news/moonshot-releases-156-tb-kimi-k3-weights-under-a-custom-commercial-license/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=mlq.ai&sz=32" alt="">MLQ.ai</a><a href="https://www.forbes.com/sites/geruiwang/2026/07/27/why-kimi-k3-signals-a-convergence-toward-open-weight-models/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=forbes.com&sz=32" alt="">Forbes</a><a href="https://modal.com/blog/kimi-k3-by-moonshot-now-available-on-modal" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=modal.com&sz=32" alt="">Modal</a></div></div>
+<div class="article-nav"><a href="06-mcp-2026-07-28-stateless-spec.html" class="nav-prev">&larr; MCP Goes Stateless: The Biggest Spec Change Yet Re</a><a href="08-anthropic-shared-chats-search-indexing.html" class="nav-next">Shared Claude Chats Turned Up in Google Search, Ex &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published July 28, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
