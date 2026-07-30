@@ -1,0 +1,29 @@
+Elon Musk's artificial intelligence company is going to federal court to defend the ability of its software to strip the clothes off real people — and it is casting the fight as a matter of free speech.
+
+xAI, the maker of the Grok chatbot, sued Minnesota Attorney General Keith Ellison on Monday, July 28, in U.S. District Court, seeking to block a first-in-the-nation law that bans "nudification" technology days before it takes effect. The statute, HF 1606, was set to become enforceable on Saturday, August 1, 2026, carrying civil penalties of up to $500,000 per unlawful image and giving victims a right to sue the companies whose tools produced the pictures.
+
+The company's complaint frames Minnesota's ban as a censorship regime dressed up as consumer protection. HF 1606, xAI argues, "imposes an overbroad, content-based ban on free speech and the tools of visual expression" and "sweeps far beyond Minnesota's interest and punishes a large amount of innocuous and protected speech." The filing seeks a preliminary injunction to stop Ellison from enforcing the law while the case proceeds.
+
+Minnesota's Democratic leadership responded with unusual bluntness. Governor Tim Walz, who signed the bill into law earlier this year, posted a four-word reply across his social media accounts: "See you in court, creep." Ellison struck a more measured tone but drew the same line. "We're waiting to be served and will review the lawsuit and respond in court," he said. "But I know that using AI to generate nude images of people against their will is appalling."
+
+## What HF 1606 does
+
+The law makes it illegal for anyone who owns or controls a website, application, or software service to let users "nudify" images or videos of a real, identifiable person — generating a convincing fake that depicts intimate parts the subject never exposed. It also bars advertising such services and lets both the attorney general and individual victims bring claims. People depicted in illegally nudified content can sue for damages including mental anguish, punitive damages, and attorney fees, on top of the $500,000-per-image civil penalty the state can pursue.
+
+The bill did not emerge from a policy think tank. It grew out of the experience of Molly Kelley, a Minnesota woman who discovered in 2024 that a close family friend had used a nudification site to fabricate explicit deepfakes of her and roughly 80 other women, built from photos scraped off their public social media accounts. When Kelley learned that no existing law let her sue for restitution, she began cold-calling anyone who might help and eventually reached State Senator Erin Maye Quade, a member of the Democratic-Farmer-Labor Party, who authored the legislation. It passed with lopsided bipartisan support — 132-1 in the House and 65-0 in the Senate — before Walz signed it.
+
+xAI's legal theory leans on the structure of the statute rather than the sympathy of its origins. The company contends the law lacks a scienter requirement — meaning a platform could be liable even without knowing an image was nonconsensual — and offers no safe harbor for services that act in good faith. Because the ban turns on what an image depicts, xAI says, it is a content-based restriction that must survive strict scrutiny, the most demanding standard in constitutional law. The company also argues that creating images and videos with its platform is itself protected First Amendment activity and that the law would chill legitimate satire, art, and commentary along with abuse.
+
+## Why this matters
+
+The case is the first serious constitutional test of a wave of state laws aimed at AI-generated sexual abuse imagery, and its outcome will ripple well beyond Minnesota. If a federal judge blocks HF 1606, the roughly two dozen states weighing similar measures will have to redraft around the ruling. If the law survives, it becomes a template — and a signal that "the tool made me do it" is not a defense that courts will accept for image-generation platforms.
+
+It also crystallizes a genuine legal tension. Non-consensual intimate imagery causes real, documented harm, and courts have long recognized narrow categories of unprotected speech. But laws written broadly enough to catch every nudify app can also catch general-purpose image editors, and the First Amendment does not bend easily for content-based rules. xAI is betting that Minnesota drafted too widely; the state is betting that the harm is concrete enough to justify the reach.
+
+There is a strategic dimension, too. xAI — now formally SpaceXAI following its February merger with Musk's rocket company — has positioned itself as the industry's most aggressive litigant against AI regulation. A win here would hand Musk a precedent he can deploy against content-based AI rules nationwide. That is precisely why Minnesota officials are treating the suit less as a nuisance than as a fight worth having in public.
+
+## What to watch next
+
+The immediate question is the preliminary injunction. If the court grants xAI's request before August 1, HF 1606 is effectively frozen and the nudify ban never takes hold on schedule; if the motion is denied, the law goes live with a $500,000 hammer while litigation continues. Watch, too, for whether the judge accepts xAI's content-based framing, which would force Minnesota to clear strict scrutiny, versus treating the statute as a regulation of conduct that merely incidentally burdens speech.
+
+Beyond the courtroom, expect other AI firms and civil-liberties groups to file amicus briefs on both sides, and expect advocates for deepfake victims — Kelley among them — to make the human cost of the technology central to the state's defense. Whatever the district court decides, an appeal to the Eighth Circuit looks likely, meaning the constitutional line between banning abuse and banning expression may not be settled for years.
