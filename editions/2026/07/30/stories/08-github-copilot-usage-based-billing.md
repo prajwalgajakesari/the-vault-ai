@@ -1,0 +1,33 @@
+# GitHub Ends Unlimited Copilot, Shifting Developers to Metered 'AI Credits'
+
+The era of the all-you-can-code Copilot subscription is over. On June 1, 2026, GitHub retired the flat "premium request" model that had governed its AI coding assistant and replaced it with usage-based, metered billing denominated in a new virtual currency: GitHub AI Credits, where one credit equals one U.S. cent. Two months on, the transition has hardened into one of the most contentious pricing shifts the developer-tools industry has seen, with users watching monthly allotments evaporate in hours and some threatening to walk.
+
+GitHub telegraphed the change on April 27, 2026, in a blog post from Chief Product Officer Mario Rodriguez. "Instead of counting premium requests, every Copilot plan will include a monthly allotment of GitHub AI Credits, with the option for paid plans to purchase additional usage," Rodriguez wrote, adding that "usage will be calculated based on token consumption, including input, output, and cached tokens, using the listed API rates for each model."
+
+## What Actually Changed
+
+Under the old system, Copilot metered activity in Premium Request Units (PRUs), applying model multipliers to a fixed monthly quota. As of June 1, PRUs are gone. Copilot now bills against the input, output, and cached tokens each request consumes, priced at the published API rate for whichever model handled the work. A lightweight chat question might cost a fraction of a credit; a long autonomous agent session sweeping across a repository with a frontier model can cost dramatically more.
+
+Crucially, GitHub kept headline prices flat. Copilot Pro remains $10 per month, Pro+ remains $39, Business stays at $19 per user per month, and Enterprise at $39 per user per month. Each plan bundles a monthly credit allowance pegged to its price: Pro includes $10 in credits, Pro+ includes $39, Business $19, and Enterprise $39. To ease the shift, GitHub granted Business and Enterprise customers promotional credits for June, July, and August: $30 per month for Business seats and $70 for Enterprise.
+
+Two things stayed free. Standard code completions and Next Edit Suggestions remain included on paid plans and do not draw down credits. But two things also got harder. The old "fallback" behavior, in which users who exhausted their quota dropped to a cheaper model and kept working, is gone; usage is now strictly governed by available credits and admin budget controls. And Copilot code review now additionally consumes GitHub Actions minutes, billed at standard Actions rates.
+
+Annual subscribers got a reprieve of sorts: they remain on premium-request pricing until their term expires, though model multipliers rose for that group on June 1. GitHub also introduced pooled usage across organizations, so unused credits are shared rather than stranded per seat, and gave admins budget caps at the enterprise, cost-center, and user levels.
+
+## The Backlash
+
+Reaction from developers was swift and sharp. Coverage across outlets including The Register, TechSpot, and Visual Studio Magazine documented users burning through allotments far faster than expected. One developer on the $39 Pro+ plan reported consuming roughly 8 percent of a monthly allotment in about two hours, projecting the quota might last less than two days. Another said a single change request cost more than $6, calling the consumption "impossible to predict." In one widely cited case, a handful of Copilot-driven commits reportedly ate 5,000 credits, a quarter of a top-tier plan's monthly budget, in a single sitting.
+
+The common thread in the complaints is not necessarily that token-based pricing is unfair, but that it is opaque. A flat subscription is trivial to budget; a metered agent that can silently spend dollars per task is not. Developers on GitHub's own community discussion thread and elsewhere floated exit plans, including calling Anthropic and OpenAI models directly or routing work through third-party gateways to regain cost predictability.
+
+## Why It Matters
+
+GitHub's move is less a pricing tweak than an admission about the economics of agentic AI. As Rodriguez put it, Copilot "is not the same product it was a year ago," having evolved "from an in-editor assistant into an agentic platform capable of running long, multi-step coding sessions." That evolution blew up the unit economics: under a flat fee, "a quick chat question and a multi-hour autonomous coding session can cost the user the same amount," while GitHub absorbed the widening gap. His verdict: "GitHub has absorbed much of the escalating inference cost behind that usage, but the current premium request model is no longer sustainable."
+
+That single sentence captures the pressure squeezing the entire category. Flat-rate AI subscriptions were priced when inference meant a few hundred tokens of autocomplete. Autonomous agents that read whole repositories, plan, and iterate can consume orders of magnitude more compute per task, and frontier-model inference is not getting cheaper fast enough to hide inside a $10 or $39 fee. GitHub is far from alone: usage-based and credit-metered pricing has become the default posture across AI coding tools and assistants as vendors try to stop subsidizing their heaviest users. The unlimited-subscription land grab that defined the first wave of AI developer tools is giving way to a metered-utility model that looks more like cloud infrastructure than software-as-a-service.
+
+The risk for GitHub is that metering shifts financial uncertainty onto the customer at exactly the moment agents are being marketed as autonomous. A tool that spends money on your behalf, unpredictably, changes the trust calculus, and it hands competitors a clear pitch to price-sensitive developers.
+
+## What to Watch
+
+Three things will determine whether the backlash fades or hardens. First, transparency tooling: GitHub launched a preview-bill experience in early May and admin budget controls at launch, and how usable those cost dashboards prove in daily practice will shape sentiment. Second, churn: whether the vocal threats to migrate to direct model APIs or rival assistants translate into measurable seat losses, particularly among individual Pro and Pro+ users who lack enterprise pooling to cushion them. Third, the promotional cliff: the enhanced Business and Enterprise credit grants expire after August, and the September bills, the first at full metered rates, will be the real test of whether organizations accept the new math or renegotiate. Watch GitHub Universe in late October for any softening of the model.
