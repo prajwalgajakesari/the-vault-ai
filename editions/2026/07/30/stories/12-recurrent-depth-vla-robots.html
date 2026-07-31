@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robots Learn to 'Think Longer' at Test Time With Latent Reasoning Loops &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+.article-nav .nav-next{text-align:right;margin-left:auto}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Robots Learn to 'Think Longer' at Test Time With Latent Reasoning Loops</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 908 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>RD-VLA lets robot vision-language-action models iterate silently in latent space at inference, scaling test-time compute with constant memory and turning some 0%-success tasks into 90%+ success with four reasoning loops.</p>
+</div>
+<div class="article-body">
+<h2>Robots Learn to 'Think Longer' at Test Time With Latent Reasoning Loops</h2>
+<p>The last two years of AI progress have hinged on a deceptively simple idea: let a model spend more compute at inference time and it will reason better. That insight powered the "thinking" chatbots that dominated 2024 and 2025. Now a group of robotics researchers wants to bring the same trick to machines that move in the physical world, but without the crippling latency that made chatbot-style reasoning a poor fit for real-time control.</p>
+<p>In a paper posted to arXiv on February 8, 2026, titled "Recurrent-Depth VLA: Implicit Test-Time Compute Scaling of Vision-Language-Action Models via Latent Iterative Reasoning," the authors introduce RD-VLA, an architecture that lets a robot policy iterate silently in latent space before it commits to an action. Rather than writing out a chain of reasoning tokens, the model loops an internal representation through a weight-tied module as many times as a task demands, then acts.</p>
+<h2>The Specifics</h2>
+<p>Today's vision-language-action (VLA) models, the neural policies that map camera images and language instructions to robot motion, use a fixed computational depth. As the authors put it, they expend "the same amount of compute on simple adjustments and complex multi-step manipulation." One obvious fix, borrowed from large language models, is chain-of-thought prompting: have the model reason in text before acting. But the authors argue that approach "scales memory linearly and is ill-suited for continuous action spaces," where the output is a stream of joint angles rather than discrete words.</p>
+<p>RD-VLA takes a different route. It attaches a "recurrent, weight-tied action head that supports arbitrary inference depth with a constant memory footprint." Because the same weights are reused each iteration, the model can think for one loop or twenty without allocating more memory, a sharp contrast to token-based reasoning, which grows its context, and its memory, with every step. Training uses truncated backpropagation through time (TBPTT) to supervise the refinement process efficiently. At inference, the system decides on its own when to stop, using "an adaptive stopping criterion based on latent convergence," meaning it keeps looping until its internal state settles.</p>
+<p>The headline result is that this extra thinking matters most exactly where it should. On challenging manipulation tasks, the paper reports that problems which "fail entirely (0 percent success) with single-iteration inference exceed 90 percent success with four iterations," while easy tasks saturate almost immediately. The authors also claim the latent approach delivers "up to 80x inference speedup over prior reasoning-based VLA models," precisely because it avoids generating reasoning tokens one at a time.</p>
+<p>The work is credited to Yalcin Tur, Jalal Naghiyev, Haoquan Fang, Wei-Chuan Tsai, Jiafei Duan, Dieter Fox, and Ranjay Krishna, a roster whose senior members are closely associated with robotics and vision research at the University of Washington and NVIDIA. The 11-page paper lists a project page at rd-vla.github.io and has circulated through the ES-Reasoning workshop track tied to ICLR 2026. As with any preprint, the benchmark figures reflect the authors' own reported experiments and have not yet been independently replicated.</p>
+<h2>Why It Matters</h2>
+<p>The broader significance is about porting a hard-won lesson from language models into embodied AI. In text, the field learned that scaling test-time compute, letting a model "think longer," often beats simply making the model bigger. But robots operate under a constraint chatbots do not: they act in real time. A manipulation policy that pauses to emit hundreds of reasoning tokens between gripper movements is unusable on real hardware. That mismatch has kept the test-time-compute revolution largely on the language side.</p>
+<p>Latent iterative reasoning is a bid to resolve the tension. By doing its deliberation inside a continuous hidden state rather than in written language, RD-VLA gets the adaptivity of "thinking longer" while keeping memory constant and latency low enough to matter. The adaptive stopping criterion is the elegant part: cheap actions get cheap compute, and only the genuinely hard moments, the multi-step, contact-rich manipulations, trigger deeper loops. That is a more principled use of hardware than running every frame at maximum depth.</p>
+<p>If the results hold up, the approach also points toward a cleaner architecture for embodied reasoning. Chain-of-thought in robotics has always been an awkward graft, forcing a continuous control problem through a discrete-token bottleneck. A recurrent-depth head sidesteps that entirely, suggesting that the reasoning advances driving frontier LLMs may reach robotics through a fundamentally different mechanism than copy-pasting text-based chain-of-thought.</p>
+<h2>What to Watch</h2>
+<p>Several questions will determine whether RD-VLA is a milestone or a promising sketch. First, generalization: the reported 0-to-90 percent jump comes from the authors' chosen tasks, and independent evaluation on standard manipulation benchmarks and real robots will be the real test. Second, the stopping criterion: latent-convergence heuristics can be brittle, and it remains to be seen whether the model reliably knows when it has thought enough, or whether it sometimes stops short on the hardest cases. Third, whether the 80x speedup claim over token-based reasoning survives comparison against the strongest current baselines rather than earlier reasoning VLAs.</p>
+<p>More broadly, watch whether latent recurrence becomes the default way embodied models scale test-time compute. The idea has a parallel lineage in language modeling, where recurrent-depth approaches to latent reasoning have been explored as an alternative to verbose chain-of-thought. If robotics converges on the same answer, "thinking longer" could quietly become a standard dial on the next generation of robot policies, one that spins up only when the task gets hard.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"Tasks that fail entirely with single-iteration inference exceed 90 percent success with four iterations, while simpler tasks saturate rapidly."</blockquote><cite>&mdash; Tur et al., authors of the RD-VLA paper</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">0% to 90%+</div><div class="stat-label">Hard-task success, 1 to 4 loops</div></div><div class="stat-cell"><div class="stat-value">up to 80x</div><div class="stat-label">Speedup vs prior reasoning VLAs</div></div><div class="stat-cell"><div class="stat-value">Constant</div><div class="stat-label">Memory regardless of depth</div></div><div class="stat-cell"><div class="stat-value">Feb 2026</div><div class="stat-label">arXiv preprint</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2602.07845" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://rd-vla.github.io/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=rd-vla.github.io&sz=32" alt="">RD-VLA Project Page</a><a href="https://openreview.net/forum?id=p1UF73ZvE0" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openreview.net&sz=32" alt="">OpenReview</a><a href="https://huggingface.co/papers/2602.07845" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Hugging Face Papers</a></div></div>
+<div class="article-nav"><a href="11-ai-agents-open-ended-research.html" class="nav-prev">&larr; Can AI Agents Do Open-Ended Science? New Case Stud</a><a href="13-ai-olympiad-math-proof-search.html" class="nav-next">AI Systems Are Cracking Olympiad Math by Generatin &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 30, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

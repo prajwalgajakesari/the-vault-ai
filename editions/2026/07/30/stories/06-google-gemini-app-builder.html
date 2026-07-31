@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google Turns Gemini Into an App Builder, Generating Interactive Software From a Prompt &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+.article-nav .nav-next{text-align:right;margin-left:auto}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Google Turns Gemini Into an App Builder, Generating Interactive Software From a Prompt</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 935 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Google is extending Gemini from text generation to software generation, with a new 'App' artifact in Gemini Notebook and a shipping Canvas mode that builds interactive apps from a prompt, pushing into the prompt-to-app race against OpenAI Canvas and Claude Artifacts.</p>
+</div>
+<div class="article-body">
+<h2>Google Turns Gemini Into an App Builder, Generating Interactive Software From a Prompt</h2>
+<p>Google is quietly reshaping Gemini from a chatbot that writes text into a tool that writes working software. As of late July 2026, a new "App" artifact has surfaced inside Gemini Notebook that promises to turn a pile of documents into an interactive application you can actually operate, not just read, and the company's separately shipping Canvas feature already lets users generate embeddable apps from a single spoken or typed prompt. Taken together, the moves push Google squarely into the "vibe coding" race against OpenAI's Canvas and Anthropic's Claude Artifacts, where the deliverable is no longer a paragraph but a functioning tool.</p>
+<p>The clearest new signal came on July 29, when TestingCatalog reported that a tile marked "App" had appeared in the Studio panel of Gemini Notebook, sitting alongside the still-unreleased Canvas and Lit Review options. Google describes the feature as generating interactive applications from a notebook's material. Because it accepts a prompt, the report notes, "the output could be a dashboard, a study aid, or a lightweight game built from a book." The caveat is important: the App tile is not live for anyone yet, and Google has not attached a release window to it.</p>
+<h2>What It Can Build, and How</h2>
+<p>The plumbing to make generated apps run is already in place. On July 16, Google renamed NotebookLM to Gemini Notebook and extended its per-notebook "secure cloud computer" to AI Pro subscribers on the web, after an Ultra-first rollout in June. That sandbox writes and runs code against a user's uploaded sources, which is exactly the substrate any generated app needs to execute. Google has spent the past year turning the product into what TestingCatalog called an "output factory" of audio overviews, video, infographics, slide decks, flashcards and data tables. An App tile would give it the first artifact a reader can operate rather than only consume.</p>
+<p>Gemini's Canvas mode offers a preview of what that experience feels like when it works. Canvas, accessible today through Gemini's Tools menu for Google Workspace Pro subscribers, generates fully functional, embeddable apps from natural-language prompts with no coding required. In a January demo documented by AI SEO consultant Chris Raulf, a roughly one-minute voice prompt asking for help planning a two-week European trip produced a working app called "Eurotrip Planner," complete with per-city day allocations, suggested activities, a daily planner component and copy-ready embed code. "The whole process took about a minute," Raulf wrote, though he cautioned that a basic prompt yields a basic app: his output leaned more static itinerary than interactive builder because he did not ask for selectable options.</p>
+<p>Canvas has been maturing on a visible curve. It first appeared in limited Google Search Labs testing in January 2026 generating simple HTML widgets and JavaScript calculators, expanded in February to full CSS styling and multi-file JavaScript modules, and by March 4 rolled out to every US-based Google Search user as part of AI Mode. July updates let users upload their own files and images as sources and transform Deep Research reports into interactive visuals and quizzes inside Canvas.</p>
+<h2>A Broader Workspace Push</h2>
+<p>The app-generation work landed amid a cluster of Gemini changes. Google expanded "Fill with Gemini" in Google Sheets, which automates data entry and lets users generate, summarize, categorize or analyze text directly in cells, to 11 additional languages including Mandarin, Dutch, Turkish and Polish, with a gradual rollout that began July 7. And on the program-branding front, Google announced that "Gemini Alpha" is being renamed "Gemini Beta," a change it framed as purely cosmetic, meant to better reflect the scale and quality of features entering that launch stage; the new label began replacing the old one in the Admin console and Help Center starting around July 22, with rollout continuing July 30.</p>
+<h2>Why It Matters</h2>
+<p>App generation is becoming the frontier where AI assistants prove they can do more than talk. OpenAI's Canvas and Anthropic's Claude Artifacts both let users spin up interactive HTML tools inside a chat, and the category, popularly dubbed "vibe coding," has turned prompt-to-app into a competitive battleground. Google's advantage is distribution: Gemini reaches into Search, Workspace, Sheets and Notebook, so an app artifact does not live in a walled garden but next to the documents, spreadsheets and research users already keep there. Grounding generated apps in a user's own sources, as the Notebook App tile promises, is a genuine differentiator over open-ended chatbots that build from a blank prompt.</p>
+<p>The strategic backdrop is less flattering. Reporting this month indicated Google is running months behind on Gemini 3.5 Pro, its flagship model, having taken extra time to improve coding capability, while a newer Flash model landed July 21. Coding is precisely where frontier models earn developer credibility, and app generation is a coding workload. Shipping compelling app-building features while the top-tier engine slips creates an obvious tension between ambition and delivery.</p>
+<h2>What to Watch</h2>
+<p>- Whether the Gemini Notebook "App" tile graduates from a leaked UI element to a shipping feature, and which subscription tier, AI Pro or Ultra, gets it first.<br>- How robust and interactive the generated apps actually are versus the "static itinerary" ceiling early Canvas demos hit.<br>- Whether the delayed Gemini 3.5 Pro powers these builders once it arrives, and how the watermarking toggle spotted in Notebook governs Google branding on exported artifacts.<br>- Pricing and export friction: Canvas today requires copying code out and embedding it elsewhere, a step that separates a demo from a product.</p>
+<p><em>Sources: TestingCatalog, Google Workspace Updates, chrisraulf.com, iNews Zoombangla.</em></p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"The question used to be: what information should this page contain? The question now is: what can visitors do with this page?"</blockquote><cite>&mdash; Chris Raulf, AI consultant, on Gemini Canvas app generation</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">Jul 29, 2026</div><div class="stat-label">'App' tile spotted in Gemini Notebook</div></div><div class="stat-cell"><div class="stat-value">Mar 4, 2026</div><div class="stat-label">Canvas rolled out in Search AI Mode</div></div><div class="stat-cell"><div class="stat-value">+11</div><div class="stat-label">Languages for Fill with Gemini in Sheets</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.testingcatalog.com/google-is-working-on-interactive-apps-for-gemini-notebook/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=testingcatalog.com&sz=32" alt="">TestingCatalog</a><a href="https://workspaceupdates.googleblog.com/2026/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=workspaceupdates.googleblog.com&sz=32" alt="">Google Workspace Updates</a><a href="https://chrisraulf.com/google-gemini-canvas-builds-embeddable-apps/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=chrisraulf.com&sz=32" alt="">Chris Raulf</a><a href="https://inews.zoombangla.com/google-gemini-updates-july-2026/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=inews.zoombangla.com&sz=32" alt="">iNews Zoombangla</a></div></div>
+<div class="article-nav"><a href="05-microsoft-mistral-partnership-expansion.html" class="nav-prev">&larr; Microsoft and Mistral Expand Their Alliance to Sel</a><a href="07-ant-lingbot-vla-open-source.html" class="nav-next">Ant Group Open-Sources LingBot-VLA 2.0, a Vision-L &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 30, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

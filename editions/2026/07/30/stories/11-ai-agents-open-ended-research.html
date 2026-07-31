@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Can AI Agents Do Open-Ended Science? New Case Studies Offer Early Evidence &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+.article-nav .nav-next{text-align:right;margin-left:auto}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Can AI Agents Do Open-Ended Science? New Case Studies Offer Early Evidence</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 858 words</span>
+    <span>2 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A Princeton-led team tested frontier AI agents on the real, unpublished research questions behind two NeurIPS 2026 submissions, grading them via the papers' original authors; the agents handled all the engineering but failed to make substantial research progress.</p>
+</div>
+<div class="article-body">
+<h2>Can AI Agents Do Open-Ended Science? New Case Studies Offer Early Evidence</h2>
+<p>For years, the case that AI is about to accelerate its own development has rested on a specific bet: that AI agents will eventually take over the research that improves AI systems, kicking off a feedback loop that compresses decades of progress into a handful of years. A paper posted to arXiv on July 29, 2026 tries to put that bet to an unusually honest test — and the early answer is a qualified no.</p>
+<p>The study, "Can AI agents conduct open-ended AI research? Early evidence from two case studies," was led by researchers including Sayash Kapoor and Arvind Narayanan of Princeton, the pair behind the book <em>AI Snake Oil</em>. Its more than twenty co-authors span Georgetown's Center for Security and Emerging Technology, Johns Hopkins, Stanford, and the UK AI Security Institute, among others. The paper is part of a project the group calls CRUX, and it climbed to the top of arXiv's cs.AI daily listing within hours of publication.</p>
+<h2>What the researchers actually did</h2>
+<p>The team's central complaint is that existing ways of measuring AI research ability are broken in opposite directions. Benchmarks with known answers — the paper cites a lineage that includes PaperBench, EXP-Bench, and MLR-Bench — can be graded automatically but are, in the authors' framing, easy to optimize toward without acquiring the underlying skill. Submitting AI-generated papers to blind peer review, the other common approach, is described as "overstretched, stochastic," and prone to poor review quality.</p>
+<p>Their proposed "third way" is what they call a shadow evaluation. An AI agent is handed the central, open-ended research question of a genuinely unpublished, high-quality paper, given the tools and data a researcher would normally have, and then graded by the paper's original authors — the only people positioned to judge work on a question whose answer is not yet known.</p>
+<p>The researchers ran this on two unpublished NeurIPS 2026 submissions. They gave frontier agents six days and thousands of dollars of compute per run to make progress on the real research question behind each paper.</p>
+<h2>What the case studies found</h2>
+<p>According to the abstract, the agents "completed all of the engineering without human help, yet could not make substantial progress towards answering the research questions." Both attempts were, in the authors' words, "unambiguously rejected" by the original scientists who graded them.</p>
+<p>The paper catalogs five recurring failure modes: poor judgment about the bar for publishable research, uncreative responses to shortcomings in the research design, ineffective backtracking from dead ends, poor resource awareness, and instruction drift. A robustness check using a second model and a different scaffold reproduced the same failures, suggesting the problems are not idiosyncratic to one system. The team says it is releasing the expert reviews, survey responses, agent repositories, and logs.</p>
+<p>The headline conclusion is narrow but pointed: today's agents can handle the engineering of AI research, but stumble on the critical, judgment-heavy parts of the research lifecycle.</p>
+<h2>Why It Matters</h2>
+<p>The stakes here are less about a leaderboard than about which forecasts of AI progress deserve to be taken seriously. Scenarios in which AI recursively improves itself depend on the premise that agents can conduct open-ended research, not merely grind out well-specified tasks. This paper is an attempt to test that premise directly rather than infer it from benchmark scores.</p>
+<p>It also sharpens a long-running worry about evaluation itself. Any task precise enough to grade automatically is, the authors argue, precise enough to optimize for — an echo of Goodhart's law, in which a measure stops being useful the moment it becomes a target. That critique reframes a wave of prior "AI Scientist"-style work, from automated experiment pipelines to research benchmarks, as informative about engineering competence but potentially misleading about genuine scientific capability. For comparison, the University of Michigan's EXP-Bench found that agents completed fully executable research experiments just 0.5% of the time even on tasks with known answers.</p>
+<p>Finally, the makeup of the author list signals that this is being positioned as a governance instrument as much as an academic one. Co-authors include Helen Toner of Georgetown CSET and Gillian Hadfield of Johns Hopkins, both prominent in AI policy — a hint that independent, lab-external measures of research capability are seen as inputs to regulation, not just science.</p>
+<h2>What to Watch</h2>
+<p>The obvious caveat is scale. Two case studies are not a body of evidence, and the authors say as much. Shadow evaluations trade the reproducibility and model-ranking power of benchmarks for realism: run-to-run variability on such open-ended tasks may exceed the gap between two capable models, and the method demands scarce expert graders. Whether this small-sample design can accumulate into a trustworthy signal is itself an open question.</p>
+<p>The team plans to keep testing. Reporting on the CRUX project indicates it intends to release new evaluations every one to two months, which would slowly build the kind of longitudinal record that a single snapshot cannot provide. Watch, too, for whether frontier labs adopt or resist author-graded evaluation, and whether the five failure modes identified here prove durable or start to close as models improve. If agents begin making real headway on genuinely unresolved questions, that would be a far more meaningful milestone than another saturated benchmark — and this framework is built to notice it.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"The agents completed all of the engineering without human help, yet could not make substantial progress towards answering the research questions."</blockquote><cite>&mdash; Kirgis, Kapoor, Narayanan et al., authors, arXiv:2607.27191</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">2</div><div class="stat-label">Unpublished NeurIPS 2026 case studies</div></div><div class="stat-cell"><div class="stat-value">6 days</div><div class="stat-label">Compute per agent</div></div><div class="stat-cell"><div class="stat-value">5</div><div class="stat-label">Recurring failure modes</div></div><div class="stat-cell"><div class="stat-value">0.5%</div><div class="stat-label">Prior EXP-Bench success rate</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2607.27191" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://www.techtimes.com/articles/322297/20260730/princeton-gives-ai-agents-unpublished-questions-original-scientists-grade-results.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techtimes.com&sz=32" alt="">Tech Times</a></div></div>
+<div class="article-nav"><a href="10-dytopo-dynamic-agent-topology.html" class="nav-prev">&larr; New Research Lets Teams of AI Agents Rewire Who Ta</a><a href="12-recurrent-depth-vla-robots.html" class="nav-next">Robots Learn to 'Think Longer' at Test Time With L &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 30, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
