@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google DeepMind's Gemini Robotics 2 Gives Humanoids Whole-Body Control &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header"><span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+<h1>Google DeepMind's Gemini Robotics 2 Gives Humanoids Whole-Body Control</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 814 words</span><span>3 sources</span></div></header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>Google DeepMind's Gemini Robotics 2 extends its physical-AI models from upper-body manipulation to full whole-body humanoid control, demonstrated on Apptronik's Apollo 2, while candid benchmarks show fine dexterity still lags.</p></div>
+<div class="article-body">
+<h2>Google DeepMind's Gemini Robotics 2 Gives Humanoids Whole-Body Control</h2>
+<p>For years, the flashiest humanoid robot demos have quietly stopped at the waist. Arms reached, fingers pinched, but the legs stood still. On July 30, Google DeepMind moved the line all the way to the floor with Gemini Robotics 2, a suite of AI models that, for the first time, lets a single learned policy coordinate a humanoid from what the company calls "feet to fingertips."</p>
+<p>The launch, detailed in a blog post by Carolina Parada, DeepMind's head of robotics, extends the company's physical-AI push from tabletop manipulation to genuine whole-body movement. In the headline demonstration, Apptronik's Apollo 2 humanoid is told to "put the watering can into the green bin in the bottom shelf." It parses the instruction, walks across the room, picks up the can, steps to the shelving unit, crouches, and sets it down precisely, a sequence that requires balance, navigation, and dexterity stitched together on the fly.</p>
+<p>"Gemini Robotics 2 enables robots to reason through every movement, unlocking a broad range of tasks," Parada wrote.</p>
+<h2>Three models, one brain-and-body split</h2>
+<p>Gemini Robotics 2 ships as three models. The core is a vision-language-action (VLA) model that converts camera input and spoken instructions directly into motor commands, and it can now drive full humanoids as well as bi-arm rigs. Above it sits Gemini Robotics ER 2, an embodied-reasoning vision-language model that acts as the "high-level brain," planning multi-step tasks that run several minutes, tracking progress, self-correcting when a step fails, and, newly, coordinating more than one robot at a time. The third, Gemini Robotics On-Device 2, is a slimmed VLA that runs locally with no cloud connection and adapts to an unfamiliar robot body in a few hours using fewer than 200 examples.</p>
+<p>DeepMind demonstrated the same model checkpoint controlling three different bodies: Apollo 2 with Apptronik's five-fingered, 22-degree-of-freedom SharpaWave hands; Apollo 2 with Inspire hands; and a Franka Duo bi-arm platform with a Robotiq gripper. Beyond the watering-can routine, the models were shown cleaning up trash, screwing in a lightbulb, inserting a cassette into a boombox, and tying off a garbage bag.</p>
+<p>DeepMind's own benchmark numbers are notably candid about how hard fine motor control remains. On the SharpaWave hands, Apollo 2 unscrewed a bulb 92 percent of the time but managed to screw one in just 36 percent; tying a trash bag landed at 44 percent. Whole-body pick-ups ranged from 76 percent off a shelf down to 46 percent off the floor. Grippered precision-insertion on the Franka Duo, by contrast, hit 90 percent. "The multi-finger dexterous manipulation remains challenging," the company conceded.</p>
+<h2>The hardware partner and the data loop</h2>
+<p>Apptronik is more than a demo prop. The Austin company has been feeding DeepMind training data through "Robot Park," a facility where fleets of Apollo units perform real tasks to generate examples. "What we're building is a continuous learning loop with the Google DeepMind Robotics team: robots working, collecting data, and improving with every cycle, in real environments, on real tasks," Apptronik CEO Jeff Cardenas said in announcing the effort. That loop, deploy then collect then retrain, is the mechanism DeepMind is betting will close the gap between a 46 percent floor pick-up and something a warehouse would trust.</p>
+<h2>The race for physical AI</h2>
+<p>The release lands in the middle of an escalating contest to build the foundation model for the physical world. Nvidia has positioned its GR00T models and Cosmos world-model stack as neutral infrastructure for any humanoid maker; Tesla is pushing Optimus with its own end-to-end vision approach; and Figure recently broke from OpenAI to build its Helix system in-house. DeepMind's angle is leverage. It is not building a robot at all, but selling the "intelligence layer" that runs across Apptronik, Boston Dynamics, and Agile Robots hardware alike, the same way Gemini rides on top of many devices. Making ER 2 available now through Google AI Studio, with the VLA models in early access, follows that platform logic.</p>
+<p>Safety is threaded through the launch. DeepMind introduced ASIMOV-Agentic, a benchmark that tests whether the reasoning agent will refuse an unsafe command from the action model and call for a human when uncertain, and it says ER 2 is its best model yet at detecting nearby people and stopping.</p>
+<h2>What to watch</h2>
+<p>The honest benchmarks are the story's tell. Whole-body control is real, but reliability at human speed is not here yet, and DeepMind says as much about both movement pace and multi-finger precision. Watch three things: whether the Robot Park data flywheel visibly lifts those success rates in the next release; whether multi-robot collaboration moves from staged demo to deployment at customers like Mercedes-Benz and GXO; and whether rivals answer with their own whole-body policies. The waist-up era of humanoid demos is over. The question now is how fast the rest of the body catches up.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"Gemini Robotics 2 enables robots to reason through every movement, unlocking a broad range of tasks."</blockquote><cite>&mdash; Carolina Parada, VP and Head of Robotics, Google DeepMind</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">92% / 36%</div><div class="stat-label">Unscrew vs. screw-in lightbulb</div></div><div class="stat-cell"><div class="stat-value">76-46%</div><div class="stat-label">Whole-body pick-ups (shelf to floor)</div></div><div class="stat-cell"><div class="stat-value"><200</div><div class="stat-label">Examples to adapt to a new robot</div></div><div class="stat-cell"><div class="stat-value">22</div><div class="stat-label">Degrees of freedom, SharpaWave hand</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=deepmind.google&sz=32" alt="">Google DeepMind</a><a href="https://roboticsandautomationnews.com/2026/07/31/google-deepmind-unveils-gemini-robotics-2-as-apptronik-humanoid-demonstrates-whole-body-ai/103802/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=roboticsandautomationnews.com&sz=32" alt="">Robotics & Automation News</a><a href="https://www.marktechpost.com/2026/07/30/google-deepmind-gemini-robotics-2-whole-body-control-dexterity-multi-robot-collaboration/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=marktechpost.com&sz=32" alt="">MarkTechPost</a></div></div>
+<div class="article-nav"><a href="05-onyx-security-113m-series-b.html" class="nav-prev">&larr; Onyx Security Raises $113 Million to Build a Contr</a><a href="07-deepseek-v4-flash-release.html" class="nav-next">DeepSeek Ships V4-Flash, a Cheaper, Faster Model i &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published July 31, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
