@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Coding Agents Modernize Research Software With Speedups Up to 60x &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+.article-nav .nav-next{margin-left:auto;text-align:right}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>AI Coding Agents Modernize Research Software With Speedups Up to 60x</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 956 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>AI coding agents modernized neglected research software with speedups up to 60x, but a report from OpenAI and academic partners warns the agents cannot verify scientific correctness, keeping human oversight essential.</p>
+</div>
+<div class="article-body">
+<p>A quality-control pipeline that once took <strong>15 hours and 34 minutes</strong> to grind through a large genomics dataset now finishes in <strong>14 minutes and 54 seconds</strong> — a speedup of more than <strong>60 times</strong> — after AI coding agents rebuilt it. That result is one of eight case studies in a field report from OpenAI and academic collaborators. But the same report carries a blunt warning attached to every one of those wins: the agents that wrote the fast new code could not tell whether the science it produced was actually right.</p>
+<p>The report, "Scientific computing in the age of agentic AI," was published on July 28, 2026, and drew fresh coverage around August 1 as it landed alongside OpenAI's Astra math announcement. It documents eight agent-assisted projects, mostly in the life sciences — five using OpenAI's Codex alone and three pairing Codex with Anthropic's Claude Code. The projects run the gamut from routine build modernization to full GPU-native rewrites of tools that entire research fields quietly depend on.</p>
+<h2>Old code, fast agents</h2>
+<p>The premise behind the effort is a problem familiar to anyone who has tried to reproduce a computational study. Much scientific software began life as throwaway code attached to a single paper, written by graduate students and domain experts rather than professional engineers, and then left to rot even as it became load-bearing infrastructure. "Many widely used research tools began as code accompanying a research paper, built by small academic teams with limited engineering experience and minimal time for packaging, testing, optimization, or long-term support," the report notes. The result, its authors write, is "scientific infrastructure that often depends on slow, fragile workflows requiring constant maintenance."</p>
+<p>The measured gains are substantial. RustQC, which combined 15 separate quality-control tools into a single program, produced the headline <strong>60x</strong> speedup. HelixForge, a GPU-native replacement for the synthetic-genomics tool BamSurgeon, completed a full pipeline <strong>59.6 times faster</strong> than the original, with its core compute step running <strong>98.6 times faster</strong>. The rustar-aligner project rebuilt STAR — a widely used sequence aligner whose original spans more than <strong>20,000 lines</strong> of unmaintained C and C++ — from scratch in Rust, matching the original's output in <strong>99.815%</strong> of single-end reads and <strong>99.883%</strong> of paired-end reads. More modest efforts still paid off: an optimization pass on the genome assembler hifiasm cut runtime on real human genome data by nearly <strong>15%</strong>, and a migration of the immunology model MHCflurry ported roughly <strong>10,000 lines</strong> from TensorFlow to PyTorch, with the two agents alternating between developer and reviewer roles.</p>
+<p>OpenAI's economic sketch is eye-catching too. If agents could resolve a quarter to half of installation failures across 100 research packages, the report estimates the saved research time would be worth between <strong>$600,000 and nearly $5 million</strong>.</p>
+<h2>The catch: confidently wrong</h2>
+<p>The recurring theme across all eight projects is that speed came cheap while correctness did not. "Across case studies, agents handled specific, well-scoped requests effectively but could not reliably judge whether their work was scientifically valid or met expectations," the report states. "Indeed, agents often expressed confidence even when their work contained clear errors."</p>
+<p>The researchers who ran the projects put it more vividly. Philip Ewels, who led RustQC, described the agents as "eloquent, convincing, and confidently wrong in ways that are easy to miss," and said he never let the models grade their own accuracy, building an independent test harness instead. Brent Pedersen, developer of the genomics library cyvcf2, offered the most quoted line of the report: "With coding agents, it's quite easy to go fast; for now, to go far in science, there's still a need for expert guidance, understanding, taste, and care."</p>
+<p>The bayesm project shows why that caution is not academic. Its Rust rewrite ran two to twenty times faster than the R original, but early versions of two advanced methods contained subtle bugs — in one case the agent inverted a control parameter so the program used the reciprocal of the intended values. The error surfaced only after researchers ran a calibration test against thousands of synthetic datasets with known answers.</p>
+<h2>Why it matters</h2>
+<p>Scientific computing underpins climate modeling, genomics, physics and much of modern research, and the pace of that work is increasingly gated by aging, brittle code that few people are paid to maintain. If agents can reliably shoulder migration, optimization and modernization, small labs could take on engineering projects that once demanded dedicated software staff. The report frames this as a shift in the researcher's job "from implementation to verification and orchestration" — deciding what to build, how to prove it correct, and when it is ready to ship.</p>
+<p>But cheaper rewrites carry their own hazard. The authors warn that lowering the cost of producing new tools could "fragment users and spread the expert attention required to keep any one tool reliable." A modern rewrite with no committed maintainer, they note, risks becoming "tomorrow's abandoned code rather than reliable scientific infrastructure." The teams handled this differently: cyvcf2 and MHCflurry changes went upstream, while the abandoned STAR's Rust successor moved under the scverse consortium.</p>
+<h2>What to watch</h2>
+<p>The report is explicitly retrospective and not a representative study, so the next test is whether these speedups hold across fields beyond the life sciences and under independent scrutiny. Watch for how validation tooling matures — external reference tests and simulation-based calibration were the only reliable guards against confident errors — and whether the research community builds durable stewardship models for agent-generated code. The effort fits OpenAI's broader science push under Kevin Weil, who has predicted 2026 will be for science what 2025 was for software engineering. The coming months will show whether the modernization wave produces lasting infrastructure or a new generation of fast, orphaned tools.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"With coding agents, it's quite easy to go fast; for now, to go far in science, there's still a need for expert guidance, understanding, taste, and care."</blockquote><cite>&mdash; Brent Pedersen, Developer of the genomics library cyvcf2</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">60x</div><div class="stat-label">Max speedup</div></div><div class="stat-cell"><div class="stat-value">59.6x</div><div class="stat-label">Pipeline speedup</div></div><div class="stat-cell"><div class="stat-value">8</div><div class="stat-label">Agent-assisted case studies</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/scientific-computing-agentic-ai/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI</a><a href="https://the-decoder.com/ai-coding-agents-can-modernize-research-software-but-cant-judge-if-the-science-is-right/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&sz=32" alt="">The Decoder</a><a href="https://www.artificialintelligence-news.com/news/openai-report-coding-agents-faster-science-software-builds/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=artificialintelligence-news.com&sz=32" alt="">AI News</a></div></div>
+<div class="article-nav"><a href="01-openai-astra-ten-math-proofs.html" class="nav-prev">&larr; OpenAI's Astra Solves Ten Open Math Problems for A</a><a href="03-deepmind-prospective-credit-assignment.html" class="nav-next">DeepMind's 'Prospective Credit Assignment' Sharpen &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 2, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
