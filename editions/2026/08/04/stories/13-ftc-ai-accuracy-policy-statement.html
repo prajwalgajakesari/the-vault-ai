@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The FTC's New AI Accuracy Doctrine: Secretly 'Steering' a Model Could Be Illegal Deception - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>The FTC's New AI Accuracy Doctrine: Secretly 'Steering' a Model Could Be Illegal Deception</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 975 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>The FTC's proposed policy statement treats undisclosed 'steering' of AI outputs as likely deception under Section 5 and asserts that conflicting state AI laws like Colorado's are impliedly preempted, escalating the federal-vs-state fight.</p>
+</div>
+<div class="article-body">
+<h2>The FTC's New AI Accuracy Doctrine: Secretly 'Steering' a Model Could Be Illegal Deception</h2>
+<p>Bury the fact that your chatbot has been tuned to push a particular answer, and you may be breaking federal law. That is the striking premise of a proposed policy statement the Federal Trade Commission dropped into the Federal Register on July 7, 2026, a document that reframes an old consumer-protection statute as a new leash on how AI companies build, tune, and market their models.</p>
+<p>The statement, formally titled the "Proposed Policy Statement Concerning the Suppression of Accuracy in Artificial Intelligence Systems," takes a deceptively simple position: consumers who ask an AI system for a prediction, recommendation, or answer reasonably expect the system to optimize for <em>their</em> goal. If a company quietly steers the model toward some other objective — an ideological slant, a commercial interest, a compliance workaround — without clearly disclosing it, the agency says that omission is likely a deceptive act or practice under Section 5 of the FTC Act. The public comment window closed July 31, 2026, and the Commission is now weighing whether to finalize it.</p>
+<h2>The legal theory: deception by omission</h2>
+<p>The FTC's argument leans on well-worn ground. Section 5 has long prohibited "unfair or deceptive acts or practices," with deception defined as a material representation, omission, or practice likely to mislead a reasonable consumer and affect their conduct. What is novel is the object: the internal steering of a large language model.</p>
+<p>The Commission's logic runs in three steps. Consumers generally use AI systems to get accurate, useful outputs. They therefore reasonably expect the system to pursue that objective absent a disclosure to the contrary. So when a developer "distorts" outputs toward an undisclosed goal — the statement repeatedly invokes systems whose answers are shaped by hidden "ideological objectives" — the gap between expectation and reality becomes a material omission.</p>
+<p>Crucially, the statement offers companies an escape hatch that doubles as a warning. Developers can defuse liability by "repeatedly, clearly, and conspicuously" disclosing that their systems prioritize objectives other than what the user requested. In other words, the FTC is not banning steering. It is banning <em>secret</em> steering — and putting the burden of transparency squarely on the company. The proposal grew out of Executive Order 14365, "Ensuring a National Policy Framework for Artificial Intelligence," which directed the agency to spell out how its deception authority applies when developers alter model outputs, including in response to state-law requirements.</p>
+<h2>The state-law time bomb</h2>
+<p>The most consequential passages are not about chatbots at all. They are about federalism. The statement singles out Colorado's Artificial Intelligence Act as an example of a state law that, in the FTC's telling, pressures companies to suppress accuracy — by "requiring AI systems to incorporate discriminatory ideology that prioritizes preferred demographic characteristics and outcomes over accurate and merit-based outputs" in order to avoid disparate-impact liability.</p>
+<p>The agency's conclusion is blunt: complying with such a state law is no defense to a Section 5 violation, and the state law is "impliedly preempted to the extent it conflicts with a federal regulatory scheme." That single clause is a shot across the bow of every state legislature racing to write its own AI rules. By one industry tally, more than 1,800 AI-related bills are pending across the country, the vast majority at the state level. The FTC is signaling that Washington may override any of them that clash with its deception framework.</p>
+<p>FTC Chairman Andrew N. Ferguson framed the effort in explicitly political terms. "The FTC wants to hear from businesses and consumers about their experiences and concerns regarding the subversion of AI systems for ideological ends," he said, adding that public input "will help the Commission formulate a final policy that advances President Donald Trump's goal of expanding America's global dominance in artificial intelligence."</p>
+<h2>The pushback</h2>
+<p>Even free-market groups that share the FTC's distaste for a fifty-state patchwork balked at the mechanism. In comments filed July 30, the R Street Institute warned that the proposal "potentially opens a real Pandora's Box of problems," arguing the agency should narrowly police genuine burdens on interstate commerce "without engaging in algorithmic speech policing at the federal level."</p>
+<p>R Street's Spence Purnell and Adam Thierer made the First Amendment case pointedly: to enforce an anti-deception rule about ideology, they wrote, "the government would have to compare stated ideologies and source code of each available LLM and compare those with outputs to verify that there is no 'deception.'" They noted that video games and search engines have long embedded viewpoints without disclosing their code, and that the FTC "incorrectly conflates" a state mandate to bias systems with a private developer's protected right "to program their outputs however they see fit." The irony, critics argue, is that a statement aimed at ideological manipulation would itself hand the government a tool to police the ideology of speech products.</p>
+<p>Legal analysts have also flagged that the preemption theory is untested and, as several put it, legally fragile — implied preemption of state law by a federal agency's policy statement, rather than by statute, is a heavy lift in court. Some observers add a further wrinkle: Colorado's law, the marquee target, has already been amended since it was first passed, muddying the very conflict the FTC invokes.</p>
+<h2>What it means, and what to watch</h2>
+<p>For AI companies, the immediate takeaway is documentation. Any deliberate tuning — safety filters, brand-safety guardrails, political-balance adjustments, commercial ranking of answers — now carries a disclosure calculus. The safe harbor rewards over-disclosure, which could push firms toward longer, more explicit statements about what their models are and are not optimizing for. It also sharpens the risk around advertising and "steering" incentives: a model quietly nudged to favor a paying partner's product looks, under this theory, a lot like classic deceptive advertising dressed in new clothes.</p>
+<p>The deeper stakes are jurisdictional. This is the Trump administration's clearest move yet to convert Section 5 into a preemption engine after Congress failed to pass a federal AI framework or a moratorium on state laws. If finalized, the statement invites litigation on two fronts at once — companies challenging any enforcement on First Amendment grounds, and states defending their statutes against implied preemption.</p>
+<p>Watch three things. First, whether the Commission finalizes the statement as written or softens the ideological framing after the comment deluge. Second, the first enforcement action, which will reveal whether the FTC targets a hidden commercial steer or a politically charged one — a choice with very different optics. And third, the courts, where the "impliedly preempted" clause will meet its first real test. The FTC has planted a flag. Whether it holds is now a question for judges, not just commenters.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185">
+          <blockquote>"The FTC wants to hear from businesses and consumers about their experiences and concerns regarding the subversion of AI systems for ideological ends."</blockquote>
+          <cite>- Andrew N. Ferguson, Chairman, Federal Trade Commission</cite>
+        </div>
+
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-seeks-public-comment-policy-statement-addressing-ai-accuracy" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ftc.gov&sz=32" alt="">FTC</a><a href="https://www.federalregister.gov/documents/2026/07/07/2026-13628/policy-statement-concerning-the-suppression-of-accuracy-in-artificial-intelligence-systems" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=federalregister.gov&sz=32" alt="">Federal Register</a><a href="https://www.rstreet.org/outreach/r-street-comment-on-ftc-policy-statement-addressing-ai-accuracy/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=rstreet.org&sz=32" alt="">R Street Institute</a><a href="https://www.spencerfane.com/insight/ftc-proposes-new-policy-on-ai-accuracy-hiding-how-an-ai-system-is-steered-may-violate-federal-law/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=spencerfane.com&sz=32" alt="">Spencer Fane</a></div></div>
+<div class="article-nav"><a href="12-klong-long-horizon-agent-training.html" class="nav-prev">&larr; Teaching AI Agents to Go the Distance: 'KLong' Tar</a><a href="14-colorado-ai-act-enforcement-delay.html" class="nav-next">Colorado's Landmark AI Act Stalls Again as a Court &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published August 04, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

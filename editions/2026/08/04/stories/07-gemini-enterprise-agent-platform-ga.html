@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google's Gemini Enterprise Agent Platform Hits General Availability, and Its 'Spark' Agent Learns to Drive Chrome - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Google's Gemini Enterprise Agent Platform Hits General Availability, and Its 'Spark' Agent Learns to Drive Chrome</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 930 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Google moved the core of its Gemini Enterprise Agent Platform to general availability with per-agent identity and multi-day state, while consumer agent Gemini Spark gained the ability to operate desktop Chrome using saved logins.</p>
+</div>
+<div class="article-body">
+<h2>Google's Gemini Enterprise Agent Platform Hits General Availability, and Its 'Spark' Agent Learns to Drive Chrome</h2>
+<p>Google Cloud this week moved the core of its Gemini Enterprise Agent Platform into general availability, retiring the "public preview" caveats that had let enterprises experiment while quietly holding production budgets in reserve. In the same stretch, a very different kind of agent, the consumer-facing Gemini Spark, began doing something that only weeks ago sounded like a lab demo: driving a user's own logged-in copy of desktop Chrome to book property viewings and tee up flight searches. Together, the two announcements mark August 2026 as the moment Google stopped talking about agents as a promise and started shipping them as infrastructure.</p>
+<h2>From preview to production</h2>
+<p>The Gemini Enterprise Agent Platform, the rebranded and expanded successor to Vertex AI that Google unveiled at Cloud Next '26 in April, saw a cluster of its most consequential services reach general availability. That list includes Agent Runtime, Agent Identity, Agent Gateway, Agent Registry, Agent Memory Bank, Agent Evaluation, and Agent Observability, a stack Google frames as everything a company needs to build, scale, govern, and optimize agents from one console rather than shuttling between three.</p>
+<p>The two features that matter most for anyone worried about turning autonomous software loose inside a corporate network are state and identity. Through Agent Memory Bank, agents can now maintain continuity across sessions, picking up a task where they left off "even if days or weeks have passed," in Google's phrasing, rather than starting cold each time. For enterprise workflows that unfold over multiple days, an insurance claim, a procurement cycle, a customer support escalation, persistent state is the difference between a chatbot and a colleague.</p>
+<p>Agent Identity is the security half of that equation. Rather than borrowing a shared service account, every agent gets its own native IAM identity built on open standards, tied to the agent's lifecycle and scoped to least privilege. Google says the design mitigates token theft by binding access directly to the agent runtime, produces non-repudiable audit logs of every action an agent takes, and automatically retires credentials when an agent is decommissioned, eliminating the dormant keys that haunt security teams.</p>
+<h2>Real deployments, real quotes</h2>
+<p>The GA push arrived with customer proof points rather than hypotheticals. Comcast rebuilt its Xfinity Assistant on the platform, moving from scripted automation to a multi-agent system.</p>
+<p>"Agent Runtime has been a massive accelerator, allowing us to deploy a sophisticated multi-agent architecture that increases digital containment while ensuring secure, grounded interactions via Gemini," said Rick Rioboli, Chief Technical Officer, Connectivity & Platforms at Comcast.</p>
+<p>L'Oréal, another named adopter, framed its interest around governance as much as capability. "Google Cloud gives us the resilience, the multi-LLM flexibility, and the enterprise-grade trust framework we need to scale this platform globally, while keeping human oversight at the center," said Etienne Bertin, the company's Group CIO, a line that neatly captures why identity and observability, not raw model horsepower, have become the selling points of this generation of agent tooling. Google is backing the ecosystem with a $750 million innovation fund for partners building agents on the platform.</p>
+<h2>Spark takes the wheel in Chrome</h2>
+<p>While the enterprise stack hardened, the consumer story got more provocative. Gemini Spark, Google's agentic assistant, gained the ability to operate the desktop version of Chrome directly, a shift away from its previous reliance on a remote, Google-managed browser. With permission, Spark can use a person's own logged-in accounts and saved passwords to run multi-step errands: researching and comparing flight options and beginning the booking process, or scheduling viewings for saved apartment listings, moving between pages without the user guiding every click.</p>
+<p>Crucially, Spark returns control to the user before sensitive actions such as payments, a deliberate handoff that keeps a human in the loop at the moment money changes hands. Google also says it has added defenses against prompt injection, the attack in which malicious instructions hidden in a webpage try to hijack an agent. The Chrome browsing capability began rolling out in the U.S. on August 3, while access to Spark itself expanded to Google AI Pro subscribers in more than 160 additional countries.</p>
+<p>The design philosophy quietly echoes the enterprise side: give the agent scoped access, log what it does, and force a return to human judgment at the highest-risk step. An agent using your saved passwords is exactly the sort of power that makes the least-privilege, auditable model on the enterprise platform feel less like compliance theater and more like a necessary blueprint.</p>
+<h2>The agent race tightens</h2>
+<p>Google's dual announcement lands in a market that has abruptly reorganized itself around production-grade agents. Microsoft has pushed its Copilot Studio and autonomous agents deep into Microsoft 365 and Azure, leaning on Entra for agent identity. Salesforce has bet the company narrative on Agentforce, selling outcome-priced digital labor to its CRM base. OpenAI has advanced its own computer-using and browser-operating agents for consumers and developers alike. Everyone, in other words, is now shipping agents that can take actions, not just answer questions.</p>
+<p>What differentiates the current phase is that the competition has moved from capability to control. The hard problems are no longer "can the agent do the task" but "who is this agent, what is it allowed to touch, and can we prove what it did afterward." Google's decision to make Agent Identity a first-class IAM primitive, complete with non-repudiable auditing, is a direct answer to the governance anxieties that have kept many pilots from graduating to production. Spark driving Chrome with saved passwords is the same wager aimed at consumers, betting that trust, not novelty, is the constraint on adoption.</p>
+<h2>What to watch</h2>
+<p>The open questions are now operational. Will persistent, multi-day agent state hold up against the messiness of real enterprise systems, and how will security teams respond to fleets of individually credentialed agents that must themselves be monitored, rotated, and retired? On the consumer side, prompt injection remains the unsolved frontier: an agent with your logged-in accounts is a lucrative target, and the first high-profile exploit of a browser-driving assistant will test whether "returns control before payment" is a sufficient guardrail. The technology has clearly crossed from demo to deployment. Whether the governance scaffolding Google is racing to pour keeps pace with the autonomy it is unleashing is the story of the next quarter.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"Agent Runtime has been a massive accelerator, allowing us to deploy a sophisticated multi-agent architecture that increases digital containment while ensuring secure, grounded interactions via Gemini."</blockquote>
+          <cite>- Rick Rioboli, CTO, Connectivity & Platforms, Comcast</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">Days-Weeks</div><div class="stat-label">Agent state persistence across sessions</div></div><div class="stat-cell"><div class="stat-value">Aug 3</div><div class="stat-label">Spark Chrome rollout began (US)</div></div><div class="stat-cell"><div class="stat-value">160+</div><div class="stat-label">Countries in Spark AI Pro expansion</div></div><div class="stat-cell"><div class="stat-value">$750M</div><div class="stat-label">Partner innovation fund</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://cloud.google.com/blog/products/ai-machine-learning/whats-new-in-gemini-enterprise-agent-platform" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cloud.google.com&sz=32" alt="">Google Cloud Blog</a><a href="https://www.infosecurity-magazine.com/news/google-ai-agent-identities-gemini/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=infosecurity-magazine.com&sz=32" alt="">Infosecurity Magazine</a><a href="https://9to5google.com/2026/07/30/gemini-spark-chrome-auto-browse/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=9to5google.com&sz=32" alt="">9to5Google</a><a href="https://www.digitaltrends.com/computing/gemini-spark-can-now-use-your-chrome-logins-and-saved-passwords-run-errands-on-your-behalf/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=digitaltrends.com&sz=32" alt="">Digital Trends</a></div></div>
+<div class="article-nav"><a href="06-microsoft-open-source-agent-stack-layer.html" class="nav-prev">&larr; Microsoft Open-Sources Orchard, the 'Missing Layer</a><a href="08-crogl-enterprise-ai-soc-agent.html" class="nav-next">Crogl Releases a Free Autonomous 'AI SOC Agent' fo &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published August 04, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

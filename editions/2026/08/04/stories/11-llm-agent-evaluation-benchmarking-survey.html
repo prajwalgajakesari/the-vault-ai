@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>As AI Agents Proliferate, a Sweeping Survey Maps How We Actually Evaluate Them - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>As AI Agents Proliferate, a Sweeping Survey Maps How We Actually Evaluate Them</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 830 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A SAP Labs survey argues that agent evaluation, not raw capability, is now the bottleneck for safely deploying autonomous AI agents, and offers a two-dimensional taxonomy to organize a fragmented field.</p>
+</div>
+<div class="article-body">
+<h2>As AI Agents Proliferate, a Sweeping Survey Maps How We Actually Evaluate Them</h2>
+<p>The AI industry spent 2025 and 2026 racing to ship autonomous agents — software that reasons, plans, calls tools, remembers what it did an hour ago, and increasingly acts on a company's behalf without a human watching each step. What the industry did not do, at anything like the same pace, was figure out how to tell whether those agents actually work. A comprehensive survey from researchers at SAP Labs argues that this gap is now the field's central liability, and it offers the most complete map yet of a fractured evaluation landscape.</p>
+<p>The paper, "Evaluation and Benchmarking of LLM Agents: A Survey" (arXiv:2507.21504), was written by Mahmoud Mohammadi, Yipeng Li, Jane Lo, and Wendy Yip, and published at the ACM SIGKDD Conference on Knowledge Discovery and Data Mining. Its diagnosis is blunt.</p>
+<p>> "The rise of LLM-based agents has opened new frontiers in AI applications, yet evaluating these agents remains a complex and underdeveloped area."</p>
+<h2>A two-dimensional map for a fragmented field</h2>
+<p>The survey's core contribution is a taxonomy that splits agent evaluation into two questions: <em>what</em> to evaluate and <em>how</em> to evaluate it.</p>
+<p>On the "what" axis, the authors identify four objectives. <strong>Agent behavior</strong> treats the system as a black box and asks whether it finished the task — measured through success rates, Pass@k, output quality, latency, and cost. <strong>Agent capabilities</strong> open the box to probe the competencies underneath: planning and reasoning (scored with metrics like Node F1 and Edge F1 over the agent's action graph), memory and context retention, tool-use accuracy including correct parameter generation, and multi-agent collaboration. <strong>Reliability</strong> asks whether the agent does the same thing twice, using consistency metrics such as pass^k that run identical tasks repeatedly to watch outcomes drift. <strong>Safety and alignment</strong> covers harm and toxicity detection through red-teaming, fairness, and adherence to domain policies.</p>
+<p>On the "how" axis, the survey catalogs interaction modes (static offline datasets versus dynamic, simulated, or human-in-the-loop environments) and three families of metric computation: deterministic code-based checks, the increasingly dominant "LLM-as-a-Judge" (and its newer "Agent-as-a-Judge" variant), and human evaluation through expert audits or crowdworkers.</p>
+<h2>The benchmarks — and where they fall short</h2>
+<p>The survey grounds its taxonomy in the real benchmarks practitioners rely on. For interactive web tasks it points to <strong>WebArena</strong>, <strong>VisualWebArena</strong>, <strong>BrowserGym</strong>, and <strong>AppWorld</strong>. For tool use and API orchestration, it cites <strong>ToolBench</strong> and <strong>API-Bank</strong>. For code, <strong>SWE-bench</strong>'s GitHub-issue resolution. For hard multi-step reasoning, <strong>GAIA</strong>, whose questions are simple for humans but demand complex tool chains from agents. For safety, <strong>AgentHarm</strong>. On the tooling side it names emerging evaluation frameworks such as OpenAI Evals and DeepEval, alongside development platforms like Azure AI Foundry.</p>
+<p>But the authors' sharpest point is what these benchmarks miss. Most test short, isolated, self-contained tasks. Real deployments do not look like that — and the absence of standardized metrics across objectives makes it nearly impossible to compare two agents fairly or track genuine progress.</p>
+<h2>Why enterprise deployment is the real stress test</h2>
+<p>The paper's industrial origin shapes its most distinctive section: a list of enterprise realities that academic benchmarks routinely abstract away.</p>
+<p>> "We highlight enterprise-specific challenges, such as role-based access to data, the need for reliability guarantees, dynamic and long-horizon interactions, and compliance, which are often overlooked in current research."</p>
+<p>Each is a concrete failure mode. <strong>Role-based access control</strong> means an agent's permitted actions depend entirely on who is asking — an agent acting for a CEO should not have the same reach as one acting for a junior analyst, and testing whether it merely <em>can</em> open a file misses whether it <em>should</em>. <strong>Reliability guarantees</strong> raise the bar well past a leaderboard score: a 90% success rate is worthless if the 10% of failures are random and catastrophic, because enterprises need behavior that is predictable and auditable, not merely usually correct. <strong>Long-horizon interactions</strong> expose performance drift and memory degradation over workflows that unfold across days, not seconds. And <strong>compliance</strong> demands adherence to regimes like GDPR or HIPAA, which calls for domain-specific test cases and, the authors suggest, formal verification methods rather than spot checks.</p>
+<h2>Analysis: evaluation is the adoption bottleneck</h2>
+<p>This is the reason the survey matters beyond academia. The barrier to putting agents into production is no longer raw capability — frontier models can already plan and use tools impressively. The barrier is trust, and trust is an evaluation problem. A company cannot deploy an agent into a billing system, a patient record, or a procurement workflow on the strength of a benchmark that tested three-minute browsing tasks. The stochastic nature of language models makes this doubly hard: the same prompt can yield different behavior, so proving reliability requires running tasks many times, which is expensive and rarely done. Until evaluation can certify consistency and policy adherence under realistic constraints, the gap between an impressive demo and a trustworthy deployment stays wide — and it is precisely in that gap that both stalled enterprise projects and real-world safety incidents live.</p>
+<p>The survey frames a promising response in <strong>evaluation-driven development</strong> — folding assessment into the build cycle as continuous monitoring rather than a one-time gate before launch, much as test-driven development reshaped software engineering.</p>
+<h2>What to watch</h2>
+<p>The authors call for evaluation that is more holistic, more realistic, and more scalable — benchmarks that bake in access controls, extended time horizons, and compliance checks rather than treating them as edge cases. The signal to watch through the rest of 2026 is whether the next wave of agent benchmarks moves toward those enterprise-grade conditions, and whether "Agent-as-a-Judge" automated evaluation can scale trust as fast as agents themselves are scaling. If evaluation keeps lagging deployment, the mismatch the SAP Labs team documents will not stay a research footnote. It will show up in production.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"We highlight enterprise-specific challenges, such as role-based access to data, the need for reliability guarantees, dynamic and long-horizon interactions, and compliance, which are often overlooked in current research."</blockquote>
+          <cite>- The authors, Evaluation and Benchmarking of LLM Agents: A Survey</cite>
+        </div>
+
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2507.21504" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://dl.acm.org/doi/10.1145/3711896.3736570" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=dl.acm.org&sz=32" alt="">ACM Digital Library</a><a href="https://www.alphaxiv.org/overview/2507.21504" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=alphaxiv.org&sz=32" alt="">alphaXiv</a></div></div>
+<div class="article-nav"><a href="10-proteina-complexa-protein-design.html" class="nav-prev">&larr; A New Protein-Design Model, Proteina-Complexa, Gen</a><a href="12-klong-long-horizon-agent-training.html" class="nav-next">Teaching AI Agents to Go the Distance: 'KLong' Tar &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published August 04, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
