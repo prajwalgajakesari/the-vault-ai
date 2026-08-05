@@ -1,0 +1,29 @@
+# Simile Raises $200M Series B at a $2 Billion Valuation to Replace Focus Groups With AI 'Twins'
+
+A startup wants companies to stop asking real people what they think, and start asking fake ones instead. On July 30, Palo Alto-based Simile said it had raised more than $200 million in a Series B round that values the year-old company at $2 billion post-money, a valuation that arrives just five months after it emerged from stealth with a $100 million Series A. The pitch behind that price tag is audacious: that a simulation of a customer can stand in for the customer, and that "agentic twins" trained on real human behavior can answer the questions that once required a room, a two-way mirror, and a plate of cold sandwiches.
+
+The round was co-led by Greenoaks and Index Ventures, with participation from Hanabi, Bain Capital Ventures, A*, Factory, CVS Health Ventures, and Definition, according to the company. Greenoaks, the San Francisco firm behind more than 200 startup bets, led the deal; Index, which backed Simile's Series A alongside angels including Fei-Fei Li and Andrej Karpathy, doubled down. The New York Times first reported the raise.
+
+## What Simile actually sells
+
+Simile builds AI agents it calls "agentic twins" — software stand-ins for real consumers, patients, and employees that clients can survey by the hundreds of thousands instead of running a traditional market-research study. The company says it constructs its core model by first conducting two-hour interviews with roughly 1,000 people chosen to represent a broader population, then layering on behavioral data and scientific literature. It has partnered with Gallup to fold in input from millions more. Simile claims its answers are between 85% and 99% accurate depending on the population being modeled, though those figures are the company's own.
+
+The customers are real even when the respondents are not. Last autumn, CVS Health used as many as 400,000 agentic twins to work out how to get patients to take their medication, a chronic and expensive problem in American health care. Consulting giant Deloitte uses the platform as a substitute for focus groups and surveys, and the Japanese drinks maker Suntory uses it to speed up product development. Wealthfront, the finance app, is also a client. Simile says revenue has grown fivefold over the past five months as it "built a new foundation model for human behavior that has run tens of millions of simulations for Fortune 100 enterprises."
+
+Pricing tracks the crowd. Through a web interface, users select the population they want to simulate, and the cost rises with the size of the panel — from hundreds of thousands of agents to millions. "The larger the panel, the higher the price," CEO Joon Sung Park told the Times.
+
+## From Smallville to a $2 billion company
+
+Simile's pedigree is its founding story. The company was started in 2025 by a trio of Stanford researchers plus a former Boston Consulting Group executive. Park, the 32-year-old chief executive, authored the landmark 2023 "Generative Agents" paper that dropped 25 autonomous AI characters into a simulated town called Smallville and watched them form memories, make plans, and gossip — work that won a best-paper award and effectively launched the field. He is joined by Chief Data Officer Michael Bernstein, a Stanford professor of human-computer interaction; Chief Scientist Percy Liang, who helped coin the term "foundation model" and directs Stanford's Center for Research on Foundation Models; and COO Lainie Yallen.
+
+"If you're able to simulate the world, you can basically test out countless interventions," Park told the Times, calling the technology "a window into humanity." The company's stated ambition is nothing short of modeling all eight billion people on Earth — one digital twin per living person.
+
+## Why this matters
+
+Simile sits at the intersection of two of the AI industry's hottest and most contested ideas: synthetic data and agentic simulation. The $80-billion-plus global market-research industry has run on focus groups, panels, and surveys for the better part of a century, all of it slow, expensive, and increasingly hard to staff as real respondents tune out. If a foundation model for human behavior can reliably predict how consumers react to a new product or how patients respond to a nudge, it compresses weeks of fieldwork into minutes and reframes market research as a software query.
+
+That "if" is the whole ballgame. The premise — that AI stand-ins genuinely capture how humans behave — is exactly what skeptics doubt, and Simile's accuracy claims have not been independently verified. There is also an evident irony: the company leans on real human data to manufacture the synthetic kind, and it does so on an internet already flooding with AI agents, where proving you are a real person is itself becoming a business. Rivals including Helm, Artificial Societies, and Aaru are chasing the same vision, a sign that investors see a category forming rather than a one-off bet. The involvement of CVS Health Ventures — a strategic backer that is also a marquee customer — suggests at least some enterprises are convinced enough to put capital behind the thesis.
+
+## What to watch next
+
+The tell will be validation. Simile's fivefold revenue growth and Fortune 100 logos are real signals of demand, but the durability of a $2 billion valuation hinges on whether its simulations predict outcomes that later hold up against actual human behavior — and whether an independent party ever gets to check. Watch for how CVS Health's medication-adherence work translates into measurable results, whether regulated industries like health care and finance grow comfortable making decisions on synthetic respondents, and how quickly competitors close the gap. Enterprise buyers, as ever, will judge the promise on results, not on the elegance of the science behind it.
