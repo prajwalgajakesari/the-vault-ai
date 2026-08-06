@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rust Publishes an LLM Policy: Bots Can Review and Refine, but Not 'Create' &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>Rust Publishes an LLM Policy: Bots Can Review and Refine, but Not 'Create'</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 812 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Five Rust teams adopted a formal LLM policy for rust-lang/rust that permits AI for answering, analyzing and reviewing but bans it for creation, with mandatory disclosure of any LLM use and dishonesty treated as a Code of Conduct violation.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Rust Publishes an LLM Policy: Bots Can Review and Refine, but Not 'Create'"
+slug: rust-llm-contribution-policy
+category: policy
+story_number: 15
+edition: 2026-08-05
+---</p>
+<h2>Rust Publishes an LLM Policy: Bots Can Review and Refine, but Not 'Create'</h2>
+<p>When the Rust project finally wrote down its rules for artificial intelligence, the entire philosophy fit in a single sentence.</p>
+<p>"It's fine to use LLMs to answer questions, analyze, distill, refine, check, suggest, review," the new policy reads. "But not to <strong>create</strong>."</p>
+<p>That line, published August 5 in a post on the Inside Rust blog by contributor Jynn Nelson, closes out more than a month of fractious internal debate, an estimated 3,000-plus messages on the project's Zulip chat, and a public pull request that drew objections from some of Rust's most senior figures. Five teams that work on the `rust-lang/rust` monorepo formally adopted the LLM Usage Policy, giving reviewers something they had never had before: a published, canonical set of rules to point to when closing a low-effort, machine-generated contribution.</p>
+<h2>What the policy actually says</h2>
+<p>The policy sorts LLM use into three buckets. Reading, analyzing, and learning are broadly fine. Creating is heavily restricted. And a middle tier is permitted only with disclosure.</p>
+<p>On the allowed list: asking an LLM questions about the codebase, having it summarize an issue or PR for your own private use, using it to privately review your own code, and generating candidate solutions to study before writing something "from scratch in your own style." Personal dev tools are fine too, as long as they never get merged upstream.</p>
+<p>The banned list is shorter but targets the most common friction points. LLM-authored comments, issue bodies, and PR descriptions are prohibited unless clearly quoted and marked. So is documentation "originally authored" by an LLM, a category the policy explicitly extends to compiler diagnostics. And an LLM review may never be treated as sufficient grounds to merge or reject a change. "LLM reviews, if enabled by a team, <strong>must</strong> be advisory-only," the document states.</p>
+<p>Review bots occupy the disclosed middle ground, hemmed in by caveats: they must run from a separate GitHub account marked as an LLM, must be blockable by individual users, and their comments "<strong>must not</strong> be blocking" unless a human reviewer explicitly endorses them. Machine translation, trivial changes, and LLM-assisted bug discovery are likewise allowed only with disclosure.</p>
+<p>Crucially, disclosure is the load-bearing requirement. "You must disclose LLM-generated content," the blog post says. "You may not hide LLM involvement." Lying about it is not treated as a mere policy breach but as a Code of Conduct violation, carrying the risk of a ban.</p>
+<h2>The 'slop' problem</h2>
+<p>Nelson is candid about why the rules exist. "At the time of writing, there are <strong>1,281 open PRs</strong> to `rust-lang/rust`," the post notes, framing review bandwidth, not code correctness, as the central crisis. The essay lays out three harms: polished technical products "no longer indicate effort and understanding," easier code generation "exacerbates our existing issues with review bandwidth," and people "mechanically copy-pasting to and from an LLM is a waste of our time."</p>
+<p>Reviewing, Nelson argues, "is made of decisions" about whether a change is even a good idea. Rust's culture had long treated a polished PR as a signal of a human who understood their work and might stick around. LLMs severed that link. "In the case of autonomous agents, there is no longer someone on the other end at all."</p>
+<p>There is also an experimental carve-out. "Pre-arranged, non-critical, high-quality, well-tested, and well-reviewed code changes that are originally created by an LLM are allowed, <strong>with disclosure</strong>," but only when a reviewer has agreed in advance, the change avoids soundness-critical areas like the trait system or MIR building, and both author and reviewer can fully explain the code. Such PRs get an `ai-assisted` label and are logged to a private channel to gather data.</p>
+<h2>A consensus nobody loves</h2>
+<p>The policy passed over pointed dissent. Niko Matsakis, a principal architect of modern Rust, argued it was "worse than no policy at all," warning it "sets a precedent that I think will harm potential contributors." He called the conditions on the experimental exception "overkill and kind of insulting" toward fellow maintainers. Contributor Diggory Blake questioned the framing entirely, asking whether a concise, clearly beneficial change should be rejected simply for being marked AI-generated. Nelson concedes the point: "I do not think every rule in this policy is wholly good."</p>
+<p>The compromise reflects Rust's governance. "Rust operates by consensus," the post notes, and there is "not a consensus within the Rust project - and likely never will be - about when/how/where it is acceptable to use AI-based tools."</p>
+<h2>What to watch</h2>
+<p>Rust now joins a widening spectrum of open-source responses, from outright bans at Zig, Servo, and QEMU to disclosure regimes at LLVM, the Linux kernel, and Firefox. The policy covers only `rust-lang/rust`; an attempt to extend it project-wide failed to reach consensus, and the leadership council is weighing a dedicated LLM sub-team. The real test is the data the experiment collects: whether disclosed, AI-assisted contributors are genuinely learning and sticking around, or whether the slop keeps coming. As Nelson puts it, "This is not the end of the story."</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185">
+          <blockquote>"It's fine to use LLMs to answer questions, analyze, distill, refine, check, suggest, review. But not to create."</blockquote>
+          <cite>&mdash; Rust LLM Usage Policy, rust-lang/rust project policy</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">1,281</div><div class="stat-label">Open PRs to rust-lang/rust</div></div><div class="stat-cell"><div class="stat-value">5</div><div class="stat-label">Rust teams adopting the policy</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://blog.rust-lang.org/inside-rust/2026/08/05/rust-langrust-is-adopting-an-llm-policy/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.rust-lang.org&sz=32" alt="">Inside Rust Blog</a><a href="https://github.com/jyn514/rust-forge/blob/llm-policy/src/policies/llm-usage.md" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=32" alt="">Rust LLM Usage Policy</a><a href="https://socket.dev/blog/rust-moves-to-restrict-llm-use-in-contributions" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=socket.dev&sz=32" alt="">Socket</a></div></div>
+<div class="article-nav"><a href="14-white-house-ai-safety-framework-meeting.html" class="nav-prev">&larr; White House to Host OpenAI, Anthropic and Google o</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 05, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
