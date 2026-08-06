@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAS-Orchestra Trains Multi-Agent Systems With Function-Calling RL and Debuts MASBENCH &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>MAS-Orchestra Trains Multi-Agent Systems With Function-Calling RL and Debuts MASBENCH</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 760 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>MAS-Orchestra reframes multi-agent design as one-shot function-calling reinforcement learning, training a 7B orchestrator to compose an entire agent system at once; paired with the new MASBENCH benchmark, it reports beating GPT-5 and Claude-Sonnet-4.5 by up to 23%.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "MAS-Orchestra Trains Multi-Agent Systems With Function-Calling RL and Debuts MASBENCH"
+slug: "mas-orchestra-multiagent-rl"
+category: "research"
+story_number: 11
+edition: "2026-08-05"
+---</p>
+<h2>MAS-Orchestra Trains Multi-Agent Systems With Function-Calling RL and Debuts MASBENCH</h2>
+<p>For two years, the pitch for multi-agent systems has been intuitive to the point of seeming obvious: if one language model is smart, a team of them, each handling a slice of the work, should be smarter. The reality has been messier. Hand-built agent crews frequently cost more, run slower, and answer no better than a single well-prompted model. A new paper from Salesforce AI Research argues the problem is not the idea but the plumbing, and proposes to fix it by teaching a model to design the whole team at once.</p>
+<p>The paper, "MAS-Orchestra: Understanding and Improving Multi-Agent Reasoning Through Holistic Orchestration and Controlled Benchmarks," was accepted to ICML 2026 and is authored by Zixuan Ke, Yifei Ming, Austin Xu, Ryan Chin, Xuan-Phi Nguyen, Prathyusha Jwalapuram, Semih Yavuz, Caiming Xiong and Shafiq Joty. Alongside the method, the team released MASBENCH, a controlled benchmark built to answer a question the field has mostly hand-waved past: when does a multi-agent system actually beat a single agent?</p>
+<h2>The trouble with wiring agents by hand</h2>
+<p>The authors are blunt about why automatic multi-agent design has underdelivered. As they write in the abstract, the shortcomings "stem from two key factors: (1) methodological complexity — agent orchestration is performed using sequential, code-level execution that limits global system-level holistic reasoning and scales poorly with agent complexity — and (2) efficacy uncertainty — MAS are deployed without understanding if there are tangible benefits compared to single-agent systems."</p>
+<p>In plain terms: most orchestration frameworks build an agent system the way a script runs, one line at a time. The orchestrator decides the next step, sees what happens, then decides the step after that. That keeps the model reasoning locally, never stepping back to reason about the shape of the whole system. And because nobody agreed on how to measure the payoff, teams shipped elaborate agent pipelines on faith.</p>
+<h2>Orchestration as a function call</h2>
+<p>MAS-Orchestra's central move is to reframe the job. Instead of executing agents step by step, the orchestrator is trained to emit an entire multi-agent system in one shot, treating each specialist sub-agent — a chain-of-thought solver, a self-consistency voter, a debate agent, a web-search agent — as a callable function with a defined interface. The orchestrator reasons over which functions to compose, how many to run, and how to combine their outputs, without getting tangled in each one's internal execution.</p>
+<p>That abstraction turns MAS design into a function-calling problem, and function calling is something models can be trained to do well with reinforcement learning. The team optimizes a 7-billion-parameter Qwen2.5 orchestrator with GRPO, rewarding it for producing systems that reach correct final answers efficiently. Because sub-agents are hidden behind clean interfaces, the approach scales as agents get more complex, the exact failure mode of code-level orchestration.</p>
+<p>The learned behavior is telling. On easy math (AIME24), the orchestrator quickly learns to stop overcomplicating: after roughly 20 training steps it delegates 100 percent of the work to a single strong sub-agent. On hard search tasks (BrowseComp+), it spins up several agents and fires three to four parallel searches per question. The system, in other words, learns when a crowd helps and when it just adds cost.</p>
+<h2>MASBENCH, and the honest scoreboard</h2>
+<p>MASBENCH is the paper's diagnostic contribution. It characterizes tasks along five structural axes — Depth (longest dependency chain), Horizon (number of required intermediate sub-tasks), Breadth (maximum dependencies of any sub-task), Parallel (independent components), and Robustness (sub-tasks under adversarial attack) — with values spanning 2 to 12. The takeaway is deflating for multi-agent maximalists: gains "depend critically on task structure, verification protocols, and the capabilities of both orchestrator and subagents, rather than holding universally."</p>
+<p>Where the structure rewards coordination, though, the method delivers. MAS-Orchestra reports besting GPT-5 and Claude-Sonnet-4.5 by up to 23 percent across five benchmarks while running more than 10 times more efficiently. In the paper's table, its 7B orchestrator posts 66.25 on AIME24 and 61.25 on AIME25 against GPT-5's 55.00 and 47.72, and reaches 49.00 on HotpotQA and 11.00 on the notoriously hard BrowseComp+.</p>
+<h2>Why coordination is the field's live wire</h2>
+<p>Multi-agent coordination is having a moment because single-model scaling is getting expensive and orchestration promises a cheaper axis of improvement. MAS-Orchestra lands amid a burst of related work — Salesforce's own IlluMAS warning that agent crews often fail to beat single agents, plus reward-modeling and stability efforts like OrchRM and Dr. MAS. The common thread is a shift from "more agents" to "trained, measured agents."</p>
+<p>What to watch: whether a small trained orchestrator conducting frontier models becomes the default pattern, and whether MASBENCH's five axes get adopted as the yardstick that finally makes multi-agent claims falsifiable. If both hold, the next year of agent research may look less like architecture astronomy and more like engineering.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"Agent orchestration is performed using sequential, code-level execution that limits global system-level holistic reasoning and scales poorly with agent complexity."</blockquote>
+          <cite>&mdash; Ke et al., MAS-Orchestra paper (ICML 2026)</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">23%</div><div class="stat-label">Peak gain over GPT-5 and Claude-Sonnet-4.5</div></div><div class="stat-cell"><div class="stat-value">10x</div><div class="stat-label">Efficiency gain over baselines</div></div><div class="stat-cell"><div class="stat-value">7B</div><div class="stat-label">Orchestrator model size</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2601.14652" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (2601.14652)</a><a href="https://github.com/SalesforceAIResearch/MAS-Orchestra" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=32" alt="">GitHub (Salesforce AI Research)</a><a href="https://huggingface.co/datasets/Salesforce/MASBench" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">MASBench (Hugging Face)</a></div></div>
+<div class="article-nav"><a href="10-latent-world-model-planning.html" class="nav-prev">&larr; Latent World Models Let Language Models Plan Again</a><a href="12-real-researcher-benchmark-suite.html" class="nav-next">'Act As a Real Researcher': A New Benchmark Suite  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 05, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
