@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Latent World Models Let Language Models Plan Against Compressed State, Not Raw Tokens &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Latent World Models Let Language Models Plan Against Compressed State, Not Raw Tokens</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 831 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A 2026 wave of research trains latent world models, often jointly with a language model, to compress environment or reasoning state into dense vectors so the model can plan against compact latents instead of raw token sequences, cutting compounding error on long-horizon tasks.</p>
+</div>
+<div class="article-body">
+<h2>Latent World Models Let Language Models Plan Against Compressed State, Not Raw Tokens</h2>
+<p><em>The Vault — AI Edition · Research · Story 10 · August 6, 2026</em></p>
+<p>A language model asked to plan ten steps ahead has, until recently, had only one place to do its thinking: the token stream. Every hypothetical future — every branch of a plan, every consequence of an action — had to be spelled out, word by word, in the same discrete vocabulary the model uses to write prose. A wave of 2026 research argues that this is the wrong substrate for planning, and proposes a fix that sounds almost heretical for a technology built on text: let the model plan against a compressed, continuous representation of the world instead of the words describing it.</p>
+<h2>From token soup to latent state</h2>
+<p>The core idea is a <em>latent world model</em> — a learned network trained, often jointly with the language model, to squeeze the state of an environment into dense latent vectors rather than sentences. Instead of reasoning over raw token sequences, the language model reasons over these compact codes, and a predictor rolls them forward to estimate what happens next. The lineage runs directly through the self-supervised world-modeling work of the past two years. As one representative 2026 paper puts it, ``JEPA-style latent world models provide an efficient alternative to pixel space prediction by learning action-conditioned dynamics in compact representation spaces.''</p>
+<p>Swap ``pixel space'' for ``token space'' and you have the thesis. Tokens are a lossy, high-variance description of state: adjacent frames of reasoning are highly redundant, and a next-token objective can be satisfied by near-identity mappings that capture surface changes rather than the higher-level dynamics a plan actually depends on. Compressing state into a latent removes that redundancy and gives the planner a smoother, lower-dimensional space to search.</p>
+<h2>Why compression helps long horizons</h2>
+<p>The payoff is sharpest on long-horizon tasks, where token-level planning degrades in two ways. First, errors compound: each generated step conditions the next, so a small early mistake drifts into an unrecoverable trajectory. Second, cost scales with length, because every imagined future must be fully verbalized.</p>
+<p>Planning in latent space attacks both. A world model can take <em>variable-length jumps</em> through state — predicting where the environment will be several steps ahead without narrating every intermediate move. In <em>Beyond the Next Step</em>, researchers from Peking University and Amazon's AGI SF Lab (Tianqi Du, Qi Zhang, Yifei Wang and Yisen Wang) introduce Variable-length Latent World Models, which train a single predictor to forecast a latent at an arbitrary offset rather than one step at a time. On long-horizon control benchmarks the approach reports a 13% average improvement over the prior state-of-the-art LeWorldModel, with the largest gains precisely on tasks that demand extended planning — evidence that the mismatch between one-step training and multi-step planning was doing real damage.</p>
+<p>A parallel line applies the same logic inside the reasoning process itself. <em>Thoughts-as-Planning</em>, from Dong Liu and colleagues, models a language model as a partially observable environment and learns a latent world model that simulates how edits to a reasoning chain change the final answer, building a proximity-preserving embedding space so the model can plan improvements by gradient descent or reinforcement learning instead of resampling text. Evaluated across GSM8K and MATH, PIQA and HellaSwag, and StrategyQA and LogiQA, it treats chain-of-thought optimization as search over compressed semantic state rather than over words.</p>
+<h2>The broader world-models turn</h2>
+<p>This is the language-model wing of a much larger migration. Model-based reinforcement learning has planned in latent space for years, from the Dreamer line of work to JEPA and DINO-WM, which showed that predicting future states in a learned representation — not reconstructing pixels — yields efficient simulators for control. DeepMind's Genie pushed generative world models toward interactive, playable environments. What is new in 2026 is the attempt to give an <em>LLM</em> that same internal simulator, so an agent can rehearse plans against a compressed model of its world before committing to a single external action or token.</p>
+<p>The motivation is unmistakably agentic. As models are pushed to run long tool-using workflows, book travel, or debug across a codebase, the horizon of coherent planning has become the binding constraint. A latent world model offers a way to think many steps ahead cheaply, and to separate <em>deliberation</em> — done in continuous state — from <em>verbalization</em>, done only when the model must act or explain.</p>
+<h2>What to watch</h2>
+<p>The open questions are the familiar ones for any compressed representation. A latent that discards the wrong details will produce confident plans grounded in a hallucinated world, and unlike a token trace, a latent rollout is hard to inspect or audit. Joint training also risks the two systems co-adapting into a representation that plans well on benchmarks but transfers poorly. Watch for three things: whether latent planning holds up on genuinely open-ended agentic tasks rather than curated control suites, whether the latent spaces can be made interpretable enough to trust, and whether frontier labs fold these world models into deployed agents — the surest sign the token stream is no longer where the real planning happens.</p>
+<p><em>Sources: arXiv 2606.21775 (Beyond the Next Step); arXiv 2605.28842 (Thoughts-as-Planning); arXiv 2606.20627 (LAGO / Latent Goal Prediction from Language).</em></p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"JEPA-style latent world models provide an efficient alternative to pixel space prediction by learning action-conditioned dynamics in compact representation spaces."</blockquote>
+          <cite>&mdash; Du et al., 'Beyond the Next Step' (2026)</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">13%</div><div class="stat-label">Avg improvement over prior SOTA on long-horizon control</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2606.21775" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (2606.21775)</a><a href="https://arxiv.org/abs/2605.28842" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (2605.28842)</a><a href="https://arxiv.org/pdf/2606.20627" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (2606.20627)</a></div></div>
+<div class="article-nav"><a href="09-tool-dc-tool-selection.html" class="nav-prev">&larr; 'Tool-DC' Uses Divide-and-Conquer to Fix How LLMs </a><a href="11-mas-orchestra-multiagent-rl.html" class="nav-next">MAS-Orchestra Trains Multi-Agent Systems With Func &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 05, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
