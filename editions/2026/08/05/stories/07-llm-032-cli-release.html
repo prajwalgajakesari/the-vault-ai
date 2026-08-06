@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simon Willison Ships LLM 0.32, Deepening the Open-Source CLI's Tools and Fragments &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Simon Willison Ships LLM 0.32, Deepening the Open-Source CLI's Tools and Fragments</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 812 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>LLM 0.32, which Simon Willison calls his most significant release since launch, adds visible reasoning traces, provider-run server-side tools, a Git-style logging store and GPT-5.6 support, pushing the open-source CLI toward a full agent framework.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "Simon Willison Ships LLM 0.32, Deepening the Open-Source CLI's Tools and Fragments"
+slug: llm-032-cli-release
+category: llms-genai
+story_number: "07"
+date: 2026-08-05
+---</p>
+<h2>Simon Willison Ships LLM 0.32, Deepening the Open-Source CLI's Tools and Fragments</h2>
+<p>When Simon Willison pushed version 0.32 of his open-source `llm` tool to PyPI on the morning of August 4, he did not reach for the usual reserved language of a point release. He called it "the most significant new version of LLM since the initial launch of the project" — a striking claim for software that has quietly become a load-bearing piece of infrastructure for developers who talk to large language models from the command line. The release folds reasoning traces, provider-run server-side tools, a Git-inspired logging store and out-of-the-box support for the GPT-5.6 model family into a single `pip install -U llm`, and it nudges the humble CLI unmistakably toward being an agent framework.</p>
+<h2>From prompt printer to reasoning window</h2>
+<p>The most immediately visible change is that `llm` now surfaces what reasoning models are actually thinking. Run a prompt against a reasoning-capable model and the model's intermediate reasoning trace streams to standard error, tinted grey in the terminal, while the final answer lands on standard output. The split is deliberate and practical: pipe the output of `llm` into another tool and you get only the clean answer, not the model's internal monologue. Developers who want silence can add the new `-R/--hide-reasoning` flag.</p>
+<p>That design choice — separating thinking from output at the stream level — captures what makes `llm` durable. It treats the model as one more Unix citizen, composable with pipes, redirects and shell scripts rather than trapped behind a chat window.</p>
+<h2>Tools that run on the provider's side</h2>
+<p>The headline capability for power users is server-side tools. Rather than orchestrating a tool-calling loop locally, `llm` can now ask the provider to execute tools inside its own environment. OpenAI exposes a code-execution sandbox and a web-search tool, invoked as simply as `llm --tool CodeInterpreter 'Show current python and SQLite versions'`. The companion `llm-anthropic 0.26` plugin, shipped alongside the core release, adds `WebSearch`, `WebFetch`, `CodeExecution` and an `AnthropicMCP` connector that lets Claude reach out to a Model Context Protocol server as part of a single request-response round trip.</p>
+<p>A new `llm openai endpoint` command rounds out the tooling story, letting users fire a one-off prompt at any OpenAI-compatible endpoint — including a local LM Studio server — without configuring a model first. Those calls are deliberately not logged, making the command a fast scratchpad for experiments against local or self-hosted models.</p>
+<h2>A logging store modeled on Git</h2>
+<p>Underneath the surface, 0.32 rebuilds how conversations are stored. The old SQLite schema duplicated the full message history on every turn, which grows unwieldy when a client keeps appending to a message array. The new content-addressable message store, explicitly "modeled after Git," deduplicates repeated content by hashing it, while `llm logs` and `llm logs --json` transparently reassemble the stored fragments into readable transcripts. The Python API gains a matching overhaul: a new `model.prompt(messages=[])` interface accepts a full message list directly, and `stream_events()` yields typed events — `reasoning`, `text`, tool calls, image attachments — instead of a flat stream of strings.</p>
+<h2>Why a CLI keeps mattering</h2>
+<p>It is easy to overlook a command-line tool amid a market obsessed with polished chat products, but `llm` occupies a specific and increasingly valuable niche. It is provider-agnostic by design, speaking to OpenAI, Anthropic, Google, Mistral, OpenRouter and locally hosted models through a common plugin interface. That neutrality is the whole point: as the frontier labs ship new models at a cadence that now resembles software patch releases — GPT-5.6 Luna is already the new default model in this version — a stable, scriptable abstraction over all of them saves developers from rewriting integration code every few weeks.</p>
+<p>The broader open-source LLM tooling ecosystem has coalesced around exactly this idea. Where vendors ship SDKs that lock you to one API, tools like `llm` compete on composability and reach. Willison's decision to expose server-side tools, MCP connectors and structured streaming events through the same one-liner grammar is a bet that the interesting work is increasingly in wiring models to tools, not in the models alone.</p>
+<h2>What to watch</h2>
+<p>Willison himself concedes the trajectory in the release notes, writing under the heading "I guess LLM is an agent framework now" that the tool is "beginning to look very agent-shaped." Tool chains can now pause for human approval and resume from stored history — features driven by his Datasette Agent project. He floats baking a first-class "agent" concept into the core library next, while admitting he is "still trying to figure out what that would look like." For a project that spent years refusing to use the word "agent" at all, that is the release to watch for.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"I guess LLM is an agent framework now... Looking at LLM today it's beginning to look very agent-shaped to me."</blockquote>
+          <cite>&mdash; Simon Willison, Creator of the LLM open-source CLI</cite>
+        </div>
+
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://simonwillison.net/2026/Aug/4/new-release-of-llm/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=simonwillison.net&sz=32" alt="">Simon Willison's Weblog</a><a href="https://simonwillison.net/2026/Aug/4/llm/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=simonwillison.net&sz=32" alt="">LLM 0.32 Release</a><a href="https://github.com/simonw/llm/releases/tag/0.32" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=32" alt="">GitHub</a><a href="https://llm.datasette.io/en/stable/changelog.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=llm.datasette.io&sz=32" alt="">LLM Changelog</a></div></div>
+<div class="article-nav"><a href="06-microsoft-ai-token-budget-targets.html" class="nav-prev">&larr; 'Tokenmaxxing Is Not What We're Optimizing For': M</a><a href="08-exploratory-sampling-decoding.html" class="nav-next">'Exploratory Sampling' Aims to Make LLM Outputs Ge &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 05, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
