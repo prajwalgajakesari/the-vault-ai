@@ -1,0 +1,29 @@
+Humanoid robotics just got its first true public-market price tag. Unitree Robotics, the Hangzhou-based maker of low-cost walking machines and robot dogs, priced its Shanghai initial public offering at **150.8 yuan per share**, a level that values the company at roughly **61 billion yuan ($9.04 billion)** and puts it on track to raise about **6.1 billion yuan ($904 million)**. When it begins trading on Shanghai's STAR Market, Unitree will become the first mainland-listed Chinese company built primarily around humanoid robots — a milestone that drags an emerging, venture-funded field into the daylight of quarterly earnings and daily share prices.
+
+## The deal
+
+Unitree is selling about **40.45 million new shares**, or roughly 10% of its enlarged share capital, with subscriptions set to open on **August 10**. The final valuation lands well above an earlier target of up to 50 billion yuan, a sign of how aggressively investors are chasing exposure to what the industry calls "embodied AI" — artificial intelligence that acts on the physical world through arms, legs and grippers rather than through a chat window.
+
+The listing arrives with an unusually pointed strategic endorsement. Chinese AI lab **DeepSeek**, whose low-cost frontier models rattled Western markets over the past two years, is among the strategic placement investors in the offering, according to Chinese state outlet Global Times. The pairing reads as a deliberate statement: a marquee software name buying into a marquee hardware name, stitching together the two halves of China's AI ambitions. Unitree's cap table already includes heavyweight backers such as Tencent, Ant Group, Meituan and Sequoia China.
+
+Proceeds will fund the work that defines the category's next phase. Unitree has said it will spend the money developing robot software and hardware, launching new products, and building out a dedicated manufacturing base — the trio of AI models, robot development and production capacity that any serious humanoid contender now needs.
+
+## Why this one is different
+
+What sets Unitree apart from the field is that it is already making money. The company reported roughly **1.7 billion yuan in revenue for 2025** and adjusted profit of around 591 million yuan, implying a net margin north of 35% — extraordinary for a robotics firm at this stage. It shipped more than **5,500 humanoid robots** last year, more than any other company in the world, and built its reputation first on affordable quadruped "robot dogs" before pushing into bipedal humanoids priced far below Western rivals.
+
+That profitability is the crux of the investment case, and it throws the rest of the sector into sharp relief. Unitree's most-watched competitors — Tesla's Optimus, Figure AI and Apptronik in the United States — remain pre-revenue or lightly commercialized, sustained by private capital and lofty valuations rather than shipments. Figure AI, for instance, has been valued around $39 billion despite negligible sales. Unitree, by contrast, is arriving on the public market with actual robots out the door and a demonstrated ability to sell them at scale, if at thinner price points.
+
+Founder and chief executive **Wang Xingxing**, who started the company after building a quadruped robot as a graduate student, will retain firm control after the listing. According to disclosures cited in Chinese and international coverage, Wang and related parties will hold about 31% of shares but a controlling majority of voting rights — a founder-led structure common among STAR Market technology listings.
+
+## From VC story to public category
+
+For most of the past three years, humanoid robotics has been a venture-capital narrative — a stream of glossy demo videos, staged warehouse walk-throughs and nine- and ten-figure funding rounds justified largely by promise. Unitree's IPO changes the terms of the conversation. Public investors will now get direct, liquid exposure to the sector for the first time, and with that exposure comes scrutiny: revenue recognition, margins, unit economics and the gap between demo and deployment all become matters of public record.
+
+The listing also sharpens the US-China dimension of the embodied-AI race. Silicon Valley has led on the software layer and on splashy humanoid ambitions, but China has quietly built the supply chain, the component base and — in Unitree's case — the manufacturing muscle to ship hardware cheaply and in volume. A DeepSeek-backed, profitable, publicly traded Chinese robot maker is a concrete counterpoint to the American assumption that it holds a durable lead in AI's physical frontier. It also gives Beijing's robotics push a flagship public company that can raise capital, set a valuation benchmark and pull talent.
+
+There are real risks embedded in the euphoria. A $9 billion valuation on 1.7 billion yuan of revenue implies steep growth expectations, and one analysis noted that first-half revenue growth had already decelerated toward 40% from far higher earlier rates. Humanoid robots remain difficult to make genuinely useful outside controlled demonstrations, and a public listing means every stumble will show up in the stock price rather than a private board deck.
+
+## What to watch
+
+The immediate test is the August 10 subscription and the debut trade that follows — STAR Market listings are prone to violent first-day swings, and Unitree's open will set the first genuine public valuation benchmark for the entire humanoid category. Beyond the pop, watch whether Unitree can sustain revenue growth and margins as it scales manufacturing, whether the DeepSeek tie-up produces meaningfully smarter robots, and whether Western rivals accelerate their own paths to public markets in response. For a field that has run on promise, Unitree is about to find out what promises are worth when they trade every day.
