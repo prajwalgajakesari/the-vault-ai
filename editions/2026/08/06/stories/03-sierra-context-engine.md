@@ -1,0 +1,29 @@
+Sierra, the AI customer-experience company co-founded by former Salesforce co-CEO Bret Taylor and ex-Google executive Clay Bavor, has a new pitch for enterprises worried about being commoditized by the same foundation models everyone else can buy: the data is yours, so make the agent smart enough to use it. On August 4, the company introduced **Context Engine**, a system it says turns scattered enterprise data into decisions its conversational agents can act on the moment an outcome is on the line.
+
+The launch, laid out in a Sierra blog post titled "Rent the intelligence, own the relationship," is aimed squarely at customer retention and personalization. Rather than answering a single support question and moving on, Sierra says Context Engine is what powers its **Horizon** agents — long-running agents introduced in July that pursue business goals over days, weeks, or months, "with every interaction adding more context and making the next one smarter."
+
+## From scattered data to usable signals
+
+The core problem Sierra is targeting is familiar to anyone who has sat through a maddening cancellation call: the information needed to save the customer usually already exists somewhere in the business, but the agent can't surface it in the thirty seconds that matter.
+
+Context Engine draws from two sources, according to Sierra. The first is what a company already knows — customer profiles, billing history, purchases, claims, appointments, product usage and loyalty status "spread across CRM systems, data warehouses, and the systems that run the business." The second is what the agent learns in the act of working: that a customer always chooses pickup over delivery, that yesterday's troubleshooting failed at step three, that a subscriber ignored three save offers before responding to the fourth.
+
+"Having access is not the same as having context," the company wrote, arguing that handing an agent every record in a business "only moves the problem one step closer to the customer." The system's job, Sierra says, is to learn "which pieces of context matter for which decisions, using the outcomes of every interaction to get better over time at surfacing what matters."
+
+Sierra frames the mechanism as a compounding loop. Every decision an agent makes becomes evidence about what worked, for which customer, in which situation. Most decisions lean on what has worked for similar customers before; a small share deliberately explore alternatives, because, as the company puts it, "the only way to discover something new is to try." Over time, Sierra says, that accumulated evidence can train models that predict which customers are likely to churn or which offers are most likely to be accepted — a churn-and-retention playbook that gets rewritten nightly. One example in the post: agents discovering that customers with large unspent loyalty balances were actually more likely to churn, prompting a new rule to lead with re-engagement rather than a discount.
+
+## Why "context" is the battleground
+
+The strategic argument underneath the product is the more interesting story, and Sierra makes it explicitly. The blog post opens by invoking a question Microsoft CEO Satya Nadella raised in June about how companies avoid "ceding value" to a handful of model makers.
+
+**"The foundation models cannot be your advantage,"** Sierra wrote. "Off the shelf, they're identical to what your closest competitor has, and you both get the next release." What is defensible, the company argues, is "the observation your agents collect, the evidence of what works and for whom" — a proprietary record it calls a moat "your competitors cannot buy or shortcut."
+
+That reasoning tracks a broader shift across enterprise AI in 2026. As frontier models converge on similar capabilities and prices fall, the differentiation is migrating up the stack — to memory, retrieval, and the ability to ground a general-purpose model in a specific company's private data. Rivals from Salesforce's Agentforce to Decagon and a wave of retrieval-focused startups are chasing the same premise. Sierra's framing — "rent the intelligence, own the relationship" — is a bet that context, not raw model horsepower, is where the durable value sits.
+
+It is also a bet Sierra can afford to make loudly. The company was founded in 2023 and has raised roughly $1.6 billion in total, including a **$950 million Series E in May** that valued it at more than $15 billion — around $15.8 billion by most accounts, up from the roughly $10 billion figure reported in 2025. Sierra has said it serves a large slice of the Fortune 50 and reportedly reached around $200 million in annual recurring revenue, and it charges on an outcome-based model, billing for resolved issues and, since Horizon, for longer multi-week business goals rather than per seat or per message.
+
+## What to watch
+
+Context Engine sharpens Sierra's pitch, but it also raises the bar it has to clear. Outcome-based pricing means the company only wins when the agent actually moves a metric — a save, a qualified lead, a higher lifetime value — so the claim that context "compounds" has to show up in customer numbers, not just architecture diagrams. Sierra has offered illustrative examples rather than named, audited results from the Context Engine itself so far.
+
+Two things are worth tracking in the coming months. First, whether enterprises are comfortable letting an agent run continuous experiments on live customer relationships, including the deliberate "exploration" decisions Sierra describes — a practice that will invite scrutiny in regulated sectors like financial services and healthcare, both of which Sierra targets. Second, whether "context as moat" holds as competitors race to offer their own memory and grounding layers. If Sierra is right, the winners of the enterprise agent era won't be decided by whose model is smartest, but by whose agents have learned the most about their own customers.

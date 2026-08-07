@@ -1,0 +1,31 @@
+## QNX and Axera Launch an AI Assisted-Driving Platform Aimed at Mass-Production Cars
+
+A veteran of automotive software and one of China's newest AI-chip challengers are pairing up to chase the same prize: an assisted-driving stack cheap and certifiable enough to ship in ordinary cars, not just flagships. QNX, the embedded-software unit of BlackBerry, and Axera, the Chinese semiconductor firm behind the M57 inference processor, have combined Axera's silicon with QNX's safety-certified operating system into a single platform for advanced driver-assistance systems (ADAS). The companies say the pairing has already won designs at several Chinese automakers, with the first production vehicles expected on the road in 2026.
+
+The bet is unglamorous but consequential. Most of the industry's attention goes to the high-compute domain controllers that promise hands-off highway driving. The QNX-Axera platform aims lower and wider: the front-facing camera modules and entry-level driver-assist boxes that regulators are increasingly making mandatory, and that every mainstream model needs. That is where volume lives, and where cost and certification, not raw horsepower, decide who wins.
+
+## What is in the box
+
+The heart of the platform is Axera's **M57**, a system-on-chip built for intelligent front-view cameras, driver- and occupant-monitoring systems, and ADAS domain controllers. Its in-house **AXNeutron** neural processing unit delivers **up to 10 TOPS** of AI performance, with native acceleration for bird's-eye-view perception models—the increasingly standard technique for stitching multiple camera feeds into a single 3D view of the road. Axera pairs that with an **AXProton AI-ISP** image signal processor tuned for high-dynamic-range and low-light imaging, four Arm Cortex-A55 CPU cores delivering up to 15,000 DMIPS, and a lockstep Cortex-R5F safety island.
+
+Crucially for automakers, the chip runs cool and cheap: Axera rates it at **under 3.5 watts** at a junction temperature of 125°C, in a 15mm-by-15mm package. That low-power envelope is what lets a supplier drop AI perception into a compact camera module without active cooling. The M57 itself carries **ISO 26262 ASIL-B** functional-safety certification, is qualified to **AEC-Q100 Grade 2**, and has passed **ISO/SAE 21434** automotive-cybersecurity requirements.
+
+The software layer is what Axera cannot build for itself. **QNX OS for Safety**, a real-time operating system certified to **ISO 26262 ASIL-D**—the industry's most stringent functional-safety level—provides the deterministic, fault-tolerant foundation that regulators require for systems that can steer or brake a car. QNX also brings ISO 21434 cybersecurity certification. In effect, Axera supplies the compute and QNX supplies the trust: the paperwork and proven track record that let a Chinese chip pass safety audits in markets far stricter than its home one.
+
+## Why this pairing, now
+
+QNX has made a deliberate push into China's supplier base, and its recent partnerships read like a template for the Axera deal. The company's software already runs on more than 275 million vehicles worldwide and it works with over 45 automakers. In China specifically, QNX has struck what it calls a "Chinese chip plus international OS" paradigm—its operating system running atop domestic silicon from firms such as Rockchip and SemiDrive to power cockpits and driver-assist controllers now reaching mass production.
+
+The logic, from QNX's side, is that certification is portable and hard to replicate. "One of the unique advantages of QNX is that we can help customers meet the stricter regulations and certification requirements for automotive functional safety in Europe and the United States," QNX president **Mattias Eriksson** told Japan's NE Times. "These requirements may not be mandatory in China, but they must be followed in many overseas countries."
+
+That last point is the whole strategy. Axera has been explicit that it wants the M57 to travel: the company debuted its M57-based ADAS solution at IAA Mobility 2025 in Munich, and has said the first mass-produced M57 vehicle is slated to launch in Europe. Chinese automakers are racing abroad, and a homegrown chip that already speaks the language of ASIL-D and ISO 21434—thanks to a QNX layer—clears a major barrier to export.
+
+## The bigger race
+
+The deal is a small window onto two of the auto industry's defining contests. The first is the software-defined-vehicle transition, in which carmakers are consolidating dozens of scattered electronic control units onto a handful of powerful, centralized computers running certified operating systems. Edge-AI silicon—chips that run computer-vision and perception models locally, in the car, rather than in the cloud—is the physical substrate of that shift, and the market for it is being contested by everyone from Nvidia and Qualcomm to a wave of Chinese entrants.
+
+The second is China's drive to reduce its dependence on foreign chips. Axera building a vertically integrated automotive platform—its own NPU, its own ISP, its own safety island—is exactly the kind of move Beijing has been encouraging across the semiconductor stack. The wrinkle is that the safety-critical operating system still comes from a Western vendor. That is less a contradiction than a snapshot of where the ecosystem actually is: Chinese silicon is competitive on performance-per-watt and price, but the deep certification track record for safety-of-life software remains a Western stronghold, at least for now. QNX itself notes that "increasingly competitive domestic OS developers" are rising in China.
+
+## What to watch
+
+Three things will tell whether this is a durable platform or a transitional arrangement. First, which automakers actually ship it, and in what volumes—the companies cite "several" Chinese OEMs and 2026 production, but named, high-volume models are the real proof. Second, whether the M57-plus-QNX combination lands in European vehicles as Axera intends, validating the export thesis. And third, how long the QNX layer lasts before a domestic RTOS earns comparable certification and displaces it. For now, the pairing is a clean illustration of the mass-market ADAS playbook: cheap, cool-running, certifiable AI silicon, wrapped in software that regulators already trust.

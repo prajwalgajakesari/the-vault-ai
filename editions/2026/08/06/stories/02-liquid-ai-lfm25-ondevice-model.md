@@ -1,0 +1,29 @@
+The AI agent that books your hotels, converts your budget across six currencies and checks the weather in a half-dozen cities does not, in Liquid AI's new pitch, need a data center to do any of it. It needs a phone.
+
+On August 4, the MIT spinout released **LFM2.5-2.6B**, a roughly 2.69-billion-parameter model purpose-built to run fully autonomous, tool-calling agents on local hardware — from smartphones and laptops up to workstations, and down to devices as small as a Raspberry Pi. The company's framing is blunt: for a large and growing class of agentic work, the cloud is now optional.
+
+"Today we release LFM2.5-2.6B, an agentic model that runs entirely on-device," the company wrote in announcing the model. "It plans, calls tools, and works through multi-step tasks on phones, laptops, PCs, and robots. Data never leaves the device, and the marginal cost of each run is essentially zero."
+
+## What Liquid shipped
+
+LFM2.5-2.6B is a hybrid architecture — Liquid's signature departure from pure transformers, combining gated short convolutions with a small number of grouped-query attention blocks — pre-trained on roughly 34 trillion tokens and tuned specifically for agent workloads rather than chat. It ships with **native tool calling**, a **128,000-token context window**, and, crucially, a memory footprint of **under 2.5 GB**, small enough to sit in the RAM of a modern handset. The weights are available now on Hugging Face.
+
+The speed numbers are the point of the exercise. Liquid reports **220 tokens per second on an Apple M5 Max**, 113 on an AMD Ryzen AI Max+ 395, and roughly **30 tokens per second on a smartphone** — fast enough for an agent to grind through multi-step tool sequences without the round-trip latency of a cloud call.
+
+On benchmarks, the company is making an unusually aggressive claim for a model this size: that it punches several weight classes above itself. On **ToolSandbox**, an agentic tool-use benchmark, LFM2.5-2.6B scores **77.83 against 76.44 for Qwen3.5-9B** — beating a model roughly four times larger. Liquid says its model leads on every instruction-following benchmark it tested and nearly every tool-use benchmark, trailing the 9B Qwen only on BFCLv4.
+
+The training recipe is where the agentic focus shows. Liquid combined supervised fine-tuning, multi-domain distillation from specialist teacher models, and — the differentiator — agentic reinforcement learning run inside real agent harnesses rather than synthetic setups. "They're really consumed through agentic harnesses, like OpenClaw, like Hermes Agent," Maxime Labonne, who leads post-training at Liquid AI, told VentureBeat. "We wanted to make sure that this model is not just good at math or at code, but it's good at using tools."
+
+An independent test cited by Liquid drives the throughput case home. The local-AI client Atomic Chat ran the model through three tasks — checking weather and local time across six cities, converting one budget into six currencies, and comparing four hotels and booking one — a workload that took **35 tool calls**. LFM2.5-2.6B finished it **3.7 times faster than DeepSeek-V4-Flash**, a 284-billion-parameter cloud model.
+
+## Why on-device agents matter
+
+The significance here is less about any single benchmark and more about where the cost curve of AI agents is heading. Cloud-based agents are expensive precisely because agents are chatty: a single task can fan out into dozens of model calls, each metered, each adding latency. Move that loop onto the device and the economics invert. The marginal cost per run drops toward zero, there is no per-token bill, and the data — calendars, documents, messages, location — never leaves the hardware.
+
+That last part reframes on-device inference as a privacy and reliability story, not just a cost one. An agent that runs locally works on an airplane, in a car with spotty coverage, or on a factory-floor robot with no connectivity guarantee. Liquid explicitly pitches the model for exactly these settings: high-volume, well-defined tasks like document management, calendar and workflow automation, and always-on background routines, plus connectivity-limited environments such as vehicles and robotics.
+
+It also lands as structural pressure on the cloud-based AI economy that the current wave of frontier labs is built on. Liquid's argument — consistent since founder and CEO Ramin Hasani began describing Liquid Foundation Models as delivering "state-of-the-art performance at every scale, while maintaining a small on-device memory footprint" — is that a meaningful fraction of agentic demand does not require a giant frontier model at all. If a 2.6B model can clear the tool-use bar for real workflows, the assumption that every agent needs a metered API call starts to look shakier. That does not threaten frontier labs on reasoning-heavy tasks, but it does contest the vast middle of routine, repetitive automation where volume, not raw intelligence, drives the bill.
+
+## What to watch
+
+Vendor benchmarks always deserve a skeptical read, and the ToolSandbox and BFCLv4 results will need independent replication before "beats a 9B model" hardens into consensus. The more telling signal will be adoption: whether device makers, robotics firms and app developers actually wire LFM2.5-2.6B into shipping products, and whether it holds up on the long-horizon, error-recovering tasks that separate a demo from a dependable agent. Also worth tracking is how the frontier labs respond — Apple, Google and Qwen are all pushing small on-device models, and Liquid's benchmark broadsides invite a direct rebuttal. For now, the more interesting question isn't whether a 2.6B model can run an agent on your phone. Liquid just showed it can. It's how much of the agent economy quietly moves off the cloud once it does.
