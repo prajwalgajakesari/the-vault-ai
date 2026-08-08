@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ByteDance Trains a 10-Trillion-Parameter Model to Challenge Frontier Systems &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header"><span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span><h1>ByteDance Trains a 10-Trillion-Parameter Model to Challenge Frontier Systems</h1><div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 956 words</span><span>4 sources</span></div></header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>ByteDance is reportedly pre-training a 10-trillion-parameter model, potentially China's largest ever and near frontier scale, though parameter counts are unverified and capability depends on undisclosed active-parameter design.</p></div>
+<div class="article-body">
+<h2>ByteDance Trains a 10-Trillion-Parameter Model to Challenge Frontier Systems</h2>
+<p>The company best known for TikTok is now chasing something far larger than a viral feed. ByteDance is pre-training an artificial intelligence model with as many as 10 trillion parameters, a scale that would make it the biggest AI system ever built by a Chinese company and place it within striking distance of the frontier models developed in the United States, according to a Financial Times report picked up by Reuters on August 7, 2026. If the figure holds through training, it would mark one of the most ambitious bets yet in the accelerating contest between Chinese and American labs.</p>
+<h2>What Is Being Built</h2>
+<p>The reported 10-trillion-parameter figure is roughly three and a half times the size of Moonshot AI's Kimi K3, which carries 2.8 trillion parameters and is the largest model any Chinese lab has publicly released. Before Kimi K3, the Chinese frontier sat lower: Meituan's LongCat-2.0 and DeepSeek's V4-Pro topped out around 1.6 trillion total parameters. ByteDance's project would leapfrog all of them.</p>
+<p>The comparison that gives the number its weight is Anthropic. Industry estimates cited by the FT put Anthropic's most advanced Mythos 5 system at roughly 8 trillion parameters, with its more widely available Fable 5 sibling estimated near 5 trillion. That would put ByteDance's model close to, and by raw parameter count possibly beyond, the systems believed to sit at the top of the field.</p>
+<p>Two heavy caveats apply. First, these numbers are reported, not confirmed. As Reuters noted plainly, "Reuters could not immediately verify the report," and ByteDance did not respond to a request for comment. The final parameter count has not been locked in and could shift before training completes. Second, the American figures are estimates: Anthropic and OpenAI do not disclose parameter counts for Fable, Mythos, or GPT-5.5, which makes any direct comparison inherently approximate.</p>
+<p>Parameter counts also flatter the story more than they should. As Reuters put it, an AI model's parameters "refer to the numerical settings a model learns from data to recognize patterns, generate answers, and carry out tasks," and "are often used as a rough measure of scale, though not necessarily capability." At this scale, models almost certainly rely on a Mixture-of-Experts architecture, in which only a fraction of the total parameters activate for any given query. DeepSeek's V4-Pro, for example, holds 1.6 trillion parameters but reportedly activates only about 49 billion per token. Until ByteDance discloses its active-parameter ratio, "10 trillion" describes the model's storage and training cost far more than its real-world capability.</p>
+<h2>The Founder's No-Shortcuts Order</h2>
+<p>Alongside the scale, a strategic signal drew attention. ByteDance founder Zhang Yiming has reportedly directed staff on the company's Seed research team to avoid distillation, the practice of training a new model on the outputs of a more powerful existing one, even if pursuing original research means falling behind domestic rivals in the short term.</p>
+<p>That instruction lands in a charged moment. Distillation has become the flashpoint of Sino-American AI friction in 2026: U.S. officials have publicly accused Moonshot AI of running a large-scale distillation campaign against Anthropic's Fable model to build Kimi K3, an allegation Moonshot denied. For ByteDance, a founder-level pledge to avoid the technique reads as both an engineering conviction, a bet that genuine pre-training at scale produces a stronger model, and a legal hedge against the scrutiny now attached to the practice.</p>
+<p>The work runs through ByteDance's Seed division, established in early 2023 in response to ChatGPT. Its foundational research is led by Wu Yonghui, a former vice president of research at Google DeepMind who joined ByteDance in February 2025, overseeing a team reported to number roughly 2,000 researchers.</p>
+<h2>The Cost of Going Big</h2>
+<p>Pre-training at this scale is neither fast nor cheap. The phase typically runs three to six months before engineers move to fine-tuning, safety evaluation, and any release, meaning a model of this size would be unlikely to reach the public before early 2027. ByteDance has raised its 2026 AI capital spending plan to more than 200 billion yuan, roughly $30 billion, with about half earmarked for chips, a mix of Nvidia hardware and a growing allocation of domestic Chinese silicon as the company hedges against tighter U.S. export controls.</p>
+<h2>Why It Matters</h2>
+<p>The story is a clean read on where the U.S.-China frontier race stands. For years the gap was measured in years; through 2025 and 2026 it has compressed to months. ByteDance is not integrating an American foundation model into a consumer app, it is training a frontier-scale system from scratch, and it already owns the distribution to deploy it: its Doubao assistant reached hundreds of millions of monthly users, second globally only to ChatGPT.</p>
+<p>The move also tests the scaling thesis at a moment when many labs have pivoted toward efficiency and reasoning. ByteDance is wagering that raw scale, done with original data rather than borrowed model outputs, still buys frontier capability. And it does so under the shadow of export controls: the same restrictions meant to slow Chinese AI are pushing ByteDance to split its enormous chip budget between Nvidia and homegrown alternatives, an adaptation that controls were designed to prevent but may instead be accelerating.</p>
+<h2>What to Watch</h2>
+<p>The number to wait for is not 10 trillion but the active-parameter ratio, the figure that will determine whether this rivals Mythos or merely matches it on a spec sheet. Watch, too, for the training timeline holding through late 2026, any confirmation from ByteDance itself, and whether Zhang Yiming's no-distillation stance survives contact with competitive pressure. Until a fine-tuned model actually ships, the most honest description of ByteDance's project is intention at unprecedented scale, with the hardest questions still unanswered.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Parameters are often used as a rough measure of scale, though not necessarily capability.&rdquo;</blockquote><cite>&mdash; Reuters, Wire report, August 2026</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">10T</div><div class="stat-label">Parameters (reported)</div></div><div class="stat-cell"><div class="stat-value">2.8T</div><div class="stat-label">Parameters, Moonshot Kimi K3</div></div><div class="stat-cell"><div class="stat-value">~8T</div><div class="stat-label">Anthropic Mythos 5 (estimated)</div></div><div class="stat-cell"><div class="stat-value">3-6 mo</div><div class="stat-label">Typical pre-training phase</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://whbl.com/2026/08/06/bytedance-targets-mega-ai-model-nearing-anthropics-mythos-ft-reports/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=whbl.com&sz=32" alt="">Reuters via WHBL</a><a href="https://www.techtimes.com/articles/323603/20260807/bytedance-begins-biggest-ai-build-china-rules-out-rival-copying-shortcut.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techtimes.com&sz=32" alt="">Tech Times</a><a href="https://www.freepressjournal.in/tech/bytedance-is-reportedly-training-a-10-trillion-parameter-ai-model-to-rival-anthropics-mythos" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=freepressjournal.in&sz=32" alt="">Free Press Journal</a><a href="https://techstartups.com/2026/08/07/top-tech-news-today-august-7-2026-amd-cloudflare-google-meta-nvidia-spacex-suno-tesla-more/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techstartups.com&sz=32" alt="">TechStartups</a></div></div>
+<div class="article-nav"><a href="05-cloudflare-q2-2026-earnings-ai-demand.html" class="nav-prev">&larr; Cloudflare Surges as AI Demand Pushes Quarterly Re</a><a href="07-suno-watermark-fingerprint-ai-music.html" class="nav-next">Suno Turns to Watermarking and Fingerprinting to I &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 7, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
