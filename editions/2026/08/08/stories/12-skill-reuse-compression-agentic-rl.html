@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>'Skill Reuse as Compression': A New Angle on Making RL Agents More Efficient - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body code{background:var(--surface-2);padding:.1em .4em;border-radius:4px;font-size:.9em}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>'Skill Reuse as Compression': A New Angle on Making RL Agents More Efficient</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 712 words</span>
+    <span>1 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A 2026 paper argues that reinforcement-learning agents generalize better when their successful behavior is compressible into a small library of reusable skills, and enforces that with an information-theoretic training penalty.</p>
+</div>
+<div class="article-body">
+<p>When a language-model agent learns to solve tasks by trial and error, it often finds a shortcut that works for exactly one problem and nothing else. It memorizes a brittle sequence of moves rather than a transferable habit. A 2026 arXiv paper, "Skill Reuse as Compression in Agentic RL," proposes a clean way to think about that failure and, more importantly, a way to train against it: treat a good agent as one whose behavior compresses well.</p>
+<p>The work comes from Zhikun Xu, Yu Feng, Jacob Dineen, Taiwei Shi, Jieyu Zhao, and Ben Zhou, with affiliations at Arizona State University, the University of Pennsylvania, and the University of Southern California. It was posted to arXiv on May 29, 2026.</p>
+<h2>The problem: agents that overfit to a single task</h2>
+<p>Agentic reinforcement learning (RL) has become a common way to push LLM-based agents past what prompting alone can do. The agent acts in an environment, gets rewarded for success, and updates its policy. The catch is that reward-chasing does not distinguish between a genuinely reusable strategy and a lucky, over-specialized one. Both get reinforced if they happen to work. The result is agents that ace the tasks they trained on and stumble the moment the setup shifts.</p>
+<p>The authors' central hypothesis reframes this in information-theoretic terms: agents generalize better when their successful trajectories are structurally compressible, meaning they can be decomposed into a small set of reusable, abstract patterns. A brittle, one-off solution is, in this view, an incompressible one, a long string of idiosyncratic actions that share nothing with the agent's other successes.</p>
+<h2>The core idea: compression as a training signal</h2>
+<p>The method, called ReuseRL, grounds agentic RL in the Minimum Description Length (MDL) principle, the classic idea that the best model of some data is the one that lets you describe the data most concisely. Here the "data" is the agent's own successful behavior.</p>
+<p>In the authors' description, "ReuseRL extracts a shared skill dictionary from successful trajectories and augments the RL objective with a segmentation cost, explicitly penalizing idiosyncratic behaviors that encode poorly." In practice that means two things happen alongside ordinary reward optimization. First, the system mines recurring sub-sequences from trajectories that worked and collects them into a reusable skill dictionary, the shared vocabulary an agent can draw on across tasks. Second, the training objective adds a cost for behavior that cannot be cleanly segmented into those shared skills. An agent that keeps inventing bespoke, non-reusable move sequences pays a penalty; an agent that composes its answers out of the common dictionary does not.</p>
+<p>The framing is elegant because it turns a vague goal ("learn general skills") into a concrete, optimizable quantity ("describe your successes with fewer bits"). The paper also backs the intuition with theory, proving a PAC-Bayes generalization bound for the compression penalty, which formally links how compressible an agent's behavior is to how well it should transfer.</p>
+<h2>The results</h2>
+<p>The authors evaluate ReuseRL on three text-based agent benchmarks: ALFWorld, TextWorld-Cooking, and Countdown-Stepwise. Across all three, they report that ReuseRL improves both in-distribution and out-of-distribution success rates over vanilla GRPO, a standard RL baseline, as well as over strong round-length baselines. The out-of-distribution gains are the ones that matter most for the thesis: they are the direct test of whether compressible behavior actually transfers to unfamiliar variants rather than just polishing performance on the training tasks.</p>
+<p>The paper does not appear to claim a single headline accuracy number so much as a consistent directional improvement across environments and distribution shifts, which is the appropriate way to argue a generalization result.</p>
+<h2>Why it matters</h2>
+<p>Skill abstraction and hierarchical RL are old ideas: the field has long wanted agents that build a library of subroutines and recombine them. What is notable here is the specific bridge to compression. Instead of hand-designing a skill hierarchy or bolting on a separate discovery module, ReuseRL makes reusability a property the reward objective directly optimizes for, with an MDL justification and a generalization bound to match. It fits a broader 2026 wave of work on agent skill libraries and skill evolution, but it offers an unusually crisp answer to the question of what makes a skill worth keeping.</p>
+<h2>What to watch next</h2>
+<p>The open questions are about scale and reach. These benchmarks are text-based and relatively contained; the interesting test is whether a compression penalty still helps on longer-horizon, tool-using, or multi-agent settings where skill dictionaries could grow large and noisy. Also worth watching: how ReuseRL's mined skills compare to those from the neighboring wave of skill-evolution and skill-library papers, and whether "compressibility" becomes a standard diagnostic for how well an agent will generalize before you ever test it out of distribution.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"ReuseRL extracts a shared skill dictionary from successful trajectories and augments the RL objective with a segmentation cost, explicitly penalizing idiosyncratic behaviors that encode poorly."</blockquote><cite>- the authors, Skill Reuse as Compression in Agentic RL</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">3</div><div class="stat-label">Benchmark environments tested</div></div><div class="stat-cell"><div class="stat-value">GRPO</div><div class="stat-label">RL baseline ReuseRL outperforms</div></div><div class="stat-cell"><div class="stat-value">PAC-Bayes</div><div class="stat-label">Generalization bound proven</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2605.31509" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a></div></div>
+<div class="article-nav"><a href="11-self-evolving-world-models-agent-planning.html" class="nav-prev">&larr; 'Self-Evolving World Models' Let LLM Agents Learn </a><a href="13-us-commerce-china-offshore-nvidia-chips.html" class="nav-next">U.S. Reviews How Chinese AI Firms Access Nvidia Ch &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published August 08, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
