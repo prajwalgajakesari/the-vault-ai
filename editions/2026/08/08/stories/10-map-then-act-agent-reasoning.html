@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>'Map-then-Act' Paradigm Aims to Give AI Agents a Sense of Direction on Long Tasks - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body code{background:var(--surface-2);padding:.1em .4em;border-radius:4px;font-size:.9em}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>'Map-then-Act' Paradigm Aims to Give AI Agents a Sense of Direction on Long Tasks</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 812 words</span>
+    <span>1 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A new paradigm has agents explore and build a structured mental map of an unfamiliar environment before acting, rather than learning its rules through costly trial-and-error mid-task.</p>
+</div>
+<div class="article-body">
+<p>Most AI agents that stumble through a long task fail for a mundane reason: they are trying to understand the world at the same moment they are trying to change it. Drop a language-model agent into an unfamiliar game, a household simulator, or a science puzzle, and it will typically start acting on its goal immediately, inferring the rules only from whatever feedback its mistakes happen to generate. A new 2026 paper argues that this ordering is exactly backwards, and that fixing it produces large, consistent gains.</p>
+<p>The paper, "MAP: A Map-then-Act Paradigm for Long-Horizon Interactive Agent Reasoning" (arXiv:2605.13037), comes from researchers at the University of Science and Technology of China, Meituan, and collaborating institutions. Its core claim is that today's agents suffer from what the authors call <em>Delayed Environmental Perception</em>: because understanding is "acquired reactively during execution rather than established beforehand," agents are forced into a "temporal inversion" where they must act in order to understand. The consequence, the authors write, is that agents "must infer environmental constraints through trial-and-error, resulting in an Epistemic Bottleneck that traps them in inefficient failure cycles."</p>
+<h2>Why long-horizon tasks break down</h2>
+<p>The standard recipe for interactive agents is goal-conditioned stepwise planning, exemplified by the popular ReAct pattern of interleaving reasoning and action. That works when the environment is familiar or forgiving. It breaks down over long horizons, where a single early misunderstanding compounds. The paper describes two characteristic failure modes: <em>Goal Drift</em>, where an agent gets stuck pursuing locally plausible but globally wrong subgoals, and a broader inability to recover once its mental model has diverged from reality.</p>
+<p>Crucially, the authors frame this as a paradigm-level problem rather than a capacity problem. A bigger, smarter model running under the same act-to-understand loop still perceives the environment "only as a byproduct of acting within it." They point to the recently released ARC-AGI-3 benchmark, a set of zero-knowledge interactive game environments, where even frontier models such as Claude 4.6 score near zero. Strong reasoning, in their words, becomes "effectively ungrounded when environmental structure is unknown prior to execution."</p>
+<h2>Mapping before acting</h2>
+<p>MAP draws on human affordance perception and cognitive-map theory, splitting an agent's work into three explicit stages. First, <em>Global Exploration</em> has the agent probe the environment to acquire general priors before any task is attempted. Second, <em>Task-Specific Mapping</em> distills those observations into a structured "cognitive map" of the relevant layout, objects, actions, and constraints. Only then does <em>Knowledge-Augmented Execution</em> begin, with the agent solving the actual task grounded in the map it built. The framework is designed to be plug-and-play, wrapping around existing models rather than requiring a new architecture.</p>
+<p>The authors tested MAP on four interactive benchmarks: ALFWorld (household navigation and manipulation), TextCraft (Minecraft-style multi-step crafting), ScienceWorld (procedural science tasks), and ARC-AGI-3. Across a wide range of backbones, including GPT-4o, Claude, Qwen, Kimi, and others, they report consistent improvements over both plain ReAct and a non-staged variant called CoMAP that maps and acts simultaneously. Some gains are dramatic: on TextCraft, Qwen3-4B-Instruct climbs from 31.8 with ReAct to 71.9 with MAP. On ARC-AGI-3, the paper reports that MAP lifts frontier models above their near-zero baseline in 22 of 25 game environments.</p>
+<p>The team also released MAP-2K, a dataset of "map-then-act" trajectories, and fine-tuned a small Qwen3-4B model on it. Notably, training on these mapping-and-execution traces beat training on expert execution traces alone, which the authors read as evidence that "understanding environments is more fundamental than imitation."</p>
+<h2>Why it matters</h2>
+<p>MAP is part of a broader shift in agent research toward giving models explicit structure, whether called planning, world models, or cognitive maps, rather than relying on step-by-step reasoning to carry everything. The intuition is old, but the results here are concrete: separating a dedicated exploration-and-mapping phase from execution appears to convert environments that were near-impossible into ones frontier models can partially solve. The finding that mapping trajectories make better training data than raw expert demonstrations is the more provocative one, hinting that agents may learn more from understanding why an environment works than from copying what an expert did.</p>
+<p>The usual caveats apply. Building a map up front costs extra exploration steps, and the paper devotes a research question to whether that overhead is acceptable; the benefit will depend on task length and how reusable the map is. The benchmarks are simulated and text-based, so it remains to be seen how the paradigm holds up in messier, higher-stakes settings like real web automation or robotics.</p>
+<p><strong>What to watch next:</strong> whether map-then-act structure gets folded into general-purpose agent frameworks, whether the MAP-2K result about mapping-over-imitation replicates at larger scale, and how the approach fares against long-context and memory-based agents chasing the same long-horizon reliability problem from a different angle.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"agents must infer environmental constraints through trial-and-error, resulting in an Epistemic Bottleneck that traps them in inefficient failure cycles."</blockquote><cite>- MAP paper authors, arXiv:2605.13037</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">22 of 25</div><div class="stat-label">ARC-AGI-3 environments improved</div></div><div class="stat-cell"><div class="stat-value">31.8→71.9</div><div class="stat-label">TextCraft score (Qwen3-4B) vs ReAct</div></div><div class="stat-cell"><div class="stat-value">4</div><div class="stat-label">Interactive benchmarks tested</div></div><div class="stat-cell"><div class="stat-value">MAP-2K</div><div class="stat-label">New map-then-act dataset released</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2605.13037" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a></div></div>
+<div class="article-nav"><a href="09-openai-astra-critical-cyber-pause.html" class="nav-prev">&larr; OpenAI Pauses Astra, Saying It 'Cannot Rule Out' C</a><a href="11-self-evolving-world-models-agent-planning.html" class="nav-next">'Self-Evolving World Models' Let LLM Agents Learn  &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published August 08, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
