@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google DeepMind's Math System Reaches Gold-Medal Standard on Olympiad Problems - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body code{background:var(--surface-2);padding:.1em .4em;border-radius:4px;font-size:.9em}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Google DeepMind's Math System Reaches Gold-Medal Standard on Olympiad Problems</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 773 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Google DeepMind's Gemini Deep Think reached officially graded gold-medal standard on IMO problems and now tops Olympiad-grade math benchmarks, placing it among the strongest solvers alive.</p>
+</div>
+<div class="article-body">
+<p>Google DeepMind's mathematical-reasoning systems have climbed into the rarefied company of the world's best young mathematicians — and, by some measures, past most of them. As of mid-2026, the lab's Gemini Deep Think lineage has an officially graded gold-medal performance on International Mathematical Olympiad (IMO) problems on its record and sits at or near the top of every curated Olympiad-grade benchmark DeepMind has published. That is the kind of standing that puts a machine among a sliver of a percent of human solvers on exactly the sort of creative, non-obvious problems long considered a uniquely human preserve.</p>
+<p>A word of caution on the framing first. The cleanest, independently verified milestone is not a bare "top 1%" statistic but a gold-medal result. In July 2025, an advanced version of Gemini Deep Think solved five of the six IMO problems and earned 35 of a possible 42 points — a score certified by IMO coordinators using the same grading criteria applied to student contestants. Roughly 8% of human competitors earn gold; only a small fraction post a perfect paper. So "top 1%" is best read as shorthand for genuinely elite performance rather than an exact, officially adjudicated percentile of a single new system.</p>
+<h2>From formal proofs to plain English</h2>
+<p>What makes the result more than a leaderboard entry is how it was achieved. The IMO organization's president, Prof. Dr. Gregor Dolinar, said in DeepMind's announcement that graders found the model's solutions "astonishing in many respects," adding they were "clear, precise and most of them easy to follow." That matters because a year earlier, at IMO 2024, DeepMind's AlphaProof and AlphaGeometry 2 reached silver-medal standard (28 points, four of six problems) only with human experts translating problems into formal languages such as Lean, over two to three days of computation.</p>
+<p>The 2025 system, by contrast, worked end-to-end in natural language, reading the official problem statements and writing rigorous proofs directly, all inside the 4.5-hour competition window. DeepMind credits an enhanced "Deep Think" mode that explores many candidate solutions in parallel rather than following a single chain of thought, plus reinforcement-learning techniques tuned for multi-step proof.</p>
+<h2>The benchmark picture keeps moving</h2>
+<p>Beyond the contest itself, DeepMind built IMO-Bench, a suite of benchmarks vetted by a panel of IMO medalists and mathematicians and introduced at EMNLP 2025. Its toughest component, the Advanced IMO-ProofBench, asks models to write full proofs graded on the IMO's 0-7 scale. There, the gold-medal Gemini scored 65.7%, while every non-Gemini model at the time scored below 25%. By DeepMind's February 2026 account, a January 2026 version of Deep Think had pushed that figure toward 90% as more inference-time compute was applied, and a research agent codenamed Aletheia now tops the public leaderboard at roughly 92%. Rival systems have closed in — a GPT-5.5 Pro configuration is listed just behind — so any "top of the class" claim is a snapshot, not a settled title.</p>
+<p>The deeper significance is what mathematical reasoning stands in for. Solving an Olympiad problem is not retrieval; it demands the kind of insight that resists memorization, which is why the field has treated it as a proxy for general reasoning. DeepMind is already testing whether that capability transfers to real research. In February 2026 the lab reported that Deep Think, steered by expert mathematicians, contributed to work on open problems — including autonomous progress on entries in a database of Erdős conjectures and collaborations across physics and theoretical computer science. Notably, DeepMind classified those results only up to "publishable quality," explicitly declining to claim any "major advance" or "landmark breakthrough." The honest read is a powerful assistant, not yet an independent discoverer.</p>
+<p>Outside experts echo the mix of enthusiasm and rigor. MIT mathematician and IMO gold medalist Yufei Zhao called IMO-Bench "an impressive collection of high quality data for AI evaluation," and said he was "very pleased to see this benchmark being used in developing an AI that achieved gold medal standard." Nature, reporting on the 2025 results, likewise framed DeepMind's and OpenAI's systems as performing at the level of top students — strong, but bounded.</p>
+<h2>What to watch next</h2>
+<p>Three things will tell us whether this is a plateau or a ramp. First, IMO 2026 and how officially graded AI entries fare against a fresh, unseen problem set — the only test that fully guards against overfitting. Second, whether benchmark gains keep translating into verified, peer-reviewed research contributions rather than assisted ones. And third, the compute question: much of the recent jump came from spending far more inference-time compute per problem, which flatters scores but raises cost. If reasoning quality keeps rising while compute falls — as DeepMind claims Aletheia begins to show — the case that machines can genuinely reason through hard mathematics gets considerably harder to dismiss.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>"We can confirm that Google DeepMind has reached the much-desired milestone, earning 35 out of a possible 42 points — a gold medal score. Their solutions were astonishing in many respects."</blockquote><cite>- Prof. Dr. Gregor Dolinar, President, International Mathematical Olympiad</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">35/42</div><div class="stat-label">Officially graded IMO 2025 score</div></div><div class="stat-cell"><div class="stat-value">5 of 6</div><div class="stat-label">IMO problems solved perfectly</div></div><div class="stat-cell"><div class="stat-value">~8%</div><div class="stat-label">Human contestants who earn gold</div></div><div class="stat-cell"><div class="stat-value">65.7%→90%</div><div class="stat-label">Advanced IMO-ProofBench jump</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=deepmind.google&sz=32" alt="">Google DeepMind</a><a href="https://imobench.github.io/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=imobench.github.io&sz=32" alt="">IMO-Bench</a><a href="https://www.nature.com/articles/d41586-025-02343-x" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=32" alt="">Nature</a></div></div>
+<div class="article-nav"><a href="07-deepseek-v4-flash-0731-release.html" class="nav-prev">&larr; DeepSeek Ships V4 Flash, Claiming Best-in-Class Pr</a><a href="09-openai-astra-critical-cyber-pause.html" class="nav-next">OpenAI Pauses Astra, Saying It 'Cannot Rule Out' C &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published August 08, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
