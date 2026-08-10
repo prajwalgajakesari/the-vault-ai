@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>COMPASS Uses Evolving Context to Push AI Agents Through Long-Horizon Tasks -- The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>COMPASS Uses Evolving Context to Push AI Agents Through Long-Horizon Tasks</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 821 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>COMPASS splits an agent into a Main Agent, Meta-Thinker, and Context Manager that maintains a distilled evolving context, lifting long-horizon accuracy up to 20% over baselines on GAIA, BrowseComp, and HLE.</p>
+</div>
+<div class="article-body">
+<h2>COMPASS Uses Evolving Context to Push AI Agents Through Long-Horizon Tasks</h2>
+<p>When you ask an AI agent to do something genuinely hard — track a soccer player's yellow-card pattern across two halves of a season, cross-check it against referee records, and reconcile the timing — the agent doesn't fail because it can't search the web. It fails because, twenty steps in, it has forgotten what it was looking for. The critical clue is buried somewhere in a mountain of accumulated tool output, and the model is now distracted by noise it collected along the way.</p>
+<p>That failure mode is the target of COMPASS, a framework from researchers at the University of Virginia and Google (the work was done during an internship at Google). In their paper, "COMPASS: Enhancing Agent Long-Horizon Reasoning with Evolving Context," authors Guangya Wan, Mingyang Ling, Xiaoqi Ren, Rujun Han, Sheng Li, and Zizhao Zhang argue that the bottleneck for long-horizon agents isn't reasoning power — it's context management. Their fix is to stop feeding agents raw history and instead maintain a distilled, evolving brief of what actually matters.</p>
+<h2>The Long-Horizon Context Problem</h2>
+<p>Long-horizon tasks (LHTs) demand sustained reasoning across many tool calls while the agent maintains a coherent plan and adapts to surprises. The problem is that small errors compound. An ambiguous search result or a faulty API call early on can cascade into systematic failure, and even the most capable closed-source models struggle to keep a plan coherent over extended horizons.</p>
+<p>The paper pins this on how agents handle their own transcripts. As the history grows, the model either overlooks critical evidence it already found or gets pulled off course by irrelevant material. It stops replanning. It stops reflecting on earlier mistakes. The raw context window becomes a liability rather than an asset — the agent is, in effect, drowning in its own notes.</p>
+<h2>How COMPASS Works</h2>
+<p>COMPASS — short for Context-Organized Multi-Agent Planning and Strategy System — is described as a lightweight hierarchical framework that splits three jobs that a single agent normally tries to juggle at once:</p>
+<p>- A <strong>Main Agent</strong> does the tactical work: reasoning and calling tools.
+- A <strong>Meta-Thinker</strong> provides strategic oversight, monitoring progress and issuing interventions — telling the agent when to persist with a plan, when to pivot, and when to conclude.
+- A <strong>Context Manager</strong> curates the evolving context, maintaining concise, relevant progress briefs tailored to different reasoning stages.</p>
+<p>The key move is architectural separation. Rather than bolting "think about your reasoning" and "keep the relevant context" onto one model as tools, COMPASS externalizes those roles into dedicated agents. The Context Manager continuously distills the growing transcript into a compact brief, so the Main Agent reasons over what matters instead of the full raw log — the "evolving context" at the heart of the method.</p>
+<h2>Results</h2>
+<p>The team evaluated COMPASS on three benchmarks built for deep-research-style tasks that typically require 20-plus reasoning-action steps: GAIA, BrowseComp (1,266 web-navigation tasks with entangled facts to verify), and Humanity's Last Exam (HLE). Across all three, COMPASS improves accuracy by up to 20% relative to both single-agent and multi-agent baselines.</p>
+<p>On Gemini 2.5 Pro, COMPASS reached 35.4% on BrowseComp, 67.8% on GAIA, and 31.7% on HLE — compared with 16.8% / 58.6% / 14.8% for a plain search-and-browse single agent, and beating stronger multi-agent baselines like Agent-as-a-Tool (31.8% on BrowseComp). Gains were most pronounced on BrowseComp, where sustained multi-source navigation is hardest.</p>
+<p>The researchers also introduce a test-time scaling extension, COMPASS-TTS, that uses parallel sampling to push results to 43.7% on BrowseComp, 72.1% on GAIA, and 35.2% on HLE — competitive with established deep-research agents. Separately, a post-training pipeline distills the context-management role into a smaller model (Context-12B), achieving roughly 30% token reduction while matching the accuracy of a larger model.</p>
+<h2>Why It Matters</h2>
+<p>The industry has largely tried to make agents better at long tasks by making the base model bigger or handing it more tools. COMPASS points to a cheaper, orthogonal lever: treat context as something to be actively engineered, not passively accumulated. If a distilled, evolving brief can deliver up to 20% accuracy gains — and if the curation itself can be offloaded to a 12B model at 70% of the token cost — that reframes context management as a first-class design problem for anyone building agents that run for dozens of steps.</p>
+<h2>What to Watch</h2>
+<p>The authors are candid that their evaluation emphasizes controlled QA-style reasoning environments as a proof of concept, rather than open-ended real-world workflows. The open questions: does the Meta-Thinker plus Context Manager split hold up on messier, tool-heavy tasks like software engineering or operations, where "the relevant context" is far harder to define? And how much of the gain survives when the base agent is already strong, as the narrower Gemini 2.5 Flash margins hint? Watch whether distilled context managers like Context-12B become a standard component in agent stacks.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"We identify context management as the central bottleneck: extended histories cause agents to overlook critical evidence or become distracted by irrelevant information."</blockquote><cite>-- Guangya Wan et al., COMPASS authors, University of Virginia and Google</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">35.4%</div><div class="stat-label">BrowseComp vs 16.8%</div></div><div class="stat-cell"><div class="stat-value">67.8%</div><div class="stat-label">GAIA accuracy</div></div><div class="stat-cell"><div class="stat-value">up to 20%</div><div class="stat-label">Gain over baselines</div></div><div class="stat-cell"><div class="stat-value">~30%</div><div class="stat-label">Token reduction</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/pdf/2510.08790" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv PDF</a><a href="https://arxiv.org/abs/2510.08790" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv abstract</a><a href="https://www.alphaxiv.org/abs/2510.08790" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=alphaxiv.org&sz=32" alt="">alphaXiv</a></div></div>
+<div class="article-nav"><a href="08-learning-when-to-plan-test-time-compute.html" class="nav-prev">&larr; 'Learning When to Plan' Teaches AI Agents to Budge</a><a href="10-webuncertainty-web-agent-planning.html" class="nav-next">'WebUncertainty' Gives Autonomous Web Agents a Sen &rarr;</a></div>
+<footer>The Vault -- AI Edition &middot; Published August 09, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
