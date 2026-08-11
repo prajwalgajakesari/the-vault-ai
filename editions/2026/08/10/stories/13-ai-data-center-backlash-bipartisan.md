@@ -1,0 +1,29 @@
+# AI Data Center Backlash Becomes a Bipartisan Flashpoint Across the U.S.
+
+In Archbald, Pennsylvania, a borough carved out of old anthracite country northeast of Scranton, a 400-acre data center complex is rising on ground that coal companies dug up and abandoned generations ago. Kelsey Pazanski Wargo, a registered nurse who lives less than a mile away, has a simple test for the politicians presiding over the buildout: "Will NOT vote for anyone who hasn't come out swinging against them."
+
+That sentiment — furious, personal, and increasingly indifferent to party labels — is spreading across the country. The AI infrastructure boom that Microsoft, Meta, Amazon, Google, OpenAI, and Oracle are financing at hundreds of billions of dollars is colliding with a wall of local opposition that has become one of the most potent bipartisan issues heading into the 2026 midterms. Rising electricity bills, strained water supplies, diesel-generator noise, and the fear that ordinary households will absorb the costs of powering server farms have turned zoning hearings into political flashpoints from Georgia to Nebraska.
+
+## The revolt is already reshaping the map
+
+The numbers are striking. In the first three months of 2026, at least 75 major projects worth more than $130 billion were delayed or canceled in part due to organized local opposition, according to the Atlantic Council, citing tracking by Data Center Watch. On July 18, a national day of protest saw 142 demonstrations across 42 states. More than 300 cities, towns, and counties have passed bans or moratoriums on hyperscale data centers, per a count by The Information, and lawmakers in over 30 states have introduced more than 300 bills on the subject this year.
+
+Public opinion has swung hard. A June Reuters/Ipsos poll found only about a third of Americans approve of the pace of data-center construction, and just 14% are comfortable with one being built nearby. In Pennsylvania, Emerson College polling shows opposition to data centers in or near one's community jumped from 42% last December to 63% in late July. A Muhlenberg College survey found 64% of Pennsylvania adults now view data centers as a crisis or a problem.
+
+## Where the anger comes from: bills, wells, and noise
+
+The grievances are concrete. In states with a heavy concentration of data centers, electricity prices have risen by as much as 267% over the past five years, according to Bloomberg's analysis. In Ohio, an AEP Ohio transmission-rate increase added roughly $7.90 to the average monthly household bill this spring, and the 2024 PJM capacity auction — driven largely by data-center load growth — cleared at prices 833% higher than the prior period, helping push the average Ohio residential bill to about $214 in July 2025, a 25.7% jump.
+
+Water is the other flashpoint. A large data center can consume up to 5 million gallons a day, as much as a city of 50,000 people. In Coweta County, Georgia, residents are fighting a proposed hyperscale campus, Project Sail, that would span more than 4.9 million square feet. Steve Swope, who relies on well water, fears the worst: "Our wells will either run dry or they'll become polluted and caked with sediment and mud," he told TIME. A neighbor, Laura Beth, started a Facebook group called "Stop Project Sail" that has drawn more than 8,000 members. The county approved the project 3-2, then imposed a moratorium on future ones — a sequence Swope likened to closing the barn door after the horses had bolted.
+
+## Community consent as the new constraint
+
+For years, the binding constraints on AI expansion were land, chips, and capital. Community permission has now joined the list. When 75 projects worth $130 billion can stall in a single quarter, developers can no longer assume a signed lease and a utility interconnection guarantee a shovel in the ground. That is forcing a new economics of siting: community benefits agreements, ratepayer protections, and clean-energy commitments as the price of entry.
+
+Pennsylvania shows how fast the politics can shift. Governor Josh Shapiro began as a booster — celebrating a $20 billion Amazon investment in 2025 — but has since pivoted, proposing standards that would require data centers to power at least 32% of operations with clean energy and sign community benefits agreements. "We need to be selective about the projects that get built here," he said. A state House bill from Democratic Rep. Robert Matzie, which he calls "a data center ratepayer protection bill at its core," passed 104-95 but has stalled in the Republican-controlled Senate since March.
+
+The coalitions are scrambled. "MAGA voters and progressives have found rare alignment," Lehigh University political scientist Chris Borick noted, calling it "the first year in Pennsylvania where data centers have emerged as a highly salient issue." Katie Blume of Conservation Voters of Pennsylvania summed up the polling consensus: people may not want a data center next door, "but if they're gonna come, they want them regulated."
+
+## What to watch
+
+The midterms will be the first real referendum. In Pennsylvania's governor's race, both Shapiro and Republican Stacy Garrity are jockeying over who can make energy cheaper, and four targeted congressional seats hang in the balance. Watch Texas, Florida, Nebraska, and Ohio for tighter oversight, mandatory project audits, and tariffs that wall off residential ratepayers from data-center costs. In Washington, the proposed Ratepayer Protection Act would force hyperscalers to bear the full cost of grid upgrades. New York's first-in-the-nation hyperscale moratorium, signed in July, is the template several states are now weighing. The question is no longer whether AI needs data centers — it is who pays, who decides, and whether the industry can win consent before voters do it for them.
