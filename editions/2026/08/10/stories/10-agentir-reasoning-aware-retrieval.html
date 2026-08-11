@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>'AgentIR' Rethinks Retrieval for Deep Research Agents, Making Search Reasoning-Aware — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>'AgentIR' Rethinks Retrieval for Deep Research Agents, Making Search Reasoning-Aware</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1019 words</span>
+    <span>2 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>AgentIR treats a deep research agent's natural-language reasoning trace as part of the search itself; its compact AgentIR-4B embedding model hit 68% on BrowseComp-Plus with Tongyi-DeepResearch, beating a conventional retriever twice its size (50%) and BM25 (37%).</p>
+</div>
+<div class="article-body">
+<p>When a person searches the web, they type a few keywords and keep the rest in their head. When a deep research agent searches the web, it thinks out loud first, writing a paragraph of natural-language reasoning about what it is looking for and why, before it ever issues a query. For years, retrieval systems have thrown that paragraph away. A new paper argues that discarding it is one of the most expensive mistakes in agentic search.</p>
+<p>In "AgentIR: Reasoning-Aware Retrieval for Deep Research Agents," a team of retrieval researchers introduces a method that reads the agent's reasoning trace as part of the search, not as throat-clearing before it. The result, a compact embedding model called AgentIR-4B, reaches 68% accuracy on the demanding BrowseComp-Plus benchmark when paired with the open-weight agent Tongyi-DeepResearch, compared with 50% for conventional embedding models twice its size and 37% for the venerable keyword baseline BM25.</p>
+<h2>The problem: retrievers built for humans, used by machines</h2>
+<p>Deep research agents, the systems that autonomously plan, search, read, and synthesize across dozens of web pages to answer a hard question, have quietly become one of the biggest consumers of retrieval infrastructure. But that infrastructure was designed for humans.</p>
+<p>The authors put the mismatch plainly. "Unlike human users who issue and refine queries without documenting their intermediate thought processes," they write, "Deep Research agents generate explicit natural language reasoning before each search call, revealing rich intent and contextual information that existing retrievers entirely ignore."</p>
+<p>That is the crux. A human might type "1998 Nobel physics" and rely on their own memory to filter the results. An agent, by contrast, will have already written something like: "I need to identify the physicist who shared this prize for the fractional quantum Hall effect, then cross-reference their doctoral students." All of that context, the disambiguation, the multi-hop plan, the implicit constraints, is sitting right there in the reasoning trace. A standard retriever, tuned to match a short query string against a document, never sees it. It answers a thin question when a rich one was available.</p>
+<h2>The method: embed the reasoning, not just the query</h2>
+<p>AgentIR's core idea is deceptively simple: jointly embed the agent's reasoning trace alongside its query, so the retriever can condition on intent rather than keywords alone. The authors call this paradigm Reasoning-Aware Retrieval. Instead of compressing an agent's rich internal state down to a search box, the retriever ingests the state directly and returns documents matched to what the agent is actually trying to accomplish.</p>
+<p>The second piece of the paper addresses a practical obstacle: there is no large, ready-made corpus of agent reasoning traces paired with the right documents to retrieve. So the team built one synthetically. Their data synthesis method, DR-Synth, generates deep-research retriever training data from standard question-answering datasets, effectively manufacturing the reasoning-plus-query signal that reasoning-aware retrieval needs to learn from.</p>
+<p>Crucially, the authors report that the two contributions stand on their own. They "demonstrate that both components are independently effective," and that combining them "yields a trained embedding model, AgentIR-4B, with substantial gains." In other words, reasoning-aware retrieval helps even without the synthetic data, the synthetic data helps even with off-the-shelf retrievers, and together they compound.</p>
+<h2>The numbers that matter</h2>
+<p>The headline evaluation is on BrowseComp-Plus, a benchmark built to stress-test agents on genuinely hard, browse-heavy questions where a single lucky search will not do. Paired with Tongyi-DeepResearch, an open-weight deep research agent, AgentIR-4B hit 68% accuracy.</p>
+<p>The comparisons are what make that figure land. Conventional embedding models, at roughly twice the parameter count of AgentIR-4B, managed 50%. BM25, the sparse keyword-matching workhorse that still anchors countless production search stacks, reached 37%. The gap is not a rounding error; it is an 18-point jump over a larger dense retriever and a near-doubling over the lexical baseline, achieved by a 4-billion-parameter model that gives up size for context-awareness.</p>
+<p>Two details are worth flagging for readers weighing the claim. First, the wins are measured through the downstream agent's end-task accuracy, not just retrieval-quality proxies, which is the metric that actually matters for research agents. Second, the model is small by frontier standards, suggesting the gains come from the paradigm rather than raw scale.</p>
+<h2>Why this matters for the deep-research-agent race</h2>
+<p>The past year has seen deep research agents move from demos to default features across the industry, and most of the engineering attention has gone to the agent's brain: better planning, longer context, more capable reasoning models. AgentIR points at a different bottleneck. If the retriever the agent calls is deaf to the agent's reasoning, then every planning improvement upstream gets throttled at the search boundary.</p>
+<p>That reframes retrieval as a first-class citizen of the agent stack rather than a commodity API behind it. It also has an efficiency angle that will appeal to teams watching inference budgets: a reasoning-aware 4B model beating a conventional 8B-class retriever implies that architecture matched to the workload can substitute for scale. For anyone running agents at volume, a smaller retriever that returns better documents on the first call means fewer search iterations, fewer tokens, and shorter task latency.</p>
+<p>The authors have released code and data at the project page, texttron.github.io/AgentIR, which lowers the bar for others to test whether reasoning-aware retrieval generalizes beyond BrowseComp-Plus and Tongyi-DeepResearch.</p>
+<h2>What to watch</h2>
+<p>Three questions will decide whether AgentIR becomes a pattern or a paper. First, does the approach hold up with closed frontier agents and other benchmarks, or is the 68% partly a happy pairing with Tongyi-DeepResearch? Second, does DR-Synth's synthetic training data transfer to the messy, adversarial reasoning traces real agents produce in the wild, where thoughts wander and contradict themselves? Third, will retrieval vendors and open-source stacks adopt reasoning-aware embeddings, given that it requires the agent and the retriever to share a richer interface than today's query-string handoff?</p>
+<p>If the answers trend positive, the "search box" abstraction that has defined information retrieval for decades may finally give way to something built for readers who think in paragraphs, even when those readers are machines.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"Deep Research agents generate explicit natural language reasoning before each search call, revealing rich intent and contextual information that existing retrievers entirely ignore."</blockquote><cite>— The authors, AgentIR paper abstract</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">68%</div><div class="stat-label">BrowseComp-Plus accuracy (AgentIR-4B)</div></div><div class="stat-cell"><div class="stat-value">50%</div><div class="stat-label">Conventional model twice the size</div></div><div class="stat-cell"><div class="stat-value">37%</div><div class="stat-label">BM25 keyword baseline</div></div><div class="stat-cell"><div class="stat-value">4B</div><div class="stat-label">AgentIR-4B parameter count</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2603.04384" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">AgentIR (arXiv abstract)</a><a href="https://texttron.github.io/AgentIR/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=texttron.github.io&sz=32" alt="">AgentIR project page</a></div></div>
+<div class="article-nav"><a href="09-ai-discovers-v8-chrome-zerodays.html" class="nav-prev">← An AI Model Uncovered Two Unknown Chrome V8 Zero-D</a><a href="11-self-distillation-reasoning-llm.html" class="nav-next">A New Self-Distillation Method Lets LLMs Sharpen T →</a></div>
+<footer>The Vault — AI Edition · Published August 10, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

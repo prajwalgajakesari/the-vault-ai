@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A New Self-Distillation Method Lets LLMs Sharpen Their Own Reasoning Without Human Labels — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>A New Self-Distillation Method Lets LLMs Sharpen Their Own Reasoning Without Human Labels</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 6 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1145 words</span>
+    <span>2 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>U-OPSD shows an LLM can improve its own reasoning with zero external labels — by turning self-consistency consensus into a teacher signal — and it matches or beats supervised methods like OPSD and GRPO on competition math.</p>
+</div>
+<div class="article-body">
+<p>The most reliable way to make a language model reason better has, until now, involved a bottleneck no lab can fully engineer away: someone, or something, has to know the right answer. Ground-truth math solutions, verified code, a bigger and more capable teacher model — modern reasoning training runs on a diet of external correctness signals. A paper posted to arXiv on August 6, 2026, argues that the model already contains the signal it needs, and that you can extract it for free.</p>
+<p>The method, called <strong>Unsupervised On-Policy Self-Distillation (U-OPSD)</strong>, comes from Yijiang Li, Bingyang Wang, Yijun Liang, Yunjie Tian, Di Fu, and Nuno Vasconcelos, whose group is based at UC San Diego. Its central claim is bracing: a model can teach itself to reason more effectively using nothing but its own generations, and in several cases it matches or beats methods that were handed the correct answers.</p>
+<h2>The problem: supervision doesn't scale</h2>
+<p>Reasoning post-training has coalesced around a family of techniques that all lean on some external oracle. Reinforcement learning with verifiable rewards (the GRPO lineage) needs a checker that can confirm a final answer. On-policy distillation needs a stronger teacher model to imitate. On-policy self-distillation (OPSD) is subtler — the same model plays both student and teacher — but the teacher only becomes useful because it is <em>conditioned on privileged information</em>, typically a reference solution the student never sees.</p>
+<p>That privileged information is the catch. As the authors put it, existing approaches "still rely heavily on external supervision, including ground-truth signals, environmental feedback, or guidance from larger models, and therefore fall short of genuine 'self'-distillation." Every one of those dependencies is a scaling wall. Ground-truth labels are expensive and finite. Verifiers exist for math and code but thin out fast for open-ended reasoning. Bigger teachers eventually don't exist, because you are already training the frontier.</p>
+<p>The question the paper poses is whether the supervision was ever strictly necessary — or whether a capable model already disagrees with itself in structured, exploitable ways.</p>
+<h2>The method: consensus becomes the teacher</h2>
+<p>U-OPSD's answer is to manufacture a teacher out of the model's own uncertainty. The recipe has a clean logic to it.</p>
+<p>First, sample many solutions to a problem. Then take a majority vote across those rollouts, gated by a self-consistency threshold, to construct a <em>pseudo-solution</em> — the answer the model most agrees with, standing in for the ground truth it isn't given. This is the well-worn observation behind self-consistency: correct reasoning tends to converge, while errors scatter.</p>
+<p>The second move is where the paper earns its title. Rather than simply rewarding the consensus answer, U-OPSD conditions a teacher distribution on the <em>shortest</em> pseudo-solution and distills that dense, next-token distribution into the prefixes of the model's <em>longest incorrect</em> completion. In the authors' framing, the technique samples rollouts, "constructs a pseudo-solution by majority vote under a self-consistency threshold," then "conditions a teacher distribution on the shortest pseudo-solution and distills it into prefixes of the model's longest incorrect completion, allowing the model to correct itself precisely where it is confidently wrong."</p>
+<p>That last phrase is the crux. The method targets the exact stretches of reasoning where the model was verbosely, confidently mistaken — and overwrites them with the token-level distribution implied by its own consensus. It is self-correction aimed with a scalpel, not a blunt reward pushed onto the whole trajectory. The privileged context that OPSD borrowed from a reference solution is replaced by privileged context the model generates about itself.</p>
+<h2>The numbers</h2>
+<p>The headline result is that removing supervision doesn't cost accuracy — and sometimes gains it. On a suite of competition-math benchmarks (AIME24, AIME25, HMMT25, MATH500, and AMC23), U-OPSD lifts Qwen3 in non-thinking mode by <strong>8.5% at the 4B scale</strong> and <strong>10.7% at 8B</strong> over the base model. Against supervised OPSD, which sees ground-truth answers, the unsupervised method wins by an average of <strong>3.2% (4B)</strong> and <strong>2.3% (8B)</strong>.</p>
+<p>In thinking mode — where the base models are already stronger — U-OPSD stays competitive rather than dominant: it edges OPSD by 0.9% at 4B and matches it at 8B, while topping GRPO by 0.7% and 1.1% respectively. The authors summarize the pattern by noting the method "consistently improves over the base models and matches or surpasses supervised methods with ground truth (GT), such as OPSD and GRPO."</p>
+<p>The honest read is that U-OPSD is roughly at parity with label-hungry baselines, occasionally better, using none of the labels. For a technique whose entire pitch is cost, parity is the win.</p>
+<h2>Why it matters: the RL-versus-self-improvement fault line</h2>
+<p>U-OPSD lands in the middle of the year's defining argument in reasoning research. One camp holds that reinforcement learning against verifiable rewards is the engine of reasoning gains. A growing counter-camp argues that much of what RLVR "teaches" is really the model sharpening capabilities it already latently possesses — and that if the gain is mostly self-generated, you may not need the reward machinery at all.</p>
+<p>This paper is a data point for the second camp, and a pointed one, because it competes directly with GRPO on GRPO's home turf of math. If a consensus-derived self-teacher can match a verifiable-reward pipeline, then the verifier was doing less unique work than assumed. The arXiv listing for August alone is thick with neighbors chasing the same intuition — label-free distillation under privileged context, consensus gating, turning binary rewards into dense supervision — which suggests "consensus as supervision" is hardening into a genuine research program rather than a one-off trick.</p>
+<p>The label-efficiency story is the practical stakes. If reasoning improvement can be driven by internal consistency, the cost curve for post-training bends downward and, more importantly, extends into domains where no verifier exists.</p>
+<h2>What to watch</h2>
+<p>Three questions will decide how far this travels. The first is the <strong>consensus ceiling</strong>: majority vote only helps when the model is right often enough for its plurality answer to be right, which likely explains why the gains shrink in already-strong thinking mode. What happens on problems the base model gets wrong more often than not — does self-distillation reinforce confident errors instead of correcting them?</p>
+<p>Second is <strong>domain reach</strong>. The evidence here is competition math, where consensus is a strong proxy for correctness. Whether the shortest-pseudo-solution-into-longest-wrong-completion recipe holds for coding, agentic tasks, or genuinely open-ended reasoning is unproven.</p>
+<p>Third is <strong>compounding</strong>. The most consequential version of this idea is iterative — a model that distills its consensus, gets sharper, produces better consensus, and repeats. If that loop compounds without collapsing into stale self-agreement, unsupervised self-distillation stops being a clever way to skip labels and becomes a path toward reasoning systems that improve on their own.</p>
+<p><em>Source: "On-Policy Self-Distillation without Any Supervision," Yijiang Li, Bingyang Wang, Yijun Liang, Yunjie Tian, Di Fu, and Nuno Vasconcelos, arXiv:2608.06296 (August 6, 2026).</em></p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"On-policy self-distillation can be achieved using only a model's own generations via internal consistency."</blockquote><cite>— Li et al., 'On-Policy Self-Distillation without Any Supervision' (arXiv:2608.06296)</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">+8.5% / +10.7%</div><div class="stat-label">Gain over base Qwen3 at 4B / 8B</div></div><div class="stat-cell"><div class="stat-value">+3.2% / +2.3%</div><div class="stat-label">Margin over supervised OPSD, no labels</div></div><div class="stat-cell"><div class="stat-value">+0.7% / +1.1%</div><div class="stat-label">Margin over GRPO in thinking mode</div></div><div class="stat-cell"><div class="stat-value">0</div><div class="stat-label">External labels or teacher models required</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2608.06296" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">On-Policy Self-Distillation without Any Supervision (arXiv)</a><a href="https://arxiv.org/html/2608.06296v1" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv full text (HTML)</a></div></div>
+<div class="article-nav"><a href="10-agentir-reasoning-aware-retrieval.html" class="nav-prev">← 'AgentIR' Rethinks Retrieval for Deep Research Age</a><a href="12-south-korea-35b-semiconductor-fund.html" class="nav-next">South Korea Launches a $3.5 Billion Fund to Fortif →</a></div>
+<footer>The Vault — AI Edition · Published August 10, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>

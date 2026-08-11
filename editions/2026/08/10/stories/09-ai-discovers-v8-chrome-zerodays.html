@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>An AI Model Uncovered Two Unknown Chrome V8 Zero-Days, and Google Patched Them — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>An AI Model Uncovered Two Unknown Chrome V8 Zero-Days, and Google Patched Them</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 846 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI's specialized GPT-5.6-Cyber model found two previously unknown V8 vulnerabilities in Chrome that could be chained to escape the heap sandbox; the flaws were reported through coordinated disclosure and patched by Google as CVE-2026-15903 — concrete evidence that frontier AI can find real, exploitable bugs in hardened code.</p>
+</div>
+<div class="article-body">
+<p>An AI model went looking for weaknesses in the software that runs on more than three billion browsers, and it found two nobody knew about. On August 10, OpenAI disclosed that its new GPT-5.6-Cyber model had analyzed V8, the JavaScript engine at the heart of Google Chrome, and surfaced two previously unknown vulnerabilities that could be chained together to corrupt memory and break out of V8's heap sandbox. Google has since patched them, bundling the fix under a single identifier: CVE-2026-15903.</p>
+<p>The disclosure landed as part of OpenAI's expansion of Daybreak, its cybersecurity program, and it is one of the more concrete demonstrations to date that frontier models can find real, exploitable flaws in hardened, heavily-audited code rather than just toy bugs in demo apps.</p>
+<h2>What the model found</h2>
+<p>According to OpenAI, GPT-5.6-Cyber's researchers pointed the model at V8 and it identified a defect in the engine's optimizing compiler: a safety check was skipped during an integer conversion, allowing an out-of-bounds array index that an attacker could use to read or overwrite memory. Chained with a second bug, that primitive was enough to escape the V8 heap sandbox — the isolation layer specifically designed to contain exactly this class of memory-corruption bug.</p>
+<p>OpenAI says its researchers validated the findings and reported them to Google through coordinated disclosure. Google fixed the issue and credited it as CVE-2026-15903.</p>
+<p>The public CVE record captures how serious the underlying flaw is. It is described as an "out of bounds read and write in V8 in Google Chrome prior to 150.0.7871.128," allowing a remote attacker to "execute arbitrary code inside a sandbox via a crafted HTML page." It carries a CVSS v3.1 score of 8.8 (High), with a network attack vector, low attack complexity, no privileges required, and only user interaction — visiting a malicious page — needed to trigger it. The weaknesses map to CWE-125 (out-of-bounds read) and CWE-787 (out-of-bounds write). The CVE was reserved on July 15 and published July 20, 2026, and Google shipped the fix in a mid-July Chrome Stable channel update. Its EPSS exploitation-probability score currently sits low, around 0.3%, reflecting that there is no evidence of in-the-wild abuse.</p>
+<h2>A model built to refuse less</h2>
+<p>GPT-5.6-Cyber is not OpenAI's general-purpose model. It is a specialized variant, based on GPT-5.6 Sol, released through a new "Daybreak Red" tier gated behind identity verification, monitoring, and legal declarations, with hardware security keys becoming mandatory for all Daybreak accounts on September 1, 2026. The company split the program in two: Daybreak Blue for defensive work like malware analysis and incident response, and Daybreak Red for offensive research — vulnerability discovery, exploit validation, and penetration testing.</p>
+<p>The design goal was a model that says yes to sensitive security questions other models reflexively block. On OpenAI's internal "Advanced Cybersecurity Completion Rate" benchmark, GPT-5.6-Cyber answered 95% of queries covering scenarios like exploit-chain development and authentication bypass, versus 1.5% for GPT-5.6 Sol with standard safeguards and 57.3% for the earlier GPT-5.5-Cyber. The Chrome bugs were not the model's only find: OpenAI says it also contributed to identifying at least five vulnerabilities in an unnamed popular mobile operating system, three critical flaws in a database, and hundreds of privilege-escalation bugs in an operating-system kernel.</p>
+<p>OpenAI framed the whole effort around timing. "As these capabilities spread, defenders have a narrowing window to prepare," the company wrote in its announcement, arguing that "democratizing access to frontier intelligence for defenders is crucial to accelerating and automating cyber defense."</p>
+<h2>The offense-defense problem, out in the open</h2>
+<p>This is the uncomfortable core of the story. A model trained to be exceptionally good at finding zero-days is exceptionally good at finding zero-days regardless of who is holding it. OpenAI rated GPT-5.6-Cyber "High" for cybersecurity capability under its Preparedness Framework — capable, but short of the "Critical" threshold it expects a future model to reach.</p>
+<p>The V8 result cuts both ways. It shows AI-assisted disclosure working as intended: bug found, validated, reported, patched before any known exploitation. Google's own Big Sleep effort has previously used AI to surface Chrome and V8 flaws, so the direction of travel is not new. What is new is the pace and the productization — a commercial model, sold to vetted defenders, generating patchable findings in one of the most scrutinized codebases on the planet. The same throughput in less scrupulous hands is the scenario the whole Daybreak vetting apparatus exists to slow down.</p>
+<h2>What to watch</h2>
+<p>Three things. First, whether independent researchers or Google publish technical detail on the second bug in the chain — the sandbox-escape half is the part that matters most and remains the least described. Second, whether other labs follow with comparable disclosures against major targets, which would signal AI vulnerability discovery is becoming routine rather than a headline. Third, real-world telemetry: CVE-2026-15903's exploitation probability is low today, but proof-of-concept work tends to follow public disclosure. If you run Chrome, confirm you are on 150.0.7871.128 or later — the patch is the entire point.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>"As these capabilities spread, defenders have a narrowing window to prepare."</blockquote><cite>— OpenAI, Daybreak expansion announcement, August 10, 2026</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">CVE-2026-15903</div><div class="stat-label">Patched Chrome V8 flaw</div></div><div class="stat-cell"><div class="stat-value">8.8 (High)</div><div class="stat-label">CVSS v3.1 severity score</div></div><div class="stat-cell"><div class="stat-value">2</div><div class="stat-label">V8 zero-days chained to escape the sandbox</div></div><div class="stat-cell"><div class="stat-value">150.0.7871.128</div><div class="stat-label">First fixed Chrome version</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI</a><a href="https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&sz=32" alt="">The Decoder</a><a href="https://radar.offseq.com/threat/cve-2026-15903-out-of-bounds-read-and-write-in-google-chrome-1111916e7e8242ab" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=radar.offseq.com&sz=32" alt="">OffSeq Threat Radar</a><a href="https://venturebeat.com/technology/openai-launches-gpt-5-6-cyber-with-reduced-refusals-95-completion-on-advanced-cybersecurity-tasks" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a></div></div>
+<div class="article-nav"><a href="08-bytedance-seedance-25-video-model.html" class="nav-prev">← ByteDance Ships Seedance 2.5 as the AI Video Gener</a><a href="10-agentir-reasoning-aware-retrieval.html" class="nav-next">'AgentIR' Rethinks Retrieval for Deep Research Age →</a></div>
+<footer>The Vault — AI Edition · Published August 10, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
