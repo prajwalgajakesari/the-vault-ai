@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alibaba Releases Qwen3.8 Max, Pressing Its Frontier-Model Ambitions &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Alibaba Releases Qwen3.8 Max, Pressing Its Frontier-Model Ambitions</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 942 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Alibaba's Qwen3.8 Max pairs frontier-scale specs (2.4T parameters, 1M-token context, aggressive pricing) with a self-declared performance claim it has yet to back with any independent benchmark.</p>
+</div>
+<div class="article-body">
+<h2>Alibaba Releases Qwen3.8 Max, Pressing Its Frontier-Model Ambitions</h2>
+<p>Alibaba dropped its largest AI model yet on August 3, and the numbers alone signal how aggressively the company intends to compete at the top of the industry: 2.4 trillion parameters, a one-million-token context window, and a claim that only one Western model sits above it. What Alibaba conspicuously did not release was a benchmark table to back that claim up — a gap that captures both the momentum and the hype of China's accelerating model race.</p>
+<p>Announced from Hangzhou, Qwen3.8-Max is billed as "the most powerful model in its Qwen series to date," and the company was blunt about where it thinks the model stands. In its own framing, Qwen3.8-Max is "one of the most powerful models available today, comparable to leading frontier AI models, second only to Fable 5," a reference to Anthropic's Claude Fable 5. That is a vendor claim resting on internal evaluations, and it is worth flagging plainly: at launch, Alibaba published no benchmark table and no formal model card.</p>
+<h2>What Alibaba actually shipped</h2>
+<p>The verifiable details are still substantial. Qwen3.8-Max uses a sparse Mixture-of-Experts (MoE) architecture paired with a hybrid attention mechanism, built on the foundation of the earlier Qwen 3.5. Despite its 2.4 trillion total parameters, the model activates only about 95 billion parameters per token — roughly four percent of the total. For a sparse model, that active-parameter count is the figure that actually drives serving cost and latency, and it places Qwen3.8-Max in a lighter inference class than its total size would suggest.</p>
+<p>The model is multimodal, supporting text and visual inputs, and Alibaba emphasized long-horizon, agentic work. According to the company, Qwen3.8-Max can "seamlessly ingest hundred-page documents, full television series, or 100-hour livestreams, converting them into searchable, interactive knowledge bases." On the placement Alibaba was willing to quantify, it cited public arena rankings: fifth in Text Arena, second in Vision Arena, and fourth in Frontend Code Arena.</p>
+<p>Alibaba leaned hardest on autonomy. In internal testing, the company said, the model "autonomously executed a real-world software engineering project over a 16-day period," building a self-evolving agent framework called oh-my-cli from scratch and open-sourcing the result on GitHub. To showcase visual reasoning, the team also introduced RecreationBench, a benchmark in which the model reconstructs live applications from scratch in a black-box environment with no source code or internet access, relying purely on interaction and visual feedback.</p>
+<h2>Availability and pricing</h2>
+<p>Qwen3.8-Max is generally available now via API on Alibaba Cloud Model Studio, and through QwenWork, the company's all-in-one workplace agent platform. Pricing is public: $2 per million input tokens, $6 per million output, and $0.25 for cached input, per Alibaba's published rates. The model speaks both the OpenAI and Anthropic API specifications, consistent with the rest of the Max line, so porting existing code should be low-friction.</p>
+<p>The open-weights story is messier. Alibaba promised to release weights "next week" — a first for a Max-class Qwen model, alongside a smaller Qwen3.8-27B intended to run locally. As of the days after launch, tracking site Yotta Labs reported that the promised window had passed with neither model on Hugging Face and no license named. For now, the API is the only way in.</p>
+<h2>Why the cadence matters</h2>
+<p>The release lands inside a release schedule that has become almost frantic. Qwen3.8-Max was previewed July 19 at the World AI Conference in Shanghai and shipped August 3; days later, on roughly August 5, Alibaba followed with Qwen-Image-3.0 Pro. The company had already unveiled a new AI chip and flagship model in May. This is a lab shipping across text, image, video, coding tools, and hardware on overlapping timelines.</p>
+<p>It is not shipping alone. Qwen3.8-Max's 2.4-trillion-parameter scale makes it the second-largest publicly known model, behind Moonshot's Kimi K3 at 2.8 trillion — which launched as an open-weight release the same week, with weights out July 27. On pricing, Alibaba's $2-in/$6-out undercuts Kimi K3's reported $3-in/$15-out, a reminder that Chinese labs are now competing on cost as aggressively as on capability. GLM 5.2 and DeepSeek round out a field that is compressing release cycles to a degree US labs have not matched.</p>
+<p>That is the strategic core of the story. For a year, the narrative held that China trailed the American frontier by six to twelve months. The gap Alibaba is trying to close is now measured differently: not whether it can build a 2-trillion-parameter multimodal agent — it plainly can — but whether it can prove parity on independent benchmarks rather than in-house evaluations, and whether its open-weight promises materialize. Bloomberg framed the launch around performance "rivaling Anthropic"; the more sober read is that Alibaba has the scale and the price, and has yet to show the receipts.</p>
+<h2>What to watch next</h2>
+<p>Three things will decide whether Qwen3.8-Max is a genuine frontier entry or a well-marketed one. First, the open weights: if Alibaba actually releases the flagship and the 27B variant under a usable license, it would be the most capable open model any major lab has shipped — a real shift in leverage for developers. Second, third-party benchmarks. The "second only to Fable 5" claim is untestable until independent SWE-bench, GPQA, and agentic-suite numbers land; its predecessor Qwen3.7-Max posted verified scores competitive with Claude Opus 4.6, so the claim is plausible, not proven. Third, the cadence itself: if Alibaba sustains a monthly frontier-release rhythm across modalities, the pressure shifts squarely onto US labs to answer not just on quality, but on speed and price.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;One of the most powerful models available today, comparable to leading frontier AI models, second only to Fable 5.&rdquo;</blockquote><cite>&mdash; Alibaba, Alibaba Cloud / Qwen team, on Qwen3.8 Max</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">2.4T</div><div class="stat-label">Total parameters (MoE)</div></div><div class="stat-cell"><div class="stat-value">~95B</div><div class="stat-label">Active params per token</div></div><div class="stat-cell"><div class="stat-value">1M</div><div class="stat-label">Token context window</div></div><div class="stat-cell"><div class="stat-value">$2/$6</div><div class="stat-label">Input/output per M tokens</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.alibabacloud.com/blog/alibaba-unveils-qwen3-8-max-its-largest-and-most-capable-flagship-model-to-date_603420" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=alibabacloud.com&sz=32" alt="">Alibaba Cloud Community</a><a href="https://technode.global/2026/08/04/chinas-alibaba-launches-qwen3-8-max-ai-model-with-2-4t-parameters-1m-token-context-window/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=technode.global&sz=32" alt="">TNGlobal</a><a href="https://www.yottalabs.ai/post/qwen-3-8-max-release-date-specs-how-to-access-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=yottalabs.ai&sz=32" alt="">Yotta Labs</a><a href="https://www.bloomberg.com/news/articles/2026-08-03/alibaba-drops-another-china-ai-model-with-breakthrough-performance" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=32" alt="">Bloomberg</a></div></div>
+<div class="article-nav"><a href="07-meta-muse-spark-12-model.html" class="nav-prev">&larr; Meta Ships Muse Spark 1.2, Extending Its Renewed O</a><a href="09-openai-ethics-chief-bakalar-departs.html" class="nav-next">OpenAI's Head of Ethics Departs Less Than a Year A &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 11, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
