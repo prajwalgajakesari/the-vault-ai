@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IBM and Together AI Sign $240 Million Deal for an Nvidia-Powered Inference Cluster - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>IBM and Together AI Sign $240 Million Deal for an Nvidia-Powered Inference Cluster</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 870 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>IBM and Together AI's $240M deal for a dedicated Nvidia HGX B300 inference cluster on IBM Cloud signals AI infrastructure spending shifting from model training to running open-source models in production at scale.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "IBM and Together AI Sign $240 Million Deal for an Nvidia-Powered Inference Cluster"
+slug: "ibm-together-ai-240m-inference-cluster"
+category: "business"
+story_number: "05"
+date: "2026-08-12"
+---</p>
+<p># IBM and Together AI Sign $240 Million Deal for an Nvidia-Powered Inference Cluster</p>
+<p>When IBM wanted to prove it still belonged in the AI infrastructure conversation, it did not build another chatbot. It signed a check. On August 11, the 114-year-old company and the San Francisco startup Together AI announced a multiyear, $240 million agreement to stand up a large, dedicated Nvidia-powered cluster on IBM Cloud — one built not to train the next frontier model, but to run open-source models in production for enterprises paying by the token.</p>
+<p>The deal is small next to the tens of billions being spent on training superclusters. But its shape says something bigger about where the money is headed next.</p>
+<h2>What is being built</h2>
+<p>Under the agreement, IBM will deploy a large cluster of Nvidia HGX B300 systems — servers that link Nvidia's newer Blackwell-generation GPUs — connected with Nvidia's Spectrum-X Ethernet networking. According to reporting from Reuters, the initial U.S.-based deployment will run roughly 2,000 Blackwell-class chips. Nvidia says the HGX B300 platform is built to deliver up to 30 times more "AI factory" output than the prior generation. IBM expects the cluster to come online in the first quarter of 2027.</p>
+<p>Crucially, this is inference infrastructure, not training infrastructure. Together AI will use the cluster to serve open-source model inference — the moment-to-moment work of answering queries, generating text, and powering agents — rather than the compute-heavy grind of building models from scratch. IBM described it as its first dedicated, large-scale cluster built specifically for inference on IBM Cloud using HGX B300 systems.</p>
+<h2>The pitch: frontier performance without the frontier price</h2>
+<p>The commercial logic centers on token economics — the cost of generating each unit of AI output — which has quietly become the defining battleground of enterprise AI.</p>
+<p>"Enterprises want the performance of the best frontier models without the closed-model price tag, and that only works if the infrastructure underneath is fast and reliable at scale," said Vipul Ved Prakash, CEO of Together AI. "Working alongside IBM with Nvidia gives us that foundation. This cluster lets us bring production-grade inference to more companies, faster, and it's a big step in our push to make open-source AI the obvious choice for enterprises."</p>
+<p>Together AI, founded in 2022, operates what it calls an "AI Native Cloud," a platform spanning inference, training, fine-tuning, and agentic workflows built on open models. The company says it now serves 400 trillion tokens monthly and, in July, raised an $800 million Series C at an $8.3 billion valuation. It selected IBM and Nvidia, it said, for their ability to deliver GPU capacity "at the pace required for rapid AI scaling and lowest token cost."</p>
+<p>Demand appears to be running ahead of supply. Together AI's chief revenue officer, Kai Mak, told Reuters the new capacity "will be sold out at least two to three months ahead of time" — a striking claim for hardware that will not be live until 2027.</p>
+<h2>Why IBM, and why now</h2>
+<p>For IBM, the deal is a bid to reclaim relevance in a market that largely passed it by. IBM Cloud has never cracked the top tier dominated by Amazon, Microsoft, and Google, and IBM's stock fell more than 20 percent in July after preliminary second-quarter results disappointed investors. Landing a marquee AI-native customer — and effectively stepping into the "neocloud" business of renting specialized GPU capacity — gives Armonk a fresh story to tell.</p>
+<p>"Enterprises are in a race to adopt agentic AI at scale to drive real business outcomes," said Alan Peacock, general manager of IBM Cloud. "IBM and Nvidia are delivering scalable, economical, enterprise-grade AI infrastructure that can help Together AI accelerate innovation for the next generation of AI infrastructure."</p>
+<p>The arrangement extends a deepening IBM-Nvidia partnership. The two expanded their collaboration at Nvidia's GTC conference in March around GPU-native data analytics and hybrid cloud infrastructure. Nvidia, for its part, framed the deployment in its now-familiar utility language. "AI factories are becoming essential enterprise infrastructure — like electricity and telecommunications — turning compute and data into intelligence," said Dion Harris, a senior director for HPC and AI infrastructure at Nvidia.</p>
+<h2>The inference inflection</h2>
+<p>The deal is a clean data point for a thesis gaining momentum across the industry: AI spending is shifting from training to inference. Training a model is a one-time capital event; inference is a recurring operating cost that scales with every user, every query, and — increasingly — every autonomous agent making dozens of model calls to complete a task. As enterprises move pilots into production, inference is where the sustained compute demand, and the sustained revenue, will live.</p>
+<p>Open-source models sit at the heart of that shift. Businesses are drawn to them to control costs and to keep sensitive workloads off third-party closed APIs, a concern sharpened by high-profile security incidents involving models from vendors including Anthropic, OpenAI, and Meta. Running open weights on dedicated infrastructure lets enterprises fix their token costs and keep data inside a perimeter they control — the exact promise this cluster is designed to sell.</p>
+<h2>What to watch</h2>
+<p>Three things will tell whether this is a turning point or a footnote. First, execution: the cluster is not due until Q1 2027, and GPU deployments routinely slip. Second, whether IBM can convert a single flagship win into a repeatable neocloud business rather than a one-off. And third, the broader signal — if inference-first deals like this multiply, it will confirm that the center of gravity in AI infrastructure is moving from the labs building models to the platforms running them at scale. For IBM, a company that has spent a decade searching for its place in the AI era, $240 million may prove less about the sum than about the direction.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735">
+          <blockquote>"Enterprises want the performance of the best frontier models without the closed-model price tag, and that only works if the infrastructure underneath is fast and reliable at scale."</blockquote>
+          <cite>- Vipul Ved Prakash, CEO, Together AI</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">$240M</div><div class="stat-label">Deal value</div></div><div class="stat-cell"><div class="stat-value">~2,000</div><div class="stat-label">Blackwell chips</div></div><div class="stat-cell"><div class="stat-value">400T</div><div class="stat-label">Tokens served monthly</div></div><div class="stat-cell"><div class="stat-value">Q1 2027</div><div class="stat-label">Expected availability</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://newsroom.ibm.com/2026-08-11-IBM-and-Together-AI-Sign-Multi-Year-Agreement-to-Scale-Open-Source-AI-Inference-with-NVIDIA-AI-Infrastructure-on-IBM-Cloud" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=newsroom.ibm.com&sz=32" alt="">IBM Newsroom</a><a href="https://www.bnnbloomberg.ca/business/2026/08/11/ibm-together-ai-ink-240-million-deal-for-nvidia-powered-ai-inference-cluster/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bnnbloomberg.ca&sz=32" alt="">Reuters (via BNN Bloomberg)</a><a href="https://www.datacenterdynamics.com/en/news/ibm-and-together-ai-sign-240m-nvidia-hgx-b300-cloud-deployment-deal/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=datacenterdynamics.com&sz=32" alt="">DataCenterDynamics</a><a href="https://techstartups.com/2026/08/12/top-tech-news-today-august-12-2026-anthropic-google-ibm-lovable-nvidia-openai-more/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techstartups.com&sz=32" alt="">TechStartups</a></div></div>
+<div class="article-nav"><a href="04-lovable-400m-vibe-coding-valuation.html" class="nav-prev">&larr; Lovable Raises $400 Million at a $13.3 Billion Val</a><a href="06-foxconn-q2-profit-ai-servers-overtake.html" class="nav-next">Foxconn Profit Jumps 35% as AI Servers Overtake Co &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published August 12, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
