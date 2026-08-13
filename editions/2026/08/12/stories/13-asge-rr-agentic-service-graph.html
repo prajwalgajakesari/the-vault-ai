@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>When Agents Book Ahead: A Network Controller That Reserves Capacity for Calls It Hasn't Seen Yet - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>When Agents Book Ahead: A Network Controller That Reserves Capacity for Calls It Hasn't Seen Yet</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 893 words</span>
+    <span>1 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>ASGE-RR reframes AI-agent resource routing as an online network-control problem, using revisable reservations to protect capacity for predicted future calls and completing up to 10% more workflow value than same-information baselines on a WAN testbed.</p>
+</div>
+<div class="article-body">
+<p>---
+headline: "When Agents Book Ahead: A Network Controller That Reserves Capacity for Calls It Hasn't Seen Yet"
+slug: asge-rr-agentic-service-graph
+category: research
+story_number: 13
+date: 2026-08-12
+arxiv_id: 2608.06033
+---</p>
+<p># When Agents Book Ahead: A Network Controller That Reserves Capacity for Calls It Hasn't Seen Yet</p>
+<p>An AI agent rarely works alone. Ask a coding agent to fix a bug or a research
+agent to summarize a field, and behind the single prompt sits a cascade of
+remote calls: to language models, to memory stores, to search tools and code
+sandboxes scattered across a network. Each call competes for the same finite
+pool of compute and bandwidth. And here is the awkward part that most
+orchestration systems ignore: you often do not know which calls are coming until
+the agent gets there.</p>
+<p>A new paper on arXiv, submitted August 6, 2026 by Trond Vatten and Yuming Jiang
+of the Norwegian University of Science and Technology, treats that uncertainty
+as a network-control problem rather than a scheduling afterthought. Titled
+"ASGE-RR: Agentic Service Graph Embedding with Revisable Reservations for Dynamic
+AI-Agent Calls," it argues that the shape of an agent's future work can be
+partly predicted, and that predicting it well enough to reserve capacity in
+advance lets more workflows finish on time.</p>
+<h2>The problem: a graph that reveals itself as it runs</h2>
+<p>The authors give the underlying structure a name. As an agent executes, its
+dependency calls to models, tools and stores "collectively form an agentic
+service graph (ASG)." Unlike a conventional web request, where a load balancer
+can see the job and route it, much of this graph is invisible at the start.
+"Many dependency calls are revealed only at runtime," the paper notes.</p>
+<p>That creates a trap familiar to anyone who has managed shared infrastructure.
+Handing all available capacity to the call you can see right now may starve a
+more valuable call that surfaces a moment later from a different workflow. The
+greedy choice is locally sensible and globally wasteful. Vatten and Jiang
+formalize the dilemma as Agentic Service Graph Embedding (ASGE): an online
+problem of mapping runtime-revealed workflow calls onto specific service
+replicas and network paths, all while respecting limits on capacity, cost and
+deadlines.</p>
+<h2>The proposal: reservations you are allowed to change your mind about</h2>
+<p>ASGE-RR is their answer, and the mechanism is right there in the name. Rather
+than committing resources only when a call arrives, the controller looks ahead.
+It "protects capacity for likely future calls while enforcing the constraints,"
+evaluating candidate replica-and-path mappings against predicted continuations
+of the workflow.</p>
+<p>The word doing the heavy lifting is "revisable." Predictions about what an agent
+will do next are, unavoidably, guesses. A rigid reservation built on a wrong
+guess would be worse than no reservation at all, hoarding capacity for calls that
+never come. So ASGE-RR treats each reservation as provisional: it "updates
+reservations as new execution information becomes available." As the real graph
+reveals itself, the bookings tighten or loosen to match. This is the difference
+between a controller that plans and one that plans and then adapts.</p>
+<h2>Method and results</h2>
+<p>To test the idea, the authors did not rely on synthetic traffic. They ran two
+real agent frameworks, OpenHands and GPT Researcher, driving them with a model
+they identify as gpt-5.6-luna, then replayed the resulting call patterns across
+two contrasting testbeds: a controlled Docker environment and a wide-area network
+(WAN) setup with real network distance and latency.</p>
+<p>A first finding is diagnostic rather than about performance. Across every task
+they examined, at least one runtime-revealed dependency call could be "steered
+before connection establishment" -- meaning there is a genuine control point where
+a system can intervene before the call locks onto a destination. Without such a
+handle, the whole approach would be moot.</p>
+<p>On performance, the authors are careful not to oversell small-scale experiments.
+Their headline number: on the WAN testbed, ASGE-RR completed "(up to) 10 percent
+more workflow value" than two baselines given the same information -- a
+rolling-horizon controller and a controller that steers only the current call.
+The gain comes precisely from the reservation logic: protecting resources for
+likely future calls let more workflows finish within their deadlines.</p>
+<h2>Why orchestration infrastructure matters</h2>
+<p>It is tempting to file capacity routing under plumbing, but the plumbing is
+increasingly where agent reliability is won or lost. As agentic systems move from
+demos to production, the bottleneck shifts from whether a model can reason to
+whether a fleet of concurrent workflows can all get the compute and network paths
+they need before their deadlines expire. A more capable model does not help a
+task that times out waiting for a tool call. The contribution here is a way to
+frame that contention as a first-class control problem, complete with a testbed
+methodology grounded in real agent frameworks rather than abstractions.</p>
+<p>The framing also reflects a subtler point: the runtime-revealed structure of a
+workflow is not just noise to be endured. As the authors put it, it "creates a
+new network control opportunity." Knowing the rough shape of what an agent tends
+to do next is itself a resource.</p>
+<h2>Open questions</h2>
+<p>The paper is candid about its limits. The testbeds are small, and a 10 percent
+edge in a controlled setting is a signal, not a guarantee it survives at scale
+with thousands of concurrent workflows and noisier predictions. Everything hinges
+on the quality of those predicted continuations; the abstract does not detail how
+robust the gains are when the predictor is wrong, or how much prediction
+overhead the controller can absorb before it stops paying for itself. Whether
+revisable reservations generalize beyond OpenHands and GPT Researcher, and how
+they interact with cost as opposed to pure deadline pressure, are questions for
+larger deployments. But as a formulation of a problem the field is about to hit
+hard, ASGE-RR stakes out useful ground.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"Unlike traditional service requests, many dependency calls are revealed only at runtime. Consequently, allocating resources to a currently visible call may consume capacity later needed by a call from a higher-value workflow."</blockquote>
+          <cite>- Vatten and Jiang, Authors, NTNU</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">up to 10%</div><div class="stat-label">More workflow value vs baselines</div></div><div class="stat-cell"><div class="stat-value">2</div><div class="stat-label">Experimental environments</div></div><div class="stat-cell"><div class="stat-value">gpt-5.6-luna</div><div class="stat-label">Model powering test workflows</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2608.06033" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a></div></div>
+<div class="article-nav"><a href="12-inference-time-parallelism-multiagent-llm.html" class="nav-prev">&larr; Two Kinds of Parallel: A New Framework Untangles H</a><a href="14-safe-framework-rogue-ai-agents.html" class="nav-next">Nvidia, Cisco and CrowdStrike Back a New Framework &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published August 12, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
