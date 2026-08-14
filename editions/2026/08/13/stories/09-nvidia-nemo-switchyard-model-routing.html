@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nvidia's NeMo Switchyard Brings Dynamic Model Routing to Long-Running Agents - The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Nvidia's NeMo Switchyard Brings Dynamic Model Routing to Long-Running Agents</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1008 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Nvidia's open-source NeMo Switchyard lets agents switch models mid-task to route each step to the cheapest capable model, with partner benchmarks claiming cost cuts of roughly 70% at a modest accuracy tradeoff.</p>
+</div>
+<div class="article-body">
+<p>Nvidia's pitch for the agentic era is no longer only about selling the biggest model or the biggest GPU. On August 11, the company open-sourced NeMo Switchyard, a model-routing library that lets an AI agent switch which model it is calling in the middle of a task, sending each step to whichever model best fits it on capability, cost, and latency. The premise is blunt: for a long-running agent, paying frontier prices on every one of thousands of steps is waste, and most of those steps do not need a frontier model to get the right answer.</p>
+<p>That framing matters because the economics of agentic workloads have quietly inverted the old cost model. A chatbot answers one prompt and stops. An agent debugging a codebase or working an on-call incident can churn through hundreds of model calls across a single session, and the bill scales with every one of them. Switchyard is Nvidia's argument that the fix is orchestration rather than a single, ever-larger model.</p>
+<h2>How the routing works</h2>
+<p>At the center is a provider-agnostic SDK Nvidia calls switchyard-libsy, written to embed inside an existing proxy, gateway, or agent runtime rather than owning its own HTTP stack. An algorithm decides which model target to use and hands the actual call back to the host application. Each target carries a semantic name that a client maps to a concrete provider endpoint and model ID, so routing logic stays independent of any specific provider. A reference server translates between the OpenAI Chat, Anthropic Messages, and OpenAI Responses formats, meaning an agent keeps speaking its native API while the request is served behind the scenes by vLLM, Nvidia NIM, Ollama, or any OpenAI-compatible endpoint. It also logs the selected model, the decision rationale, token usage, latency, and call outcomes for inspection.</p>
+<p>Switchyard ships several routers. The tuning-free ones make decisions without training on workload-specific data. An LLM-classifier router uses a model as a judge to pick a candidate and then maintains session affinity so it is not reclassifying unchanged work every turn. A stage router reads recent tool activity: severe errors, repeated unproductive work, or prolonged exploration push a turn toward the capable model, while steady writes and edits after tests pass favor the efficient one. An escalation router starts every conversation on a cheaper model and promotes the session to a stronger one only when a judge detects sustained difficulty. For teams willing to train, a tunable prefill router extracts the model's residual stream to estimate query complexity, then predicts how likely each candidate is to answer correctly and scores the cost-accuracy tradeoff.</p>
+<h2>The numbers Nvidia is putting forward</h2>
+<p>Nvidia's headline benchmark comes from LangChain, which ran Switchyard through its internal deep-agents suite of 145 multi-turn tasks reflecting production work such as customer-support dialogue under policy constraints, on-call incident investigation, and multi-step automation across messaging, issue tracking, and email. Routing between Nvidia's new Nemotron 3.5 Lightning and Claude Opus 4.8 with the escalation router, LangChain reported a 74% cost reduction against a frontier-only baseline across five runs, while sending just 7% of calls to the frontier model, at a measured accuracy tradeoff of roughly 6 points.</p>
+<p>Cognition supplied the coding-agent case study, implementing Switchyard's staged routing inside Devin Desktop and deploying it to Nvidia's internal users. On FrontierCode Main, Cognition's benchmark for production-grade coding tasks, a route between Opus 5 and Kimi K2.7 scored 50.6% at a $3.11 mean cost, within 2.8 percentage points of Opus 5 accuracy at roughly 28% lower mean cost. Coverage of the launch, including VentureBeat, distilled the overall pitch as cutting task-completion cost to about a third of running everything on a frontier model while holding near-frontier accuracy.</p>
+<p>Those figures deserve the usual caution. They are vendor and partner benchmarks, chosen to show the tool at its best, and the accuracy tradeoff is real: the LangChain result trades roughly six points of accuracy for its savings, which some production teams will accept and others will not. The GitHub project also carries a pre-alpha label and is explicitly marked not for production use, with the current package dated to a 0.2 release on August 10. This is a preview, not a hardened platform.</p>
+<h2>Why open-sourcing is the strategic tell</h2>
+<p>The more interesting move is that Switchyard is fully open source and provider-neutral. It will happily route to Anthropic's Opus, Moonshot's Kimi, or a self-hosted open model, not just to Nvidia's own Nemotron line. Nvidia does not sell inference by the token, so it has little to lose and much to gain from a world where more agentic work runs efficiently on more GPUs, ideally its own. Lowering the per-task cost of agents expands the number of agentic workloads that pencil out at all, which grows the overall compute pie. A partner roster spanning Cognition, Nous Research, Ramp, LangChain, LiteLLM, Kong, Boomi, Cadence, and Siemens suggests Nvidia wants routing to become plumbing developers adopt through tools they already use rather than a product they evaluate on its own.</p>
+<p>Model routing is not a new idea, and several startups and gateways already offer versions of it. What Switchyard adds is a credible, open reference implementation from the company whose hardware sits under most of these workloads, packaged with the API-translation layer and observability that make mid-task switching practical rather than theoretical.</p>
+<h2>What to watch</h2>
+<p>The open question is whether routing holds up outside curated benchmarks. Real agents drift, loop, and fail in ways that are hard to detect turn by turn, and a router that promotes to a frontier model too late can burn a session while a router that promotes too eagerly erases the savings. Watch whether the accuracy tradeoff narrows as the tunable routers mature, whether the pre-alpha library hardens toward production, and whether the partner integrations turn into default settings inside popular agent frameworks. If they do, per-task routing could become as ordinary as autoscaling, and the reflex of pointing every agent step at the largest available model may start to look like the expensive habit Switchyard is betting it is.</p>
+
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">74%</div><div class="stat-label">Cost reduction (LangChain test)</div></div><div class="stat-cell"><div class="stat-value">7%</div><div class="stat-label">Calls routed to frontier model</div></div><div class="stat-cell"><div class="stat-value">~6 pts</div><div class="stat-label">Accuracy tradeoff</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://developer.nvidia.com/blog/route-ai-agent-workloads-across-models-with-nvidia-nemo-switchyard/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=developer.nvidia.com&sz=32" alt="">NVIDIA Technical Blog</a><a href="https://venturebeat.com/orchestration/nvidias-switchyard-router-reshuffles-ai-models-mid-task-cutting-task-costs-to-a-third-in-its-own-tests" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://www.theregister.com/ai-and-ml/2026/08/12/nvidias-latest-solution-for-soaring-enterprise-costs-nemo-switchyard-software-router/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=theregister.com&sz=32" alt="">The Register</a></div></div>
+<div class="article-nav"><a href="08-google-pixel-11-tensor-g6-gemini.html" class="nav-prev">&larr; Google Unveils the Pixel 11 With Tensor G6 and Pro</a><a href="10-mirage-ai-news-network-x.html" class="nav-next">Mirage Puts an AI News Network on the Air, Streami &rarr;</a></div>
+<footer>The Vault - AI Edition &middot; Published August 13, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
