@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LLMs Can Reason Deep. A New Benchmark Asks Whether They Can Reason Wide. &mdash; The Vault AI</title>
+<meta name="description" content="MPAR-Bench, a 1,000-item English-Chinese benchmark built on the party game Just One, tests whether models can converge several unrelated clues onto one hidden word. Gemini-3.1pro leads at 86.8% English / 72.2% Chinese, but simple perturbations cost every model 9-18 points in English, and reasoning traces contain logical errors 20-44% of the time even when the answer is right.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body h4{font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--text-strong);margin:1.2rem 0 .5rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.02rem}
+.article-body a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+.article-body a:hover{border-bottom-color:var(--accent)}
+.article-body code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--surface-2);padding:.1em .35em;border-radius:3px}
+.md-quote{border-left:2px solid var(--border-hover);padding:.2rem 0 .2rem 1rem;margin:0 0 1.3rem;font-style:italic;color:var(--text-strong)}
+hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:130px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.4}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border);font-family:'DM Sans',sans-serif}
+.article-nav a{font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>LLMs Can Reason Deep. A New Benchmark Asks Whether They Can Reason Wide.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1001 words</span>
+    <span>2 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>MPAR-Bench, a 1,000-item English-Chinese benchmark built on the party game Just One, tests whether models can converge several unrelated clues onto one hidden word. Gemini-3.1pro leads at 86.8% English / 72.2% Chinese, but simple perturbations cost every model 9-18 points in English, and reasoning traces contain logical errors 20-44% of the time even when the answer is right.</p>
+</div>
+<div class="article-body">
+<p>The last two years of language-model progress have been a story about going deeper. Chain-of-thought, test-time compute, "thinking" modes — nearly every headline benchmark rewards a model for extending one line of inference further than before. But there is a second kind of reasoning almost nobody scores: holding several unrelated fragments in mind at once and collapsing them into the single concept they all point at. That is what a crossword clue does, and what a doctor does with four unrelated symptoms. According to a new benchmark, frontier models are noticeably worse at it than their deep-reasoning scores suggest.</p>
+<p><strong>From Reasoning Depth to Reasoning Breadth: Evaluating Multi-Point Associative Reasoning in Large Language Models</strong> (arXiv:2608.10444) was posted on August 11, 2026. Si'an Xie of Beijing University of Posts and Telecommunications and Jiaxun Liu of Peking University share first authorship, alongside Biao Yang, Wei Yuan, Fan Yang and Tingting Gao of Kuaishou Technology and Ming Wu of BUPT.</p>
+<p>"Existing LLM benchmarks primarily emphasize reasoning 'depth,' evaluating step-by-step logical deduction and procedural reasoning," the authors write in their introduction. "In contrast, the evaluation of reasoning 'breadth' — the ability to aggregate dispersed semantic signals and perform abstract conceptual convergence — remains largely unexplored." Their one-line diagnosis: "A model may therefore reason deeply along one path while still failing to combine information available across several paths."</p>
+<h2>A party game, turned into a test</h2>
+<p>The benchmark, MPAR-Bench, borrows its format from the cooperative board game <em>Just One</em>, in which players each write a single-word clue for a hidden target and a guesser recovers it from the surviving hints. Each of the 1,000 items — 500 English, 500 Chinese — gives a model several deliberately dissimilar clues and asks for the word underneath.</p>
+<p>The construction is designed to sidestep contamination. Target words come from public lists (RAT-derived vocabulary and <em>Just One</em> word cards), but every clue set is written from scratch by a multi-agent pipeline in which each LLM agent is assigned a distinct "association angle," and a judge agent strips out clues that are synonyms, homophones or near-duplicates of the answer. A Qwen3-Embedding-8B pass then filters for clue-to-clue diversity. Two NLP master's students hand-checked a random 250-item sample: 92.8 percent were judged to have a unique, unambiguous target (95 percent Wilson interval 88.6–95.4 percent).</p>
+<p>Scoring goes beyond exact match: the team also reports ANLS (character-level edit similarity), fastText embedding cosine similarity, and a reasoning-trace check split into logical and factual verification. Every item comes in a perturbed variant too — clue masking, order shuffling, distractor injection, and multi-step clues.</p>
+<h2>Where the models land</h2>
+<p>In thinking mode, Gemini-3.1pro leads at 86.8 percent accuracy in English and 72.2 percent in Chinese, followed by Sonnet-4.5 (79.0/67.4), GPT-5.2 (77.6/64.4), Qwen3-max (73.2/65.0), Kimi-k2 (71.6/57.4), Seed-2-pro (71.4/64.6) and DeepSeek-v3.2 (69.8/61.2). Turn thinking off and the ordering scrambles: Sonnet-4.5 tops both languages (70.4/68.8) while GPT-5.2 drops to 59.6 in English.</p>
+<p>The perturbations cost 9 to 18 percentage points in English and 5 to 12 in Chinese — but the damage is wildly uneven. Order shuffling is nearly free; sometimes accuracy goes <em>up</em>. Clue masking is brutal, costing an average of 20.0 percent relative to the shuffled setting in English. Distractor injection knocks Qwen3-max and Seed-2-pro down by more than 28 percent from their standard scores, evidence, the authors write, that "spurious semantic correlations introduced by irrelevant clue words can effectively derail the model's reasoning trajectory."</p>
+<p>The trace analysis is the most uncomfortable result. Models frequently reach the right word by a bad route: in the English thinking setting, DeepSeek-v3.2 shows a 43.60 percent logical error rate in its traces, Kimi-k2 40.56 percent, Qwen3-max 38.21 percent — and even Gemini-3.1pro 20.61 percent. Factual error rates are far lower (11.52 percent for Gemini, 13.60 percent for DeepSeek). More thinking does not reliably help. Of Qwen3-max's 174 wrong Chinese answers, the correct target appeared in the reasoning trace 87.4 percent of the time before being talked away; in one cited case the answer was <em>Philosophy</em> and the model settled on <em>Plato</em>. Qwen3-max also burned 9,983 tokens per English item on average — seven times GPT-5.2's 1,355 — while scoring four points lower.</p>
+<h2>Why this is worth watching, and where it is thin</h2>
+<p>The attempted fixes should give labs pause. Scaling the Qwen3 family from 0.6B to 32B improved accuracy monotonically until 32B, which regressed from overthinking. A structured-reasoning prompt lifted Seed-2-pro by just 1.0 points in English and 3.2 in Chinese. "Improving breadth appears challenging," the conclusion states. "Scaling model size, adding reasoning strategies, and iterative feedback each bring only partial gains, suggesting that reasoning breadth may be a capability that current training paradigms do not naturally optimize for."</p>
+<p>The caveats are substantial. This is a single-group result on a benchmark the same group built, with no external replication. The clues are LLM-generated and largely LLM-judged, which risks baking in the quirks of the generating models. A word-association party game is a clean probe but a narrow one, and the paper does not show that breadth scores predict anything downstream. The English–Chinese gap is confounded by design: the Chinese subset deliberately adds idioms, character-level properties and internet memes, so it is not a like-for-like comparison. And the models were queried through APIs at default settings, which makes the per-model rankings softer than the tables imply.</p>
+<p>The paper's own limitations section is light on self-criticism, conceding only that there "remains some room to further broaden its coverage and ecological validity" and pointing to "more diverse and interactive settings" as future work.</p>
+<p>Still, the framing is the contribution. If reasoning breadth really is orthogonal to the depth axis everyone optimizes, a lot of leaderboard movement over the past year has been measuring one dimension of a two-dimensional space. The authors say both subsets and the evaluation scripts will be released under an MIT license for non-commercial academic use on publication. Watch for two things: whether anyone independently reproduces the perturbation gaps, and whether any lab starts reporting a breadth number next to its math scores.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;Improving breadth appears challenging: scaling model size, adding reasoning strategies, and iterative feedback each bring only partial gains, suggesting that reasoning breadth may be a capability that current training paradigms do not naturally optimize for.&rdquo;</blockquote><cite>&mdash; Si'an Xie, Jiaxun Liu and co-authors, Beijing University of Posts and Telecommunications, Peking University and Kuaishou, arXiv:2608.10444</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">86.8% / 72.2%</div><div class="stat-label">Best accuracy (Gemini-3.1pro) on English / Chinese</div></div><div class="stat-cell"><div class="stat-value">9-18 pts</div><div class="stat-label">English accuracy lost to perturbations</div></div><div class="stat-cell"><div class="stat-value">43.6%</div><div class="stat-label">Logical error rate in DeepSeek-v3.2's English traces</div></div><div class="stat-cell"><div class="stat-value">87.4%</div><div class="stat-label">Wrong answers where the target appeared, then was overridden</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2608.10444" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv abstract</a><a href="https://arxiv.org/html/2608.10444v1" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv full text</a></div></div>
+<div class="article-nav"><a href="10-agentic-ai-scientists-autonomy-limits.html" class="nav-prev">&larr; 'Agentic AI Scientists Are Not Built for Autonomou</a><a href="12-anthropic-copyright-settlement-final-approval.html" class="nav-next">Judge Grants Final Approval to Anthropic's $1.5 Bi &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 16, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
