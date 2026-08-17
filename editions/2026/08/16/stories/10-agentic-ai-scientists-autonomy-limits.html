@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>'Agentic AI Scientists Are Not Built for Autonomous Scientific Discovery,' a New Paper Argues &mdash; The Vault AI</title>
+<meta name="description" content="A May 2026 position paper from IIT Delhi and Friedrich Schiller University Jena argues agentic AI scientists fail at autonomous discovery for reasons inherent to how they are trained — biased problem selection, missing tacit knowledge, preference optimisation that compresses hypothesis diversity — not for lack of scale, and backs the diversity claim with a six-model experiment showing frontier models from rival labs converge semantically.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body h4{font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--text-strong);margin:1.2rem 0 .5rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.02rem}
+.article-body a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+.article-body a:hover{border-bottom-color:var(--accent)}
+.article-body code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--surface-2);padding:.1em .35em;border-radius:3px}
+.md-quote{border-left:2px solid var(--border-hover);padding:.2rem 0 .2rem 1rem;margin:0 0 1.3rem;font-style:italic;color:var(--text-strong)}
+hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:130px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.4}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border);font-family:'DM Sans',sans-serif}
+.article-nav a{font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>'Agentic AI Scientists Are Not Built for Autonomous Scientific Discovery,' a New Paper Argues</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1032 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A May 2026 position paper from IIT Delhi and Friedrich Schiller University Jena argues agentic AI scientists fail at autonomous discovery for reasons inherent to how they are trained — biased problem selection, missing tacit knowledge, preference optimisation that compresses hypothesis diversity — not for lack of scale, and backs the diversity claim with a six-model experiment showing frontier models from rival labs converge semantically.</p>
+</div>
+<div class="article-body">
+<p>Most critiques of AI scientists argue the systems are not good enough yet. A position paper posted to arXiv on May 9 makes a harder claim: that they are built wrong. Five researchers from IIT Delhi and Friedrich Schiller University Jena argue that what separates today's agentic research systems from genuine autonomous discovery is not a deficit of scale or scaffolding, but consequences of how the underlying models are trained and how the field measures success.</p>
+<p>The paper, <strong>"Agentic AI Scientists Are Not Built For Autonomous Scientific Discovery"</strong> (arXiv:2605.08956), is by Harshit Bisht, Vinay Kumar, Kevin Maik Jablonka, Mausam, and N. M. Anoop Krishnan. Its position is not that AI should leave the lab. "The position advanced here is not that AI systems should be removed from scientific workflows," the authors write — "they are useful as a <em>co-scientist</em>: a capable collaborator that extends human scientific judgement rather than displacing it." What they reject is the stronger claim, embodied in systems like Sakana's AI Scientist-v2 and the Nobel Turing Challenge framing, that the whole loop can be closed without a human in it.</p>
+<h2>Four gaps, none of them about scale</h2>
+<p>The paper organizes its case around four failures, each traced to a design decision rather than a capability ceiling.</p>
+<p>The first is problem selection, which the authors describe through the McNamara fallacy — measuring what is easy to measure, then presuming the unmeasured does not exist. Because machine learning needs quantifiable objectives and large, tractable datasets, AI-driven science drifts toward problems that have those properties. They cite a study of 41.3 million research papers finding that AI-augmented scientists publish 3.02 times more and collect 4.84 times more citations, while the collective volume of topics studied shrinks by 4.63% and scientist-to-scientist engagement falls 22%. Acceleration, in other words, with narrowing.</p>
+<p>The second is what the published record leaves out. Journals select for conclusions over process and positive results over negative ones, so a model trained on the literature inherits the output of that filter rather than the knowledge behind it. Tacit laboratory knowledge is largely unwritten; so is failure knowledge. The authors' conclusion is blunt: "a corpus filtered for successful conclusions cannot teach how and when to abandon a hypothesis, an essential skill for autonomous discovery."</p>
+<p>The third is post-training: RLHF and DPO push outputs toward annotator consensus, and those annotators are shaped by the same published literature the pre-training corpus encodes. The fourth is evaluation. The paper cites a survey of 294 papers across 17 fields in which correcting for eight common data-leakage types collapsed the apparent advantage of complex ML models over classical baselines, and an agentic evaluation spanning more than 25,000 runs across eight scientific domains where evidence was ignored in 68% of traces and refutation-driven belief revision occurred in only 26% of cases. On physical validation, they note that of GNoME's 2.2 million predicted crystal structures, 736 had been independently experimentally realized at the time of publication.</p>
+<h2>The hypothesis hivemind</h2>
+<p>The paper's one original experiment tests the diversity claim directly. The authors took 50 papers from the NeurIPS 2025 AI4Mat track and posed two tasks to six frontier models from two providers — Claude Haiku 4.5, Sonnet 4.5 and Sonnet 4.6 from Anthropic, and GPT-5 Nano, Mini and GPT-5 from OpenAI. Task one asked models to recover a paper's underlying hypothesis from an experiment summary, where convergence is expected. Task two gave models the full text and asked for novel hypotheses extending the work, where divergence is the whole point. Ten samples per model per task were embedded and compared by cosine similarity.</p>
+<p>Similarity stayed high in both. "A research community that queries multiple AI systems for novel hypotheses is, from an epistemic standpoint, effectively sampling from a single model," the authors write. "The effective epistemic sample size, for generating directions the field has not already taken, is close to one regardless of how many systems are consulted." Control comparisons confirmed the embedding model could distinguish outputs from different source papers, ruling out the trivial explanation that scientific text simply embeds close together.</p>
+<h2>Analysis: the counter-evidence is real, and it lands on one side of the line</h2>
+<p>Three months after this paper appeared, OpenAI announced that an internal Astra model had produced new results on ten open problems in mathematics and theoretical computer science, shipping machine-checkable Lean 4 certificates for roughly $2,000 in compute. DeepMind's Aletheia has autonomously solved open Erdős problems. Neither existed when the authors wrote, and both are genuine.</p>
+<p>But they sit almost entirely on the computational side of the boundary the paper draws. The authors anticipate the objection in a section titled "Alternative views": "AlphaFold solved a problem formally stated for fifty years, with an unambiguous evaluation criterion available at experimental scale. GNoME searched a compositional space against a computable stability criterion." Formal mathematics is the extreme case — the verifier is a compiler, the objective is stated in advance by a human, and no wet lab is involved. Astra is arguably the strongest possible evidence for exactly the regime the paper concedes AI already excels at, and close to silent on tacit knowledge, physical feedback, or whether a system can decide which problem was worth attacking. Whether that boundary is a wall or a frontier remains open — but the fastest-moving counter-evidence has so far accumulated on the near side of it.</p>
+<p>The recommendations follow from the diagnosis rather than calling for more compute: simulators as scalable verifiers for training, persistent world models carrying an agent's epistemic state across an investigation, and a centralized, machine-readable preregistration repository for AI-generated hypotheses — cheap to enforce via an API call, and doubly useful as an archive of failure knowledge.</p>
+<h2>What to watch</h2>
+<p>Two things. First, whether anyone replicates the hivemind result with more providers — six models from two heavily RLHF'd labs is suggestive rather than decisive, and adding open-weight or differently post-trained models would sharpen it. Second, whether an autonomous system closes a loop that ends in a physical measurement contradicting its own prediction, and then revises the model that produced it. That is the test the paper argues no current benchmark administers, and the one that would move the argument.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;A research community that queries multiple AI systems for novel hypotheses is, from an epistemic standpoint, effectively sampling from a single model.&rdquo;</blockquote><cite>&mdash; Bisht, Kumar, Jablonka, Mausam and Krishnan, Authors, arXiv:2605.08956</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">6 models, 50 papers</div><div class="stat-label">Scale of the hypothesis hivemind experiment</div></div><div class="stat-cell"><div class="stat-value">68% / 26%</div><div class="stat-label">Evidence ignored vs belief revised, 25,000+ runs</div></div><div class="stat-cell"><div class="stat-value">736 of 2.2M</div><div class="stat-label">GNoME crystal structures experimentally realized</div></div><div class="stat-cell"><div class="stat-value">4.63%</div><div class="stat-label">Narrowing of scientific topic volume under AI adoption</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2605.08956" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv abstract</a><a href="https://arxiv.org/html/2605.08956v1" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv full text</a><a href="https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=deepmind.google&sz=32" alt="">Google DeepMind</a><a href="https://www.forbes.com/sites/jonmarkman/2026/08/03/openais-astra-solved-10-decades-old-math-problems-for-just-2000/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=forbes.com&sz=32" alt="">Forbes</a></div></div>
+<div class="article-nav"><a href="09-epistemic-context-learning-peer-trust.html" class="nav-prev">&larr; Epistemic Context Learning Teaches AI Agents Which</a><a href="11-llm-reasoning-breadth-benchmark.html" class="nav-next">LLMs Can Reason Deep. A New Benchmark Asks Whether &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 16, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
