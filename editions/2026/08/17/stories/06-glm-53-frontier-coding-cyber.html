@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Z.ai's GLM-5.3 Pushes Agentic Coding Through RL Post-Training — and Surfaces Emergent Cyber Skills &mdash; The Vault AI</title>
+<meta name="description" content="Z.ai got frontier-adjacent agentic coding gains out of GLM-5.2's unchanged base model purely by scaling RL post-training, and the same run produced vulnerability-discovery skills strong enough that the lab delayed its open-weights release by two weeks.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--surface-2);padding:.1em .35em;border-radius:3px}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Z.ai's GLM-5.3 Pushes Agentic Coding Through RL Post-Training — and Surfaces Emergent Cyber Skills</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 998 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Z.ai got frontier-adjacent agentic coding gains out of GLM-5.2's unchanged base model purely by scaling RL post-training, and the same run produced vulnerability-discovery skills strong enough that the lab delayed its open-weights release by two weeks.</p>
+</div>
+<div class="article-body">
+<p>Z.ai did not train a new model. It kept training the old one — and what came out is now the strongest open-weights coding agent on the market and, by the company's own admission, better at finding software vulnerabilities than it expected or intended.</p>
+<p>GLM-5.3, released Thursday, August 14, shares its base model with GLM-5.2. Every gain came from scaling reinforcement-learning post-training on that same 743-billion-parameter foundation. "Scaling post-training is all we did for GLM-5.3," the Beijing lab wrote in its launch post. "With GLM-5.2 we built the stack... Over the past month we kept scaling on this stack: more environments, more diverse tasks, and more compute spent training on them."</p>
+<p>The coding numbers are strong. The cyber numbers are the ones that made Z.ai hold the weights back.</p>
+<h2>The Coding Numbers</h2>
+<p>The headline jump is Terminal-Bench 3.0, which measures autonomous shell and tool use in real Linux environments: GLM-5.3 scores 28.3, against 4.6 for GLM-5.2, with no new pretraining run. On DeepSWE v1.1, an end-to-end GitHub-issue-fixing benchmark, it moves from 46.2 to 66.9. SWE-Marathon v1.1 goes from 19.4 to 42.5.</p>
+<p>"GLM-5.3 is our strongest coding agent so far," wrote Lou, a Z.ai team member who posts as @louszbd on X. "It scores more than six times higher on Terminal-Bench 3.0 and ranks #1 among open models on 8 out of 9 benchmarks."</p>
+<p>Z.ai also claims a roughly 50 percent gain on its internal Z.ai Code Bench, hitting 34.5 percent at Max effort while burning about 75,000 output tokens per task — versus GLM-5.2's 23.4 percent at 96,000. Better results, fewer tokens. That efficiency framing matters more than the raw score, because it is where the economics live.</p>
+<p>The closed frontier is still ahead. Z.ai's own blog concedes GLM-5.3 "remains behind Claude Fable 5, which reaches 39.5% at Max effort." On Terminal-Bench 3.0, Fable 5 (33.7) and GPT-5.6 Sol (34.6) beat it; on DeepSWE v1.1, so does Chinese open rival Kimi K3 at 67.5.</p>
+<p>Pricing is the counterweight. GLM-5.3 ships first through Z.ai's GLM Coding Plan and its ZCode agent, on a points quota with off-peak calls at half cost, and works with Claude Code and OpenCode. Zhipu's API sits at roughly a tenth of U.S. frontier per-token rates — GLM-5.2's official rate was $1.40 in / $4.40 out per million tokens, against $1.75 / $14 for GPT-5.3-Codex.</p>
+<h2>The Part Z.ai Didn't Plan For</h2>
+<p>Z.ai deliberately added vulnerability-discovery data and security task environments to post-training. It expected better bug hunting. What it says it got was categorically different: the model "began to reason across multiple stages of exploitation, forming coherent plans for complete exploitation chains."</p>
+<p>On CyberGym, which tests white-box vulnerability discovery from source, GLM-5.3 scored 84.5 percent versus 77.2 percent for GLM-5.2 — above Anthropic's Mythos at 83.8 percent and OpenAI's GPT-5.6 Sol at 83.6 percent, per Zhipu's own testing. On ExploitBench it more than doubled, 24.4 to 54.4 percent, though it still trails Mythos (78 percent) and GPT-5.6 Sol (76.5 percent) there.</p>
+<p>Tested against real codebases with security teams in China, Z.ai says the model surfaced 2,436 vulnerabilities across 269 projects after expert review and deduplication — 1,097 rated medium-to-high severity, spanning kernels, browser engines, and network protocols. Axios reports findings in the Linux kernel and across widely used VMware and Apache projects. The oldest flaw dates to 1981. Findings go into a public Security Disclosure Ledger; at launch, 53 were disclosed and 2,383 remained under embargo.</p>
+<p>Then the demo that traveled furthest. "We gave GLM-5.3 a complex reverse-engineering task. It found a potentially serious vulnerability in Cursor," Lou wrote. "We disclosed it privately. Appreciate Cursor team is working closely with us on a fix." No CVE has been published, and there is no independent confirmation beyond the vendor's account.</p>
+<p>So the weights are late. Z.ai is staging release — selected security partners in controlled settings first, then broader API access, then full weights in roughly two weeks. That is a sharp break from GLM-5.2, which landed MIT-licensed on Hugging Face almost immediately. "An open world cannot have only open attack surfaces," the company wrote on X. "It must also have an open shield." It also acknowledged that once weights are public, it cannot control how the model is modified or used.</p>
+<h2>Why It Matters</h2>
+<p>Two things are converging here, and only one is comfortable.</p>
+<p>First, the open-weight frontier gap is now a matter of months, not generations — and it is being closed by post-training compute rather than ever-larger pretraining runs. That is a cheaper lever, one a lab on the U.S. Entity List can pull without new frontier silicon. Chinese open-weight models already out-consume American ones on OpenRouter token usage. Price is doing the work benchmarks don't.</p>
+<p>Second, agentic coding ability and offensive cyber ability are not separable. They are the same capability pointed at different targets: read a large unfamiliar codebase, form a multi-step plan, execute in a shell, verify. Z.ai scaled the first and got the second for free. Security researcher Joshua Saxe argued of the previous generation that "GLM-5.2, not Mythos, is the real security emergency" — his point being that a downloadable model removes the API chokepoint that lets U.S. labs observe and throttle malicious use. GLM-5.3's exploitation gains sit highest exactly where the "purely defensive" argument is weakest.</p>
+<p>Every number above is Z.ai-run. CyberGym at 84.5 percent has not been independently reproduced, and the internal Code Bench cannot be audited outside the company.</p>
+<h2>What to Watch</h2>
+<p>The two-week clock. If the weights land on schedule at roughly the end of August, the real test begins: whether independent evaluators reproduce 84.5 percent on CyberGym, whether the 2,383 embargoed findings hold up as fixes ship, and how fast someone fine-tunes the safety hardening back off. Watch the Cursor disclosure for a CVE. Watch whether U.S. labs — several of which have already slowed releases over cyber risk — read this as cover to move faster or proof they were right to slow down. And watch Washington, reportedly weighing how to regulate open models as their capabilities converge with closed ones. GLM-5.3 will be the case study either way.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;GLM-5.3 is our strongest coding agent so far. It scores more than six times higher on Terminal-Bench 3.0 and ranks #1 among open models on 8 out of 9 benchmarks.&rdquo;</blockquote><cite>&mdash; Lou (@louszbd), GLM team, Z.ai</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">28.3</div><div class="stat-label">Terminal-Bench 3.0, up from 4.6</div></div><div class="stat-cell"><div class="stat-value">84.5%</div><div class="stat-label">CyberGym vulnerability discovery</div></div><div class="stat-cell"><div class="stat-value">54.4%</div><div class="stat-label">ExploitBench, double GLM-5.2</div></div><div class="stat-cell"><div class="stat-value">2,436</div><div class="stat-label">Vulnerabilities found in 269 projects</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://decrypt.co/375684/china-z-ai-glm-5-3-top-open-weight-coding-model" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=decrypt.co&sz=32" alt="">Decrypt</a><a href="https://www.axios.com/2026/08/14/china-open-source-ai-glm-53" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=axios.com&sz=32" alt="">Axios</a><a href="https://www.scmp.com/tech/big-tech/article/3364077/zhipu-launches-flagship-model-glm-53-china-seeks-mythos-level-edge-cyber-defence" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=scmp.com&sz=32" alt="">South China Morning Post</a><a href="https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&sz=32" alt="">The Decoder</a></div></div>
+<div class="article-nav"><a href="05-unitree-shanghai-star-ipo.html" class="nav-prev">&larr; Unitree Sets an August 19 Shanghai Debut After an </a><a href="07-openai-ultrafast-cerebras-gpt56-sol.html" class="nav-next">OpenAI Puts GPT-5.6 Sol on Cerebras Silicon, Hitti &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 17, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
