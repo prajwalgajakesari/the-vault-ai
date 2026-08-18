@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Researchers Fuse Synthetic DNA With a Semiconductor to Build an Ultra-Low-Power In-Memory Computing Device &mdash; The Vault AI</title>
+<meta name="description" content="Penn State researchers built a memristor pairing silver-doped synthetic DNA with a quasi-2D perovskite semiconductor that switches below 0.1 volts, a promising compute-in-memory demonstration whose endurance and retention remain far short of commercial requirements.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--surface-2);padding:.1em .35em;border-radius:3px}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Researchers Fuse Synthetic DNA With a Semiconductor to Build an Ultra-Low-Power In-Memory Computing Device</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 997 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Penn State researchers built a memristor pairing silver-doped synthetic DNA with a quasi-2D perovskite semiconductor that switches below 0.1 volts, a promising compute-in-memory demonstration whose endurance and retention remain far short of commercial requirements.</p>
+</div>
+<div class="article-body">
+<p>A team led by Penn State materials scientists has built a memory device that runs on less than a tenth of a volt by sandwiching short strands of laboratory-made DNA, studded with silver nanoparticles, against a thin film of lead-halide perovskite semiconductor. The device is a memristor — a component that stores information in its own electrical resistance, which means it can hold data and compute on it in the same physical spot, the architecture the neuromorphic computing field has been chasing for two decades.</p>
+<p>The work, "Molecularly Engineered Highly Stable Memristors with Ultra-Low Operational Voltage: Integrating Synthetic DNA with Quasi-2D Perovskites," was published in <em>Advanced Functional Materials</em> on January 19, 2026 (DOI 10.1002/adfm.202530539), with a patent application filed. It resurfaced this month after ScienceDaily republished Penn State's release under the headline "Scientists turn DNA into a memory device that uses 100x less power" — a framing worth pausing on, since the same release elsewhere says one-tenth the power, not one-hundredth.</p>
+<h2>What They Actually Built</h2>
+<p>The device stack is Ag/(PEA)₂(MA)Pb₂I₇/AgNP-DNA/Pt: a silver top electrode, a quasi-two-dimensional halide perovskite layer, a composite layer of silver-nanoparticle-embedded synthetic DNA, and a platinum bottom electrode. The DNA is not a passive filler. The team computationally screened four custom constructs between 19 and 22 bases long for optimal charge-transfer rate and settled on a 22-mer, then doped it with silver nanoparticles — which both made the strands electrically conductive and forced them into a more ordered arrangement.</p>
+<p>That ordering is the whole trick. Natural DNA in a thin film behaves, as the release memorably puts it, like wet spaghetti. Short synthetic strands are rigid enough to be positioned deliberately.</p>
+<p>"We can computationally determine exactly which sequences we need and how long they should be, and then we can rationally design them with synthetic DNA," said Neela H. Yennawar, research professor and director of the Biomolecular Interactions Core Facility at Penn State's Huck Institutes of the Life Sciences. "These structures can be systematically doped with silver and other ions and engineered to interface seamlessly with perovskites — transforming DNA from a biological macromolecule into a programmable, multifunctional nanomaterials platform."</p>
+<p>Together, the doped DNA and the perovskite form what the authors call bio-hybrid channels that funnel current through the cell. Switching states requires under 0.1 V — for scale, a US wall outlet is 120 V, and commercial resistive RAM typically switches in the 1–3 V range. The paper reports a power density of 0.01 W/cm², which the authors describe as a record low for perovskite memristors, and forming-free operation, meaning the device does not need a one-time high-voltage electrical "burn-in" to create its conductive pathway. That matters more than it sounds: forming steps are a persistent yield and variability headache in resistive memory manufacturing.</p>
+<p>On stability, the arrays held an ON/OFF resistance ratio above 10⁵ for more than six weeks in ambient conditions and kept working at temperatures approaching 250°F (roughly 121°C). Endurance is reported at 10³ switching cycles and retention at 4 × 10³ seconds — about 67 minutes.</p>
+<p>"Biology and electronics are different domains," said Kavya S. Keremane, co-corresponding author and a postdoctoral researcher in materials science and engineering at Penn State. "Bridging these two fields required developing an entirely new materials platform that allows them to function seamlessly together."</p>
+<h2>Why It Matters</h2>
+<p>The energy case for compute-in-memory is not subtle. In a conventional von Neumann machine, data sits in DRAM and computation happens in a CPU or GPU, and shuttling bits across that gap costs far more energy than the arithmetic itself — for large neural network inference, memory traffic routinely dominates the power budget. AI data center electricity demand has become a live grid-planning problem in multiple US states. Any architecture that performs multiply-accumulate operations inside the memory array itself sidesteps that traffic entirely, which is why memristor crossbars have attracted sustained investment.</p>
+<p>The bottleneck for that vision has been the devices. Oxide-based memristors need relatively high switching voltages, and voltage enters the energy equation quadratically, so a device operating below 0.1 V is genuinely interesting rather than incrementally so. The DNA layer contributes something the oxides do not: sequence-level programmability of the switching medium, plus DNA's extraordinary theoretical information density — roughly 215 million gigabytes per gram.</p>
+<p>"As the demand for artificial intelligence grows, we need a new strategy for low-power, high-storage devices," said Bed Poudel, co-corresponding author and research professor of materials science and engineering at Penn State.</p>
+<p>That 215-million-gigabyte figure, however, is a property of DNA as a molecule, not a measured storage density of this device. No such density was demonstrated here.</p>
+<h2>What to Watch</h2>
+<p>This is a laboratory result, and the gap to a product is wide. Endurance of 10³ cycles is orders of magnitude short of what production non-volatile memory requires; NAND flash handles 10⁴–10⁵ program/erase cycles and commercial RRAM targets far more. Retention of 4 × 10³ seconds is roughly an hour against the JEDEC industry benchmark of ten years — the six-week figure describes shelf stability of the ON/OFF ratio under ambient storage, not how long a written state survives. No switching speed is reported in the abstract or any of the available coverage, which is a conspicuous absence for a memory claim, and no neural network task has been run on the hardware.</p>
+<p>Then there is manufacturing. The perovskite is lead-based, which carries real regulatory friction; solution-processed perovskite films remain notoriously moisture-sensitive; and no one has demonstrated that a silver-doped oligonucleotide layer can survive CMOS back-end-of-line thermal budgets or wafer-scale patterning. Funding came from the NSF and NIH, with University of Minnesota collaborators including co-corresponding author Rashmi Jha (secondary coverage lists her affiliation as University of Cincinnati — the institutional attribution is inconsistent across writeups).</p>
+<p>The right frame is a materials-platform demonstration with an unusually low operating voltage, not a memory technology in waiting. The next paper to watch is whichever one reports endurance and retention numbers that clear commercial thresholds — or explains why they cannot.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;Using just the DNA or just perovskite alone did not produce near as robust a result as the combination. It's this combination that enables a very high memory storage density that requires very little power.&rdquo;</blockquote><cite>&mdash; Kavya S. Keremane, Postdoctoral researcher and co-corresponding author, Penn State</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">&lt;0.1 V</div><div class="stat-label">Operating voltage vs 1-3 V typical</div></div><div class="stat-cell"><div class="stat-value">0.01 W/cm2</div><div class="stat-label">Record-low power density</div></div><div class="stat-cell"><div class="stat-value">10^3 cycles</div><div class="stat-label">Switching endurance</div></div><div class="stat-cell"><div class="stat-value">~67 min</div><div class="stat-label">Retention vs a 10-year benchmark</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202530539" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=advanced.onlinelibrary.wiley.com&sz=32" alt="">Advanced Functional Materials</a><a href="https://www.eurekalert.org/news-releases/1117625" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=eurekalert.org&sz=32" alt="">Penn State via EurekAlert!</a><a href="https://www.sciencedaily.com/releases/2026/08/260816044853.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=sciencedaily.com&sz=32" alt="">ScienceDaily</a></div></div>
+<div class="article-nav"><a href="10-chatgpt-computer-history-feature.html" class="nav-prev">&larr; OpenAI's 'Computer History' Gives ChatGPT a Memory</a><a href="12-notion-knowledge-board-cost-per-task.html" class="nav-next">Notion's Knowledge Board Scores Models on Dollars  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 17, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
