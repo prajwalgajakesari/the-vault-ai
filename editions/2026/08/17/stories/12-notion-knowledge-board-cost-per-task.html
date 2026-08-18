@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Notion's Knowledge Board Scores Models on Dollars per Completed Task, Not Benchmarks &mdash; The Vault AI</title>
+<meta name="description" content="Notion's Knowledge Board grades 15 models on live, anonymized production traffic and shows a 43x cost spread across a 4.7-point quality range, reframing model selection around dollars per completed task rather than capability scores.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--surface-2);padding:.1em .35em;border-radius:3px}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Notion's Knowledge Board Scores Models on Dollars per Completed Task, Not Benchmarks</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 999 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Notion's Knowledge Board grades 15 models on live, anonymized production traffic and shows a 43x cost spread across a 4.7-point quality range, reframing model selection around dollars per completed task rather than capability scores.</p>
+</div>
+<div class="article-body">
+<p>The cheapest model on Notion's new Knowledge Board resolves 95.34% of real knowledge-work tasks for two cents. The most accurate one resolves 98.37% for eighty-seven cents. That is a 3-percentage-point quality gap priced at a 43x cost premium — the kind of number no capability benchmark was ever designed to surface.</p>
+<p>Notion Labs published the Knowledge Board, last updated August 12, 2026, as a running measurement of how fifteen frontier and open-weight models perform inside Notion's own production agent. Rather than curating a fixed task set, Notion routes a randomized slice of live user traffic — roughly 7% of all weekly Notion agent tokens — evenly across the models under test, then scores each completed trace with three independent LLM judges: Anthropic's Claude Opus 4.8, Google's Gemini 3.5 Flash, and OpenAI's GPT-5.5. Two of three votes decide whether a task resolved. The output is a 1 or a 0, joined to anonymized product telemetry: dollars per task, resolution time, and undo rate.</p>
+<h2>What the board actually says</h2>
+<p>At the top, Claude Opus 5 posts a 98.37% (±0.19%) resolution rate at $0.87 per task. Kimi K3 sits statistically alongside it at 98.22% for $0.45 — and Notion's frontier analysis gives Kimi K3 a 100% probability of sitting on the quality-cost efficient frontier, versus 85% for Opus 5. Sonnet 5 resolves 96.67% at $0.34, GLM-5.2 96.48% for $0.17, and GPT-5.6-Luna 95.34% for two cents, also at 100% frontier probability. DeepSeek V4 Pro anchors the bottom at 93.67%.</p>
+<p>The spread is the story. Across all fifteen models, resolution rates span 4.7 percentage points; costs span more than 40x. Undo rates — the share of agent responses users reversed — never exceed 1.0% and cluster between 0.3% and 0.8%, suggesting even weaker models rarely produce output so wrong users nuke it. Resolution times run from 48 seconds to 1:56.</p>
+<p>Notion is forthright about the humility this demands. "Many of the differences we measure are smaller than their confidence intervals, so we've deliberately avoided creating a leaderboard," the company writes, adding that "overlapping confidence intervals mean models tie." Requests are dropped if a user opted out, switched models, hit a harness error, or if a judge flagged the trace as not fairly evaluable. No customer data was retained; only the binary resolution flag was stored. Models had to clear a private Notion baseline at a model-judged 0.8 or higher, and any model failing Notion's Zero Data Retention requirements — Claude Fable among them — was excluded outright.</p>
+<h2>The limits, stated plainly</h2>
+<p>This is a vendor-run evaluation, and that matters. Notion sells an AI product, negotiates with the labs whose models it ranks, and built the judge prompt "in collaboration with researchers at several frontier labs" — the same labs supplying the models. The task distribution is Notion-shaped: meeting follow-ups, inbox and calendar cleanup, support-ticket triage, sales-pipeline updates, knowledge-base Q&amp;A. A model that excels at those is not thereby proven to excel at legal discovery or claims adjudication.</p>
+<p>The judging layer has measurable slack. Notion's human labeling of 100 transcripts produced a Cohen's κ of 0.595 and 92.9% agreement with the ensemble — respectable, but Notion notes most disagreements were human-labeled failures the ensemble graded as passes, meaning the judge runs slightly lenient. When the whole board sits between 93.67% and 98.37%, a generous grader compresses that range further.</p>
+<p>Independent analysts are blunt about this category. Digital Applied, in a May 2026 methodology guide, classifies vendor-controlled benchmarks as the least trustworthy governance type: "A vendor benchmark is a sales asset first and an evaluation second; read it that way." Their counterpoint is that static public benchmarks have their own terminal illnesses — contamination, where eval questions leak into training corpora, and saturation, where frontier models cluster so tightly near the ceiling that ranking becomes noise. One audit they cite found a median discriminative lifespan under two years for static evals.</p>
+<h2>Why It Matters</h2>
+<p>The Knowledge Board is best read not as a ranking but as evidence of a metric migration. For three years, model selection ran on capability scores — MMLU, GPQA, SWE-bench — that told buyers nothing about what a finished unit of work costs. Dollars per completed task collapses capability, latency, retries, tool calls, and token pricing into one procurement-legible number. Dylan Bristot, who runs the model-comparison site WhatLLM.org, framed the shift in a June analysis: "The right model is not the one that wins the most screenshots. It is the one that lets your system finish more work per dollar without making the expensive mistakes." He is equally clear that cheap is not automatically right — "Cheap failure is still failure" — which is why undo rate belongs beside cost.</p>
+<p>Notion's AI engineering lead, Sarah Sachs, has argued a version of this for months. On the AI Engineer podcast in July, she described the trap facing companies built on rented inference: "You are basically buying tokens at a huge markup and selling them again. That is not value you can defend." Her prescription — model agnosticism, evaluation on cost-per-capability rather than per-token price — is what the Knowledge Board operationalizes in public. "We cannot do this without optionality," she said, "and we cannot do this without conviction that we understand what models are required for which tasks." Notion routes roughly 75% of its AI traffic through a router that picks the cheapest capable model; the Knowledge Board is the receipt.</p>
+<h2>What to Watch</h2>
+<p>The interesting question is whether anyone else publishes one. A single vendor's production board is a marketing artifact; five vendors publishing comparable cost-per-resolved-task figures across different task distributions would be a standard, and would let buyers triangulate the way evaluation researchers already recommend. Watch whether Notion keeps the board refreshed as new models ship, and whether the frontier-probability column becomes the number people actually cite. Kimi K3 and GPT-5.6-Luna both score 100% there while sitting second and twelfth on raw quality — the clearest sign yet that "best model" and "right model" have come apart.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;The right model is not the one that wins the most screenshots. It is the one that lets your system finish more work per dollar without making the expensive mistakes.&rdquo;</blockquote><cite>&mdash; Dylan Bristot, Founder and analyst, WhatLLM.org</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">98.37% / $0.87</div><div class="stat-label">Claude Opus 5 resolution rate and cost</div></div><div class="stat-cell"><div class="stat-value">$0.02</div><div class="stat-label">GPT-5.6-Luna cost per resolved task</div></div><div class="stat-cell"><div class="stat-value">7%</div><div class="stat-label">Weekly agent tokens sampled</div></div><div class="stat-cell"><div class="stat-value">92.9%</div><div class="stat-label">Judge agreement with human labelers</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://labs.notion.com/knowledge-board" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=labs.notion.com&sz=32" alt="">Notion Labs</a><a href="https://whatllm.org/blog/agentic-ai-cost-per-task" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=whatllm.org&sz=32" alt="">WhatLLM.org</a><a href="https://www.braintrust.dev/customers/notion" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=braintrust.dev&sz=32" alt="">Braintrust</a><a href="https://www.digitalapplied.com/blog/llm-benchmark-methodology-2026-contamination-leaderboard-guide" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=digitalapplied.com&sz=32" alt="">Digital Applied</a></div></div>
+<div class="article-nav"><a href="11-dna-semiconductor-in-memory-computing.html" class="nav-prev">&larr; Researchers Fuse Synthetic DNA With a Semiconducto</a><a href="13-databricks-unity-gateway-smart-routing.html" class="nav-next">Databricks Says a Small Classifier Cut Its Coding- &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 17, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
