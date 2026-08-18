@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Wires Between GPUs Are Becoming a $144 Billion Problem &mdash; The Vault AI</title>
+<meta name="description" content="Copper's reach collapses to about one meter at 224 Gbps per lane, pushing AI clusters toward co-packaged silicon photonics and turning interconnect into a first-order constraint — and a market some vendor-adjacent forecasts put at $144 billion by 2030.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--surface-2);padding:.1em .35em;border-radius:3px}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>The Wires Between GPUs Are Becoming a $144 Billion Problem</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1006 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Copper's reach collapses to about one meter at 224 Gbps per lane, pushing AI clusters toward co-packaged silicon photonics and turning interconnect into a first-order constraint — and a market some vendor-adjacent forecasts put at $144 billion by 2030.</p>
+</div>
+<div class="article-body">
+<p>The most expensive part of a frontier training run is no longer the GPU. It is increasingly the problem of getting bits from one GPU to another — and the industry has quietly concluded that copper cannot do it much longer.</p>
+<p>A market study circulating this week puts a number on it: the global data center optical interconnect market reaching $144.4 billion by 2030, up from $13.7 billion in 2024 — a 48.1 percent CAGR, more than tenfold in six years. Silicon photonics takes 63.7 percent of that revenue, up from 16.6 percent in 2020, with co-packaged optics doing most of the pulling.</p>
+<p>The provenance matters. The forecast is China Insights Consultancy's, prepared for laser maker Yuanjie Semiconductor as part of its Hong Kong IPO filing — a vendor-adjacent document written to support a listing, not an independent audit. The analyst spread is wide: Bank of America models AI optical connectivity going from $14 billion in 2025 to $73 billion by 2030, roughly half the CIC number. Treat $144 billion as the bullish end of a range, not a fact.</p>
+<h2>Why Copper Runs Out</h2>
+<p>The underlying physics is not in dispute, and it is the more interesting story. At 112 Gbps per lane, a copper backplane cable reaches roughly 2.5 meters. Double the lane rate to 224 Gbps and that collapses to about one meter — skin-effect resistance, conductor roughness, return loss and inter-symbol interference all worsen faster than the signal budget can absorb. A meter is roughly the height of a rack. As lane rates rise to feed 1.6T ports, the distance a GPU can talk to another GPU over copper shrinks toward the size of the box it is already in.</p>
+<p>Optics has no such ceiling, and vendors are moving the conversion point inside the package. Marvell's CPO architecture for custom accelerators, announced January 2025, aims at scaling AI servers "from tens of XPUs within a rack currently using copper interconnects to hundreds across multiple racks," at XPU-to-XPU distances it says are 100x longer than electrical cabling. "AI scale-up servers require connectivity with higher signaling speeds and longer distances to support unprecedented XPU cluster sizes," said Nick Kucharewski, senior vice president and general manager of Marvell's Network Switching Business Unit. "Integrating co-packaged optics into custom XPUs is the logical next step."</p>
+<p>The energy arithmetic is the other half. Marvell's 6.4T 3D SiPho Engine — 32 channels of 200G electrical and optical interfaces in one device — claims 30 percent lower power per bit than 100G-generation equivalents. Nvidia's Spectrum-X Photonics switches, announced at GTC in March 2025, cut power per 1.6T port from roughly 30W for a pluggable transceiver to 9W co-packaged, with 3.5x better power efficiency, 4x fewer lasers and 63x greater signal integrity claimed platform-wide. Broadcom shipped Tomahawk 6 at 102.4 Tbps in June 2025 and followed in October with TH6-Davisson, the first 102.4 Tbps Ethernet switch with co-packaged optics.</p>
+<h2>The Binding Constraint</h2>
+<p>Through 2023 and 2024, the limiter on training scale was GPU supply. That has shifted. A frontier training run is a synchronized computation: gradients are exchanged across every accelerator at every step, and the slowest link sets the pace for all of them. Once a cluster outgrows a single rack — which every frontier-scale cluster now does — scaling compute means scaling the fabric, and the fabric is where the watts and dollars are migrating.</p>
+<p>Nvidia's framing is unsubtle. "AI factories are a new class of data centers with extreme scale, and networking infrastructure must be reinvented to keep pace," said Jensen Huang, founder and CEO of Nvidia, announcing the photonics switches. "By integrating silicon photonics directly into switches, NVIDIA is shattering the old limitations of hyperscale and enterprise networks and opening the gate to million-GPU AI factories." TSMC chairman and CEO C. C. Wei, whose company supplies the process, made the same argument from manufacturing.</p>
+<p>That is vendor language, but the deployment curve is real. Quantum-X Photonics InfiniBand switches — 144 ports of 800Gb/s on 200Gb/s SerDes, liquid-cooled to keep the on-package optics in spec — were slated for late 2025, Spectrum-X Photonics Ethernet for 2026. Cignal AI projects more than 5 million 1.6T pluggables shipping in 2026, the technology's first volume year.</p>
+<h2>Why It Matters</h2>
+<p>Every watt spent moving a bit is a watt not spent on a matrix multiply. In a power-constrained data center — and nearly all of them now are — a switch delivering a 1.6T port at 9W instead of 30W is not an efficiency nicety; it is the difference between fitting another few thousand accelerators inside the same substation contract or not.</p>
+<p>It also reshapes the supply chain. CPO folds lasers, modulators, fiber attach and advanced packaging onto the same substrate as the compute die, so whoever owns packaging owns more of the system — Nvidia's photonics ecosystem runs to TSMC, Coherent, Corning, Fabrinet, Foxconn, Lumentum and SPIL. Which is also why a figure like $144 billion lands in an IPO document.</p>
+<p>The counterweight is that CPO is still early and hard. Optics add latency copper does not, lasers fail in ways cables do not, and a dead optical engine on a switch package cannot be swapped like a pluggable module. LightCounting founder and CEO Vlad Kozlov put the trajectory in units rather than dollars: "We forecast that CPO will grow from less than 50 thousand port shipments today to over 18 million CPO ports by 2029, with most of the ports being deployed for connections within servers." That is an enormous ramp for a technology whose field reliability record is barely written.</p>
+<h2>What to Watch</h2>
+<p>The 1.6T ramp is the cleanest reality check on every dollar forecast above it: whether Cignal AI's 5 million units actually ship in 2026, and at what yield. Watch whether hyperscalers put co-packaged optics into production fabrics or keep it in qualification while pluggables carry the volume — serviceability, not bandwidth, is the open question. Watch Broadcom's TH6-Davisson design wins against Nvidia's integrated stack. And watch the revisions: a market projected to compound at 48 percent for six years has never once been forecast accurately, in either direction.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;AI factories are a new class of data centers with extreme scale, and networking infrastructure must be reinvented to keep pace.&rdquo;</blockquote><cite>&mdash; Jensen Huang, Founder and CEO, NVIDIA</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">$144.4B</div><div class="stat-label">Projected 2030 market, from $13.7B</div></div><div class="stat-cell"><div class="stat-value">9W vs 30W</div><div class="stat-label">Power per 1.6T port, CPO vs pluggable</div></div><div class="stat-cell"><div class="stat-value">~1 meter</div><div class="stat-label">Copper reach at 224 Gbps/lane</div></div><div class="stat-cell"><div class="stat-value">18M</div><div class="stat-label">Forecast CPO ports by 2029</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.tomshardware.com/tech-industry/photonics" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tomshardware.com&sz=32" alt="">Tom's Hardware</a><a href="https://nvidianews.nvidia.com/news/nvidia-spectrum-x-co-packaged-optics-networking-switches-ai-factories" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nvidianews.nvidia.com&sz=32" alt="">NVIDIA Newsroom</a><a href="https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-tomahawkr-6-davisson-industrys-first-1024" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=investors.broadcom.com&sz=32" alt="">Broadcom</a><a href="https://www.trendforce.com/presscenter/news/20260615-13098.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=trendforce.com&sz=32" alt="">TrendForce</a></div></div>
+<div class="article-nav"><a href="13-databricks-unity-gateway-smart-routing.html" class="nav-prev">&larr; Databricks Says a Small Classifier Cut Its Coding-</a><a href="15-ai-industrial-explosion-growth-ceiling.html" class="nav-next">How Fast Could an AI Economy Actually Grow? A New  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 17, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
