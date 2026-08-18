@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI's 'Computer History' Gives ChatGPT a Memory of Your Desktop — Without the Screenshots &mdash; The Vault AI</title>
+<meta name="description" content="OpenAI's opt-in Computer History logs structured interaction events instead of screenshots, sidestepping Microsoft Recall's visual-archive problem while creating a plaintext, machine-readable record that OpenAI itself warns widens the prompt-injection attack surface.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--surface-2);padding:.1em .35em;border-radius:3px}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>OpenAI's 'Computer History' Gives ChatGPT a Memory of Your Desktop — Without the Screenshots</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 995 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI's opt-in Computer History logs structured interaction events instead of screenshots, sidestepping Microsoft Recall's visual-archive problem while creating a plaintext, machine-readable record that OpenAI itself warns widens the prompt-injection attack surface.</p>
+</div>
+<div class="article-body">
+<p>OpenAI has given ChatGPT a working memory of your desktop, and it built the thing by conspicuously avoiding the one design decision that sank Microsoft's attempt: it never looks at your screen.</p>
+<p>The feature is called Computer History, and it is rolling out now to ChatGPT Pro, Business and Enterprise subscribers on the macOS desktop app. In OpenAI's launch video, Dominik Kundel, a developer-experience engineer at the company, asked the assistant in voice mode what the last Google Doc he had viewed was. ChatGPT named it. He then asked whether he had shared it with colleagues, and the model worked through his Slack history to check. Then he asked for a summary of his morning, and got one.</p>
+<p>No screenshots were involved in any of it.</p>
+<p>"Computer History doesn't rely on screen or audio capture," Kundel said in the announcement video. "Instead, it captures interaction events like clicking, typing, app switches, and more, so it can capture memories faster and more efficiently."</p>
+<h2>What an 'event' actually contains</h2>
+<p>The distinction is not cosmetic. Computer History replaces Chronicle, a research preview OpenAI shipped to Codex for Mac in April that worked by periodically screenshotting the display. This is a rebuild, not a rename. It constructs what OpenAI's documentation calls an "interaction-event stream" from allowed apps and websites: clicks, typing, keyboard shortcuts, app switches, and whatever context macOS surfaces through its accessibility APIs. It captures no screenshots, screen recordings, microphone input or system audio, and never touches private-mode browsing. Tellingly, it does not request macOS Screen Recording permission at all.</p>
+<p>Those raw events sit temporarily on the Mac inside the ChatGPT App Group container, and OpenAI says they are deleted after 48 hours. Periodically, the app spins up an ephemeral Codex session that reads the event stream and distills it into memories — plain-text Markdown files written to <code>~/.codex/memories/extensions/skysight/</code>. That summarization step happens on OpenAI's servers; the company says it does not retain the event files afterward and does not use them for training.</p>
+<p>John Voorhees, managing editor at MacStories, spent a day with the feature and documented the output: a timestamped entry roughly every ten minutes, each a Markdown file with YAML front matter listing the apps involved, a narrative summary, and a section headed "Important non-obvious context about the user" enumerating file names, document titles and the people he had messaged. One ten-minute entry ran just shy of 700 words.</p>
+<p>Voorhees was enthusiastic about the premise and blunt about the trade. "Every thread is like Groundhog Day for an agent," he wrote of the tedium of re-explaining context to Codex. But he drew the line plainly: "If you're not comfortable with letting Codex use your Mac interactions to generate memories and then sending those memories to ChatGPT or Codex as context, you shouldn't turn on Computer History." Before enabling it, he excluded Passwords, 1Password and Keychain Access.</p>
+<h2>The controls, and the gaps</h2>
+<p>OpenAI has front-loaded the consent machinery. Computer History is off by default for everyone. In Business and Enterprise workspaces an administrator must explicitly grant access first, and even then each member has to opt in individually — admin approval alone enables nothing. It also requires Memories to be on, and is unavailable in the European Economic Area, the United Kingdom and Switzerland.</p>
+<p>Users can run an exclusion list or a stricter "include only these apps" allowlist covering apps and website URLs, pause collection from the macOS menu bar, and clear the last ten minutes, hour, day, or everything. Deleting a timeline item also deletes the underlying events and any memories derived from them.</p>
+<p>The gap is what happens to the files once they exist. OpenAI's own documentation states that Computer History files "can contain sensitive information," that "they are not encrypted by Computer History," and that "other programs running as your macOS user may be able to access them." The memories are readable plaintext in a home directory, protected by nothing stronger than the Mac account itself.</p>
+<h2>Why It Matters</h2>
+<p>The Microsoft Recall precedent is the obvious frame, and OpenAI has clearly studied it. When Recall shipped in 2024, security researcher Kevin Beaumont showed its database sat in plaintext in an AppData folder and could be lifted wholesale — "stealing everything you've ever typed or viewed on your own Windows PC is now possible with two lines of code," as he put it, calling the launch "an act of self harm at Microsoft in the name of AI, and by proxy real customer harm." Microsoft pulled the feature, made it opt-in, and rebuilt it around encryption and Windows Hello.</p>
+<p>Computer History dodges the screenshot problem and lands opt-in from day one. But it swaps a visual archive for something arguably more useful to an attacker: a structured, pre-summarized, machine-readable account of what a person did, which files they touched and who they talked to — in plaintext, on disk.</p>
+<p>The sharper issue is that this is not a passive log. It is agent context, wired into a system that can act. OpenAI says so itself, in a documentation section titled "Prompt injection risk": "Computer History increases the risk of prompt injection from content in apps and websites. For example, if you visit a website containing malicious instructions, ChatGPT or Codex might follow those instructions." Once a compromised page, a malicious browser extension or a poisoned document can write into the same event stream that becomes the agent's memory, the threat stops being data theft and becomes instruction smuggling. Tenable researchers have already catalogued multiple indirect prompt-injection paths into ChatGPT's existing memory system; Computer History widens the aperture.</p>
+<h2>What to Watch</h2>
+<p>Three things. Whether OpenAI encrypts the memory directory or gates it behind Touch ID — the most obvious hardening move, and the one Microsoft was forced into. Whether the EEA, UK and Switzerland rollout arrives on the promised timeline or stalls under GDPR scrutiny, which would say a lot about how confident OpenAI's lawyers are in the events-not-screenshots distinction. And whether the first credible prompt injection landing through Computer History gets demonstrated in a researcher's lab or discovered on someone's actual laptop.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Computer History doesn't rely on screen or audio capture. Instead, it captures interaction events like clicking, typing, app switches, and more, so it can capture memories faster and more efficiently.&rdquo;</blockquote><cite>&mdash; Dominik Kundel, Developer Experience Engineer, OpenAI</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">48 hours</div><div class="stat-label">Raw event retention on device</div></div><div class="stat-cell"><div class="stat-value">Every 10 min</div><div class="stat-label">Memory summarization interval</div></div><div class="stat-cell"><div class="stat-value">~700 words</div><div class="stat-label">Length of one memory entry</div></div><div class="stat-cell"><div class="stat-value">3 regions</div><div class="stat-label">EEA, UK, Switzerland excluded</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://learn.chatgpt.com/docs/customization/computer-history" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=learn.chatgpt.com&sz=32" alt="">OpenAI Docs</a><a href="https://www.macstories.net/stories/hands-on-with-computer-history-openais-take-on-agent-memory/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=macstories.net&sz=32" alt="">MacStories</a><a href="https://thenewstack.io/openai-chatgpt-computer-history/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenewstack.io&sz=32" alt="">The New Stack</a><a href="https://www.tenable.com/blog/hackedgpt-novel-ai-vulnerabilities-open-the-door-for-private-data-leakage" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tenable.com&sz=32" alt="">Tenable Research</a></div></div>
+<div class="article-nav"><a href="09-google-imagen4-retirement-gemini.html" class="nav-prev">&larr; Google Switched Off Imagen 4 on Monday. Developers</a><a href="11-dna-semiconductor-in-memory-computing.html" class="nav-next">Researchers Fuse Synthetic DNA With a Semiconducto &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 17, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
