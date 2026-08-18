@@ -1,0 +1,33 @@
+OpenAI is writing checks to the people who will grade its homework.
+
+On Monday, August 17, the company announced grants to 14 independent projects studying how AI is reshaping employment, economic opportunity, public revenue and societal resilience — $1 million in cash plus up to $1 million in credits for OpenAI's models, spread across think tanks, universities and a public hospital system. The recipients run from the conservative American Enterprise Institute to the center-left Progressive Policy Institute, with stops in Brussels, São Paulo, Singapore and Seoul.
+
+Averaged out, that is roughly $71,000 per project in cash — real money for a policy shop's white paper, a rounding error against the capital expenditure these projects must help societies absorb.
+
+## What OpenAI Funded
+
+The grants follow through on a promise OpenAI made in April 2026, when it published *Industrial Policy for the Intelligence Age*, a 13-page manifesto arguing for public wealth funds, portable benefits and accelerated grid expansion. The company invited outsiders to test the ideas. More than 400 people and organizations responded; 14 were selected.
+
+Under "building a more open economy," AEI will run the AEI-Urban Bipartisan Commission on Artificial Intelligence and the Future of the American Workforce, developing low-, moderate- and high-disruption scenarios for AI's effect on jobs and skills. The Progressive Policy Institute will design a person-based benefits system spanning retirement, health, leave, education and disability, and prototype "livelihood insurance" triggered by broad changes in an occupation. The Tax Foundation will model how AI adoption shifts the balance among labor income, corporate profits and capital gains as sources of public revenue. Brussels-based CEPS will study how European productivity gains get distributed; ECIPE will build a framework for a "Right to AI"; the Abundance Institute will compare state-level energy expansion against data center demand; Windfall Trust will scale working groups across five regions; and Brazil's IMPA and Hospital das Clínicas at the University of São Paulo round out the group.
+
+Under "building a more resilient society," the Institute for Security and Technology will build a measurement framework for recursively self-improving AI, including incident taxonomies for cross-lab communication. The Nuclear Threat Initiative's bio program will test the legal feasibility of secure international sharing of AI risk information; the Council on Strategic Risks will train national security professionals on frontier AI safety; Nanyang Technological University will build privacy-preserving agents to simulate household responses to government transfers; and Yonsei University will assess legislative oversight in South Korea's National Assembly. Projects run six months, with results reported in 2027.
+
+## The Company's Case
+
+"To democratize the benefits of the Intelligence Age, we need policy ideas as ambitious and transformative as the technology itself," Chris Lehane, OpenAI's chief global affairs officer, told Semafor, which reported the awards first. "Democracies need to decide how AI is deployed, and organizations like these can serve as laboratories of democracy that develop new ways to ensure AI's gains reach the many, not just the few."
+
+OpenAI's own post concedes the awkwardness: independent organizations, it says, can "challenge assumptions—including ours." The announcement describes no editorial review, approval right or pre-publication sign-off over grantee findings — but also no firewall or formal independence policy, leaving the grantees' institutional reputations as the strongest disclosed guarantee.
+
+Some of those reputations are considerable. The AEI-Urban commission, launched separately on June 11, is co-chaired by former Commerce Secretary Gina Raimondo and former House Speaker Paul Ryan, with 20 commissioners from business, labor, academia and government. "We intend to test claims on the impacts of AI against evidence rather than rhetoric and assumption," Urban Institute president Sarah Rosen Wartell said at that launch.
+
+## Why It Matters
+
+There is a genuine capacity problem this money addresses. Almost no government has the analytical bench to model AI labor displacement, and think tanks are chronically underfunded relative to the questions they face. A tax model of AI-shifted revenue bases, a scenario framework for occupational disruption, a legal architecture for cross-border biosecurity sharing — these are public goods no one else was funding. Spreading the money from AEI to PPI, and Washington to Seoul, makes it harder for any single output to look purchased.
+
+The counter-case has a documented history. In 2017, after Open Markets director Barry Lynn praised the EU's antitrust fine against Google, his roughly ten-person team was pushed out of New America, whose major donors included Google and Eric Schmidt — the canonical warning about corporate money and think-tank independence. Cornell's J. Nathan Matias and UC Riverside's Avriel Epps applied the same logic to OpenAI's mental-health grants in December 2025, calling it "grantwashing" — an "industry practice," they wrote, that "commits a pittance to research that is doomed to be ineffective due to information and resources that companies hold back." That structural point applies here: the resource OpenAI is not offering is data access — records of its systems and how people actually use them.
+
+Paul Nemitz, the former European Commission director who reviewed OpenAI's April paper for Tech Policy Press, put the conflict plainly: "the companies that stand to profit most from the AI transition are the same companies being asked to help design the rules that govern it." The grants do not resolve that, and arguably deepen it, by seeding the agenda with questions OpenAI framed first. Note also what is absent: none of the 14 projects targets antitrust, model liability, copyright or data center environmental disclosure — areas where OpenAI has lobbied against binding rules.
+
+## What to Watch
+
+Watch disclosure hygiene first: whether every grantee publication carries a visible funding statement, and whether OpenAI publishes a written independence policy covering review rights and data access. Then watch for the uncomfortable finding — a Tax Foundation proposal that lands on compute, an AEI-Urban scenario that undercuts the company's optimism about job creation — and whether that work gets renewed. Finally, the 2027 reporting cycle: if these projects become inputs to actual legislation, the capacity argument wins. If they surface mainly as citations in OpenAI's next policy paper, the capture argument does.
