@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Boeing Joins an Open-Source Hypervisor Push to Make Physical AI Certifiably Safe &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:Source Serif 4,Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:DM Sans,sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:DM Sans,sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:DM Sans,sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:DM Sans,sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:DM Sans,sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.15)}
+.article-body h2{font-family:DM Sans,sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:DM Sans,sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:DM Sans,sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:DM Sans,sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:DM Sans,sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:DM Sans,sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:DM Sans,sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:DM Sans,sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:DM Sans,sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header"><span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+<h1>Boeing Joins an Open-Source Hypervisor Push to Make Physical AI Certifiably Safe</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1000 words</span><span>4 sources</span></div></header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>The Xen Project has formed a Safety Committee, with AMD, EPAM and Renesas as founding contributors and Boeing newly aboard, to build shared IEC 61508 and ISO 26262 certification evidence for containing AI software inside hardened partitions.</p></div>
+<div class="article-body">
+<p>When a language model hallucinates in a chat window, a user rolls their eyes. When a perception model misfires inside a warehouse robot or a car at highway speed, the failure has mass and momentum. That gap — between software that is merely wrong and software that is physically dangerous — is what an open-source hypervisor project moved to formalize this week.</p>
+<p>On August 17, the Xen Project, the open-source virtualization platform hosted by the Linux Foundation, announced the <strong>Xen Safety Committee</strong>: a standing body chartered to produce and maintain the requirements documents, architecture specifications, test evidence, and process paperwork companies need to certify products under functional-safety standards such as <strong>IEC 61508</strong> and, in automotive, <strong>ISO 26262</strong>. AMD, EPAM, and Renesas are founding contributors. And as The Register first reported on August 18, <strong>Boeing has joined the project</strong> — with its interest in this safety work understood to be a reason why.</p>
+<p>Xen spent two decades as cloud plumbing. Its member roster now reads very differently: AMD, Arm, AWS, Boeing, EPAM, Ford, Honda, Renesas, Vates, and XenServer — chipmakers, a cloud provider, two automakers, and an aerospace prime.</p>
+<p>“Safety engineering has traditionally required every organization to recreate much of the same foundational work. We believe open source can change that,” said <strong>Cody Zuschlag</strong>, community manager at the Xen Project. “By maintaining shared engineering evidence alongside the software itself, the Xen community can reduce duplicated effort, accelerate certification programs, and make functional safety more practical for industries building the next generation of software-defined systems.”</p>
+<h2>What a hypervisor does when the AI stack falls over</h2>
+<p>A hypervisor is a thin slab of code sitting directly on the silicon, beneath every operating system on the machine. Xen is Type-1, meaning nothing sits between it and the hardware. Its job is to carve one physical computer into isolated compartments — domains — and police the walls between them.</p>
+<p>In an embedded or robotic system, that partitioning is the whole point. On one side of the wall runs a Linux guest carrying the messy, fast-moving, hard-to-verify parts of a modern machine: neural network inference, camera and lidar processing, navigation, over-the-air update agents, a touchscreen interface. On the other runs a real-time OS such as Zephyr handling what must never miss a deadline — motor control, braking, collision avoidance, flight surface actuation.</p>
+<p>Xen assigns each side its own CPU cores, memory regions, interrupts, and physical devices, in a configuration the project calls <strong>static partitioning</strong>. The goal is what safety engineers call freedom from interference: a perception model that deadlocks, leaks memory, saturates a core, or is compromised outright cannot starve, corrupt, or stall the control loop next door. Supporting mechanisms include CPU pinning, device passthrough, deterministic interrupt latencies, and <strong>Dom0less boot</strong>, which lets safety-critical domains start at power-on without waiting for a conventional control domain.</p>
+<p>The driver is consolidation: carmakers want fewer electronic control units, aerospace integrators fewer line-replaceable units. Squeezing infotainment and collision avoidance onto one system-on-chip only works if the boundary is trustworthy enough to show an auditor.</p>
+<p>Which is where the paperwork comes in, and the paperwork is enormous. The founding contributors have already built safety requirements, architecture specifications, MISRA C engineering, DFMEA analysis, testing frameworks, tooling, code coverage, and process documentation — the committee’s starting corpus. Static analysis runs through BUGSENG’s ECLAIR platform. The project also extended its release support lifecycle in 2026 to <strong>five years</strong> — three of regular support plus two of security-only coverage — aimed squarely at industries whose certification timelines outlast a typical open-source support window.</p>
+<p>The aerospace angle predates the announcement. At an ELISA Project seminar on May 13, Boeing’s <strong>Matthew Weber</strong> appeared alongside AMD’s <strong>Ayan Kumar Halder</strong> to walk through composing Xen, Zephyr, and Linux into a mixed-criticality architecture, mapping the avionics standards <strong>DO-178C</strong> and <strong>ARINC 653</strong> onto work already underway for ISO 26262. ARINC 653 is, in effect, aviation’s decades-old formalization of this idea: time and space partitioning on shared hardware.</p>
+<p>“Achieving baseline functional safety certification for Xen is a critical milestone, but it represents just the beginning of a continuous journey,” said <strong>Artem Mygaiev</strong>, technology solutions director at EPAM. “As the hypervisor evolves and its footprint in mission-critical applications expands, the approach to safety must evolve alongside.”</p>
+<h2>Why this matters for physical AI</h2>
+<p>The AI industry’s safety conversation is overwhelmingly about model behavior — evals, alignment, guardrails, refusals. This is a different and older discipline arriving at the same door. Functional safety does not ask whether a model is correct. It assumes the model will eventually be wrong, and asks what the surrounding architecture does about it.</p>
+<p>That assumption is load-bearing as AI moves into things that move. You cannot certify a vision transformer to ASIL D. You can, plausibly, certify the partition it runs inside and the supervisory logic that overrides it. Containment becomes the safety story precisely because verification of the model is out of reach.</p>
+<p>There is an economic argument too. Certification is a fixed cost every robotics and automotive supplier currently pays alone, and it is neither cheap nor fast. Pooling the evidence attempts to make certifiable infrastructure a commons rather than a moat. The chipmakers underwriting it are not being altruistic: a certifiable open hypervisor makes AMD and Renesas silicon far easier to design into a robot or a vehicle.</p>
+<p>One caveat matters. The Xen Project says plainly that its source code is not itself safety certified, and that a product safety case still depends on the complete system and assessor review. The committee produces inputs, not a certificate.</p>
+<h2>What to watch</h2>
+<p>Three things. Whether Boeing converts membership into the new <strong>Premier Plus</strong> tier, which buys voting seats on the Advisory Board and the Safety Committee. Whether the committee’s artifacts clear an independent assessor on a shipping product, rather than sitting as well-intentioned documentation. And whether robotics firms — the constituency Xen members reportedly believe needs isolation next — show up, or keep building bespoke isolation in-house. Xen Summit 2026 is where answers should start surfacing.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;Safety engineering has traditionally required every organization to recreate much of the same foundational work. We believe open source can change that.&rdquo;</blockquote><cite>&mdash; Cody Zuschlag, Community Manager, Xen Project</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">3</div><div class="stat-label">Founding contributors to the Xen Safety Committee</div></div><div class="stat-cell"><div class="stat-value">5 years</div><div class="stat-label">New Xen release support lifecycle</div></div><div class="stat-cell"><div class="stat-value">10</div><div class="stat-label">Listed Xen Project members, now including Boeing and Ford</div></div><div class="stat-cell"><div class="stat-value">4</div><div class="stat-label">Safety standards in scope: IEC 61508, ISO 26262, DO-178C, ARINC 653</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.theregister.com/virtualization/2026/08/18/xen-project-gets-serious-about-safety-in-push-to-possibly-partition-robot-brains/5288914" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=theregister.com&sz=32" alt="">The Register</a><a href="https://www.linuxfoundation.org/press/xen-project-launches-shared-functional-initiative-for-safety-critical-systems" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=linuxfoundation.org&sz=32" alt="">Linux Foundation</a><a href="https://xenproject.org/technology/safety/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=xenproject.org&sz=32" alt="">Xen Project</a><a href="https://elisa.tech/ambassadors/2026/05/27/recap-elisa-seminar-functional-safety-with-xen-zephyr-and-linux-for-avionics-automotive-and-industrial/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=elisa.tech&sz=32" alt="">ELISA Project</a></div></div>
+<div class="article-nav"><a href="12-cadence-ai-agents-chip-design-india.html" class="nav-prev">&larr; Cadence Says AI Agents Are Compressing Chip Design</a><a href="14-meta-29-state-teen-harm-trial.html" class="nav-next">Meta Goes to Trial Against 29 States Over Whether  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 18, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
