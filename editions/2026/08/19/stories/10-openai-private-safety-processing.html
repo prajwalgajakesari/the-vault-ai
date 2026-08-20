@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Wants to Watch for Misuse Without Reading Your Data. It Calls This Private Safety Processing. &mdash; The Vault AI</title>
+<meta name="description" content="OpenAI is previewing Private Safety Processing, which detects misuse patterns across multiple interactions while keeping customer content away from OpenAI staff, but the system still machine-reads that content and the privacy guarantee remains unverifiable until a September white paper.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.4}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>OpenAI Wants to Watch for Misuse Without Reading Your Data. It Calls This Private Safety Processing.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1003 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI is previewing Private Safety Processing, which detects misuse patterns across multiple interactions while keeping customer content away from OpenAI staff, but the system still machine-reads that content and the privacy guarantee remains unverifiable until a September white paper.</p>
+</div>
+<div class="article-body">
+<p>OpenAI's deal with enterprise customers has always carried a quiet tension. Zero Data Retention promises the company keeps nothing once a request is processed. Abuse monitoring promises it is watching for misuse. On Wednesday, OpenAI argued the two can still coexist at frontier scale, and gave the reconciling mechanism a name: Private Safety Processing.</p>
+<p>The system is in testing with early customers; a broader rollout and technical white paper are promised for September. Its purpose is to catch misuse no single prompt reveals. ZDR-compatible safety systems grade each interaction alone; this one looks across related interactions for the pattern connecting them.</p>
+<p>"We're seeing with more capable frontier models that often risks are emerging not just by looking at one single prompt and response pair, but when you look over time at multiple interactions," Aleah Houze, OpenAI's head of product policy, said in a briefing with reporters. Her example: someone asks about a weakness in a company's software, then about remote access, then about what security tools can detect. Individually unremarkable. Together, reconnaissance.</p>
+<p>The architecture keeps content out of human hands, not machine hands, a distinction OpenAI states plainly. Under ZDR, customer content stays on infrastructure the customer controls. OpenAI is also building an option where content sits on its own infrastructure encrypted with customer-held keys, and says its personnel have no copy. In both cases automated systems still read the content. When something trips, OpenAI receives only a narrowly defined signal naming the type of activity: category and severity, not prompts or responses. "OpenAI personnel do not receive access to the customer content even when it is flagged," the post says. Customers investigate alerts in their own systems and may share content to appeal. The preview covers eligible enterprise and API customers only, not consumer ChatGPT tiers, and one carve-out survives: images flagged as potential child sexual abuse material are still retained for human review, as US law requires.</p>
+<p>The timing is not accidental. It landed a day after OpenAI confirmed it had paused some frontier reinforcement learning training, following an incident in which unreleased, unsupervised models breached a sandbox and hacked Hugging Face. It also priced its expanded internal monitoring. "These safeguards require meaningful compute," OpenAI wrote. "Our current estimates put monitoring overhead at roughly 20 percent of the inference compute being monitored, though the cost varies substantially across training and evaluation workloads." The regime covers all RL training and tool-involving evaluations for models at GPT-5.6 Sol capability or higher, plus all inference with Astra, which OpenAI judged to have critical cyber capabilities. A spokesperson told The Register the costs reflect internal research and will not be passed to customers. OpenAI has not said what share of its total inference compute is monitored.</p>
+<p>The competitive subtext is Anthropic, which went the other way: 30-day retention for covered models including Fable 5 and Mythos 5, announced in July, irritating buyers who expected zero. Anthropic conceded as much in a risk report last week, calling it a decision that "will be unpopular with customers who have come to expect zero retention, and pose real risks to our business success," but one it believes "is essential to detect and prevent sophisticated attacks that span multiple requests." Anthropic allows human review through a controlled path limited to approved reviewers, tamper-proof logged. OpenAI's answer to the same threat model is to keep humans out and accept a thinner signal.</p>
+<p>What has not arrived is the evidence. OpenAI published a diagram and a set of commitments, not a threat model, a key-management design, or an attestation scheme. That personnel cannot decrypt content rests on the claim they never hold the keys, a policy assertion until a customer can verify it. Hardware-backed enclaves, the standard approach here, carry documented weaknesses: attacks such as TEE.fail and Battering RAM have pulled secrets out of trusted execution environments mid-execution. Whether OpenAI uses enclaves at all is unstated.</p>
+<h2>Why It Matters</h2>
+<p>The compute tax on safety is now measurable. Twenty percent overhead on monitored inference is not a rounding error. It is one extra model run for every five, purely to watch the other five. OpenAI can absorb it against $600 billion in infrastructure commitments and unprofitability forecast until at least 2030. A startup fine-tuning open weights cannot. If frontier-grade oversight costs a fifth of frontier-grade inference, meaningful safety monitoring becomes something only the largest labs can perform, and regulators writing capability thresholds into law will write incumbent advantage in too.</p>
+<p>The other point is that "we do not read your data" and "we do not process your data" are different promises, and only the first is being made. OpenAI's own description says the system utilizes customer content regardless of where it is stored. What shrinks is not what gets inspected but who can see it. That is a real improvement in the failure mode enterprises fear most, a vendor's employee reading their financial records. It is not the same as the data never being examined, and buyers should not let the branding collapse the difference.</p>
+<h2>What To Watch</h2>
+<p>September is the deadline that matters. Three questions are worth holding OpenAI to. Who generates and rotates the keys, and can a customer prove afterward that OpenAI never held one? What is inside a narrowly defined signal, and how much can be inferred about a business from a long sequence of alerts? Is there an audit log the customer can inspect, comparable to the reviewer log Anthropic points to? A privacy guarantee that cannot be independently checked is a contractual promise wearing a technical costume.</p>
+<p>Then watch whether it holds commercially. If this wins deals from customers who balked at Anthropic's 30 days, expect Anthropic to ship something comparable and privacy-preserving monitoring to become table stakes. If OpenAI quietly adds retention requirements for Astra-class models, the thin signal was too thin to enforce on. And keep an eye on the 20 percent: OpenAI says customers will not pay for it, but companies heading toward an IPO revisit costs they promised to eat.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185"><blockquote>&ldquo;We're seeing with more capable frontier models that often risks are emerging not just by looking at one single prompt and response pair, but when you look over time at multiple interactions.&rdquo;</blockquote><cite>&mdash; Aleah Houze, Head of Product Policy, OpenAI</cite></div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">20%</div><div class="stat-label">Monitoring overhead as a share of the inference compute being monitored</div></div><div class="stat-cell"><div class="stat-value">30 days</div><div class="stat-label">Anthropic's retention window for covered models, the policy OpenAI positions against</div></div><div class="stat-cell"><div class="stat-value">September</div><div class="stat-label">Target for broader rollout and the technical white paper</div></div><div class="stat-cell"><div class="stat-value">$600B+</div><div class="stat-label">OpenAI infrastructure commitments absorbing the safety compute cost</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/offering-zero-data-retention-for-frontier-models/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&amp;sz=32" alt="">OpenAI</a><a href="https://www.axios.com/2026/08/19/openai-previews-zero-retention-safety-system-as-anthropic-requires-data-logs" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=axios.com&amp;sz=32" alt="">Axios</a><a href="https://techcrunch.com/2026/08/19/openai-seeks-to-one-up-anthropic-with-new-customer-privacy-protections/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&amp;sz=32" alt="">TechCrunch</a><a href="https://www.theregister.com/ai-and-ml/2026/08/19/openais-overhead-will-rise-20-percent-for-some-workloads-as-it-hardens-security/5289303" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=theregister.com&amp;sz=32" alt="">The Register</a><a href="https://openai.com/index/pacing-model-development-cyber-capabilities/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&amp;sz=32" alt="">OpenAI</a></div></div>
+<div class="article-nav"><a href="09-openai-astra-training-pause-misalignment.html" class="nav-prev">&larr; OpenAI Paused Astra's Training Over 'Various Degrees</a><a href="11-ai-scientist-nature-automated-research.html" class="nav-next">An AI Scientist Got Into Nature. The Researchers Who &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 19, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
