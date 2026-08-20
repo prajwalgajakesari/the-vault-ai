@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Microsoft Took Eight Months to Patch a One-Click Copilot Data-Exfiltration Bug &mdash; The Vault AI</title>
+<meta name="description" content="Microsoft's eight-month gap between disclosure and a full fix for the critical CoSnitch Copilot flaw shows that AI-assistant security debt is now an enterprise liability, because the capabilities being exploited are the same ones vendors are selling.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.4}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>Microsoft Took Eight Months to Patch a One-Click Copilot Data-Exfiltration Bug</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 949 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Microsoft's eight-month gap between disclosure and a full fix for the critical CoSnitch Copilot flaw shows that AI-assistant security debt is now an enterprise liability, because the capabilities being exploited are the same ones vendors are selling.</p>
+</div>
+<div class="article-body">
+<p>Microsoft shipped the patch on Tuesday, Aug. 18. Varonis Threat Labs had reported the flaw on Dec. 31, 2025. In between sat nearly eight months in which a critical one-click vulnerability in Copilot — one capable of quietly draining a user's email, files, calendar entries and the assistant's own stored memory out to an attacker-controlled endpoint — stayed open.</p>
+<p>The flaw, dubbed CoSnitch by the researchers who found it and tracked as CVE-2026-24301, carries a critical rating in Microsoft's Security Update Guide. Varonis says it saw no evidence of exploitation in the wild before the fix landed. But the calendar is the story. CoSnitch is the third Copilot vulnerability Varonis Threat Labs has disclosed to Microsoft this year, after Reprompt and SearchLeak, and all three share a single shape: one click on a legitimate-looking link is enough.</p>
+<p>What CoSnitch demonstrated was not one bug but a chain of three. A crafted link could cause an attacker's instructions to run inside the victim's already-authenticated Copilot session with no confirmation step. From there, the assistant could be directed to reach into connected third-party accounts — Gmail, Drive, Calendar, OneDrive — and push what it found outward using Copilot's own ordinary ability to fetch a web address, a request that looks identical at the network layer to any other page the assistant retrieves. The third link in the chain is the one security teams should sit with longest: a poisoned webpage, once summarized, could write attacker instructions into Copilot's persistent memory. That memory does not expire, does not clear on logout, and is untouched by password resets, session revocation or device re-enrollment.</p>
+<p>The discovery method was its own kind of warning. Varonis says its researchers never reverse-engineered anything. They asked Copilot to explain why the attack they had in mind was impossible, and each refusal arrived with a technical justification that mapped more of the architecture. Varonis calls the technique meta-hacking. "Copilot wasn't breached; it was played," the company wrote. Lior Adar, the Varonis senior security researcher who led the work, told Computerworld that Microsoft closed one element of the chain on Feb. 1, roughly a month after disclosure, and that the partial fix "lowered the other vulnerabilities significantly." The rest waited until August.</p>
+<p>Microsoft confirmed both the flaw and the fix. "Our customers are already protected and do not need to take any action," the company said in a statement. "We continuously update our guardrails to strengthen our protections against similar techniques." Microsoft also said that "enterprise customers using Microsoft 365 Copilot are not affected," because CoSnitch lived in the consumer product, Copilot Personal. Computerworld flagged that claim as not strictly accurate, and the reasoning is hard to argue with: real enterprise environments are full of employees signed into personal Copilot accounts on managed and unmanaged devices. Microsoft has also confirmed it is moving toward a unified Copilot experience, the consumer-and-commercial app merger that began rolling out the same week and is associated internally with an effort reported as Copilot Fusion. A consumer-only carve-out is a thin shield when the consumer product is being folded into the enterprise one.</p>
+<h2>Why It Matters</h2>
+<p>Eight months is a long time to sit on a critical rating. The more uncomfortable question is whether a faster patch was ever really available. Aman Mahapatra, chief strategy officer at Tribeca Softtech, argued the delay reflects a structural conflict rather than a staffing one, because the capabilities being abused are the capabilities Microsoft is selling.</p>
+<p>"The fix and the feature are in direct tension, which means these will not be cleanly patched so much as perpetually mitigated, and the eight-month window is what it looks like when a vendor is negotiating between its security obligation and its product roadmap on every single fix," Mahapatra said.</p>
+<p>That is the shape of AI security debt, and it is now an enterprise liability rather than a research curiosity. Traditional patch SLAs assume a defect can be excised without removing the product's reason for existing. In agentic systems, the connector access, persistent memory and web-fetch behavior that make an assistant useful are the same machinery an attacker rides. Two decades of signature-and-anomaly detection has little to grip here: nothing crashed, no unusual port opened, no malformed payload crossed the wire.</p>
+<p>The root cause is not Microsoft-specific. Flavio Villanustre, CISO of LexisNexis Risk Solutions Group, tied CoSnitch to the same gap behind EchoLeak (CVE-2025-32711), the zero-click Microsoft 365 Copilot flaw patched in mid-2025, and the broader run of indirect prompt-injection findings across vendors: models still cannot reliably separate untrusted data from instructions embedded inside it. A different architectural approach that separates data and instructions is needed, he said, and "this is not something that Microsoft or any other AI vendor has addressed to date."</p>
+<p>Not everyone thinks mitigation is enough. Mark Tauschek, VP and distinguished analyst at Info-Tech Research Group, reached for an older analogy: "Much like in the old macro virus days in the late 90s and early 2000s, the only way to definitively stop it is to turn it off. Disable macros back then. Disable Copilot now."</p>
+<h2>What To Watch</h2>
+<p>Three things. Whether Copilot Fusion carries consumer-side behaviors into enterprise tenants, because a merged codebase gives "not affected" a short shelf life. Whether persistent AI memory becomes a formal incident-response artifact, since a compromise that survives credential rotation and device re-enrollment sits outside most IR runbooks. And disclosure velocity: Varonis alone has published three Copilot chains this year, plus a comparable one-click finding against Atlassian's Rovo assistant in July. If median time-to-full-fix on critical assistant flaws is measured in seasons rather than weeks, enterprise buyers should start writing AI-specific patch commitments into contracts instead of trusting the trust-center page.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185"><blockquote>&ldquo;The fix and the feature are in direct tension, which means these will not be cleanly patched so much as perpetually mitigated.&rdquo;</blockquote><cite>&mdash; Aman Mahapatra, Chief Strategy Officer, Tribeca Softtech</cite></div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">8 months</div><div class="stat-label">From Varonis disclosure (Dec. 31, 2025) to full patch (Aug. 18, 2026)</div></div><div class="stat-cell"><div class="stat-value">3</div><div class="stat-label">Chained vulnerabilities in the CoSnitch attack chain</div></div><div class="stat-cell"><div class="stat-value">1 click</div><div class="stat-label">User interaction required to trigger the exfiltration chain</div></div><div class="stat-cell"><div class="stat-value">3rd</div><div class="stat-label">Copilot flaw Varonis disclosed to Microsoft in 2026</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.computerworld.com/article/4211325/microsoft-finally-patches-critical-one-click-copilot-vulnerability-more-than-eight-months-after-learning-of-it.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=computerworld.com&amp;sz=32" alt="">Computerworld</a><a href="https://www.varonis.com/blog/cosnitch" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=varonis.com&amp;sz=32" alt="">Varonis Threat Labs</a><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-24301" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=msrc.microsoft.com&amp;sz=32" alt="">Microsoft MSRC</a><a href="https://thehackernews.com/2026/08/microsoft-copilot-personal-flaws-could.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thehackernews.com&amp;sz=32" alt="">The Hacker News</a><a href="https://www.darkreading.com/vulnerabilities-threats/cosnitch-attack-copilot-mapping-out-architecture" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=darkreading.com&amp;sz=32" alt="">Dark Reading</a></div></div>
+<div class="article-nav"><a href="14-pennsylvania-grid-data-center-consent-order.html" class="nav-prev">&larr; Pennsylvania Just Made Data Center Developers Sign a</a><a href="16-europe-data-centers-electricity-distance.html" class="nav-next">Europe's AI Data Centers Are Moving 175 Kilometers O &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 19, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
