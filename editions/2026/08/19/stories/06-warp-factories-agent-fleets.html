@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Warp Launches 'Factories' and Reframes AI Coding as an Industrial Process &mdash; The Vault AI</title>
+<meta name="description" content="Warp Factories turns AI coding from a per-developer assistant into a governed, model-agnostic control plane for fleets of cloud agents, staking a claim on the orchestration layer between model labs and engineering teams.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.4}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Warp Launches 'Factories' and Reframes AI Coding as an Industrial Process</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 950 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Warp Factories turns AI coding from a per-developer assistant into a governed, model-agnostic control plane for fleets of cloud agents, staking a claim on the orchestration layer between model labs and engineering teams.</p>
+</div>
+<div class="article-body">
+<p>For three years the pitch for AI coding tools has been aimed at the individual developer: install an agent, prompt it, review the diff, repeat. This week Warp argued that framing is obsolete, and shipped the infrastructure to replace it. Warp Factories, unveiled Tuesday and carried across the trade press through Wednesday, is not a coding assistant. It is a control plane for running fleets of cloud agents across the whole software development lifecycle, treating an incoming ticket the way a production line treats raw material.</p>
+<p>A factory, in Warp's usage, is an automation loop wrapped around the familiar stages of the SDLC. Work enters from Slack, Teams, Linear, Jira or GitHub and triggers an orchestrator Warp calls the foreman, which splits off subagents along an assembly line. A triage agent decides whether an item gets implemented, specced out, or left alone. A spec agent negotiates ambiguity with a human. An implementation agent writes the code; a review agent reads it. All of them get computer-use access on Linux and Mac, so an implementation agent can click through the dropdown it just built to prove the change works, with the screen recording attached to the pull request. Warp claims a factory covering triage through verification can be stood up on an existing codebase in five minutes.</p>
+<p>What makes this infrastructure rather than a product is that factories are defined as version-controlled code - Warp's own analogy is Terraform. Configurations can be rolled back, tested and, more consequentially, rewritten by agents: with self-improvement switched on, observer agents score a sample of runs and open pull requests against the factory's own definition, tuning which model, harness or skill each stage uses. Warp is pointedly model- and harness-agnostic. Any stage can run Claude Code, Codex, Warp's own agent or open-weight models, and the built-in benchmarking is pitched at head-to-head questions like GLM 5.2 in Warp's harness versus Claude Code running Opus. A Factory MCP server lets engineers push work in from Cursor or Claude Code and pull it back down locally.</p>
+<p>The commercial argument rests on two complaints CEO Zach Lloyd says he hears repeatedly from engineering leaders: nobody can prove the return on coding agents as spend climbs, and laptop-installed agents are ungovernable. An organization where every developer runs a bespoke agent logged into every internal system is, in Lloyd's words, a governance nightmare. "[If you look at] things like running your agents in the cloud and steering those agents as they run, or bringing the work that they're doing into your local environment, or setting up memory that goes across those agents, or setting up evals that go across those agents - it's actually a huge infrastructure undertaking to do this right," Lloyd told TechCrunch.</p>
+<p>Factory usage is pay-as-you-go at a 20 percent markup over API rates with no subscription, and qualified organizations in the closed beta get up to $10,000 of usage free. Enterprise buyers get self-hosted workers and bring-your-own inference at no credit cost, part of a pitch Warp calls AI sovereignty: customers own the inference, the hosting and the data exhaust. Warp, founded in 2020, has raised roughly $75 million from GV, Sequoia and Neo, and Lloyd has described adding around $1 million in net new ARR a week.</p>
+<p>The most useful number is Warp's own. "We automate like 30% of our tasks, 30 to 35% on a weekly basis," Lloyd told TechCrunch, "and as models improve, as the context improves, as the harness improves, I think that that number is going to go up over time." That is roughly where Ramp's in-house background agent sat at the start of 2026 before climbing past half of merged pull requests, and well short of Stripe, whose minions system reportedly lands around 1,300 PRs a week. Those companies built their own lines. Warp's bet is that the next thousand engineering orgs will not.</p>
+<h2>Why It Matters</h2>
+<p>The center of gravity in AI coding is sliding from the assistant to the assembly line, and with it the question of who owns the layer in between. Model labs own inference. Harness vendors own the loop. Nobody yet owns the boring, defensible middle: scheduling agents, routing tasks to the cheapest model that clears the bar, holding cross-agent memory, and producing a cost-per-pull-request figure a VP of engineering can defend in a budget review. That layer accrues switching costs, because a factory definition encodes an organization's specific taste in review, testing and risk.</p>
+<p>Warp's structural advantage is that it needs no single model to win. Its benchmarking is designed to let customers discover that an open-weight model beats a frontier one on frontend tickets - awkward for Cognition, valued above $25 billion on the strength of Devin, and for Cursor at north of $500 million in ARR, both of which sell an integrated experience. An orchestration layer that arbitrages models is a margin threat to everyone upstream of it, labs included. The risk is commoditization: factory definitions as YAML are easy to imitate, and Anthropic, OpenAI and GitHub have obvious reasons to bundle equivalent orchestration free with their own harnesses.</p>
+<h2>What To Watch</h2>
+<p>Whether Warp publishes automation rates from beta customers rather than only its own: the 30 percent figure is credible precisely because Warp runs a small, agent-fluent codebase, a weak proxy for a bank. Whether the self-improvement loop survives real repositories, since agents opening pull requests against the configuration that governs agents is a novel failure surface. And pricing: a 20 percent markup on inference is a thin moat, and the moment a frontier lab ships comparable orchestration free, Warp's case rests on what nobody else will sell - neutrality, portability, and the customer's right to own the factory floor.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;It's actually a huge infrastructure undertaking to do this right.&rdquo;</blockquote><cite>&mdash; Zach Lloyd, CEO, Warp</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">30-35%</div><div class="stat-label">Share of Warp's own engineering tasks automated weekly by its factories</div></div><div class="stat-cell"><div class="stat-value">$10,000</div><div class="stat-label">Free factory usage offered to qualified closed-beta organizations</div></div><div class="stat-cell"><div class="stat-value">20%</div><div class="stat-label">Markup over API rates for pay-as-you-go factory usage</div></div><div class="stat-cell"><div class="stat-value">5 min</div><div class="stat-label">Claimed setup time for a triage-to-verification factory</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techcrunch.com/2026/08/18/warps-new-system-is-an-out-of-the-box-software-factory-for-ai-development/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&amp;sz=32" alt="">TechCrunch</a><a href="https://www.warp.dev/blog/open-infrastructure-for-building-a-software-factory" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=warp.dev&amp;sz=32" alt="">Warp</a><a href="https://www.warp.dev/pricing" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=warp.dev&amp;sz=32" alt="">Warp Pricing</a><a href="https://techstartups.com/2026/08/19/top-tech-news-today-august-19-2026-landspace-microsoft-nvidia-openai-samsung-unitree-z-ai-more/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techstartups.com&amp;sz=32" alt="">Tech Startups</a><a href="https://ona.com/stories/ramp-stripe-background-agent-infrastructure" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ona.com&amp;sz=32" alt="">Ona</a></div></div>
+<div class="article-nav"><a href="05-prevalent-ai-22m-knowledge-graph.html" class="nav-prev">&larr; After Nine Years Bootstrapped, Prevalent AI Takes $2</a><a href="07-salesforce-headless-data-360-mcp.html" class="nav-next">Salesforce Opens Data 360 to Any Agent via MCP, Bett &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 19, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
