@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>An AI Scientist Got Into Nature. The Researchers Whose Work It Shadowed Gave It a 1 Out of 6. &mdash; The Vault AI</title>
+<meta name="description" content="Sakana AI's Nature paper is a human-authored description of an autonomous research system, not AI-authored science, and when Princeton's CRUX team gave frontier agents the real open questions behind two unpublished NeurIPS papers, the original authors graded the results 2/6 and 1/6.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.4}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>An AI Scientist Got Into Nature. The Researchers Whose Work It Shadowed Gave It a 1 Out of 6.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1002 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Sakana AI's Nature paper is a human-authored description of an autonomous research system, not AI-authored science, and when Princeton's CRUX team gave frontier agents the real open questions behind two unpublished NeurIPS papers, the original authors graded the results 2/6 and 1/6.</p>
+</div>
+<div class="article-body">
+<p>Five months after Nature published the definitive account of an AI system that runs the entire machine-learning research pipeline itself, a separate team handed frontier agents the real, unanswered questions behind two unpublished NeurIPS submissions and asked the human authors to grade what came back. The verdicts were 2 out of 6 and 1 out of 6 - "Reject" and "Strong Reject." One reviewer summarized the machine's contribution this way: "Researchers will build on this to the extent that they build on the original works this paper copies."</p>
+<p>The Nature paper is real, and it is a milestone. "Towards end-to-end automation of AI research," by Chris Lu and colleagues at Sakana AI with collaborators at the University of British Columbia, the Vector Institute and Oxford, appeared as Nature 651, 914-919 on 26 March 2026. It documents The AI Scientist, an agentic system that generates ideas, reads the literature, designs and runs experiments via parallelized tree search, and drafts a full LaTeX manuscript. What it is not - despite Sakana's own headline, "The AI Scientist: Towards Fully Automated AI Research, Now Published in Nature" - is an AI-written paper in Nature. It is a human-authored description of the system.</p>
+<p>The peer-review claim underneath it is narrower than it sounds. Sakana submitted three unedited AI-generated manuscripts to the ICLR 2025 "I Can't Believe It's Not Better" workshop; one averaged 6.33, clearing the acceptance bar. That workshop accepted roughly 70 percent of submissions, and Sakana had pre-arranged to withdraw any accepted paper before publication, which it did. The paper's other headline result is an Automated Reviewer that hit 69 percent balanced accuracy against thousands of real OpenReview decisions - and Sakana then used that same automated judge to establish a scaling law of science: newer foundation models produce papers it rates more highly.</p>
+<p>That circularity is what the Princeton-led CRUX project set out to break. In a preprint posted 29 July and revised 7 August (arXiv:2607.27191), Peter Kirgis, Sayash Kapoor, Arvind Narayanan and 21 co-authors - among them Helen Toner, Gillian Hadfield and Rishi Bommasani - introduced what they call shadow evaluation. Give a well-resourced agent the central question of a paper that is not yet public, then have that paper's authors grade the output as conference reviewers. They ran it on two NeurIPS 2026 submissions: one on controlling language-model personas as positions in a structured trait space, the other on building a failure detector for tabular prior-fitted networks. Each agent got six days, $3,000 in Anthropic API credits, GPU credits, a virtual machine and the open web, running Claude Opus 4.8 inside a modified OpenClaw scaffold.</p>
+<p>The engineering held up. The agents ran hundreds of experiments without human help, avoided unresolvable error loops, performed solid literature reviews and - contrary to the team's predictions - caught their own hallucinations without reward-hacking. Everything above the engineering layer failed. Both agents retired their most ambitious hypotheses within ten hours and never fundamentally shifted approach. Both finished under budget: one submitted its final draft with two hours left and 59 percent of its credits unspent. The preprint catalogs five failure modes: poor judgment about the bar for publishable research, uncreative responses to design flaws, ineffective backtracking, poor resource awareness and instruction drift. A robustness check with GPT-5.6 Sol on its native Codex scaffold reproduced nearly all of them.</p>
+<p>The expert reviews are blunt. On the tabular-network paper, original author Viet Nguyen scored quality 1 of 4, writing that going from four failed signals to a general impossibility claim was "a huge leap, a kind of 'proof by example' fallacy that is highly non-scientific." On the personas paper, reviewer David Africa wrote that "the prose is dense and heavily hedged, often to the point of obscuring what was actually done and found," and that the five traits the agent selected "appear hand-picked." Both rated themselves confident or certain. "I don't think full automation of open-ended research is on the horizon right now," Kapoor told Nature's Matthew Hutson, whose 13 August news story ran under the headline "AI isn't ready to research itself."</p>
+<p>The most uncomfortable detail sits in the review logs. The agents' self-reviews never once returned an acceptance, cycling through Weak Reject for a dozen rounds. But two runs of the external Stanford Agentic Reviewer returned Accept on the manuscript a domain expert graded a Strong Reject.</p>
+<h2>Why It Matters</h2>
+<p>Peer review is doing double duty. It is both the gate on the published literature and the field's default instrument for measuring whether machines can do science. Shadow evaluation shows those are different jobs. A workshop with a 70 percent acceptance rate clearing one manuscript says little about research capability; two domain experts spending hours inside the same output say a great deal - and they disagreed sharply with the automated reviewers Sakana's paper benchmarks as human-equivalent. If AI-generated submissions scale faster than expert attention, the gate degrades at exactly the moment the measuring instrument does. Meanwhile the genuine wins are landing in narrower territory. Google DeepMind's ERA system, published in Nature on 19 May, found 40 single-cell analysis methods that beat the top human entries on a public leaderboard and 14 COVID-19 hospitalization models that outperformed the CDC ensemble - all scorable tasks with a fixed metric to hill-climb. NatureBench, distilling 90 tasks from Nature-family papers, found the strongest agent beating published state of the art on just 17.8 percent.</p>
+<h2>What To Watch</h2>
+<p>Whether shadow evaluation catches on as a repeatable protocol; CRUX released the expert reviews, agent repositories and run logs, which is the part rivals can contest. Whether any lab reports one that clears the bar - CRUX polled twelve collaborators beforehand, who put the median odds of a weak accept or better at 30 percent. Whether conferences begin requiring disclosure and watermarking of AI-generated submissions, as Sakana recommends. And whether the next generation of agents fixes the cheap failures - resource awareness, instruction drift, budget underuse - or the expensive one: knowing when an answer is not yet worth writing up.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;I don't think full automation of open-ended research is on the horizon right now.&rdquo;</blockquote><cite>&mdash; Sayash Kapoor, Computer scientist, Princeton University</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">2/6 and 1/6</div><div class="stat-label">Scores the original NeurIPS authors gave the AI agents' papers</div></div><div class="stat-cell"><div class="stat-value">$3,000</div><div class="stat-label">API budget per paper, plus six days wall-clock time; both runs left half unspent</div></div><div class="stat-cell"><div class="stat-value">6.33</div><div class="stat-label">Average review score of the one AI Scientist manuscript to clear an ICLR workshop</div></div><div class="stat-cell"><div class="stat-value">17.8%</div><div class="stat-label">Share of NatureBench tasks where the strongest coding agent beat published SOTA</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.nature.com/articles/d41586-026-02494-5" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&amp;sz=32" alt="">Nature</a><a href="https://www.nature.com/articles/s41586-026-10265-5" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&amp;sz=32" alt="">Nature</a><a href="https://arxiv.org/abs/2607.27191" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&amp;sz=32" alt="">arXiv</a><a href="https://sakana.ai/ai-scientist-nature/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=sakana.ai&amp;sz=32" alt="">Sakana AI</a><a href="https://www.nature.com/articles/s41586-026-10658-6" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&amp;sz=32" alt="">Nature</a></div></div>
+<div class="article-nav"><a href="10-openai-private-safety-processing.html" class="nav-prev">&larr; OpenAI Wants to Watch for Misuse Without Reading You</a><a href="12-ai-augmented-research-citations-monoculture.html" class="nav-next">Scientists Using AI Publish 3x More and Get 5x More  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 19, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
