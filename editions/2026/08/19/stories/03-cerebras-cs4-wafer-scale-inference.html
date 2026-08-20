@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cerebras Bolts Three Wafers Into the CS-4 and Claims 30x on Nvidia. The Market Shrugged. &mdash; The Vault AI</title>
+<meta name="description" content="Cerebras packed three wafer-scale engines into the rack-scale CS-4 and claims up to 30x faster inference than GPUs, but the 'new' WSE-3 Turbo is an overclocked WSE-3 with the same 44GB SRAM ceiling it has had since 2021, and CBRS shares fell about 4% on the news.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.4}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>Cerebras Bolts Three Wafers Into the CS-4 and Claims 30x on Nvidia. The Market Shrugged.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 944 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Cerebras packed three wafer-scale engines into the rack-scale CS-4 and claims up to 30x faster inference than GPUs, but the 'new' WSE-3 Turbo is an overclocked WSE-3 with the same 44GB SRAM ceiling it has had since 2021, and CBRS shares fell about 4% on the news.</p>
+</div>
+<div class="article-body">
+<p>Cerebras Systems spent Tuesday telling the world it had built the fastest AI accelerator on the planet. On Wednesday, investors sold the stock. Shares of the newly public chipmaker (NASDAQ: CBRS) fell about 4% to roughly $211 as the market absorbed the CS-4, a rack-scale inference system built from three wafer-scale processors that Cerebras says produces tokens up to 30 times faster than GPU-based systems. The gap between that claim and that share price is the story.</p>
+<p>The hardware is genuinely strange. Where Nvidia assembles a rack from hundreds of discrete dies lashed together with networking, the CS-4 uses three Wafer Scale Engine 3 Turbo processors, each an entire 46,225-square-millimeter slab of TSMC 5-nanometer silicon carrying four trillion transistors and 900,000 cores. Cerebras puts the combined system at 750 petaflops of AI compute, 129.6 petabytes per second of memory bandwidth, and 7.2 terabits per second of system I/O -- a sixfold jump from the 1.2 Tbps of the single-wafer CS-3. Wafer-to-wafer latency falls from five microseconds to as low as two, which Cerebras says permits clusters serving models above 50 trillion parameters. On GPT-OSS-120B it reports more than 4,400 output tokens per second per user, and up to 10 times the throughput per watt of the CS-3.</p>
+<p>"In AI, speed is productivity," said Andrew Feldman, CEO and co-founder of Cerebras. "Historically, fast inference meant using smaller and less capable models. Cerebras CS-4 delivers industry-leading speeds on the largest frontier models."</p>
+<p>Here is the part the press release soft-pedals: the new processor is not actually new. The WSE-3 Turbo has the same transistor count, the same 900,000 cores, the same wafer area and the same 44GB of on-wafer SRAM as the WSE-3 that Cerebras shipped in 2024 -- and that 44GB ceiling has not moved since the WSE-2 in 2021. What changed is the plumbing. By relocating power conversion from roughly 50 millimeters away from the processor to about 0.5 millimeters, Cerebras nearly eliminated board-level loss and doubled the power it can push into the wafer, which buys higher clock speeds. That is real engineering. It is also, unavoidably, overclocking with better logistics: The Next Web noted the chip inside is not new.</p>
+<p>Skepticism is warranted on the benchmarks too, and Cerebras all but invites it in a footnote: "Actual throughput varies by model architecture, context length, precision, and serving configuration." These are vendor-run comparisons against unnamed GPU configurations. SemiAnalysis has estimated real-world interactivity gains in the 20x to 40x range for frontier deployments, and has flagged that headline flops figures of this kind lean on sparsity, which does little for LLM inference; dense FP16 throughput per wafer is far below the marketing number. Note too that SemiAnalysis founder Dylan Patel appears in the Cerebras press release itself, praising "dramatic improvements in system deployability, reliability, and networking" -- a vendor-solicited endorsement, and worth weighing as one.</p>
+<p>The financial backdrop explains both the ambition and the market's shrug. Cerebras went public on Nasdaq on May 14, raising $6.4 billion in the largest semiconductor IPO on record; the stock priced at $185 and opened at $350. First-quarter core revenue was $191.3 million, up 92% year over year, and full-year core revenue is guided to $855.5 million to $865 million. But core gross margin is guided down from 46.5% toward 36% to 38%, which is what happens when a company sells capacity aggressively to win a land grab. Customer concentration -- OpenAI, G42, MBZUAI and AWS -- is the other half of the story.</p>
+<p>OpenAI is the anchor. A multiyear agreement signed in January commits up to 750 megawatts of Cerebras inference capacity in stages through 2028; Reuters reported the deal at more than $10 billion, and Cerebras has since described it as worth more than $20 billion. It is already live: OpenAI's Ultrafast API tier runs GPT-5.6 Sol on Cerebras silicon at up to 750 output tokens per second. The CS-4 is the machine meant to service that contract at scale.</p>
+<h2>Why It Matters</h2>
+<p>The AI compute market is quietly splitting in two. Training is a batch problem optimized for aggregate flops per dollar, and Nvidia's position there is close to unassailable. Inference is a latency problem, and latency is governed by memory bandwidth, not raw flops. That is the crack Cerebras is prying at: keeping model weights in on-wafer SRAM instead of shuttling them across HBM and interconnects generates tokens for a single user far faster than a GPU cluster can.</p>
+<p>That matters more in 2026 than it did in 2024, because reasoning models and agentic systems consume tokens serially. As Cerebras CTO and co-founder Sean Lie put it, being 30 times faster "gives an agentic system room for more than an order of magnitude as much reasoning, verification, or tool use in the same wall-clock time." If that holds outside vendor labs, speed stops being a user-experience nicety and becomes a capability multiplier.</p>
+<p>The counterweight is economics. Cerebras sells whole wafers, and the 44GB SRAM ceiling means frontier models must be sharded across many of them. The CS-4's own headline feature -- disaggregated inference, pairing AMD Helios or AWS Trainium prefill engines with Cerebras decode -- is a tacit admission that wafer-scale is a specialist, not a GPU replacement.</p>
+<h2>What To Watch</h2>
+<p>First shipments begin this quarter, with broader availability later in Q3; watch whether that slips. Watch third-quarter gross margin, which will reveal whether 50% fewer components and 60% more automated manufacturing actually lower unit cost. Watch for third-party benchmarks on production CS-4 hardware rather than vendor slides. And watch OpenAI: if the 750-megawatt ramp accelerates, Cerebras has a business. If it stalls, it has a very fast machine and one customer.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>&ldquo;In AI, speed is productivity. Historically, fast inference meant using smaller and less capable models. Cerebras CS-4 delivers industry-leading speeds on the largest frontier models.&rdquo;</blockquote><cite>&mdash; Andrew Feldman, CEO and co-founder, Cerebras Systems</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">750 PFLOPS</div><div class="stat-label">AI compute across three WSE-3 Turbo wafers, up from 125 on the CS-3</div></div><div class="stat-cell"><div class="stat-value">4,400 tok/s</div><div class="stat-label">Cerebras-reported per-user decode speed on GPT-OSS-120B</div></div><div class="stat-cell"><div class="stat-value">7.2 Tbps</div><div class="stat-label">System I/O bandwidth, a sixfold jump from the CS-3's 1.2 Tbps</div></div><div class="stat-cell"><div class="stat-value">44GB</div><div class="stat-label">On-wafer SRAM, unchanged across WSE-2, WSE-3 and WSE-3 Turbo</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://investors.cerebras.ai/news-releases/news-release-details/cerebras-unveils-cs-4-30-times-faster-gpu-based-solutions" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=investors.cerebras.ai&amp;sz=32" alt="">Cerebras Systems</a><a href="https://www.nextplatform.com/compute/2026/08/19/cerebras-overclocks-wse-3-waferscale-engine-to-boost-inference-oomph-in-nexus-cs-4/5289400" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nextplatform.com&amp;sz=32" alt="">The Next Platform</a><a href="https://thenextweb.com/news/cerebras-cs-4-wafer-scale-ai-inference-system" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenextweb.com&amp;sz=32" alt="">The Next Web</a><a href="https://www.bloomberg.com/news/articles/2026-08-19/cerebras-cbrs-says-its-new-computer-boosts-ai-speed-advantage-over-nvidia" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bloomberg.com&amp;sz=32" alt="">Bloomberg</a><a href="https://www.theregister.com/systems/2026/08/19/cerebras-cs-4-rack-systems-juice-chips-for-every-last-drop-of-ai-performance/5289286" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=theregister.com&amp;sz=32" alt="">The Register</a></div></div>
+<div class="article-nav"><a href="02-samsung-foundry-price-hike-ai-demand.html" class="nav-prev">&larr; Samsung Raises Foundry Prices Up to 15% as AI Demand</a><a href="04-fractile-65b-anthropic-inference-chip.html" class="nav-next">AI Chip Startup Fractile Is Raising at $6.5 Billion, &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 19, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
