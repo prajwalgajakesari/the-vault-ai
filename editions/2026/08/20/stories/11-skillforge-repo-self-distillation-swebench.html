@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coding Agents Keep Rediscovering the Same Repo. SkillForge Makes Them Take Notes. &mdash; The Vault AI</title>
+<meta name="description" content="SkillForge has a coding agent break a repository on purpose, fix its own synthetic bugs, and distill the trajectories into retrievable skills - lifting DeepSeek-V3.2 from 66.4 to 72.2 percent on SWE-bench Verified, though the skills do not transfer between models.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body a:hover{color:var(--text-strong)}
+.md-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--border-hover);color:var(--text-strong);font-style:italic}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}.article-body p,.article-body li{font-size:1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Coding Agents Keep Rediscovering the Same Repo. SkillForge Makes Them Take Notes.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1070 words</span>
+    <span>1 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>SkillForge has a coding agent break a repository on purpose, fix its own synthetic bugs, and distill the trajectories into retrievable skills - lifting DeepSeek-V3.2 from 66.4 to 72.2 percent on SWE-bench Verified, though the skills do not transfer between models.</p>
+</div>
+<div class="article-body">
+<p>Every time an AI coding agent opens a large codebase to fix a bug, it starts from nothing. It greps around, reads files, runs tests, and eventually produces a patch. Then the session ends and everything it worked out about that project evaporates. The next issue in the same repository begins with the same blind exploration, and often the same wrong turns.</p>
+<p>A paper posted to arXiv on August 19, 2026 proposes a fix that is less about smarter models than about homework. The system, called <em>SkillForge</em> (arXiv:2608.18933), makes an agent practise on a repository before any real bug report arrives, then write down what it learned in a form it can look up later. On SWE-bench Verified, the standard 500-task benchmark built from real GitHub issues, it lifts a DeepSeek-V3.2 agent from 66.4 percent to 72.2 percent solved, a gain of <strong>5.8 percentage points</strong>.</p>
+<p>The authors are Silin Chen, Han Li, Xiaodong Gu, Yuling Shi and Haibing Guan, all at Shanghai Jiao Tong University. They frame the problem as a cold start. “This limitation creates a cold-start problem: before project-specific knowledge has been acquired, even a highly capable agent is reduced to a generic repository explorer and can repeatedly fall into the same project-specific pitfalls,” they write.</p>
+<h2>Manufacturing your own homework</h2>
+<p>SkillForge does not wait for real issues. It breaks the repository on purpose.</p>
+<p>It starts with the project's own test suite, running passing tests under coverage instrumentation to see which lines each test exercises, then having an LLM pick the most important segments. Next comes the deliberately awkward step the authors call a strict mask: the model must rewrite each segment without ever seeing the original implementation. It gets the surrounding lines, the location, and a description of what the test checks, and writes a plausible replacement. Because a model's generic instincts diverge from a project's local conventions, the tests break. That divergence is the bug.</p>
+<p>“Rather than explicitly injecting predefined faults, this strict-mask design exposes the gap between an agent's general coding knowledge and the repository's project-specific knowledge by inducing realistic implementation mistakes under constrained context,” the paper explains.</p>
+<p>The broken snapshot is packaged like a real ticket, with an LLM-written problem statement that describes the symptom without leaking the fix. The agent repairs its own sabotage, and the trajectory is distilled into what SkillForge calls skills.</p>
+<p>There are two kinds, both anchored to real code entities resolved against an AST-derived index of the repository, which the authors argue keeps the model from inventing interfaces that do not exist. <em>Global diagnostic skills</em> record an entity's role, a playbook for reasoning about it, and which other APIs tend to be involved alongside it. <em>Local intervention skills</em> record how that entity should be edited, distilled from failed attempts as well as successful ones, so the pitfalls get written down too.</p>
+<p>Retrieval happens twice. Before the agent starts, a BM25 search over the issue text pulls the top five diagnostic records into the opening prompt. Then, as the agent works, SkillForge watches which files its shell commands touch, appending the intervention notes for a file the moment the agent opens it.</p>
+<h2>The numbers</h2>
+<p>SkillForge was tested on two backbones, DeepSeek-V3.2 and GPT-5-mini, on the Mini-SWE-Agent scaffold, at temperature zero with a 250-step budget and pass@1 averaged over three runs.</p>
+<p>On SWE-bench Verified the base agent scores 66.4 percent with DeepSeek-V3.2 and 55.0 with GPT-5-mini; SkillForge reaches 72.2 and 60.6. The strongest baseline, MemGovern, manages 69.2 and 58.0, while SWE-Exp, SAGE, SWE-Debate and Live-SWE-agent land between 0.6 and 2.8 points above baseline. On the harder, multi-language SWE-bench Pro, SkillForge gains 5.8 points with DeepSeek-V3.2 and 4.1 with GPT-5-mini.</p>
+<p>Cost is an amortised figure folding in the offline work, 577 synthesised issues for the Verified run: roughly 7.4 US cents per issue versus 4.9 for the bare agent, against 38.2 cents for SWE-Debate.</p>
+<p>Ablations show both skill types carry weight: dropping the diagnostic skills costs 3.8 points, dropping the intervention skills 4.4. Replacing trajectory-distilled skills with plain LLM-written repository summaries actually <em>hurt</em> GPT-5-mini, pushing it 0.6 points below baseline.</p>
+<p>The most interesting ablation is transfer. A DeepSeek-V3.2 agent running on GPT-5-mini's skills falls from 72.2 to 65.2 percent. A GPT-5-mini agent running on DeepSeek's skills falls to 55.0, precisely its unassisted baseline. Whatever these notes encode, it is partly about the model that wrote them.</p>
+<h2>What a 5.8-point gain does and does not prove</h2>
+<p>Most agent-memory work for software engineering is what the authors call reactive: it mines the repository's issue history, or burns compute exploring at test time for whichever issue is in front of it. “While effective, both paradigms acquire project-specific knowledge reactively,” they note. SkillForge's contribution is the direction of travel, generating the learning signal from code and tests that already exist.</p>
+<p>The obvious objection is contamination. Repositories are rolled back before both the gold patch and the gold test patch, and an agent may only retrieve skills from synthetic issues whose commits predate the target instance. The issue types of the synthetic bugs, the authors report, do not overlap the real ones from the same repositories.</p>
+<p>Still, a single benchmark family is a single benchmark family. SWE-bench Verified is Python, drawn from a dozen heavily studied projects the field has been optimising against for two years. And the dependence on tests is structural, as the authors concede: “code regions that are rarely exercised by runnable tests contribute fewer learning signals, which may reduce the effectiveness of the learned knowledge in repositories with limited test coverage.” Private enterprise codebases, where project-specific knowledge is scarcest, are exactly the ones with patchy coverage. The cost accounting deserves a squint too: amortising offline pre-computation across 500 instances is fair only if you intend to work in that repository indefinitely.</p>
+<h2>What to watch</h2>
+<p>Whether the gain survives contact with frontier models is the first question, since written-down conventions may matter less to a model that infers them faster on its own. Staleness is the second: skills are pinned to specific files and functions, and nothing here addresses what happens to a module's playbook after that module is refactored. The third is transfer, a quiet warning to anyone imagining a shared, portable library of repository skills.</p>
+<p>The code is public, so the first two questions are answerable by anyone with a compute budget and a free weekend.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;This limitation creates a cold-start problem: before project-specific knowledge has been acquired, even a highly capable agent is reduced to a generic repository explorer and can repeatedly fall into the same project-specific pitfalls.&rdquo;</blockquote><cite>&mdash; Chen, Li, Gu, Shi and Guan, Authors, Shanghai Jiao Tong University</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">+5.8pp</div><div class="stat-label">SWE-bench Verified, DeepSeek-V3.2</div></div><div class="stat-cell"><div class="stat-value">+5.6pp</div><div class="stat-label">SWE-bench Verified, GPT-5-mini</div></div><div class="stat-cell"><div class="stat-value">577</div><div class="stat-label">Synthetic issues generated</div></div><div class="stat-cell"><div class="stat-value">7.4c</div><div class="stat-label">Amortised cost per issue</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2608.18933" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv:2608.18933</a></div></div>
+<div class="article-nav"><a href="10-senate-deepfake-digital-replication-right.html" class="nav-prev">&larr; A Senate Committee Advanced a Right to Your Own Like</a><a href="12-ai-predicted-superconductor-synthesis.html" class="nav-next">An AI Picked Two Superconductors. Then a Lab in Texa &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 20, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
