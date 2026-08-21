@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A 65,000-Parameter Model Beats Frontier LLMs at Finding Which Agent Broke &mdash; The Vault AI</title>
+<meta name="description" content="A University of Illinois team shows agent failure attribution does not need LLM reasoning: a 65,000-parameter graph neural network trained in 1.1 hours tops fine-tuned 14B models and frontier systems, running roughly 300x faster - though absolute accuracy stays under 20 percent.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body a:hover{color:var(--text-strong)}
+.md-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--border-hover);color:var(--text-strong);font-style:italic}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}.article-body p,.article-body li{font-size:1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>A 65,000-Parameter Model Beats Frontier LLMs at Finding Which Agent Broke</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1009 words</span>
+    <span>1 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A University of Illinois team shows agent failure attribution does not need LLM reasoning: a 65,000-parameter graph neural network trained in 1.1 hours tops fine-tuned 14B models and frontier systems, running roughly 300x faster - though absolute accuracy stays under 20 percent.</p>
+</div>
+<div class="article-body">
+<p>When a team of AI agents botches a task, someone has to work out which agent broke it, and how. That unglamorous job — debugging by autopsy — has become one of the load-bearing problems in agentic AI, because a multi-agent system that fails opaquely is a system nobody can safely operate. The field's reflex answer has been to throw another language model at the wreckage: hand a big model the entire failed transcript and ask it to name the culprit and the error type. A new paper from the University of Illinois Urbana-Champaign argues that this reflex is expensive, slow, and not even especially accurate — and that a graph neural network with 65,000 trainable parameters, trained in about an hour on a single aging GPU, can match or beat it.</p>
+<p>The paper is <em>Beyond LLM-Based Reasoning: Lightweight GNNs for Agent Failure Attribution</em> (arXiv:2608.18575), posted August 19, 2026, by Ting-Wei Li, Yuanchen Bei, Xiao Lin, and Hanghang Tong. The task it attacks is called agent failure attribution: given a transcript of a multi-agent run that ended in a wrong answer, identify which agents were at fault and which of 14 predefined error types each one committed. The authors frame the whole paper around a single blunt question, set in italics in their introduction: <em>Is heavy LLM reasoning necessary for agent failure attribution?</em></p>
+<h2>How it works</h2>
+<p>The method, called AFANet, has four moving parts and no generative model in the loop.</p>
+<p>First, the transcript becomes a graph, with every conversational turn as a node.</p>
+<p>Second, each node gets a feature vector built from three sources. The authors run TF-IDF over the conversation, treating each turn as a document and the trajectory as the corpus, then apply truncated SVD to compress it. From that they compute <em>deviation features</em> measuring how far each turn drifts from the surrounding context — the intuition, borrowed from anomaly detection, being that a faulty agent gives itself away through inconsistency in the interaction dynamics rather than through the content of any single message. They add statistical features such as positional encoding, plus dense sentence embeddings from all-MiniLM-L6-v2.</p>
+<p>Third, edges. Adjacent turns get bidirectional temporal edges, preserving the flow of the conversation. Every pair of turns produced by the <em>same</em> agent is also connected, so the model can see an agent contradicting itself across a long run.</p>
+<p>Fourth, a two-layer graph convolutional network passes messages along those edges, pools turn nodes into per-agent representations, and scores each agent against each error type plus a clean, no-fault class.</p>
+<h2>The numbers</h2>
+<p>Training used AEGIS-Bench (7,146 trajectories for training, 1,787 for validation, 600 held out for test). Out-of-distribution evaluation used Who&amp;When, 184 conversations with exactly one faulty agent each. All training ran on one NVIDIA V100.</p>
+<p>The headline metric is pair-level accuracy: getting both the faulty agent and its error type right at once. In-domain, AFANet scores 17.42 pair-level micro-F1 and 16.35 macro-F1 — the best result in the table. The strongest fine-tuned baseline, a supervised fine-tuned Qwen2.5-14B-Instruct, gets 16.62 and 9.99. The frontier proprietary models are far behind: o3 manages 7.86 / 2.27, Claude Sonnet 4 gets 7.68 / 2.34, and Gemini 2.5 Pro gets 6.96 / 2.88. A random baseline scores 0.33 / 0.21.</p>
+<p>The efficiency gap is the more striking result. AFANet trains in 1.1 hours, against 6 hours for 7B supervised fine-tuning and more than 74 hours for a 14B model trained with SFT followed by GRPO. Inference over the full evaluation sets takes 1.16 seconds in-domain and 0.37 seconds out-of-domain, versus 367 and 231 seconds for the 14B model. And the whole model is 65,000 trainable parameters rather than 7 or 14 billion.</p>
+<p>On the out-of-distribution set, the authors attribute their relative robustness to what the graph encodes: their advantage, they write, “mainly comes from modeling structural interaction dynamics and consistency patterns, which remain relatively stable across trajectories; however, post-trained approaches may overfit to surface-level semantic patterns or dataset-specific failure distributions.” Adding cheap entropy-minimization test-time adaptation lifted the Who&amp;When average from 13.96 to 14.75.</p>
+<h2>What the result does not prove</h2>
+<p>Start with the absolute numbers. A pair-level micro-F1 of 17.42 means the system names the right agent-and-error combination well under a fifth of the time in-domain, and 6.90 out-of-domain. Nobody has solved failure attribution; AFANet is winning a race in which every runner is close to the floor.</p>
+<p>The ablations also complicate the paper's own story. Stripping <em>all</em> edges from the graph — leaving per-turn features and pooling — drops the average from 24.82 to 22.78, but actually raises in-domain pair-level micro-F1 to 18.49. Removing the deviation and statistical features hurts far more, dropping the average to 21.04. In other words, on the in-domain benchmark the heavy lifting is being done by cheap statistical anomaly signals, not by the graph; the relational structure earns its keep mainly under distribution shift.</p>
+<p>Averaged across all twelve metric cells, AFANet's 24.82 also sits below the 26.51 the paper reports for a fine-tuned 14B Qwen — a figure carried over from prior work. When the authors re-ran that same recipe themselves under matched conditions, it scored 18.22. AFANet is also clearly worse at simply identifying the faulty agent out-of-domain: 37.93 micro-F1 against 56.77 for a fine-tuned 7B model.</p>
+<p>Finally, this is a classifier, not an explainer. It emits a label, not an account of what went wrong, and the authors concede that “certain failures may still require deeper semantic understanding and long-horizon reasoning.”</p>
+<h2>What to watch</h2>
+<p>The interesting consequence is deployment shape. At 65,000 parameters and sub-second inference, a model like this is cheap enough to run inline as an always-on monitor over every agent trajectory, flagging suspect turns for a more expensive reviewer. Watch for hybrid systems along the lines the authors propose: structural screening in front, LLM reasoning behind it. Watch, too, for whether benchmarks like AEGIS-Bench, built substantially from injected and synthesized errors, predict anything about the messier failures real deployed agent systems produce. If the cheap structural signals survive that transfer, a lot of current spending on attribution looks misallocated.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;Is heavy LLM reasoning necessary for agent failure attribution?&rdquo;</blockquote><cite>&mdash; Li, Bei, Lin and Tong, Authors, University of Illinois Urbana-Champaign</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">65,000</div><div class="stat-label">Trainable parameters</div></div><div class="stat-cell"><div class="stat-value">17.42</div><div class="stat-label">Pair-level micro-F1 vs 16.62</div></div><div class="stat-cell"><div class="stat-value">1.16s</div><div class="stat-label">Inference time vs 367s</div></div><div class="stat-cell"><div class="stat-value">1.1 hrs</div><div class="stat-label">Training time vs 74+ hrs</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2608.18575" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv:2608.18575</a></div></div>
+<div class="article-nav"><a href="17-ornith-1-5-self-improving-open-weights.html" class="nav-prev">&larr; Ornith-1.5 Writes Its Own Homework, and Lands on Cla</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 20, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
