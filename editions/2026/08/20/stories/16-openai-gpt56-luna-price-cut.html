@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Cut Its Cheapest Model by 80 Percent and Reset the Floor Under Inference Pricing &mdash; The Vault AI</title>
+<meta name="description" content="OpenAI cut GPT-5.6 Luna 80 percent to 20 cents per million input tokens on July 30, but disclosed only a 20 percent serving-cost improvement - meaning most of the cut is surrendered margin, not passed-through efficiency.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body a:hover{color:var(--text-strong)}
+.md-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--border-hover);color:var(--text-strong);font-style:italic}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}.article-body p,.article-body li{font-size:1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>OpenAI Cut Its Cheapest Model by 80 Percent and Reset the Floor Under Inference Pricing</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 982 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI cut GPT-5.6 Luna 80 percent to 20 cents per million input tokens on July 30, but disclosed only a 20 percent serving-cost improvement - meaning most of the cut is surrendered margin, not passed-through efficiency.</p>
+</div>
+<div class="article-body">
+<p>The cheapest way to run a frontier-lab model through OpenAI's API is now 20 cents per million input tokens. It was one dollar until 30 July 2026, when OpenAI cut GPT-5.6 Luna by 80 percent in a single move and, in the same post, quietly told the market where it now expects to make money instead.</p>
+<p>The numbers are precise and published. In its developer post titled Advancing the price-performance frontier with GPT-5.6, OpenAI set Luna, its fastest and lowest-cost tier, at <strong>0.20 dollars per million input tokens and 1.20 dollars per million output tokens</strong>, down from 1.00 and 6.00 — a clean 80 percent off both sides of the meter. Cached input falls to 2 cents per million. GPT-5.6 Terra, the mid tier, dropped 20 percent to 2 dollars and 12 dollars. GPT-5.6 Sol, the flagship, did not move at all: still 5 dollars in, 30 dollars out. Sam Altman announced the change on X as, in his words, major price cuts today.</p>
+<p>One correction to the record circulating in aggregator write-ups: this was a July action, not an August one. OpenAI dated the post 30 July 2026, eWeek reported it on 31 July, and the company said the new rates would begin rolling out on AWS later the same day. The 80 percent figure that has been drifting through August news roundups is real; the date attached to it often is not.</p>
+<p>OpenAI's stated reason is worth reading closely, because it is an unusual claim. The company says GPT-5.6 Sol, working inside a human-led engineering process, <strong>autonomously rewrote and optimised production kernels</strong> and designed and ran hundreds of token-generation experiments. That work, OpenAI says, cut the end-to-end cost of serving the model by 20 percent and raised token-generation efficiency by more than 15 percent.</p>
+<p>The customer testimonials OpenAI published alongside the cut are vendor-selected and should be read as such, but they are on the record and they are specific. Michele Catasta, President and Head of AI at Replit, said: "GPT-5.6 Luna is the closest we've come to intelligence too cheap to meter. I've never seen a model this affordable be this powerful — it's unlocking use cases for Replit we didn't expect to build for a long time." Sid Pardeshi, co-founder and CTO of Blitzy, gave harder numbers: "Luna moved us from a single structured-output call to a full tool-calling agent loop, increasing prompt-cache reuse from 24% to 90%. Across thousands of production calls, Luna handles 2.2× more context with 8.5× fewer output tokens—at 87% lower cost than GPT-5.4 mini."</p>
+<h2>The floor is falling faster than the middle</h2>
+<p>Set Luna against the rest of the board and the shape of the market is clear. DeepSeek's V4-Flash has been serving at roughly 14 cents in and 28 cents out, with the 0731 build moving to about 22 cents and 66 cents under a peak and off-peak schedule from 16 August. Google's Gemini 3.7 Flash carries introductory pricing of 75 cents and 3.75 dollars through the end of 2026 — a cut this newsletter has covered, as it has ByteDance Seed 2.1 Turbo's rates and Databricks routing work. Alibaba is pushing Qwen 3.8-Max out with open weights, which sets a self-hosting price that no API can undercut. Luna at 20 cents does not lead that pack. It does something more consequential: it puts a US frontier lab inside striking distance of Chinese commodity pricing, which is where the pressure was always going to land.</p>
+<p>Two things about the arithmetic do not add up in the obvious way, and both matter. First, OpenAI disclosed a <strong>20 percent</strong> reduction in serving cost and then cut price by <strong>80 percent</strong>. Efficiency gains of that size do not fund a cut of that size. The remainder is a strategic decision — margin surrendered to hold the high-volume tier — not a pass-through of physics. Second, Anthropic is moving the other direction. Claude Opus 5 launched on 24 July at 5 dollars and 25 dollars, unchanged from Opus 4.8's rate, and Claude Sonnet 5 is scheduled to rise from 2 and 10 dollars to <strong>3 and 15 dollars after 31 August 2026</strong>. The floor is collapsing while the reasoning tier firms up. That is a barbell, not a general deflation.</p>
+<p>For the application layer, cheap tokens are less of a gift than the headline suggests. Falling per-token prices arrive at exactly the moment agentic architectures start consuming far more tokens per task, and the two effects fight each other. Blitzy's own numbers show it: 8.5 times fewer output tokens, but 2.2 times more context per call. Bills fall, then the loop gets longer and they climb back. The durable consequence is not lower spend but <strong>elastic scope</strong> — document analysis, interaction classification and routine code implementation become economical to run across an entire corpus rather than a sample. That is real. It is also a thin moat, because every competitor's costs fall at the same time.</p>
+<p>The margin question is being answered by relocation. OpenAI held Sol's price flat, cut everything beneath it, and launched Fast mode charging double for 2.5 times the speed — then previewed Ultrafast mode on 13 August promising Sol at up to 14 times the rate. Intelligence is being commoditised toward zero. Latency is being priced as the premium good.</p>
+<p>Three things to watch. Whether Anthropic's Sonnet 5 increase actually takes effect on 31 August, which would be the clearest test yet of whether reasoning-tier pricing has a floor of its own. Whether DeepSeek's peak and off-peak experiment spreads, turning inference into a utility with a demand curve. And whether OpenAI ever cuts Sol — because as long as the flagship holds at 30 dollars per million output tokens while Luna sits at 1.20, the price war is being fought entirely in the basement.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;GPT-5.6 Luna is the closest we've come to intelligence too cheap to meter. I've never seen a model this affordable be this powerful.&rdquo;</blockquote><cite>&mdash; Michele Catasta, President and Head of AI, Replit</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">80%</div><div class="stat-label">Luna price cut</div></div><div class="stat-cell"><div class="stat-value">$0.20</div><div class="stat-label">Per million input tokens</div></div><div class="stat-cell"><div class="stat-value">20%</div><div class="stat-label">Actual serving-cost improvement</div></div><div class="stat-cell"><div class="stat-value">$0.14</div><div class="stat-label">DeepSeek V4-Flash, the floor</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI</a><a href="https://venturebeat.com/technology/ai-price-wars-openai-cuts-gpt-5-6-luna-prices-by-80-as-model-competition-shifts-toward-cost" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://www.eweek.com/news/openai-gpt-5-6-api-price-cuts/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=eweek.com&sz=32" alt="">eWeek</a></div></div>
+<div class="article-nav"><a href="15-vdma-europe-humanoid-physical-ai-push.html" class="nav-prev">&larr; Germany's Machine Builders Want Europe to Treat Huma</a><a href="17-ornith-1-5-self-improving-open-weights.html" class="nav-next">Ornith-1.5 Writes Its Own Homework, and Lands on Cla &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 20, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
