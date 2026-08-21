@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ornith-1.5 Writes Its Own Homework, and Lands on Claude Opus's Doorstep &mdash; The Vault AI</title>
+<meta name="description" content="Ornith released three MIT-licensed open-weight models on August 19 whose 397B flagship posts 86.1 on Terminal-Bench 2.1 against Claude Opus 4.8&#x27;s 85.0 - but every figure is vendor-reported and the models are post-trained on Qwen3.5 and Gemma 4 bases.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body a:hover{color:var(--text-strong)}
+.md-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--border-hover);color:var(--text-strong);font-style:italic}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}.article-body p,.article-body li{font-size:1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Ornith-1.5 Writes Its Own Homework, and Lands on Claude Opus's Doorstep</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 961 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Ornith released three MIT-licensed open-weight models on August 19 whose 397B flagship posts 86.1 on Terminal-Bench 2.1 against Claude Opus 4.8's 85.0 - but every figure is vendor-reported and the models are post-trained on Qwen3.5 and Gemma 4 bases.</p>
+</div>
+<div class="article-body">
+<p>An AI outfit that almost nobody had heard of two months ago published three open-weight models on August 19 and put a number on the board that frontier labs have spent the year defending. Ornith-1.5-397B scores 86.1 on Terminal-Bench 2.1, a hair above the 85.0 the same lab reports for Claude Opus 4.8. The weights are on Hugging Face under the MIT license. The most interesting thing about them is not the score — it is how the score was reached, through a training loop in which the model invents its own tasks, builds its own grader, and gets rewarded on all three at once.</p>
+<p>Ornith shipped the family in three sizes: a 397-billion-parameter mixture-of-experts flagship, a 35B MoE that activates only 3B parameters per token, and a 9B dense model with a quantized Ornith-1.5-9B-Mobile build the team says deploys on iPhone and Android. GGUF, MLX, NVFP4 and FP8 conversions landed the same day. The 397B flagship carries a 262,144-token context window, extensible to roughly one million tokens via YaRN scaling, and weighs about 800GB in bf16 — realistically eight H200s to serve.</p>
+<p>The technique is the headline. Ornith-1.0, released in late June, used what the lab calls self-scaffolding: let the model write its own agent harness rather than hand-coding one per benchmark, but still train it against a fixed, human-curated problem set. Ornith-1.5 removes the fixed set. As the release post puts it: <em>“Rather than relying on a fixed set of human-curated tasks and manually designed harnesses, Ornith-1.5 continuously generates new training tasks, discovers effective strategies for solving them, and improves the policy through reinforcement learning.”</em></p>
+<h2>How the loop works</h2>
+<p>Each training cycle runs three stages. Given an environment or codebase and its own solving history, the model proposes a task harder than what it already handles. It then generates a task-specific scaffold — instructions, tools, decomposition strategy, orchestration. Finally the policy attempts the task under that scaffold. Reward propagates backward across all three: <em>“Question generation, harness generation, and solution rollouts are all optimized with GRPO using their respective rewards,”</em> the write-up states.</p>
+<p>The obvious failure mode is a model that writes itself an easy exam. Ornith's answer is a multiplicative reward: validity times frontier difficulty times novelty. Validity is a hard gate — if the scaffold does not execute, if high-confidence solutions fail or clearly wrong ones pass, the whole task scores zero. <em>“This prevents malformed tasks or unreliable scaffolds from receiving reward simply because they appear difficult,”</em> the post says. Difficulty is measured from the model's own empirical pass rate across sampled rollouts, with reward peaking at a target success rate of 0.2 — hard enough that most attempts fail, easy enough that some succeed. As the model masters a task, that task's reward decays, pushing the generator toward harder problems with no hand-tuned curriculum. Novelty penalizes near-duplicates against a buffer of prior tasks. The generated harness is scored separately on task alignment, reward fidelity and resistance to hacking.</p>
+<p>The deltas against Ornith-1.0 are the strongest evidence the loop does something. On DeepSWE, the flagship went from 8 to 56.0. On Frontier-Bench v0.1, from 2.7 to 13.5. At the 35B scale, DeepSWE moved from 0 to 22.0. Elsewhere the gains are ordinary: SWE-bench Verified rose from 82.4 to 86.0, GPQA Diamond from 88.1 to 92.8.</p>
+<h2>Why it matters, and what it does not prove</h2>
+<p>Read against Claude Opus 4.8, the picture is a split decision, not a win. Ornith-1.5-397B leads on Terminal-Bench 2.1 under both harnesses (86.1 and 85.2 against 85.0 and 78.9), on SWE-bench Multilingual (79.6 to 75.7), on WideSearch (80.8 to 72.9) and marginally on SWE-bench Verified (86.0 to 85.8). It loses on DeepSWE (56.0 to 59.0), SWE-bench Pro (65.1 to 68.0), NL2Repo (59.5 to 69.7), Humanity's Last Exam without tools (44.6 to 49.8) and GPQA Diamond (92.8 to 93.6). On Frontier-Bench, the hardest column in the table, Opus scores 21.1 to Ornith's 13.5. Moonshot's Kimi K3 — 2.8 trillion parameters, also open — beats both on Terminal-Bench (88.3), DeepSWE (67.5) and BrowseComp (91.2).</p>
+<p>Three caveats deserve equal billing with the headline. First, every number is self-reported. Ornith averages five independent runs and documents its harnesses, temperatures, context windows and anti-hacking controls — git history stripped from repo images, network access disabled during SWE-bench solving — which is meaningfully more disciplined than a bare leaderboard row. It is still the vendor grading the vendor. Writing on explainx.ai, Yash Thakker noted that <em>“leaderboard numbers and reproduced numbers diverge often enough that ‘self-reported’ should always carry an asterisk, regardless of how careful the reporting methodology looks on paper.”</em></p>
+<p>Second, this is a post-training result, not a new foundation model. Ornith states plainly that 1.5 extends 1.0, <em>“which was developed on top of Qwen3.5 and Gemma4 with additional continued pretraining, mid-training, and post-training.”</em> The self-improvement loop is a recipe applied to somebody else's base weights — impressive as method, less so as a claim about independent frontier capability.</p>
+<p>Third, self-improvement here means a training-time data flywheel. Nothing edits its own weights after you download it. The word invites a reading the write-up does not support.</p>
+<h2>What to watch</h2>
+<p>The reproduction question resolves fast or not at all. Terminal-Bench and SWE-bench Verified both have independent harnesses; within weeks, third-party runs will either land near 86.1 or well below it, and the gap will be the story. Watch also whether the loop generalizes: if a lab with more compute applies self-generated curricula to a frontier base and the DeepSWE-style jumps repeat, the fixed benchmark suite as a training target starts looking obsolete. And watch Ornith-1.5-9B-Mobile. A 9B model scoring 70.6 on SWE-bench Verified from a phone is a stranger fact than a 397B model tying Opus.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Rather than relying on a fixed set of human-curated tasks and manually designed harnesses, Ornith-1.5 continuously generates new training tasks, discovers effective strategies for solving them, and improves the policy through reinforcement learning.&rdquo;</blockquote><cite>&mdash; Ornith Team, Ornith-1.5 release post, August 2026</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">86.1</div><div class="stat-label">Terminal-Bench 2.1 vs 85.0</div></div><div class="stat-cell"><div class="stat-value">397B</div><div class="stat-label">Flagship model size</div></div><div class="stat-cell"><div class="stat-value">70.6</div><div class="stat-label">SWE-bench Verified, 9B model</div></div><div class="stat-cell"><div class="stat-value">MIT</div><div class="stat-label">License, all three models</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://ornith.ai/ornith_1_5.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ornith.ai&sz=32" alt="">Ornith</a><a href="https://huggingface.co/ornith-ai/Ornith-1.5-397B" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Hugging Face</a><a href="https://gigazine.net/gsc_news/en/20260820-ornith-1-5/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=gigazine.net&sz=32" alt="">GIGAZINE</a><a href="https://www.explainx.ai/blog/ornith-1-5-self-improving-open-weight-model-august-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=explainx.ai&sz=32" alt="">explainX</a></div></div>
+<div class="article-nav"><a href="16-openai-gpt56-luna-price-cut.html" class="nav-prev">&larr; OpenAI Cut Its Cheapest Model by 80 Percent and Rese</a><a href="18-lightweight-gnn-agent-failure-attribution.html" class="nav-next">A 65,000-Parameter Model Beats Frontier LLMs at Find &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 20, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
