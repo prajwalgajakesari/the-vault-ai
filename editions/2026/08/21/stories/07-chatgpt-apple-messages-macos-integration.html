@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ChatGPT Can Now Read Your iMessages. Full Disk Access Is the Price of Entry. &mdash; The Vault AI</title>
+<meta name="description" content="OpenAI&#x27;s new macOS plugin lets ChatGPT read, search and send iMessage, SMS and RCS threads locally through AppleScript and Accessibility - confined for now to ChatGPT Work and Codex, with per-send approval as the only real defence against prompt injection.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body a:hover{color:var(--text-strong)}
+.md-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--border-hover);color:var(--text-strong);font-style:italic}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}.article-body p,.article-body li{font-size:1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>ChatGPT Can Now Read Your iMessages. Full Disk Access Is the Price of Entry.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1002 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI's new macOS plugin lets ChatGPT read, search and send iMessage, SMS and RCS threads locally through AppleScript and Accessibility - confined for now to ChatGPT Work and Codex, with per-send approval as the only real defence against prompt injection.</p>
+</div>
+<div class="article-body">
+<p>OpenAI's assistant has been handed a seat inside the most private app on the Mac. With Thursday's update to the ChatGPT desktop app for macOS, an optional <strong>Apple Messages plugin</strong> lets ChatGPT read and search a user's iMessage, SMS and RCS threads, summarize what it finds, draft replies, and send them through Apple's own Messages app — provided the user first unlocks the machine for it, permission by permission.</p>
+<p>It is a small feature with a large implication. The debate about assistants living on your desktop has been mostly theoretical. As of <strong>August 20, 2026</strong>, a mainstream chatbot can be pointed at a decade of your text messages and told to act on them.</p>
+<h2>What the plugin actually does</h2>
+<p>OpenAI's own plugin documentation is unusually precise about the boundaries. "The Apple Messages plugin is available on all plans in the ChatGPT desktop app for macOS," the company writes. "In Codex and ChatGPT Work, it can read and search iMessage, SMS, and RCS chats on your Mac and send messages on your behalf through the Messages app. It doesn't let you interact with ChatGPT remotely through Messages, and it doesn't work in regular ChatGPT chats."</p>
+<p>That last clause matters. Availability is universal across plan tiers — free users included — but the surface is not. The plugin only runs inside <strong>ChatGPT Work</strong>, OpenAI's business-facing app, and <strong>Codex</strong>, its software-writing environment. It does not appear in the ordinary consumer chat window, and it does not turn iMessage into a remote-control channel for the assistant. There is a hardware line, too: the feature ships only in the Apple silicon build, so Intel Macs are excluded.</p>
+<p>Under the hood, OpenAI says the plugin runs locally on the Mac, leaning on the same macOS technologies — AppleScript and Accessibility — that power its Computer Use feature. Crucially, it does not build a persistent index of your conversations the way Apple's Siri AI does; it reads the message files on disk, when directed, and only with permission. OpenAI told Bloomberg the same.</p>
+<p>Getting there means walking through several opt-in gates in both ChatGPT and macOS. Users must grant <strong>Full Disk Access</strong> in System Settings, plus permission for the app to read contact names and to drive other applications through automation. By default, ChatGPT sends nothing until the user approves both the message body and its recipients, with an "Allow once" choice per send — though approval can be waived per conversation, and OpenAI's plugin guide flags an edge case for anyone tempted to do that at scale: "If your task is set to Full access or otherwise disables approval prompts, Apple Messages may be unable to show the confirmation needed to send. Switch to Ask for approval or Approve for me and try again."</p>
+<p>The company's enthusiasm was less hedged on X. "We've added native integration with iMessage, so ChatGPT can now send &amp; read messages for you!" wrote OpenAI's Ari Weinstein. "It can also analyze your messages! It's really fun to get insights about who you talk to, and what you talk to people about."</p>
+<h2>Why It Matters</h2>
+<p>The Messages plugin marks a category shift building all year: the chatbot is becoming an operating-system agent. A model that answers questions in a text box has a bounded blast radius. A model with Full Disk Access, your contact graph and the authority to send messages under your identity does not. Every capability that makes the feature useful — reading the whole thread history, knowing who "Mom" is, hitting send without a human retyping the words — is the exact capability an attacker would want.</p>
+<p>That is the prompt-injection problem, and messaging is close to a worst case for it. Text messages are unsolicited and arrive from strangers: pure untrusted input. An assistant asked to "catch up on my messages" has no reliable way to distinguish a friend's request from a hostile instruction embedded in a spam text written to be read by a machine. OpenAI has said as much in its own security writing. "Giving an agent a very broad instruction such as 'review my emails and take whatever action is needed' can make it easier for hidden malicious content to mislead the model, even though it is designed to check with you before taking sensitive actions," the company warns in its published guidance on prompt injections, where it also concedes the issue "remains a frontier, challenging research problem."</p>
+<p>The approval prompt is the load-bearing defense, which is why the per-conversation opt-out is the detail worth watching. Confirmation dialogs erode under repetition; users who approve forty sends in a row start clicking through the forty-first. Inc.'s Kit Eaton framed the enterprise version bluntly: Macs are common business machines, and a plugin marketed with dinner-plans examples is trivially repurposed into client communications — with a company's contact list and message history in scope.</p>
+<p>There is a competitive subplot too. Apple is suing OpenAI, alleging in its complaint that "at every level, from members of its Technical Staff to its Chief Hardware Officer, and in coordination with business partners, OpenAI has been stealing Apple's trade secrets and confidential information." Apple's revamped Siri competes directly with exactly this workflow. OpenAI has now built a Messages assistant on Apple's platform using Apple's automation frameworks, without Apple's blessing — and, notably, without needing it.</p>
+<h2>What to Watch</h2>
+<p>Three things. First, whether Apple responds technically: it has altered the iMessage stack before to shut out third parties, and Full Disk Access plus AppleScript is a route it controls. Second, whether researchers land a working injection against the plugin — the Black Hat demos against agentic browsers this month make the attempt inevitable, and messaging offers a far more intimate payload than a shopping cart. Third, whether the feature graduates out of Work and Codex into the consumer app. That restriction is doing quiet risk-management work right now. If it lifts, hundreds of millions of message archives become addressable by an agent, and the question stops being architectural and starts being actuarial.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Giving an agent a very broad instruction such as 'review my emails and take whatever action is needed' can make it easier for hidden malicious content to mislead the model, even though it is designed to check with you before taking sensitive actions.&rdquo;</blockquote><cite>&mdash; OpenAI, Published guidance on prompt injections</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">Aug 20</div><div class="stat-label">macOS plugin ship date</div></div><div class="stat-cell"><div class="stat-value">2</div><div class="stat-label">Surfaces: ChatGPT Work and Codex</div></div><div class="stat-cell"><div class="stat-value">3</div><div class="stat-label">Message types read: iMessage, SMS, RCS</div></div><div class="stat-cell"><div class="stat-value">Full Disk</div><div class="stat-label">macOS permission required</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.engadget.com/2241390/openai-chatgpt-imessage-integration/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=engadget.com&sz=32" alt="">Engadget</a><a href="https://www.macrumors.com/2026/08/20/chatgpt-imessages-mac/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=macrumors.com&sz=32" alt="">MacRumors</a><a href="https://9to5mac.com/2026/08/20/chatgpt-update-adds-apple-messages-integration-on-mac/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=9to5mac.com&sz=32" alt="">9to5Mac</a></div></div>
+<div class="article-nav"><a href="06-tesla-nevada-5000-robotaxi-permits.html" class="nav-prev">&larr; Nevada Told Tesla It Could Run Ten Robotaxis. Twenty</a><a href="08-google-gemma-one-billion-downloads.html" class="nav-next">Gemma Passes a Billion Downloads, and Qwen Still Has &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 21, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
