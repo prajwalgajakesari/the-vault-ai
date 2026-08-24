@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coding Agents Tripled Pull Requests. The Time Saved Never Showed Up. &mdash; The Vault AI</title>
+<meta name="description" content="Linear&#x27;s telemetry confirms coding agents tripled pull-request output, but the company never measured cycle time — the evidence that review has become the binding constraint comes from Faros AI, where median time in review is up 441.5% and 31.3% more PRs merge with no review at all.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body a:hover{color:var(--text-strong)}
+.md-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--border-hover);color:var(--text-strong);font-style:italic}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}.article-body p,.article-body li{font-size:1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Coding Agents Tripled Pull Requests. The Time Saved Never Showed Up.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 999 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Linear's telemetry confirms coding agents tripled pull-request output, but the company never measured cycle time — the evidence that review has become the binding constraint comes from Faros AI, where median time in review is up 441.5% and 31.3% more PRs merge with no review at all.</p>
+</div>
+<div class="article-body">
+<p>In the week of June 21, 2026, the average Linear workspace with a coding agent connected opened 65 pull requests. Two years earlier, the same cohort opened 21. Workspaces without an agent went from eight to ten.</p>
+<p>That comparison — 6,887 paid teams, 4,280 running coding agents and 2,607 not — is the cleanest public measurement of what agents do to software output. It comes from "How teams build," Linear's first data report, drawn from aggregated telemetry across its paid workspaces. Pull requests opened per workspace are up 111% against a June 2024 baseline. AI now authors nearly half of everything filed in the tracker: in the week of August 3, agents and MCP clients created 2.44 million issues against 2.48 million from people and integrations. Two years ago it was fewer than one issue in a thousand.</p>
+<p>Then the report turns on itself. "Those gains haven't shown up as time saved, though," writes Tim Qi, Linear's head of data, in his closing note. "Time spent on existing tasks in Linear held while AI usage appeared as a new layer of work, meaning the overall time spent on product development is going up rather than down. As far as we can observe, teams are working more, not less, suggesting AI has a Jevons paradox quality beyond token consumption."</p>
+<p>One correction to how this has been summarized: Linear did not measure cycle time. Nothing in the report tracks how long a pull request waits for a reviewer, or how long a change takes from open to merge — Linear counts PRs opened, not merged, and says so in its own definitions. What it measured is where its users spend minutes. Engineering time on creating and triaging issues rose from 24 minutes a month to 28; commenting from 35 to 40. Chatting with AI and delegating work to agents appeared as categories that did not exist a year earlier, and nothing shrank to make room. Qi is candid about the limits: "Many will rightfully argue that looking at pull requests indicates motion rather than value, which is certainly true, but it's still a step forward from measuring tokens."</p>
+<p>The throughput half is well documented. For the review half, you need telemetry pointed at the queue.</p>
+<p>Faros AI has it. Its 2026 report, "The Acceleration Whiplash," draws on two years of pipeline data from 22,000 developers across more than 4,000 teams, comparing each organization against its own lowest- and highest-AI-adoption periods. The delivery gains are real: epics completed per developer up 66%, task throughput per developer up 33.7%. The queue tells the other half. Median time in code review is up 441.5%. Median time to first review is up 156.6%. Average PR size is up 51.3%, code churn up 861%, bugs per developer up 54%, and the ratio of production incidents to merged pull requests up 242.7%. Most telling: pull requests merged with no review at all, human or agentic, are up 31.3%. Faros reads that not as teams skipping oversight but as reviewers who cannot keep pace.</p>
+<p>The mechanism is not sloppy code. "AI-generated code presents a specific and under-appreciated challenge for reviewers," the report's authors write. "It is often superficially convincing: idiomatic, well-named, stylistically consistent with the surrounding codebase." The failures sit beneath the surface. Faros calls the bill for catching them the senior engineer tax.</p>
+<h2>Why It Matters</h2>
+<p>The 2025 DORA report reached the same place from survey data. Written by Google Cloud's Nathen Harvey and Derek DeBellis from responses from nearly 5,000 technology professionals, it found AI adoption correlating positively with delivery throughput for the first time — and still correlating negatively with stability. "AI doesn't fix a team; it amplifies what's already there," they wrote. "AI accelerates software development, but that acceleration can expose weaknesses downstream."</p>
+<p>DORA's prescription was foundations: automated testing, mature version control, fast feedback loops. Faros disputes even that, reporting that organizations with high DORA scores and disciplined delivery are "experiencing the same downstream deterioration as everyone else." Surveys capture how developers feel; telemetry captures what happens after they close the laptop.</p>
+<p>If that holds, the binding constraint on shipping software in 2026 is not model capability. It is an Amdahl's Law problem, as Faros puts it: a system moves only as fast as its slowest link. If code generation is a third of the pipeline and you make it infinitely fast, your ceiling is a 33% improvement, assuming nothing downstream degrades. The evidence says plenty does. No frontier model release buys review capacity. Neither does cutting the engineers who do the reviewing, the point of Faros's final takeaway.</p>
+<h2>What to Watch</h2>
+<p>Linear has told us where to look. "In future reports we intend to go deeper on the full lifecycle of work, from token spend all the way to outcomes," Qi writes, "something we can newly observe now that code and code review run through Linear as well." The company shipped a code review surface this year and can now instrument the bottleneck its first report only implied. Edition 02 should carry merge latency.</p>
+<p>Watch METR too. Its randomized trial found experienced open-source developers 19% slower on real tasks with early-2025 AI tools while believing they were 20% faster. The February 2026 follow-up is more interesting: METR estimates an 18% speedup for returning participants, then disowns it. The confidence interval runs from a 38% speedup to a 9% slowdown, and 30% to 50% of participants admitted withholding tasks they did not want to attempt unassisted. "We believe that the data from our new experiment gives us an unreliable signal of the current productivity effect of AI tools," the researchers wrote.</p>
+<p>That is the quiet finding underneath all this: the best-controlled measurement of AI coding productivity is degrading because the counterfactual is vanishing. Nobody will work without the tools long enough to be measured. Which leaves telemetry, and telemetry keeps pointing at the same place. The number that matters is not pull requests opened per week. It is how long they sat.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;Those gains haven't shown up as time saved, though. As far as we can observe, teams are working more, not less, suggesting AI has a Jevons paradox quality beyond token consumption.&rdquo;</blockquote><cite>&mdash; Tim Qi, Head of Data, Linear</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">21 → 65</div><div class="stat-label">Weekly PRs per workspace with a coding agent</div></div><div class="stat-cell"><div class="stat-value">+441.5%</div><div class="stat-label">Median time in code review under high AI adoption</div></div><div class="stat-cell"><div class="stat-value">+31.3%</div><div class="stat-label">PRs merged with no review at all</div></div><div class="stat-cell"><div class="stat-value">+242.7%</div><div class="stat-label">Ratio of production incidents to merged PRs</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://linear.app/data" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=linear.app&sz=32" alt="">Linear</a><a href="https://www.faros.ai/blog/ai-acceleration-whiplash-takeaways" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=faros.ai&sz=32" alt="">Faros AI</a><a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cloud.google.com&sz=32" alt="">Google Cloud (DORA)</a><a href="https://metr.org/blog/2026-02-24-uplift-update/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=metr.org&sz=32" alt="">METR</a></div></div>
+<div class="article-nav"><a href="13-llm-mathematics-zeta-erdos-problems.html" class="nav-prev">&larr; The Machines Are Grinding Out Real Mathematics Now. </a><a href="15-great-american-ai-act-discussion-draft.html" class="nav-next">A 269-Page Bipartisan Draft Is Washington's Most Ser &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 23, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
