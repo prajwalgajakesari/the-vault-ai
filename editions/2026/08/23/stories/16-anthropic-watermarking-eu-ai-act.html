@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anthropic Is Watermarking Claude's Output Everywhere, Because Brussels Said So &mdash; The Vault AI</title>
+<meta name="description" content="Anthropic is watermarking Claude&#x27;s text worldwide to satisfy an EU rule it cannot geofence, adopting a scheme that peer-reviewed attacks show can be scrubbed by off-the-shelf paraphrasers more than 90 percent of the time.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body a:hover{color:var(--text-strong)}
+.md-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--border-hover);color:var(--text-strong);font-style:italic}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}.article-body p,.article-body li{font-size:1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>Anthropic Is Watermarking Claude's Output Everywhere, Because Brussels Said So</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 966 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Anthropic is watermarking Claude's text worldwide to satisfy an EU rule it cannot geofence, adopting a scheme that peer-reviewed attacks show can be scrubbed by off-the-shelf paraphrasers more than 90 percent of the time.</p>
+</div>
+<div class="article-body">
+<p>Somewhere in the next paragraph Claude writes for you, the model will hit a fork where “overcast” and “grey” would both work. Until this month it settled that with a random number. Now it settles it with a cryptographic key, and the pattern that leaves behind is a watermark.</p>
+<p>Anthropic began embedding that watermark in text generated by Claude models launched on or after August 2, 2026, the day the EU AI Act’s transparency obligations became enforceable. The company detailed the mechanics in an August 14 post and in a support document confirming it had signed the Act’s Article 50(2) Code of Practice on Transparency of AI-Generated Content. Models shipped before August 2 fall under a transition period running to December 2, 2026.</p>
+<p>What makes this more than a compliance filing is the geography, or the absence of it. The marks apply to the developer API, the Claude apps, Claude Code, Cowork, and Claude served through AWS, Google Cloud and Microsoft Foundry, worldwide. Anthropic’s explanation is unusually unvarnished: “We’re applying watermarking globally at launch because we don’t yet have a durable way to scope it by region.” The company said it would continue evaluating approaches.</p>
+<p>The technique is SynthID-Text, published by Google DeepMind in Nature in 2024 and descended from a 2022 proposal by Scott Aaronson. It adds no tokens, no hidden characters and no cost. DeepMind’s own live A/B test on a slice of Gemini traffic found no statistically significant difference in thumbs-up ratings between watermarked and unwatermarked models. Because the signal lives in word choices rather than in metadata, it survives copy-paste.</p>
+<p>It also has holes Anthropic names itself. The watermark thins wherever the right word is the only word. “Watermarking is sparser on factual passages,” the company wrote, and code, which usually has to be exact, carries little beyond its comments. Proofreading leaves almost nothing to attach to. Short passages do not register. And the strongest available claim is weak by design: “A watermark can only determine that Claude was likely involved with the content at some point. It cannot distinguish ‘Claude wrote this’ from ‘Claude heavily edited this.’”</p>
+<p>One widely repeated framing needs a correction. The line that the mark can be stripped by resaving, reformatting or screenshotting is accurate, but it describes the C2PA provenance metadata Anthropic attaches to .png, .jpg and .svg files, a signed note that sits beside the file rather than inside it. The text watermark fails differently: “Light editing probably won’t remove the watermark completely; a complete rewrite where every word is replaced will.”</p>
+<p>Researchers who have attacked SynthID-Text put that threshold far below a full rewrite. In a December 2024 evaluation, Nikola Jovanović, Thibaud Gloaguen and Martin Vechev of ETH Zurich’s SRI Lab pointed off-the-shelf paraphrasers at the scheme and recorded removal rates above 90 percent. “For naive adversaries only using off-the-shelf paraphrasers, SynthID-Text is easier to scrub compared to other SOTA schemes,” they wrote. “This can further be boosted to nearly 100% by using black-box queries to first steal the watermark before scrubbing it.” The same group showed at ICML 2024 that watermarking schemes could be reverse-engineered through a public API for under $50. The findings were not all bad for Anthropic: SynthID-Text proved harder to forge than its rivals, with spoofing success falling to 4 percent once repeated-context caching was enabled, and forgery attempts left detectable traces.</p>
+<p>Brussels wrote the escape hatch into the statute. Article 50(2) demands machine-readable marking that is “effective, interoperable, robust and reliable as far as this is technically feasible.”</p>
+<h2>Why It Matters</h2>
+<p>The penalties are real: up to €15 million or 3 percent of worldwide annual turnover, whichever is higher, enforced by national market surveillance authorities, the Commission’s AI Office and the European Data Protection Supervisor. The Code of Practice Anthropic signed, published July 31, two days before the rules bit, carries about 190 signatories, 82 on the provider section and 152 on the deployer section. Google, Meta, Microsoft, OpenAI and Synthesia signed as providers; Getty Images, Lenovo and Lufthansa as deployers.</p>
+<p>“Europeans have a right to know whether what they see, hear or read has been made or altered by AI, especially when such content can shape public debate,” said Henna Virkkunen, the Commission’s Executive Vice-President for Tech Sovereignty, Security and Democracy. “Transparency is how we protect trust.”</p>
+<p>This is the Brussels effect in its purest form: a rule written for 450 million people reshaping a product for everyone, not because the law reaches Ohio but because maintaining two Claudes costs more than maintaining one. It is also a fair test of whether provenance marking can work at all. The honest answer from the literature is that watermarks raise the cost of laundering AI text without building a wall. They will catch the incurious. A motivated influence operation with a paraphraser and a modest budget walks through. Meanwhile the visible-label duty under Article 50(4) sits with deployers, the newsrooms and marketing teams publishing the output, not with the lab that stamped it.</p>
+<h2>What to Watch</h2>
+<p>The detection API. Anthropic says one is coming but has not shipped it: “We’re in the process of working out the details of its implementation.” Until it exists, no one outside Anthropic can check a Claude mark, which makes the transparency largely notional. Watch December 2, when legacy Claude models must comply. Watch the two Commission task forces convening in September to fill in the technical detail the law left blank. Watch whether Anthropic eventually finds its “durable way” to scope watermarking by region, and quietly turns it off outside Europe. And watch the false positives, because a probabilistic signal that says a human’s lightly edited draft “may have been processed by Claude” will land in front of an editor, a professor or a compliance officer who reads it as proof.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185"><blockquote>&ldquo;For naive adversaries only using off-the-shelf paraphrasers, SynthID-Text is easier to scrub compared to other SOTA schemes. This can further be boosted to nearly 100% by using black-box queries to first steal the watermark before scrubbing it.&rdquo;</blockquote><cite>&mdash; Nikola Jovanović, Thibaud Gloaguen and Martin Vechev, Researchers, SRI Lab, ETH Zurich</cite></div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">€15M or 3%</div><div class="stat-label">Maximum AI Act transparency fine, or 3% of turnover</div></div><div class="stat-cell"><div class="stat-value">Aug 2, 2026</div><div class="stat-label">Date Article 50 transparency duties became enforceable</div></div><div class="stat-cell"><div class="stat-value">&gt;90%</div><div class="stat-label">Watermark removal rate with off-the-shelf paraphrasers</div></div><div class="stat-cell"><div class="stat-value">under $50</div><div class="stat-label">Cost to reverse-engineer a scheme via public API</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.anthropic.com/news/claude-text-watermark" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" alt="">Anthropic</a><a href="https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=digital-strategy.ec.europa.eu&sz=32" alt="">European Commission</a><a href="https://www.sri.inf.ethz.ch/blog/probingsynthid" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=sri.inf.ethz.ch&sz=32" alt="">ETH Zurich SRI Lab</a><a href="https://www.nature.com/articles/s41586-024-08025-4" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=32" alt="">Nature</a></div></div>
+<div class="article-nav"><a href="15-great-american-ai-act-discussion-draft.html" class="nav-prev">&larr; A 269-Page Bipartisan Draft Is Washington's Most Ser</a><a href="17-ray-cve-2025-62593-cisa-deadline.html" class="nav-next">The Federal Deadline to Patch Ray Passed. The Exploi &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 23, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
