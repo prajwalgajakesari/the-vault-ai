@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gemma Passes a Billion Downloads, and Qwen Still Has Twice as Many Descendants &mdash; The Vault AI</title>
+<meta name="description" content="Google says Gemma has passed a billion cumulative downloads and 100,000 community variants, but Hugging Face data puts Qwen derivatives at 151,448 against Google&#x27;s 82,506 - Gemma is the strongest US open family and still a distant second.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body a:hover{color:var(--text-strong)}
+.md-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--border-hover);color:var(--text-strong);font-style:italic}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}.article-body p,.article-body li{font-size:1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Gemma Passes a Billion Downloads, and Qwen Still Has Twice as Many Descendants</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 958 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Google says Gemma has passed a billion cumulative downloads and 100,000 community variants, but Hugging Face data puts Qwen derivatives at 151,448 against Google's 82,506 - Gemma is the strongest US open family and still a distant second.</p>
+</div>
+<div class="article-body">
+<p>Google spent the week talking about Gemini. The more consequential number came from the models it gives away. On <strong>August 20, 2026</strong>, Google DeepMind said its Gemma family of open-weight models had passed <strong>one billion cumulative downloads</strong>, and that outside developers had published <strong>more than 100,000 variants</strong> on top of those weights in roughly two years. It is the first time Google has attached a lifetime total to Gemma since the family launched in early 2024 — and the first time the company has framed the open half of its model line as a strategic asset rather than a research courtesy.</p>
+<p>The announcement came from Clement Farabet, a vice president at Google DeepMind, and Olivier Lacombe, a product director there, in a post titled "Inside the Gemmaverse." Their framing was deliberate about which figure matters. "What matters far more than the download count is what the community is building with them," they wrote. "Over the past two years, developers have published over one-hundred thousand Gemma model variants and built a thriving ecosystem of innovation we call the Gemmaverse."</p>
+<p>That distinction is not false modesty. Download counts are a famously soft metric — weights get pulled, mirrored, re-uploaded and re-pulled by CI systems, and a single download says nothing about whether a model ever runs. Variant counts are harder to inflate, because each one represents somebody doing the work of fine-tuning, quantizing or adapting the weights and then publishing the result.</p>
+<h2>Where the billion downloads actually landed</h2>
+<p>The post is organized around deployments rather than benchmarks, and the range is the argument. "Gemma has officially gone extraterrestrial," Farabet and Lacombe wrote, citing NASA, satellite startup Satlyt and orbital-compute company Starcloud running Gemma in orbit for onboard image analysis, downlink-bandwidth triage and intersatellite routing. The NASA case is the most documented: IEEE Spectrum reported in July that the Jet Propulsion Laboratory flew a 4-bit compressed <strong>Gemma 3 4B</strong> on a Loft Orbital satellite, running on an Nvidia Jetson Orin AGX module — a deployment where the model's 8-gigabyte memory footprint was the enabling constraint, not a footnote.</p>
+<p>On the ground, the largest single deployment Google cites is India's National Health Authority, which integrated <strong>Gemma 4</strong> and Google's open Medical Data Toolkit into Aarogya Setu 2.0, an app with more than 100 million Android downloads, to convert medical reports into standardized digital formats. In research, Yale and Google built C2S-Scale on Gemma to interpret single-cell data; Google says it surfaced a cancer therapy pathway that held up in the lab, calling it "the first time an AI system produced novel mechanistic therapeutic pathways that were verified in living cells." DolphinGemma, built with Georgia Tech and the Wild Dolphin Project, models dolphin vocalizations. MedGemma is in clinical pilots from AIIMS in Delhi to frontline health workers in rural Uganda.</p>
+<p>Alongside the milestone, Google launched the <strong>Awesome Gemma</strong> repository on GitHub — a curated index of community projects, fine-tunes, tutorials and developer tools. "This curated repository will serve as the official directory for the Gemmaverse," the authors wrote. The company also noted its recent Gemma Challenge on Kaggle drew more than 1,600 submissions, with winners due shortly.</p>
+<h2>Why It Matters</h2>
+<p>Google does not sell Gemma. Nobody pays for the weights, and the license generates no revenue. That makes the billion-download figure a marketing number in the narrow sense and a positioning number in the important one: open weights are how a frontier lab buys presence in every deployment its API cannot reach — air-gapped hospitals, satellites, laptops, sovereign clouds, regulated industries that will not send a prompt off-premises. Gemini stays closed and monetized; Gemma occupies the ground underneath it.</p>
+<p>The competitive picture is less flattering than the press release. Hugging Face's <em>State of Open Models: Summer 2026</em> report, published August 14, counts <strong>151,448 Qwen-based derivatives</strong> on the Hub against <strong>82,506 for Google</strong> — Alibaba's family at 2.6 times Meta's entire footprint and 4.7 times Llama specifically, with new Qwen derivatives appearing at 180 to 210 repositories per day. On local inference, where open weights matter most, Hugging Face measures <strong>39.6 million GGUF downloads a month for Qwen, 20.8 million for Gemma and 7.5 million for Llama</strong>. Gemma is comfortably second. It is not close to first.</p>
+<p>The geopolitical read is sharper still. "In almost every month of 2026, the largest and most performant open model from a Chinese lab was larger than any model an American lab released," the Hugging Face authors write, putting China's monthly ceiling between 754 billion and 2.78 trillion parameters while U.S. releases stayed under 130 billion in five of seven months. Chinese labs also license more permissively: 59% of their 178 releases above 20B parameters carry Apache 2.0 and 22% carry MIT, against 29% Apache-or-MIT on the American side of that band.</p>
+<p>Gemma is, in that context, one of the few U.S. open families with genuine mass adoption — and it competes on the axis where downloads actually accrue. Hugging Face's data shows models under 1B parameters take 83% of all-time downloads, and just 3% of 2026 volume went to models above 70B. Small, boring and embedded beats large and admired.</p>
+<h2>What to Watch</h2>
+<p>Three markers. Whether Google publishes a Gemma 4-specific adoption number, which would separate durable use from two years of accumulated pulls. Whether Awesome Gemma turns into real curation — a directory that ranks and vets is a moat; a link dump is a press release. And whether Google closes the local-inference gap by shipping official, signed GGUF conversions at launch, a step Hugging Face explicitly flags as low-effort and largely unmet across the ten largest model families. Qwen did not win the derivative race on quality alone. It won on cadence, coverage and licensing friction — three things Google controls entirely.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;What matters far more than the download count is what the community is building with them.&rdquo;</blockquote><cite>&mdash; Clement Farabet and Olivier Lacombe, Vice president and product director, Google DeepMind</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">1B</div><div class="stat-label">Cumulative Gemma downloads</div></div><div class="stat-cell"><div class="stat-value">100K+</div><div class="stat-label">Community variants published</div></div><div class="stat-cell"><div class="stat-value">82,506</div><div class="stat-label">Google derivatives on Hugging Face</div></div><div class="stat-cell"><div class="stat-value">151,448</div><div class="stat-label">Qwen derivatives on Hugging Face</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.unite.ai/googles-gemma-open-models-pass-1-billion-downloads-as-variants-top-100k/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=unite.ai&sz=32" alt="">Unite.AI</a><a href="https://thenextweb.com/news/google-gemma-one-billion-downloads-gemmaverse-variants" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenextweb.com&sz=32" alt="">The Next Web</a><a href="https://tech.yahoo.com/ai/gemini/articles/google-gemma-ai-models-surpass-192525180.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tech.yahoo.com&sz=32" alt="">Yahoo Tech</a></div></div>
+<div class="article-nav"><a href="07-chatgpt-apple-messages-macos-integration.html" class="nav-prev">&larr; ChatGPT Can Now Read Your iMessages. Full Disk Acces</a><a href="09-binance-agent-os-live-agent-trading.html" class="nav-next">Binance Let AI Agents Trade for 300 Million Users an &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 21, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
