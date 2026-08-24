@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Machines Are Grinding Out Real Mathematics Now. The Fights Are About Credit, Not Correctness. &mdash; The Vault AI</title>
+<meta name="description" content="AI systems are producing genuine, machine-verifiable mathematics because proof checkers give them cheap ground truth to iterate against, but formal verification certifies only that a proof is valid — not that the result is novel or significant.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body a:hover{color:var(--text-strong)}
+.md-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--border-hover);color:var(--text-strong);font-style:italic}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}.article-body p,.article-body li{font-size:1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>The Machines Are Grinding Out Real Mathematics Now. The Fights Are About Credit, Not Correctness.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 999 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>AI systems are producing genuine, machine-verifiable mathematics because proof checkers give them cheap ground truth to iterate against, but formal verification certifies only that a proof is valid — not that the result is novel or significant.</p>
+</div>
+<div class="article-body">
+<p>On August 10, Anthropic published a result that one of its own employees had commissioned by accident. Jarred Sumner, a staff member and self-described non-mathematician, told an unreleased research version of Claude to “take a real stab” at the Riemann hypothesis, the 1859 conjecture carrying a million-dollar Clay Institute bounty. Claude did not solve it; nobody expected it to. But somewhere in the attempt it produced something real: an improved lower bound on the fraction of the Riemann zeta function’s zeros that satisfy the hypothesis, pushing the constant from 41.6% to 67.2%.</p>
+<p>That is a large jump in a number that has historically moved in single-digit increments over decades. Brian Conrey pushed it past 40% in 1989; it had crept to 41.6% in the years since. Claude’s contribution was not a new technique but a combination nobody had made: it welded a 2000 paper by Enrico Bombieri onto recent work by Aryan and by Baluyot, Goldston, Suriajaya and Turnage-Butterbaugh, which had stripped the Riemann-hypothesis assumption out of Montgomery’s 1973 pair-correlation machinery. Anthropic’s description of the key step is candid: “The courage to treat the entire space, with positive- and negative-definiteness taken into account together, and with the quadratic form allowed to be non-diagonal, is in some sense the step that allows Claude to achieve the conclusion based on the important prior work.”</p>
+<p>The process is as much the story as the result: 31 million output tokens across two Claude Code sessions. The first pass generated 650 ideas, all dead. On the second, Claude coordinated roughly 60 subagents, only two of which developed the key ideas while 13 served as validators. They ran 2,400 shell commands, thousands of numerical checks against known zeta zeros, and downloaded 54 arXiv papers to confirm the finding was novel. Sumner’s input was mostly encouragement, variants of “keep going” and “believe in yourself.”</p>
+<p>Verification is where the caveats live. Anthropic mathematicians Levent Alpöge and Ralph Furman studied the paper, and outside experts Brian Conrey and Dan Goldston “generously examined the paper on short notice.” That is a sanity check by qualified eyes, not refereeing, and Goldston co-authored the upstream work the proof depends on. Claude also produced a Lean formalization, published on GitHub, that passes the standard validator. Anthropic revised the paper on August 13 to add “additional historical context.” The company is explicit about the ceiling: “We don’t expect that the techniques Claude used will lead to proving the Riemann hypothesis.”</p>
+<p>That caution reads as pointed given what happened nine days earlier. On August 1, OpenAI announced that Astra, an unreleased model, had resolved ten long-open problems for roughly $2,000 in compute, shipping a 249-page manuscript and Lean 4 certificates with a “sorry” count of zero. Anthropic’s Alpöge responded within 24 hours, claiming the already-public Claude Fable had reproduced five of them, problems 4 through 8, offline and with contamination controls.</p>
+<p>Then mathematicians actually read the paper. Stephen Miller of Yeshiva University says Astra’s sphere-packing improvement reuses an argument from his own 2016 paper without credit. “They are running roughshod over the work of others who came before them in a deliberate way,” he told Scientific American. “It seems completely systematic to me, and it points to research misconduct.” The headline non-sofic group construction turned out to stitch together ideas from 2016 and 2019 papers, one co-authored by Andreas Thom of TU Dresden, who called the result “creative and at the same time elementary” on MathOverflow. Francesco Fournier-Facio, a Cambridge group theorist, was stunned until he read it as he would a human paper. He blames the packaging, not the mathematics: “there is the big PR machine that wants to sound as impressive as possible and does not care about being 100 percent accurate.” OpenAI’s press release originally said the problems had “seen no progress on the main result for at least a decade.” It has since been edited.</p>
+<h2>Why It Matters</h2>
+<p>Mathematics is falling faster than other domains because it has cheap, queryable ground truth. Lean either accepts a proof or it does not. Numerical checks against computed zeta zeros either survive or they do not. That closes the iteration loop without a human in it, which is why 60 agents grinding for a day and a half can outperform a single model thinking hard.</p>
+<p>But a zero “sorry” count proves only that a proof is valid. It says nothing about whether the theorem is new, whether the formal statement faithfully encodes the open problem, or whether the result is interesting. Every failure in the Astra episode was of that second kind: as far as anyone has alleged, the machine-checked proofs were correct. Verification and significance are different problems, and only one of them has been automated.</p>
+<p>Nor does any of this demonstrate general reasoning. The recurring pattern in these results, from unit distance to soficity to the zeta bound, is superhuman patience at assembling published puzzle pieces, not a profound conceptual leap. That is valuable. It is also narrow. Thomas Bloom’s Erdős database, the de facto benchmark, now lists 565 solved and 652 open problems. Google DeepMind teams of 24 and 21 researchers resolved four and nine problems respectively, the latter at a few hundred dollars each. Bloom sees a cost: “We’re seeing a lot more of these 100- to 200-page papers that people are posting. But no human has read it, and no human is going to read it. It’s a huge challenge now.”</p>
+<h2>What to Watch</h2>
+<p>Whether the 67.2% bound survives genuine peer review, and whether humans improve on it within weeks, as they did with OpenAI’s unit distance counterexample. Whether Astra ships publicly with reformed citation practice, and whether Bloom’s open-problem counter keeps dropping. And where the mathematicians go: Jacob Tsimerman announced he was leaving academia for OpenAI on the same day in July that he won the Fields Medal. Noga Alon, who solved dozens of Erdős problems over his career, has stopped trying. “Once AI started to solve them,” he said, “there is no point anymore.”</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;They are running roughshod over the work of others who came before them in a deliberate way. It seems completely systematic to me, and it points to research misconduct.&rdquo;</blockquote><cite>&mdash; Stephen Miller, Mathematician, Yeshiva University</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">41.6% → 67.2%</div><div class="stat-label">Lower bound on Riemann zeta zeros satisfying the hypothesis</div></div><div class="stat-cell"><div class="stat-value">31 million</div><div class="stat-label">Output tokens Claude used across two sessions</div></div><div class="stat-cell"><div class="stat-value">$2,000</div><div class="stat-label">OpenAI's stated compute cost for all ten Astra results</div></div><div class="stat-cell"><div class="stat-value">565 / 652</div><div class="stat-label">Erdős problems solved vs still open, Aug 3</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.anthropic.com/research/riemann-zeta" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" alt="">Anthropic Research</a><a href="https://www.scientificamerican.com/article/openais-latest-math-breakthroughs-commit-research-misconduct-experts-say/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=scientificamerican.com&sz=32" alt="">Scientific American</a><a href="https://www.quantamagazine.org/why-the-legendary-erdos-problems-are-falling-to-ai-20260803/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=quantamagazine.org&sz=32" alt="">Quanta Magazine</a><a href="https://the-decoder.com/openai-announces-its-next-major-model-astra-by-dropping-ten-previously-unsolved-math-solutions/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&sz=32" alt="">The Decoder</a></div></div>
+<div class="article-nav"><a href="12-anthropic-claude-protein-binder-design.html" class="nav-prev">&larr; Claude Ran a Protein Design Campaign on Its Own. Hum</a><a href="14-linear-coding-agents-review-bottleneck.html" class="nav-next">Coding Agents Tripled Pull Requests. The Time Saved  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 23, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
