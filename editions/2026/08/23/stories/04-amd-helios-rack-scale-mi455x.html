@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AMD's Helios Puts a Whole Rack Against Nvidia's Vera Rubin &mdash; The Vault AI</title>
+<meta name="description" content="With Helios, AMD stops selling AI chips and starts selling a 72-GPU rack that matches Nvidia&#x27;s Vera Rubin NVL72 on paper and lands in the same window rather than a year late — the first time a genuine second source has existed at rack scale.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body a:hover{color:var(--text-strong)}
+.md-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--border-hover);color:var(--text-strong);font-style:italic}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}.article-body p,.article-body li{font-size:1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>AMD's Helios Puts a Whole Rack Against Nvidia's Vera Rubin</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 999 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>With Helios, AMD stops selling AI chips and starts selling a 72-GPU rack that matches Nvidia's Vera Rubin NVL72 on paper and lands in the same window rather than a year late — the first time a genuine second source has existed at rack scale.</p>
+</div>
+<div class="article-body">
+<p>The unit of competition in AI infrastructure is no longer a chip. It is a cabinet 1.2 meters wide and 44 OpenRack units tall, weighing roughly 5,000 pounds, pulling as much as 245 kilowatts through a liquid-cooled 50-volt DC busbar. On July 23 at San Francisco’s Moscone Center, AMD stopped arguing the point and shipped one.</p>
+<p>Helios, launched at AMD’s Advancing AI 2026 conference and now in full production with partner shipments due by the end of the third quarter, is the company’s first true rack-scale system. It packs 72 Instinct MI455X GPUs across 18 liquid-cooled compute blades, each pairing four accelerators with a single 96-core sixth-generation Epyc 9006 “Venice” CPU, three 800Gbps Pensando Vulcano NICs per GPU, and a 400Gbps Pensando Salina DPU. Six switch trays carry a dozen of Broadcom’s 102.4Tbps Tomahawk 6 ASICs, and ROCm ties it together. The parts are AMD’s; the product is the rack.</p>
+<p>For a decade AMD sold silicon into other companies’ systems. Helios is the first time it sells the system — a capability bought with the $4.9 billion acquisition of ZT Systems in 2025, whose manufacturing arm AMD resold for $3 billion while keeping the engineers.</p>
+<h2>Inside the Rack</h2>
+<p>Per rack, AMD claims 2.9 exaflops of peak FP4, 1.4 exaflops of FP8, 31 terabytes of HBM4 and 1.7 petabytes per second of memory bandwidth, with 43 TB/s of scale-out and roughly 260 TB/s of scale-up fabric. The MI455X is a 24-chiplet assembly — eight compute dies on TSMC 2nm stacked over two 3nm fabric-and-cache dies holding 96MB of L2 apiece, plus two 3nm I/O dies, around 320 billion transistors. Each GPU carries 432GB of HBM4 across twelve 36GB stacks at 23.3 TB/s and peaks near 40 petaflops of FP4.</p>
+<p>It has no FP64 at all. AMD stripped double precision to buy die area for MXFP4 and MXFP8, pushing scientific computing onto a separate part, the MI430X, already won into EuroHPC’s Alice Recoque and Oak Ridge’s Discovery.</p>
+<p>Against Nvidia’s Vera Rubin NVL72 — the reference on every AMD slide — the company claims 15% more peak FP4 compute, 50% more HBM capacity, 6% more HBM bandwidth, 50% more scale-out bandwidth and up to 30% more tokens per dollar.</p>
+<p>“Every Helios can deliver more performance for the largest models, more capacity for longer context, and the bandwidth to scale across thousands of racks,” CEO Lisa Su said during her keynote.</p>
+<h2>The Asterisks Are Load-Bearing</h2>
+<p>The tokens-per-dollar figure is modeled, not measured. AMD’s own footnote pins it to the Kimi K2 Thinking workload at 32K input and 8K output, using projected hourly GPU pricing. The FP4 comparison sets AMD’s peak against Nvidia’s published dense NVFP4 numbers, while Nvidia markets the NVL72 at 3.6 exaflops of sparse NVFP4 — different arithmetic, argued past each other. The Register reports Vera Rubin’s adaptive compression should give Nvidia a 25% FP4 lead on inference workloads that can use it.</p>
+<p>AMD said the quiet part out loud. Anush Elangovan, AMD’s VP of AI software, told press ahead of the keynote that the MI455X hit 20 petaflops of FP4 in real-world testing — exactly half of peak.</p>
+<p>“It’s delivered bandwidth and flops, and it is still the best in the industry today. There is no other accelerator that I have seen that can hit that yet,” Elangovan said.</p>
+<p>Power is another unknown. Helios draws 225 to 245 kW under load; Nvidia has published no system-level figure for Vera Rubin, and The Register estimates 240 to 250 kW. No third-party production benchmarks exist.</p>
+<h2>Who Is Actually Buying</h2>
+<p>The demand is more concrete than the benchmarks. OpenAI expects Helios online beginning in Q4 2026, accelerating through 2027, under an arrangement including warrants for ~10% of AMD. Anthropic committed to up to 2 gigawatts of MI455X capacity, paired with an AMD investment of up to $5 billion in the model developer. Meta is validating Venice platforms and testing Helios racks under a reported $100 billion, 6-gigawatt deal. Microsoft will deploy Helios for Azure inference. Oracle, HUMAIN, TensorWave and Vultr round out the list; HPE, Lenovo and Supermicro will build the systems.</p>
+<p>“There is nobody else in the semiconductor industry today that can offer what AMD is offering other than Nvidia,” said Ashish Nadkarni, an analyst at IDC. “They are making steady progress to be the strong No. 2 in the market.”</p>
+<p>Matt Kimball, VP and principal analyst at Moor Insights &amp; Strategy, called Helios a direct answer to the NVL72 line. “That is big traction,” he said of the customer roster. “You’re quietly seeing Instinct market share increase quarter over quarter, year over year, so it’s starting to establish.”</p>
+<h2>Why It Matters</h2>
+<p>Every previous Instinct generation arrived roughly a year behind Nvidia’s equivalent, which made it the value option, not the alternative. Helios lands in the same window as Vera Rubin, at spec parity or better, with committed gigawatts from four of the five buyers who matter. That is the first time a second source has existed at rack scale — not a second chip, a second rack.</p>
+<p>The architecture is the durable part. AMD tunnels Ultra Accelerator Link over Ethernet for scale-up, which means merchant Broadcom switches rather than bespoke NVLink silicon, and aligns scale-out with the Ultra Ethernet Consortium. A hyperscaler can swap switches and NICs without abandoning the rack design. Nvidia’s fabric bandwidth is formidable; its roadmap is also non-negotiable.</p>
+<p>Su now expects AI infrastructure to reach $1.4 trillion by 2030, up from a $500 billion-by-2028 projection a year earlier.</p>
+<h2>What to Watch</h2>
+<p>Benchmarks from the Microsoft Azure ramp in H2 2026 will decide whether AMD’s modeled throughput survives production workloads. Watch whether ROCm ships day-zero support for frontier models; software has been the perennial gap. Watch HBM4 allocation, which both vendors bid for from the same suppliers and which governs how fast those gigawatts arrive. And watch the clock: Nvidia’s Rubin Ultra is disclosed for 2027, and AMD’s Helios 500 answers it the same year. Any advantage here has a twelve-month shelf life.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>&ldquo;It's delivered bandwidth and flops, and it is still the best in the industry today. There is no other accelerator that I have seen that can hit that yet.&rdquo;</blockquote><cite>&mdash; Anush Elangovan, VP of AI Software, AMD</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">2.9 exaflops</div><div class="stat-label">Peak FP4 compute per Helios rack</div></div><div class="stat-cell"><div class="stat-value">31 TB</div><div class="stat-label">HBM4 per rack, 50% more than Vera Rubin NVL72</div></div><div class="stat-cell"><div class="stat-value">225–245 kW</div><div class="stat-label">Helios rack power draw under load</div></div><div class="stat-cell"><div class="stat-value">2 GW</div><div class="stat-label">MI455X capacity Anthropic committed to</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://ir.amd.com/news-events/press-releases/detail/1294/aai-2026-amd-delivers-full-stack-compute-for-the-agentic-ai-era" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ir.amd.com&sz=32" alt="">AMD Investor Relations</a><a href="https://www.theregister.com/systems/2026/07/23/amd-attacks-the-rack-with-helios-systems-that-rival-nvidias/5277246" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=theregister.com&sz=32" alt="">The Register</a><a href="https://www.datacenterknowledge.com/data-center-chips/amd-fires-back-at-nvidia-with-helios-ai-system-epyc-cpus" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=datacenterknowledge.com&sz=32" alt="">Data Center Knowledge</a><a href="https://www.datacenterdynamics.com/en/news/amd-officially-launches-helios-rackscale-system-with-mi455x-gpus-venice-epyc-cpus-and-pensando/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=datacenterdynamics.com&sz=32" alt="">Data Center Dynamics</a></div></div>
+<div class="article-nav"><a href="03-deepseek-8b-raise-74b-valuation.html" class="nav-prev">&larr; DeepSeek Is Raising About $8 Billion at a $74 Billio</a><a href="05-openai-project-camellia-georgia.html" class="nav-next">OpenAI's Project Camellia Lands in Effingham County  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 23, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
