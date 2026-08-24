@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alibaba Opened the Weights to a 2.4-Trillion-Parameter Model. The Download Is Text-Only. &mdash; The Vault AI</title>
+<meta name="description" content="Alibaba published the first downloadable Max-class Qwen at 2.4 trillion parameters, but stripped vision and native long context from the checkpoint and attached a revenue-share license, keeping the full model behind its paid API.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body a:hover{color:var(--text-strong)}
+.md-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--border-hover);color:var(--text-strong);font-style:italic}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}.article-body p,.article-body li{font-size:1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Alibaba Opened the Weights to a 2.4-Trillion-Parameter Model. The Download Is Text-Only.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 999 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Alibaba published the first downloadable Max-class Qwen at 2.4 trillion parameters, but stripped vision and native long context from the checkpoint and attached a revenue-share license, keeping the full model behind its paid API.</p>
+</div>
+<div class="article-body">
+<p>On August 12, Alibaba published a 2.4-trillion-parameter model to Hugging Face and let anyone download it. The repository, Qwen/Qwen3.8-2.4T-A95B, ships BF16 safetensors plus an FP8 variant, and Nvidia posted a walkthrough the same day on how to serve it from a GB300 NVL72 rack. It is the first Max-class Qwen ever released as weights, and by parameter count the second-largest open model in existence, trailing only Moonshot AI's 2.8-trillion-parameter Kimi K3.</p>
+<p>Then people read the model card.</p>
+<p>“In particular, Qwen3.8-Max is the official version based on Qwen3.8-2.4T-A95B with more features, such as vision input &amp; non-thinking support, 1M context length by default, official built-in tools,” it says. Translated: the file you just pulled is not the model Alibaba sells. The open checkpoint is text-only. No vision encoder. No native million-token window — 262,144 tokens natively, stretchable to roughly 1.01 million with scaling tricks. It is also locked into thinking mode. The hosted qwen3.8-max endpoint keeps the images, the video, the built-in tools and the 1M default, at $2 per million input tokens and $6 per million output.</p>
+<h2>A Launch, Then a Second Launch</h2>
+<p>Alibaba previewed the model on July 19 and announced it on August 3. “We are officially releasing Qwen 3.8-Max, the most capable model in the Qwen family to date. This also marks the first time we will open-source the weights of a Qwen-Max-class model,” the company stated. Hong Kong shares climbed more than 6% that Monday, with the US listing trading as high as $129.50 against a previous close of $122.25. The August 12 weights drop drew no comparable move.</p>
+<p>The architecture is sparse mixture-of-experts: 92 layers, 512 routed experts with ten selected per token plus one shared, roughly 95 billion parameters active per request against 2.4 trillion total. Alibaba also showed the model running a real software project autonomously for 16 days: 265 commits, 127 pull requests, every merge gated by tests.</p>
+<p>Alibaba placed the model fifth in Text Arena and second in Vision Arena, behind Anthropic's Claude Fable 5 and Opus variants, making it the highest-ranked Chinese text model on the board. Those placements deserve an asterisk, and Jeff Brokaw, an independent software engineering and AI consultant, supplied it. “Same-day benchmarks are a lab grading its own homework,” Brokaw told The New Stack. “Worth reading as ambition, not a settled ranking, until an outside party runs the same test.”</p>
+<p>Writing a week before the weights appeared, Brokaw had already flagged the shape of the thing. “Alibaba is calling the weights open, but it has not shipped them,” he said. “That is not a technical footnote; that is the API business model wearing an open source jacket for the launch photo.” The weights arrived. The jacket stayed on.</p>
+<h2>The License Is Not Apache</h2>
+<p>The second surprise is legal. The checkpoint ships under a custom Qwen3.8-Max License, not Apache 2.0. Cross 100 million monthly active users or $20 million in monthly revenue and you must display the model name prominently in your interface. Run a model-as-a-service or AI work-assistant business above $50 million in trailing-twelve-month revenue, affiliates included, and you need a separate paid license before commercial use. Purely internal deployment is carved out.</p>
+<p>For a research lab or a startup, none of those thresholds bite. For an inference provider planning to resell the checkpoint the moment it lands, all of them do. One Hugging Face commenter, posting as CoderX1997, read the vision strip as defensive rather than greedy: Alibaba did not want a competitor serving the full-capability model within minutes of release.</p>
+<p>The contrast with the sibling release is the tell. Qwen3.8-27B, which landed August 14 and runs on a single GPU, shipped under plain Apache 2.0, no thresholds, no revenue riders. The small model got the clean license. The flagship got the revenue share.</p>
+<p>Developers noticed. The lead thread on the Max repository, opened by a user posting as NodeLinker, ran to dozens of replies. When a model is this strong at vision-language tasks and you strip that capability away, the original post argued, you throw away half its core value. The thread's author later walked back the harshest framing: open-weighting a 2.4T model at all is a milestone, and Qwen still offers the full model free through its chat interface, which Moonshot does not.</p>
+<h2>Why It Matters</h2>
+<p>Open weights have become the primary instrument of Chinese AI strategy, and Alibaba just showed how finely that instrument can be tuned. The company gets the headline and the stock pop while the differentiated capabilities and the revenue stay on the API. Meta ships Apache. Alibaba ships tiered openness with revenue triggers. Both call it open.</p>
+<p>That complicates the standard US-China framing, which holds that Chinese labs are commoditizing frontier intelligence and eroding American margins. Alibaba is not commoditizing its own frontier. It is commoditizing a text-only derivative of its frontier and using it as a funnel. Heath Squier, founder and chief AI officer at Evkii, sees the larger ambition. “That makes Qwen more than a benchmark story,” he said. “It is an attempt to give enterprises a full alternative stack for building and operating agents.”</p>
+<p>It matters practically too. Almost nobody can run a 2.4T checkpoint — this is rack territory, not workstation territory — so the openness that reaches most developers is the 27B, and the openness that reaches enterprises is a license negotiation. The word open is doing enormous work here, and the license file is where it stops working.</p>
+<h2>What to Watch</h2>
+<p>Whether an independent evaluator reproduces the Arena placements Alibaba published on launch day. Whether inference providers serve the checkpoint at scale or balk at the $50 million clause. Whether the open-source community bolts a vision projector onto the text-only base, and how Alibaba responds if it succeeds. And whether Moonshot, DeepSeek or Meta answer with a full-capability flagship — because the moment one of them ships vision and long context intact at this scale, Alibaba's half-box strategy stops looking clever and starts looking like a gap.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Alibaba is calling the weights open, but it has not shipped them. That is not a technical footnote; that is the API business model wearing an open source jacket for the launch photo.&rdquo;</blockquote><cite>&mdash; Jeff Brokaw, Independent software engineering and AI consultant</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">2.4T</div><div class="stat-label">Total parameters, ~95B activated per request</div></div><div class="stat-cell"><div class="stat-value">262,144</div><div class="stat-label">Native context tokens in the open checkpoint, not 1M</div></div><div class="stat-cell"><div class="stat-value">$2 / $6</div><div class="stat-label">Per million input / output tokens on the hosted API</div></div><div class="stat-cell"><div class="stat-value">$50M</div><div class="stat-label">TTM revenue threshold triggering a paid license</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://thenewstack.io/alibaba-qwen3-8-max-reactions/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenewstack.io&sz=32" alt="">The New Stack</a><a href="https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B/discussions/13" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Hugging Face</a><a href="https://www.cnbc.com/2026/08/03/alibaba-ai-model-qwen-rival-anthropic.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="">CNBC</a><a href="https://developer.nvidia.com/blog/serve-qwen3-8-2-4t-a95b-a-2-4t-parameter-model-with-configurable-reasoning-on-nvidia-gb300-nvl72/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=developer.nvidia.com&sz=32" alt="">NVIDIA Technical Blog</a></div></div>
+<div class="article-nav"><a href="07-openai-gpt56-sol-promotional-price-cut.html" class="nav-prev">&larr; OpenAI Cut Its Flagship 20 Percent. The Expiration D</a><a href="09-meta-muse-spark-12-muse-code-agent.html" class="nav-next">Meta's New Coding Model Loses to Opus 5 on Every Cha &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 23, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
