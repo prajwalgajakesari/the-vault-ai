@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Ran a Protein Design Campaign on Its Own. Humans Picked the Targets and Wrote the 30,000-Token Prompt. &mdash; The Vault AI</title>
+<meta name="description" content="Claude autonomously ran de novo binder design campaigns producing 354 binders from 1,320 designs across 14 of 15 targets — a 27% hit rate versus a 10–15% field norm — but humans chose every target and the design work was done by open-source tools Claude orchestrated.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body a:hover{color:var(--text-strong)}
+.md-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--border-hover);color:var(--text-strong);font-style:italic}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}.article-body p,.article-body li{font-size:1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Claude Ran a Protein Design Campaign on Its Own. Humans Picked the Targets and Wrote the 30,000-Token Prompt.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1000 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Claude autonomously ran de novo binder design campaigns producing 354 binders from 1,320 designs across 14 of 15 targets — a 27% hit rate versus a 10–15% field norm — but humans chose every target and the design work was done by open-source tools Claude orchestrated.</p>
+</div>
+<div class="article-body">
+<p>On a single assay plate at a contract lab outside Lausanne, a protein that Claude designed latched onto RBX1 with a dissociation constant of 3.9 nanomolar. RBX1, a subunit of the enzyme complex that tags other proteins for destruction, was recently the subject of an open competition in which just 9 of 245 human de novo designs bound at all. Anthropic had that competition's winning entry re-synthesized and measured on the same plate. It came in at 45 nM, roughly ten times weaker.</p>
+<p>That comparison anchors "Autonomous de novo protein binder design with Claude," the technical report Anthropic released on August 18. Claude Opus 4.8 and an unreleased model called Mythos Preview designed binders against 16 targets, 30 ranked designs each. Two contract research organizations, Adaptyv Bio and Twist Bioscience, synthesized every design exactly as delivered and measured whether it stuck, blinded to which model produced what. One target, mature GDF-8, aggregated in the assay and gave nothing interpretable. Of the 1,320 designs across the remaining 15 targets, 354 bound: a 27% hit rate, against the 10-15% Anthropic cites as typical. Among designs Claude ranked first for each target, 49% bound.</p>
+<h2>The autonomy is real, and it is bounded</h2>
+<p>Humans chose all 16 targets and handed each to Claude with nothing but a name, a UniProt accession, an organism, and an oligomeric state. Humans wrote the protocol prompt, roughly 30,000 tokens, only about a third of it scientific guidance and a reading list; the rest is scheduling, delegation, verification, and budget discipline. Humans provisioned the GPUs, $50,000 per multi-target campaign and $10,000 per single-target run, placed the orders, and read the binding data.</p>
+<p>Everything in between was Claude's. The prompt specified no epitope, scaffold, target construct, or sequence. Claude researched each protein, picked where on its surface to bind, installed and ran the design software itself, and returned a ranked list. Running all targets at once over 48 hours with up to 12,500 H100-hours, Mythos Preview hit 26.7% and Opus 4.8 22.6%. Given one target at a time over 24 hours, Mythos Preview reached 35.1%, but with 2.8 times the compute per target. Focus and budget cannot be pulled apart.</p>
+<p>Nor did Claude invent any of the machinery. Backbones came from PXDesign (358 designs), RFdiffusion3 (267), Genie 3 (185), FreeBindCraft, BoltzGen, the original RFdiffusion, and Proteina-Complexa. SolubleMPNN, the soluble variant of ProteinMPNN, wrote 1,133 of the tested sequences. Ranking used an ensemble of ESMFold2, ESMFold2-Fast, and Protenix v2.</p>
+<p>That distinction drew the sharpest pushback. "a nice demonstration of Claude Science, but worth clarifying that the design is not 'done by Claude' but by orchestrating tool calls of open-source, task-specific protein design models: PXDesign, RFdiffusion, Genie, BoltzGen, etc," wrote Patrick Hsu, co-founder of the Arc Institute and a bioengineering professor at UC Berkeley, though he called the overall direction a good one.</p>
+<h2>Where it broke</h2>
+<p>The failures are documented as fully as the wins. Against maltose-binding protein, whose smooth surface offers a binder almost nothing to grip, none of 90 designs bound. Against BBF-14, a beta-barrel that does not exist in nature and so has no evolutionary record to learn from, three bound, all weakly. Against 15-PGDH, exactly one binder, at 33.4 nM, still beating the 1.7 micromolar competition best.</p>
+<p>The confidence scores Claude used to rank its work gave no warning. Designs against MBP and BBF-14 scored nearly as highly as designs against VEGF-A and TREM2, where 54 of 90 and 72 of 90 bound. "A confident co-fold was therefore a useful requirement for selection but not a guarantee of binding," the report states, "and experimental screening remains the only way to learn which targets a campaign has succeeded on."</p>
+<p>TNF-alpha, a hard trimeric target where prior efforts reported zero hits, yielded 12 binders from 150 designs, the tightest at an apparent KD of 0.70 nM. All 12 came from Opus 4.8; Mythos Preview got none, and Anthropic says it does not know why. They trace back to only four distinct backbones.</p>
+<p>Anthropic states its limits plainly: no matched human control, no structure solved, every binding pose a prediction, each model-format-target combination run once. "We did not run a matched campaign by human experts," the report says, "and we do not claim that Claude's designs are better than an expert would obtain with the same tools and budget." Four of the six competition results Claude was benchmarked against sat in its reading list. The work is self-reported and unreviewed.</p>
+<p>Martin Shkreli, the convicted former pharma executive, called it "not impressive work" on X, arguing "affinities are quite low for peptidics" and that none reach targets inside cells.</p>
+<h2>Why It Matters</h2>
+<p>The claim worth arguing about is not that AI designed a protein. RFdiffusion and BindCraft have done that for years. It is that a generalist model supplied the connective expertise that has gated the field: which tool to reach for, where to aim it, which candidates to order. Every model Claude used is open source, which is why the report argues such campaigns are now "within reach of laboratories that have targets of interest but no expertise in computational protein design."</p>
+<p>The human has not left the loop. The human has moved. Problem framing, target selection, protocol writing, and the wet-lab bill remain human work, and much of the domain expertise now lives in the prompt rather than the model. Adaptyv Bio, which ran the validation, called this an "open-loop experiment": Claude designed, the lab measured, and Claude never saw the results.</p>
+<h2>What to Watch</h2>
+<p>Whether anyone closes that loop, with an agent that designs, gets binding data back, and redesigns, is the next real test; Adaptyv already exposes an API and MCP server aimed at exactly that. Watch for independent replication: the prompts, designs and both labs' measurements are on Hugging Face. Watch for solved structures and for function, because binding is not activity and a minibinder is not a drug. And watch access, since protein design stays blocked on Claude Fable 5 as dual-use.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;a nice demonstration of Claude Science, but worth clarifying that the design is not "done by Claude" but by orchestrating tool calls of open-source, task-specific protein design models: PXDesign, RFdiffusion, Genie, BoltzGen, etc&rdquo;</blockquote><cite>&mdash; Patrick Hsu, Co-founder, Arc Institute; Professor, UC Berkeley</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">354 of 1,320</div><div class="stat-label">Designs that bound their target — a 27% hit rate</div></div><div class="stat-cell"><div class="stat-value">14 of 15</div><div class="stat-label">Targets with a confirmed binder</div></div><div class="stat-cell"><div class="stat-value">3.9 nM</div><div class="stat-label">Best RBX1 binder vs 45 nM for the human winner</div></div><div class="stat-cell"><div class="stat-value">~30,000</div><div class="stat-label">Tokens in the human-written protocol prompt</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.anthropic.com/research/Claude-accelerates-protein-design" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" alt="">Anthropic Research</a><a href="https://www.adaptyvbio.com/blog/anthropic-1" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=adaptyvbio.com&sz=32" alt="">Adaptyv Bio</a><a href="https://the-decoder.com/anthropic-says-any-lab-can-now-let-a-language-model-agent-run-the-whole-protein-design-stack/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&sz=32" alt="">The Decoder</a><a href="https://thenextweb.com/news/anthropic-claude-protein-design-chemistry" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenextweb.com&sz=32" alt="">The Next Web</a></div></div>
+<div class="article-nav"><a href="11-anthropic-sonnet-5-permanent-pricing.html" class="nav-prev">&larr; Anthropic Cancelled the Sonnet 5 Price Rise. The Tok</a><a href="13-llm-mathematics-zeta-erdos-problems.html" class="nav-next">The Machines Are Grinding Out Real Mathematics Now.  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 23, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
