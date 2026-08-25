@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Multi-Agent Systems Are Wired Wrong. Two Papers Rewire Them at Runtime — A Third Asks If It Matters. &mdash; The Vault AI</title>
+<meta name="description" content="DyTopo and SYMPHONY show that rewiring agent communication at runtime beats fixed topologies by wide margins, but neither runs the one control — a single strong model at equal token budget — that a Stanford study says makes most multi-agent gains disappear.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.02rem}
+.article-body blockquote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--cat-color);color:var(--text-strong);font-style:italic}
+.article-body a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,132,252,.3)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem;border:0;padding:0}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Multi-Agent Systems Are Wired Wrong. Two Papers Rewire Them at Runtime — A Third Asks If It Matters.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1104 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>DyTopo and SYMPHONY show that rewiring agent communication at runtime beats fixed topologies by wide margins, but neither runs the one control — a single strong model at equal token budget — that a Stanford study says makes most multi-agent gains disappear.</p>
+</div>
+<div class="article-body">
+<p>Hand Llama-3-8B-Instruct a set of hard math problems and it scores 12.86 percent. Wire four copies of it into a team, let a manager agent redraw who talks to whom at every single round, and the same model scores 47.14 percent. Nothing about the weights changed. Only the wiring did.</p>
+<p>That 34-point swing comes from DyTopo, a paper posted to arXiv in February by Yuxing Lu (Peking University and Georgia Tech), Yucheng Hu and Jiuxin Cao (Southeast University), and Xukai Zhao (Tsinghua). It is one of two recent papers arguing that the multi-agent field has been optimizing the wrong variable — obsessing over which model sits inside each agent while treating the communication graph between them as a fixed design choice made once, at build time, and never revisited.</p>
+<p>The papers make a real case. A third paper, from Stanford, makes an uncomfortable one: that once you hold token spend constant, most of the multi-agent literature's gains evaporate.</p>
+<h2>Fixed wiring, in plain language</h2>
+<p>Nearly every multi-agent framework in production ships a hardcoded topology. A chain passes output down a line. A star routes everything through a hub. A tree fans out and merges. A full graph lets everyone broadcast to everyone, which works and costs a fortune — message volume grows with the square of the agent count.</p>
+<p>The complaint in DyTopo is that a single graph cannot be right for a whole trajectory. Early in a coding task the researcher agent has context the tester needs; three rounds later the tester has failures the developer needs and the researcher is dead weight on the context window. As the paper puts it:</p>
+<blockquote>"This suggests that communication topology should be an adaptive object, conditioned on the round-level goal, rather than a static design choice."</blockquote>
+<p>DyTopo's mechanism is cheap and almost embarrassingly simple. Each round, every agent writes two short natural-language descriptors — a "need" and an "offer." A 22M-parameter sentence encoder (all-MiniLM-L6-v2) embeds them, cosine similarity above a threshold induces an edge, and messages route only along those edges, capped at three inbound sources per agent. The graph is rebuilt from scratch every round.</p>
+<p>Across four benchmarks (HumanEval, APPS-Competition, MATH-500, Omni-MATH) and four backbones (MiMo-V2-Flash, GPT-oss-120B, Llama-3-8B, Qwen3-8B), DyTopo wins all 16 cells. The gain over the strongest baseline ranges from 0.90 to 17.14 points. The efficiency table is the more interesting one: on HumanEval with MiMo-V2-Flash, DyTopo scores 92.07 percent using 9,453 tokens, against AgentScope's 90.24 percent for 19,520 tokens. Better accuracy at 48 percent of the token cost, because the manager halts early — 2.6 rounds on average against a fixed 5.</p>
+<p>That echoes AgentPrune ("Cut the Crap," arXiv:2410.02506), which found that top topology-search systems GPTSwarm and DyLAN burned 2.4x to 5.3x the prompt tokens of a random graph, and got comparable MMLU accuracy for $5.6 where state-of-the-art topologies spent $43.7.</p>
+<h2>Diversity instead of density</h2>
+<p>SYMPHONY (arXiv:2601.22623), a NeurIPS 2025 poster from Wei Zhu, Zhiwen Tang and Kun Yue at Yunnan University, attacks a different failure of homogeneity. When you run Monte Carlo Tree Search with one LLM generating every branch, the branches look alike:</p>
+<blockquote>"These inefficiencies highlight a fundamental mismatch between the need for diverse exploration in planning and the limited variability achievable by repeatedly sampling from a single, monolithic LLM."</blockquote>
+<p>Their fix is a heterogeneous pool. SYMPHONY-S runs Qwen2.5-7B, Mistral-7B and Llama-3.1-8B on three RTX 4090s; SYMPHONY-L uses GPT-4, Qwen-Max and DeepSeek-V3. On MBPP it hits 0.927 pass@1 open-source and 0.965 with APIs, against AgentCoder's 0.918. On WebShop, SYMPHONY-S scores 0.82 — matching the human expert baseline — and SYMPHONY-L hits 0.88. On HotpotQA, SYMPHONY-L reaches 0.79 EM using 7,906 tokens per question, where LATS needed 173,290 tokens for 0.63.</p>
+<p>The diversity claim is measured, not asserted: expansions where all four branches are unique exceed 80 percent under the three-model ensemble versus under 20 percent single-agent.</p>
+<h2>The control experiment nobody ran</h2>
+<p>Here is the problem. In April, Dat Tran and Douwe Kiela of Stanford published "Single-Agent LLMs Outperform Multi-Agent Systems on Multi-Hop Reasoning Under Equal Thinking Token Budgets" (arXiv:2604.02460). They tested five multi-agent architectures — sequential, subtask-parallel, parallel-roles, debate, ensemble — against a single agent across Qwen3-30B, DeepSeek-R1-70B, and Gemini 2.5 Flash and Pro, at matched thinking-token budgets from 100 to 10,000.</p>
+<p>At 1,000 tokens the single agent averaged 0.418; the sequential multi-agent system managed 0.379. At 10,000 tokens: 0.426 versus 0.387. The multi-agent system never crossed 0.389 at any budget above the degenerate 100-token floor.</p>
+<blockquote>"Overall, our results suggest that many reported MAS gains are better explained by compute and context effects than by inherent architectural superiority."</blockquote>
+<p>Their argument leans on the Data Processing Inequality — every agent-to-agent handoff summarizes, and summarizing can only lose information. To their credit they mark the boundary: debate beat single-agent at every budget on Gemini-2.5-Pro/MuSiQue, and multi-agent recovered ground when they artificially corrupted the context.</p>
+<p>Neither DyTopo nor SYMPHONY runs this control. DyTopo's efficiency table compares against multi-agent baselines and a single unassisted pass, not against one model given 9,453 tokens of thinking budget. That is the missing experiment in both.</p>
+<h2>Reproducibility notes</h2>
+<p>DyTopo has no code release and no reported variance or seeds. Its abstract claims "avg. +6.2" while Section 5.1 says +6.09. Its APPS split is 100 problems and Omni-MATH is 70. More pointedly, every reported Math-500 figure is an exact multiple of 1/70 (12.86, 25.71, 47.14, 87.14), implying a 70-problem subset rather than the 500-problem benchmark the column is named after. The affiliation footnote still reads "Southeast University, Location, Country" — an unfilled LaTeX placeholder. It also cites AgentPrune, GPTSwarm, AutoGen and MetaGPT in related work without benchmarking against any of them.</p>
+<p>SYMPHONY does release code and runs each experiment three times, but takes baselines from prior work rather than re-running them, uses oracle feedback on HotpotQA, and reports exactly one significance test. Its own ablation is revealing: SYMPHONY wrapped around a single GPT-4 already scores 0.76 EM on HotpotQA, so much of the gain comes from memory sharing and scheduling, not model heterogeneity.</p>
+<h2>What to watch</h2>
+<p>The next credible topology paper should report a cost-normalized single-agent line as a first-class baseline, not a footnote — total tokens on the x-axis, accuracy on the y-axis, one strong model as the reference curve. DyTopo's genuinely useful finding may be the early-halting result, which is an argument about spending less, not coordinating more. If dynamic routing survives an equal-budget comparison, it is a real result. If it does not, the field has spent two years discovering that four API calls beat one.</p>
+<p>Watch also for whether anyone reproduces DyTopo without code. Right now, nobody can.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;This suggests that communication topology should be an adaptive object, conditioned on the round-level goal, rather than a static design choice.&rdquo;</blockquote><cite>&mdash; DyTopo (arXiv:2602.06039), Lu et al., Peking University / Georgia Tech / Tsinghua</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">12.86% → 47.14%</div><div class="stat-label">Llama-3-8B on Math-500, single vs dynamic</div></div><div class="stat-cell"><div class="stat-value">9,453 vs 19,520</div><div class="stat-label">DyTopo vs AgentScope tokens, HumanEval</div></div><div class="stat-cell"><div class="stat-value">0.426 vs 0.387</div><div class="stat-label">Single vs multi-agent at matched budget</div></div><div class="stat-cell"><div class="stat-value">$5.6 vs $43.7</div><div class="stat-label">AgentPrune vs SOTA cost, comparable MMLU</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2602.06039" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&amp;sz=32" alt="">arXiv — DyTopo</a><a href="https://arxiv.org/abs/2601.22623" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&amp;sz=32" alt="">arXiv — SYMPHONY</a><a href="https://arxiv.org/pdf/2410.02506" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&amp;sz=32" alt="">arXiv — AgentPrune</a><a href="https://neurips.cc/virtual/2025/poster/119704" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=neurips.cc&amp;sz=32" alt="">NeurIPS</a></div></div>
+<div class="article-nav"><a href="11-agent-memory-benchmarks-2026.html" class="nav-prev">&larr; Agent Memory Became a Benchmark Category in 2026 —</a><a href="13-llm-reasoning-research-august-2026.html" class="nav-next">Agent Skills Work — But Not for the Reason Everyon &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 24, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
