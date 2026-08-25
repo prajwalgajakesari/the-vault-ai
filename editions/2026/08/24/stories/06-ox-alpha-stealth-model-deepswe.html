@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Stealth Model Topped a Coding Benchmark on 10 Tasks. Then Someone Ran the Full Set. &mdash; The Vault AI</title>
+<meta name="description" content="Ox Alpha's viral 80% DeepSWE score came from a 10-task sample; the full run put it roughly level with GPT-5.6 Sol — after thousands of developers had already sent proprietary code to a lab nobody could name.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.02rem}
+.article-body blockquote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--cat-color);color:var(--text-strong);font-style:italic}
+.article-body a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,132,252,.3)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem;border:0;padding:0}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>A Stealth Model Topped a Coding Benchmark on 10 Tasks. Then Someone Ran the Full Set.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1018 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Ox Alpha's viral 80% DeepSWE score came from a 10-task sample; the full run put it roughly level with GPT-5.6 Sol — after thousands of developers had already sent proprietary code to a lab nobody could name.</p>
+</div>
+<div class="article-body">
+<p>On August 21, developer Ben Davis posted a screenshot that ricocheted around AI Twitter within the hour. An anonymous model called Ox Alpha, which had appeared on OpenRouter the day before with no company name attached, had just beaten OpenAI's GPT-5.6 Sol and Anthropic's Claude Fable 5 on DeepSWE, a benchmark that scores how often a coding agent resolves a real GitHub issue on the first try.</p>
+<p>"I ran this thing through 10 tasks on DeepSWE (so there could be a ton of variance in it's real score, this is a subset), but uh... gpt-5.6-sol: 52% / fable: 65% / whatever the hell this is: 80%," Davis wrote. "I am very confused."</p>
+<p>The caveat was in the post. It did not survive the retweets.</p>
+<p>DeepSWE has 113 tasks drawn from 91 open-source repositories across five languages. Ten of them is under 9% of the set, which means a single task swings the score by roughly ten percentage points. Davis has since finished a full 113-task run, and Ox Alpha landed at roughly 63% — level with GPT-5.6 Sol mid, and below the 65% he had measured for Claude Fable 5. Davis called the full-set number the one that "makes way more sense." By then the 80% figure had been laundered through a dozen aggregator posts as settled fact, and it is still circulating.</p>
+<h2>What Ox Alpha actually is</h2>
+<p>OpenRouter's listing describes "a reasoning model designed for coding, sustained agentic work, and production workloads," served by a third party that chose to stay anonymous. The spec sheet is unusual: a 1,048,576-token context window, a 131,072-token output cap, and native text, image and video input. Audio requests come back rejected. It is the first stealth-series model to advertise video.</p>
+<p>It also cost nothing. OpenCode, the open-source terminal agent, launched it the same day promising "generous rate limits, near unlimited usage" and capacity for 100 trillion tokens a day. OpenRouter's email put the free window through Monday, August 24; OpenCode's note pointed to roughly August 27. Stripe CEO Patrick Collison, whose company agreed to acquire OpenRouter on August 19, tried it and posted two words: "It's very impressive."</p>
+<p>Developers piled in. Nous Research's Hermes Agent and the Zed editor were pushing production traffic through it within hours, and Bloomberg reported Sunday that coding tools including Claude Code had run billions of tokens through the model since Thursday.</p>
+<h2>Nobody knows where the code went</h2>
+<p>That is the part of this story that outlasts the benchmark argument. Thousands of developers pointed agentic coding tools at a 1M-token context window run by a company that has not said its name.</p>
+<p>The forensics have been more rigorous than the scoring. A developer known as unclecode, author of the Crawl4AI crawler, built a tool called modelprint that fires nine infrastructure probes at an anonymous endpoint and matches the responses against known models. Ox Alpha lined up with Z.ai's GLM-5.3 on six of nine, including all four normalized tokenizer counts; no other lab's best candidate cleared more than two of the four. A separate analysis by Ananay Arora put it bluntly: "Ox Alpha's tokenizer is one for one identical to GLM's. No other lab's tokenizer gets past 4/11." Davis reported exact token-count matches with GLM-5.3 across 25 prompts, off by a constant +75 tokens he attributed to a hidden system wrapper. Video-token spend matched GLM-5V-Turbo across four controlled clips, and the model shares GLM's distinctive "1301" error code.</p>
+<p>None of that is a confession, and unclecode says so in his own documentation: "Matching fingerprints prove shared infrastructure, not identity." A lab can serve two different models on the same stack. Z.ai has said nothing, and one detail complicates the read: GLM-5.3 shipped August 14 as a text-only model, six days before Ox Alpha turned up with video. Treat Zhipu/Z.ai as a strong community inference, not a fact.</p>
+<p>The inference matters because of what sits behind it. OpenCode's route advertises "zero data retention" from a provider it does not name. OpenRouter's model page says prompts and completions are retained by the provider and not used for training; the broader stealth-preview terms extend to training, evaluation and improvement. SiliconANGLE's Duncan Riley put the gap plainly: "Enterprise code is flowing to a provider with no name attached. Nobody sending it can check where it lands." And if the GLM attribution holds, that provider's parent was added to the U.S. Commerce Department's Entity List in January 2025.</p>
+<h2>The mask is the marketing</h2>
+<p>Ox Alpha is the fifth anonymous release in six months, and the previous four all resolved the same way. Pony Alpha became Zhipu's GLM-5 in about five days; Hunter Alpha became Xiaomi's MiMo-V2-Pro; Elephant Alpha became Ant Group's Lingxi Ling-2.6-flash; Owl Alpha ran unclaimed for two months before Meituan named it LongCat-2.0.</p>
+<p>The stated rationale is that anonymity strips brand bias out of evaluation. The practical effect is cheaper distribution than any launch event buys: a global developer audience in hours, the guessing game as free press, and frontier-scale usage data — long-context stability, tool-calling reliability under load — without the lab owning a single bad benchmark. The lack of a brand is the marketing.</p>
+<p>What the Ox Alpha cycle exposed is how badly that interacts with small-sample benchmarking. A 10-task run is a vibe check, not a measurement, and Davis flagged it as one. But an anonymous model with no leaderboard entry creates a vacuum, and the first number into a vacuum becomes the number. Ox Alpha still has no entry on Artificial Analysis or LMArena. The public DeepSWE leaderboard is led by Claude Opus 5 at 73.6%, GPT-5.6 Sol at 72.7% and Claude Fable 5 at 69.7% — with Ox Alpha absent.</p>
+<h2>What to watch</h2>
+<p>Whether anyone claims it after the free window closes around August 27 — the last four reveals took five days to two months. What it costs once the meter turns on, the only figure that tells you whether "frontier" was a spec or a tagline. And whether an independent leaderboard posts a full-set score before the next stealth model arrives and the cycle restarts with a fresh screenshot.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;I ran this thing through 10 tasks on DeepSWE (so there could be a ton of variance in it's real score, this is a subset), but uh... gpt-5.6-sol: 52% / fable: 65% / whatever the hell this is: 80%. I am very confused&rdquo;</blockquote><cite>&mdash; Ben Davis, Independent developer and benchmark researcher</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">1,048,576</div><div class="stat-label">Context window, tokens</div></div><div class="stat-cell"><div class="stat-value">80% → ~63%</div><div class="stat-label">DeepSWE subset vs full run</div></div><div class="stat-cell"><div class="stat-value">113</div><div class="stat-label">Tasks in the full DeepSWE set</div></div><div class="stat-cell"><div class="stat-value">$0</div><div class="stat-label">Price during the free week</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://siliconangle.com/2026/08/23/nobody-knows-who-built-ai-coding-model-ox-alpha-or-where-the-code-goes/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=siliconangle.com&amp;sz=32" alt="">SiliconANGLE</a><a href="https://decrypt.co/376396/mysterious-ai-model-ox-alpha" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=decrypt.co&amp;sz=32" alt="">Decrypt</a><a href="https://hyper.ai/en/stories/6b7b6399cf0e897a8c1b4147fe239ed7" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=hyper.ai&amp;sz=32" alt="">HyperAI</a><a href="https://www.winzheng.com/en/article/ox-alpha-stealth-openrouter-1m-context" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=winzheng.com&amp;sz=32" alt="">Winzheng</a></div></div>
+<div class="article-nav"><a href="05-quintessent-40m-optical-interconnect.html" class="nav-prev">&larr; Quintessent Raises $40M Betting One Laser Can Repl</a><a href="07-alibaba-wan3-video-10b-share-sale.html" class="nav-next">Alibaba Shipped Wan3.0 One Day After a $10.2 Billi &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 24, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
