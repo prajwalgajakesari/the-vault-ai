@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent Memory Became a Benchmark Category in 2026 — Then the Benchmarks Started Failing Their Own Audits &mdash; The Vault AI</title>
+<meta name="description" content="Agent memory now has a real leaderboard with forty-point gaps between systems, but independent audits show the dominant benchmark has a scoring bug rendering roughly a quarter of it unscorable — so the gaps may measure the test more than the systems.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.02rem}
+.article-body blockquote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--cat-color);color:var(--text-strong);font-style:italic}
+.article-body a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,132,252,.3)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem;border:0;padding:0}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Agent Memory Became a Benchmark Category in 2026 — Then the Benchmarks Started Failing Their Own Audits</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1066 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Agent memory now has a real leaderboard with forty-point gaps between systems, but independent audits show the dominant benchmark has a scoring bug rendering roughly a quarter of it unscorable — so the gaps may measure the test more than the systems.</p>
+</div>
+<div class="article-body">
+<p>In 2023, "agent memory" meant pasting the chat log back into the prompt. In 2026 it is a leaderboard, with gaps wide enough to look like generational leaps. Mem0's April algorithm update claims 92.5 on LoCoMo. Letta's filesystem-based approach sits at 74.0. OpenAI's built-in memory is carried at 52.9. Forty points of daylight on the same test.</p>
+<p>Those numbers deserve scrutiny, because over the same eighteen months a second literature emerged: papers whose entire contribution is showing that the memory benchmarks are broken. One found roughly a quarter of LoCoMo is unscorable by construction. Another found that harder questions collapse every system tested — including the leaders — to under 27 percent.</p>
+<h2>What the leaderboard says</h2>
+<p>The field consolidated fast around three tests: LoCoMo (1,540 scored questions over ten long synthetic conversations), LongMemEval (500 questions, six categories), and BEAM, which pushes to 1M and 10M token scales.</p>
+<p>Mem0's <em>State of AI Agent Memory 2026</em> report is the most-cited scoreboard, and its provenance matters. The headline figures — 92.5 on LoCoMo, 94.4 on LongMemEval, at roughly 6,956 tokens per retrieval call — are vendor-reported for an April 2026 algorithm that postdates the company's peer-reviewed ECAI 2025 paper. The report says so itself, instructing readers that the new numbers "should be attributed to Mem0's ongoing research... not to the 2025 paper itself."</p>
+<p>The two gains everyone keeps circling — <strong>+29.6 points on temporal queries and +23.1 on multi-hop</strong> — belong to that same update, measured against Mem0's own previous algorithm. They are a self-comparison, not a head-to-head.</p>
+<p>The published post also contains an unedited internal note. Beside OpenAI Memory's 52.9, the competitor table reads: "Figure carried over from Mem0's prior published benchmark content; confirm sourcing before publishing." That instruction shipped.</p>
+<h2>Three architectures, three theories of memory</h2>
+<p><strong>Vector recall</strong> — the incumbent — extracts facts, embeds them, and retrieves by cosine similarity. Mem0's 2026 revision hedges by fusing semantic similarity, BM25 keyword matching, and entity matching; notably, it <em>removed</em> external graph store support, trading a queryable graph interface for deployment simplicity.</p>
+<p><strong>Graph memory</strong> argues that similarity flattens structure. MAGMA, from Dongming Jiang, Yi Li, Guanpeng Li, and Bingzhe Li (ACL 2026 Main), puts it bluntly: existing approaches "largely rely on semantic similarity over monolithic memory stores, entangling temporal, causal, and entity information." MAGMA splits each memory item across four orthogonal graphs — semantic, temporal, causal, entity — and treats retrieval as policy-guided traversal.</p>
+<p><strong>Event-centric memory</strong> goes further. In <em>Memory Matters More: Event-Centric Memory as a Logic Map for Agent Searching and Reasoning</em> (Findings of ACL 2026), Yuyang Hu, Jiongnan Liu, Jiejun Tan, Yutao Zhu, and Zhicheng Dou of Renmin University segment experience into events and link them by explicit logical relations:</p>
+<blockquote>"This decision process operationalizes our key insight that topology carries logic: relations constrain exploration paths and guide reasoning over structured dependencies, rather than flat and isolated text."</blockquote>
+<p>Their CompassMem numbers are modest and honestly reported: average LoCoMo F1 of 52.18 on GPT-4o-mini against HippoRAG's 47.92, with the real gain on temporal questions (57.96 versus Mem0's 48.93). On open-domain questions it <em>loses</em> to both. Set that four-point delta beside the forty-point spread on the vendor leaderboard, and something is wrong with one of them.</p>
+<h2>The benchmark is the story</h2>
+<p>It is the vendor leaderboard. LoCoMo has been audited repeatedly, and it keeps failing.</p>
+<p>The most damaging finding comes from Samuel Sameer Tanguturi of Kenotic Labs, whose ATANT v1.1 paper traces an empty-gold scoring bug in LoCoMo's reference implementation. Because 444 of 446 adversarial-category questions have empty gold answers, those items cannot be scored at all:</p>
+<blockquote>"A system that refuses correctly is penalized identically to a system that hallucinates an answer."</blockquote>
+<p>That is ~23 percent of the corpus. Published LoCoMo "adversarial" rates, he concludes, "are not measurements of refusal behavior; they are measurements of a scoring function applied to a category it cannot score." Meanwhile, open issues on Mem0's own GitHub show practitioners unable to reproduce published scores locally.</p>
+<p>The answer key is suspect too. The Mnemosyne team at Kaliber AI audited gold answers and found LoCoMo asserting a character's degree was in political science when the same session shows him holding a certificate in graphic design. Their verdict: "the answers given by LoCoMo can be very inaccurate and the benchmark is inherently flawed."</p>
+<p>Then the ceiling problem. ConvoMem, from Salesforce AI Research (Egor Pakhomov, Erik Nijkamp, Caiming Xiong), notes that "simple filesystem operations achieved 74% accuracy on LoCoMo, matching or exceeding sophisticated memory systems," and finds that below 150 conversations, plain full-context prompting hits 70–82 percent while RAG-based systems including Mem0 manage 30–45. Sometimes the expensive memory layer is what's hurting you.</p>
+<p>The cleanest demonstration is LoCoMo-Plus (Yifei Li et al., Xi'an Jiaotong University and Tencent), which rebuilds the questions to test implicit constraints rather than stated facts. Every system falls off a cliff: Gemini 2.5 Pro drops from 71.78 to 26.06, Mem0 from 57.24 to 15.80, A-Mem from 59.64 to 17.20. The paper's indictment is unambiguous — task-disclosed prompting and string-matching metrics "can be systematically misleading, even for factual memory, by conflating memory fidelity with prompt adaptation and generation style."</p>
+<h2>"Memory" is five different things</h2>
+<p>Part of the confusion is definitional. The <em>Always-On Agents</em> survey (Tianyu Ding, Aditya Nannapaneni, Bingfan Liu, Ling Zhang, June 2026) coded 435 works and found the field measuring one slice of the problem. Persistent state, they argue, also includes "task ledgers, permissions, credentials, commitments, provenance and audit records, shared state, trigger conditions, and externally committed effects" — yet the literature "concentrates more heavily on accumulating and retrieving state than on governing, recovering, or relinquishing it."</p>
+<p>No benchmark on the leaderboard scores forgetting, rollback, or provenance. LoCoMo asks whether an agent can recall a fact from session 12. It does not ask whether the agent should have stored it, whether it can delete it on request, or what happens when that fact goes stale — which Mem0's own report lists as an open problem.</p>
+<h2>What to watch</h2>
+<p>Whether the LoCoMo scoring fix gets merged upstream; it had not been accepted as of ATANT's publication. Whether AOEP-v0, the Always-On survey's pilot protocol for scoring state mutation and recovery rather than answer quality, sees adoption. And most telling: whether any vendor publishes a LoCoMo-Plus number. The gap between 92.5 and 15.80 is the real state of agent memory in 2026, and only one of those figures appears in marketing.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;A system that refuses correctly is penalized identically to a system that hallucinates an answer.&rdquo;</blockquote><cite>&mdash; ATANT v1.1 (arXiv:2604.10981), Kenotic Labs</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">~23%</div><div class="stat-label">Share of LoCoMo unscorable by construction</div></div><div class="stat-cell"><div class="stat-value">57.24 → 15.80</div><div class="stat-label">Mem0 score, LoCoMo vs LoCoMo-Plus</div></div><div class="stat-cell"><div class="stat-value">74%</div><div class="stat-label">LoCoMo accuracy from plain filesystem ops</div></div><div class="stat-cell"><div class="stat-value">435</div><div class="stat-label">Works coded in the Always-On Agents survey</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2606.30306" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&amp;sz=32" alt="">arXiv — Always-On Agents</a><a href="https://arxiv.org/abs/2602.10715" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&amp;sz=32" alt="">arXiv — LoCoMo-Plus</a><a href="https://arxiv.org/abs/2601.04726" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&amp;sz=32" alt="">arXiv — Memory Matters More</a><a href="https://mem0.ai/blog/state-of-ai-agent-memory-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=mem0.ai&amp;sz=32" alt="">Mem0</a></div></div>
+<div class="article-nav"><a href="10-bedrock-agentcore-web-search-expansion.html" class="nav-prev">&larr; AWS Put a Price on Grounding: $7 per 1,000 Agent W</a><a href="12-dynamic-agent-topology-reasoning.html" class="nav-next">Multi-Agent Systems Are Wired Wrong. Two Papers Re &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 24, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
