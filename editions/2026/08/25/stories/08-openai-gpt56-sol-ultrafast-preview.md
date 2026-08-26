@@ -1,0 +1,29 @@
+OpenAI’s fastest way to run its smartest model does not run on OpenAI’s hardware. It runs on a wafer-scale chip the size of a dinner plate, built in Sunnyvale. On August 13, OpenAI opened a limited preview of Ultrafast, which it describes as “a new service tier that runs GPT‑5.6 Sol up to 14× faster than Standard processing, launching first in the OpenAI API.” The headline number is 14×. The number underneath it is up to 750 output tokens per second. But the line that actually explains the product is the one OpenAI puts in its own subheading: “Powered by Cerebras.”
+
+That is worth pausing on, because it collapses two stories into one. Ultrafast is not a distilled Sol, not a quantized Sol, not a speed-for-quality trade. It is the identical GPT‑5.6 Sol served off different silicon and sold under a product name. Strip the branding and Ultrafast is the Cerebras partnership with a signup form attached — which is why the most interesting questions about it are not about speed at all, but about supply and price.
+
+## A three-speed rate card, with one rung missing
+
+OpenAI now sells Sol at three speeds. Standard is the baseline. Fast mode, which replaced Priority Processing in July 2026, runs roughly 2.5× quicker for exactly 2× the price. Ultrafast sits far above both. Appwrite’s teardown back-solves the ladder from OpenAI’s own figures at roughly 54 output tokens per second on Standard, about 134 on Fast, and up to 750 on Ultrafast — the first two implied rather than published, and worth treating as directional. The ratio is the durable part: Ultrafast is about 5.6× faster than the tier that was already the premium option. A 2,000-token answer that takes about 37 seconds on Standard lands in under three.
+
+What Ultrafast costs is the one thing nobody will say. OpenAI has published no Ultrafast rate, and the preview is gated by invitation rather than by a price page. This is where the tier gets conflated with a separate August event. On August 21, OpenAI cut Sol’s Standard API pricing — input from $5.00 to $4.00 per million tokens, output from $30.00 to $20.00, cached input from $0.50 to $0.40. That is a 20% input cut and a one-third output cut, and it landed eight days *after* the Ultrafast preview. Read OpenAI’s wording carefully: promotional pricing is available “at least through November 21, 2026.” That is a floor, not an expiration. The two announcements are not the same story, and the cheaper Sol you can buy today is the slow one.
+
+## The wafer is the product
+
+Cerebras published its side the same day. Its argument is architectural: frontier inference is a data-movement problem, and on GPUs large-model generation is bottlenecked by shuttling weights between on-chip memory and off-chip storage. Cerebras packs 44 GB of SRAM onto each wafer-scale chip so weights stay resident and tokens pipeline across wafers. That is the whole 14×.
+
+The vendor benchmarks are self-reported and should be read as such. Cerebras says Sol on Ultrafast answered all 2,500 questions on Humanity’s Last Exam in 11 hours and 11 minutes, against 78 hours and 27 minutes for Claude Fable 5 — roughly 7× faster at comparable accuracy — and claims a 5.6× end-to-end speedup on GDP-Val with no quality degradation.
+
+Preview customers are talking about latency budgets rather than benchmark tables. “Ultrafast allows us to create synchronous experiences for users that were previously limited by intelligence,” said Mitch Troyanovsky, co-founder of Basis. “Oftentimes the barrier to truly fast products is not just tokens per second, but also model intelligence, and ultrafast combines both.” Podium’s voice lead, Courtland Lykins, was blunter about where the tier earns its keep: “For us the Ultrafast has been invaluable in our voice stack. The speed completely changes the call experience for the more complex work.”
+
+## Why It Matters
+
+A paid interactivity tier is quietly becoming a standard layer of the frontier rate card, and the market has converged on a rough exchange rate. Anthropic prices Claude Opus 4.8 Fast at $10/$50 per million tokens against $5/$25 on standard — 2× the money for about 2.5× the speed. OpenAI’s own Fast mode landed on the same 2× multiplier. Ultrafast breaks that pattern by an order of magnitude, and the reason it has no sticker is almost certainly that it cannot yet be sold at volume. OpenAI says access expands “as capacity grows.” Cerebras says the same. When a tier is capacity-gated rather than price-gated, the price is the last thing announced, not the first.
+
+There is a less flattering reading, too. Specialized inference silicon has posted eye-watering throughput on open 70B-class models for two years — Groq around 750 tokens per second on Llama 3.3 70B, Cerebras roughly 2,100 — without dislodging GPU-served frontier models from production. What is new here is not 750 tokens per second. It is 750 tokens per second on a closed frontier model, through the same API surface developers already use, with no model swap. That is a distribution change more than a hardware one.
+
+One caveat for buyers: at 750 tokens per second, the model may stop being the slowest part of the request. Ultrafast only pays for itself where measured generation latency actually dominates p95.
+
+## What to Watch
+
+Three things. First, whether OpenAI publishes an Ultrafast rate at all, or keeps it inside enterprise contracts where the multiple never becomes public — today, no one outside the preview knows what 14× costs. Second, whether the tier leaves the API; Ultrafast is API-only, while in ChatGPT Sol starts at Plus and Luna is the default for Free and Go users. Third, and most consequential: TechCrunch published benchmarks on August 25 for OpenAI’s own Jalapeño chip, built for fast inference at scale. If that silicon lands, the question becomes whether Ultrafast is a Cerebras product wearing an OpenAI label, or an OpenAI tier that Cerebras is renting out until the landlord builds its own.
