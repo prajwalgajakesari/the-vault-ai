@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Thomson Reuters Spent $40 Million to Build Its Own LLM. The Final Training Run Cost $450,000. — The Vault AI</title>
+<meta name='description' content='Thomson Reuters post-trained an open-weight base on Westlaw, Practical Law, Checkpoint and Reuters content for about $40M over two years, with a final training run near $450,000, showing vertical incu'>
+<link href='https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap' rel='stylesheet'>
+<style>:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body .md-quote{margin:0 0 1.3rem 0;padding-left:1rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.35}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+</style></head><body>
+<div class='progress-bar' id='pb'></div>
+<nav><a href='../index.html'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><line x1='19' y1='12' x2='5' y2='12'/><polyline points='12 19 5 12 12 5'/></svg> Back</a><span class='brand'>THE VAULT</span></nav>
+<header class='article-header'>
+<span class='cat-tag'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><line x1='12' y1='1' x2='12' y2='23'/><path d='M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6'/></svg> Business</span>
+<h1>Thomson Reuters Spent $40 Million to Build Its Own LLM. The Final Training Run Cost $450,000.</h1>
+<div class='meta-row'><span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><polyline points='12 6 12 12 16 14'/></svg> 4 min read</span><span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 20h9'/><path d='M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z'/></svg> 999 words</span><span>4 sources</span></div>
+</header>
+<div class='takeaway'><div class='label'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/></svg> KEY TAKEAWAY</div><p>Thomson Reuters post-trained an open-weight base on Westlaw, Practical Law, Checkpoint and Reuters content for about $40M over two years, with a final training run near $450,000, showing vertical incumbents can own a domain model instead of renting frontier API tokens.</p></div>
+<div class='article-body'>
+<p>Thomson Reuters spent about $40 million over two years to build its own large language model. The number it wants the industry to sit with is far smaller: roughly $450,000, the cost of the final training run that produced the model it launched on August 24.</p>
+<p>The model is called Thomson — formally Thomson 1.0 — and it is the first proprietary LLM in the 175-year history of the Toronto-based content and technology group. It was not built from scratch: Thomson Reuters started from an open-source foundation, most recently Alibaba's Qwen 3.5, then mid-trained and post-trained it on decades of proprietary material from Westlaw, Practical Law, Checkpoint and Reuters, with hundreds of in-house lawyers and tax professionals shaping the training objectives and grading the outputs. The result, the company says, is a specialist that competes with models that cost several orders of magnitude more to produce.</p>
+<p>“For years, the AI industry has treated scale as the answer: bigger models, more compute, more money. Thomson shows there is another path,” said Joel Hron, chief technology officer at Thomson Reuters, in the launch announcement. “Start with a strong foundation, specialize it deeply for the work that matters, and you can build intelligence that is highly capable, far more efficient and entirely under your control. We think that changes the economics of professional AI.”</p>
+<h2>The $450,000 line item</h2>
+<p>The $40 million figure covers talent and compute across the full program, which traces back to Thomson Reuters' 2024 acquisition of the UK AI startup Safe Sign Technologies. The $450,000 is narrower and more provocative: it is what it cost, in compute, to run the final training pass on the version shipping now. Hron disclosed it during a press briefing ahead of the launch.</p>
+<p>“This $450,000 number I think is indicative of what we were able to do with our data and content on top of world-class open source models,” Hron said.</p>
+<p>That framing matters because the open-source starting point is disposable by design. Hron said the team has swapped its base model “close to a half dozen times” as better open weights appeared. Jonathan Schwarz, Thomson Reuters' head of foundational research, argued the durable asset is the pipeline, not the checkpoint: “The bigger finding here is less the individual model and more the model factory we built.”</p>
+<p>Thomson's first production job is Tabular Analysis in the next release of CoCounsel Legal, a feature that reviews up to 10,000 documents against up to 100 questions at once and returns a filterable table with every answer traceable to source. Thomson will be the default model there, though administrators can switch it out. CoCounsel stays multi-model, still routing other work to OpenAI, Anthropic and Google systems.</p>
+<h2>The benchmark picture, with caveats</h2>
+<p>Thomson Reuters says Thomson performed competitively with Claude Opus 4.8 and ahead of GPT-5.5, Claude Sonnet 5 and Gemini 3.1 Pro across its evaluation suite, which spans more than 100 legal-domain benchmarks. Its headline result is a 0.352 top score on PrBench Legal Hard, which the company says leads every frontier model it tested.</p>
+<p>The fuller picture is more mixed, and Thomson Reuters published enough to see it. The model trails Gemini 3.1 Pro and GPT-5.5 on Stanford's LegalBench, sits just behind Opus 4.8 on the Harvey Legal Agent Benchmark, and falls off sharply on coding. On its internal Deep Research benchmark, Thomson scored 0.53 on factuality with web access only against 0.65 for a GPT-5 series comparator, and pulled ahead 0.83 to 0.82 only once both could query Thomson Reuters content.</p>
+<p>Andrew Bean, who leads evaluations, was candid about the web-only result: Thomson was “within the scope of the other models, but certainly not the leader yet.” The uplift, he said, “comes from being able to train on and practice with your own tools.” Independent validation is pending; the company has begun handing the model to academics and is releasing a small open-weight variant on Hugging Face under a non-commercial academic license.</p>
+<h2>Why It Matters</h2>
+<p>This is the clearest data point yet for a thesis that has been circulating for a year: vertical incumbents do not need to buy frontier API tokens forever. They need three things — an exclusive corpus, a standing army of experts who can generate preference data and judge outputs, and workflows where quality is objectively measurable. Thomson Reuters has all three. Westlaw alone spans more than 40,000 databases and 150 years of editorial curation.</p>
+<p>The economics follow. High-volume, structured work like document review is where per-token frontier pricing hurts most and where a smaller specialist pays for itself. Owning the model also turns product work into compounding capital: every expert review becomes training data, which Hron likened to “renting a house versus buying a house.” Rented intelligence leaves that value at the provider.</p>
+<p>The caution is that the moat is narrower than the headline suggests. Thomson Reuters' own numbers show a general-purpose model improves nearly as much once given the same content. That is still a moat — the content is proprietary — but it is a licensing moat as much as a modeling one, and the playbook is copyable by any regulated-industry incumbent: post-train open weights on a corpus nobody else can buy.</p>
+<h2>What to Watch</h2>
+<p>Three things. First, the technical report and the academic evaluations now underway at Queen's and Washington University, which will show whether the benchmark claims survive outside scrutiny. Second, whether Thomson takes what Hron predicts will be “a bigger and bigger share of the tokens” inside CoCounsel, or stays parked in one feature. Third, licensing: Thomson Reuters says it is in early talks with large law firms and corporations about direct access, and Hron's line that it “could also become infrastructure for others” is a quiet declaration of war on the very frontier labs whose APIs still run most of CoCounsel. If a legal publisher can build a competitive domain model for $40 million, the question every vertical software company will be asked next quarter is why it hasn't.</p>
+<div class='pull-quote' style='border-left:2px solid #e8a735'><blockquote>“For years, the AI industry has treated scale as the answer: bigger models, more compute, more money. Thomson shows there is another path.”</blockquote><cite>— Joel Hron, Chief Technology Officer, Thomson Reuters</cite></div>
+<div class='data-strip' style='border-top:1px solid #e8a73533'><div class='stat-cell'><div class='stat-value'>$40M</div><div class='stat-label'>Invested over two years in talent and compute</div></div><div class='stat-cell'><div class='stat-value'>$450,000</div><div class='stat-label'>Cost of the final training run</div></div><div class='stat-cell'><div class='stat-value'><10%</div><div class='stat-label'>Share of proprietary content used in training so far</div></div><div class='stat-cell'><div class='stat-value'>10,000</div><div class='stat-label'>Documents Tabular Analysis handles in one run</div></div></div>
+</div>
+<div class='sources'><h3>Sources</h3><div class='source-list'><a href='https://www.thomsonreuters.com/en/thomson-llm' target='_blank' rel='noopener'><img src='https://www.google.com/s2/favicons?domain=thomsonreuters.com&sz=32' alt=''>Thomson Reuters</a><a href='https://www.lawnext.com/2026/08/thomson-reuters-launches-thomson-its-own-proprietary-llm-trained-on-westlaw-and-practical-law-content.html' target='_blank' rel='noopener'><img src='https://www.google.com/s2/favicons?domain=lawnext.com&sz=32' alt=''>LawSites</a><a href='https://siliconangle.com/2026/08/24/thomson-reuters-launches-proprietary-ai-model-for-legal-work/' target='_blank' rel='noopener'><img src='https://www.google.com/s2/favicons?domain=siliconangle.com&sz=32' alt=''>SiliconANGLE</a><a href='https://legaltechnology.com/thomson-reuters-launches-proprietary-legal-llm-thomson/' target='_blank' rel='noopener'><img src='https://www.google.com/s2/favicons?domain=legaltechnology.com&sz=32' alt=''>Legal IT Insider</a></div></div>
+<div class='article-nav'><a href='03-nebius-45b-ai-cloud-raise.html' class='nav-prev'>← Nebius Asked the Bond Market for $4.5 Billion and Pr</a><a href='05-toyota-50-production-agents.html' class='nav-next'>Toyota North America Says It Has 50 AI Agents in Pro →</a></div>
+<footer>The Vault — AI Edition · Published August 25, 2026</footer>
+<script>window.addEventListener('scroll',function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById('pb').style.width=(s>0?t/s*100:0)+'%';});</script>
+</body></html>
