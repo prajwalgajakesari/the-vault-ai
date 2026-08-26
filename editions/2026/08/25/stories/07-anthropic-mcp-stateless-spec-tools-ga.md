@@ -1,0 +1,31 @@
+The most consequential change to the Model Context Protocol in its 18-month life is a deletion. On July 28, MCP's lead maintainers published spec revision 2026-07-28 and took out the handshake: the initialize/initialized exchange and the Mcp-Session-Id header that every remote MCP server has had to track since remote servers first shipped. What is left is a plain request/response protocol in which each call is self-describing and, as the release notes put it, "any request can land on any server instance behind a plain round-robin load balancer."
+
+Three weeks later, Anthropic shipped the commercial half of the story. On Aug. 20 the company moved computer use, a new browser use tool, the Skills API and the Files API out of beta and into general availability on the Claude Platform, all on the same day. It opened Claude Academy, a free learning hub with courses and completion badges, the same afternoon.
+
+"The new release is MCP's most important since remote MCP first launched over a year ago," said David Soria Parra, a member of technical staff at Anthropic and co-inventor of the protocol, in the specification announcement. "It is a leap in serving scalable MCP servers and takes all the lessons learned over the last 18 months to provide a robust foundation for MCP's future."
+
+## What actually changed in the spec
+
+Sessions are gone, replaced by an optional server/discover call for clients that want capabilities up front. Servers that genuinely need state across calls are told to mint an explicit handle from a tool and let the model pass it back as an ordinary argument. Streamable HTTP requests must now carry two headers, Mcp-Method and Mcp-Name, so a gateway, rate limiter or WAF can route and meter agent traffic on the tool name without parsing a JSON body. Responses from tools/list and resources/list carry ttlMs and cacheScope hints and a deterministic order, letting clients cache tool catalogs across reconnects.
+
+Elicitation had to be rebuilt to survive the change. Server-initiated requests previously required a held-open bidirectional stream; they now run through Multi Round-Trip Requests, in which the server returns a result type of "input_required" and the client retries the original call with answers attached. Roots, sampling, logging and the legacy HTTP+SSE transport are all formally deprecated, each with a minimum twelve-month off-ramp. Authorization servers are now expected to return the iss parameter per RFC 9207, and Dynamic Client Registration is deprecated in favor of Client ID Metadata Documents. The TypeScript, Python, Go and C# SDKs all speak the new revision; Rust supports it in beta. Anthropic says those Tier 1 SDKs are approaching half a billion downloads a month.
+
+## The tools that left beta
+
+The updated computer use tool lets Claude take several actions per turn rather than one per model call, and is now eligible for HIPAA-regulated workloads under a business associate agreement. The browser use tool is genuinely new rather than a rename: alongside a screenshot it reads page structure, so an agent targets a named field or button instead of a pixel coordinate. The Skills API adds uploading and versioning for private skills that run in Claude's code execution sandbox, and the Files API gained automatic expiration, five times higher rate limits and 1 TB of storage per organization. Skills and Files are also live on Microsoft Foundry.
+
+"Our agents work inside healthcare and insurance systems that have no API," said Davide Locatelli, a research engineer at Asteroid, in Anthropic's launch post. "On the new computer use tool, our longest claims workflow went from 32 minutes to 13, cost per task fell about 30% across every workflow we tested, and completion hit 100%, with no changes to our prompts."
+
+One widely repeated figure does not hold up. Reports that Anthropic's connector directory has passed 950 servers could not be verified; Anthropic publishes no running count, and the most recent independent tally in August put the directory at roughly 440 listings.
+
+## Why It Matters
+
+Statelessness sounds like a protocol-nerd detail. It is actually the economics of the entire ecosystem. A stateful MCP server pins a client to whichever instance holds its session, which means sticky routing, session draining on every deploy, shared storage for state, and autoscaling that cannot simply add capacity. That is a standing operations budget, and a large part of why so many MCP servers have been demos rather than services. Strip the session out and an MCP server becomes an ordinary HTTP workload: it runs serverless, it runs at the edge, it scales behind a load balancer nobody had to configure specially, and its marginal cost collapses toward that of any other REST endpoint.
+
+That, far more than model capability, is the real gate on adoption. Anthropic's tool GA gives enterprises agents that can operate software with no API; the spec gives the vendors on the other end a way to expose their systems without staffing an infrastructure team to do it. Partners quoted in the release said as much, with Craig McLuckie writing that the move to a stateless model "removes operational complexity and unlocks MCP at enterprise scale."
+
+The skeptics have a point worth keeping. On Hacker News, commenter luciana1u summarized the release acidly: "we invented a stateful protocol, discovered state is hard to scale, stripped it out, and arrived at 'just send a POST request.'" If MCP is converging on REST plus a schema convention, its remaining moat is that model providers blessed it and models were trained to use it. Narrower than the early rhetoric, but probably enough.
+
+## What to Watch
+
+The migration is the story now. Teams running sessionful servers must stand up a stateless route beside the old one, move features across, drain sessions and delete the legacy path inside a twelve-month window; Dynamic Client Registration is slated for removal after summer 2027. Watch whether the promised cost drop shows up as more servers actually listed and used, or whether, as one consultancy audit circulated this month argued, the money keeps flowing to gateways, registries and auth layers rather than to the servers themselves.
