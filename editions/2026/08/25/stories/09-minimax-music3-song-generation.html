@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>MiniMax Open-Sourced a Model That Writes a Five-Minute Song in One Pass — The Vault AI</title>
+<meta name='description' content='MiniMax released downloadable weights for a model that generates complete five-minute songs at 32 kHz stereo in a single pass on as little as 8 GB of VRAM, and published no training-data disclosure at'>
+<link href='https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap' rel='stylesheet'>
+<style>:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body .md-quote{margin:0 0 1.3rem 0;padding-left:1rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.35}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+</style></head><body>
+<div class='progress-bar' id='pb'></div>
+<nav><a href='../index.html'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><line x1='19' y1='12' x2='5' y2='12'/><polyline points='12 19 5 12 12 5'/></svg> Back</a><span class='brand'>THE VAULT</span></nav>
+<header class='article-header'>
+<span class='cat-tag'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/></svg> Llms Genai</span>
+<h1>MiniMax Open-Sourced a Model That Writes a Five-Minute Song in One Pass</h1>
+<div class='meta-row'><span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><polyline points='12 6 12 12 16 14'/></svg> 5 min read</span><span><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 20h9'/><path d='M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z'/></svg> 1024 words</span><span>4 sources</span></div>
+</header>
+<div class='takeaway'><div class='label'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/></svg> KEY TAKEAWAY</div><p>MiniMax released downloadable weights for a model that generates complete five-minute songs at 32 kHz stereo in a single pass on as little as 8 GB of VRAM, and published no training-data disclosure at all.</p></div>
+<div class='article-body'>
+<p>MiniMax pushed the weights for a complete song generator onto Hugging Face on August 13, and the detail that made engineers stop scrolling was not the vocals. It was the shape of the output: one WAV file, 32 kHz, 16-bit stereo, up to five minutes long, produced in a single pass — no stitching of 30-second clips, no crossfade seams where a chorus is supposed to land.</p>
+<p>MiniMax-Music3 takes two inputs and returns a finished track. The first is lyrics, with structural tags such as [Verse], [Pre-Chorus], [Chorus], [Bridge] and [Solo] on their own lines. The second is a music description, which MiniMax recommends writing as a Structured Caption in three parts: Global Metadata (genre, BPM, key, emotional progression, production profile), Vocal Details (gender, timbre, performance style, harmony, effects) and Arrangement (instruments, section-level instrument evolution, groove, percussion, spatial effects). The company also ships a music-caption-rewriter agent skill that expands a one-line description into that format.</p>
+<p>“Music 3.0 focuses on the aspects of music creation that are hardest to capture with a simple prompt,” MiniMax wrote in its research post: “understanding the creator’s expressive intent; sustaining that intent across a complete song of up to five minutes; rendering instruments with clarity and physical realism; and generating vocals that sound performed rather than synthesized.”</p>
+<h2>Two Models and a Continuous Tail</h2>
+<p>The architecture is a split-brain language stack feeding a continuous synthesis path. An 8B Global LLM predicts the first residual vector quantization (RVQ) codebook frame by frame and carries the song’s long-range structure; a 0.6B Local LLM fills in the remaining acoustic codebooks inside each frame. The training tokenizer runs eight RVQ layers — a 16,384-entry semantic codebook plus seven acoustic codebooks of 1,024 entries each.</p>
+<p>The interesting move happens at the end. Rather than decoding from discrete tokens, Music3 fuses the final hidden states of both language models and conditions a 2.4B flow-matching module on them, with a 123M Flow-VAE decoder — inherited from MiniMax Speech, retrained for musical dynamic range — reconstructing the waveform. At inference the discrete tokenizer’s decoder is not loaded at all. “Vocals are often where the synthetic character of generated music is most apparent,” the company wrote, arguing that continuous features preserve articulation and breath detail that quantized tokens throw away. One detail stays unsettled: the model card and license say the Global LLM was initialized from Qwen3-8B, while MiniMax’s research post says Qwen3.5-8B.</p>
+<p>It also actually runs. SGLang-Omni is the reference server; a diffusers pipeline fits full precision under 24 GB of VRAM, and down to 8 GB with group offloading and a heavy latency penalty. ComfyUI shipped a native text-to-music template on day one. “Another big day for the open source community!” wrote Rob at Comfy Org. The limits are concrete: CUDA required, no streaming generation, prompts capped at 5,000 tokens, audio capped at 9,000 frames at 25 frames per second. “Would be helpful if I could train on LoRA on this… seems to take everything I make and turn it into a rap song,” one commenter posted under Comfy’s announcement on release day.</p>
+<h2>The License Says a Lot, and Nothing</h2>
+<p>The MiniMax-Music3 Community License grants broad rights to use, copy, modify, distribute and sublicense the weights. Commercial use is permitted so long as you “prominently display ‘MiniMax-Music3’ on the user interface” of the product, and any organisation whose aggregate yearly revenue from those products exceeds US$20 million must obtain separate prior written authorisation from MiniMax.</p>
+<p>Clause 4 pushes the harder problem downstream. Anyone offering a hosted service that generates outputs must “implement, maintain, test, and periodically review reasonable and proportionate technical and organizational safeguards designed to prevent and mitigate” outputs that “infringe, misappropriate, or otherwise violate any third party’s intellectual-property or other rights.”</p>
+<p>What the license does not do is say what the model was trained on. It credits Qwen3-8B (Apache 2.0), Stable Audio’s code for the DiT and Descript’s audio codec for the VAE (both MIT). That is code provenance, not music provenance. There is no dataset disclosure, no opt-out statement, no licensing partner named.</p>
+<h2>Why It Matters</h2>
+<p>That silence arrives in a specific legal moment. Warner Music Group settled with both Suno and Udio in November 2025 and signed licensing deals; Universal settled with Udio on a per-generation royalty reported at $0.002 to $0.005. Sony and Universal are still litigating against Suno, and in May 2026 moved to expand their case from 560 recordings to 61,026 after discovery. A Munich court in the GEMA case found works had been memorised in Suno models and could be substantially reconstructed from short prompts.</p>
+<p>The industry’s answer so far has been to license the platform. Music3 is not a platform. It is roughly 11 billion parameters of files that run on a single consumer GPU, and once downloaded it cannot be deprecated, retrained under a settlement, or audited by a plaintiff. Suno’s current models are slated for deprecation in 2026 as licensed replacements arrive; nobody deprecates anything sitting on a hard drive in Lagos or Lisbon. Hands-on comparisons put Music3 roughly in the range of an older Suno V3.5 — clearer on vocals and lyric timing than prior open-source music models, thinner than Suno V5 on instrumental texture. For background scoring, game audio, ad beds and demo tracks, that is past the threshold that matters.</p>
+<p>Note also what MiniMax chose not to do. Its omni-modal video model H3 launched July 31 and open-sourced base weights on August 3 under a license excluding open-weight use in the United States, European Union, United Kingdom and South Korea. Music3’s license carries no such territorial carve-out.</p>
+<h2>What to Watch</h2>
+<p>Whether any rightsholder tests Clause 4 — the safeguards obligation is the only infringement backstop in the document, and it has never been litigated. Whether MiniMax publishes anything at all about training data, which it has so far declined to do. And whether fine-tunes appear: the model card documents no fine-tuning procedure, and the first request in the ComfyUI comments was for LoRA support. The moment someone trains one to imitate a named artist on weights nobody controls, this stops being a tooling story and becomes a legal one.</p>
+<div class='pull-quote' style='border-left:2px solid #a78bfa'><blockquote>“Music 3.0 focuses on the aspects of music creation that are hardest to capture with a simple prompt: understanding the creators expressive intent; sustaining that intent across a complete song of up to five minutes; rendering instruments with clarity and physical realism; and generating vocals that sound performed rather than synthesized.”</blockquote><cite>— MiniMax, MiniMax Music 3.0 research post, August 13, 2026</cite></div>
+<div class='data-strip' style='border-top:1px solid #a78bfa33'><div class='stat-cell'><div class='stat-value'>8B + 0.6B</div><div class='stat-label'>Global plus local LLM in the hybrid stack</div></div><div class='stat-cell'><div class='stat-value'>32 kHz</div><div class='stat-label'>16-bit stereo output, up to five minutes in one pass</div></div><div class='stat-cell'><div class='stat-value'>8 GB</div><div class='stat-label'>Minimum VRAM with group offloading</div></div><div class='stat-cell'><div class='stat-value'>61,026</div><div class='stat-label'>Recordings added to the labels case against Suno</div></div></div>
+</div>
+<div class='sources'><h3>Sources</h3><div class='source-list'><a href='https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model' target='_blank' rel='noopener'><img src='https://www.google.com/s2/favicons?domain=minimax.io&sz=32' alt=''>MiniMax Research</a><a href='https://huggingface.co/MiniMaxAI/MiniMax-Music3' target='_blank' rel='noopener'><img src='https://www.google.com/s2/favicons?domain=huggingface.co&sz=32' alt=''>Hugging Face</a><a href='https://www.marktechpost.com/2026/08/17/minimax-releases-minimax-music3/' target='_blank' rel='noopener'><img src='https://www.google.com/s2/favicons?domain=marktechpost.com&sz=32' alt=''>MarkTechPost</a><a href='https://www.musicbusinessworldwide.com/warner-music-group-settles-with-suno-strikes-first-of-its-kind-deal-with-ai-song-generator/' target='_blank' rel='noopener'><img src='https://www.google.com/s2/favicons?domain=musicbusinessworldwide.com&sz=32' alt=''>Music Business Worldwide</a></div></div>
+<div class='article-nav'><a href='08-openai-gpt56-sol-ultrafast-preview.html' class='nav-prev'>← OpenAIs Ultrafast Mode Runs GPT-5.6 Sol 14x Faster. </a><a href='10-kimi-k3-harvey-enterprise-adoption.html' class='nav-next'>Harvey Built Its Flagship Legal Model on Kimi K3, an →</a></div>
+<footer>The Vault — AI Edition · Published August 25, 2026</footer>
+<script>window.addEventListener('scroll',function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById('pb').style.width=(s>0?t/s*100:0)+'%';});</script>
+</body></html>
