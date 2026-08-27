@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI's Jalapeno Chip Claims 1.9x Blackwell's Work Per Watt, On OpenAI's Own Numbers &mdash; The Vault AI</title>
+<meta name="description" content="OpenAI's first custom inference ASIC posts 1.5x to 1.9x better throughput per kilowatt than Nvidia's Blackwell racks in benchmarks OpenAI ran itself, but the comparison excludes newer Nvidia hardware and rests on normalization choices that need scrutiny.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body blockquote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--cat-color);color:var(--text-strong);font-style:italic}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>OpenAI's Jalapeno Chip Claims 1.9x Blackwell's Work Per Watt, On OpenAI's Own Numbers</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1008 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI's first custom inference ASIC posts 1.5x to 1.9x better throughput per kilowatt than Nvidia's Blackwell racks in benchmarks OpenAI ran itself, but the comparison excludes newer Nvidia hardware and rests on normalization choices that need scrutiny.</p>
+</div>
+<div class="article-body">
+<p>Nine days after Nvidia agreed to backstop up to $105 billion in financing for an OpenAI-leased data center campus in Ohio, OpenAI walked onstage at Hot Chips in Santa Clara and told the room its own silicon beats Nvidia's. On Tuesday, August 25, the company published the first benchmark results for Jalapeño, the inference ASIC it co-designed with Broadcom, claiming 1.5x to 1.9x more throughput per kilowatt and 1.7x to 3.6x lower end-to-end latency than Nvidia's GB200 NVL72 and GB300 NVL72 rack systems. For highly interactive workloads, OpenAI put the gap at 2.1x to 4.1x. The numbers ricocheted through the market a day before Nvidia's earnings call.</p>
+<p>Jalapeño is a 700W part going up against accelerators rated at 1,200W and 1,400W. Each package pairs its compute die with six HBM4 stacks totaling 216 GiB at 15.4 TB/s; the GB300 carries 288GB of slower HBM3E at 1,400W, so per watt of rated power OpenAI's chip carries roughly 50% more memory. The tests ran on SemiAnalysis's public InferenceX suite across three open models — GPT-OSS 120B, DeepSeek R1 670B, and Moonshot's 1-trillion-parameter Kimi K2.5 — with the widest margins at low-latency operating points, where OpenAI claims 8.6x to 104.3x more throughput per kilowatt at the GB300's fastest previous time-between-tokens settings.</p>
+<p>These are vendor-supplied results. OpenAI ran the benchmarks and produced the numbers; SemiAnalysis says it executed InferenceX alongside OpenAI engineers in OpenAI's own lab and verified some runs on-site. That is more third-party contact than most first-party chip claims get, and less than independent testing. SemiAnalysis was unequivocal in its writeup, describing the part as "beating every Nvidia, AMD, and Google chip we have been able to test." Its CEO, Dylan Patel, posted that "Usually first generation chips aren't competitive, but OpenAI is beating Nvidia Blackwell and even Rubin."</p>
+<h2>What Work Per Watt Does and Does Not Measure</h2>
+<p>Throughput per kilowatt is tokens generated per unit of electrical power. It is the right metric for an industry whose binding constraint has shifted from wafers to substations, and it is where a purpose-built inference ASIC should beat a general-purpose GPU. But the normalization choices matter, and OpenAI made several that cut in different directions.</p>
+<p>OpenAI normalized to each accelerator's published package TDP rather than measured draw, even though it says Jalapeño's sustained power stayed at or below 550W in testing — a choice that understates its own advantage. An appendix using all-in utility power per accelerator, 1.18 kW for Jalapeño against 2.55 kW for the GB300, produces narrower gaps. So does pitting Jalapeño against a GB300 running multi-token prediction, where the peak efficiency lead shrinks to roughly 1.5x. The headline comparisons ran Jalapeño's single-token prediction against GB300 configurations doing the same, and excluded speculative decoding, even though production Nvidia deployments commonly use those optimizations.</p>
+<p>Then there is what the metric ignores entirely. Perf/watt says nothing about capital cost per token, nothing about total cost of ownership — SemiAnalysis puts Jalapeño and Vera Rubin roughly even there — and nothing about training, the workload where Nvidia remains unchallenged and where Jalapeño does not compete at all. Crucially, Jalapeño was not benchmarked against Vera Rubin, the platform slated to power the first gigawatt of Nvidia systems OpenAI itself agreed to deploy in the second half of 2026. Nvidia and AMD have already published results on larger models, including DeepSeek V4 Pro and Kimi K3, that Jalapeño has not run.</p>
+<p>Analysts split accordingly. Adrien Sanchez of Yole Group told CNBC the results show a "hyperscaler-designed chip can now match or beat Nvidia's Blackwell-class GPUs on inference efficiency," calling it a threat to Nvidia's inference margins. Omdia senior principal analyst Alexander Harrowell called Jalapeño an "impressive achievement, most of all in terms of efficiency." TrendForce's Fion Chiu was more measured: the chip cuts reliance on Nvidia for inference, but for compute-intensive training, "Nvidia GPUs will remain important."</p>
+<h2>Why It Matters</h2>
+<p>The engineering timeline may be the more consequential disclosure. Design work began in mid-2024 and the final design went to fabrication in November 2025 — about 16 months end to end, with OpenAI saying only nine months elapsed from first chip design to tapeout-ready blueprint. OpenAI used its own models throughout: older generations assisting chip design, newer ones accelerating the software bring-up. SemiAnalysis drew the obvious conclusion, writing that "The CUDA moat is potentially dead given how fast OpenAI can bring up new models on their silicon." If a lab can stand up a competitive inference stack on new silicon in months rather than years, the software lock-in that has protected Nvidia's pricing power for a decade is a depreciating asset.</p>
+<p>The economics remain tangled. Jalapeño is built on a TSMC 3nm-class process, keeping OpenAI queued for the same wafers, HBM allocation and advanced packaging as Blackwell and Rubin. Scaling it across the 10-gigawatt agreement OpenAI signed with Broadcom last October would make the company a major new claimant on HBM4 supply Nvidia dominates through multi-year deals with SK hynix — in a market where Micron told the same conference on August 23 that HBM consumes roughly three times the wafer area of DDR5 for equivalent capacity, and where Nvidia CFO Colette Kress warned Wednesday that memory prices will push gross margin down to 71% to 72% by the fourth quarter of fiscal 2027. Richard Ho, OpenAI's vice president of hardware, put the relationship plainly to Bloomberg after the Nvidia financing deal: "Nvidia is a really good partner, and we continue to need a lot of Nvidia."</p>
+<p>Watch three things. First, whether Jalapeño moves past engineering samples: OpenAI plans small-volume deployment in its own data centers by the end of 2026 with a broader rollout in 2027, while Rubin systems are already shipping to customers. Second, whether anyone runs InferenceX on Jalapeño against Vera Rubin without OpenAI in the room. Third, the second-generation part, which Bloomberg reports is approaching tapeout within months, with concept work on a third already underway. First-generation chips are supposed to be uncompetitive. The claim being made here is that the second one will not be a first draft.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;Usually first generation chips aren't competitive, but OpenAI is beating Nvidia Blackwell and even Rubin.&rdquo;</blockquote><cite>&mdash; Dylan Patel, CEO, SemiAnalysis</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">1.5-1.9x</div><div class="stat-label">Claimed throughput per kilowatt vs GB300</div></div><div class="stat-cell"><div class="stat-value">700W</div><div class="stat-label">Jalapeno TDP vs 1,400W for GB300</div></div><div class="stat-cell"><div class="stat-value">216 GiB</div><div class="stat-label">HBM4 per package at 15.4 TB/s</div></div><div class="stat-cell"><div class="stat-value">10 GW</div><div class="stat-label">Broadcom deployment agreement scale</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.tomshardware.com/tech-industry/semiconductors/openai-says-its-jalapeno-chip-beats-nvidias-gb300-in-first-published-benchmarks" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tomshardware.com&sz=32" alt="">Tom's Hardware</a><a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=semianalysis.com&sz=32" alt="">SemiAnalysis</a><a href="https://www.cnbc.com/2026/08/26/openai-jalapeno-ai-chip-nvidia.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="">CNBC</a><a href="https://the-decoder.com/openais-first-custom-chip-jalapeno-reportedly-beats-nvidias-blackwell-and-rubin-in-inference-benchmarks/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&sz=32" alt="">The Decoder</a></div></div>
+<div class="article-nav"><a href="12-scalable-capital-chatgpt-claude-trading.html" class="nav-prev">&larr; A German Broker Just Let ChatGPT and Claude Place </a><a href="14-samsung-lpddr5x-pim-hot-chips.html" class="nav-next">Samsung Put the Math Inside the Memory. It Claims  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 26, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
