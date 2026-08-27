@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A German Broker Just Let ChatGPT and Claude Place Trades for a Million Customers &mdash; The Vault AI</title>
+<meta name="description" content="Scalable Capital has wired ChatGPT, Claude and Grok directly into a regulated European brokerage via MCP, giving over one million clients prompt-driven access to 60 billion euros in assets while keeping a human confirmation step on every trade.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body blockquote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--cat-color);color:var(--text-strong);font-style:italic}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>A German Broker Just Let ChatGPT and Claude Place Trades for a Million Customers</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1000 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Scalable Capital has wired ChatGPT, Claude and Grok directly into a regulated European brokerage via MCP, giving over one million clients prompt-driven access to 60 billion euros in assets while keeping a human confirmation step on every trade.</p>
+</div>
+<div class="article-body">
+<p>Type "buy 10 shares of Siemens" into ChatGPT and, until this week, nothing happened. On Tuesday, August 25, the Munich-based broker Scalable Capital made that sentence load-bearing. Its new feature, Agentic Investing, lets more than one million European clients connect their brokerage accounts to ChatGPT, Claude, or Grok and drive them by prompt — analyzing portfolios, building savings plans, setting price alerts, and placing real orders against more than €60 billion sitting on the platform.</p>
+<p>The plumbing is the Model Context Protocol, the open standard Anthropic released in late 2024 and which every major assistant vendor has since adopted. Scalable ships two connectors: a hosted MCP server for cloud assistants, and a command-line application users can install locally, aimed at self-hosted models. Neither is a partnership. Chief Product Officer Alexander Siepp was explicit with Fortune, saying the company is "using available resources, technologies, the MCP — the Model Context Protocol," and calling it "a standalone offering" built on integrations the AI vendors already publish. OpenAI and Anthropic did not sign anything. Scalable simply exposed its brokerage API as a set of tool definitions and let the models find them.</p>
+<p>Clients switch it on under Profile > Security on the web. From day one the connectors cover trading, savings plans, watchlists, price alerts, a native instrument search across stocks, ETFs and derivatives, plus free real-time quotes, news, and historical price data. Assistants can also query Scalable Insights, the analytics layer the firm launched in August 2025, for diversification health checks, scenario analyses, sector breakdowns, and risk assessments.</p>
+<h2>What The Agent Cannot Do</h2>
+<p>The guardrails are narrower than the headline suggests, and deliberately so. Every trade and every savings plan requires explicit human confirmation before execution. Users authenticate with Scalable credentials and clear two-factor authentication upfront and at recurring intervals, and existing account and role permissions carry over unchanged. Deposits and withdrawals remain available only through the web and the app — an agent cannot move money, only securities. The whole thing can be switched off at any time.</p>
+<p>The MiFID II hooks survive intact. As on the app, ex-ante cost information or a Key Information Document is delivered before every securities transaction, each carrying an individual reference the client must explicitly confirm. Push notifications, trade confirmations, and mailbox messages fire as normal. The disclaimer is the sharpest part of the release: third-party AI applications "operate independently and outside Scalable's control," and AI-generated outputs "do not originate from Scalable Capital, do not constitute investment advice, and are executed at the investor's own risk."</p>
+<p>That sentence is load-bearing too. By insisting the model is not advising, Scalable keeps the service inside execution-only territory rather than triggering MiFID II's suitability regime — the same regulatory posture neobrokers have used for a decade, now pointed at a counterparty that talks back.</p>
+<p>"Agentic Investing represents the greatest technological shift in financial technology since internet banking," said Erik Podzuweit, founder and co-CEO. "By opening our platform, we are setting the benchmark for how humans, AI, and the capital markets interact."</p>
+<h2>Why It Matters</h2>
+<p>Scalable's claim is "first bank in Europe," and the geographic qualifier is doing real work. Robinhood opened its Trading MCP server to third-party AI agents on May 27, 2026, across 27.5 million US customers, and extended it to crypto on July 20. Alpaca runs an official MCP server. Interactive Brokers takes the conservative route, letting an assistant draft an instruction the client then submits themselves. Scalable is not inventing the category — it is importing it into the EU, where the regulatory framing is materially different.</p>
+<p>The European overlay is ESMA's May 2024 statement on AI in investment services, which flagged algorithmic bias, opaque decision-making, data security, and — most relevant here — "overreliance on AI by both firms and clients for decision-making." ESMA expects firms using AI to meet MiFID II obligations on conduct of business and acting in the client's best interest. BaFin serves as market surveillance authority for AI systems used by the institutions it supervises. Nobody has yet tested what happens when the AI is not the firm's, and the firm says so in writing.</p>
+<p>The performance question is genuinely unsettled. A June 2026 study from Elm Wealth by Jerry Bell, Victor Haghani, and James White ran Claude, ChatGPT, Gemini, and Grok through a "Crystal Ball Challenge," handing the models historical Wall Street Journal front pages while withholding market outcomes. Across roughly 200 sessions, Claude beat human players 76% of the time and ChatGPT 63%, against 51% for Grok and 43% for Gemini. Direction-picking was the models' strength. Position sizing was not. "Given average position sizing in stocks of 7x to 12x across the AIs, we think they were taking too much risk of a catastrophic loss of capital," the researchers wrote, noting the US market has moved more than 9% on seven days since 2000. The models could recite the Kelly criterion. They could not apply it.</p>
+<p>There is a security dimension nobody has priced yet. An MCP server wired to a brokerage account is a tool surface reachable by whatever text the model ingests — a poisoned web page, a manipulated news item. Confirmation prompts are the defense, and confirmation prompts erode under repetition. Siepp, to his credit, did not oversell it: "Whether you end up finding the holy grail together with your AI assistant on high returns and low risks or not, I think that remains to be seen."</p>
+<p>Watch three things. Whether BaFin or ESMA issues guidance specifically addressing brokers exposing execution tooling to third-party models they do not control. Whether Trade Republic, N26, or the incumbent German banks follow within the quarter, which would turn this from a stunt into a table stake. And whether Scalable publishes adoption numbers — Siepp already hedged that uptake may come "maybe not for all client segments at the same speed." A million eligible customers is not a million users, and the gap between those two figures will say more about agentic finance than any press release.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Agentic Investing represents the greatest technological shift in financial technology since internet banking. By opening our platform, we are setting the benchmark for how humans, AI, and the capital markets interact.&rdquo;</blockquote><cite>&mdash; Erik Podzuweit, Founder and Co-CEO, Scalable Capital</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">€60B+</div><div class="stat-label">Client assets on the platform</div></div><div class="stat-cell"><div class="stat-value">1M+</div><div class="stat-label">Scalable Capital customers</div></div><div class="stat-cell"><div class="stat-value">76%</div><div class="stat-label">Sessions Claude beat humans in Elm Wealth test</div></div><div class="stat-cell"><div class="stat-value">3</div><div class="stat-label">AI assistants supported at launch</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://de.scalable.capital/en/newsroom/scalable-agentic-investing" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=de.scalable.capital&sz=32" alt="">Scalable Capital</a><a href="https://www.reuters.com/business/finance/german-broker-scalable-opens-investment-platform-major-ai-chatbots-2026-08-25/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=reuters.com&sz=32" alt="">Reuters</a><a href="https://fortune.com/2026/08/26/scalable-capital-claude-chatgpt-traders-bank-invest/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=fortune.com&sz=32" alt="">Fortune</a><a href="https://www.finextra.com/newsarticle/48298/scalable-capital-opens-platform-to-ai-agents-like-claude-and-chatgpt" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=finextra.com&sz=32" alt="">Finextra</a></div></div>
+<div class="article-nav"><a href="11-microsoft-humain-allam-foundry-copilot.html" class="nav-prev">&larr; Microsoft Will Put Saudi Arabia's Arabic Models In</a><a href="13-openai-custom-inference-chip-perf-per-watt.html" class="nav-next">OpenAI's Jalapeno Chip Claims 1.9x Blackwell's Wor &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 26, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
