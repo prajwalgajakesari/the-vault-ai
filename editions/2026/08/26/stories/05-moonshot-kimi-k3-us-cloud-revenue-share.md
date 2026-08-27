@@ -1,0 +1,31 @@
+Moonshot AI has spent the past month being accused by senior US officials of stealing American intellectual property and smuggling banned Nvidia chips through Thailand. On Wednesday, Reuters reported what the Beijing lab has been doing in the meantime: negotiating with Microsoft, Amazon and Google over how to split the money when those same American companies sell its model to American enterprises.
+
+Citing three people familiar with the private talks, Reuters reported that Moonshot is seeking up to a 30% share of revenue generated from Kimi K3-related services running on Microsoft Azure, Amazon Web Services and Google Cloud. The discussions are early and may produce nothing. But if any of the three closes, it would be the first significant revenue-sharing pact between a Chinese AI developer and a top-tier US cloud provider — a commercial arrangement that Washington's current policy posture was not designed to contemplate.
+
+The number is the story. Thirty percent is the App Store rate, demanded by the supplier rather than the platform. Reuters reported the figure is consistent with terms Moonshot has already outlined for major customers, so it is a posted price rather than an opening bluff. OpenAI's restructured arrangement with Microsoft runs the other direction entirely: OpenAI pays Microsoft roughly 20% of its revenue, part of the $24.1 billion in OpenAI-linked revenue Microsoft disclosed for fiscal 2026. Moonshot is proposing that the hyperscalers take the smaller end of a deal where they supply the silicon, the datacenters, the compliance apparatus and the enterprise sales motion.
+
+## What Is Not Settled
+
+According to one of Reuters' sources, three issues remain open: how revenue is split, what data access the parties get, and how token usage is audited. The third is the one to watch. Tokens are the units of text a model processes, and under usage-based billing they are the meter. A 30% share of a number Moonshot cannot independently verify is not a 30% share of anything. Any workable deal requires either an agreed measurement standard or telemetry flowing back to Beijing about how much American enterprises are using the model — and possibly what for. That is a national security question dressed as an accounting question.
+
+Moonshot has run the play at smaller scale already. Chinese IT services provider Chinasoft International disclosed a revenue-sharing agreement in July without specifying the split, and Reuters reported similar arrangements with other, smaller cloud platforms. Alibaba, one of Moonshot's backers, is separately seeking revenue-sharing deals with major users of its own new open-source model. The pattern suggests a coordinated Chinese answer to the central problem of open weights: how do you monetize a model you have given away?
+
+The answer, apparently, is to stop selling the weights and start taxing the compute. Kimi K3 has 2.8 trillion parameters. Anyone can download it, but almost nobody can afford to serve it. Analysts told Reuters that few customers will run a system that size on their own infrastructure given the compute costs, which makes hyperscaler distribution the only realistic path to enterprise adoption — and gives Moonshot leverage over the handful of companies capable of providing it.
+
+## The Washington Problem
+
+The talks are happening against an unusually hostile backdrop. On July 22, Treasury Secretary Scott Bessent posted on X: "Open source is not open season on American IP. When firms conduct covert, industrial-scale distillation attacks that cross the line into IP theft, sanctions and Entity List designations will be on the table." The same day, White House Office of Science and Technology Policy director Michael Kratsios alleged that Moonshot "acquired GB300-equipped servers and has accessed GB300s in Thailand, likely to train its AI models" — Blackwell-generation hardware barred from sale to Chinese firms.
+
+Moonshot has rejected the distillation claims, telling China's National Business Daily that Kimi K3's performance gains came from original changes to the underlying architecture. Independent researchers have noted a timing problem with the accusation: Anthropic's Fable became available on July 1, and Kimi K3 launched on July 16. Meanwhile the benchmarks keep making the commercial case — Arena.ai ranks K3 first on web interface-building, and Artificial Analysis puts it comparable to GPT-5.5 and Claude Opus 4.8 on complex multi-step tasks, at materially lower cost.
+
+## Why It Matters
+
+An Entity List designation would cut Moonshot off from US semiconductors, software and cloud services — including the three platforms it is currently negotiating with. That is the tension in one sentence. Microsoft, Amazon and Google are being asked to sign multi-year distribution economics with a company that one arm of the US government is actively considering blacklisting, while another arm's AI adviser has publicly praised American firms for building on K3 weights.
+
+The hyperscalers have a real incentive to say yes. Their customers want the model, competitors will host it if they do not, and every K3 token served is compute revenue that stays on their infrastructure regardless of the split. What they are being asked to accept is 70% of a business plus the political exposure of being the named US distributor for a Chinese lab under federal scrutiny. That is a thin margin for a large risk, which is likely why nobody has signed.
+
+Founded in 2023 by Carnegie Mellon-trained researcher Yang Zhilin, Moonshot raised more than $2 billion in May and is preparing a possible Hong Kong listing. Recurring hyperscaler revenue is exactly the kind of line item that supports an IPO narrative — which may explain the timing more than anything else.
+
+## What to Watch
+
+Three things. Whether Commerce actually moves on an Entity List designation, which would end these talks instantly. Whether any of the three clouds breaks first — AWS has the deepest third-party model marketplace and the most to lose from a rival hosting K3 exclusively. And whether the 30% holds: if Moonshot settles for 15% or 20%, it signals the open-weight monetization thesis is weaker than Beijing hopes, and that giving away the weights was a distribution strategy that ceded the pricing power along with the model.
