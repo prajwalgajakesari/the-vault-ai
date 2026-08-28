@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google's New Transcription Model Deletes Your Filler Words. That Is the Point. &mdash; The Vault AI</title>
+<meta name="description" content="Gemini 3.5 Transcribe's headline 2.6% word error rate is an English-only, eight-hour benchmark measured on verbatim mode, which means the standard metric cannot evaluate the silent-editing feature Goo">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.pull-quote{margin:2rem auto;max-width:720px;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem auto;max-width:720px;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;width:0;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+<span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+<h1>Google's New Transcription Model Deletes Your Filler Words. That Is the Point.</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1183 words</span><span>4 sources</span></div></header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>Gemini 3.5 Transcribe's headline 2.6% word error rate is an English-only, eight-hour benchmark measured on verbatim mode, which means the standard metric cannot evaluate the silent-editing feature Google is actually selling.</p></div>
+<div class="article-body">
+<p>The most consequential line in Google's new transcription launch is not a benchmark number. It is a configuration flag.</p>
+<p>Gemini 3.5 Transcribe, introduced August 26, ships with two transcription modes. `verbatim` returns what was actually said, filler words and false starts intact. `smart` returns what Google thinks you meant. Google's own developer documentation gives the example: the spoken sentence "Um, so for the meeting, I think we should, uh, invite Alice and, wait no, Bob and Carol" comes back from smart mode as "For the meeting, I think we should invite Bob and Carol."</p>
+<p>Alice is gone. Not marked as retracted, not struck through. Gone. For a meeting note, that is exactly right. For a deposition, a clinical encounter or a recorded interview, it is a record that no longer matches the audio it came from.</p>
+<h2>What actually shipped</h2>
+<p>Google positions the model as its most precise speech-to-text system yet and the successor to Chirp 3, its 2025 transcription model. It ships as two endpoints: `gemini-3.5-transcribe` for pre-recorded audio via the Interactions API, and `gemini-3.5-transcribe-live` for bidirectional streaming with sub-second latency via the Live API. Both are in public preview through the Gemini API and Google AI Studio.</p>
+<p>"Unlike conventional speech recognition models that struggle with background noise, complex jargon, and disfluency cleanup, Gemini 3.5 Transcribe converts raw audio directly into accurate, polished, formatted text," wrote Diego Melendo Casado, senior director of engineering for Gemini Audio, and Luke Leonhard, the team's chief of staff, in the launch post.</p>
+<p>The feature list is genuinely broad: automatic language detection across 85-plus locales, code-switching handled mid-sentence, custom vocabulary of up to 1,000 phrases (Google recommends staying under 100), speaker diarization, and word-level timestamps. It is already live in Gboard's Rambler on Android, the Gemini app on macOS, and Google Antigravity, with Chrome next.</p>
+<p>Two details the blog post glosses over. The post says diarization handles "up to three speakers"; the API documentation says up to eight, with attribution beyond two marked experimental. And the docs warn that enabling word-level timestamps "may degrade overall transcription accuracy" - an awkward footnote for anyone building an evidentiary pipeline, where timestamps are not optional.</p>
+<h2>The benchmark is measuring the wrong thing</h2>
+<p>Google reports a 4.0% word error rate for streaming and 2.6% for non-streaming, credited to Artificial Analysis. Citing an independent evaluator rather than a self-run eval is to Google's credit, and the figure checks out on the public leaderboard.</p>
+<p>What it is not is an average across 85 languages. Artificial Analysis's AA-WER v2 index is roughly eight hours of audio from three sets: a proprietary voice-agent corpus called AA-AgentTalk at 50% weight, the English subset of VoxPopuli at 25%, and six earnings-call recordings at 25%. All English. The 2.6% describes English performance on eight hours of audio, six files of which carry a quarter of the weight.</p>
+<p>Google does publish a multilingual figure, and it is roughly double: 5.50% streaming and 5.04% non-streaming on the FLEURS benchmark, "across a set of top languages and locales." Google does not say which languages, or how many. That is the number that should back the 85-language claim, and it is the one with the missing methodology.</p>
+<p>The sharper problem is that the benchmark is structurally incapable of measuring the feature Google is selling. Artificial Analysis normalizes both the reference transcript and the model output with OpenAI's Whisper normalizer, which strips filler words like "uh" and "um" before scoring, and it prompts every model it tests with "Transcribe the audio verbatim, outputting only spoken words in sequence." Disfluency removal is invisible to the score, and the score measures verbatim mode. Smart transcription, the headline capability, has no published error rate of any kind.</p>
+<p>On that board Google is competitive but not dominant. ElevenLabs Scribe v2 posts 2.2% at an estimated $3.67 per thousand audio minutes, against Google's 2.6% at $5.00. Microsoft's MAI-Transcribe-1.5 hits 2.4%; AssemblyAI's Universal-3 Pro, 3.1% at $3.50. Deepgram's Nova-3 is less accurate at 5.2% but runs at 540 times real time against Google's 79.6. Google's pitch is not the lowest error rate. It is the editing.</p>
+<h2>Who gets edited most</h2>
+<p>The case against silent editing is not hypothetical, and the best evidence comes from the model Google is trying to beat. In Careless Whisper, a 2024 paper led by Cornell's Allison Koenecke with the University of Virginia's Mona Sloane, researchers ran 13,140 audio segments through OpenAI's Whisper and found that "roughly 1% of audio transcriptions contained entire hallucinated phrases or sentences which did not exist in any form in the underlying audio." Thirty-eight percent of those included explicit harms.</p>
+<p>The mechanism matters. The paper found that "hallucinations disproportionately occur for individuals who speak with longer shares of non-vocal durations - a common symptom of aphasia," and warned the same bias "could also arise for any demographic group with speech impairments yielding more disfluencies (such as speakers with other speech impairments like dysphonia, the very elderly, or non-native language speakers)."</p>
+<p>That is precisely the population whose speech smart transcription will rewrite most aggressively. A model that removes disfluencies works hardest on the speakers who produce the most of them, and it leaves no mark when it does.</p>
+<p>Verbatim output has an auditing property that edited output does not: you can play the audio and compare. A cleaned transcript looks equally plausible whether the cleanup was right or wrong, and the only way to catch a bad deletion is to re-listen to the whole recording, which defeats the point of a transcript. In dictation - Rambler, the macOS app, Chrome soon - no recording is kept at all. The source is destroyed at the moment of capture.</p>
+<p>Google has drawn the boundary in roughly the right place. Verbatim is the API default; smart is opt-in. And smart mode is explicitly incompatible with both word timestamps and speaker diarization, so you cannot generate an edited transcript that also carries the metadata that would make it look like a record of proceedings. That is a deliberate constraint and a good one.</p>
+<p>The exposure is downstream. Google's own launch post names IntelliTek Health, which says it uses the model for real-time clinical transcription across primary care and medical specialties. The risk is not that Google mislabels its modes. It is that a product manager sets mode to smart because the notes read better, and nobody in the compliance chain knows the flag exists.</p>
+<h2>What to watch</h2>
+<p>Two things. Whether Google publishes per-language error rates and names the FLEURS locale set behind that 5.04% figure; a single multilingual average over an undisclosed language list is a marketing artifact, not a measurement. And whether anyone - Artificial Analysis, an academic group, a large customer - builds an evaluation that can score smart mode at all. Word error rate cannot: deleting a word you should have kept and correctly dropping a filler are the same edit distance. That requires a semantic fidelity metric that does not yet exist in public form.</p>
+<p>The transcription industry has spent a decade optimizing a single number. Google just shipped a product whose main feature that number cannot see.</p>
+</div>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Unlike conventional speech recognition models that struggle with background noise, complex jargon, and disfluency cleanup, Gemini 3.5 Transcribe converts raw audio directly into accurate, polished, formatted text.&rdquo;</blockquote><cite>&mdash; Diego Melendo Casado, Senior Director of Engineering, Gemini Audio, Google</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">2.6%</div><div class="stat-label">Non-streaming word error rate</div></div><div class="stat-cell"><div class="stat-value">5.04%</div><div class="stat-label">Multilingual WER on FLEURS</div></div><div class="stat-cell"><div class="stat-value">~8 hrs</div><div class="stat-label">Audio behind the headline claim</div></div><div class="stat-cell"><div class="stat-value">85+</div><div class="stat-label">Supported locales</div></div></div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.google&sz=32" alt="">Google Blog</a><a href="https://ai.google.dev/gemini-api/docs/transcribe" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ai.google.dev&sz=32" alt="">Gemini API Docs</a><a href="https://artificialanalysis.ai/speech-to-text/methodology" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=artificialanalysis.ai&sz=32" alt="">Artificial Analysis</a><a href="https://9to5google.com/2026/08/26/gemini-3-5-transcribe/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=9to5google.com&sz=32" alt="">9to5Google</a></div></div>
+<div class="article-nav"><a href="06-instinct-250m-consumer-ai-assistant.html" class="nav-prev">&larr; A Consumer AI Assistant Still in Private Beta Just Rais</a><a href="08-salesforce-claudeforce-crm-in-claude.html" class="nav-next">Salesforce Spent Twenty Years Building Screens. Now It  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 27, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
