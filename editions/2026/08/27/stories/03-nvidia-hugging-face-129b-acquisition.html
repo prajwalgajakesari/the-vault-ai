@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nvidia Is Buying the Neutral Ground. Hugging Face Goes for $12.9 Billion. &mdash; The Vault AI</title>
+<meta name="description" content="Nvidia has reportedly agreed to pay $12.9 billion, roughly 86x revenue, for the vendor-neutral hub where every chipmaker's models are published.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.pull-quote{margin:2rem auto;max-width:720px;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem auto;max-width:720px;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;width:0;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+<span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+<h1>Nvidia Is Buying the Neutral Ground. Hugging Face Goes for $12.9 Billion.</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 997 words</span><span>4 sources</span></div></header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>Nvidia has reportedly agreed to pay $12.9 billion, roughly 86x revenue, for the vendor-neutral hub where every chipmaker's models are published.</p></div>
+<div class="article-body">
+<p>Nvidia has agreed to buy Hugging Face for $12.9 billion, The Information reported Wednesday night, citing a person familiar with the deal. Reuters relayed it. Business Insider, which first reported over the weekend that Hugging Face was fielding takeover interest, said the same night that the talks had not yet produced a signed agreement and could still fall apart. Neither company has confirmed anything, and neither responded to comment requests from Reuters, CNBC, TechCrunch or Fortune.</p>
+<p>That silence is the interesting part. As TechCrunch editor-in-chief Connie Loizos noted, Nvidia has a history of moving fast to knock down reports it considers inaccurate. It has not knocked this one down.</p>
+<p>Treat the number as reported rather than final. The strategic logic is legible enough that a denial would be the bigger surprise.</p>
+<h2>What $12.9 billion buys</h2>
+<p>Hugging Face is the closest thing open-source AI has to a public square. Model weights, datasets, benchmarks, the Transformers and Diffusers libraries, and millions of developer accounts live there. Everyone publishes on it: Meta, Alibaba, Mistral, DeepSeek, Moonshot AI, Google. It is infrastructure Nvidia cannot fabricate on a wafer.</p>
+<p>The price is the eye-watering part. Hugging Face last raised in August 2023, a $235 million round led by Salesforce Ventures at a $4.5 billion valuation, with money from Alphabet's GV, IBM Ventures, Amazon, Intel, AMD, Qualcomm and Nvidia itself. The Information puts current annualized revenue at roughly $150 million, up from about $100 million two months earlier. At $12.9 billion, that is a multiple of about 86 times revenue. Nvidia is not buying a P&amp;L. It is buying a chokepoint.</p>
+<p>The timing sits inside a larger pattern. Nvidia reported fiscal Q2 2027 revenue of $96.2 billion, up 106 percent year over year, with data center revenue of $89 billion and profit of $59.7 billion. It has been converting that cash into position across the stack: a reported $6 billion deal to license technology from Poolside and hire more than 100 of its engineers, continued investment in its own Nemotron open models, and reported moves on Groq and Perplexity. Hugging Face would also hand it a second run at cloud, roughly a year after it scaled back DGX Cloud.</p>
+<h2>The neutrality problem</h2>
+<p>Here is the part that should make developers uneasy, and it is not hypothetical.</p>
+<p>Late last year, Hugging Face turned down a $500 million investment from Nvidia that would have valued it at $7 billion. According to the Financial Times, the company declined because it did not want a single dominant investor able to sway its decisions. That was the neutrality argument, made by its own management, about this specific counterparty. Nine months later, the same counterparty is reportedly buying the whole thing.</p>
+<p>Neutrality is not an abstraction on Hugging Face. Its Optimum libraries support Nvidia's TensorRT-LLM alongside Optimum AMD, Optimum Intel and AWS accelerators. Nvidia's NIM containers already pull models directly from hf:// repository paths. Under Nvidia ownership, nobody needs to delete AMD support to tilt the field. They only need to make the CUDA path require fewer steps.</p>
+<p>Analysts are split. Sid Nag, founder and chief research officer at Tekonyx, told Fierce Network the deal would give Nvidia "direct access to the developers, models, datasets and deployment activity driving AI adoption." But he flagged the cost. "It is positive for open-model funding and adoption but potentially negative for ecosystem neutrality," Nag said. "The concern is that an important neutral marketplace could gradually become an Nvidia-centered distribution channel."</p>
+<p>Others are blunter about fit. David Linthicum, founder of Linthicum Research, wrote on LinkedIn that this is "two very different companies trying to come together to create a 1+1=3 scenario, when I believe the end state is going to be 1+1=1.2." Patrick Moorhead of Moor Insights and Strategy was more neutral, calling it "a way for Nvidia to get more closely aligned with developers."</p>
+<p>Jensen Huang, asked on the earnings call whether open models help or hurt Nvidia, gave the answer that explains the whole deal. "The world will need both closed models and open models," he said. "Both closed models and open models are skyrocketing in use. So long as models succeed, I'm very happy."</p>
+<p>That is the real thesis. Every closed lab that matters, OpenAI, Google, Amazon and Anthropic, is building its own silicon. OpenAI this week published results for its Jalapeño accelerator claiming 1.5 to 1.9 times more work per watt and up to 3.6 times lower end-to-end latency on large open-weight models. A thriving open ecosystem is Nvidia's hedge against the labs that want to leave. Owning the distribution hub for that ecosystem is how you make sure the hedge stays profitable.</p>
+<h2>What to watch</h2>
+<p>Antitrust review is the first gate. Nvidia's $40 billion bid for Arm collapsed in 2022 under global regulatory pressure, and the structural objection there was similar: a dominant player acquiring neutral ground everyone else depends on. Hugging Face's $150 million in revenue makes the usual market-share math awkward, but merger authorities in the US, EU and UK have grown more willing to reason about ecosystem control rather than revenue share.</p>
+<p>Second, watch the publishers. If AMD, Intel and AWS keep funding engineering work on integrations maintained inside a competitor-owned platform, neutrality survives in practice. If that work quietly migrates elsewhere, the moat Nvidia paid 86 times revenue for starts draining.</p>
+<p>Third, watch Clem Delangue. He has spent the year publicly aligned with Nvidia's open-weight lobbying, co-signing a letter with Huang and more than 20 other companies urging Washington not to restrict open models, and warning in a CNBC interview that China is clearly dominating open-source AI. He also told TechCrunch last month the company was close to profitability, which means he was not selling from weakness.</p>
+<p>Hugging Face is having an otherwise cheerful week: it and Pollen Robotics opened preorders Thursday for Microduck, a $399 open-source biped with an Apache 2.0 stack. That is the company developers thought they were getting. The question is who owns it in six months.</p>
+</div>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>&ldquo;It is positive for open-model funding and adoption but potentially negative for ecosystem neutrality. The concern is that an important neutral marketplace could gradually become an Nvidia-centered distribution channel.&rdquo;</blockquote><cite>&mdash; Sid Nag, Founder and Chief Research Officer, Tekonyx</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">$12.9B</div><div class="stat-label">Reported purchase price</div></div><div class="stat-cell"><div class="stat-value">86x</div><div class="stat-label">Multiple on revenue</div></div><div class="stat-cell"><div class="stat-value">$4.5B</div><div class="stat-label">2023 valuation</div></div><div class="stat-cell"><div class="stat-value">$150M</div><div class="stat-label">Annualized revenue</div></div></div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://fortune.com/2026/08/27/nvidia-hugging-face-billion-dollar-deal-open-source-ai/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=fortune.com&sz=32" alt="">Fortune</a><a href="https://www.fierce-network.com/cloud/analysts-split-whether-rumored-nvidia-hugging-face-deal-good-thing" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=fierce-network.com&sz=32" alt="">Fierce Network</a><a href="https://thenewstack.io/nvidia-hugging-face-acquisition-neutrality/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenewstack.io&sz=32" alt="">The New Stack</a></div></div>
+<div class="article-nav"><a href="02-anthropic-nscale-45b-compute-deal.html" class="nav-prev">&larr; Anthropic Just Bought Six Years of Electricity in West </a><a href="04-aws-nvidia-2-million-gpu-expansion.html" class="nav-next">AWS Ordered Two Million More GPUs. It Also Builds Its O &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 27, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
