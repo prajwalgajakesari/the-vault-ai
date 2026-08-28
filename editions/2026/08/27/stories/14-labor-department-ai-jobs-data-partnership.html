@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Labor Department Wants AI Companies to Tell It Which Jobs AI Is Taking &mdash; The Vault AI</title>
+<meta name="description" content="The Labor Department has signed data-sharing agreements with OpenAI, Google, Meta and Amazon to track AI's employment effects, filling a real measurement gap at a BLS that lost 20 percent of its staff">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.pull-quote{margin:2rem auto;max-width:720px;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem auto;max-width:720px;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;width:0;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+<span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+<h1>The Labor Department Wants AI Companies to Tell It Which Jobs AI Is Taking</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1022 words</span><span>4 sources</span></div></header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>The Labor Department has signed data-sharing agreements with OpenAI, Google, Meta and Amazon to track AI's employment effects, filling a real measurement gap at a BLS that lost 20 percent of its staff, but handing the evidence supply to the firms with the biggest stake in the answer.</p></div>
+<div class="article-body">
+<p>Acting Labor Secretary Keith Sonderling told Axios this week that the Department of Labor has signed data-sharing agreements with the largest AI companies in the country — OpenAI, Google, Meta and Amazon among them — to help the government understand how artificial intelligence is reshaping hiring and work. His reasoning was disarmingly direct.</p>
+<p>"The bottom line is — and I've been open about this — the government does not have the data," Sonderling said at an event hosted by the Forum Club of the Palm Beaches, in remarks reported Wednesday by Axios reporter Courtenay Brown.</p>
+<p>He is right about that. He is also describing an arrangement in which the four firms with the largest commercial stake in the answer to "is AI eliminating jobs?" have become a primary supplier of the government's evidence on the question.</p>
+<p>"Who has the data? The large tech companies and the large Fortune 500 companies who are really going to be the most impacted by this," Sonderling said. The department has signed memorandums of understanding with "a lot of these tech companies," he added, without naming the full list. He said the findings will be made public. He did not say the methodology, the MOUs, or the underlying data would be.</p>
+<h2>The measurement gap is not invented</h2>
+<p>The strongest case for the partnership is that federal labor statistics are genuinely struggling, and not only because AI moves fast.</p>
+<p>The Bureau of Labor Statistics, which sits inside Sonderling's department, cut staffing by 20 percent between fiscal 2024 and fiscal 2026. A midyear report from the American Statistical Association found that all 13 principal federal statistical agencies have shed staff since the start of the current administration; six lost at least a third of their headcount and two lost more than two-thirds. Representative Bobby Scott, the ranking Democrat on the House Education and Workforce Committee, has asked for a September hearing on what he called the "erosion of our nation's federal statistical infrastructure."</p>
+<p>The consequences are concrete. BLS announced last month it will stop publishing monthly state-level snapshots of job openings, hires, layoffs and quits, shifting to annual releases. The Mass Layoff Statistics program — the series designed to track major job cutbacks — was killed in the 2013 sequestration and never restored. Response rates continue to fall, leaving the agency with a blurrier read on turning points.</p>
+<p>Meanwhile, occupational classifications update on a timescale of years while companies deploy coding agents and customer-service automation in months. If a firm replaces a support tier with a workflow, nothing in the standard taxonomy flags it as AI. It shows up, if at all, as ordinary churn.</p>
+<p>The Federal Reserve is worried enough to have built its own apparatus. Chairman Kevin Warsh named outside task force leaders on July 9, including a data-quality group led by Raj Chetty, former Walmart CEO Doug McMillon and the University of Chicago's Kevin Murphy, and a separate task force on productivity, jobs and AI led by Marc Andreessen. Sonderling framed the stakes the same way: "For the Fed to be able to determine the best interest rates — whether to raise it or lower it — they need accurate data from BLS."</p>
+<h2>Who is holding the yardstick</h2>
+<p>The objection is not that private data is worthless. It is that private data is structurally partial in ways that matter enormously for this specific question.</p>
+<p>Jed Kolko, now at the Peterson Institute for International Economics and previously chief economist at Indeed and Trulia, has argued the case for partnership more carefully than most — and named the limits. "Private sector data offer speed and specificity that official statistics cannot match, despite not being representative or comprehensive," he wrote last year. "In contrast, companies only see their users or customers." He also flagged the incentive problem plainly: "Firms might hesitate to release unfavorable data — especially when politicians fire agency leaders for bad news."</p>
+<p>The skew is measurable. Anthropic, which is not among the companies Sonderling named, publishes an economic index built on its own usage data and discloses that computer and mathematical occupations make up roughly 30 percent of its survey respondents against about 4 percent of U.S. employment. Model usage logs describe the people who bought the product, not the labor force.</p>
+<p>Sonderling has also stated his conclusion in advance. "I think you're going to see more augmentation in jobs. You're going to see new jobs being created," he said, consistent with the administration's broader skepticism that AI will cause mass displacement. The department's bet is apprenticeships; Sonderling put the current count at 530,000 active registered apprentices, roughly halfway to President Trump's target. None of that makes the data wrong. It does mean the agency commissioning the evidence and the firms supplying it share a prior.</p>
+<h2>Credibility, in both directions</h2>
+<p>Sonderling volunteered that the bureau has a trust problem, pointing to the large downward revision released after the 2024 election. "A lot of people don't trust BLS anymore," he said, adding that he has "made a commitment to reform that and be much more transparent on how some of these revisions and job data are done."</p>
+<p>The other version of that story is the one economists across the spectrum told last year, when Trump fired BLS commissioner Erika McEntarfer and accused her without evidence of rigging the numbers. The Senate confirmed longtime bureau economist Brett Matsumoto as commissioner earlier this month; he told senators the public needs to know the agency's decisions are "being driven by science rather than politics." Kolko notes the administration also disbanded the statistical agencies' outside advisory committees — the bodies that would ordinarily vet this kind of methodological change.</p>
+<h2>What to watch</h2>
+<p>Whether the MOUs are published, and whether they include audit or replication rights. Whether BLS statisticians can benchmark the corporate feeds against their own surveys and document the divergence, which requires the technical staff the bureau has been losing. Whether the outputs carry Matsumoto's imprimatur or the secretary's. Whether Scott gets his September hearing. And the simplest test of all: whether a finding that AI is displacing workers ever makes it into a public release.</p>
+</div>
+<div class="pull-quote" style="border-left:2px solid #fb7185"><blockquote>&ldquo;The bottom line is, and I've been open about this, the government does not have the data.&rdquo;</blockquote><cite>&mdash; Keith Sonderling, Acting Secretary, U.S. Department of Labor</cite></div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">4</div><div class="stat-label">Tech companies in the partnership</div></div><div class="stat-cell"><div class="stat-value">20%</div><div class="stat-label">BLS staffing cut since FY2024</div></div><div class="stat-cell"><div class="stat-value">13</div><div class="stat-label">Federal statistical agencies shedding staff</div></div><div class="stat-cell"><div class="stat-value">530,000</div><div class="stat-label">Active registered apprentices</div></div></div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.axios.com/2026/08/26/labor-department-tech-giants-ai-jobs-data" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=axios.com&sz=32" alt="">Axios</a><a href="https://www.piie.com/blogs/realtime-economics/2025/private-sector-cant-replace-official-statistics-could-be-great" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=piie.com&sz=32" alt="">Peterson Institute</a><a href="https://www.govexec.com/workforce/2026/08/statistical-agency-staffing-cuts-federal-data-scrutiny/415399/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=govexec.com&sz=32" alt="">Government Executive</a><a href="https://www.anthropic.com/research/economic-index-primitives" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" alt="">Anthropic</a></div></div>
+<div class="article-nav"><a href="13-cursor-agent-ransomware-aur0ra-breaches.html" class="nav-prev">&larr; The Ransomware Crew Told Cursor It Was a Penetration Te</a><a href="15-ring-take-encryption-cloud-ai-tradeoff.html" class="nav-next">Ring Will Throw Away the Keys in 24 Hours. It Still Hol &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 27, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
