@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ring Will Throw Away the Keys in 24 Hours. It Still Holds Them Long Enough to Run the AI. &mdash; The Vault AI</title>
+<meta name="description" content="Ring's TAKE encryption is a real privacy upgrade shipped on by default worldwide, but it is not end-to-end encryption: Ring still decrypts video inside an AWS Nitro Enclave and holds keys for up to 24">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.pull-quote{margin:2rem auto;max-width:720px;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem auto;max-width:720px;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;width:0;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+<span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+<h1>Ring Will Throw Away the Keys in 24 Hours. It Still Holds Them Long Enough to Run the AI.</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1000 words</span><span>4 sources</span></div></header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>Ring's TAKE encryption is a real privacy upgrade shipped on by default worldwide, but it is not end-to-end encryption: Ring still decrypts video inside an AWS Nitro Enclave and holds keys for up to 24 hours, a window users cannot audit.</p></div>
+<div class="article-body">
+<p>Amazon's Ring built a product launch around a sentence you almost never hear from a company in the home-surveillance business: after 24 hours, it says, it can no longer decrypt your video either.</p>
+<p>Ring announced TAKE — Throw Away the Key Encryption — on August 26, with a phased rollout beginning in September and default-on encryption for every Ring customer worldwide once complete. True end-to-end encryption, an opt-in since 2021, remains available for anyone willing to trade away cloud features. Default-on encryption at Ring's scale is a real improvement over the status quo. It is also a claim whose weight rests entirely on machinery the customer cannot inspect.</p>
+<p>Under TAKE, footage is encrypted with content keys that rotate every five minutes — generated on-device on newer cameras, or on arrival in the cloud on older ones. Ring keeps a copy of those keys, but only inside an AWS Nitro Enclave, and only to run the cloud features a customer has switched on: Smart Alerts, Video Search, Video Descriptions. After 24 hours Ring's copies are destroyed, while the keys on the owner's enrolled phones, tablets and computers survive. If the user later asks Ring to process older footage, the app temporarily hands the key back, and Ring deletes it again when the job finishes. The scheme is built on Messaging Layer Security, the IETF's open group-encryption standard, which supplies forward secrecy through cryptographic ratcheting.</p>
+<p>"People are always going to have questions about, like, how do you store it? How do you protect it?" Ring founder Jamie Siminoff told CNN. "As a company we've done, I believe, a really good job with that, but this is the physical way of now giving them confidence. This is the show, not just tell."</p>
+<h2>What a Nitro Enclave is, and what it is not</h2>
+<p>Nitro Enclaves are isolated VMs carved out of an EC2 host. Amazon's TAKE white paper describes them as providing "no persistent storage, no interactive operator access, and no general network connectivity." Code inside an enclave can produce a cryptographic attestation — a signed measurement of exactly which image is running — and Ring's key service releases material only to an image that satisfies it. The paper is blunt about the intended guarantee: "a Ring operator, or a tampered image, cannot satisfy that attestation." Key records are signed such that quietly postponing the 24-hour ratchet forward invalidates them.</p>
+<p>That is a meaningfully stronger posture than "trust our access controls." It is also a different threat model from end-to-end encryption, and the difference is not rhetorical. Under E2EE the provider never holds a usable key; the guarantee is arithmetic. Under TAKE the provider does hold the key — briefly, under conditions it authored, enforced by an enclave whose image it builds and measures, on hardware its parent company owns. Ring's promise reduces to two propositions no user can check: that the attested image does only what the paper says, and that deletion is deletion. Amazon has not published enclave image measurements outsiders could reproduce, and no independent cryptographer had published a review of the design in the first day after launch.</p>
+<h2>Twenty-four hours is still a window</h2>
+<p>A key that exists for 24 hours is a key that exists for 24 hours. Federal preservation requests under 18 U.S.C. 2703(f) can compel a provider to hold records without a warrant, but a provider can only preserve what it currently has. TAKE converts Ring from a searchable retrospective archive into a rolling window: a demand that lands on Tuesday cannot reach back to Sunday. A demand that lands while the key is live is a different question, and Ring has not said publicly how it would handle one.</p>
+<p>For customers on TAKE or E2EE, Ring says it can supply only "non-video information, such as basic subscriber information" in response to warrants, subpoenas and court orders. A spokesperson told Gizmodo the company would also produce encrypted video files. Absent keys, those files are noise. None of this constrains the customer: Ring's Community Requests program, run with Axon, still lets police ask users to hand footage over voluntarily.</p>
+<h2>The record this is arguing against</h2>
+<p>In 2019, reports described broad employee access to customer recordings. In 2023, Amazon paid $5.8 million to settle FTC allegations involving a former employee who viewed thousands of videos of female customers and hackers who reached roughly 55,000 US accounts. Ring shut down warrantless footage requests through Neighbors in 2024, then restored police requests via the Axon partnership after Siminoff returned in 2025. In February, EFF senior investigative researcher Beryl Lipton wrote that Ring's AI features were "the latest entry in the company's history of profiting off of public safety worries and disregard for individual privacy." Ring cancelled a planned Flock Safety integration days later. A June class action over the Familiar Faces facial recognition feature is still pending.</p>
+<p>TAKE touches almost none of that. It controls Ring's access to the account holder's video. It does not control what the account holder shares, and it offers nothing at all to the delivery driver, the neighbor, or the kid who walks into frame — the people with the least say and the most exposure. The AI still runs. It just runs inside an enclave for a day, rather than against a warm archive indefinitely.</p>
+<h2>What to watch</h2>
+<p>Three things separate engineering from positioning here. Whether Amazon publishes enclave image measurements, commissions a third-party audit, or opens a bug bounty scoped to the enclave. Whether Ring's transparency reporting shows video productions to law enforcement actually falling once the rollout completes — the number that would prove the architecture rather than describe it. And whether the September rollout is genuinely worldwide, including jurisdictions whose data-access rules a 24-hour key lifetime would frustrate.</p>
+<p>Ring chose a middle path, and middle paths are often where the honest engineering lives. It also chose to keep the keys just long enough to run the AI, then named the product after the part where it lets go.</p>
+</div>
+<div class="pull-quote" style="border-left:2px solid #fb7185"><blockquote>&ldquo;As a company we've done, I believe, a really good job with that, but this is the physical way of now giving them confidence. This is the show, not just tell.&rdquo;</blockquote><cite>&mdash; Jamie Siminoff, Founder, Ring</cite></div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">5 min</div><div class="stat-label">Key rotation interval</div></div><div class="stat-cell"><div class="stat-value">24 hrs</div><div class="stat-label">Window before key deletion</div></div><div class="stat-cell"><div class="stat-value">$5.8M</div><div class="stat-label">2023 FTC settlement</div></div><div class="stat-cell"><div class="stat-value">2021</div><div class="stat-label">Year opt-in E2EE first offered</div></div></div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.cnn.com/2026/08/26/tech/ring-cameras-encryption-update" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnn.com&sz=32" alt="">CNN Business</a><a href="https://www.aboutamazon.com/news/devices/ring-take-encryption" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=aboutamazon.com&sz=32" alt="">About Amazon</a><a href="https://techcrunch.com/2026/08/26/ring-introduces-a-new-encryption-standard-makes-it-the-default-for-cloud-features/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://www.eff.org/deeplinks/2026/02/no-one-including-our-furry-friends-will-be-safer-rings-surveillance-nightmare-0" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=eff.org&sz=32" alt="">Electronic Frontier Foundation</a></div></div>
+<div class="article-nav"><a href="14-labor-department-ai-jobs-data-partnership.html" class="nav-prev">&larr; The Labor Department Wants AI Companies to Tell It Whic</a><a href="16-openai-data-center-chief-departure.html" class="nav-next">OpenAI's Head of Data Centers Left in the Middle of the &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 27, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
