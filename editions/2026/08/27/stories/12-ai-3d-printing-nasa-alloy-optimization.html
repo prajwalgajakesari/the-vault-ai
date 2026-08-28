@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Hundred Million Possible Settings, Forty Experiments, Six Answers &mdash; The Vault AI</title>
+<meta name="description" content="Washington State University researchers used an active-search loop to find six working directed energy deposition settings for NASA's GRCop-42 copper alloy in just 40 physical experiments, including t">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.pull-quote{margin:2rem auto;max-width:720px;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem auto;max-width:720px;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;width:0;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+<span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+<h1>A Hundred Million Possible Settings, Forty Experiments, Six Answers</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1024 words</span><span>4 sources</span></div></header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>Washington State University researchers used an active-search loop to find six working directed energy deposition settings for NASA's GRCop-42 copper alloy in just 40 physical experiments, including the first successful print at 500 watts.</p></div>
+<div class="article-body">
+<p>For several months, a materials lab at Washington State University tried to 3D-print a NASA copper alloy and failed 37 consecutive times. Then a computer science group asked for the failure data. Nothing else, just the 37 parameter sets that had produced brittle columns, oversized beads and test blocks that fell apart on the machining table. Three months and 40 more prints later, the collaboration had six settings that worked, including one at 500 watts of laser power, a level at which this alloy had never been successfully printed.</p>
+<p>The paper, "Discovery of Feasible 3D Printing Configurations for Metal Alloys via AI-Driven Adaptive Experimental Design," appeared in the Proceedings of the AAAI Conference on Artificial Intelligence and took the conference's Innovative Deployed Application Award. First author Azza Fadhel is a PhD student in computer science; her co-authors are Nathaniel W. Zuckschwerdt, Susmita Bose and Amit Bandyopadhyay of WSU's School of Mechanical and Materials Engineering, Aryan Deshwal of the University of Minnesota, and Jana Doppa, the Huie-Rogers Endowed Chair Professor of Computer Science at WSU, who led the project.</p>
+<p>Two details are worth pinning down, because the shorthand circulating around this study gets both wrong. The alloy is GRCop-42, a copper-chromium-niobium alloy NASA developed for regeneratively cooled rocket combustion chambers, not GRX-810, NASA's better-known oxide-dispersion-strengthened superalloy. The process is directed energy deposition, in which powder is blown into a moving laser's focal point, not the powder-bed fusion most people picture.</p>
+<p>Copper resists both halves of the job. It reflects most of the infrared light fiber lasers emit, and it conducts heat away too fast for a stable melt pool to form. The standard workaround is brute force, 2 to 4 kilowatts, while more than 90 percent of commercial metal printers top out between 500 and 1,000 watts.</p>
+<p>"Ninety percent of commercial printers cannot print this metal alloy, so given that we were able to find these feasible process parameters, it allows us to use those commercial printers, and we are essentially democratizing the printing of this alloy," Doppa said.</p>
+<h2>What 100 million actually means</h2>
+<p>The number deserves a straight explanation. The search space is five controllable parameters, each chopped into a grid: powder feed rate, carrier gas flow, Inconel substrate thickness, scan speed from 200 to 1,600 mm/min in steps of 50, and layer height from 0.05 to 0.5 mm in hundredths. Multiply it out and you get roughly 102 million combinations, per laser power level.</p>
+<p>This is not 100 million distinct hypotheses. It is five continuous knobs, discretized, and the number is partly a function of how finely the team chose to chop them. Say it that way and nothing important deflates. The successful region is still vanishingly small, and every wrong guess costs real money: each machine run runs $500 to $1,000, and post-print analysis adds roughly $500 per sample and one to four weeks of waiting.</p>
+<h2>The method is active search, not Bayesian optimization</h2>
+<p>The team calls its approach BEAM, for Bayesian Experimental design for Additive Manufacturing, but the paper carefully distinguishes it from Bayesian optimization proper. Standard BO assumes a continuous objective with good solutions clustered near optima. Here the signal is binary and the successes are sparse and scattered, so the authors reframe the problem as active search under severe class imbalance, closer to classification than optimization.</p>
+<p>The machinery is deliberately modest. The surrogate is a probabilistic k-nearest-neighbors classifier with k=5, initialized on those 37 failures, estimating the probability that any untested grid point will succeed. The acquisition function adds an exploration term, scoring a candidate not only on how likely it is to work but on how much the remaining budget benefits from learning its outcome. Expert constraints prune candidates first, and the system proposes two experiments at a time.</p>
+<p>"It's a very challenging case for AI," Doppa said. "Every time you try, you basically get a binary success or failure signal, and you are trying to minimize the number of tries that you have so that you get to those successful needles very quickly."</p>
+<p>The budget was 10 experiments at each of four power levels: 950, 700, 600 and 500 watts. Every level yielded at least one working configuration inside its budget, six in total. The insight the team took away is that unusually high scan speeds paired with lower-than-normal layer heights were the key, which is not what DED practice for other materials would have suggested.</p>
+<h2>What AI for science looks like when it is honest</h2>
+<p>There is no language model anywhere in this pipeline. Nothing wrote a hypothesis or drafted a paper. A five-nearest-neighbor classifier over five numbers decided which expensive thing to do next, and that decision was the entire contribution. Set against the current genre of "AI scientist" announcements, the contrast is instructive: the win here is measurable precisely because the claim is narrow enough to check.</p>
+<p>Fadhel's description of the loop captures why binary failure data is an asset rather than a write-off. "They would give me back the results, and I liked all of them, even if they failed, because every result improved our AI model," she said.</p>
+<h2>What does not transfer</h2>
+<p>The result is bound to one setup: a 5-axis powder-fed FormAlloy system with a 1,000-watt fiber laser, argon below 20 ppm oxygen, Carpenter Additive powder at 15 to 53 microns, GRCop-42 deposited onto Inconel 718. Geometry, hatching strategy and build length were held fixed. Change the machine, the powder lot or the part shape and the prior encoded in those 37 failures is worth considerably less.</p>
+<p>The paper argues that consistent performance across four power levels gives "reasonable confidence" the method generalizes. That is robustness within one setup, not transfer across setups. The success label is also a human metallurgical judgment, not an automated measurement, so the loop runs no faster than that analysis step.</p>
+<p>What to watch: whether a second lab on different hardware reproduces the low-power window; whether the six configurations survive full mechanical qualification; and whether the approach reaches the alloys the authors flag as the real prize, Al6061, Al7075 and Al2024, used everywhere in aerospace and still unprintable on most sub-kilowatt machines.</p>
+</div>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;Every time you try, you basically get a binary success or failure signal, and you are trying to minimize the number of tries that you have so that you get to those successful needles very quickly.&rdquo;</blockquote><cite>&mdash; Jana Doppa, Huie-Rogers Endowed Chair Professor of Computer Science, Washington State University</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">40</div><div class="stat-label">Physical experiments required</div></div><div class="stat-cell"><div class="stat-value">6</div><div class="stat-label">Working configurations found</div></div><div class="stat-cell"><div class="stat-value">102M</div><div class="stat-label">Parameter combinations per power level</div></div><div class="stat-cell"><div class="stat-value">500W</div><div class="stat-label">Lowest power ever to print GRCop-42</div></div></div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.sciencedaily.com/releases/2026/08/260827010504.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=sciencedaily.com&sz=32" alt="">ScienceDaily</a><a href="https://news.wsu.edu/news/2026/08/24/researchers-use-ai-to-democratize-3d-printing-of-crucial-metal-alloy/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=news.wsu.edu&sz=32" alt="">WSU Insider</a><a href="https://arxiv.org/abs/2601.17587" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://phys.org/news/2026-08-ai-ways-rocket-grade-alloy.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=phys.org&sz=32" alt="">Phys.org</a></div></div>
+<div class="article-nav"><a href="11-huggingface-microduck-399-open-biped.html" class="nav-prev">&larr; A $399 Walking Robot Is Hugging Face's Answer to the Hu</a><a href="13-cursor-agent-ransomware-aur0ra-breaches.html" class="nav-next">The Ransomware Crew Told Cursor It Was a Penetration Te &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 27, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
