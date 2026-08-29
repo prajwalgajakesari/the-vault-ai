@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cerebras Details CS-6 Roadmap, Stacking DRAM Directly Above Its Wafer-Scale AI Processor &mdash; The Vault AI</title>
+<meta name="description" content="Cerebras will stack DRAM vertically atop its wafer-scale engine in the future CS-6, escaping the memory-capacity ceiling of its SRAM-only design while its new Nexus-based CS-4 doubles per-wafer performance today.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body blockquote{margin:1.5rem 0;padding-left:1.2rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>Cerebras Details CS-6 Roadmap, Stacking DRAM Directly Above Its Wafer-Scale AI Processor</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 999 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Cerebras will stack DRAM vertically atop its wafer-scale engine in the future CS-6, escaping the memory-capacity ceiling of its SRAM-only design while its new Nexus-based CS-4 doubles per-wafer performance today.</p>
+</div>
+<div class="article-body">
+<p>For a decade, Cerebras has sold a single stubborn idea: that the fastest way to run an AI model is to stop chopping the chip into pieces. At Hot Chips 2026 in Palo Alto this week, the company finally admitted the limit of that idea in two dimensions — and announced its plan to escape it in three.</p>
+<p>The headline from Cerebras engineers was the CS-6, a system still two generations out on the roadmap, in which the company will stack DRAM directly on top of a wafer-scale processor for the first time. It is a substantial architectural departure. Every Cerebras wafer shipped to date has run entirely out of on-die SRAM, a design that delivers extraordinary bandwidth at the cost of capacity. Stacking DRAM vertically over the logic and SRAM wafer would let Cerebras add memory without surrendering silicon area — and, crucially, without giving up the on-wafer data locality that is its entire competitive premise.</p>
+<p>“A wafer-scale processor already fills the largest practical area available in two dimensions,” the company wrote in its Hot Chips technical brief. “Adding substantially more memory means building upward while preserving the data locality that makes wafer scale fast.” Cerebras says it began work on the concept in 2024, and that integrating wafer-scale SRAM and compute with 3D-stacked DRAM through ultra-high-bandwidth connections should deliver ultrafast inference in what it calls an order-of-magnitude smaller system footprint.</p>
+<h2>The capacity problem Cerebras has been dodging</h2>
+<p>The reason CS-6 matters is visible in the CS-4 spec sheet Cerebras spent most of its Hot Chips session detailing. The new WSE-3 Turbo is a genuinely absurd piece of silicon: four trillion transistors, 900,000 AI-optimized cores, 46,225 square millimeters of wafer, 250 sparse FP16 petaFLOPS, and 43.2 petabytes per second of memory bandwidth. A three-wafer CS-4 rack totals 750 PFLOPS, 129.6 PB/s of memory bandwidth, and 160.5 PB/s of aggregate fabric bandwidth.</p>
+<p>But it carries just 44GB of SRAM per wafer — 132GB across an entire rack. Nvidia's Vera Rubin NVL72 packs 20.7TB of HBM; AMD's Helios reaches 31TB. Cerebras wins bandwidth by a factor of hundreds and loses capacity by a factor of roughly 150. Models keep growing, KV caches keep lengthening, and 300mm wafers are not getting any bigger. Cerebras has chosen to give vertically.</p>
+<p>The near-term story is CS-4 itself, the first system built on the new Nexus rack-scale platform. Nexus reorganizes the machine into three independently upgradeable elements — compute, power, and I/O — with each wafer housed in a self-contained rear-mounted “backpack” that folds power conversion, direct liquid cooling, high-speed I/O, and control electronics into a three-dimensional package built around the wafer. Cerebras says the backpack uses 50 percent fewer components than the CS-3 assembly, relies on 60 percent more automated manufacturing, and cuts datacenter deployment from days to hours.</p>
+<p>The performance gain comes largely from power delivery. Conventional GPU boards place AC/DC converters roughly 50 millimeters from the silicon, forcing current through layers of copper. CS-4 puts them about 0.5 millimeters away, with no printed circuit board in the final delivery path — a 100x reduction in distance that nearly eliminates board-level loss. That headroom lets Cerebras push twice as much power into the wafer, which translates into higher clocks and up to twice the performance of the WSE-3 across the board.</p>
+<p>Cerebras chief system architect JP Fricker was blunt about the alternative, describing the roughly 5,000 internal cables in a Rubin NVL72 NVLink spine as “a mess” and contrasting them with the on-die interconnect and self-contained modules of the Nexus design. Cerebras claims 2.4 Tb/s of direct wafer-to-wafer bandwidth per wafer, 7.2 Tb/s per rack, and latency as low as two microseconds — down from five.</p>
+<h2>Analysis</h2>
+<p>The competitive logic here is narrow and deliberate. Cerebras is not trying to win training. It is trying to own the decode half of inference, where latency is king and where its bandwidth advantage is decisive. On GPT-OSS-120B, the company claims more than 4,400 tokens per second per user, up to 30 times faster than GPU-based systems, with up to 10x more throughput per watt than CS-3.</p>
+<p>“In AI, speed is productivity,” said CEO and co-founder Andrew Feldman. “Historically, fast inference meant using smaller and less capable models. Cerebras CS-4 delivers industry-leading speeds on the largest frontier models, fundamentally changing the paradigm.”</p>
+<p>CTO and co-founder Sean Lie framed the payoff in agentic terms. “Being 30 times faster doesn't just make a response feel fast. It gives an agentic system room for more than an order of magnitude as much reasoning, verification, or tool use in the same wall-clock time,” he said. “That's the difference CS-4 makes for real production workloads.”</p>
+<p>That is the bet: as agents replace chatbots, per-user token rate becomes the binding constraint on task completion time. Cerebras is also positioning for disaggregated serving, where a GPU or ASIC handles prefill and hands decode to a wafer — an arrangement it is already building with AMD's Instinct MI455X and AWS Trainium.</p>
+<p>There is a business angle to the 3D stacking too. Trading SRAM area for stacked DRAM lets Cerebras build physically smaller processors with comparable memory, which could mean more wafer-scale engines per 300mm wafer — a real constraint for a company scaling supply against OpenAI, G42, and AWS commitments.</p>
+<h2>What to watch</h2>
+<p>The intermediate step is CS-5, due in 2027 on the same Nexus platform, targeting up to 10,000 output tokens per second per user on open models like gpt-oss-120b, 5,000 TPS/user on multi-trillion-parameter frontier models, and 3 million tokens per second per megawatt. First CS-4 shipments begin this quarter.</p>
+<p>CS-6 remains the harder question. Cerebras declined to disclose bond technology, DRAM capacity, stack bandwidth, or thermal strategy — and stacking memory atop a 46,000-square-millimeter processor that draws enough current to require a busbar is a thermal and yield problem no one has solved at this scale. Watch for a memory-partner announcement and for whether Cerebras names a target year. Until then, CS-6 is a direction, not a date.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>&ldquo;Being 30 times faster does not just make a response feel fast. It gives an agentic system room for more than an order of magnitude as much reasoning, verification, or tool use in the same wall-clock time.&rdquo;</blockquote><cite>&mdash; Sean Lie, CTO and co-founder, Cerebras Systems</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">4 trillion</div><div class="stat-label">Transistors in the WSE-3 Turbo</div></div><div class="stat-cell"><div class="stat-value">2x</div><div class="stat-label">CS-4 gain over prior generation</div></div><div class="stat-cell"><div class="stat-value">4,400+</div><div class="stat-label">Tokens/sec/user on GPT-OSS-120B</div></div><div class="stat-cell"><div class="stat-value">0.5mm</div><div class="stat-label">Converter-to-wafer distance</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/hot-chips-2026-cerebras-lays-out-the-future-of-wafer-scale-ai-nexus-system-architecture-triples-rack-scale-performance-cs-6-wafer-to-incorporate-stacked-dram" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tomshardware.com&sz=32" alt="">Tom's Hardware</a><a href="https://www.cerebras.ai/blog/ultrafast-frontier-inference-cerebras-deep-dive-at-hot-chips-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cerebras.ai&sz=32" alt="">Cerebras</a><a href="https://www.servethehome.com/cerebras-talks-going-rack-scale-with-their-wses-at-hot-chips-2026/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=servethehome.com&sz=32" alt="">ServeTheHome</a></div></div>
+<div class="article-nav"><a href="02-alibaba-cloud-brazil-data-centers.html" class="nav-prev">&larr; Alibaba Cloud Opens Two Brazil Data Centers, Pushi</a><a href="04-vietnam-qualcomm-samsung-ai-investment.html" class="nav-next">Vietnam Presses Qualcomm and Samsung to Deepen AI, &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 28, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
