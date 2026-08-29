@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MIT's Extreme Event Aware Learning Generates Disasters the Historical Record Has Never Seen &mdash; The Vault AI</title>
+<meta name="description" content="MIT's eta-learning constrains a generative downscaling model with long-run point statistics instead of tail data, letting it produce physically plausible maps of storms more extreme than anything in the observational record.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body blockquote{margin:1.5rem 0;padding-left:1.2rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>MIT's Extreme Event Aware Learning Generates Disasters the Historical Record Has Never Seen</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1045 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>MIT's eta-learning constrains a generative downscaling model with long-run point statistics instead of tail data, letting it produce physically plausible maps of storms more extreme than anything in the observational record.</p>
+</div>
+<div class="article-body">
+<p>The heaviest rainfall ever recorded in New York City measures 200 millimetres. A new machine-learning method out of MIT can hand a city planner a map of the storm that drops 300 — where it lands, how wide it spreads, how hard it falls — even though no such storm exists anywhere in the record the model was trained on.</p>
+<p>That is the claim at the center of an open-access paper published Aug. 20 in Nature Communications by Kai Chang, a graduate student in MIT’s Department of Mechanical Engineering, and Themis Sapsis, the William I. Koch Professor of Mechanical and Ocean Engineering. Their method, Extreme Event Aware learning — shortened to eta-learning, after the Greek letter used in the paper — inverts the founding assumption of catastrophe modelling: that to simulate a disaster, you first have to have observed one.</p>
+<p>“We are trying to model extreme, unprecedented events that no one has seen before, that are not in the dataset,” Chang says.</p>
+<p>The gap is not academic. Insurers, grid operators and municipal engineers all want an answer to the same question — what does a once-in-a-century storm look like here? — and their tools are trained on datasets that must already contain century-scale events in order to learn what produces them. The historical record is thinnest exactly where the stakes are highest.</p>
+<p>“An event like Hurricane Katrina is something that happens every 30 to 40 years,” Sapsis says. “What will be the Katrina that happens every 100 years? How bad will it be? That’s exactly what we’re trying to quantify, to help planners prepare for plausible extreme scenarios.”</p>
+<h2>How it works</h2>
+<p>The method leans on a split that turns out to be unusually productive. Point statistics describe how often a single number — say, the maximum rainfall anywhere on a map — reaches a given level. Spatial maps describe how an event is distributed across a region. The first is cheap to collect over long horizons; the second is expensive and scarce.</p>
+<p>Chang and Sapsis train on both, but not on the same slice of data. For their demonstration they pulled 25 years of hourly total precipitation over the continental United States from the ERA5-Land reanalysis, covering 1999 through 2023, and pooled it into 9,044 daily maps. From that full record they computed the point statistics: how frequently the map-wide rainfall maximum hits each level, tail included.</p>
+<p>Then they deliberately starved the spatial half of the model. The map-to-map component was trained on paired low-resolution and high-resolution fields drawn from only the first six months of the record — roughly two percent of the data, a window containing few or none of the heaviest events. The algorithm learned how coarse patterns correspond to fine detail, and the long-run point statistics were then used to constrain how extreme that generated detail could become.</p>
+<p>The result fits the observed spatial data while staying consistent with a prescribed distribution of extremes, including regions of it the model never witnessed. A conventional mean-squared-error map trained the same way simply flattens the tail — it ignores extremes entirely — while the eta-map reproduces the true tail beyond a quantile value of 150 and tracks sensible behaviour at thresholds from 154 up to 214. Correcting the tail also improved the fit in the bulk. Theoretical guarantees arrive by way of optimal transport.</p>
+<p>The user-facing version of all this is a prompt. Ask what a once-in-a-century storm looks like for a named city and the model returns maps — each with its own footprint, coverage and intensity.</p>
+<p>“Someone can say, ‘I’m interested in building things to withstand the risk of an event that happens every 100 years,’” Chang says. “What we can do then is produce thousands of possible realizations that will happen with this sort of rare frequency.”</p>
+<h2>Analysis</h2>
+<p>Generative models are, by construction, conservative about their tails. Trained to reproduce a distribution, they generate near its mass and grow less reliable as you push outward — epistemic uncertainty is worst exactly where the risk lives. Most fixes involve finding more tail data. Eta-learning takes the opposite route: it treats a low-dimensional summary statistic as a hard constraint and lets that statistic drag the high-dimensional generator into territory the pixels never covered. That is a genuinely different answer to out-of-distribution generation, and it is portable to any domain where you can name an observable that indicates extremeness.</p>
+<p>The commercial pull is obvious. Catastrophe modelling underwrites insurance pricing, reinsurance capacity and the siting of data centres and transmission lines. Those models are backward-looking in a climate that is no longer stationary — a hundred-year floodplain drawn from twentieth-century observations describes a world that has moved on. A method that generates plausible maps beyond the record gives stress-testers something to stress against.</p>
+<p>The caveats are equally clear. The paper is candid that the eta-map gets the magnitude of extremes right while spatial localisation stays imperfect, because distribution-matching regularisation carries no explicit spatial guidance. In one test case it generated an extreme where the ground truth had none — defensible probabilistically, awkward if a planner reads a single sample as a forecast. And the apparatus is only as good as the prescribed tail: feed it a hypothesised distribution and it faithfully produces a heavier tail than reality contains. That flexibility is the feature and the failure mode at once.</p>
+<p>Sapsis frames the stakes in supply-chain terms rather than meteorological ones. “A single extreme event propagates through supply chains, energy markets, and food systems in weeks,” he says. “Being able to put a probability on an event that hasn’t happened yet is now a question of national and economic resilience.”</p>
+<h2>What to watch</h2>
+<p>Three things. Whether the method survives contact with hazards beyond precipitation — floods and wildfires each need their own point statistics and spatial data first. Whether the localisation weakness can be closed with added physical constraints, which is what stands between an interesting result and a tool an engineering firm will sign off on. And whether the non-weather applications land: Chang has flagged financial market crashes as a target. The work was funded in part by a Vannevar Bush Faculty Fellowship and the U.S. Air Force Office of Scientific Research — a sign the resilience-planning community is already watching.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;An event like Hurricane Katrina is something that happens every 30 to 40 years. What will be the Katrina that happens every 100 years? How bad will it be?&rdquo;</blockquote><cite>&mdash; Themis Sapsis, Professor of Mechanical and Ocean Engineering, MIT</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">300mm</div><div class="stat-label">Generated storm vs 200mm NYC record</div></div><div class="stat-cell"><div class="stat-value">25 years</div><div class="stat-label">ERA5-Land record used</div></div><div class="stat-cell"><div class="stat-value">9,044</div><div class="stat-label">Daily precipitation maps pooled</div></div><div class="stat-cell"><div class="stat-value">6 months</div><div class="stat-label">Training window, about 2% of record</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://news.mit.edu/2026/generating-scenarios-extreme-events-without-extreme-data-0824" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=news.mit.edu&sz=32" alt="">MIT News</a><a href="https://www.nature.com/articles/s41467-026-76811-x" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nature.com&sz=32" alt="">Nature Communications</a><a href="https://arxiv.org/abs/2510.19161" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a></div></div>
+<div class="article-nav"><a href="09-google-expert-intelligence-gemini-notebooks.html" class="nav-prev">&larr; Google Adds Expert Intelligence to Gemini Notebook</a><a href="11-forcepoint-invisible-text-summary-hijack.html" class="nav-next">Invisible Text in an Email Can Rewrite What an AI  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 28, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
