@@ -1,0 +1,31 @@
+The order landed on a Thursday night, 59 pages long, and it did something no court had yet done in the eight-month standoff between the US military and the company that makes Claude: it told the federal government that punishing an AI lab for its safety policy is not a national security decision, it is retaliation.
+
+US District Judge Rita F. Lin ruled on Aug. 27 that the administration acted unlawfully when it designated Anthropic a supply chain risk and directed federal agencies to stop using the company’s technology. The case, Anthropic PBC v. US Department of War, No. 3:26-cv-01996-RFL, was filed in the Northern District of California on March 9. Lin, a Biden appointee, found the designation both unconstitutional and procedurally defective — First Amendment retaliation, a Fifth Amendment due process failure, and agency action that was, in the language of the Administrative Procedure Act, arbitrary and capricious.
+
+“Though the Department of War is undisputedly free to select the AI vendor of its choice, the evidence demonstrates that the broad measures imposed on Anthropic were illegal and baseless,” Lin wrote. “The empty invocation of national security is not a blank check to punish and retaliate against government critics.”
+
+## How the fight started
+
+The dispute broke into public view in February, when President Donald Trump and Defense Secretary Pete Hegseth accused Anthropic of endangering national security and labeled it a supply chain risk — a designation normally reserved for vendors whose products could expose military systems to infiltration or sabotage by an adversary. The order reached beyond the Pentagon, directing all federal agencies to stop using Anthropic products, including Claude.
+
+What preceded it was a contract negotiation that failed over two clauses. Anthropic declined to lift its usage restrictions barring the use of its models for fully autonomous lethal weapons and for mass surveillance of Americans. CEO Dario Amodei declined to move on either. The Pentagon’s position was that it would use the models only for lawful purposes, and that Anthropic was trying to control the military’s use of software the government had paid for. Anthropic’s complaint argued the government “may not employ the power of the State to punish or suppress disfavored expression.”
+
+Lin’s opinion leans heavily on the government’s own conduct. She noted that the administration had floated applying the Defense Production Act to Anthropic — a move that, as she put it, “would mean the company was essential to national security rather than a threat to it.” She pointed to the department continuing to pursue a contract with Anthropic after the designation, and to the government collaborating with the company’s Mythos model on cybersecurity. She also found that Anthropic “undisputedly lacks” backdoor access to its models once delivered.
+
+The central finding is about motive. The government’s actions, Lin wrote, “were based on a desire to make a public example out of Anthropic for its ‘arrogance’ in criticizing the government, not based on any articulable basis to believe that Anthropic would actually sabotage its model.” Neither the Constitution nor the statute the government invoked, she concluded, permits officials to “impose sweeping penalties based principally on Anthropic’s critique of the Administration’s views.”
+
+An Anthropic spokesperson said the company welcomed the ruling that the designation was unlawful, adding: “We remain focused on working productively with the government to harness AI for our national security so all Americans benefit from this technology.” The White House did not immediately respond to press requests for comment, and the government is widely expected to appeal.
+
+## Analysis
+
+The immediate question this case answers is a narrow one — whether a specific label was applied lawfully. The question it opens is much larger: who gets to set the limits on how military AI is used, the vendor or the buyer.
+
+The Pentagon’s implicit argument was that a purchaser of software owes nothing to the seller’s ethics policy. Anthropic’s was that a model developer retains a First Amendment right to say what it will and will not build for, and that the government cannot use procurement machinery to extract that concession. Lin did not rule that Anthropic can dictate deployment terms; she was explicit that the department may choose any vendor it likes. What she ruled is that the government cannot select vendors by punishing the ones that criticize it. That is a narrower holding than the headline suggests, and a more durable one.
+
+For other frontier labs, the precedent cuts in a specific direction. The supply chain risk designation was potent precisely because it was cheap to impose and expensive to fight — it carries reputational damage across the entire federal customer base and, in this instance, spread to civilian agencies with no defense equities at all. A ruling that the label requires an articulable factual basis and real process raises the cost of using it as leverage. OpenAI signed its own Pentagon agreement within hours of the action against Anthropic, a sequence the record in this case makes hard to read as coincidence.
+
+There is also a procurement lesson. The government spent months arguing that AI systems are, in the words of Justice Department lawyers at a July 30 hearing, “so staggeringly enormous and opaque” that the department cannot evaluate them the way it evaluates hardware. Lin was unpersuaded that opacity substitutes for evidence. At that hearing she had called the government’s position “really troubling” and “at odds to me with the First Amendment.”
+
+## What to watch
+
+The blacklist is not actually lifted yet. A parallel, narrower petition remains pending before the DC Circuit — Anthropic PBC v. United States Department of War, No. 26-1049 — which concerns a different rule the Pentagon invoked to reach the same designation. Until that case resolves, Anthropic technically remains labeled a supply chain risk. Watch for a notice of appeal to the Ninth Circuit and any request to stay Lin’s order, the scope of the remedy she enters, and whether the Pentagon re-designates Anthropic through a cleaner procedural path. The opinion closes off retaliation as a rationale. It does not close off the designation itself.
