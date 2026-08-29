@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Z.ai Releases GLM-5.3 Weights After a Two-Week Safety Hold Over Its Cyber Capabilities &mdash; The Vault AI</title>
+<meta name="description" content="Z.ai released GLM-5.3's weights on August 28 after a self-imposed two-week hold triggered by cyber capabilities that outgrew its own expectations, a rare case of an open-weight lab gating distribution on dual-use risk without any regulatory mandate.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body blockquote{margin:1.5rem 0;padding-left:1.2rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Z.ai Releases GLM-5.3 Weights After a Two-Week Safety Hold Over Its Cyber Capabilities</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1007 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Z.ai released GLM-5.3's weights on August 28 after a self-imposed two-week hold triggered by cyber capabilities that outgrew its own expectations, a rare case of an open-weight lab gating distribution on dual-use risk without any regulatory mandate.</p>
+</div>
+<div class="article-body">
+<p>Z.ai published the full weights for GLM-5.3 on Hugging Face on Friday, closing a two-week gap between the moment the model went live for paying subscribers and the moment anyone with enough GPUs could download it. The delay was not paperwork. It was, by the company’s own account, a safety hold — imposed because the model got better at finding and exploiting software vulnerabilities faster than Z.ai’s researchers expected.</p>
+<p>That makes GLM-5.3 the first GLM model to ship on a staged schedule, and one of the few open-weight releases anywhere slowed explicitly for cyber-capability reasons.</p>
+<h2>What actually shipped, and when</h2>
+<p>GLM-5.3 launched on 14 August through the GLM Coding Plan subscription and the ZCode agent, with no per-token pricing published on day one. API rates followed on 26 August at $1.40 per million input tokens, $0.26 cached and $4.40 output — matching GLM-5.2 on paper, though not in practice, since GLM-5.3 cannot disable thinking and bills reasoning inside output tokens. The weights landed 28 August under the zai-org organisation on Hugging Face.</p>
+<p>One correction to the circulating shorthand: Z.ai has never published an official parameter count for GLM-5.3. The widely repeated 743-billion figure is inherited from GLM-5.2, whose base network GLM-5.3 reuses unchanged — a mixture-of-experts model of roughly 744B total parameters, about 40B active per forward pass, with a one-million-token context. Nathan Lambert of the Interconnects newsletter rounded it to about 750B and flagged the sharper comparison: roughly a third the size of Moonshot’s Kimi K3.</p>
+<p>Licensing warrants caution too. GLM-5.1, GLM-5.2 and the smaller GLM-5.3-Flash — a 320B-parameter multimodal model released 26 August — all shipped under MIT, and MIT is what has been reported for the flagship. But Z.ai declined to state terms in advance, and the LICENSE file is the only answer that binds.</p>
+<h2>The numbers behind the hold</h2>
+<p>Z.ai’s framing was blunt. The launch post opened: “Scaling post-training is all we did for GLM-5.3.” No new pretraining run, no new base — just longer reinforcement-learning runs, more task environments and harder objectives on top of GLM-5.2.</p>
+<p>The coding gains are large by the company’s own measurements. Terminal Bench 3.0 went from 4.6 to 28.3, DeepSWE v1.1 from 46.2 to 66.9, SWE-Marathon v1.1 from 19.4 to 42.5. On Z.ai’s in-house Code Bench, GLM-5.3 clears 34.5 percent at maximum effort while burning about 75,000 output tokens per task, against GLM-5.2’s 23.4 percent at 96,000. Z.ai says plainly it remains behind Claude Fable 5, at 39.5 percent.</p>
+<p>The security results are where the trajectory bent. CyberGym, measuring white-box vulnerability identification, moved from 77.2 to 84.5 — narrowly ahead of Anthropic’s Mythos 5 at 83.8 and OpenAI’s GPT-5.6 Sol at 83.6. ExploitBench, which requires reasoning a flaw through to a working exploit, more than doubled to 54.4, though closed models lead decisively at 78.0. On ExploitGym, completed tasks jumped from 29 to 105 on a two-hour budget.</p>
+<p>“We expected this to make the model better at finding and reasoning about vulnerabilities,” Z.ai wrote. “What surprised us was how quickly the capability continued to develop as training scaled.”</p>
+<p>Alongside the launch, Z.ai opened a public Security Disclosure Ledger listing 2,436 findings across 269 open-source projects. One widely circulated number needs fixing: the launch prose called 1,097 of those medium-to-high severity, but the dashboard shows 1,097 is the sum of 107 critical and 990 high, with 1,286 medium and 53 low making up the rest. Only 53 entries were publicly inspectable, and the findings are not GLM-5.3’s alone: the programme dates to the GLM-5.2 era, and upstream FreeBSD and Apple advisories credit GLM-5.1 or an unspecified GLM.</p>
+<h2>Analysis</h2>
+<p>The interesting thing is not that a Chinese lab shipped a competitive coder. It is that Z.ai said out loud that release timing was a function of capability.</p>
+<p>“They also create clear dual-use risks,” the company wrote of its cyber gains. “We are therefore taking a staged approach to release. Selected security partners will first evaluate GLM-5.3 in controlled settings.” That is close to the posture US frontier labs adopt, arrived at without a regulatory mandate — and it inverts the usual critique that Chinese labs keep pace partly by skipping the pre-release testing that costs OpenAI and Anthropic months.</p>
+<p>But a two-week hold is a speed bump, not a control. As Lambert put it: “At the end of the day, this type of safety barely matters when true open-weights are coming. If not GLM-5.3, then another model.” His prescription is structural: “We need industrial-scale guidance led by the government or industry coalitions to immediately prepare for this transition across all software.”</p>
+<p>The economics reinforce the point. When the UK AI Security Institute ran open-weight models through a 70-task cyber suite in July, GLM-5.2 landed within months of the closed frontier at roughly half the cost — about $46 versus $85 per 100-million-token run. Near-frontier offensive capability no longer requires a frontier-lab budget, and weights diffuse permanently, with no rate limits and no monitoring. It cuts both ways: defenders and volunteer maintainers get the identical tool, and the embargoed fixes now moving through disclosure are openness’s strongest argument.</p>
+<p>The commercial backdrop is less flattering. Z.ai sits on the US Entity List, listed in January near a $7bn valuation, spiked to $128bn after GLM-5.2 and has since fallen back toward $75bn. “This firm remains on a completely unsustainable commercial footing,” Bloomberg Intelligence analyst Robert Lea told Bloomberg. “Rising agentic AI will drive Z.ai’s inference costs and losses higher.”</p>
+<h2>What to watch</h2>
+<p>Three things. The LICENSE file and model card — whether Z.ai shipped MIT, and whether the card documents what hardening changed. Parity — do the public weights reproduce the API model’s cyber scores, or did hardening degrade them? And independent replication: every figure above is vendor-run, and CyberGym already appears as both 84.5 and 83.5 in different Z.ai documents.</p>
+<p>Beyond that, the precedent matters more than the model. If a lab under export controls can voluntarily gate an open-weight release on cyber evaluations, the argument that safety holds are a Western luxury gets harder to make.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;At the end of the day, this type of safety barely matters when true open-weights are coming. If not GLM-5.3, then another model.&rdquo;</blockquote><cite>&mdash; Nathan Lambert, Author, Interconnects</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">84.5</div><div class="stat-label">CyberGym score, up from 77.2</div></div><div class="stat-cell"><div class="stat-value">54.4</div><div class="stat-label">ExploitBench, more than doubled</div></div><div class="stat-cell"><div class="stat-value">28.3</div><div class="stat-label">Terminal Bench 3.0, from 4.6</div></div><div class="stat-cell"><div class="stat-value">$1.40 / $4.40</div><div class="stat-label">API price per 1M in / out tokens</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://decrypt.co/375684/china-z-ai-glm-5-3-top-open-weight-coding-model" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=decrypt.co&sz=32" alt="">Decrypt</a><a href="https://www.interconnects.ai/p/glm-53-how-chinese-labs-keep-stride" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=interconnects.ai&sz=32" alt="">Interconnects</a><a href="https://www.siliconrepublic.com/machines/chinas-z-ai-unveils-glm-5-3-claims-chart-leading-scores" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=siliconrepublic.com&sz=32" alt="">Silicon Republic</a></div></div>
+<div class="article-nav"><a href="05-ai-talent-751k-45pct-growth.html" class="nav-prev">&larr; AI-Skilled Tech Talent Jumps 45% to 751,000 Across</a><a href="07-meta-smart-glasses-recording-loophole.html" class="nav-next">Meta Closes a Smart-Glasses Recording Loophole as  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 28, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
