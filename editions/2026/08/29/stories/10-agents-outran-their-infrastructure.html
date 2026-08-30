@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Engineers Adopted AI Agents Faster Than Anyone Built the Plumbing to Run Them &mdash; The Vault AI</title>
+<meta name="description" content="Daily AI agent use among engineers jumped from 47.3% to 80.8% in a year, but the top blocker to using more is tracking state at 35.7%, meaning adoption has badly outrun the orchestration, identity and reliability infrastructure needed to run agents dependably.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.4rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.4}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Engineers Adopted AI Agents Faster Than Anyone Built the Plumbing to Run Them</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 993 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Daily AI agent use among engineers jumped from 47.3% to 80.8% in a year, but the top blocker to using more is tracking state at 35.7%, meaning adoption has badly outrun the orchestration, identity and reliability infrastructure needed to run agents dependably.</p>
+</div>
+<div class="article-body">
+<p>Eight in ten engineers now reach for an AI agent every single day. Just over a third of them say the biggest thing stopping them from using more is that they cannot reliably keep track of what those agents actually did.</p>
+<p>That gap — between how fast engineering teams adopted agents and how little of the plumbing needed to run them dependably actually exists — is the through-line of Temporal's second annual State of Development Report, released Wednesday, August 26. Based on 554 usable responses from software engineers, architects and engineering leaders in the US and UK surveyed between April 29 and May 25, 2026, the report reads less like a victory lap for agentic coding and more like an audit of the debt it left behind.</p>
+<p>The adoption numbers are genuinely startling. Daily-or-more agent use jumped from <strong>47.3% a year ago to 80.8%</strong> today, a 33-point swing in twelve months. The median respondent runs five agents; the mean is 10.7, dragged upward by outliers including one engineer who reported running 256. Nearly half the sample — 49.1% — now rates agents as in production or core to how they ship. And 51.3% say they can take an AI-generated prototype to production-ready code in hours or faster.</p>
+<p>Then the other column of the ledger. Asked to name the top blocker to using agents more, <strong>35.7% said tracking state</strong>, ahead of debugging in second place and token or compute costs in third. Some 41.1% hit agent-related issues daily or more often, and 16.4% hit them hourly or more. Nearly 80% say token and compute costs are limiting their progress. And 39.5% named security concerns as the single largest obstacle to letting agents run fully autonomously — the top answer by a wide margin.</p>
+<h2>The confidence gap</h2>
+<p>Temporal co-founder and CEO Samar Abbas framed the split bluntly in the report's announcement.</p>
+<p>&gt; Our second State of Development Report highlights how today's engineers have adopted AI agents faster than most teams have built the infrastructure to run them reliably, Abbas said. The data shows that the teams pulling ahead are those who trust their systems more, because they've solved for state, cost, and reliability.</p>
+<p>Temporal sells durable execution, so it has an obvious interest in that diagnosis. But the survey's internal contradictions do the arguing on their own. <strong>91.1%</strong> of respondents say agents improved or revolutionized their productivity. <strong>85.5%</strong> trust agent outputs at least somewhat. And <strong>84.5%</strong> believe their own team uses agents better than competitors do — a statistical impossibility the report politely flags as unlikely. Leadership is more bullish than the people doing the work: CEOs, VPs and directors are 1.4 times more likely than engineers to call their organization very successful with agents, 43.7% against 32.4%.</p>
+<h2>The rest of the week agreed</h2>
+<p>Temporal was not alone. Two days earlier, on August 24, Okta shipped general availability of Agent SSO, folding the open Cross App Access protocol into the core single sign-on product used by more than 20,000 customers. The pitch is that agents currently reach enterprise data through static API keys and one-off OAuth grants — operating, in Okta's phrasing, as anonymous traffic with no owner, no policy and no audit trail. Agent SSO registers a compliant agent in Universal Directory alongside human employees and issues short-lived, identity-governed tokens instead.</p>
+<p>&gt; AI agents are fast becoming a primary interface for how work gets done, but granting them access to enterprise systems shouldn't require trading away security or visibility, said Ric Smith, Okta's President of Products and Technology.</p>
+<p>Okta's own AI Agents at Work 2026 research puts a number on the deficit: only <strong>34%</strong> of organizations apply the same security controls to AI agents that they apply to human workers.</p>
+<p>And on the reliability side, Microsoft's Thinkingbox benchmark, open-sourced this month, supplied the sharpest number of all. Across 507 policy-conditioned business workflows run 20 times each against 12 proprietary and open-weight models, the strongest model scored <strong>65.36% pass@1 but only 25.25% pass^20</strong>. Succeeding once is not the same as succeeding reliably. Worse, many failed trials terminated cleanly with valid-looking tool calls — the agent did not crash, it just quietly did the wrong thing to a database.</p>
+<h2>Why it matters</h2>
+<p>The industry spent 2025 and early 2026 arguing about which model was the best coding agent. This week's data suggests that argument is now mostly settled and mostly irrelevant. Model capability is not what is gating deployment; state, observability, identity and cost are. Tracking state beating debugging as the number one blocker is a specific, structural complaint — it says teams are running long-horizon processes on infrastructure designed for request-response software, and losing the thread when something crashes at step forty of sixty.</p>
+<p>That reframing has commercial consequences. It moves budget from model licenses toward orchestration, durable execution, identity providers and evaluation harnesses — which is exactly why Temporal, Okta and Microsoft all shipped or published into the same week. It also explains why 39.5% cite security as the autonomy blocker rather than accuracy. An agent that is wrong is an annoyance. An agent that is wrong while holding a static API key with broad scope is an incident.</p>
+<h2>What to watch</h2>
+<p>Three things over the next quarter. First, whether pass^k style reliability scoring — measuring consistency across repeated trials rather than best-of-n — starts appearing in vendor benchmark claims, or stays confined to research papers where it is less commercially awkward. Second, adoption of Cross App Access beyond Okta's launch partners; it is formally the enterprise-managed authorization extension for MCP, so its uptake is a decent proxy for whether agent identity becomes a standard or a checkbox. Third, watch Temporal's next survey for whether tracking state falls out of the top blocker slot. If it does not, the durable-execution vendors will have been right about the bottleneck — and two years of agent tooling will have gone into the fast part of a system whose slow part nobody fixed.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Today's engineers have adopted AI agents faster than most teams have built the infrastructure to run them reliably. The teams pulling ahead are those who trust their systems more, because they've solved for state, cost, and reliability.&rdquo;</blockquote><cite>&mdash; Samar Abbas, Co-founder and CEO, Temporal Technologies</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">80.8%</div><div class="stat-label">Engineers using AI agents daily, up from 47.3% a year ago</div></div><div class="stat-cell"><div class="stat-value">35.7%</div><div class="stat-label">Name tracking state as the top blocker to using agents more</div></div><div class="stat-cell"><div class="stat-value">25.3%</div><div class="stat-label">Best model's pass^20 on Thinkingbox, vs 65.4% pass@1</div></div><div class="stat-cell"><div class="stat-value">34%</div><div class="stat-label">Organizations applying human-grade security controls to agents</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://martechseries.com/predictive-ai/ai-platforms-machine-learning/temporal-releases-the-2026-state-of-development-report-ai-agents-revealing-a-70-8-leap-in-ai-agent-use-among-engineers/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=martechseries.com&sz=32" alt="">MarTech Series</a><a href="https://www.developer-tech.com/news/developers-trust-ai-agents-still-verify-code-manually/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=developer-tech.com&sz=32" alt="">Developer Tech</a><a href="https://www.okta.com/newsroom/press-releases/okta-brings-first-class-identity-to-ai-agents-with-agent-sso/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=okta.com&sz=32" alt="">Okta Newsroom</a><a href="https://arxiv.org/abs/2608.19741" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv: Thinkingbox</a><a href="https://temporal.io/reports/state-of-development-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=temporal.io&sz=32" alt="">Temporal</a></div></div>
+<div class="article-nav"><a href="09-reasoning-self-correction-over-scale.html" class="nav-prev">&larr; The Reasoning Gains Were Never About Size. New Res</a><a href="11-nber-executives-ai-no-productivity-effect.html" class="nav-next">Nine in Ten Executives Say AI Changed Neither Thei &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 29, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
