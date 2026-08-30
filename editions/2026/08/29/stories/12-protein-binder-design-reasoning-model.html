@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NVIDIA's Protein Designer Made a Million Binders. Forty-One Targets Answered With Nothing. &mdash; The Vault AI</title>
+<meta name="description" content="NVIDIA's Proteina-Complexa co-designs sequence and full atomic structure in one pass and adds inference-time search, beating RFdiffusion, BindCraft and BoltzGen in the largest wet-lab binder benchmark ever run, but its unfiltered hit rate is 2.45% and 41 of 127 targets yielded nothing from a million designs.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.4rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.4}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>NVIDIA's Protein Designer Made a Million Binders. Forty-One Targets Answered With Nothing.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 965 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>NVIDIA's Proteina-Complexa co-designs sequence and full atomic structure in one pass and adds inference-time search, beating RFdiffusion, BindCraft and BoltzGen in the largest wet-lab binder benchmark ever run, but its unfiltered hit rate is 2.45% and 41 of 127 targets yielded nothing from a million designs.</p>
+</div>
+<div class="article-body">
+<p>Most AI protein design papers test a few dozen molecules. In March 2026, NVIDIA and a consortium of drug companies and universities tested roughly one million.</p>
+<p>The model is <strong>Proteina-Complexa</strong>, a fully atomistic binder generator released publicly on March 25, 2026, with code under Apache 2.0 and weights on NGC and Hugging Face. Its method paper, ‘Scaling Atomistic Protein Binder Design with Generative Pretraining and Test-Time Compute,’ was accepted as an oral at ICLR 2026, led by Kieran Didi with Karsten Kreis as project lead. A companion wet-lab preprint, released March 16, carries 40-plus authors spanning NVIDIA, Manifold Bio, Novo Nordisk, Viva Biotech, Duke, Cambridge, LMU Munich, Oxford and Seoul National University.</p>
+<p>Architecturally, Proteina-Complexa does two things at once that the field has historically split apart. It builds on NVIDIA’s La-Proteina partially latent flow-matching framework: backbone alpha-carbon atoms are modeled explicitly in 3D Cartesian space, while side chains and amino acid identity are compressed into a learned continuous latent space by an autoencoder. That means the model emits sequence and full atomic structure together, with no ProteinMPNN inverse-folding step bolted on afterward. Then, at inference, it searches. Beam search, Best-of-N, Feynman-Kac steering and Monte Carlo tree search prune and re-launch denoising trajectories, scored against structure-prediction confidence and interface hydrogen-bond energy. This is the ‘reasoning’ framing: spend more compute on hard targets, less on easy ones.</p>
+<p>Training data came from over a million curated structures, including <strong>Teddymer</strong>, a synthetic dataset built by splitting 47 million AlphaFold Database monomers into structural domains and reassembling 10 million domain-domain pairs as stand-ins for real dimers, filtered to 3.5 million Foldseek clusters. It is an order of magnitude larger than the PDB.</p>
+<h2>The 127-target verdict</h2>
+<p>The centerpiece experiment ran on Manifold Bio’s multiplexed phage display platform: more than one million designed proteins screened against 127 targets in a single all-to-all experiment, measuring over 100 million protein-protein interactions. Proteina-Complexa contributed 467,176 sequences and produced on-design hits, binders that hit their intended target, for <strong>86 of 127 targets (68%)</strong>, with 74 of those yielding target-specific binders.</p>
+<p>The head-to-head is the more interesting number. On 75 targets where at least one method scored, under matched compute budgets, Proteina-Complexa’s self-generated sequences hit at <strong>2.45% averaged across targets</strong>, roughly 3x the next-best self-generated baseline (BoltzGen at 0.76%). In raw counts: 691 on-design hits from 25,707 tested sequences, against 514 for BoltzGen plus ProteinMPNN, 311 for BindCraft, 86 for RFdiffusion3 and 63 for RFdiffusion. Notably, Proteina-Complexa’s co-generated sequences beat ProteinMPNN redesign of its own backbones (691 versus 365), the only method in the panel where that held.</p>
+<p>Focused campaigns produced the flashy affinities. Against PDGFR, 9,000 candidates were filtered to 192 for surface plasmon resonance; 122 of 191 expressed designs bound, a <strong>63.5% hit rate</strong>, with affinities from 93.6 pM to 1.34 micromolar. Against ActRIIA, a muscle-wasting receptor relevant to cachexia and GLP-1-associated lean mass loss, 16 of 192 expressed designs bound (an 8.3% hit rate from raw designs), the tightest at 36 nM, and two blocked myostatin signaling in cells with IC50 values of 169 nM and 228 nM. Kinase work returned 40% enrichment for PAK1 mini-proteins and 50% for sub-31-residue CK1-delta peptides. A Nipah virus de novo design hit 56 nM. And 5 of 24 designs agglutinated type B red blood cells, which the authors call the first de novo proteins to bind a free carbohydrate, a class long considered inaccessible.</p>
+<p>‘Manifold Bio’s platform uniquely enabled this massively multiplexed study, which establishes Proteina-Complexa as competitive with state-of-the-art methods,’ said Pierce Ogden, co-founder and CTO of Manifold Bio. ‘This study provides a practical demonstration of scaling laws in de novo protein design, with more designs producing more hits, and makes the case for inference scaling when experimental throughput can keep pace.’</p>
+<p>Anthony Costa, NVIDIA’s director of digital biology, framed the architecture in explicitly LLM-inflected terms: ‘With test-time scaling, we’ve enabled the model to refine its logic before outputting a single sequence.’</p>
+<h2>What a million measurements actually buys</h2>
+<p>The economics here are real but narrower than the press release implies. Proteina-Complexa generates a candidate in 15.6 seconds versus 70.8 for RFdiffusion, and NVIDIA claims 30-60x end-to-end speedups. At that rate, the binding of hit discovery shifts from computation to assay capacity, which is precisely Ogden’s point. Programs that historically spent 12 to 18 months and low seven figures on hit generation via immunization or display libraries can, in principle, compress to weeks of GPU time plus one screening run.</p>
+<p>But read the hit rates honestly. <strong>2.45% is the number that reflects unfiltered scale</strong>; 63.5% is what you get after 9,000 designs are triaged down to 192 by a two-stage physicochemical and confidence filter. Those are not the same claim, and the gap is the whole story. Phage display is also a low-stringency readout: it establishes binding, not affinity, developability, expression at scale, immunogenicity or in vivo behavior. An August 2025 meta-analysis of 3,766 experimentally characterized binders found in silico filter precision varying from 0.1 to 1.0 depending on the target, which means filter performance is itself target-dependent and not transferable. And 68% target coverage inverts to 41 of 127 targets where a million designs produced nothing.</p>
+<p>There is also a subtler finding buried in the tables: 126 of 127 targets picked up at least one specific off-design hit, a binder designed for something else. Latent promiscuity at this scale is a specificity problem waiting to be characterized.</p>
+<p>What to watch: whether the ActRIIA or PDGFR series survives contact with animal pharmacology, since none of these molecules have cleared a single in vivo study; whether independent groups reproduce the 2.45% figure on targets NVIDIA did not choose; and whether the Teddymer trick, training on synthetic domain-domain interfaces, holds up as a general substitute for scarce experimental complexes. The wet-lab preprint is not yet peer reviewed.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;This study provides a practical demonstration of scaling laws in de novo protein design, with more designs producing more hits, and makes the case for inference scaling when experimental throughput can keep pace.&rdquo;</blockquote><cite>&mdash; Pierce Ogden, Co-founder and CTO, Manifold Bio</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">~1 million</div><div class="stat-label">Designed binders experimentally tested across 133 targets</div></div><div class="stat-cell"><div class="stat-value">86 of 127</div><div class="stat-label">Targets with on-design hits in the multiplexed phage screen</div></div><div class="stat-cell"><div class="stat-value">2.45%</div><div class="stat-label">Average unfiltered hit rate, vs 0.76% for the next-best baseline</div></div><div class="stat-cell"><div class="stat-value">93.6 pM</div><div class="stat-label">Tightest measured affinity, a PDGFR binder</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://research.nvidia.com/labs/genair/proteina-complexa/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=research.nvidia.com&sz=32" alt="">NVIDIA Research</a><a href="https://developer.nvidia.com/blog/designing-protein-binders-using-the-generative-model-proteina-complexa/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=developer.nvidia.com&sz=32" alt="">NVIDIA Technical Blog</a><a href="https://www.manifold.bio/news/manifold-bio-demonstrates-million-scale-experimental-validation-of-ai-driven-protein-binder-design-with-nvidia" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=manifold.bio&sz=32" alt="">Manifold Bio</a><a href="https://openreview.net/forum?id=qmCpJtFZra" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openreview.net&sz=32" alt="">OpenReview (ICLR 2026)</a><a href="https://www.biorxiv.org/content/10.1101/2025.08.14.670059v1" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=biorxiv.org&sz=32" alt="">bioRxiv</a></div></div>
+<div class="article-nav"><a href="11-nber-executives-ai-no-productivity-effect.html" class="nav-prev">&larr; Nine in Ten Executives Say AI Changed Neither Thei</a><a href="13-ai-designed-antibiotic-phase-3.html" class="nav-next">The AI-Designed Drug That Reached Phase 3 Isn't an &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 29, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
