@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Reasoning Gains Were Never About Size. New Research Says They Weren't About Self-Correction Either. &mdash; The Vault AI</title>
+<meta name="description" content="Three papers converge on the view that reasoning gains come from neither parameter count nor chain length, but they undercut the self-correction thesis rather than support it: much of measured self-correction turns out to be an artifact of chat-template role labeling.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.4rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.4}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>The Reasoning Gains Were Never About Size. New Research Says They Weren't About Self-Correction Either.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 988 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Three papers converge on the view that reasoning gains come from neither parameter count nor chain length, but they undercut the self-correction thesis rather than support it: much of measured self-correction turns out to be an artifact of chat-template role labeling.</p>
+</div>
+<div class="article-body">
+<p>Ask why reasoning models got good, and you usually get the same answer: they learned to catch themselves. Somewhere in a long chain of thought the model writes wait, notices a bad step, and recovers. It has become the field's default explanation for why test-time compute works at all.</p>
+<p>Three papers now on arXiv — the most recent revised on <strong>August 4, 2026</strong> — complicate that story badly. They agree that scale is not what drives reasoning gains, and that chain length is not either. But neither, in any straightforward sense, is self-correction. What looks like a model catching its own mistake turns out to be harder to train, easier to fake, and far more dependent on plumbing than on cognition.</p>
+<p><strong>The training story does not hold.</strong> In Synthetic Error Injection Fails to Elicit Self-Correction In Language Models, David X. Wu, Shreyas Kapur, Anant Sahai and Stuart Russell of UC Berkeley tested the obvious shortcut. Reinforcement learning is expensive, so why not splice errors into clean reasoning traces, mask them, and supervise the model to announce a mistake and fix it?</p>
+<p>It failed. On four-digit multiplication, error-injection fine-tuning produced accuracy gains under 5% across Qwen2.5-Math-1.5B, gemma-3-1B and Llama-3.2-1B. On 4x4 Sudoku it managed roughly 10% for two of three models and nothing for the third — not for lack of realistic errors, since the authors verified their injector covered <strong>95.3%, 99.0% and 96.0%</strong> of the models' own on-policy mistakes.</p>
+<p>The models learned to correct synthetic errors and not their own. Recognition for Qwen2.5 on Sudoku collapsed from <strong>94% on synthetic errors to 8% on the model's own</strong>; gemma-3 on multiplication fell from 83% to 20%. As the authors put it, even when the model catches its own error, it often parrots the original mistake. Their conclusion: the results help explain why on-policy reinforcement learning methods have proven uniquely effective for eliciting self-correction.</p>
+<p><strong>And the capability story may be a plumbing story.</strong> In The Self-Correction Illusion: LLMs Correct Others but Not Themselves, posted in June 2026, Kuan-Yen Chen, Fang-Yi Su and Jung-Hsien Chiang ran a control most self-correction work skips. They took a wrong claim, held it byte-identical — SHA-256 verified — and varied only the chat-template role wrapping it: the model's own thought tag, a user message, a tool response, or a system memory block.</p>
+<p>Correction rates moved by <strong>23 to 93 percentage points</strong>. Llama-3.3-70B corrected an arithmetic error inside its own reasoning <strong>0% of the time</strong>, and 87% of the time when the identical string sat in a memory block. Qwen2.5-72B went from 17% to 70%. Ten of thirteen model-domain cells reached p&lt;0.001; the three that did not were already at ceiling. The failure to self-correct is not a cognitive deficit, the authors write. It is a chat-template artifact.</p>
+<p>The control that matters most: telling the model to distrust itself does not work. Prompts such as Previous thoughts may contain errors produced correction rates between 0% and 23%, against 70% for the relabel. Self-Refine, Reflexion and Chain-of-Verification failed to reproduce the lift. The missing ingredient, Chen and colleagues conclude, is not verification capability but addressability. The model can verify. It cannot point at its own claim.</p>
+<p><strong>Which leaves what to optimize.</strong> In Know When to Stop: Segment-Level Credit Assignment for Reducing Overthinking, revised August 4, Chia-Hsuan Lee, Sihui Dai, Mingyang Zhou, Isha Slavin, Hsuan Su, Shi-Xiong Zhang, Sambit Sahu and William Campbell of Capital One make the length argument explicit: these behaviors are not merely a consequence of length; even when controlling for response length, incorrect traces exhibit higher rates of unproductive self-reflection than correct ones. Their method, DASH, scores each segment by whether it drifts toward or away from the right answer, using the model's own intermediate answer commitments as free supervision. On competition-level math it reaches <strong>59.45% average accuracy against 58.1% for Dr.GRPO and 56.95% for GRPO</strong>, while cutting the hedging.</p>
+<h2>What this does to scaling laws and inference economics</h2>
+<p>The tempting read is that reasoning just got cheap. Nothing here supports that. The Berkeley result is the sharpest rebuke — the cheap supervised path does not work, and expensive on-policy RL remains the only route that reliably does. If self-correction is the source of reasoning gains, it is not one anyone can buy at a discount.</p>
+<p>What shifts is where the money goes. All three papers point away from parameters and raw token budgets, toward <strong>credit assignment</strong> — knowing which step deserves reward. DASH's gain of roughly 1.35 points over Dr.GRPO comes not from more compute but from spending existing compute on segments that move toward the answer. That is a training-time cost with an inference-time payoff: fewer tokens burned on hedging that never changes the output. Where reasoning tokens bill at a premium, the cost curve bends on trace quality, not trace length.</p>
+<p>The Chen result has the strangest economics. If much of apparent self-correction failure is a harness artifact, the cheapest reliability win available to an agent developer costs nothing: move the string. A prompt-structure change needing no fine-tuning, no verifier and no weight update recovered more than half the gap on some models — and implies self-correction benchmarks have been measuring the scaffold as much as the model. No GPT-5 architecture report crediting self-correction, and no selective-sparsity result matching models three times larger, could be verified.</p>
+<h2>What to watch</h2>
+<p>Chen's team flags the sharp edge: the channel that makes an error correctable makes it injectable. One sentence instructing the agent to treat a memory block as ground truth and not verify it raised the attack rate on math to 70%. Watch two things this quarter: whether segment-level credit assignment holds up outside competition math, and whether anyone ships a self-correction benchmark that controls for role labeling. Until one does, it stays unclear how much of the last two years of reasoning progress was the model learning to think twice — and how much was the harness finally letting it.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;The failure to self-correct is not a cognitive deficit; it is a chat-template artifact.&rdquo;</blockquote><cite>&mdash; Chen, Su and Chiang, authors, The Self-Correction Illusion</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">94% to 8%</div><div class="stat-label">Qwen2.5 error recognition: synthetic errors vs its own errors</div></div><div class="stat-cell"><div class="stat-value">23 to 93 pp</div><div class="stat-label">Correction lift from relabeling an identical claim as external</div></div><div class="stat-cell"><div class="stat-value">0% to 87%</div><div class="stat-label">Llama-3.3-70B correction rate, own reasoning vs system memory</div></div><div class="stat-cell"><div class="stat-value">59.45%</div><div class="stat-label">DASH average on competition math, vs 56.95% for GRPO</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2512.02389" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv: Synthetic Error Injection Fails to Elicit Self-Correction</a><a href="https://arxiv.org/abs/2606.05976" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv: The Self-Correction Illusion</a><a href="https://arxiv.org/abs/2607.00482" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv: Know When to Stop</a></div></div>
+<div class="article-nav"><a href="08-tencent-hy4-open-weight-frontier.html" class="nav-prev">&larr; Tencent Open-Sources a 770B Model That Helped Buil</a><a href="10-agents-outran-their-infrastructure.html" class="nav-next">Engineers Adopted AI Agents Faster Than Anyone Bui &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 29, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
