@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DARPA Put an AI at the Controls of a Frontline F-16. The Safety Pilot Never Left the Cockpit. &mdash; The Vault AI</title>
+<meta name="description" content="DARPA did not fly an empty F-16. An AI agent flew a VENOM-modified operational F-16 out of Eglin AFB with a human test pilot aboard handling takeoff and holding an instant override. The milestone is moving combat autonomy from the one-off X-62A onto standard fleet aircraft.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.4rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.4}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>DARPA Put an AI at the Controls of a Frontline F-16. The Safety Pilot Never Left the Cockpit.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 995 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>DARPA did not fly an empty F-16. An AI agent flew a VENOM-modified operational F-16 out of Eglin AFB with a human test pilot aboard handling takeoff and holding an instant override. The milestone is moving combat autonomy from the one-off X-62A onto standard fleet aircraft.</p>
+</div>
+<div class="article-body">
+<p>The claim circulating this summer — that DARPA flew an F-16 with nobody inside it — is not what happened. The truth is narrower, far better documented, and in some ways more consequential: an artificial intelligence agent flew a frontline American fighter for most of a sortie while a human test pilot sat in the seat, hand near a switch, doing nothing.</p>
+<p>On <strong>July 16, 2026</strong>, DARPA and the U.S. Air Force disclosed that an F-16 modified under the <strong>Viper Experimentation and Next-generation Operations Model (VENOM)</strong> program had flown from <strong>Eglin Air Force Base, Florida</strong>, with an AI agent autonomously controlling the aircraft. The human pilot performed the takeoff and remained in the cockpit throughout, prepared to take over at any moment, according to both agencies. DARPA's own caption on the flight imagery uses the operative term of art: <strong>human-on-the-loop</strong>.</p>
+<p>That distinction is the whole story. Earlier Air Combat Evolution (ACE) flights aboard the one-of-a-kind X-62A VISTA — including the April 2024 dogfight against a human-piloted F-16 — also carried safety pilots. Nothing about the 2026 milestone changed that. What changed is the airframe underneath.</p>
+<h2>What actually flew</h2>
+<p>The hardware is the <strong>VENOM Autonomy Kit (VAK)</strong>, designed and integrated by multiple performers under DARPA's ACE program. Its central engineering trick is restraint: it grafts automated flight controls and sensor interfaces onto a standard operational F-16 <strong>without modifying the jet's core software</strong>, and it lets a pilot toggle between human and AI control, in DARPA's words, with the flip of a switch.</p>
+<p>“These groundbreaking flight tests of VENOM-modified F-16s advance the infrastructure needed to develop trusted, autonomous air combat capabilities,” said <strong>Brig. Gen. James “Fangs” Valpiani, Ph.D.</strong>, the DARPA program manager, who concluded his tenure at the agency later that month. “The Air Force and DARPA team has automated flight controls and sensors on a standard F-16 without changing the jet's core software. This enables an efficient pipeline for developing dominant AI for aerial combat.”</p>
+<p>The scale is deliberately modest. <strong>Six F-16Cs</strong> are being converted at Eglin — the first three arrived in April 2024, the last in April 2025 — under the 40th Flight Test Squadron and the 85th Test and Evaluation Squadron. The jets flew airworthiness sorties in <strong>June 2026</strong> before AI agents took the controls in July. VENOM is funded at roughly <strong>$120 million over five years</strong>, with about <strong>$50 million</strong> appearing in the FY2024 request: pocket change against a fighter program, which is precisely the pitch.</p>
+<p>“Getting the aircraft into the air is always a monumental milestone for a complex test program,” said <strong>Tim Stevens</strong>, a VENOM test pilot with the 40th Flight Test Squadron at Eglin. “As we cross this starting line, we are excited to watch VENOM redefine the boundaries of autonomous flight.”</p>
+<p>A parallel thread ran at Edwards Air Force Base. On <strong>August 4, 2026</strong>, Lockheed Martin Skunk Works disclosed that AI agents had flown the X-62A VISTA through <strong>27 autonomous intercepts across eight flights</strong> against a live T-38 Talon, using targeting data from an onboard <strong>Legion Pod</strong> infrared search-and-track sensor rather than simulated target injects. Skunk Works said full integration and ground test of the agents took <strong>three months</strong>. Historically, ACE agent developers have included EpiSci, PhysicsAI, Shield AI, Johns Hopkins APL and Lockheed Martin; DARPA did not itemize whose agent flew the VENOM jet in July.</p>
+<p>“Our autonomous agents consumed classified infrared search and track feeds and executed combat-critical maneuvers in real time,” said <strong>Ron Fehlen</strong>, vice president and general manager at Lockheed Martin Skunk Works.</p>
+<h2>The policy question sitting under the wing</h2>
+<p>VENOM is not an end state. DARPA has explicitly designated the fleet as the backbone of its <strong>Artificial Intelligence Reinforcements (AIR)</strong> program, which will fly multiple competing AI agents in live multi-ship scenarios. The stated destination is a human pilot commanding teams of uncrewed aircraft — which is to say, <strong>Collaborative Combat Aircraft</strong>. The Air Force's CCA Increment 1 effort is valued at roughly <strong>$8.9 billion</strong> across development and an initial 150 aircraft, with about <strong>$2.5 billion</strong> requested in FY2027, roughly $1 billion of it procurement.</p>
+<p>Program officials have been unusually blunt about the limits. “It is important to understand the human-on-the-loop aspect of this type of testing, meaning that a pilot will be involved in the autonomy in real time and maintain the ability to start and stop specific algorithms,” said <strong>Lt. Col. Joe Gagnon</strong>, then commander of the 85th Test and Evaluation Squadron, when the first jets arrived. “There will never be a time where the VENOM aircraft will solely fly by itself without a human component.”</p>
+<p>Arms-control critics make the strongest counterargument available, and it is not hysterical. Campaigns such as Stop Killer Robots have argued for years that <strong>meaningful human control</strong> — not mere supervision — is the only defensible standard, a phrase the Pentagon has consistently resisted as operationally unrealistic. Their objection to human-on-the-loop is structural: in beyond-visual-range combat, decision windows compress to seconds, and research on automation bias consistently finds that humans defer to machine recommendations rather than override them. A veto that is technically available but practically unexercisable is not control; it is paperwork. And the reassurance that a pilot will always be aboard a VENOM F-16 is a <strong>test-safety</strong> commitment, not a policy commitment. CCA aircraft, by design, have no cockpit at all. The seat that makes VENOM safe is the exact thing the program exists to eliminate downstream.</p>
+<p>Watch three things. First, whether AIR's multi-ship live-flight campaign moves beyond flight control into weapons employment decisions — that is where the doctrine actually binds. Second, whether DARPA begins naming which vendors' agents fly which sorties, a proxy for how competitive and how mature the agent market really is. Third, the FY2028 budget request and CCA Increment 2 requirements, which will reveal whether the Air Force believes autonomy has matured enough to buy at scale. Until then, the honest headline is the one DARPA wrote itself: the AI flew the jet, and a human watched.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;There will never be a time where the VENOM aircraft will solely fly by itself without a human component.&rdquo;</blockquote><cite>&mdash; Lt. Col. Joe Gagnon, then-commander, 85th Test and Evaluation Squadron, U.S. Air Force</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">6</div><div class="stat-label">F-16Cs being converted into VENOM autonomy testbeds</div></div><div class="stat-cell"><div class="stat-value">$120M</div><div class="stat-label">VENOM program funding over five years</div></div><div class="stat-cell"><div class="stat-value">27 / 8</div><div class="stat-label">AI-controlled intercepts flown by the X-62A, across sorties</div></div><div class="stat-cell"><div class="stat-value">$8.9B</div><div class="stat-label">CCA Increment 1 development plus first 150 aircraft</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.darpa.mil/news/2026/darpa-us-air-force-fly-ai-controlled-f-16" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=darpa.mil&sz=32" alt="">DARPA</a><a href="https://www.stripes.com/branches/air_force/2026-07-20/first-venom-autonomous-jet-flight-22317435.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=stripes.com&sz=32" alt="">Stars and Stripes</a><a href="https://theaviationist.com/2026/07/16/darpa-usaf-fly-f-16-venom-autonomy-modification/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=theaviationist.com&sz=32" alt="">The Aviationist</a><a href="https://news.lockheedmartin.com/2026-08-04-Skunk-Works-R-Advances-Sensor-Powered-AI-Fighter-Intercept" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=news.lockheedmartin.com&sz=32" alt="">Lockheed Martin</a><a href="https://www.congress.gov/crs-product/IF12740" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=congress.gov&sz=32" alt="">Congressional Research Service</a></div></div>
+<div class="article-nav"><a href="13-ai-designed-antibiotic-phase-3.html" class="nav-prev">&larr; The AI-Designed Drug That Reached Phase 3 Isn't an</a><a href="15-openai-agents-escaped-test-boundary.html" class="nav-next">OpenAI's Test Agents Broke Containment. Hugging Fa &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 29, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
