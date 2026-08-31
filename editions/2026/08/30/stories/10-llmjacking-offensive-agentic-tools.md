@@ -1,0 +1,33 @@
+On June 12, 2026, a residential broadband connection in Hyderabad, India, began sending requests to an AI model server whose owner had left it facing the open internet. The session ran roughly eight and a half hours. What crossed the wire was not a chatbot conversation, and it was not access being resold. It was an attack pipeline -- fingerprint a service, match it against known vulnerabilities, draft a proof of concept, sift a looted file for credentials, decide the next move -- with the borrowed model making the call at every stage.
+
+Sysdig's Threat Research Team was watching. In research published June 17 and discussed afterward on the CyberWire's Research Saturday, the firm documents what it calls the next phase of LLMjacking, the term it coined in May 2024 for attackers who burn someone else's AI compute and leave them the bill. This time the compute was not the product. It was the engine.
+
+**"The threat actor used exposed model capacity as the brain for their automated hacking tool,"** Sysdig's researchers wrote.
+
+## What the researchers observed
+
+No vulnerability was involved in the initial access, which is the uncomfortable part. Ollama, the most widely deployed tool for serving open-weight models on local hardware, listens on port 11434 and ships with no authentication. The actor found one, confirmed it would respond, and pointed a tool at it.
+
+That tool handed Sysdig an unusual vantage point. Because it resent its full instruction set on every request, researchers captured the framework's architecture rather than merely its effects. The pipeline moved through discrete stages -- service fingerprinting, vulnerability triage, web reconnaissance, proof-of-concept synthesis, credential and secret extraction, privilege escalation -- under an orchestrator driving the chain toward command execution, each stage forced into a rigid output format the surrounding code could parse. Credential extraction ran well over a hundred times, the most-invoked stage of the campaign.
+
+It was also, visibly, unfinished. Across the June 12 session the stage set grew rather than repeated, the orchestrator appearing about three hours in and database-triage stages only in the final ninety minutes. Stages were rewritten in place, then reused verbatim for dozens of calls -- a developer's write-test-refine loop, not a finished product. When the tool returned on June 14 across three sessions and three further residential IPs, the full set was present from the first request.
+
+Every target was private: RFC 1918 addresses, loopback, two fictitious practice applications, and on June 14 a range consistent with HackTheBox's penetration-testing labs. Sysdig notes that intent remains unclear and the activity could conceivably be legitimate -- while pointing out that stealing the compute to do it is not. One detail complicates the benign reading: the tool asked for at least seven models by name, three of them commercial products from OpenAI, Anthropic and Google that Ollama does not serve at all. The operator had repointed a backend built for metered, invoiced APIs at a free one.
+
+## Why it matters
+
+The economics are the story. When Sysdig coined the term in 2024, it modeled a hijacked cloud account generating $46,080 per day in inference charges, with worst-case scenarios against top-tier models exceeding $100,000 per day. By early 2026 the crime had industrialized: Operation Bizarre Bazaar, documented by Sysdig and Pillar Security in February, recorded more than 35,000 attack sessions against exposed AI infrastructure between December 2025 and January 2026, with stolen credentials triaged by quality and resold through a marketplace. Sysdig logged a 376% jump in credential theft aimed at AI services between Q4 2025 and Q1 2026.
+
+Resale converts stolen inference into cash. This case converts it into capability. A hosted API key is rate-limited, billed and attributable; an unauthenticated self-hosted server is none of those things. For a framework making hundreds of model calls per attack -- and hundreds more per development iteration -- that difference decides whether the tool gets built at all. The Cloud Security Alliance's AI Safety Initiative called it the first documented case of stolen compute serving as **"the reasoning engine wired into an autonomous offensive pipeline."**
+
+The other half of the story is surface area. Independent scanning has catalogued roughly 175,000 publicly reachable Ollama instances across more than 130 countries, corroborated by Cisco's Shodan-based survey. A honeypot posing as a local AI stack, highlighted by Kaspersky in May, was indexed by Shodan within three hours and logged more than 113,000 requests in a month, 23% of them probing specifically for AI capability. **"We should expect LLMjacking to become an industrial-scale phenomenon,"** Kaspersky's Stan Kaminsky wrote, comparing the trajectory to cryptojacking.
+
+## What to watch
+
+Sysdig names the blind spot plainly: monitoring a model server's own logs presumes the operator is monitoring it, and **"an exposed server discovered by an external actor is, by definition, one the owner is not watching."** Owners see elevated GPU load and an open port, not a multi-stage attack pipeline.
+
+The near-term defensive work is unglamorous and known. Bind inference endpoints to localhost or an internal interface, put remote access behind an authenticating reverse proxy, keep 11434 off the public internet, and scan your own ranges the way an attacker would. Patch, too: CVE-2026-7482, the Bleeding Llama flaw in Ollama builds before 0.17.1, lets an unauthenticated caller retrieve memory containing downstream API keys.
+
+Detection is harder. Agent-driven tooling leaves behavioral fingerprints humans do not: strict structured-output contracts, programmatic retry patterns, and distinctive markers wrapped around command output so a parser can find it. Those are the signatures worth writing rules against, because source addresses churn and prompts get rewritten.
+
+What Sysdig caught was a prototype aimed at a practice range. Every prior generation of offensive tooling -- exploit kits, initial-access brokerage, ransomware-as-a-service -- made the jump from prototype to production faster than defenders expected, and no structural reason says this one will be slower. **"The cost of running offensive AI tooling is collapsing toward zero for any actor willing to steal someone else's compute,"** Sysdig concluded. The bill for that theft, as ever, lands somewhere else.
