@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Retires the Standalone DALL-E GPT, Closing a Chapter in Generative Imagery &mdash; The Vault AI</title>
+<meta name="description" content="OpenAI retired the branded DALL-E GPT inside ChatGPT on August 30, pushing users to the general ChatGPT Images feature, days after also pulling o3 from the model picker.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--cat-color);color:var(--text-strong);font-style:italic}
+.article-body a{color:var(--accent);text-decoration:none}
+.article-body a:hover{text-decoration:underline}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>OpenAI Retires the Standalone DALL-E GPT, Closing a Chapter in Generative Imagery</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1036 words</span>
+    <span>2 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI retired the branded DALL-E GPT inside ChatGPT on August 30, pushing users to the general ChatGPT Images feature, days after also pulling o3 from the model picker.</p>
+</div>
+<div class="article-body">
+<p>OpenAI quietly closed the book on one of generative AI's founding products this weekend: as of Sunday, August 30, 2026, the standalone DALL-E GPT is no longer available inside ChatGPT. The retirement, flagged in OpenAI's release notes back on July 31, ends the run of the company's oldest and most recognizable image-making interface, folding what remains of the DALL-E brand into the general-purpose ChatGPT Images feature that most users have already been relying on for over a year.</p>
+<p>The change was never a surprise. OpenAI's ChatGPT release notes for July 31, 2026, stated plainly: "On August 30, 2026, we're retiring the official DALL·E GPT in ChatGPT. We encourage you to download any images you want to keep before then." The notes added that the shutdown applies narrowly: "To continue creating or editing images, use ChatGPT Images. User-created GPTs with image generation enabled are not affected." In other words, the underlying capability to generate images in ChatGPT is untouched — what's gone is the dedicated, brand-named GPT that many longtime users had bookmarked or pinned as their go-to image tool since custom GPTs launched in ChatGPT's store.</p>
+<p>What users actually lose is narrow but real: the DALL-E GPT listing disappears from ChatGPT's GPT store and from users' side panels, along with its specific conversation history and any images generated inside that persona that weren't saved elsewhere. OpenAI's guidance, echoed across its help documentation, was to download any images worth keeping before the cutoff — images generated in ChatGPT are not guaranteed to remain retrievable indefinitely once a GPT is retired. Anyone who wants to keep making or editing AI images in ChatGPT does not need to do anything differently going forward beyond using the main Images feature, which runs on OpenAI's newer gpt-image-1 and gpt-image-1-mini models rather than the legacy DALL-E 3 architecture. Custom, third-party GPTs that call image generation as one tool among several — the thousands of user-built bots in the GPT store — continue operating exactly as before, since they were never dependent on OpenAI's official DALL-E GPT wrapper.</p>
+<p>This is the second high-profile retirement from ChatGPT's model and tool roster in the space of a week. On August 26, OpenAI pulled the o3 reasoning model from ChatGPT's model picker, closing a 90-day sunset window that began with a May 28 release note explaining the company was "continuing to retire older models with limited usage in ChatGPT so we can better serve our newer, most capable models." As with DALL-E, the o3 change was scoped only to the consumer chat app; OpenAI was explicit that "these changes apply to ChatGPT only; there are no changes to the API," meaning developers building on o3 through OpenAI's API saw no disruption. The pattern is now familiar: sunset the standalone or legacy-named product inside ChatGPT while preserving raw model access for developers elsewhere.</p>
+<p>The DALL-E name carries more history than most retired OpenAI products. DALL-E debuted as a research demo in January 2021, stitching together a transformer model that could turn text prompts into images for the first time at meaningful quality. DALL-E 2 followed in April 2022, moving to a diffusion-based architecture that produced sharper, more photorealistic results and helped trigger the first wave of mainstream "AI art" adoption when it opened more broadly later that year. DALL-E 3 arrived next, announced on September 20, 2023, and rolled out to ChatGPT Plus and Enterprise users that October, distinguished by its much tighter prompt adherence and a ChatGPT-driven prompt-rewriting layer that reduced the need for prompt-engineering tricks. That lineage effectively ended even earlier this year: OpenAI retired the DALL-E 2 and DALL-E 3 models themselves on May 12, 2026, replacing them with newer image systems built on native multimodal generation — the same family of technology introduced when GPT-4o gained the ability to generate images directly, without calling out to a separate DALL-E model, in the spring of 2025. What survived until this week, the "DALL-E GPT," was really a branded shell — a familiar name kept alive as a front door even after the model doing the work underneath it had already changed.</p>
+<h2>Why It Matters</h2>
+<p>The DALL-E shutdown is less a technology story than a product-consolidation one. OpenAI has spent 2026 steadily narrowing ChatGPT's interface: collapsing legacy models into newer ones, retiring underused GPTs, and pushing every capability — image generation, canvas, coding — into a single unified chat surface rather than a sprawling menu of specialized tools and personas. For a company managing hundreds of millions of weekly users, maintaining separate branded entry points for each capability adds engineering and support overhead disproportionate to their usage, especially once a general-purpose surface can do the same job. That calculus has visibly won out over nostalgia or brand equity this year.</p>
+<p>It's also a marker of how thoroughly image generation has been commoditized inside the chatbot itself. DALL-E was once a standalone destination — a product people specifically sought out, with its own waitlists, its own controversies over artist consent and training data, and its own cultural moment as the tool that made "type words, get images" feel like magic in 2022. Five years later, image generation is simply a feature, one capability among many inside a general assistant, indistinguishable in the interface from asking ChatGPT to write code or summarize a document. The DALL-E brand's fade from a headline product to a deprecated persona name tracks the broader industry pattern in which pioneering, single-purpose AI tools get absorbed into larger multimodal platforms as soon as the underlying model catches up to feature parity.</p>
+<h2>What to Watch</h2>
+<p>Expect OpenAI to keep pruning ChatGPT's older surfaces through the rest of 2026 as it consolidates around fewer, more capable defaults — the o3 and DALL-E GPT retirements in the same week suggest a deliberate cleanup cycle rather than one-off decisions. Watch for whether the DALL-E name resurfaces at all, even as a marketing label for future image features, or whether OpenAI lets it retire for good in favor of the ChatGPT Images branding. Also worth tracking: how competitors like Google's Gemini and Midjourney position their own standalone image products as OpenAI signals that dedicated image-generation apps may be a transitional category rather than a permanent one.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;On August 30, 2026, we're retiring the official DALL·E GPT in ChatGPT. We encourage you to download any images you want to keep before then.&rdquo;</blockquote><cite>&mdash; OpenAI ChatGPT release notes, Product documentation, July 31, 2026</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">Aug 30, 2026</div><div class="stat-label">DALL-E GPT retirement</div></div><div class="stat-cell"><div class="stat-value">Jan 2021</div><div class="stat-label">Original DALL-E debut</div></div><div class="stat-cell"><div class="stat-value">May 12, 2026</div><div class="stat-label">DALL-E 2 and 3 models retired</div></div><div class="stat-cell"><div class="stat-value">Aug 26, 2026</div><div class="stat-label">o3 pulled from model picker</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=help.openai.com&amp;sz=32" alt="">OpenAI Release Notes</a><a href="https://unrot.co/blogs/today-top-ai-news-august-31-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=unrot.co&amp;sz=32" alt="">Unrot Daily AI News</a></div></div>
+<div class="article-nav"><a href="06-openai-gpt-live-native-voice-model.html" class="nav-prev">&larr; OpenAI's GPT-Live Ditches the Text Pipeline — But </a><a href="08-grok-autonomous-shopping-agent.html" class="nav-next">Grok Crosses From Recommending to Buying — If the  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 31, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
