@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Average Company Now Runs 13 AI Agents, Up From Five a Year Ago &mdash; The Vault AI</title>
+<meta name="description" content="Salesforce's Agentic Enterprise Index shows committed Agentforce adopters tripled their agent counts and skill sets in a year, though the sample reflects only businesses already deep into the platform.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--cat-color);color:var(--text-strong);font-style:italic}
+.article-body a{color:var(--accent);text-decoration:none}
+.article-body a:hover{text-decoration:underline}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>The Average Company Now Runs 13 AI Agents, Up From Five a Year Ago</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 917 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Salesforce's Agentic Enterprise Index shows committed Agentforce adopters tripled their agent counts and skill sets in a year, though the sample reflects only businesses already deep into the platform.</p>
+</div>
+<div class="article-body">
+<p>The average company running Salesforce's Agentforce platform now operates 13 distinct AI agents, up from just five a year ago — and each of those agents can now do roughly three times more than it could when 2025 began. That's the headline finding from Salesforce's second annual Agentic Enterprise Index, released August 7 and still rippling through enterprise-software circles as the industry closes out the month.</p>
+<p>The report, drawn from aggregated Agentforce usage data spanning February 2025 to April 2026 plus a supplemental research study of company practices from May 2026, tracks businesses that kept agents running in production every month of the 15-month window. Salesforce found that the average number of activated agents per organization grew at a 7% compound monthly growth rate, compounding into a near-3x increase overall. At the same time, the average time it takes a business to move a newly created agent into production fell 53%, landing at roughly 1.9 days by April 2026, down from closer to four days at the start of the analysis period.</p>
+<p>"These agents are expanding beyond their initial scope to really become cross-functional," said Caila Schwartz, Salesforce's head of agentic commerce insights, during a media briefing on the findings. That expansion shows up starkly in the skills data: the average agent could act on about two distinct skills at the start of 2025 and six by the end of the year — a roughly threefold increase. During peak retail shopping periods, the average retail agent's skill count spiked further, to nine, a 350% jump that Salesforce says reflects agents being pressed into handling more complex, multistep customer requests as demand surges.</p>
+<p>The index also surfaces a sharp divide in how industries are building their agent fleets. Consumer-facing sectors — retail chief among them — are deploying large numbers of narrow, fast agents built for speed and volume; retail agent activity, measured by Salesforce's self-defined "Agentic Work Unit" metric, grew 18x between February 2025 and April 2026 and now accounts for 22% of all monthly agent output across the dataset. Manufacturing, financial services, and healthcare and life sciences, by contrast, lean toward fewer but more versatile agents capable of longer, cross-functional workflows — a pattern Salesforce captures in what it calls a "Sophistication Index," scoring agent actions from basic record lookups up to complex database writes and analytics. Joe Inzerillo, Salesforce's president of enterprise and AI technology, framed the split as complementary rather than competing: "Whether you're spinning up agents to operate at massive scale or orchestrating them through deep, multistep pipelines, the bottom line is they're shipping real value," he said, adding that the payoff "isn't just showing up on the top line in sales numbers but execution efficiency."</p>
+<p>The most important caveat sits in the methodology section: this is not a survey of the broader business world's AI adoption, but a look inward at Salesforce's own customer base — specifically, businesses that had already committed to running Agentforce agents continuously in production for well over a year. That selection criteria screens out companies still piloting agents, companies that abandoned early deployments, and any business not on Salesforce's platform at all. The result is a portrait of committed adopters operating at a level of maturity most enterprises haven't reached, which likely means the reported figures — 13 agents, six skills, 53% faster deployment — sit well above what a random cross-section of companies would show. Independent analysts have also pushed back on Salesforce's homegrown Agentic Work Unit metric specifically, arguing it measures raw agent activity rather than anything tied directly to business outcomes, making some of the growth multiples harder to interpret as pure value creation.</p>
+<h2>Why It Matters</h2>
+<p>The Index lands as one of the more concrete data points in a year full of vendor claims about agentic AI's arrival, and it corroborates a broader trend other research has flagged: enterprises aren't just testing chatbots anymore, they're operating small fleets of task-specific software workers with measurable job counts, skill inventories, and deployment pipelines. The 53% drop in time-to-production is arguably the more consequential number for buyers, since it suggests the operational friction of standing up new agents — historically one of the biggest complaints about agentic platforms — is easing as tooling matures. The retail-versus-manufacturing split also offers a useful framework for any company deciding how to build its own agent strategy: chase volume with narrow specialists, or chase depth with fewer generalists, depending on whether the business lives or dies on transaction speed or on navigating complex, regulated workflows.</p>
+<p>But the vendor-reported nature of the study should temper how much weight the "average company" framing deserves. Salesforce's cohort is, by definition, a group of businesses already sold on agentic AI and successful enough at deploying it to sustain usage for 15 straight months — a survivorship-biased sample that will always outperform the market at large. Numbers like "13 agents per organization" are best read as a ceiling for sophisticated adopters, not a floor for the average enterprise still deciding whether to build its first one.</p>
+<h2>What to Watch</h2>
+<p>Expect competing vendors — Microsoft, ServiceNow, Google, and SAP among them — to publish their own agent-adoption metrics in the coming months as they try to counter Salesforce's narrative-setting with numbers from their own installed bases, and watch for independent research firms to attempt cross-platform benchmarks that aren't tied to any single company's usage logs, which would offer a clearer read on whether the 13-agent, six-skill average holds up outside Salesforce's own walled garden.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>&ldquo;These agents are expanding beyond their initial scope to really become cross-functional.&rdquo;</blockquote><cite>&mdash; Caila Schwartz, Head of Agentic Commerce Insights, Salesforce</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">13</div><div class="stat-label">Average agents per org, up from 5</div></div><div class="stat-cell"><div class="stat-value">53%</div><div class="stat-label">Drop in agent deployment time</div></div><div class="stat-cell"><div class="stat-value">6</div><div class="stat-label">Average skills per agent, up from 2</div></div><div class="stat-cell"><div class="stat-value">18x</div><div class="stat-label">Growth in retail agent activity</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.salesforce.com/news/stories/agentic-enterprise-index-insights-2026/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=salesforce.com&amp;sz=32" alt="">Salesforce</a><a href="https://www.cio.com/article/4206780/agentic-ai-workforce-is-more-than-doubling-year-on-year-says-salesforce.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cio.com&amp;sz=32" alt="">CIO</a><a href="https://unrot.co/blogs/today-top-ai-news-august-31-2026" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=unrot.co&amp;sz=32" alt="">Unrot Daily AI News</a></div></div>
+<div class="article-nav"><a href="02-wrtn-72m-series-c-ai-entertainment.html" class="nav-prev">&larr; South Korea's Wrtn Raises $72M as AI Entertainment</a><a href="04-vineland-nj-data-center-turbine-backlash.html" class="nav-next">A $19.4B AI Data Center in New Jersey Faces Compla &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 31, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
