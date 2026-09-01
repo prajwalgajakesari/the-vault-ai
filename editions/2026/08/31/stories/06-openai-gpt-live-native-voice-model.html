@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI's GPT-Live Ditches the Text Pipeline — But Its Sub-300ms Claim Doesn't Hold Up &mdash; The Vault AI</title>
+<meta name="description" content="GPT-Live's full-duplex architecture eliminates ChatGPT Voice's old speech-to-text-to-speech pipeline and cuts response-time jitter fivefold, but independent testing found a 205ms median latency edge rather than the breakthrough some coverage implied.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--cat-color);color:var(--text-strong);font-style:italic}
+.article-body a{color:var(--accent);text-decoration:none}
+.article-body a:hover{text-decoration:underline}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>OpenAI's GPT-Live Ditches the Text Pipeline — But Its Sub-300ms Claim Doesn't Hold Up</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 909 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>GPT-Live's full-duplex architecture eliminates ChatGPT Voice's old speech-to-text-to-speech pipeline and cuts response-time jitter fivefold, but independent testing found a 205ms median latency edge rather than the breakthrough some coverage implied.</p>
+</div>
+<div class="article-body">
+<p>OpenAI's marquee bet on natural voice conversation has now had nearly two months in the wild, and the picture emerging from independent testing is more nuanced than the company's own launch framing suggested. GPT-Live, the full-duplex speech model that replaced the text-pipeline architecture underneath ChatGPT Voice, went live on July 8, 2026, eliminating the separate speech-to-text, language-model, and text-to-speech hops that defined every previous version of the product. OpenAI never published an end-to-end latency figure for the new system. When the real-time infrastructure company Agora ran its own controlled benchmark on an iPhone 13 two days after launch, it found GPT-Live's median response time beat the prior Advanced Voice Mode by just 205 milliseconds — a meaningful but far more modest gain than the "sub-300ms" figures now circulating in some coverage of the launch imply.</p>
+<p>The architectural shift is real and significant, even if the headline latency numbers need context. ChatGPT's original voice feature, dating to 2023, chained three separate models together: one to transcribe speech to text, GPT to generate a text reply, and a third model to read that reply aloud. "Cascaded voice systems... enabled us to talk to frontier AI models for the first time, but the complexity came at a cost: information could be lost across models, and responses were slow and stilted," OpenAI wrote in its launch post. Advanced Voice Mode, introduced with GPT-4o in 2024, collapsed that pipeline into a single speech-to-speech model but still operated in rigid turns, waiting for silence before it would respond — a design that could misfire on a cough, a pause, or background noise.</p>
+<p>GPT-Live removes the turn detector from the audio path entirely. The model is full-duplex, meaning it processes incoming audio while simultaneously generating outgoing speech, deciding many times per second whether to talk, listen, pause, or hand a question off to a background reasoning model. "For voice AI, knowing when to speak is harder than it sounds," wrote OpenAI engineers Justin Uberti and Zahan Malkani in an August 3 technical post detailing the six-month rebuild. Their team rewrote the media and inference stack in Go, replacing a Python implementation, and developed a new protocol called WARP that collapses the WebRTC connection handshake from six network round trips to one. When a query needs deep reasoning, web search, or tool use, GPT-Live delegates to GPT-5.5 in the background while continuing to talk — a two-model split OpenAI says lets the system "keep the conversation going, even as it handles multiple tasks in the background."</p>
+<p>Two versions are rolling out globally on iOS, Android, and ChatGPT.com: GPT-Live-1, now the default for Go, Plus, and Pro subscribers, and GPT-Live-1 mini for Free-tier users. OpenAI says more than 150 million people use ChatGPT Voice and Dictation weekly. Sam Altman posted about the launch on July 8: "GPT-live (next-generation voice) launches today in ChatGPT. it feels magical and 'real'. i have always preferred typing to talking to an AI, now i think that's going to shift." The GPT-Live API remains waitlist-only as of this writing; developers currently building on OpenAI's Realtime API are still working with a separate model, gpt-realtime-2.1, and OpenAI has not disclosed API pricing for GPT-Live.</p>
+<p>Agora's benchmark, run with prerecorded speech through an artificial mouth and dual-track waveform recordings, complicates the "faster" narrative on its own terms. While GPT-Live's median response edge over Advanced Voice Mode was modest, its consistency improved dramatically: response-time variance collapsed nearly fivefold, from a standard deviation of 489 milliseconds down to 104 milliseconds, and the 90th-percentile response landed just 104ms above the median rather than nearly double it. Under 10% simulated packet loss, GPT-Live's median response degraded by only 314ms versus 2,448ms for Advanced Voice Mode. But GPT-Live was also 498ms slower to fall silent when deliberately interrupted, and in noisy-room tests it spontaneously answered background conversation not directed at it in 4 of 30 trials — a new failure mode the older, more literal turn-detection systems didn't exhibit. "The full-duplex era has started, and now we can measure it," Agora's Hermes Frangoudis wrote.</p>
+<h2>Why It Matters</h2>
+<p>The contest for voice AI has splintered into different bets. Google's Gemini Live pairs a speed-optimized model with camera and screen-sharing perception rather than raw conversational depth. ElevenLabs' Conversational AI still runs a cascaded stack — dedicated speech-to-text, a chosen LLM, and ElevenLabs' text-to-speech — but leads on voice quality across more than 70 languages. Kyutai's Moshi remains the most credible open-source full-duplex model, with reported processing latency of 160-200ms on an A100 GPU, though it lacks GPT-Live's frontier-model delegation for complex reasoning. OpenAI's move to decouple "talking" from "thinking" — routing hard questions to GPT-5.5 asynchronously rather than blocking the conversation — is the more distinctive architectural bet, and it's one rivals without OpenAI's model stack will struggle to replicate cheaply.</p>
+<h2>What to Watch</h2>
+<p>Watch for OpenAI to open the GPT-Live API to developers off the current waitlist, which will let outside benchmarking firms test the model against Gemini Live and ElevenLabs under comparable conditions rather than relying on ChatGPT-app measurements alone. Also watch whether OpenAI publishes its own latency and interruption-handling numbers — the silence so far has left independent labs like Agora to set the terms of the public benchmark debate, and the false-answer-to-background-speech problem Agora surfaced is the kind of safety-adjacent issue likely to draw more scrutiny as GPT-Live scales to video and screen-sharing support, which OpenAI has said is coming but did not ship at launch.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;GPT-Live (next-generation voice) launches today in ChatGPT. It feels magical and 'real'. I have always preferred typing to talking to an AI, now I think that's going to shift.&rdquo;</blockquote><cite>&mdash; Sam Altman, CEO, OpenAI</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">205ms</div><div class="stat-label">Measured latency edge over Advanced Voice Mode</div></div><div class="stat-cell"><div class="stat-value">5x</div><div class="stat-label">Reduction in response-time jitter</div></div><div class="stat-cell"><div class="stat-value">150M</div><div class="stat-label">Weekly voice and dictation users</div></div><div class="stat-cell"><div class="stat-value">July 8, 2026</div><div class="stat-label">GPT-Live launch date</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/introducing-gpt-live/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&amp;sz=32" alt="">OpenAI</a><a href="https://openai.com/index/continuous-voice-interaction-with-gpt-live/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&amp;sz=32" alt="">OpenAI Engineering</a><a href="https://www.agora.io/en/blog/openai-didnt-publish-gpt-lives-latency-so-we-measured-it/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=agora.io&amp;sz=32" alt="">Agora</a></div></div>
+<div class="article-nav"><a href="05-uncovr-surgical-ai-6m-round.html" class="nav-prev">&larr; French Startup Uncovr Raises €6M to Turn Surgical </a><a href="07-chatgpt-dalle-gpt-retirement.html" class="nav-next">OpenAI Retires the Standalone DALL-E GPT, Closing  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published August 31, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
