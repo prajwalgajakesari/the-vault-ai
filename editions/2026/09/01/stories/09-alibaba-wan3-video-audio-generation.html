@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alibaba&#x27;s Wan3.0 Makes 30 Seconds of 1080p Video With Sound in One Call — But There Are No Weights to Download &mdash; The Vault AI</title>
+<meta name="description" content="Wan3.0&#x27;s 30-second 1080p video-with-native-audio specs are confirmed by Alibaba&#x27;s own docs, but contrary to the Wan family&#x27;s history it shipped closed — no weights, no repo, no published licence.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&amp;family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Alibaba&#x27;s Wan3.0 Makes 30 Seconds of 1080p Video With Sound in One Call — But There Are No Weights to Download</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 984 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Wan3.0&#x27;s 30-second 1080p video-with-native-audio specs are confirmed by Alibaba&#x27;s own docs, but contrary to the Wan family&#x27;s history it shipped closed — no weights, no repo, no published licence.</p>
+</div>
+<div class="article-body">
+<p>Alibaba&#x27;s Wan3.0 will hand you 30 seconds of 1080p video with dialogue, background music and sound effects from a single API call. What it will not hand you is the model.</p>
+<p>That second fact is the one the industry got wrong. Wan has spent two years as the reference point for open-weight video generation — Wan 2.1 and Wan 2.2 shipped under Apache 2.0, and Wan2.2 alone carries roughly 17,000 GitHub stars and spawned most of the ComfyUI video ecosystem. Wan3.0 breaks the pattern. As of the model&#x27;s formal release on <strong>August 24, 2026</strong>, there is no Wan3.0 checkpoint on Hugging Face, no repository in the `Wan-Video` GitHub organisation, no ModelScope entry, and no published licence text of any kind. It is a hosted, preview-gated API. Anyone telling you otherwise is describing a model that does not exist.</p>
+<p>The capabilities, at least, check out against Alibaba&#x27;s own documentation. The Model Studio guide for `wan3.0-video` describes an &quot;All-in-One&quot; model that supports up to 30 seconds per generation at 30fps, outputs MP4 at 480P, 720P or 1080P — with <strong>1080P as the default</strong> — and accepts durations from 2 to 30 seconds, or `-1` for a &quot;smart duration&quot; mode where the model picks a length and falls back to five seconds. Aspect ratios run 16:9, 4:3, 1:1, 3:4 and 9:16. Audio is the headline: the model &quot;natively outputs dialogue, BGM, and sound effects&quot; without post-production dubbing, and audio generation is on by default at no change to the listed rate.</p>
+<p>The input side is genuinely unusual. A single request can carry up to <strong>20 multimodal reference materials</strong> — images, videos, audio, documents, even a public web page. Supported formats include PDF, DOC, XLS, PPT, Markdown and Apple&#x27;s Keynote, Pages and Numbers, capped at 50 pages and 100MB. That document-to-video path, not the duration, is the capability no Western competitor currently matches: you can point the model at a slide deck and get a narrated 30-second cut.</p>
+<p>Pricing is per generated second, and it is public: <strong>$0.05 at 480P, $0.10 at 720P, $0.20 at 1080P</strong>. A full-length 1080p clip therefore lists at $6.00 before tax or discounts — twice the exposure of the 15-second ceiling on Wan2.7, the immediate predecessor. TechNode, citing IT Home, reported a temporary 30% API discount on selected platforms running August 24 to September 23. Access still requires approval, and API key, workspace and endpoint must share a region; Alibaba documents Beijing, Singapore and Virginia. The launch landed one day after Alibaba closed a HK$80 billion share placement — about <strong>$10.2 billion</strong> — earmarked for full-stack AI.</p>
+<h2>What &quot;one pass&quot; actually buys you</h2>
+<p>Here is where the marketing and the documentation diverge slightly. &quot;One pass&quot; means one API call producing one continuous output file — not, necessarily, one unbroken shot. Alibaba&#x27;s own guide states the text-to-video path &quot;supports single-shot and multi-shot storyboard format (4~6 seconds per shot, with timestamp annotations).&quot; A 30-second Wan3.0 render can legitimately be a six-shot sequence the model cut itself. That is still meaningfully different from stitching six separate generations — character identity, voice and lighting persist across the cuts, which is exactly what stitching fails at — but it is not a guaranteed 30-second oner.</p>
+<p>And the model appears to cut when you don&#x27;t want it to. Atlas Cloud, which resells access to competing models and therefore has a commercial stake, says it ran 49 fixed-seed comparisons across Wan3.0, Wan2.7 and Seedance 2.0 using identical prompts and starting frames. It reported better identity retention and physical plausibility alongside <strong>repeated unwanted cuts during shots meant to stay continuous</strong>. Alibaba itself concedes that audio texture and on-screen text accuracy need further work — two awkward gaps for a model sold on synchronised sound and document ingestion. Crucially, no neutral leaderboard had scored Wan3.0 by the formal release. Alibaba has published no parameter count, no architecture paper and no head-to-head benchmark numbers. Any preference figure you see attached to Wan3.0 right now is vendor-run.</p>
+<h2>Why the licence matters more than the spec sheet</h2>
+<p>Thirty seconds is a real jump, but Kling already offers far longer clips, Veo 3.1 remains the only major model supporting extension beyond a single generation, and Runway&#x27;s Gen-4.5 competes on cinematic quality rather than duration. Duration is a race everyone will win eventually. Weights are a strategic choice, and Alibaba has now made the same one four flagship generations running: 2.5, 2.6, 2.7 and 3.0 all shipped closed.</p>
+<p>The company hasn&#x27;t abandoned open source so much as bisected its lineup. On August 6, Wan3.0 entered closed beta. On August 7 — one day later — Wan2.2-Animate-2-14B landed on Hugging Face under Apache 2.0. Generation flagships earn revenue; control and animation models feed the ecosystem. It is a coherent strategy, just not the one the community assumed it was getting.</p>
+<p>The vacancy did not last. Lightricks spinout LTX shipped LTX-2.5 on August 11: 22B parameters, open weights, synchronised video and audio, free below $10 million ARR. &quot;Open weights is not some kind of one-time philanthropic fluke for us. It&#x27;s the strategy,&quot; LTX co-founder and CEO <strong>Zeev Farbman</strong> told VentureBeat, arguing that video models have a far wider surface area of use than LLMs and that &quot;working through APIs just doesn&#x27;t work for many businesses.&quot; His ComfyUI counterpart, CEO <strong>Yoland Yan</strong>, cautioned against reading launch comparisons literally: &quot;Various models have simply different characteristics. It&#x27;s like comparing Michael Phelps with, I don&#x27;t know, Michael Jordan.&quot;</p>
+<p>Watch three things. First, whether Artificial Analysis or another neutral arena scores Wan3.0 — until then the quality claims are unfalsifiable. Second, whether the preview API opens to general availability with a published licence, which would at least clarify commercial terms. Third, whether Alibaba ever ships Wan3.0 weights. Nobody at the company has promised it, and the pattern since July 2025 argues against. If you need weights today, the honest answer is still Wan 2.2 — or LTX-2.5, which is a year newer.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Open weights is not some kind of one-time philanthropic fluke for us. It&#x27;s the strategy.&rdquo;</blockquote><cite>&mdash; Zeev Farbman, Co-founder and CEO, LTX</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">30s</div><div class="stat-label">Max duration per generation, at 30fps</div></div><div class="stat-cell"><div class="stat-value">$0.20/sec</div><div class="stat-label">1080p list price on Model Studio</div></div><div class="stat-cell"><div class="stat-value">20</div><div class="stat-label">Max reference materials per request</div></div><div class="stat-cell"><div class="stat-value">Aug 24</div><div class="stat-label">Formal release date, after Aug 6 beta</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.alibabacloud.com/help/en/model-studio/wan3-video-generation-guide" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=alibabacloud.com&amp;sz=32" alt="">Alibaba Cloud Model Studio</a><a href="https://technode.com/2026/08/24/alibaba-launches-wan3-0-video-model-with-30-second-generation-and-document-input/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=technode.com&amp;sz=32" alt="">TechNode</a><a href="https://www.atlascloud.ai/blog/tips/is-wan-3.0-open-source" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=atlascloud.ai&amp;sz=32" alt="">Atlas Cloud</a><a href="https://winbuzzer.com/2026/08/25/alibaba-launches-wan3-0-for-30-second-ai-video-from-documents-xcxwbn/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=winbuzzer.com&amp;sz=32" alt="">WinBuzzer</a><a href="https://qz.com/alibaba-wan3-ai-video-model-launch-082426" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=qz.com&amp;sz=32" alt="">Quartz</a></div></div>
+<div class="article-nav"><a href="08-google-khanmigo-gemini-classroom-diagrams.html" class="nav-prev">&larr; Khanmigo Can Now Draw. Google Spent Six Months Mak</a><a href="10-reconstruction-benchmark-idea-recovery.html" class="nav-next">Given Only a Bibliography, Frontier Models Recover &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 1, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
