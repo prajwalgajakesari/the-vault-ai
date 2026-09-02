@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Runway&#x27;s Solaris Doesn&#x27;t Write the App. It Renders It, Frame by Frame. &mdash; The Vault AI</title>
+<meta name="description" content="Runway&#x27;s Solaris renders interactive UIs as generated video instead of code, and its own preference study looks strong — but there is no published latency number, no persistent state, no legible text and no ship date.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&amp;family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Runway&#x27;s Solaris Doesn&#x27;t Write the App. It Renders It, Frame by Frame.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 992 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Runway&#x27;s Solaris renders interactive UIs as generated video instead of code, and its own preference study looks strong — but there is no published latency number, no persistent state, no legible text and no ship date.</p>
+</div>
+<div class="article-body">
+<p>Pull a shirt off a rack and drag it onto a photo of yourself. The shirt lands. Nothing compiled to make that happen — no HTML, no CSS, no click handler somebody wrote in advance. A video model looked at where your cursor went and guessed what the next frame should look like, then drew it.</p>
+<p>That is the demo Runway published on August 31 alongside <strong>Solaris</strong>, which it calls the first model in a category it invented for the occasion: <em>Interface World Models</em>. The premise is a direct attack on the thing every piece of software has in common. &quot;Every piece of software built today still requires a translation,&quot; Runway writes in its research post: a design has to become code before it can do anything. Solaris skips the translation. The frame <em>is</em> the application.</p>
+<p>Runway&#x27;s co-founder and CEO Cristóbal Valenzuela put the thesis more bluntly when he shared the work: &quot;Video is the universal interface. Eventually, all UI will be chat and gestures in, chat and video out.&quot;</p>
+<h2>What Runway actually built</h2>
+<p>Solaris is Gen-4.5, Runway&#x27;s video generation model, retrofitted for two things it was never designed to do: understand interaction, and respond fast enough that a human doesn&#x27;t notice the delay. It descends from GWM-1, the general world model Runway shipped earlier this year.</p>
+<p>The architecture splits into two halves. A language model does the reasoning — it interprets what the user asked for, decides whether a click should modify the current scene or transition to a new one, and emits the prompts that steer rendering. Solaris does the rendering, one frame at a time, treating clicks and drags as conditioning signals in exactly the way it would treat a text prompt. Because the model only ever observes interactions that have already happened, it learns the mapping from action to visual consequence without anyone programming the consequence.</p>
+<p>Getting a diffusion model to interaction speed took three moves, per Runway: generate frames autoregressively so each depends only on what came before, distill dozens of denoising steps down to a handful, then train the fast model on its own outputs so quality doesn&#x27;t drift. The target is 720p, held stable across a full session rather than a single clip.</p>
+<p>Runway ran two evaluations. The first tested how well frontier multimodal models — GPT-4o, Gemini 2.5 Pro and Claude Fable 5 among them — could rebuild a website from a single screenshot, scored on structural similarity and DINOv3 feature matching across 30 interfaces. Fidelity degraded consistently as visual complexity rose, which Runway offers as the cost of routing an interface through language. The second was a head-to-head: Solaris versus Claude Opus 5, same starting image, same interaction requests, judged by 250 participants across 30 examples and nearly 7,500 pairwise comparisons. Solaris was preferred on instruction following in 61% of comparisons against 24% for the coded result, with 13% called equivalent. On which behaved more naturally in the scene, the gap widened to 71% against 21%, with 6% equivalent.</p>
+<h2>Read the fine print</h2>
+<p>&quot;No code&quot; is doing a lot of work here. There is still a language model in the loop writing prompts, still a serving stack, still a starting frame somebody has to compose. What Solaris removes is the <em>intermediate representation of the interface</em> — the DOM, the component tree, the behaviors enumerated ahead of time. A real deletion. Not the same as software without engineering.</p>
+<p>The latency figure circulating in coverage deserves the same scrutiny. Runway publishes no measured per-frame number. It observes that interactions &quot;stop feeling interactive somewhere around half a second of delay&quot; and calls that the threshold it had to cross — a design target quoted back as a benchmark. No throughput table, no hardware disclosure, no p99.</p>
+<p>Then there is state, or the absence of it. Solaris has no cart, no database row, no persisted form. What looks like memory is coherence in a stream of generated pixels, and Runway lists &quot;long sessions&quot; among its unsolved problems. It also concedes that legible text — the thing interfaces depend on more than any other visual element — remains hard, floating a hybrid where image models render text-heavy views during pauses. Accessibility is open too, which follows: a frame of video has no semantics for a screen reader. Runway is candid that per-frame generation still costs more than serving a page built once.</p>
+<p>The comparison itself invites a question. Beating Claude Opus 5 one-shotting an interaction from a screenshot is not the same as beating a product team. Runway chose the 30 examples, defined the task, and ran the study.</p>
+<p>And under all of it sits an assumption nobody has tested. Maximilian Schreiner, writing at The Decoder, landed on the part Runway&#x27;s post never addresses: &quot;Whether people actually want interfaces that keep changing is a question Runway leaves open.&quot; Predictability is a feature of software, not a limitation of it. A button that lives in the same place every time is doing work.</p>
+<h2>Why this matters</h2>
+<p>The industry spent 2025 and 2026 converging on the opposite bet. Every coding agent, every design-to-code tool, every app builder assumes the artifact is source. Solaris argues the artifact is the render, and that the compression step everyone treats as neutral is where fidelity dies.</p>
+<p>The quieter argument may matter more. Runway frames Solaris as a training environment for agents, which currently overfit to the layouts they saw and fall over on a hotel site that looks slightly different. An environment that generates layouts which never existed is a plausible answer to that generalization problem — and it does not require anyone to accept generated UIs as consumer software.</p>
+<p><em>Watch for whether Runway publishes hard latency and cost numbers, whether an early-access partner ships something a real customer touches, and whether the text-rendering problem gets solved or gets papered over with a hybrid. There is no pricing, no API, no open weights and no ship date — only a form.</em></p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Video is the universal interface. Eventually, all UI will be chat and gestures in, chat and video out.&rdquo;</blockquote><cite>&mdash; Cristóbal Valenzuela, Co-founder and CEO, Runway</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">61%</div><div class="stat-label">Preferred on instruction following</div></div><div class="stat-cell"><div class="stat-value">71%</div><div class="stat-label">Preferred on natural behavior in scene</div></div><div class="stat-cell"><div class="stat-value">7,500</div><div class="stat-label">Pairwise judgments from 250 participants</div></div><div class="stat-cell"><div class="stat-value">720p</div><div class="stat-label">Target resolution, built on Gen-4.5</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://runway.com/news/research/introducing-solaris" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=runway.com&amp;sz=32" alt="">Runway Research</a><a href="https://thenewstack.io/runway-solaris-generated-interfaces/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenewstack.io&amp;sz=32" alt="">The New Stack</a><a href="https://the-decoder.com/runways-solaris-is-an-ai-system-that-generates-software-interfaces-in-real-time/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&amp;sz=32" alt="">The Decoder</a><a href="https://www.techtimes.com/articles/326134/20260901/runway-solaris-launches-app-interfaces-now-run-live-video-zero-code.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techtimes.com&amp;sz=32" alt="">Tech Times</a></div></div>
+<div class="article-nav"><a href="05-datacenter-capacity-slip-memory-squeeze.html" class="nav-prev">&larr; The GPUs Are Ready. The Buildings Are Not.</a><a href="07-glm53-flash-native-multimodal.html" class="nav-next">Z.ai&#x27;s GLM-5.3-Flash Is the First Natively Multimo &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 1, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
