@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The GPUs Are Ready. The Buildings Are Not. &mdash; The Vault AI</title>
+<meta name="description" content="The AI buildout&#x27;s binding constraint has shifted from chips to physical infrastructure, with 30-50% of planned 2026 data center capacity now projected to slip to 2028 while data centers absorb up to 70% of global memory output.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&amp;family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>The GPUs Are Ready. The Buildings Are Not.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 6 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1113 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>The AI buildout&#x27;s binding constraint has shifted from chips to physical infrastructure, with 30-50% of planned 2026 data center capacity now projected to slip to 2028 while data centers absorb up to 70% of global memory output.</p>
+</div>
+<div class="article-body">
+<p>The tightest bottleneck in artificial intelligence right now weighs several tons, contains no silicon, and has been made largely in Canada, Mexico and South Korea. It is a high-power transformer, and ordering one in the United States today can mean waiting as long as five years — more than three times the entire deployment cycle of the AI data center it is supposed to energize.</p>
+<p>That mismatch is now showing up in the numbers. Of the roughly 12 gigawatts of data center capacity expected to come online in the U.S. this year, only about a third was under active construction as of the spring, according to market intelligence firm Sightline Climate, whose data Bloomberg reported in April. Close to half of planned U.S. data center builds for 2026 are projected to be delayed or canceled outright. Omdia&#x27;s own semiconductor research points the same direction, citing industry analysis that <strong>30% to 50% of planned 2026 data center capacity will slip to 2028</strong>.</p>
+<p>Meanwhile, the racks that do get built are competing for a memory supply that has been quietly commandeered. Data centers are on track to absorb up to <strong>70% of all memory produced worldwide in 2026</strong> — a share that stood at roughly 20% to 30% as recently as 2022. The AI buildout is not short of GPUs. It is short of buildings to put them in, electricity to feed them, and DRAM to fill them.</p>
+<h2>The physical chokepoints</h2>
+<p>Bruce Bateman, a chief analyst in Omdia&#x27;s semiconductors group, described 2026 as the industry&#x27;s most structurally risky stretch since the post-COVID correction, and argued the cause is not innovation but physics and geopolitics. &quot;The reality of 2026 is defined by a brutal shortage of electricity, copper and critical gases,&quot; he wrote in an April analysis for <em>Manufacturing Dive</em>. &quot;This isn&#x27;t just a supply chain hiccup; it&#x27;s a strategic recalibration where scarcity has become the most profitable product.&quot;</p>
+<p>The specifics are unforgiving. Each megawatt of data center capacity requires roughly 27 tons of copper for wiring and cooling, and a single AI-optimized facility now draws 100 to 500 megawatts — city-scale load. Copper hit a record $6 per pound in January and has settled near $5.61, with data centers now outbidding traditional industrial buyers. U.S. grid interconnection queues have ballooned past 2,100 gigawatts, more than total installed grid capacity, and connection processes routinely take three to seven years.</p>
+<p>The electrical gear is the sharpest constraint precisely because it is cheap. Transformers, switchgear and battery systems account for less than 10% of a data center&#x27;s total cost, but a delay in any single link stops the whole project. High-power transformers that took 24 to 30 months to deliver before 2020 can now take up to five years. Developers have gone shopping globally in response: Canada, Mexico and South Korea are now the largest suppliers of high-power transformers to U.S. AI projects, while imports from China jumped from fewer than 1,500 units in 2022 to more than 8,000 in the first ten months of 2025 — an awkward dependency given that China also supplies over 40% of U.S. battery imports amid an active trade war.</p>
+<p>Set that against the capital. Alphabet, Amazon, Meta and Microsoft are expected to spend more than $650 billion on AI capacity in 2026; counting Oracle, the five largest hyperscalers have committed north of $660 billion. The money is not the problem.</p>
+<h2>Memory becomes the second squeeze</h2>
+<p>The memory market is where the shortage becomes visible to everyone else. SK hynix, Micron and Samsung have preallocated their entire 2026 high-bandwidth memory capacity, and HBM now carries reported gross margins of 60% to 70%, well above commodity DRAM. Capacity that once served phones, cars and televisions has been redirected. IDC calls it a &quot;permanent reallocation&quot; of supplier capacity toward AI data centers, and has already cut its 2026 forecasts by 5% for smartphones and 9% for PCs.</p>
+<p>Counterpoint Research&#x27;s MS Hwang put the procurement reality bluntly to the <em>Wall Street Journal</em>: &quot;you gotta buy a plane ticket and get that allocation from manufacturers right now,&quot; noting that 2028 capacity is already being sold. TrendForce analyst Avril Wu, who has covered memory for nearly two decades, was starker: &quot;It really is the craziest time ever.&quot; Hwang estimates memory could climb to 10% of the bill of materials for typical electronics and 30% for smartphones.</p>
+<p>Nvidia confirmed the pass-through on its Aug. 26 earnings call. CFO Colette Kress cited &quot;extreme pricing conditions in memory&quot; and warned that <strong>&quot;the magnitude of the price increase has exceeded our prior expectations and are headed even higher into next year.&quot;</strong> The company lifted its supply commitments by $160 billion in a single quarter, to $279 billion, and still expects a supply-demand gap through the fiscal year ending in early 2028. CEO Jensen Huang was equally candid: &quot;We have a really gigantic supply chain, and so, we have incredible partners, and we&#x27;ve secured a lot of supply, but we just need a lot more.&quot;</p>
+<h2>Why this matters</h2>
+<p>For two years the AI story has been told through accelerator roadmaps — Blackwell, Rubin, TPU generations — as though compute capability were the sole variable. The 2026 data reframes it. Capacity is now gated by a heavy-industry supply chain with 40-year investment cycles and no elasticity, and that has three consequences.</p>
+<p>First, it changes who captures value. If scarcity persists, margin migrates from model developers toward whoever controls power interconnects, HBM allocation and electrical gear. Bateman&#x27;s point about scarcity as &quot;the most profitable product&quot; is a description of where the pricing power has moved.</p>
+<p>Second, it introduces a timing risk that capex announcements obscure. A hyperscaler can book $650 billion and still miss its capacity targets, because a large share of that spend simply slides into 2027 and 2028 — where, compressed, it recreates the same bottleneck at greater intensity. Third, the costs are externalized to consumers who never asked for a frontier model, since cars, televisions and appliances run on exactly the legacy memory manufacturers have discontinued.</p>
+<h2>What to watch</h2>
+<p>Three signals matter over the next two quarters. Watch whether hyperscalers begin explicitly reconciling announced capex against energized megawatts rather than committed dollars — the gap between the two is the real story. Watch SK hynix, whose CEO Kwak Noh-jung has said 2027, not 2026, will be the <em>worst</em> year of the memory shortage, with demand outstripping supply beyond 2030; if that view spreads, forward server pricing resets again. And watch transformer and switchgear order books, particularly Chinese import volumes, since any further trade escalation converts a scheduling problem into a hard stop. The GPUs will keep arriving on time. The question is what they get plugged into.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>&ldquo;The magnitude of the price increase has exceeded our prior expectations and are headed even higher into next year.&rdquo;</blockquote><cite>&mdash; Colette Kress, EVP and CFO, Nvidia</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">30-50%</div><div class="stat-label">2026 capacity projected to slip to 2028</div></div><div class="stat-cell"><div class="stat-value">70%</div><div class="stat-label">World memory production going to data centers</div></div><div class="stat-cell"><div class="stat-value">12 GW</div><div class="stat-label">US capacity due online in 2026</div></div><div class="stat-cell"><div class="stat-value">$279B</div><div class="stat-label">Nvidia supply commitments, late July 2026</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.manufacturingdive.com/news/opinion-omdia-ai-semiconductor-chip-scarcity/817172/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=manufacturingdive.com&amp;sz=32" alt="">Manufacturing Dive</a><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled-growth-limited-by-shortages-of-power-infrastructure-and-parts-from-china-the-ai-build-out-flips-the-breakers" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tomshardware.com&amp;sz=32" alt="">Tom&#x27;s Hardware</a><a href="https://www.tomshardware.com/pc-components/ram/data-centers-will-consume-70-percent-of-memory-chips-made-in-2026-supply-shortfall-will-cause-the-chip-shortage-to-spread-to-other-segments" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tomshardware.com&amp;sz=32" alt="">Tom&#x27;s Hardware (memory)</a><a href="https://www.manufacturingdive.com/news/nvidia-chip-supply-shortages-limiting-ai-revenue-growth/829273/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=manufacturingdive.com&amp;sz=32" alt="">Manufacturing Dive (Nvidia)</a></div></div>
+<div class="article-nav"><a href="04-air-security-50m-agent-firewall.html" class="nav-prev">&larr; 17,800 Public AI Add-Ons, 6.7 Million Installs, No</a><a href="06-runway-solaris-interface-world-model.html" class="nav-next">Runway&#x27;s Solaris Doesn&#x27;t Write the App. It Renders &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 1, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
