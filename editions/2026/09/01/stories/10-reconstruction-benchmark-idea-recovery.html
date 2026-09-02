@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Given Only a Bibliography, Frontier Models Recover 3% of a Paper&#x27;s Idea &mdash; The Vault AI</title>
+<meta name="description" content="On a contamination-resistant benchmark that gives models only a paper&#x27;s pre-publication bibliography, seven frontier models recovered the actual research idea just 3-15% of the time, and a multi-agent tournament pipeline topped out at 42%.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&amp;family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Given Only a Bibliography, Frontier Models Recover 3% of a Paper&#x27;s Idea</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 967 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>On a contamination-resistant benchmark that gives models only a paper&#x27;s pre-publication bibliography, seven frontier models recovered the actual research idea just 3-15% of the time, and a multi-agent tournament pipeline topped out at 42%.</p>
+</div>
+<div class="article-body">
+<p>Strip a research paper away and leave only its footnotes. That is the entire input in <em>Reconstruction</em>, a benchmark posted to arXiv on August 17 that puts a deceptively simple question to seven frontier language models: given a paper&#x27;s pre-publication bibliography, and nothing else, can you say what the paper proposed?</p>
+<p>Mostly, no. Across 643 evaluated papers spanning six scientific domains, individual models matched the real idea roughly 3 to 15 percent of the time. The strongest single model, Claude-Opus-4.8, averaged <strong>13.3 percent, plus or minus 2.3</strong>. A multi-agent pipeline that ran four models&#x27; competing hypotheses through cross-model review and a Swiss-system tournament pushed match rates to 23 to 42 percent — an observed 2.4x lift, and still a minority of ideas recovered.</p>
+<p>The paper, <em>Reconstruction: A Blind Benchmark for Recovering Research Ideas from Pre-Publication Bibliographies</em>, comes from a nine-author team led by Shaolong Chen and Yanlin Fei and including Qingqing Mao and Ritankar Das, filed under the AI-Professor Project banner. It is a preprint, revised once on August 19, and has not been peer reviewed.</p>
+<h2>The task, and the wall around it</h2>
+<p>Most evaluations of AI-generated research ideas ask whether an idea is novel, interesting, or preferred by human reviewers. Reconstruction asks something narrower and much harder to game. As the authors frame it in their introduction, the diagnostic question is whether, &quot;given only the references available before a paper was published, can a model recover what that paper actually proposed?&quot;</p>
+<p>The answer is known in advance — it is the seed paper&#x27;s own contribution — which makes contamination the central threat to validity. If a model has read the target paper during training, it can retrieve rather than reason. The team built four defenses. A hard temporal cutoff admits only literature published strictly before the seed paper&#x27;s publication date. References are stripped of author names and metadata and re-labeled as anonymous IDs (ref-001 and onward), closing the shortcut of recognizing a lab&#x27;s trajectory. Bibliographies are frozen per paper, so the single-model and multi-agent conditions see byte-identical inputs. And the models never see the seed title or abstract during generation; an independent LLM judge compares the proposed hypotheses to the held-out ground truth afterward, with judges recused from scoring anything they proposed.</p>
+<p>The corpus is not synthetic. The machine-learning slice is the full ICML 2026 Oral program, 168 papers scraped from the conference site. The other five domains are Nature-family journals scraped on July 14, 2026: <em>Nature Medicine</em> (221 candidate papers), <em>Nature Physics</em> (153), <em>Nature Materials</em> (131), <em>Nature Chemistry</em> (115), and <em>Nature Astronomy</em> (91). Titles were resolved to bibliographic metadata through Semantic Scholar, with fallbacks to OpenReview, Crossref, OpenAlex, and arXiv. Attrition was heavy and is documented: of 826 launched runs, 745 completed the single-model condition, and 643 survived the filter requiring five aligned hypothesis slots.</p>
+<p>In the baseline condition, each model produces five distinct hypotheses in a single generation call. The multi-agent pipeline is where the interesting machinery lives. The four strongest baseline models — Claude-Opus-4.8, GPT-5.6-Sol-Pro, Kimi-K3, and GLM-5.2 — each generate five hypotheses from identical frozen references, yielding 20 candidates. Those candidates are aligned into five slots of four, reviewed by the other models with proposer recusal and no web search, then run through a Swiss tournament with conflict-of-interest recusal and presentation-order debiasing. The five slot champions are assembled into one case and scored by a final judge that never saw the tournament ballots.</p>
+<h2>Why this lands hard on the &quot;AI scientist&quot; pitch</h2>
+<p>The uniformity of failure is the finding, not the floor. Seven capable systems clustering in a 12-point band suggests the gap is architectural rather than a matter of prompting or parameter count. And Reconstruction is deliberately measuring the one step that &quot;AI scientist&quot; products are sold on — the leap from what the literature contains to what nobody has proposed yet. Evaluations that hand a model full paper text, author names, or post-publication signals are measuring something else, and their scores do not transfer.</p>
+<p>The multi-agent result cuts both ways. A 2.4x lift from adversarial filtering, with zero additional information entering the system, is a real argument that the right unit of AI-assisted discovery is a structured committee rather than a bigger oracle. It echoes the tournament-based generation-and-ranking design in Google DeepMind&#x27;s AI Co-Scientist. But the authors are careful about what they are claiming. &quot;We credit the full selection pipeline rather than collaboration alone,&quot; they write, flagging that relative comparisons are reported as observed associations, with candidate-matched controls deferred to future work.</p>
+<p>They are equally candid about a sharper caveat: the top-4 roster was chosen by performance on the same papers used for scoring. That is &quot;a post-selected ensemble relative to the same papers used for scoring,&quot; they note, and should be read as evaluating a fixed roster rather than a selection rule validated on held-out data. Judge disagreement is also nontrivial — the team observes that Claude and GPT judges are &quot;systematically more permissive than Kimi/GLM&quot; on the multi-agent champions, which are more specific and therefore harder to grade.</p>
+<p>For scale, OpenAI&#x27;s PaperBench (April 2025) found its best agent reached a 21.0 percent replication score on 20 ICML 2024 papers, with full text available. Reconstruction removes the text and gets 3 to 15 percent from a single model.</p>
+<p>Watch three things. First, whether the promised revision delivers full per-model and per-domain breakdowns; several domains carry thin reported counts, including 117 for Materials and just 78 for Medicine, where the multi-agent run was capped at 80 papers to control API cost. Second, whether anyone reports the compute bill for the 2.4x lift — 20 generations plus review plus tournament rounds is not a cheap default. Third, whether labs shipping hypothesis-generation tools start publishing contamination-resistant numbers, or keep quoting scores from evaluations that leave the answer in the room.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;This is a post-selected ensemble relative to the same papers used for scoring; we therefore interpret multi-agent results as evaluating this fixed top 4 roster rather than a selection rule validated on a held-out split.&rdquo;</blockquote><cite>&mdash; Shaolong Chen and co-authors, Authors, Reconstruction, AI-Professor Project</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">643</div><div class="stat-label">Papers across six scientific domains</div></div><div class="stat-cell"><div class="stat-value">13.3%</div><div class="stat-label">Best single-model average match rate</div></div><div class="stat-cell"><div class="stat-value">23-42%</div><div class="stat-label">Multi-agent Swiss tournament range</div></div><div class="stat-cell"><div class="stat-value">168</div><div class="stat-label">ICML 2026 Oral papers in the ML slice</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2608.16645" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&amp;sz=32" alt="">arXiv:2608.16645</a><a href="https://arxiv.org/html/2608.16645" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&amp;sz=32" alt="">Reconstruction (full text)</a><a href="https://www.techtimes.com/articles/324932/20260819/blind-benchmark-catches-frontier-ai-just-three-percent-research-idea-recovery.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techtimes.com&amp;sz=32" alt="">Tech Times</a><a href="https://arxiv.org/abs/2504.01848" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&amp;sz=32" alt="">PaperBench (arXiv:2504.01848)</a></div></div>
+<div class="article-nav"><a href="09-alibaba-wan3-video-audio-generation.html" class="nav-prev">&larr; Alibaba&#x27;s Wan3.0 Makes 30 Seconds of 1080p Video W</a><a href="11-ai-drug-discovery-evidence-ledger.html" class="nav-next">The Honest Ledger on AI Drug Discovery: Structure  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 1, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
