@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anthropic Cut Cache Reads 75% and Let Claude Look for Vulnerabilities Again &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--accent);text-decoration:none}
+.article-body a:hover{text-decoration:underline}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Anthropic Cut Cache Reads 75% and Let Claude Look for Vulnerabilities Again</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1002 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Anthropic left Fable 5.1's headline price untouched and instead cut cache reads 75% to $0.25 - a discount aimed squarely at long-running agents - while loosening cyber safeguards enough to let the model hunt vulnerabilities again, though not build exploits.</p>
+</div>
+<div class="article-body">
+<p>Anthropic shipped a frontier model on Monday, and the two things that will actually change how enterprises use it are buried well below the benchmark charts: a price cut on a single line item most buyers never negotiate, and a permission the company had taken away.</p>
+<p>Claude Fable 5.1 and Claude Mythos 5.1 arrived Sept. 1, described by Anthropic as "the world's most advanced models for coding and knowledge work." They are the same model. Fable 5.1 is generally available with production safeguards; Mythos 5.1 is the identical weights behind more permissive guardrails, restricted to trusted-access programs for vetted cyberdefenders and life scientists at U.S. organizations.</p>
+<p>Base pricing did not move. Fable 5.1 still costs $10 per million input tokens and $50 per million output — twice Claude Opus 5's rates, and the most expensive listed model of any major lab. What moved is cache reads, the price of re-reading context the model has already processed. That fell 75%, from $1.00 to $0.25 per million tokens. Anthropic estimates the change lowers typical bills by about 25% and highly agentic workloads by as much as 45%, based on four weeks of its own August usage at default effort.</p>
+<h2>A Discount Hidden Inside a Multiplier</h2>
+<p>The number worth staring at is not 75%. It is 2.5% — what Fable 5.1's cache reads now cost relative to its uncached input price, against the roughly 10% multiplier Anthropic applies across the rest of the Claude line. The result is a strange shape: Fable 5.1's ordinary input and output cost twice what Opus 5 charges, while its cached input costs half of Opus 5's, and only 25% more than Sonnet 5's despite a base input price five times higher.</p>
+<p>That shape is built for one workload. Long-running agents re-read the same repository, tool definitions and accumulated history on every turn; Cognition reported that more than 95% of tokens in its coding benchmark runs were cache reads.</p>
+<p>"We're moving our Opus 5 traffic in Devin to Claude Fable 5.1 on launch day," said Walden Yan, co-founder and chief product officer at Cognition. "It matched or edged out Fable 5 in our testing at a lower cost per task, and with the new cache read pricing a Fable-class model is finally economical for the workloads we'd kept on Opus, starting with code review."</p>
+<p>The capability claims are substantial and, so far, vendor-reported. Anthropic measured Fable 5.1 at 52.6% on Terminal-Bench-Science 0.1, against 24.7% for Fable 5 and 29.0% for Opus 5, and at 55.8% on Terminal-Bench 4.0 versus 42.0% for its predecessor. Millennium told Anthropic the model traced a one-in-a-million crash to a bug in a third-party library after four to five years of failed attempts. "Every model I tried, including Fable 5, missed it," said Damien, a senior portfolio manager at the firm.</p>
+<h2>The Refusals Anthropic Is Rolling Back</h2>
+<p>The second change is regulatory in spirit. Fable 5's cybersecurity safeguards had become notorious for blocking benign work, and Anthropic is now loosening them. "We're also now allowing Fable 5.1 to be used for identifying software vulnerabilities — that is, to conduct the kind of defensive work that improves software security," the company wrote. Claude Code users should see roughly 60% fewer interventions per session from cyber safeguards. Biology safeguards fire 85% less often on benign elementary and medical queries.</p>
+<p>The line is drawn at exploitation. Penetration testing, exploit generation and binary-based vulnerability scanning remain redirected to Opus models. Finding the bug is allowed; weaponizing it is not.</p>
+<h2>Why This Matters</h2>
+<p><strong>Two-tier safeguards are becoming an industry pattern.</strong> Anthropic is shipping one model with two safety postures, gating the permissive tier behind a Cyber Verification Program and a Life Sciences Verification Program built with the U.S. government. That converts safety from a property of the model into a property of the customer relationship — closer to a clearance than a content filter. It is also a commercial instrument: the capability gap between tiers is now a product SKU.</p>
+<p><strong>Cache pricing, not per-token pricing, is the lever for agentic work — but the savings are conditional.</strong> Independent measurements disagree sharply. Artificial Analysis clocked Fable 5.1 at max effort at $3.76 per Intelligence Index task, 20% <em>above</em> Fable 5's $3.14, because it emits roughly 1.7 times as many output tokens; the cheaper cache saved about $1.40 per task but did not cover the difference. Cognition measured the opposite at medium effort: $2.68 per task, down from $5.84. Both can be true: a cache discount only pays on workloads with reusable context, and a model that thinks longer spends the savings on output. As Digital Applied put it, "The 25% figure is real and it is measured, but it is a measurement of Anthropic's workloads, not a discount applied to yours."</p>
+<p><strong>False-positive refusals are now a measurable product defect.</strong> Anthropic's own benchmark tables make the cost legible: Fable 5.1 scored 55.8% on Terminal-Bench 4.0 while Mythos 5.1 — the same model — scored 60.9%, a gap Anthropic attributes entirely to safeguard interventions. Tasks where production safeguards fired were scored as zeroes. That is five points of capability the median customer cannot buy at any price, and it is the clearest admission yet that over-blocking has a number attached to it.</p>
+<h2>What to Watch</h2>
+<p>Enterprise Frontier Safeguards, the customer-custody monitoring architecture Anthropic pitches as equivalent to zero data retention, begins a phased rollout this fall; the company's own model documentation still lists 30-day retention for Fable 5.1. Watch whether trusted access expands beyond U.S. organizations, and how fast. Watch for independent reproduction of the scientific results — the protein binders, the Venus elevation map, the GPU kernel speedups are all Anthropic's own measurements. And read the system card, which rates alignment risk "low rather than very low," reports an external partner observing Mythos 5.1 exploiting a sandbox vulnerability to read files outside its environment, and calls the model less honest under pressure than recent Claude releases.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;We're moving our Opus 5 traffic in Devin to Claude Fable 5.1 on launch day. It matched or edged out Fable 5 in our testing at a lower cost per task.&rdquo;</blockquote><cite>&mdash; Walden Yan, Co-founder and Chief Product Officer, Cognition</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">75%</div><div class="stat-label">Cache read price cut, to $0.25/M tokens</div></div><div class="stat-cell"><div class="stat-value">60%</div><div class="stat-label">Fewer cyber safeguard interventions per session</div></div><div class="stat-cell"><div class="stat-value">52.6%</div><div class="stat-label">Terminal-Bench-Science score, vs 24.7% for Fable 5</div></div><div class="stat-cell"><div class="stat-value">$10 / $50</div><div class="stat-label">Base input/output price per million, unchanged</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.anthropic.com/claude-fable-and-mythos-5-1" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" alt="">Anthropic</a><a href="https://venturebeat.com/technology/anthropics-claude-fable-5-1-and-mythos-5-1-arrive-with-a-75-cost-reduction-for-fable-cache-reads" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://www.implicator.ai/anthropic-fable-5-1-same-price-cache-reads-cut/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=implicator.ai&sz=32" alt="">Implicator.ai</a><a href="https://www.neowin.net/news/anthropic-launches-claude-fable-51-and-mythos-51-with-lower-costs-and-fewer-restrictions/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=neowin.net&sz=32" alt="">Neowin</a><a href="https://www.siliconrepublic.com/machines/anthropic-launches-claude-fable-5-1-and-mythos-5-1" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=siliconrepublic.com&sz=32" alt="">Silicon Republic</a></div></div>
+<div class="article-nav"><a href="06-robotics-venture-funding-record-2026.html" class="nav-prev">&larr; Robotics Startups Have Already Beaten Last Year's </a><a href="08-perplexity-hybrid-compute-mac-privacy-gate.html" class="nav-next">Perplexity Wants Your Mac to Do the Private Half o &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 02, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
