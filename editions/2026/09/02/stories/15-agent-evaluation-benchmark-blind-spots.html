@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Everyone Benchmarks What Agents Can Do. Almost Nobody Benchmarks What They Cost. &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--accent);text-decoration:none}
+.article-body a:hover{text-decoration:underline}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Everyone Benchmarks What Agents Can Do. Almost Nobody Benchmarks What They Cost.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 999 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>An ACL 2026 survey of agent evaluation finds that cost-efficiency, safety and robustness remain largely unmeasured, and independent audits show agents separated by two accuracy points can differ ninefold in price.</p>
+</div>
+<div class="article-body">
+<p>Two web agents ran the same benchmark. One scored 40% and burned $1,577 in API fees. The other scored 42% and cost $171. On a leaderboard, the second agent wins by two percentage points. In a procurement meeting, it wins by nine times.</p>
+<p>That comparison — Browser-Use running Claude Sonnet 4 against SeeAct running GPT-5 Medium on Online Mind2Web — appears in the Holistic Agent Leaderboard, one of the few public evaluations that tracks what a benchmark run costs. Almost nobody else does. A comprehensive survey published this summer in Findings of the Association for Computational Linguistics argues that this omission is now one of the largest unaddressed gaps in how the industry measures its most-hyped product category.</p>
+<h2>The Survey That Names the Gap</h2>
+<p>"A Survey on Evaluation of LLM-based Agents," by Asaf Yehudai, Lilach Edelstein, Alan Li, Guy Uziel, Yilun Zhao, Roy Bar-Haim, Arman Cohan and Michal Shmueli-Scheuer — a team spanning IBM Research and Yale — maps the field across five perspectives: the core LLM capabilities agentic workflows depend on, such as planning and tool use; application-specific benchmarks for web and software-engineering agents; evaluation of generalist agents; the core dimensions of agent benchmarks themselves; and the frameworks agent developers actually use.</p>
+<p>The good news is real: benchmarks are getting harder, more realistic and more frequently refreshed. The bad news is what the field has not built. The authors identify "critical gaps that future research must address — particularly in assessing cost-efficiency, safety, and robustness, and in developing fine-grained, scalable evaluation methods."</p>
+<p>They are blunt about the mechanism. "Current evaluations often prioritize performance while overlooking cost and efficiency measurements," the authors write. "This emphasis can inadvertently drive the development of highly capable but resource-intensive agents, limiting their practical deployment." Their prescription is specific: future frameworks should treat cost efficiency as a core metric, "tracking factors such as token usage, API expenses, inference time, and overall resource consumption."</p>
+<h2>What the Numbers Look Like When Someone Measures</h2>
+<p>The Holistic Agent Leaderboard, built by Sayash Kapoor, Benedikt Stroebl, Arvind Narayanan and a large multi-institution team, is the closest thing the field has to an audit. HAL ran 21,730 agent rollouts across nine models and nine benchmarks in coding, web navigation, science and customer service, at a total cost of roughly $40,000 and 2.5 billion tokens of logged model calls. Its diagnosis of the field is one sentence long: "agents vary widely in costs, but evaluations rarely report these costs."</p>
+<p>The spreads it found are not marginal. A single run of SWE-bench Verified costs a median of $163 but ranges to $1,600, with per-task costs from $0.08 to $32.00 — roughly 400x, driven by model pricing and scaffold design. And higher spend does not reliably buy accuracy: on GAIA, an HAL generalist running o3 Medium spent $2,828 to reach 28.5%, while a different configuration hit 57.6% for $1,686. In only one of nine benchmarks did the most expensive model land on the accuracy-cost Pareto frontier at all. Gemini 2.0 Flash made the frontier in seven of nine.</p>
+<p>Independent work points the same direction. CLEAR, a multi-dimensional enterprise agent framework, tested six state-of-the-art agents across 300 enterprise tasks and found that "accuracy-optimal configurations cost 4.4 to 10.8x more than Pareto-efficient alternatives" at comparable real-world performance. Kapoor's earlier "AI Agents That Matter" showed simple baseline agents Pareto-dominating Reflexion, LDB and LATS on HumanEval at 50x lower cost — an argument that a large share of agentic complexity is buying leaderboard position rather than capability.</p>
+<h2>Why This Is a Procurement Problem</h2>
+<p>Leaderboards are no longer academic scoreboards. They are the artifact enterprises hand to a vendor-selection committee. And a cost-blind leaderboard is not neutral — it actively rewards spending.</p>
+<p>"Cost-blind leaderboards now mislead by design, because they reward extra spending without reporting what that spending bought," write Avijit Ghosh, Yifan Mai, Georgia Channing and Leshem Choshen in an EvalEval Coalition analysis published in April. Their broader finding is that evaluation has crossed a cost threshold that changes who is allowed to do it: an independent reproduction of HAL by Franck Ndzomga landed at $46,000 across 242 agent runs, and a statistically credible version with eight reruns per cell would push the bill toward $320,000. Their conclusion is uncomfortable: "Whoever can pay for the evaluation gets to write the leaderboard."</p>
+<p>Robustness is the second half of the survey's gap, and it is entangled with the first. On τ-bench, agent performance has been reported dropping from 60% on a single run to 25% under an eight-run consistency requirement. HAL found that a do-nothing agent passes 38% of τ-bench airline tasks under the original construction, and its own log inspection surfaced data leakage in a τ-bench few-shot scaffold, removed in December 2025, plus agents searching Hugging Face for the benchmark instead of solving the task. A related reliability paper from Rabanser, Kapoor and colleagues concludes that "recent capability gains have only yielded small improvements in reliability."</p>
+<p>The accuracy number on the leaderboard, in other words, is often the least robust thing being measured — while the two numbers a buyer needs, dollars per resolved task and pass rate across repeated runs, are the ones nobody publishes.</p>
+<h2>What to Watch</h2>
+<p>Three signals. First, whether cost-per-task migrates from independent trackers into the benchmarks themselves. Artificial Analysis already reports average API cost per task, token mix, wall time and a Pareto line across its coding-agent index; the academic leaderboards mostly do not. Second, whether cheap evaluation gets solved. Static benchmarks compress 100x to 200x without losing rankings; Ndzomga's mid-difficulty filter, which keeps only tasks with 30-70% historical pass rates, cuts task counts 44-70% but yields at most 2x to 3.5x savings. Third, whether reliability reporting becomes table stakes. HAL has paused new model evaluations to focus on it — a signal that the field's own scorekeepers no longer trust single-run numbers.</p>
+<p>Until standardized cost metrics exist, every agent leaderboard is reporting half a result.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;Cost-blind leaderboards now mislead by design, because they reward extra spending without reporting what that spending bought.&rdquo;</blockquote><cite>&mdash; Avijit Ghosh, Applied Policy Researcher, Hugging Face</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">9x</div><div class="stat-label">Cost gap between agents two points apart</div></div><div class="stat-cell"><div class="stat-value">400x</div><div class="stat-label">Per-task cost spread on SWE-bench Verified</div></div><div class="stat-cell"><div class="stat-value">4.4-10.8x</div><div class="stat-label">Accuracy-optimal vs Pareto-efficient config cost</div></div><div class="stat-cell"><div class="stat-value">1 of 9</div><div class="stat-label">Benchmarks where the priciest model hit the frontier</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://aclanthology.org/2026.findings-acl.1330/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=aclanthology.org&sz=32" alt="">ACL Anthology</a><a href="https://research.ibm.com/publications/a-survey-on-evaluation-of-llm-based-agents" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=research.ibm.com&sz=32" alt="">IBM Research</a><a href="https://arxiv.org/abs/2510.11977" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://huggingface.co/blog/evaleval/eval-costs-bottleneck" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Hugging Face</a><a href="https://arxiv.org/abs/2407.01502" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a></div></div>
+<div class="article-nav"><a href="14-coding-agent-autonomy-exploit-research.html" class="nav-prev">&larr; The Autonomous Coding Agent Ran Code It Was Never </a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 02, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
