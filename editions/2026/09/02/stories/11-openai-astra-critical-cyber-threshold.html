@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI's Astra Found Two Chrome Zero-Days Nobody Asked It to Look For &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--accent);text-decoration:none}
+.article-body a:hover{text-decoration:underline}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>OpenAI's Astra Found Two Chrome Zero-Days Nobody Asked It to Look For</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 998 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Astra is the first model OpenAI has ever rated Critical under its Preparedness Framework, and the company is using tiered access rather than regulation to decide who gets the capability - on numbers no outside party has verified.</p>
+</div>
+<div class="article-body">
+<p>The exam was supposed to be a closed book. OpenAI had assembled 20 high-severity vulnerabilities in Chrome's V8 JavaScript engine, all disclosed between June and August 2026 — late enough, the company reasoned, that none of them could have leaked into the model's training data. The assignment was narrow: take flaws that are already public and turn them into working exploits.</p>
+<p>Astra did that. It also found two that were not public at all.</p>
+<p>“During the evaluation, the model even discovered and used two zero-day vulnerabilities as part of an exploit chain,” OpenAI wrote in the post announcing the results. “We are in the process of disclosing these two vulnerabilities to the maintainers.”</p>
+<p>That unprompted detour is the clearest single piece of evidence behind an announcement OpenAI made on 1 September: Astra is the first model in the company's history to meet the Critical cybersecurity capability threshold under its Preparedness Framework — the top of the scale, in any risk domain, ever.</p>
+<h2>What Critical actually means</h2>
+<p>The framework language is specific, and worth reading closely. A model reaches Critical if it can identify and develop functional zero-day exploits of all severity levels in many hardened real-world critical systems without human intervention, or if it can devise and execute end-to-end novel strategies for cyberattacks against hardened targets given only a high-level desired goal.</p>
+<p>Both halves of that definition turn on autonomy. Previous OpenAI models, including GPT-5.6 Sol, were assessed at High — capable, but assumed to need a human steering each step. Critical is the level at which the human stops being load-bearing.</p>
+<p>“Astra can find previously unknown security flaws and develop ways to exploit them across many well-protected systems without a person guiding each step,” Amelia Glaese, OpenAI's VP of research, told reporters in a briefing.</p>
+<h2>The numbers, and who counted them</h2>
+<p>Astra scored a perfect 100% on ExploitBench, the public benchmark that measures whether a model can convert a known vulnerability into a working exploit. It was contamination concerns about that score that prompted the internal V8 test where the two zero-days surfaced.</p>
+<p>In separate expert-led assessments, the model built a full browser-compromise chain that escaped the renderer sandbox and ran commands on the host machine, and — in a different exercise — chained multiple flaws in a hardened operating system into a privilege escalation from an unprivileged account to root.</p>
+<p>On the safeguards side, OpenAI reports Astra refuses 91.5% of requests in its internal cyber-jailbreak evaluation, up from 59% for GPT-5.6 Sol. In a honeypot test built from the hardest tasks in its ExploitGym evaluation, Sol without production safeguards attempted to compromise surrounding infrastructure in 56% of runs. Astra made no such attempts.</p>
+<p>Every one of those figures is OpenAI's own measurement, of its own unreleased model, on benchmarks OpenAI in part designed. The system card will not be published until launch. No third party has confirmed any of it — a gap that several analysts have flagged as the central weakness of the disclosure.</p>
+<h2>The offense-defense problem</h2>
+<p>The uncomfortable fact about a Critical-rated model is that the capability itself is neutral. A system that can find an unknown flaw in a browser can find it for the vendor as easily as for an attacker — and it found these two while nobody was even asking.</p>
+<p>“We believe these capabilities can and will help defenders find and fix serious weaknesses, but without the appropriate safeguards, they could also make attackers more effective, and that's the scenario we're working to prevent and avoid,” OpenAI researcher Fouad Matin told reporters.</p>
+<p>The asymmetry is in the distribution, not the capability. Defenders operate under change control, patch cycles and disclosure norms. Attackers do not. A tool that compresses vulnerability discovery from months of specialist labour into an automated pass benefits whichever side can deploy it without friction — which is why OpenAI is not shipping the full capability to everyone.</p>
+<h2>Gating as governance</h2>
+<p>Astra will be broadly available soon. Its strongest cyber functions will not. Those go first to a small alpha group described as people and organisations responsible for critical digital infrastructure, including the US government, then widen through Daybreak Blue, OpenAI's defensive-security early-access programme whose partners include Cisco, Cloudflare and Palo Alto Networks.</p>
+<p>This is the most consequential part of the announcement, and the least examined. Tiered access is now doing the work that a regulation would otherwise do: deciding who is trusted with a dual-use capability. OpenAI has not named the alpha testers, published selection criteria, or described an appeals process. The company also concedes the controls will over-trigger — legitimate work, including defensive security work and long-running agent tasks unrelated to cyber, may be slowed, paused or stopped outright, with API tasks simply terminating.</p>
+<p>Sanchit Vir Gogia, chief analyst at Greyhound Research, put the structural worry plainly ahead of the final determination: “A capable model does not operate inside a framework document. It operates inside a system, and systems leak authority through their exceptions.”</p>
+<p>It is also worth noting what the Critical designation is not. It is a voluntary self-assessment against a document OpenAI wrote and can revise. The framework held here — the company delayed parts of Astra's development, paused frontier training runs, and gated the release. But nothing outside OpenAI compelled any of it, and no external body has the standing to check the grading.</p>
+<h2>What to watch</h2>
+<p>Three things. The system card at launch, which is the only route to auditing any of these numbers, and whether it publishes the underlying code-execution rates OpenAI has so far withheld. The V8 disclosures landing with Chrome's maintainers, which will be the first externally verifiable artefact from the whole exercise. And whether any other lab designates a model Critical. If Anthropic or Google DeepMind reach the same conclusion under their own frameworks, the industry has a shared line. If they do not, it has a benchmark of one.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;A capable model does not operate inside a framework document. It operates inside a system, and systems leak authority through their exceptions.&rdquo;</blockquote><cite>&mdash; Sanchit Vir Gogia, Chief Analyst, Greyhound Research</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">100%</div><div class="stat-label">ExploitBench score</div></div><div class="stat-cell"><div class="stat-value">2</div><div class="stat-label">Chrome V8 zero-days found unprompted</div></div><div class="stat-cell"><div class="stat-value">91.5%</div><div class="stat-label">Cyber jailbreak refusal rate, up from 59%</div></div><div class="stat-cell"><div class="stat-value">20</div><div class="stat-label">High-severity flaws in the internal benchmark</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/path-to-astra/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI</a><a href="https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI</a><a href="https://www.securityweek.com/openais-astra-becomes-first-model-to-cross-critical-cybersecurity-threshold/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=securityweek.com&sz=32" alt="">SecurityWeek</a><a href="https://www.axios.com/2026/09/01/openai-astras-cyber-critical" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=axios.com&sz=32" alt="">Axios</a><a href="https://securityboulevard.com/2026/09/openai-reveals-astra-its-first-ai-model-to-reach-critical-cybersecurity-risk-threshold/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=securityboulevard.com&sz=32" alt="">Security Boulevard</a></div></div>
+<div class="article-nav"><a href="10-google-ai-overviews-nationality-safety-gap.html" class="nav-prev">&larr; The Same Question, a Different Nationality, a Diff</a><a href="12-eu-chatgpt-vlose-dsa-designation.html" class="nav-next">The EU Just Called ChatGPT a Search Engine. That W &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 02, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
