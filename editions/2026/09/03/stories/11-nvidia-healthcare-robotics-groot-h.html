@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NVIDIA Built a Hospital in Simulation So Its Robots Could Practice Somewhere Safe &mdash; The Vault AI</title>
+<meta name="description" content="NVIDIA open-sourced a four-part healthcare robotics stack built around the admission that real clinical training data is too scarce and too dangerous to collect, betting instead on synthetic hospitals — and leaving the regulatory gap between a simulation benchmark and a cleared device entirely untouched.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color)}
+.article-body blockquote{margin:1.5rem 0;padding-left:1.2rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>NVIDIA Built a Hospital in Simulation So Its Robots Could Practice Somewhere Safe</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1011 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>NVIDIA open-sourced a four-part healthcare robotics stack built around the admission that real clinical training data is too scarce and too dangerous to collect, betting instead on synthetic hospitals — and leaving the regulatory gap between a simulation benchmark and a cleared device entirely untouched.</p>
+</div>
+<div class="article-body">
+<p>The hardest problem in clinical robotics was never the robot. It is that nobody will let an unproven machine loose in a hospital corridor to find out what it does not know — and until it has been let loose, there is no data to make it competent. NVIDIA spent 2026 trying to break that loop by building the hospital instead.</p>
+<p>At GTC in San Jose on March 16, the company released a four-part healthcare robotics stack as open code and weights on GitHub and Hugging Face rather than as a commercial product: Open-H-Embodiment, a dataset of real clinical robot recordings; Cosmos-H, a family of generative world models that manufacture surgical video; GR00T-H, a vision-language-action model that turns text instructions into robot motion; and Project Rheo, a blueprint for building a physically accurate hospital digital twin and training policies inside it.</p>
+<h2>What actually shipped</h2>
+<p>Open-H-Embodiment is the load-bearing piece, and its scale is modest by the standards of internet-trained models: 778 hours of CC-BY-4.0 healthcare robotics data contributed by 35 organizations. Nothing here was scraped from the web: each hour was recorded on hardware — commercial systems from CMR Surgical, Rob Surgical and Tuodao, plus the da Vinci Research Kit, Franka and Kuka arms — across simulation, benchtop suturing and real clinical procedures. It is steered by Prof. Axel Krieger of Johns Hopkins, Prof. Nassir Navab of the Technical University of Munich and NVIDIA’s Dr. Mahdi Azizian.</p>
+<p>GR00T-H, a 3-billion-parameter model built on the Cosmos Reason 2 backbone, was post-trained on roughly 600 hours of that data. NVIDIA calls it the first policy model for surgical robotics tasks; a prototype completed an end-to-end suture on the SutureBot benchmark. Cosmos-H-Surgical-Simulator, fine-tuned from Cosmos Predict 2.5 over about 10,000 A100 GPU-hours, exists to multiply that thin dataset, generating physically plausible surgical video conditioned on robot kinematics and learning tissue deformation implicitly rather than solving for it. NVIDIA reports 600 policy rollouts taking 40 minutes inside the world model versus two days on a real benchtop rig.</p>
+<p>Project Rheo applies the same logic one floor up. NVIDIA engineers Mingxin Zheng, Nic Ma and Mostafa Toloui wrote that fielding robot fleets across heterogeneous hospitals to gather data is economically infeasible, and testing every scenario in live clinical settings both unsafe and impractical. Rheo instead composes an operating-room scene in Isaac Sim, records a handful of teleoperated demonstrations through a Meta Quest headset, then multiplies them synthetically.</p>
+<p>The published benchmarks are unusually candid. On a surgical tray pick-and-place task across four scenes, a base policy scored 0.64 in the scene it trained on and 0.00 in two unfamiliar ones; with Cosmos-augmented data it scored 0.37 and 0.30 in those previously hopeless scenes. On a four-stage bimanual trocar assembly task, supervised fine-tuning achieved 29 percent end-to-end success, and staged reinforcement learning post-training pushed it to 82 percent.</p>
+<h2>Into real hospitals, sort of</h2>
+<p>The first named deployment of Rheo is not surgical. On June 8, the London logistics company Apian announced it is using the blueprint and NVIDIA Omniverse NuRec to build photorealistic digital twins of NHS hospitals, beginning with Great Ormond Street Hospital and Guy’s and St Thomas’ NHS Foundation Trust. The simulations model the movement of pathology samples, blood products and medications. Apian says no patient data is captured; only the physical spaces are replicated.</p>
+<p>“This project addresses the physical AI deployment paradox. Autonomous systems need real-world experience to become safe, but they must be safe before they can gain real-world experience,” said Alexander Trewby, Apian’s co-founder and chief executive. “By building photorealistic digital twins of NHS hospitals, we can break that cycle, proving these systems in simulation before they ever enter a clinical environment.”</p>
+<p>Dr Nadine Hachach-Haram, director of clinical innovation and strategic partnerships at Guy’s and St Thomas’, described the work as a world-class, risk-free testing ground moving the trust closer to real deployments.</p>
+<h2>Why This Matters</h2>
+<p>Every robotics domain that has worked at scale got there on data volume clinical robotics cannot legally or ethically obtain. 778 hours is roughly a month of continuous video; an autonomous-vehicle fleet logs that in an afternoon. Surgical data is worse than scarce — heterogeneous, high-stakes, poorly instrumented, and wrapped in privacy law that makes pooling recordings across institutions hard. World models are a real answer to that bottleneck, but a circular one: Cosmos-H learns tissue physics from the same thin dataset it is then used to expand. Synthetic augmentation buys real robustness; it does not invent knowledge the source data never contained. Rare complications, unusual anatomy, the failure modes that actually harm patients — those are absent from the real and generated corpora alike.</p>
+<p>The second gap is regulatory, and wider than the demo reels suggest. <strong>None of these models are cleared or approved medical devices.</strong> NVIDIA ships them as developer tooling, not as anything that may touch a patient. A policy that assembles a trocar 82 percent of the time in simulation is a research result. A device that operates on a person needs a validated indication for use, a change-control plan for a learning system, human-factors testing and clinical evidence — a path that takes years. Johnson & Johnson MedTech’s Ottava, itself an NVIDIA collaborator, cleared FDA de novo authorization as a teleoperated system with a surgeon in control throughout. Autonomy is a categorically harder submission, and simulation success rates are not clinical evidence.</p>
+<h2>What to watch</h2>
+<p>Three things. Whether Open-H-Embodiment version 2 materializes: NVIDIA says the goal is reasoning-ready data annotating intents, outcomes and failure modes — the harder and far more valuable dataset. Whether the commercially licensed GR00T-H-N1.7, released in June and reported to span 20 robot platforms and more than 50 institutions, ends up inside a regulatory submission rather than a keynote. And whether Apian’s NHS twins produce a robot that leaves the simulator. Ferrying blood samples down a corridor is the low-risk end of this problem, which is why it will be the first honest test of whether training the hospital works.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;This project addresses the physical AI deployment paradox. Autonomous systems need real-world experience to become safe, but they must be safe before they can gain real-world experience.&rdquo;</blockquote><cite>&mdash; Alexander Trewby, Co-founder and CEO, Apian</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">778 hrs</div><div class="stat-label">Open-H-Embodiment dataset</div></div><div class="stat-cell"><div class="stat-value">3B</div><div class="stat-label">GR00T-H parameters</div></div><div class="stat-cell"><div class="stat-value">40 min</div><div class="stat-label">600 sim rollouts vs 2 days real</div></div><div class="stat-cell"><div class="stat-value">82%</div><div class="stat-label">Task success after RL post-training</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://nvidianews.nvidia.com/news/nvidia-expands-open-model-families-to-power-the-next-wave-of-agentic-physical-and-healthcare-ai" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nvidia.com&sz=32" alt="">NVIDIA Newsroom</a><a href="https://huggingface.co/blog/nvidia/physical-ai-for-healthcare-robotics" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Hugging Face</a><a href="https://developer.nvidia.com/blog/using-simulation-to-build-robotic-systems-for-hospital-automation/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nvidia.com&sz=32" alt="">NVIDIA Developer Blog</a><a href="https://www.apian.health/press-releases/nhs-digital-twins-robotics-nvidia" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=apian.health&sz=32" alt="">Apian</a></div></div>
+<div class="article-nav"><a href="10-qwen38-max-0902-codearena-jump.html" class="nav-prev">&larr; Alibaba Did Not Make Qwen Bigger. It Made It 22 Co</a><a href="12-crowdstrike-safemind-agent-vs-agent.html" class="nav-next">CrowdStrike Set Two AI Agents Loose on a Copy of Y &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 3, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
