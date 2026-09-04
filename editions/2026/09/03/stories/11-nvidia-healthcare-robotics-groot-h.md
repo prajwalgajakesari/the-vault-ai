@@ -1,0 +1,33 @@
+# NVIDIA Built a Hospital in Simulation So Its Robots Could Practice Somewhere Safe
+
+The hardest problem in clinical robotics was never the robot. It is that nobody will let an unproven machine loose in a hospital corridor to find out what it does not know — and until it has been let loose, there is no data to make it competent. NVIDIA spent 2026 trying to break that loop by building the hospital instead.
+
+At GTC in San Jose on March 16, the company released a four-part healthcare robotics stack as open code and weights on GitHub and Hugging Face rather than as a commercial product: Open-H-Embodiment, a dataset of real clinical robot recordings; Cosmos-H, a family of generative world models that manufacture surgical video; GR00T-H, a vision-language-action model that turns text instructions into robot motion; and Project Rheo, a blueprint for building a physically accurate hospital digital twin and training policies inside it.
+
+## What actually shipped
+
+Open-H-Embodiment is the load-bearing piece, and its scale is modest by the standards of internet-trained models: 778 hours of CC-BY-4.0 healthcare robotics data contributed by 35 organizations. Nothing here was scraped from the web: each hour was recorded on hardware — commercial systems from CMR Surgical, Rob Surgical and Tuodao, plus the da Vinci Research Kit, Franka and Kuka arms — across simulation, benchtop suturing and real clinical procedures. It is steered by Prof. Axel Krieger of Johns Hopkins, Prof. Nassir Navab of the Technical University of Munich and NVIDIA’s Dr. Mahdi Azizian.
+
+GR00T-H, a 3-billion-parameter model built on the Cosmos Reason 2 backbone, was post-trained on roughly 600 hours of that data. NVIDIA calls it the first policy model for surgical robotics tasks; a prototype completed an end-to-end suture on the SutureBot benchmark. Cosmos-H-Surgical-Simulator, fine-tuned from Cosmos Predict 2.5 over about 10,000 A100 GPU-hours, exists to multiply that thin dataset, generating physically plausible surgical video conditioned on robot kinematics and learning tissue deformation implicitly rather than solving for it. NVIDIA reports 600 policy rollouts taking 40 minutes inside the world model versus two days on a real benchtop rig.
+
+Project Rheo applies the same logic one floor up. NVIDIA engineers Mingxin Zheng, Nic Ma and Mostafa Toloui wrote that fielding robot fleets across heterogeneous hospitals to gather data is economically infeasible, and testing every scenario in live clinical settings both unsafe and impractical. Rheo instead composes an operating-room scene in Isaac Sim, records a handful of teleoperated demonstrations through a Meta Quest headset, then multiplies them synthetically.
+
+The published benchmarks are unusually candid. On a surgical tray pick-and-place task across four scenes, a base policy scored 0.64 in the scene it trained on and 0.00 in two unfamiliar ones; with Cosmos-augmented data it scored 0.37 and 0.30 in those previously hopeless scenes. On a four-stage bimanual trocar assembly task, supervised fine-tuning achieved 29 percent end-to-end success, and staged reinforcement learning post-training pushed it to 82 percent.
+
+## Into real hospitals, sort of
+
+The first named deployment of Rheo is not surgical. On June 8, the London logistics company Apian announced it is using the blueprint and NVIDIA Omniverse NuRec to build photorealistic digital twins of NHS hospitals, beginning with Great Ormond Street Hospital and Guy’s and St Thomas’ NHS Foundation Trust. The simulations model the movement of pathology samples, blood products and medications. Apian says no patient data is captured; only the physical spaces are replicated.
+
+“This project addresses the physical AI deployment paradox. Autonomous systems need real-world experience to become safe, but they must be safe before they can gain real-world experience,” said Alexander Trewby, Apian’s co-founder and chief executive. “By building photorealistic digital twins of NHS hospitals, we can break that cycle, proving these systems in simulation before they ever enter a clinical environment.”
+
+Dr Nadine Hachach-Haram, director of clinical innovation and strategic partnerships at Guy’s and St Thomas’, described the work as a world-class, risk-free testing ground moving the trust closer to real deployments.
+
+## Why This Matters
+
+Every robotics domain that has worked at scale got there on data volume clinical robotics cannot legally or ethically obtain. 778 hours is roughly a month of continuous video; an autonomous-vehicle fleet logs that in an afternoon. Surgical data is worse than scarce — heterogeneous, high-stakes, poorly instrumented, and wrapped in privacy law that makes pooling recordings across institutions hard. World models are a real answer to that bottleneck, but a circular one: Cosmos-H learns tissue physics from the same thin dataset it is then used to expand. Synthetic augmentation buys real robustness; it does not invent knowledge the source data never contained. Rare complications, unusual anatomy, the failure modes that actually harm patients — those are absent from the real and generated corpora alike.
+
+The second gap is regulatory, and wider than the demo reels suggest. **None of these models are cleared or approved medical devices.** NVIDIA ships them as developer tooling, not as anything that may touch a patient. A policy that assembles a trocar 82 percent of the time in simulation is a research result. A device that operates on a person needs a validated indication for use, a change-control plan for a learning system, human-factors testing and clinical evidence — a path that takes years. Johnson & Johnson MedTech’s Ottava, itself an NVIDIA collaborator, cleared FDA de novo authorization as a teleoperated system with a surgeon in control throughout. Autonomy is a categorically harder submission, and simulation success rates are not clinical evidence.
+
+## What to watch
+
+Three things. Whether Open-H-Embodiment version 2 materializes: NVIDIA says the goal is reasoning-ready data annotating intents, outcomes and failure modes — the harder and far more valuable dataset. Whether the commercially licensed GR00T-H-N1.7, released in June and reported to span 20 robot platforms and more than 50 institutions, ends up inside a regulatory submission rather than a keynote. And whether Apian’s NHS twins produce a robot that leaves the simulator. Ferrying blood samples down a corridor is the low-risk end of this problem, which is why it will be the first honest test of whether training the hospital works.
