@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Put ChatGPT Inside Epic's Charts. It Can Read 325 Million Patients and Write Nothing. &mdash; The Vault AI</title>
+<meta name="description" content="OpenAI connected ChatGPT for Healthcare to Epic on Sept. 1, giving clinicians read-only access to authorized records covering more than 325 million patients — a write lock that protects the database but not the clinical decision.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color)}
+.article-body blockquote{margin:1.5rem 0;padding-left:1.2rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>OpenAI Put ChatGPT Inside Epic's Charts. It Can Read 325 Million Patients and Write Nothing.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1002 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI connected ChatGPT for Healthcare to Epic on Sept. 1, giving clinicians read-only access to authorized records covering more than 325 million patients — a write lock that protects the database but not the clinical decision.</p>
+</div>
+<div class="article-body">
+<p>On Sept. 1, OpenAI crossed a line American health IT has spent a decade fortifying: it put a general-purpose chatbot inside the patient record. Healthcare organizations running Epic — the electronic health record system holding data on more than 325 million patients — can now connect those environments to ChatGPT for Healthcare, letting authorized clinicians pull appointment notes, laboratory results, medication lists and specialist documentation into a chat window. In supported deployments, ChatGPT sits directly in the Epic layout, so the clinician never leaves the chart.</p>
+<p>The access runs one way. Nothing the model produces is written back to the record. That single design decision — read-only, no writes, ever — is the whole story, and it is doing an enormous amount of work.</p>
+<p>OpenAI paired the Epic connection with a Healthcare Public Data plugin covering nine official sources, among them PubMed, DailyMed, RxNorm, CMS Coverage and ClinicalTrials.gov. The pitch is verification rather than recall: a pharmacy team confirming a drug label queries the authoritative record instead of trusting a model's memory. Organizations with a Business Associate Agreement can also run ChatGPT Work, Codex, apps and plugins in the same governed workspace.</p>
+<p>The launch partner list is not small: AdventHealth, Baylor Scott & White Health, Boston Children's Hospital, Cedars-Sinai, HCA Healthcare, Memorial Sloan Kettering and UCSF. UCSF Health is serving as pilot partner, and its chief executive was careful about the framing.</p>
+<p>"As a pilot partner, we're exploring how the new EHR integration with ChatGPT for Healthcare can help clinical teams understand what has changed and what matters most across a complex patient record," said Suresh Gunasekaran, president and CEO of UCSF Health. "By bringing relevant information together more quickly and comprehensively, the technology has the potential to reduce time spent synthesizing data and give clinicians more time with patients."</p>
+<p>Every load-bearing word there is hedged. Exploring. Potential. Gunasekaran, a former hospital CIO himself, added that UCSF is engaging frontline teams to validate the capabilities in practice.</p>
+<h2>The Numbers Behind the Claim</h2>
+<p>OpenAI says it partners with hundreds of physicians across 60 countries, 49 languages and 26 medical specialties, who have reviewed more than 700,000 model responses to date. For this release, physicians evaluated ChatGPT working with connected EHR context across 27 clinical use cases including pre-visit review, medication review and handoff summaries. Across 4,363 ratings, 99.1% were rated safe. Separately, across five public-data connectors, more than 93% of responses were rated "good" or better for accuracy, topping out at 98.6%.</p>
+<p>Invert that figure and it reads differently. Roughly 39 of the 4,363 ratings did not clear the bar — in a workflow whose entire value proposition is that the clinician did not open the chart. The evaluations are also vendor-run on vendor-selected use cases, with no published methodology, no independent replication and no peer review.</p>
+<p>Conspicuously absent from the announcement is Epic itself. The company issued no statement, and coverage of the launch carries no comment from it. That silence leaves unresolved whether the connection is a sanctioned partnership or the standard third-party interface any developer can request — a distinction that decides which governance gate a health system is entitled to hold.</p>
+<p>Other launch partners talked more about the workspace than the chart. "At AdventHealth, the value of AI starts with our people," said Robert Purinton, chief AI officer at AdventHealth. "By putting tools like ChatGPT Work, Codex, and connected business data in the hands of our team members, AI can reduce routine work and help practical innovations move more quickly into action."</p>
+<h2>Why This Matters</h2>
+<p>The read-only boundary is the most interesting piece of safety architecture the industry has shipped this year, and also the most fragile.</p>
+<p>Read-only means the model cannot create a false lab value, alter a medication list, or leave an artifact a clinician later reads as established fact. Liability stays with the human who acts on the summary. That is a genuinely conservative design from a category not known for restraint, and it arrives while OpenAI defends itself in court over health guidance: a Florida pastor sued in July alleging ChatGPT gave him a near-fatal recommendation, and in May the family of a user sued over dosage advice.</p>
+<p>But a write lock constrains the writing, not the reading. A summary that quietly omits a material finding is not caught by any permission setting. Omission, stale data, missing provenance, a chart the model only partly reviewed — every real risk in clinical synthesis lives on the read side. The boundary OpenAI drew protects the database. It does not protect the decision.</p>
+<p>The commercial layer is messier still. Chart summarization is already sold twice over at most large Epic shops: Epic's own AI does it, and ambient documentation vendors built pre-visit preparation into their contracts two years ago. ChatGPT is now a third product aimed at one workflow. The question facing CIOs is not whether ChatGPT can read a chart. It is which of three tools owns chart review a year from now, and what happens to clinician trust when two of them summarize the same patient and disagree.</p>
+<p>Scale separates this from a pilot. When ChatGPT Health went broadly available to U.S. consumers in late July, OpenAI said people were already asking roughly 300 million health-related questions a week. Patients and clinicians will now meet two OpenAI products touching Epic data under entirely different controls — one authorized by the patient, one by the organization. The health system fields the questions about which is which.</p>
+<h2>What to Watch</h2>
+<p>Three things. Whether Epic publicly characterizes the connection, which determines whose governance holds the gate. Whether any health system publishes independent validation against its own charts rather than treating 99.1% as settled. And whether the read-only boundary survives contact with customers, because the obvious next request is order drafting, note generation and writing back. The day OpenAI grants it, the safety story it shipped on Sept. 1 stops applying.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;By bringing relevant information together more quickly and comprehensively, the technology has the potential to reduce time spent synthesizing data and give clinicians more time with patients.&rdquo;</blockquote><cite>&mdash; Suresh Gunasekaran, President and CEO, UCSF Health</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">325M+</div><div class="stat-label">Patients in Epic records</div></div><div class="stat-cell"><div class="stat-value">99.1%</div><div class="stat-label">Physician-rated safe responses</div></div><div class="stat-cell"><div class="stat-value">27</div><div class="stat-label">Clinical use cases evaluated</div></div><div class="stat-cell"><div class="stat-value">300M</div><div class="stat-label">Weekly health questions to ChatGPT</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI</a><a href="https://techcrunch.com/2026/09/01/chatgpt-health-adds-epic-integration-for-clinicians-to-import-patient-data/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://healthsystemcio.com/2026/09/01/chatgpt-epic-integration-ai-overlap/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=healthsystemcio.com&sz=32" alt="">healthsystemCIO</a><a href="https://aiweekly.co/alerts/openais-chatgpt-health-plugs-into-epics-patient-charts" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=aiweekly.co&sz=32" alt="">AI Weekly</a></div></div>
+<div class="article-nav"><a href="02-south-korea-919b-sovereign-ai-buildout.html" class="nav-next">South Korea Is Not Building a Data Center. It Is B &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 3, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
