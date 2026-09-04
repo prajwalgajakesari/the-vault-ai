@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AfterQuery Went From $300 Million to $3.2 Billion in Five Months. It Sells Training Data. &mdash; The Vault AI</title>
+<meta name="description" content="AfterQuery's reported 10.7x valuation jump in five months shows that expert human judgment, sold as datasets and RL environments, has become the scarcest input in frontier AI.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color)}
+.article-body blockquote{margin:1.5rem 0;padding-left:1.2rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>AfterQuery Went From $300 Million to $3.2 Billion in Five Months. It Sells Training Data.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 952 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>AfterQuery's reported 10.7x valuation jump in five months shows that expert human judgment, sold as datasets and RL environments, has become the scarcest input in frontier AI.</p>
+</div>
+<div class="article-body">
+<p>In April, a San Francisco startup barely a year old announced it was worth $300 million. On September 1, Forbes reported that the same company, AfterQuery, had lined up a round valuing it at $3.2 billion.</p>
+<p>That is more than a tenfold markup in five months. According to Y Combinator partner Gustaf Alströmer, it also makes AfterQuery the fastest company in the accelerator's history to travel from launch to unicorn status. Its two founders, Spencer Mateega and Carlos Georgescu, are 23 and 22. They were high school friends who entered YC's Winter 2025 batch roughly 18 months ago without a finished product.</p>
+<p>What AfterQuery sells is not a model, a chip, or an agent. It sells the raw material that everyone else needs: expert human judgment, packaged as datasets and reinforcement learning environments, and shipped to the frontier labs.</p>
+<h2>What the Company Actually Does</h2>
+<p>AfterQuery describes itself as an applied research lab. In practice, it pays credentialed professionals — doctors, lawyers, software engineers, financial analysts — to produce step-by-step records of how they reason through hard problems. Not the answer, but the path to it. The company's own framing, cited by TechCrunch, is that it is encoding the patterns, decisions, and reasoning of the world's best practitioners.</p>
+<p>The April Series A announcement put the expert network at nearly 100,000 verified practicing professionals across finance, software engineering, medicine, and law. That round was $30 million at a $300 million valuation, led by Altos Ventures with participation from The Raine Group and existing backers Y Combinator and BoxGroup. Zac Mohring of Altos joined the board.</p>
+<p>The founders did not set out to do this. They originally wanted to build AI agents for finance, and found that leading models kept failing at nuanced professional calls — not for lack of raw horsepower, but because nobody had ever shown them how an expert works through an ambiguous decision. The pivot followed.</p>
+<p>Customers named across reporting include Nvidia, which has used AfterQuery data to train its open-source Nemotron models, the legal AI firm Legora, the Korean lab Motif Technologies, and, per Forbes, Mira Murati's Thinking Machines Lab.</p>
+<h2>The Numbers</h2>
+<p>In April, AfterQuery said it had crossed a $100 million annualized revenue run rate roughly 14 months after launch. By July, Mateega posted on X that the figure had moved considerably higher. <strong>We've already grown multiples past the $100M revenue run rate cited here</strong>, he wrote on July 12.</p>
+<p>The new round carries important caveats. Forbes reported it citing two people with direct knowledge; AfterQuery declined to comment and could not be reached by TechCrunch. One Forbes source said the company is already profitable and has secured a lead investor, but the round has reportedly not closed and the lead has not been named. Every valuation figure here should be read as reported, not confirmed.</p>
+<p>At $3.2 billion against a run rate in the low hundreds of millions, the implied multiple is aggressive but not absurd by 2026 standards — roughly 10 to 15 times revenue, depending on where the run rate actually sits. The more striking number is the velocity: a 10.7x step-up between priced rounds in the span of a single fiscal half.</p>
+<h2>Why This Matters</h2>
+<p>The human-data market exists because the open internet ran out. Frontier labs have consumed most of the usable public text, and synthetic data has clear limits when the goal is professional-grade judgment rather than fluency. What remains scarce is exactly what AfterQuery brokers.</p>
+<p>Mohring made the thesis explicit when Altos led the Series A. <strong>Human data is an enormous market and critical bottleneck for frontier models, and for advancing the quality of AI</strong>, he said, adding that Mateega and Georgescu had proven themselves world-class operators in a short time. Landon Baker of Raine Ventures framed it more bluntly as an arms race, saying the firm continues to see promising opportunities to invest at the forefront of development in the space.</p>
+<p>The category has minted fortunes before. Scale AI's Alexandr Wang became the first data-labeling billionaire in 2021; Meta later paid $14.3 billion for a 49% stake. Mercor's founders became billionaires at 22 last October at a $10 billion valuation, and Mercor is now reportedly in talks with Nvidia at a figure near $20 billion.</p>
+<p>AfterQuery's claimed differentiation is twofold. First, custom software that screens submitted tasks for what Mateega has called Goldilocks difficulty — hard enough to stress a frontier model, not so hard it learns nothing. Second, the company trains its own models on the data before selling it, so it can demonstrate a measurable capability lift rather than asking a lab to take the quality on faith.</p>
+<p>That second point matters more than it sounds. As labs shift budget from static datasets toward reinforcement learning environments — simulated workplaces where an agent gets scored on completing a multi-step professional task — the product stops being a file and becomes something closer to infrastructure. Vendors who can prove uplift get priced like infrastructure. Vendors who cannot get priced like outsourcing.</p>
+<h2>What to Watch</h2>
+<p>Three things. Whether the round closes at the reported number and who leads it, since an unnamed lead is a genuine open question rather than a formality. Whether revenue concentration becomes a liability — a handful of frontier labs almost certainly account for most of that run rate, and any one of them building the capability in-house would hurt. And whether the human-data premium survives contact with the next generation of models. If self-play and synthetic environments close the gap on professional reasoning, the scarcity that built AfterQuery in eighteen months could erode in considerably less.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>&ldquo;Human data is an enormous market and critical bottleneck for frontier models, and for advancing the quality of AI.&rdquo;</blockquote><cite>&mdash; Zac Mohring, Partner, Altos Ventures</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">$3.2B</div><div class="stat-label">Reported new valuation</div></div><div class="stat-cell"><div class="stat-value">10.7x</div><div class="stat-label">Step-up in five months</div></div><div class="stat-cell"><div class="stat-value">~100,000</div><div class="stat-label">Verified expert contributors</div></div><div class="stat-cell"><div class="stat-value">$100M+</div><div class="stat-label">Annualized revenue run rate</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techcrunch.com/2026/09/01/afterquery-reportedly-becomes-y-combinators-fastest-ever-unicorn-now-valued-at-3-2b/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://www.businesswire.com/news/home/20260409469482/en/AfterQuery-Raises-$30-Million-Series-A-Round-at-$300-Million-Valuation" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=businesswire.com&sz=32" alt="">Business Wire</a><a href="https://www.forbes.com/sites/annatong/2026/09/01/afterquery-becomes-ycs-fastest-unicorn-at-32-billion/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=forbes.com&sz=32" alt="">Forbes</a><a href="https://decrypt.co/377231/afterquery-ai-tradining-data-unicorn-y-combinator" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=decrypt.co&sz=32" alt="">Decrypt</a></div></div>
+<div class="article-nav"><a href="03-doj-fair-use-brief-nyt-openai.html" class="nav-prev">&larr; The Justice Department Filed on OpenAI's Side. The</a><a href="05-kirkland-palantir-500m-legal-ai.html" class="nav-next">Kirkland & Ellis Decided Not to Buy Legal AI. It I &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 3, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
