@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Astra Thinks in a Loop Instead of in Words. That Is Exactly What Worries the Safety Researchers. &mdash; The Vault AI</title>
+<meta name="description" content="OpenAI's Astra does part of its reasoning in unreadable latent vectors rather than legible tokens, and safety researchers fear the precedent will erode chain-of-thought monitoring across the industry even if Astra's own use stays bounded.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color)}
+.article-body blockquote{margin:1.5rem 0;padding-left:1.2rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Astra Thinks in a Loop Instead of in Words. That Is Exactly What Worries the Safety Researchers.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1020 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI's Astra does part of its reasoning in unreadable latent vectors rather than legible tokens, and safety researchers fear the precedent will erode chain-of-thought monitoring across the industry even if Astra's own use stays bounded.</p>
+</div>
+<div class="article-body">
+<p>For three years the industry's most reassuring answer to what a frontier model is actually doing has been the same: read the scratchpad. Reasoning models think by writing, in something close to English, and safety teams built an oversight apparatus on top of that text. OpenAI's forthcoming Astra model proposes a quieter answer. Some of the thinking will not be written down at all.</p>
+<p>The Information reported Tuesday that Astra uses a technique called recurrent depth -- also described as opaque recurrence -- which lets the model do extra computation by cycling a query through the same block of the network repeatedly, rather than by emitting more reasoning tokens. TechCrunch's Russell Brandom followed on Wednesday, September 2. Within hours, the reaction from alignment researchers was less about Astra than about what comes next.</p>
+<p>"I am extremely concerned by the reporting that Astra uses opaque recurrence," wrote Buck Shlegeris, chief executive of Redwood Research. "I don't know whether Astra is much less CoT monitorable than previous models. But if OpenAI pushes this technique further, they'll have the option to massively increase the recurrence and totally destroys CoT monitorability."</p>
+<p>Redwood chief scientist Ryan Greenblatt was blunter about the trajectory. "My biggest concern is that a natural progression from here would involve scaling up the opaque reasoning to the point where the model reasons entirely or almost entirely in latent space," Greenblatt wrote. "I hope it isn't too late to avoid the most concerning architectures and that OpenAI will stop here."</p>
+<h2>What Recurrent Depth Actually Is</h2>
+<p>The idea is simple. A conventional reasoning model gets better at hard problems by thinking longer, and thinking longer means generating more tokens. The chain of thought is literally the computation: each step is text the model writes to itself and reads back. That is why it can be logged and audited.</p>
+<p>A recurrent-depth transformer buys extra computation differently. Instead of writing another paragraph, it runs the same stack of layers over its internal state again -- and again, for as many iterations as the problem warrants. What passes between iterations is a high-dimensional vector, not a sentence. Researchers call those contents neuralese: a representation the model reads perfectly well and a human cannot read at all.</p>
+<p>The technique is not OpenAI's invention. A February 2025 paper by Jonas Geiping, Sean McLeish, Tom Goldstein and colleagues, published at NeurIPS 2025, laid out the recipe: a 3.5-billion-parameter proof of concept trained on 800 billion tokens, where unrolling the recurrent block at test time lifted reasoning benchmark scores up to a compute load equivalent to a 50-billion-parameter model. Unlike chain of thought, they wrote, the approach "can capture types of reasoning that are not easily represented in words."</p>
+<p>That is the capability argument, and it is a real one: latent loops cost no context window, no output tokens and no serialization latency. If part of a model's cognition is geometric rather than verbal, forcing it through English is a tax.</p>
+<h2>OpenAI's Position</h2>
+<p>OpenAI has pushed back hard. It says Astra's recurrence is deliberately bounded, the chain of thought remains legible, and the lab is not shifting to neuralese. Chief scientist Jakub Pachocki addressed it on X: "OpenAI has worked to preserve and utilize chain-of-thought monitoring since our very first reasoning models. It's a core goal of our current research program."</p>
+<p>Several OpenAI researchers argued the reporting generated alarm out of proportion to a bounded choice, and on the narrow question they may be right; Shlegeris conceded he does not know whether Astra is meaningfully less monitorable than its predecessors. The objection is about precedent. TechCrunch reported Wednesday that Anthropic and Google DeepMind are already discussing the technique.</p>
+<h2>Why This Matters</h2>
+<p>Chain-of-thought monitorability became a load-bearing safety assumption almost by accident. Auditability was never designed in; it fell out of the fact that the cheapest way to scale test-time compute happened to be generating human-readable text. In July 2025, roughly forty researchers from OpenAI, Anthropic, Google DeepMind and academia -- including Yoshua Bengio, Shane Legg, Greenblatt and Pachocki himself -- signed a position paper making that fragility the entire point. The title said it: chain-of-thought monitorability is a <strong>new and fragile</strong> opportunity. The window exists at the industry's discretion, and ordinary efficiency decisions can close it.</p>
+<p>What breaks is not abstract. Chain-of-thought monitors catch stated intent to deceive, reward hack or exfiltrate before the action executes, and they are the primary forensic record afterward: in OpenAI's recent rogue-agent episode, those logs were central to reconstructing why the agents behaved as they did. Replace the transcript with activation vectors and oversight moves from reading to probing -- from a discipline any safety engineer can practice to methods that remain research-grade.</p>
+<p>The caveat cuts both ways. No serious researcher treats a chain of thought as a faithful transcript; models already reason opaquely inside every forward pass. The window was always smudged. But a smudged window beats a wall, and architectures that remove it are easier to adopt than to undo.</p>
+<h2>What To Watch</h2>
+<p>Three things. First, Astra's system card: whether OpenAI discloses the recurrence budget -- how many loop iterations the model is permitted -- and reports a monitorability evaluation alongside its capability evaluations. Astra has separately cleared a cybersecurity capability threshold, which makes the question less theoretical. Second, whether Anthropic and DeepMind ship latent recurrence in their next models, converting a one-lab choice into an industry default inside a release cycle. Third, whether the July 2025 signatories turn the commitment into a number; a disclosed monitorability score would let outsiders check that recurrence stayed bounded rather than take it on faith.</p>
+<p>Zvi Mowshowitz, the longtime AI safety writer, called the technique "playing with fire, risking a taboo that OpenAI and Anthropic have fought to establish," and suggested the problem may need law rather than norms to survive a race. That is a large claim. It is also the first time this fight has been about an architecture rather than a policy -- and architectures, unlike policies, do not revert.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;My biggest concern is that a natural progression from here would involve scaling up the opaque reasoning to the point where the model reasons entirely or almost entirely in latent space.&rdquo;</blockquote><cite>&mdash; Ryan Greenblatt, Chief Scientist, Redwood Research</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">3.5B</div><div class="stat-label">Proof-of-concept model size</div></div><div class="stat-cell"><div class="stat-value">50B</div><div class="stat-label">Effective compute when unrolled</div></div><div class="stat-cell"><div class="stat-value">~40</div><div class="stat-label">Signatories on CoT monitorability paper</div></div><div class="stat-cell"><div class="stat-value">Sept 1</div><div class="stat-label">Story first reported</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://arxiv.org/abs/2502.05171" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv 2502.05171</a><a href="https://arxiv.org/abs/2507.11473" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv 2507.11473</a><a href="https://fortune.com/2026/09/03/reports-openais-astra-model-uses-a-new-more-efficient-ai-architecture-alarms-ai-safety-experts-who-worry-the-method-makes-models-harder-to-control/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=fortune.com&sz=32" alt="">Fortune</a></div></div>
+<div class="article-nav"><a href="14-anker-eufy-mindbase-local-ai-hub.html" class="nav-prev">&larr; Anker Put 26 TOPS and 48 Terabytes in a Box So You</a><a href="16-google-ai-design-tool-canva-rival.html" class="nav-next">Google's Answer to Canva Removes the Canvas &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 3, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
