@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Justice Department Filed on OpenAI's Side. The Judge Still Decides. &mdash; The Vault AI</title>
+<meta name="description" content="The DOJ's first statement of interest in an AI copyright case urges the court to find that LLM training is fair use, but the filing binds no one and reaches only training, leaving the Times's data-acquisition and output claims untouched.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color)}
+.article-body blockquote{margin:1.5rem 0;padding-left:1.2rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s;width:0}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>The Justice Department Filed on OpenAI's Side. The Judge Still Decides.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1023 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>The DOJ's first statement of interest in an AI copyright case urges the court to find that LLM training is fair use, but the filing binds no one and reaches only training, leaving the Times's data-acquisition and output claims untouched.</p>
+</div>
+<div class="article-body">
+<p>On Tuesday, Sept. 1, the United States told a federal judge in Manhattan what it believes copyright law says about artificial intelligence. It did not sue anyone, join the case as a party, or ask for damages. It simply asked Judge Sidney H. Stein to rule against The New York Times.</p>
+<p>The Justice Department's filing in the consolidated OpenAI copyright litigation urges the Southern District of New York to hold that training large language models on copyrighted text is fair use. It is the first time the federal government has taken a formal public position in the wave of copyright suits authors, publishers, music labels and news organizations have brought against AI developers since 2023. Associate Attorney General Stanley Woodward Jr. called it "a historic statement of interest."</p>
+<p>The timing carries as much weight as the argument: summary judgment motions are due before Stein on Friday, Sept. 5, four days after the brief hit the docket.</p>
+<h2>What a statement of interest actually does</h2>
+<p>The document is not an amicus brief and not an intervention. It was filed under 28 U.S.C. Section 517, which authorizes the Attorney General to send a Justice Department lawyer into any pending federal case to attend to the interests of the United States. Filing one does not make the government a party, creates no right of appeal, and binds no one. Stein is free to adopt the reasoning, cite it in passing, or set it aside entirely.</p>
+<p>The provision lay largely dormant for decades before the government expanded its use to civil rights litigation in the 1960s and, more recently, antitrust. Its force is persuasive, not procedural: a district judge weighing an unsettled question now has the executive branch's reading of the statute on his docket.</p>
+<h2>The argument</h2>
+<p>The DOJ built its case on the first and fourth statutory fair use factors: the purpose and character of the challenged use, and its effect on the market for the copyrighted work.</p>
+<p>Training is "exceedingly transformative," the government argued, because a model does not use an article to inform or entertain a reader the way its author intended. It converts text into numerical representations and learns statistical relationships across vocabulary, syntax and knowledge. Citing <strong>Google v. Oracle</strong> and the Second Circuit's <strong>Authors Guild v. Google</strong>, the brief contends copying can be fair when it enables a new technological function, even where entire works are reproduced at an intermediate step.</p>
+<p>On market harm, the government drew the line the case may turn on: copyright recognizes injury from substitutive competition, not competition in the abstract. Training alone, it argued, makes no protected expression available to the public and so cannot replace an article in the legally relevant sense. Outputs occupying the same genre without reproducing substantially similar protected expression are competitors, not substitutes.</p>
+<p>The brief also went out of its way to attack <strong>Kadrey v. Meta Platforms</strong>, the 2025 ruling suggesting that copying works to train LLMs will usually be found infringing. "Even putting aside the fact that human beings use LLMs to create, the Kadrey court's application of the fourth fair-use factor is deeply flawed," the DOJ wrote, faulting that court for collapsing training and output into a single continuous use.</p>
+<p>The government also limited itself. It addressed only the use of works during training, expressly leaving open separate questions about how training data was acquired and stored, and about outputs that reproduce protected expression. That narrowness matters: a judge persuaded by every word of the brief would still have the Times's acquisition and output claims in front of him.</p>
+<p>The Times was blunt. The administration "is siding with a handful of trillion-dollar AI companies at the expense of the countless American creators whose work they stole," spokesperson Graham James said, adding that the position would undermine "the sustainability of the human-created content that a healthy society depends on, and which AI needs to function."</p>
+<h2>Why This Matters</h2>
+<p>The immediate effect is on leverage, not law. Every publisher negotiating a content licensing deal with an AI company now does so knowing the federal government is on record arguing the underlying activity may require no license at all. That is a repricing event across dozens of parallel negotiations, and it arrived without a single judicial finding behind it.</p>
+<p>The brief also contains an argument that sits oddly with the parties it defends. Requiring training licenses, the DOJ warned, would create entry barriers only the largest technology companies could absorb, concentrating the LLM market and disproportionately benefiting legacy media with deep archives. It is an anti-concentration argument advanced on behalf of two of the most valuable companies on earth.</p>
+<p>The government also filed here and, so far, only here -- not in the parallel suits against Anthropic, Meta or Perplexity. Whether that backing stays singular matters for how uniformly the industry's defense hardens.</p>
+<p>And a statement of interest is reversible in a way a ruling is not. A future administration can file the opposite view tomorrow. An opinion from Stein, and any Second Circuit decision reviewing it, would not be. This document's durability depends entirely on whether a judge borrows from it.</p>
+<h2>What to Watch</h2>
+<p>Friday's briefs are the first tell: whether OpenAI and Microsoft adopt the government's framing wholesale or keep their distance from an argument they did not control. The second is Stein's opinion, and whether it engages the brief substantively, buries it in a footnote, or omits it.</p>
+<p>A separate docket question may arrive sooner. On Aug. 31, Stein ordered the Times to show cause in writing by Sept. 11 why its case should not be stayed pending resolution of summary judgment motions in other cases within the multidistrict litigation -- a scheduling matter that could decide which plaintiff gets the first fair use ruling, and on which factual record.</p>
+<p>And a reminder embedded in the doctrine: fair use is fact-intensive, which is why courts rarely resolve it early. Stein can grant either motion, or deny both. The Justice Department has told him what it thinks. It has not told him what he must do.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185"><blockquote>&ldquo;is siding with a handful of trillion-dollar AI companies at the expense of the countless American creators whose work they stole&rdquo;</blockquote><cite>&mdash; Graham James, Spokesperson, The New York Times</cite></div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">Sept. 1</div><div class="stat-label">Statement of interest filed</div></div><div class="stat-cell"><div class="stat-value">Sept. 5</div><div class="stat-label">Summary judgment motions due</div></div><div class="stat-cell"><div class="stat-value">Sept. 11</div><div class="stat-label">Times show-cause deadline</div></div><div class="stat-cell"><div class="stat-value">28 U.S.C. 517</div><div class="stat-label">Statutory authority</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.wired.com/story/trump-administration-sides-with-ai-giants-new-york-times-lawsuit" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=wired.com&sz=32" alt="">Wired</a><a href="https://ipwatchdog.com/2026/09/03/doj-sides-with-openai-warns-obstacles-to-ai-development-threaten-national-security/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ipwatchdog.com&sz=32" alt="">IPWatchdog</a><a href="https://news.bloomberglaw.com/ip-law/trump-administration-backs-openai-in-ny-times-copyright-suit" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bloomberglaw.com&sz=32" alt="">Bloomberg Law</a><a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title28-section517&num=0&edition=prelim" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=uscode.house.gov&sz=32" alt="">28 U.S.C. 517</a></div></div>
+<div class="article-nav"><a href="02-south-korea-919b-sovereign-ai-buildout.html" class="nav-prev">&larr; South Korea Is Not Building a Data Center. It Is B</a><a href="04-afterquery-fastest-yc-unicorn-32b.html" class="nav-next">AfterQuery Went From $300 Million to $3.2 Billion  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 3, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
