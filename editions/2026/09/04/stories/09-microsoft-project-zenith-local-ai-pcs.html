@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Microsoft Wants Your Next 30B Model to Run on a Laptop It Certifies &mdash; The Vault AI</title>
+<meta name="description" content="Microsoft turned local AI development into a hardware certification, 64GB of unified memory and 250GB/s of bandwidth, but the 30B-plus claim only holds for sparse mixture-of-experts models and the entry price is $3,699.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.02rem}
+.md-quote{margin:0 0 1.3rem;padding:.6rem 1.1rem;border-left:2px solid var(--border-hover);color:var(--text-strong);font-style:italic}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:110px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Microsoft Wants Your Next 30B Model to Run on a Laptop It Certifies</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1002 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Microsoft turned local AI development into a hardware certification, 64GB of unified memory and 250GB/s of bandwidth, but the 30B-plus claim only holds for sparse mixture-of-experts models and the entry price is $3,699.</p>
+</div>
+<div class="article-body">
+<p>Microsoft spent a decade telling developers that Windows was where they should build. On Thursday in Berlin it finally attached a number to the claim: 64GB of unified memory and 250GB/s of memory bandwidth. Machines that clear that bar get a name — Project Zenith — and a version of Windows 11 that arrives already configured to run large language models on the desk instead of renting them from a data center.</p>
+<p>Logan Iyer, Microsoft's corporate vice president for Windows platform and developer, announced the program on September 4 on the Windows Developer Blog, framing it as the shipping form of the developer-optimized Windows shown at Build in June. "Today, we're taking the next step with Project Zenith, a ready-to-code [and] distraction-free Windows experience on developer-class [PCs] with 64 GB or more of unified memory and 250 GB/s memory bandwidth or more, so developers can jump right in," Iyer wrote. The payoff he claims is specific: "On these devices, developers can run 30B+ parameter models locally and unmetered."</p>
+<h2>What ships, and on what</h2>
+<p>Zenith is not a new SKU of Windows. It is a hardware class plus an opinionated default configuration, published in the open at github.com/microsoft/WindowsDeveloperConfig and applicable to any existing Windows 11 machine through winget.</p>
+<p>The bundle installs Visual Studio Code, GitHub Copilot, PowerToys, WinAppCLI and Windows Dev Skills, with a September 2026 language baseline of Python 3.14 or newer, uv, nvm, Node 24 or newer, WSL 2 with Ubuntu, and .NET 10. Windows Terminal and VS Code are pinned to the taskbar. File Explorer shows file extensions, hidden files, the full path in the title bar and the details pane, with long-path support enabled. PowerToys Command Palette is on; Start menu tips and account notifications are off.</p>
+<p>The first silicon is AMD's Ryzen AI Halo, shown at IFA 2026. AMD's Jack Huynh, senior vice president and general manager of the Computing and Graphics Group, used the Berlin keynote to pitch "personal AI" as a cost and privacy argument, citing an internal estimate that monthly AI token processing climbed from roughly 0.7 quadrillion to 1.7 quadrillion in a year and could reach 120 quadrillion by 2030. "The future of AI isn't just about more compute, it's about better compute," Huynh said. He put Ryzen AI Halo at 192GB of unified memory and claimed local capacity for models up to 300 billion parameters.</p>
+<p>Microsoft's Pavan Davuluri, executive vice president of Windows and Devices, joined Huynh on stage and confirmed Zenith will ship out of the box on Ryzen AI Halo systems. He also pitched the agent workloads Zenith machines are meant to host, gated by Microsoft Execution Containers: "With your permission, agents can work across your apps, your services, your files to help you get things done." Other silicon follows in the coming months; Nvidia's RTX Spark line is the obvious next entrant.</p>
+<p>Pricing exists, but not from AMD. AMD showed a Ryzen AI Halo mini PC with no price attached. Lenovo's ThinkCentre X Ultra, announced September 3, starts at $3,699 and ships in November 2026 — a 1.6-liter box with a Ryzen AI Max+ PRO 495, up to 128GB of unified memory, an NPU rated around 55 TOPS, and the ability to cluster up to four units, though Lenovo has not disclosed what that clustering actually delivers in bandwidth or throughput.</p>
+<h2>The economics, and the asterisk</h2>
+<p>The unmetered pitch is real arithmetic. A $3,699 desktop amortized over three years is roughly $103 a month before power. Any team burning more than that on coding tokens has a case for moving inner-loop work — refactors, test generation, agent scaffolding, the throwaway completions nobody wants billed — onto local silicon and reserving frontier cloud models for the hard calls.</p>
+<p>The asterisk is that "can run" and "is usable" are different sentences, and the difference is architectural. Bandwidth, not capacity, sets token speed, because a dense model must be read out of memory in full for every token generated. Community benchmarks on Ryzen AI Max+ 395 hardware with roughly 256GB/s of theoretical bandwidth put Qwen3-30B-A3B — a mixture-of-experts model with about 3 billion active parameters per token — at roughly 70 to 100 tokens per second. A dense 70-billion-parameter model at 4-bit lands near 5. ServeTheHome measured GPT-OSS 120B, also mixture-of-experts, at about 31. Microsoft's announcement carried no tokens-per-second figures and named no model behind the 30B+ claim. Zenith is a bet that the open-weights ecosystem keeps shipping sparse models. On dense 30B weights at 250GB/s, the experience is closer to reading than chatting.</p>
+<p>The comparison Microsoft is implicitly making is with Apple, and it is not flattering. A Mac Studio with M4 Max offers up to 546GB/s; M3 Ultra reaches 819GB/s and configures to 512GB of unified memory. Nvidia's DGX Spark carries 128GB at 273GB/s — barely above Microsoft's floor — and went from $3,999 at its October 2025 launch to $4,699 in February 2026 on memory-supply pressure. Microsoft's 250GB/s threshold is a floor set roughly at the entry level of the category, not a competitive high-water mark.</p>
+<p>Which leaves the real question: does a spec badge win back developers who left for macOS and Linux? Paul Thurrott, who installed the public configuration, called Zenith "a curious miscalculation" and argued developers each have setups they prefer and will spend hours undoing defaults. His test ended badly: "I had to wipe the PC I tried this on, it was maddening." Windows Central's Sean Endicott put the tension plainly: "What would be considered a useful preinstalled app for developers would be viewed as bloat for general users."</p>
+<h2>What to watch</h2>
+<p>Three things. Whether Microsoft or its OEMs ever publish tokens-per-second on a named model, which would convert the 30B+ claim from capacity into performance. Whether Nvidia RTX Spark systems clear the 250GB/s bar by enough to make the badge meaningful rather than nominal. And whether the second wave of Zenith machines lands under $2,500 — because at $3,699, the unmetered argument only works for developers whose cloud bills are already ugly.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;On these devices, developers can run 30B+ parameter models locally and unmetered.&rdquo;</blockquote><cite>&mdash; Logan Iyer, Corporate VP, Windows Platform and Developer, Microsoft</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">64GB</div><div class="stat-label">Minimum unified memory</div></div><div class="stat-cell"><div class="stat-value">250GB/s</div><div class="stat-label">Minimum memory bandwidth</div></div><div class="stat-cell"><div class="stat-value">$3,699</div><div class="stat-label">Lenovo ThinkCentre X Ultra start price</div></div><div class="stat-cell"><div class="stat-value">~5 tok/s</div><div class="stat-label">Dense 70B at 4-bit, comparable silicon</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://blogs.windows.com/windowsdeveloper/2026/09/04/announcing-project-zenith-the-ready-to-code-windows-experience/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blogs.windows.com&sz=32" alt="">Windows Developer Blog</a><a href="https://www.thurrott.com/dev/341136/microsoft-announces-project-zenith-for-windows-developers" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thurrott.com&sz=32" alt="">Thurrott.com</a><a href="https://www.implicator.ai/microsoft-project-zenith-developer-pcs-64gb/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=implicator.ai&sz=32" alt="">Implicator.ai</a><a href="https://tech.yahoo.com/ai/articles/amd-unveils-ryzen-ai-halo-110157030.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tech.yahoo.com&sz=32" alt="">Yahoo Tech</a></div></div>
+<div class="article-nav"><a href="08-humain-m3-arabic-minimax-428b.html" class="nav-prev">&larr; Saudi Arabia's Flagship Arabic Model Was Built in </a><a href="10-anthropic-hacker-opus-reward-hacking.html" class="nav-next">Anthropic Trained a Model to Cheat. In Simulation, &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 4, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>

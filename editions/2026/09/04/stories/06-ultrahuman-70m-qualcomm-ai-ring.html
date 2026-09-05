@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qualcomm Is Betting a Ring Can Run Its Own Model &mdash; The Vault AI</title>
+<meta name="description" content="Qualcomm Ventures backed Ultrahuman's $70M round at a $365M valuation to build a smart ring that runs AI on-device, a bet constrained by ring-scale power budgets, FDA exposure and Oura's ITC-tested patents.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.02rem}
+.md-quote{margin:0 0 1.3rem;padding:.6rem 1.1rem;border-left:2px solid var(--border-hover);color:var(--text-strong);font-style:italic}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:110px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>Qualcomm Is Betting a Ring Can Run Its Own Model</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1095 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Qualcomm Ventures backed Ultrahuman's $70M round at a $365M valuation to build a smart ring that runs AI on-device, a bet constrained by ring-scale power budgets, FDA exposure and Oura's ITC-tested patents.</p>
+</div>
+<div class="article-body">
+<p>Eleven months ago, Ultrahuman's rings were illegal to import into the United States. On Wednesday, September 3, the Bengaluru company said it had raised $70 million, with Qualcomm's venture arm writing a check on the premise that the same finger-sized device banned by a trade tribunal in 2025 should become a general-purpose computer.</p>
+<p>The round is $65 million in primary equity plus $5 million in debt, founder and CEO Mohit Kumar told TechCrunch. It values Ultrahuman at $365 million, roughly 3x the $120 million it was worth in 2023, according to a person familiar with the deal. Entrackr, which broke news of the raise on September 1 from regulatory filings, independently pegged post-money at about $363 million and described Qualcomm Ventures as leading; TechCrunch's account has Qualcomm Ventures participating alongside U.S. diagnostics giant Labcorp, Alpha Wave, Blume Ventures, Nexus Venture Partners and Alteria Capital. Either way, the strategic signal is the chipmaker's, not the crossover funds'.</p>
+<p>The thesis is silicon. Ultrahuman's rings currently run on Nordic Semiconductor parts; Kumar said the company is building a new ring around Qualcomm silicon while continuing to ship Nordic-based hardware, and that the added headroom will let more software and algorithms execute on the ring itself rather than round-tripping to a phone or the cloud.</p>
+<p>"All ring devices today are like trackers," Kumar said. "You put on the ring, it measures your heart rate, your movement, your sleep." The goal, he said, is to make the ring behave like a computer — one third parties can write programs for, and one that can act as a pointer, a game controller, a car key, or an interface to AI models. The differentiator, in his framing, is that the input device is also a sensor: "A game controller never reads your heart rate and your temperature, but this one does."</p>
+<p>Qualcomm Ventures global head Quinn Li put the corporate rationale plainly: "The future of AI is personal, ambient, and always on," calling Ultrahuman's work a new generation of "personal AI devices." That is Qualcomm buying an option on the post-phone edge, extended to the smallest wearable with a battery.</p>
+<h2>The business underneath</h2>
+<p>Ultrahuman is not a science project. Kumar said the company is running at a $140 million annual revenue run rate, up roughly 45% year over year, and expects $200 million by January 2027. It has sold about 800,000 rings to date, up from roughly 700,000 in February. About 12% of users pay for PowerPlugs, the subscription software tier that gates features like AFib detection and cycle tracking. In India's fiscal 2025, the company reported Rs 565 crore in revenue and Rs 73 crore in profit after tax, with a Rs 1,000 crore projection for FY26.</p>
+<p>The U.S. is its largest market at about 45% of revenue this quarter, with India at roughly 11% — a striking split for a Bengaluru company. That U.S. number is a recovery, not a run rate. Kumar said demand for the redesigned Ring Pro is currently 18x to 20x available American supply, and that he expects to return to prior U.S. volumes as soon as next quarter and triple them over the following four. Profitability is the casualty: Kumar said Ultrahuman may not be profitable this year after spending on retail locations, brand and clinical studies. An IPO, he said, requires about eight quarters of demonstrated profitability and is unlikely before 2028 — a contrast with Oura, which is reportedly targeting a September listing at more than $16 billion.</p>
+<p>Labcorp's involvement points at a second business. Kumar said the two are exploring whether ring-derived blood-flow signals, paired with actual blood panels, can flag cardiovascular, fertility and aging risks. "By combining longitudinal wearable data with deeper biological signals, Ultrahuman is creating new opportunities in personalized health," said Megann Vaughn Watters, vice president and head of Labcorp Venture Fund and Strategic Alliances.</p>
+<h2>Four hard constraints</h2>
+<p><strong>Power and thermal.</strong> A ring is the worst thermal enclosure in consumer electronics: a metal band conducting heat directly into skin, a battery measured in tens of milliamp-hours, and no room for a heat spreader. Sustained inference here is a joules-per-token problem against a cell that has to last a week. Whatever "on-ring AI" ships in the September update Kumar promised for Ring Air and Ring Pro will be small, quantized, duty-cycled models — gesture classification, arrhythmia screening, wake-word-scale work — not conversational inference. Qualcomm is better than most at sub-watt NPU envelopes. It is still physics.</p>
+<p><strong>Regulatory exposure.</strong> Ultrahuman's AFib capability reaches users through FibriCheck, an FDA-cleared app, and is marketed as producing medical-grade reports. Every step toward diagnostic language — cardiovascular risk, fertility windows, "aging" — moves the product closer to being a regulated device rather than a wellness gadget, and the Labcorp tie-up makes that trajectory explicit. Wellness exemptions are narrow, and a company whose growth story depends on clinical credibility cannot easily stay inside them.</p>
+<p><strong>Patents.</strong> This is not hypothetical risk. In September 2025 the ITC ruled for Oura in its Section 337 case, upholding findings that every asserted claim was valid, enforceable and infringed by Ultrahuman and RingConn, with exclusion and cease-and-desist orders effective October 21, 2025. RingConn settled and took a royalty-bearing license. Ultrahuman redesigned instead, and the Ring Pro is what came back. A more capable ring with more sensors and more interaction surface is a larger target, not a smaller one, and Oura will be a public company with public-company litigation budgets.</p>
+<p><strong>Form factor.</strong> The interesting question is whether ambient AI actually needs a screenless device or merely tolerates one. Screenless computing has a poor commercial record. The ring's genuine advantage is not that it lacks a display; it is that it sits on a finger, which is simultaneously the most precise pointing instrument a human owns and a decent optical window into the vasculature. That combination — input plus physiology in one device — is the only part of this pitch competitors cannot trivially copy.</p>
+<h2>What to watch</h2>
+<p>Three near-term tells. First, the end-of-September software update: whether third-party developer access is real SDK access or a curated plugin store determines if this is a platform or a feature list. Second, whether U.S. supply actually catches that claimed 18x-20x demand, since the entire $200 million run-rate target depends on it. Third, the shape of the Labcorp integration — if it ships as a regulated diagnostic rather than a wellness insight, Ultrahuman's cost structure and timeline both change. And watch Oura's IPO pricing: a $16 billion comparable makes $365 million look either cheap or like a category with exactly one winner.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>&ldquo;The future of AI is personal, ambient, and always on.&rdquo;</blockquote><cite>&mdash; Quinn Li, Global Head, Qualcomm Ventures</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">$70M</div><div class="stat-label">Round size ($65M equity, $5M debt)</div></div><div class="stat-cell"><div class="stat-value">$365M</div><div class="stat-label">Post-money valuation</div></div><div class="stat-cell"><div class="stat-value">$140M</div><div class="stat-label">Annual revenue run rate</div></div><div class="stat-cell"><div class="stat-value">~800,000</div><div class="stat-label">Rings sold to date</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techcrunch.com/2026/09/03/qualcomm-backs-ultrahuman-in-70m-round-on-bet-to-turn-smart-rings-into-computers/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://entrackr.com/news/ultrahuman-raises-70-mn-from-qualcomm-alpha-wave-nexus-and-others-12489004" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=entrackr.com&sz=32" alt="">Entrackr</a><a href="https://hitconsultant.net/2026/09/03/ultrahuman-raises-70m-qualcomm-ventures-labcorp-human-computer-interface-health/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=hitconsultant.net&sz=32" alt="">HIT Consultant</a><a href="https://www.businesswire.com/news/home/20250909387922/en/U.S.-International-Trade-Commission-Rules-in-Favor-of-URA-in-Patent-Case-Against-Ultrahuman-and-RingConn" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=businesswire.com&sz=32" alt="">Businesswire</a></div></div>
+<div class="article-nav"><a href="05-adobe-chakravarthy-ceo-succession.html" class="nav-prev">&larr; Adobe Handed the Company to Its Enterprise Guy, No</a><a href="07-microsoft-mai-transcribe-2-ten-cents.html" class="nav-next">Microsoft Cut Transcription to Ten Cents an Hour.  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 4, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
