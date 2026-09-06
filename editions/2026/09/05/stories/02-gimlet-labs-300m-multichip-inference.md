@@ -1,0 +1,31 @@
+In March, Gimlet Labs was a 30-person company in San Francisco with $92 million in the bank and a contrarian thesis: that the company which wins the AI inference race will not be a chip company at all. On Friday, September 4, Andreessen Horowitz agreed — to the tune of $300 million.
+
+The Series B values Gimlet at $3 billion post-money and lifts total outside funding to $392 million. That is roughly a 7.5x markup in under half a year on the near-$400 million valuation the company carried after its $80 million Series A in March, a round led by Menlo Ventures. The new money is a bet on an idea that has become steadily less heretical over 2026: that the AI stack is going multi-vendor, and someone needs to build the traffic controller.
+
+## The round, and the names on it
+
+Andreessen Horowitz led, with a16z managing partner Raghu Raghuram — the former VMware CEO, and an angel investor in Gimlet since its $12 million seed — joining the board. The syndicate is where the strategic signal lives. Arm Holdings invested. So did M12, Microsoft’s venture fund. Gimlet’s own announcement also names Sapphire Ventures as a major participant alongside returning backers Menlo Ventures and Factory; SiliconANGLE reported that Samsung Ventures and more than a dozen others joined as well.
+
+Gimlet builds what it calls a multi-silicon inference cloud. Its software takes a large language model apart, phase by phase, and dispatches each piece to whichever accelerator suits it — a memory-hungry decode step to a chip with large onboard RAM, a compute-bound prefill to a GPU, tool calls somewhere else entirely. The most common version of this, prefill-decode disaggregation, splits inference across two chips. Gimlet goes further, slicing the decode phase itself and pairing lightweight drafter models with frontier models on different architectures. An agent-driven compiler then re-optimizes the model code for whichever silicon it lands on. The company claims 3x to 10x gains in throughput and interactivity at the same cost and power envelope, and says its stack supports chips from Nvidia, AMD, Intel, Arm, Cerebras and d-Matrix.
+
+The commercial traction is what justified the price. Gimlet emerged from stealth in October 2025 with eight-figure revenue. By March 2026 it had tripled its customer base and added, per the company, one of the top three frontier labs and one of the top three hyperscalers. It now says it has secured billions of dollars in contracted revenue for Gimlet Cloud and is scaling toward hundreds of megawatts of managed heterogeneous infrastructure.
+
+## Why chip-agnostic routing matters now
+
+The tell in this round is the cap table. Arm and Microsoft’s M12 are not financial investors chasing a markup. Arm has spent two years trying to convert architectural ubiquity into datacenter AI share against Nvidia’s entrenched CUDA position. Microsoft has spent the same two years buying every accelerator it can while building its own Maia silicon, only to find that software portability, not supply, is the binding constraint. Both benefit enormously from a neutral orchestration layer that makes non-Nvidia silicon economically legible to customers. Neither can credibly build one itself.
+
+That is the CUDA lock-in argument restated as a business model. For a decade, the practical cost of switching accelerators has been rewriting kernels. Gimlet sells the proposition that you do not have to switch — you can use all of them at once and let software decide. If that works at scale, silicon becomes a commodity input to an inference bill rather than a strategic architecture decision, which is precisely the outcome every chipmaker not named Nvidia wants.
+
+The economics underneath are brutal enough to fund it. Chief executive Zain Asgar told TechCrunch in March that deployed AI hardware runs at “somewhere between 15 to 30 percent” utilization. His framing: “you’re wasting hundreds of billions of dollars because you’re just leaving idle resources.” Against Goldman Sachs’ estimate of $765 billion in AI capital expenditure this year and $7.6 trillion cumulatively from 2026 to 2031, a software layer that recovers even a slice of that idle capacity is worth a great deal.
+
+Raghuram made the same case in Gimlet’s announcement. “AI demand is growing exponentially, while data centers and silicon can’t keep pace. The answer isn’t just more infrastructure - it’s a better architecture,” he said. “By making GPUs and purpose-built accelerators work as one system, Gimlet delivers dramatically more throughput, more interactivity and more intelligence from every watt.”
+
+Asgar was blunter about the demand curve. “We’ve reached a turning point where inference is the dominant AI workload and the demand for tokens is explosive,” he said. “We’re able to deliver unprecedented performance because Gimlet software intelligently slices and orchestrates their workloads across different types of hardware from both mainstream and emerging chipmakers.”
+
+## What to watch
+
+Three things. First, whether Gimlet can stay a software company. Asgar has said the orchestration problem keeps bleeding into physical infrastructure — mixed accelerators need different cooling systems and rack configurations — and the company is now helping customers configure datacenters, building its own, and developing a motherboard-less inference server meant for deployment outside conventional facilities. That is a capital-intensive detour from a high-margin software story.
+
+Second, benchmarks. Gimlet joined MLCommons in June specifically to push vendor-agnostic benchmarks for agentic inference. Independent verification of the 3x-to-10x claim is the single largest swing factor on this valuation.
+
+Third, Nvidia. Gimlet lists Nvidia as a supported partner, but its entire commercial logic is that customers should not have to buy only Nvidia. The incumbent has shown it will license, acquire, or price its way into neutralizing threats to the CUDA moat — as it did this year with Groq. A $3 billion company with a frontier lab and a hyperscaler on its customer list is now large enough to be noticed.
