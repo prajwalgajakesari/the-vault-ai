@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenVDN&#x27;s VDN-MiniMax-H3 Pushes AI Video Toward Real Time, On Eight B200s &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--accent);text-decoration:none}
+.article-body a:hover{text-decoration:underline}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>OpenVDN&#x27;s VDN-MiniMax-H3 Pushes AI Video Toward Real Time, On Eight B200s</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1000 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenVDN&#x27;s hybrid attention architecture renders a 14.4-second 768p clip in 11.23 seconds on eight B200s, faster than playback, but the inherited license bars use in the US, UK, EU and South Korea.</p>
+</div>
+<div class="article-body">
+<p>A research collective calling itself OpenVDN published a set of model weights on Sunday that can render a video clip faster than you can watch it — provided you have eight of Nvidia’s most expensive GPUs on hand, and provided you do not live in the United States, the United Kingdom, the European Union or South Korea.</p>
+<p>The release, VDN-MiniMax-H3, landed on Hugging Face on September 6 alongside training and inference code on GitHub. The headline number sits at the top of the model card: on eight Nvidia B200 GPUs, the model denoises a 14.4-second clip at 768p in 11.23 seconds, using eight denoising steps. That is roughly three seconds less than the runtime of the video it just produced.</p>
+<p>“In only 11.23 seconds our model can produce a 14.4 second video clip that is visually nearly indistinguishable from the original H3’s output,” the team writes in its technical blog. “In effect, it can stream H3-quality generated content continuously on 8 NVIDIA B200.”</p>
+<p>Haocheng Xi, the project’s lead author and a UC Berkeley researcher, put it more bluntly on X: “Open-source video generation is now faster than playback without compromising quality.” The eleven-author paper spans UC Berkeley, the startup Impossible, Inc. and UT Austin.</p>
+<h2>What Was Actually Built</h2>
+<p>VDN stands for Video Delta Net, and the work is surgery performed on someone else’s model. The backbone is MiniMax H3, the omni-modal video-and-audio generator that MiniMax launched July 31 and open-weighted days later. OpenVDN did not retrain it. It attacked the single dominant cost in video diffusion: attention. By the team’s measurement, softmax attention over long token sequences accounts for more than 85 percent of H3’s total runtime.</p>
+<p>The fix is a hybrid. VDN splits video attention into two branches — a sliding-window softmax path that computes exact attention between neighboring latent frames, preserving fine detail and short-term stability, and a bidirectional linear-attention path, Video Delta Attention, that carries long-range context cheaply. The softmax branch gets what the authors call 4-way boundary anchors, letting every frame attend to the first and last frames. That trick adds only 3.57 percent attention density but, per the blog, “substantially improves long-range stability.”</p>
+<p>The engineering gains compound. On a single B200, one dense H3 block takes 332.5 milliseconds; the hybrid architecture with tuned kernels and FP8 linear layers brings that to 125.3ms, a 2.65x per-layer speedup. Standard Ulysses sequence parallelism across eight B200s cuts latency to 1.62 seconds per denoising step. Then the team does something unusual: rather than have every GPU run both branches, it splits them, assigning five GPUs to the softmax path and three to the linear path. That shaves another 13.3 percent, to 1.405 seconds per step. An eight-step distillation stage does the rest.</p>
+<p>Stacked up, the numbers are stark. Dense MiniMax H3 on one B200 needs 16.74 seconds per step and 13.95 minutes for a 50-step render. VDN-H3 on eight B200s does eight steps in 11.23 seconds — a 74.5x speedup over the dense single-GPU baseline, and still 10.7x faster than dense H3 on the same eight-GPU node. On older H200s, the same workload takes 18.3 seconds: fast, but no longer faster than playback.</p>
+<p>The full download runs about 82 GB, of which 72 GB is the H3 base. OpenVDN’s own contribution is small — a 4.3 GB linear branch plus LoRA, and 5.1 GB for the eight-step turbo variant, designed to merge into the backbone at inference without touching its weights. “We don’t just open-source the weights,” the model card notes. “The optimized inference stack and its corresponding training code are released together.”</p>
+<h2>Why It Matters</h2>
+<p>The latency milestone deserves a footnote-sized asterisk. The 11.23 seconds is denoising time only. The model card is explicit: “We exclude model loading, warm-up, VAE decoding, and MP4 encoding.” The team’s own recommendation for a live deployment is to run the prompt rewriter, VAE decode and MP4 conversion on separate machines so the eight GPUs do nothing but denoise. Prompts must also be encoded through a Qwen3-VL-32B vision-language model, and OpenVDN recommends rewriting them through H3-Context-IR, a MiniMax module that remains API-only. Real time here means real time inside a carefully staged pipeline sitting on roughly half a million dollars of Blackwell silicon.</p>
+<p>Even so, crossing under playback duration is a category shift. Video generation has been a batch process — submit, wait, review. Sub-playback latency is the precondition for interactive video: live avatars, generated game footage, responsive advertising creative. It is the difference between a render farm and a stream.</p>
+<p>The license is the stranger half of the story. VDN-H3 inherits the MiniMax H3 Community License Agreement verbatim, and that agreement grants rights only within an applicable territory defined as worldwide excluding the European Union, the United Kingdom, the Republic of Korea and the United States of America. The model card states plainly that use outside the applicable territory “is not authorized” and invites people in excluded regions to contact MiniMax about a license.</p>
+<p>That produces an odd artifact: a Berkeley-led research project, published in English, whose weights are not licensed for use in the country where most of its authors work. The code is cleanly Apache 2.0 — the architecture and training recipe travel freely. The weights do not. It inverts the familiar 2025-era pattern, in which Chinese labs shipped permissive open weights that Western developers adopted enthusiastically, and instead pushes legal exposure onto downstream users in the largest AI markets.</p>
+<h2>What To Watch</h2>
+<p>Three things. First, whether the technique generalizes: Video Delta Attention is a backbone-agnostic idea, and a version grafted onto a permissively licensed model would sidestep the territory problem entirely. Second, whether community ports outrun the license — ComfyUI wrappers and Hugging Face Spaces built on the checkpoint appeared within a day of release, and none of them enforce geography. Third, whether MiniMax revisits its exclusions now that outside researchers are producing the most interesting work on its model. The speedup is impressive engineering. The open question is who is legally allowed to use it.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Open-source video generation is now faster than playback without compromising quality.&rdquo;</blockquote><cite>&mdash; Haocheng Xi, Lead author, VDN-MiniMax-H3; researcher, UC Berkeley</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">11.23s</div><div class="stat-label">Denoise time for a 14.4-second 768p clip</div></div><div class="stat-cell"><div class="stat-value">74.5x</div><div class="stat-label">Speedup over the dense single-GPU baseline</div></div><div class="stat-cell"><div class="stat-value">85%+</div><div class="stat-label">Runtime consumed by softmax attention before VDN</div></div><div class="stat-cell"><div class="stat-value">4</div><div class="stat-label">Regions excluded from the license</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://huggingface.co/OpenVDN/vdn-minimax-h3" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Hugging Face</a><a href="https://openvdn.github.io/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openvdn.github.io&sz=32" alt="">OpenVDN</a><a href="https://www.minimax.io/blog/minimax-h3" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=minimax.io&sz=32" alt="">MiniMax</a></div></div>
+<div class="article-nav"><a href="07-openai-agents-31-workdays-research-intern.html" class="nav-prev">&larr; OpenAI Says Its Agents Now Log 3.1 Workdays of Res</a><a href="09-google-ai-planet-accelerator-apac.html" class="nav-next">Google Backs 16 Teams Tracking Wildlife, Crops and &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 7, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
