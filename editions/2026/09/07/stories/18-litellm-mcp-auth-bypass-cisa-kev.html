@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CISA Adds an Exploited LiteLLM MCP Auth Bypass to Its Must-Patch Catalog &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--accent);text-decoration:none}
+.article-body a:hover{text-decoration:underline}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>CISA Adds an Exploited LiteLLM MCP Auth Bypass to Its Must-Patch Catalog</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1000 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>CISA&#x27;s addition of CVE-2026-59822, an MCP authentication bypass in LiteLLM observed under exploitation, puts AI gateway software on the same federal must-patch clock as VPNs and file-transfer appliances.</p>
+</div>
+<div class="article-body">
+<p>On September 2, the U.S. Cybersecurity and Infrastructure Security Agency did something that would have looked exotic a year ago. It ordered every federal civilian agency to patch an AI gateway.</p>
+<p>CVE-2026-59822, an improper authentication flaw in Berri LiteLLM’s Model Context Protocol (MCP) Streamable HTTP endpoint, was one of seven vulnerabilities CISA added to its Known Exploited Vulnerabilities catalog that day, sitting alongside a SonicWall SMA 1000 bug rated CVSS 10.0 and a JFrog Artifactory authentication flaw at 9.8. The LiteLLM entry carries a CVSS v4 base score of 8.8 (NVD also lists a CVSS v3.1 score of 8.2), and it earned its place the hard way: Wiz Threat Research watched attackers try it against live honeypots.</p>
+<p>The bug itself is almost embarrassingly small. According to the maintainers’ advisory, GHSA-7488-6r32-c95q, published June 30, 2026, LiteLLM’s MCP auth handler supported OAuth2 passthrough for upstream MCP servers, but the fallback path “could replace failed LiteLLM key validation with an empty UserAPIKeyAuth() object.” When the gateway failed to validate a key, it did not reject the request. It handed back a permission object with nothing in it and waved the caller through. Wiz put the consequence more bluntly: “Any Bearer token (even just a single character, e.g., x) grants full MCP access.”</p>
+<h2>What MCP Is, and Why That Matters Here</h2>
+<p>The Model Context Protocol is the plumbing that lets AI agents reach outside their own context window. An MCP server exposes a set of tools — a database query, a code repository, a Slack workspace, an internal API — and an agent calls them the way a program calls a function. LiteLLM, an open-source proxy with more than 52,000 GitHub stars, sits in front of that arrangement: it routes model traffic to OpenAI, Anthropic, Azure, or Gemini, holds the API keys for all of them, and increasingly brokers MCP tool access for the agents behind it.</p>
+<p>That makes an authentication bypass on the MCP endpoint far worse than one on an ordinary web app. The advisory spells out the reach: an attacker could use the flaw “to list and call configured MCP tools and access connected services exposed through MCP.” The gateway is not the prize. Everything downstream of it is. Wiz calls the problem credential concentration, noting that a single LiteLLM proxy “can hold keys for every model provider it routes to.”</p>
+<p>Affected versions are everything prior to 1.84.0, and the fix shipped in 1.84.0. For operators who cannot upgrade immediately, LiteLLM’s guidance is to disable MCP routes or block the MCP endpoints at a reverse proxy or API gateway.</p>
+<h2>From Honeypot to Catalog</h2>
+<p>Wiz researcher Yaara Shriki, credited as the reporter on the LiteLLM advisory, published 90 days of AI-infrastructure honeypot telemetry on August 27. The team observed exploitation of CVE-2026-59822 in the wild, with requests carrying single-character bearer tokens to probe model enumeration endpoints — reconnaissance aimed at working out which upstream provider a given proxy was fronting.</p>
+<p>The LiteLLM ecosystem was already under pressure. CVE-2026-42271, a command-injection flaw in LiteLLM’s MCP server test endpoints scored at CVSS 8.7, was added to the KEV catalog in June 2026; chained with CVE-2026-48710, a Starlette host-header validation bypass rated 6.5 that CISA also listed on September 2, it yields fully unauthenticated remote code execution. Wiz says external researchers have linked the Qilin (Agenda) ransomware group to active exploitation of that chain, and its honeypots caught attackers using it to plant a Monero miner.</p>
+<p>Microsoft, in an August 26 report, described attackers harvesting upstream provider key material and proxy-issued virtual keys from LiteLLM-backed PostgreSQL tables. “Across the cases, telemetry showed credential collection, durable access mechanisms, and resource monetization, even though the execution path differed by product,” Microsoft said.</p>
+<p>Under Binding Operational Directive 26-04, federal civilian agencies had until September 5 to remediate five of the seven new entries. The Starlette and LiteLLM flaws carry a deadline of September 16, 2026.</p>
+<h2>Why It Matters</h2>
+<p>The KEV catalog is the closest thing American cybersecurity policy has to a must-patch list, and until recently its contents read like an inventory of the conventional enterprise perimeter: VPN concentrators, file transfer appliances, groupware, hypervisors. AI infrastructure is now on that list on the same terms, judged by the same criterion — someone is actually exploiting it — and subject to the same federal clock.</p>
+<p>That is a quiet but real milestone. An open-source Python proxy that most organizations installed as a convenience layer, often without a named owner or a patch cadence, is being treated as production infrastructure. Wiz’s State of AI in the Cloud 2026 report found that 90 percent of cloud environments run self-hosted AI software — roughly the exposure profile of a technology everyone deployed and nobody inventoried.</p>
+<p>The supply-chain shape of this is worth sitting with. The bypass was not in a model. It was in the authentication glue between an agent and its tools, and it was reachable because MCP’s design premise is that an agent should be able to call things. Every additional MCP connection widens the blast radius of a single gateway compromise, and CVE-2026-59822 shows how little needs to go wrong for that radius to expand.</p>
+<h2>What Defenders Should Watch</h2>
+<p>Upgrade to LiteLLM 1.84.0 or later, and if that cannot happen this week, block MCP endpoints at the proxy. Then assume the window was open. Anyone who ran a vulnerable version reachable from an untrusted network should treat every credential the gateway touched as potentially exposed, and audit the permissions granted to each connected MCP tool.</p>
+<p>Beyond that, the useful shift is one of category. Wiz’s advice is to “patch on the assumption that the exploit is already in the wild,” because attackers targeting open-source AI infrastructure frequently weaponize fixes as soon as they land in public code. An AI gateway is a credential vault with an HTTP interface. Watch it like one: process-ancestry alerts when an AI server spawns a shell, tight egress restrictions, and an inventory of every MCP server your agents can reach.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185"><blockquote>&ldquo;Any Bearer token (even just a single character, e.g., x) grants full MCP access.&rdquo;</blockquote><cite>&mdash; Yaara Shriki, Threat Researcher, Wiz</cite></div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">CVE-2026-59822</div><div class="stat-label">LiteLLM MCP bypass added to CISA KEV</div></div><div class="stat-cell"><div class="stat-value">8.8</div><div class="stat-label">CVSS v4 base score, rated High</div></div><div class="stat-cell"><div class="stat-value">1.84.0</div><div class="stat-label">Patched version; all prior releases affected</div></div><div class="stat-cell"><div class="stat-value">Sept 16, 2026</div><div class="stat-label">Federal remediation deadline under BOD 26-04</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://thehackernews.com/2026/09/cisa-adds-seven-exploited-flaws-as.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thehackernews.com&sz=32" alt="">The Hacker News</a><a href="https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cisa.gov&sz=32" alt="">CISA</a><a href="https://www.wiz.io/blog/ai-infrastructure-honeypot" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=wiz.io&sz=32" alt="">Wiz Threat Research</a></div></div>
+<div class="article-nav"><a href="17-openai-astra-sandbagging-undetectable.html" class="nav-prev">&larr; OpenAI Concedes It Probably Could Not Catch Astra </a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 7, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
