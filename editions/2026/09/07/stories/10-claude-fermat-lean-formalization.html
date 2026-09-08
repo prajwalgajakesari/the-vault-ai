@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anthropic Says Claude Formalized Fermat&#x27;s Last Theorem in Lean in 11 Days &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--accent);text-decoration:none}
+.article-body a:hover{text-decoration:underline}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Anthropic Says Claude Formalized Fermat&#x27;s Last Theorem in Lean in 11 Days</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 994 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Claude agents translated an existing 1995 proof of Fermat&#x27;s Last Theorem into 13 million lines of machine-checked Lean in 11 days, a verification milestone rather than new mathematics, moving the bottleneck from writing proofs to reading them.</p>
+</div>
+<div class="article-body">
+<p>Kevin Buzzard was at a music festival in Wales, with terrible phone reception, when the email landed. The subject line read: End-to-end Lean formalization of Fermat’s Last Theorem. He glanced at it during a brief flicker of 4G, decided the sender was a crank, and went back to the music. It took him a week and roughly a thousand unread emails to discover that the biggest formalization result in the history of the field had been sitting in his inbox.</p>
+<p>Buzzard is the Imperial College London mathematician who holds a five-year, one-million-pound EPSRC grant to formalize Fermat’s Last Theorem in the Lean proof assistant. On September 4, Anthropic announced that dozens of Claude agents had done a version of it in eleven days.</p>
+<h2>Eleven days, 13 million lines</h2>
+<p>Working largely autonomously over eleven days of wall-clock time, a swarm of Claude agents wrote roughly 13 million lines of Lean and proved 30,300 intermediate theorems, 29,500 of which appear in the final proof. That codebase is more than five times the size of Mathlib, the community mathematics library the whole edifice rests on. Buzzard compiled it himself, measured 13.4 million lines, and reports it takes nearly twenty times as long to compile as Mathlib does on a 96-core machine.</p>
+<p>The run consumed about six billion output tokens from what Anthropic describes as a general-purpose internal research model roughly comparable to Claude Fable 5.1. At that model’s list price of $50 per million output tokens, six billion tokens works out to about $300,000. No invoice was raised, and a lab’s own inference costs less than list, but it is the only public arithmetic available. Buzzard did the comparison himself: he was given one million pounds over five years, and, as he put it, Anthropic took only eleven days but he does wonder if they spent more money.</p>
+<p>The project was run by Tianyi Peng, an Anthropic researcher whose Columbia University group builds AI formalization tooling. Anthropic is unusually candid that the first attempts failed outright. Early agents made progress, then lost track of the project state and stopped collaborating; those dead runs still contributed about 7% of the non-boilerplate lines in the finished proof. What rescued the effort was not a better model but scaffolding: Prove2Me, an open platform Peng built with Columbia collaborators, which maintains a graph of theorem statements so agents can see what to attempt next and can search and reuse each other’s work. Human mathematical input amounted to occasional fragments from Peng, such as: Jacobian as a scheme sounds high priority.</p>
+<h2>What it is, and what it is not</h2>
+<p>Claude did not discover a proof. It translated one, following the 1995 Darmon, Diamond and Taylor exposition of the Wiles, Taylor and Wiles argument, via the Langlands-Tunnell theorem and Ribet’s level-lowering result. That is not the modern route Buzzard has been formalizing by hand. The repository develops Fontaine theory and enough of Mazur’s work on the Eisenstein ideal to rule out Frey curves with a point of order p for p at least 17; smaller exponents are covered by adapting the existing flt-regular formalization for regular primes, since the smallest irregular prime is 37. Lean verified the result using only its three standard axioms, and the leanprover comparator tool confirmed the statement proved matches Mathlib’s own statement of FLT. Buzzard ran that check independently.</p>
+<p>He is blunt about the mathematical content. He puts the odds Wiles’s proof is correct at 99.9%, notes most of the number theory community is at 100%, and writes that the formalization just faithfully follows the early literature on the proof and adds nothing. He also went looking for cheating, since Lean has had soundness bugs surface recently and an agent could in principle exploit one to prove anything. He had an agent flag every line in the repo that was not a definition or a theorem proof, inspected the roughly 100 lines that came back, and found they defined a convenience tactic.</p>
+<h2>Why It Matters</h2>
+<p>This is a claim about verification, not discovery, and verification is the easier half. But it is the half that has been throttling mathematics for decades. Wiles’s 129-page proof took months of painstaking human review, and a referee still found a critical gap that took a year to close. If thousands of pages of literature can now be mechanically checked in under a fortnight, the economics of refereeing change.</p>
+<p>Buzzard, who has every professional incentive to downplay this, does not. If the automatic formalization of FLT is possible now, he told Anthropic, then we have taken a big step towards automatic formalization of the modern mathematical literature. He is more interested in what happens when machines are pointed at the Langlands program and start ruthlessly flagging arguments that are incomplete or merely known to the experts.</p>
+<p>The obvious caveat is that the bottleneck moved rather than vanished. None of these 13 million lines can enter Mathlib as things stand. Buzzard, a Mathlib maintainer, says the library will not accept AI reviews and human reviewers are reluctant to review AI-generated code because most of it is poor quality. Mathlib already carries around 3,000 open pull requests, more than 600 active in the review queue. The constraint has shifted from writing proofs to reading them, which is precisely the problem formalization was supposed to solve, arriving one layer up. And a 13-million-line artifact that Anthropic concedes is likely much longer than it needs to be is a proof no human will ever read.</p>
+<p>Watch two things. First, whether anyone reproduces this outside a frontier lab: Anthropic reports that three researchers on personal Claude Max subscriptions formalized Vinogradov’s Three Primes Theorem in three days using the same platform, the more consequential data point if it generalizes. Second, whether Mathlib’s maintainers change their policy on AI-generated submissions. Until they do, autoformalization produces impressive standalone repositories rather than a shared foundation, and the mathematical commons stays exactly as large as human reviewers can make it.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;If the automatic formalization of FLT is possible now, then we have taken a big step towards automatic formalization of the modern mathematical literature.&rdquo;</blockquote><cite>&mdash; Kevin Buzzard, Professor of Pure Mathematics, Imperial College London</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">11 days</div><div class="stat-label">Wall-clock time for the formalization</div></div><div class="stat-cell"><div class="stat-value">13M lines</div><div class="stat-label">Lean code produced, over 5x the size of Mathlib</div></div><div class="stat-cell"><div class="stat-value">29,500</div><div class="stat-label">Intermediate theorems used in the final proof</div></div><div class="stat-cell"><div class="stat-value">6B tokens</div><div class="stat-label">Output tokens consumed, roughly $300,000 at list</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.anthropic.com/research/formalizing-fermats-last-theorem" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" alt="">Anthropic</a><a href="https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=xenaproject.wordpress.com&sz=32" alt="">Xena Project</a><a href="https://thenextweb.com/news/anthropic-claude-fermat-last-theorem-lean-buzzard" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenextweb.com&sz=32" alt="">The Next Web</a></div></div>
+<div class="article-nav"><a href="09-google-ai-planet-accelerator-apac.html" class="nav-prev">&larr; Google Backs 16 Teams Tracking Wildlife, Crops and</a><a href="11-object-detection-annotation-errors-survey.html" class="nav-next">Hidden Annotation Errors Are Quietly Corrupting Ob &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 7, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
