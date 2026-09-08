@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hidden Annotation Errors Are Quietly Corrupting Object Detection Benchmarks, Survey Finds &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--accent);text-decoration:none}
+.article-body a:hover{text-decoration:underline}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Hidden Annotation Errors Are Quietly Corrupting Object Detection Benchmarks, Survey Finds</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 907 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A Sejong University survey hand-audited about 47,000 images across seven flagship benchmarks and confirmed 596 annotation errors, suggesting leaderboard orderings the field treats as settled may be artifacts of bad ground truth.</p>
+</div>
+<div class="article-body">
+<p>For a decade, progress in computer vision has been measured in tenths of a point on MS-COCO. A survey out of Sejong University argues that a meaningful share of those tenths were never real to begin with — they were artifacts of ground truth that was simply wrong.</p>
+<p>The paper, “Quality over quantity: a data-centric survey of annotation errors in object detection datasets,” appeared in Springer’s <em>Artificial Intelligence Review</em> (volume 59, article 107) under an open-access CC BY licence. It was received on August 11, 2025, accepted on January 17, 2026, and published online on February 7. TechXplore brought it to a wider audience on September 7, 2026, under the headline “Better AI starts with better data.”</p>
+<p>The team — Adnan Hussain, Kaleem Ullah, Muhammad Afaq, Muhammad Munsif, Altaf Hussain and corresponding author Professor Sung Wook Baik, all of the Department of Software at Sejong University in Seoul — did something the field rarely bothers to do. Instead of proposing another detector, they audited the labels.</p>
+<h2>What They Found</h2>
+<p>Fifteen inspectors worked the problem in two tiers: ten running a Python screening script to surface suspect annotations, five verifying candidates by hand, iterating until the queue cleared. Between them they went through roughly 47,000 images pulled from seven benchmarks that appear on nearly every model card in the field — MS-COCO, Open Images, PASCAL VOC, LVIS, DOTA, FSOD and Objects365. Each confirmed error was logged with its image ID and published in a supplementary file.</p>
+<p>They confirmed 596 errors across six of the datasets. Incorrect labels dominated, at 236 cases — roughly 40 percent of the total. Inconsistent annotations accounted for 111, localization errors where the box fails to align with the object for 100, duplicate annotations for 64, debatable examples for 52, and group errors for 33. In raw counts Open Images and Objects365 fared worst, at 149 and 140 respectively; PASCAL VOC, the oldest and smallest of the group, logged 46. Missed annotations — visible objects never labeled at all — showed up in MS-COCO, DOTA, PASCAL VOC, Objects365 and FSOD.</p>
+<p>Those are conservative numbers, drawn from a hand-checked sample. The survey’s wider literature review, spanning 196 references published between 2016 and 2025, turns up figures that dwarf them. When Google researchers rebuilt a slice of Open Images as the More Inclusive Annotations for People dataset, the survey notes, “approximately 30% of individuals in the images were not tagged in the original dataset.” A re-annotation effort on a 6,000-image MS-COCO subset found more than 12 percent of images carried missing or incorrect labels. A separate pseudo-labelling pipeline flagged 52,621 of MS-COCO 2017’s 123,287 images — 42.7 percent — as anomalous enough to warrant re-annotation.</p>
+<p>The survey also imposes order on the fixes. Baik’s team sorts existing error-detection work into four families: manual review, which is the most precise and the least scalable; weakly supervised methods that work from image-level tags and class activation maps; semi-supervised approaches built on pseudo-labelling and teacher–student consistency; and fully automatic pipelines that scale but introduce confident false corrections of their own.</p>
+<h2>Why It Matters</h2>
+<p>The uncomfortable implication is not that models are worse than advertised. It is that we may not know which models are better.</p>
+<p>“Such errors introduce label noise during training, corrupt evaluation metrics, and can lead to misleading conclusions about model performance, especially for long-tailed categories, few-shot settings, or safety-critical applications,” the authors write. That is a claim with hard evidence behind it. COCO-ReM, a 2024 re-annotation of COCO by a team from IIT Roorkee, Georgia Tech and the University of Michigan, refined roughly 860,000 training and 36,000 validation instances. Every one of the fifty detectors they re-evaluated scored higher on the cleaned annotations; the then state-of-the-art OneFormer InternImage-H gained 7.7 AP points. More consequentially, model rankings flipped. Cascade ViTDet-L outranks Mask2Former Swin-L on COCO-2017 and loses to it on COCO-ReM. Query-based architectures gained about 6.7 points on average, region-based ones as little as 2 — meaning the noise was not uniform, it was systematically biased toward one design philosophy.</p>
+<p>That is benchmark leaderboards adjudicating architectural debates on the strength of bad boxes. Years of published comparisons, funding decisions and product roadmaps rest on those orderings.</p>
+<p>The stakes climb sharply downstream. Detectors trained on these benchmarks are the pretraining backbone for perception stacks in autonomous vehicles, warehouse robotics and medical imaging. A localization error that shifts a bounding box by a few pixels is a rounding error on a leaderboard and a materially different braking distance in a car. The survey is blunt that the field has under-invested here: error identification, the authors write, “receives little attention compared to the creation of algorithms for object detectors and learning strategies.”</p>
+<h2>What to Watch</h2>
+<p>The fix the paper argues for is not another architecture. “Addressing these issues requires data-centric methodologies that can detect, validate, and correct annotation noise at scale, rather than focusing solely on new architectures or loss functions,” the authors write. Watch for whether the cleaned variants — COCO-ReM, Sama-COCO, MJ-COCO, Mini6KClean — start appearing alongside COCO-2017 in results tables at CVPR and ICCV, and whether reviewers begin asking for it. Watch, too, for whether benchmark maintainers publish error rates the way dataset cards now publish demographic breakdowns. Baik’s team has handed the field a taxonomy and a logged list of image IDs. The harder question is whether a research culture organized around beating a number will accept that the number itself needs auditing.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;Such errors introduce label noise during training, corrupt evaluation metrics, and can lead to misleading conclusions about model performance, especially for long-tailed categories, few-shot settings, or safety-critical applications.&rdquo;</blockquote><cite>&mdash; Sung Wook Baik and colleagues, Department of Software, Sejong University, Seoul</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">47,000</div><div class="stat-label">Images manually inspected across seven benchmarks</div></div><div class="stat-cell"><div class="stat-value">596</div><div class="stat-label">Confirmed annotation errors, 40% incorrect labels</div></div><div class="stat-cell"><div class="stat-value">+7.7 AP</div><div class="stat-label">Score gain for the SOTA detector on re-annotated COCO</div></div><div class="stat-cell"><div class="stat-value">42.7%</div><div class="stat-label">MS-COCO 2017 images flagged as anomalous</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techxplore.com/news/2026-09-ai-hidden-annotation-errors-datasets.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techxplore.com&sz=32" alt="">TechXplore</a><a href="https://link.springer.com/article/10.1007/s10462-026-11502-z" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=link.springer.com&sz=32" alt="">Artificial Intelligence Review</a><a href="https://arxiv.org/pdf/2403.18819" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv (COCO-ReM)</a></div></div>
+<div class="article-nav"><a href="10-claude-fermat-lean-formalization.html" class="nav-prev">&larr; Anthropic Says Claude Formalized Fermat&#x27;s Last The</a><a href="12-exaone-forecast-finance-time-series.html" class="nav-next">LG Brings Foundation Models to Financial Time Seri &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 7, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
