@@ -1,0 +1,29 @@
+Tae Kim had never opened Blender in his life. Over the weekend he downloaded the 3D modeling program onto a spare Mac laptop, pointed OpenAI's newly released GPT-6 Astra at it, and asked for a detailed model of the Space Shuttle. He then sat back and watched the model research the topic online, write its own Python scripts, and start driving the software's interface on its own.
+
+“Watching it take over the program felt like magic. A glimpse of the future,” Kim wrote in his Sept. 7 Key Context newsletter. “Within 10 minutes, I had a beautiful, detailed 3D model of the shuttle that I could zoom in and out of and rotate.”
+
+That anecdote, surfaced by Techmeme on Sunday, is doing a lot more work than a typical launch-week demo post. Kim — a financial columnist who covers the semiconductor complex — is using it to make a capital-markets argument: that agentic computer use is about to become the fourth exponential demand wave for AI compute in four years, following chatbots, reasoning models, and agentic coding. If he is right, the Blender clips flooding X this week are not a novelty. They are a leading indicator of the next inference bill.
+
+## The capability that changed
+
+GPT-6 Astra launched Sept. 3, succeeding GPT-5.6 Sol as OpenAI's frontier flagship. OpenAI made computer use the centerpiece of the launch video rather than a footnote — a deliberate reordering of what a frontier release is supposed to be about.
+
+The benchmark that carries the claim is OSWorld 2.0, which measures whether a model can actually operate a desktop: navigating real interfaces, clicking, typing, completing multi-step tasks. Astra scores 72.6% on the offline set, against 65.7% for GPT-5.6 Sol and 70.2% for Claude Opus 5. The accuracy gain is modest. The speed gain is not: Astra completes those tasks in roughly 40 minutes each versus Sol's 75, a 47% cut in wall-clock time per task. On ScreenSpot-Pro, which tests grounding UI elements on screen without tools, Astra hits 92.7% against Sol's 76.9%.
+
+“Computer use is a particularly important part of what's new. I think that it has crossed the qualitative threshold,” OpenAI cofounder Greg Brockman said in a press briefing ahead of the launch. “And the fact that it is now, you've gone from this slow, painful to watch thing to something that's actually very accurate, efficient, and reliable. So Astra can really do anything a human can do with a computer without an API.”
+
+That last clause is the load-bearing one. The prevailing agent architecture of the past two years assumed every application would eventually expose an API or an MCP server for models to call. Screen-level competence routes around that requirement entirely — and around the commercial gatekeeping that comes with it. Blender is simply the most photogenic proof: developer Tom Krcha fed Astra an old drawing of a steam train and reported it reconstructed the scene as 3,295 individually editable objects.
+
+## Why It Matters
+
+Kim's thesis is not about 3D art. It is about token consumption, and he anchors it in a number OpenAI published the same weekend. In a blog post on research acceleration, the company disclosed that at the start of 2026 its median researcher used coding agents only in modest amounts. “By mid-August, the median researcher was integrating agents daily into their work, using more than $600 per day of inference at API prices,” OpenAI wrote. “The 90th percentile user in our research organization now uses more than $7,000 of tokens per day.”
+
+That is the shape of an adoption curve going vertical inside a single organization in eight months — for coding alone. Kim's argument is that computer use will trace the same path across a far larger population, because the addressable surface is not developers but anyone who operates software for a living: expense forms, CRM records, QA passes, spreadsheet reconciliation.
+
+The economics are unforgiving in a way that cuts both directions. Astra runs $10 per million input tokens and $50 per million output — well above Claude Opus 5's $5/$25 and five times GPT-5.6 Terra's $2/$12. A Blender session that writes and re-runs Python dozens of times while rendering check frames between edits burns millions of output tokens. Every one of Kim's ten-minute magic moments is a metered event. For the chipmakers he covers, that is the entire point: demand for CPUs, HBM, and GPUs scales with exactly this kind of long-running, screenshot-heavy inference.
+
+The counter-case is already loud. Blender professionals have pushed back hard on the launch demos, arguing that much of the celebrated geometry is barely modified primitives with poor topology that needs heavy manual repair before it enters a real pipeline. 3D artist Stefan Vaskevich has noted that OpenAI's demonstrations establish nothing about performance on unfamiliar plug-ins, large production files, or differently organized studio scenes. And Astra is not a clean sweep: it trails Claude Fable 5.1 on Humanity's Last Exam with tools, 57.2% to 65.0%.
+
+## What to watch
+
+Three things will settle whether this is a wave or a demo cycle. First, whether OSWorld gains hold up in messy enterprise environments rather than benchmark VMs — the gap between 72.6% and reliable unattended operation is still wide enough to require a human watching. Second, the safety envelope: Astra crosses the Critical cybersecurity threshold under OpenAI's Preparedness Framework, so exploit capabilities ship gated behind the Daybreak program, and its safeguards can pause legitimate work mid-task. Third, and most telling for Kim's thesis, whether any enterprise outside OpenAI publishes a token-spend curve for computer use that looks like the one OpenAI just published for coding. Until that appears, the fourth wave is a very persuasive hypothesis with one weekend of evidence behind it.
