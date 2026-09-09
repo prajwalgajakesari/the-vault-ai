@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google, Anthropic and OpenAI Unveil Cyber Models With Tiered Access Programs &mdash; The Vault AI</title>
+<meta name="description" content="Google, Anthropic and OpenAI have all converged on the same governance primitive — near-identical models whose cyber capabilities unlock only after a vetting process — making the a">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.article-body a:hover{color:var(--text-strong)}
+.inline-quote{margin:1.5rem 0;padding:.6rem 1.2rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.3}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border);font-family:'DM Sans',sans-serif}
+.article-nav a{font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+.nav-next{text-align:right;margin-left:auto}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;width:0;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Google, Anthropic and OpenAI Unveil Cyber Models With Tiered Access Programs</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 995 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Google, Anthropic and OpenAI have all converged on the same governance primitive — near-identical models whose cyber capabilities unlock only after a vetting process — making the access gate, not the weights, the industry's de facto safety control.</p>
+</div>
+<div class="article-body">
+<p>The most consequential thing about the cyber models Google, Anthropic and OpenAI pushed out over the past week is not what they can do. It is who is allowed to ask.</p>
+<p>All three labs shipped frontier-grade, offensive-capable systems behind application-only doors — Google's <strong>Fairwind Program</strong>, Anthropic's <strong>Project Glasswing</strong> and Cyber Verification Program, and OpenAI's two-tier <strong>Daybreak Blue</strong> and <strong>Daybreak Red</strong>. A week on, the durable story is the architecture underneath: three competitors independently converged on the same governance primitive, in which the same weights behave differently depending on whether the customer passed a vetting process.</p>
+<p>The pattern is explicit in the product design. Gemini 3.8 Flash and Gemini 3.8 Flash Cyber are, in Google's own description, "powered by the same foundational intelligence" — the Cyber variant simply "ships with a more permissive set of mitigations for cybersecurity, and as such, is only available to trusted defenders." Anthropic released Claude Fable 5.1 broadly and routed Claude Mythos 5.1 through trusted access only. OpenAI splits the difference at the account layer: general users of GPT‑5.6 Sol hit system-level guardrails, Daybreak Blue members get those guardrails removed for defensive work, and the purpose-trained GPT‑5.6‑Cyber sits behind Daybreak Red.</p>
+<h2>The gate, not the model, is the product</h2>
+<p>The numbers make clear how much the gate is doing. On OpenAI's own Advanced Cybersecurity Completion Rate metric, GPT‑5.6‑Cyber completes <strong>95%</strong> of a set of sensitive requests spanning exploit-chain development, authentication bypass and privilege escalation. The publicly available GPT‑5.6 Sol completes <strong>1.5%</strong> of the same set — and only <strong>2.0%</strong> even with Daybreak Blue access. The previous cyber model, GPT‑5.5‑Cyber, managed 57.3%. That is not a capability difference; for the Sol tiers it is entirely a permissions difference, and it is a roughly 60-fold swing decided by an application form.</p>
+<p>Google's version is scale plus contract. Fairwind has <strong>more than 650 participating partners globally</strong>, including CrowdStrike, Datadog, Palo Alto Networks and Snowflake, with initial access staged for national cyber authorities, critical-infrastructure operators and core technology platforms. Participants "agree to strict operational standards, including limiting access to employees within their internal cybersecurity, incident response, or penetration testing teams and deploying protections like multi-factor authentication." OpenAI has gone further on identity: individual Daybreak accounts have required hardware security keys since September 1.</p>
+<p>The capability being gated is real. Gemini 3.8 Flash Cyber exceeds a <strong>70% success rate</strong> on Google's internal vulnerability-discovery benchmark spanning 20 programming languages, and scores <strong>47.2% pass@1 on CWE-Bench</strong>, the external patching benchmark run by Collinear — statistically level with a leading frontier model's 47.8% at a fraction of the cost. Google's Chrome Security team reported the model produced <strong>2.6 times more correct patches</strong> to Chrome vulnerabilities than the best, much larger commercial models, and its Cloud Vulnerability Research team said it found a critical foundational vulnerability in under two hours, work that normally takes months.</p>
+<p>Anthropic has settled on a fourth model of gating: don't hand over the model at all. Rather than direct API access, defenders increasingly consume Mythos 5 through purpose-built interfaces that return only a defined output. "Claude Security uses Mythos 5 to scan code you own, and returns detailed findings rather than raw outputs without exposing the model itself," the company explained. "This means defenders can access the capabilities of Claude Mythos 5 without the model becoming accessible to those who might misuse it." Project Glasswing now spans roughly 150 organizations across 15 countries, and Anthropic has committed <strong>$35 million in Claude credits</strong> through its Defender Advantage Fund to groups helping open source maintainers.</p>
+<h2>Why It Matters</h2>
+<p>Access gating has quietly become the industry's most-used safety control — and it is a strange one, because it is not a property of the model. It is a contract and an identity check. Every lab has now conceded that alignment training alone cannot make a zero-day-finding system safe for anonymous public use, so the safety boundary has migrated from the weights to the customer roster.</p>
+<p>That has real benefits. Google frames it as a head start: early access gives trusted defenders "a vital adaptation window to harden their systems before bad actors have a chance to exploit new capabilities." Anthropic makes the same wager.</p>
+<p>But the offense/defense math is uncomfortable. These programs favor exactly the organizations that were already best defended — governments, hyperscalers, Fortune 500 security teams, national CERTs. The hospital, the municipal utility and the two-maintainer npm package that anchors a supply chain do not have a Daybreak account. Google's $36 million for 35 cyber clinics and Anthropic's open source fund are attempts to patch that gap, but they are philanthropy layered on top of a market structure that concentrates advantage.</p>
+<p>There is also a control-plane question the labs cannot answer for you. Commenting on OpenAI's tiering, Alex Goller, principal solution architect for EMEA at Illumio, called it "a good first step" but warned that model guardrails were never the real control. "These are agents operating inside your environment and the controls that matter follow zero trust principles," he said. "There must be visibility into what the agent is doing and what it can reach, and then segmentation to contain the blast radius when something goes wrong." His conclusion is the one security leaders should tape to the wall: "that enforcement lives in your infrastructure, not in the model."</p>
+<p>And gates leak in ordinary ways — the 650th partner, a compromised session, a contractor with a Fairwind seat. None of the labs claim otherwise.</p>
+<h2>What to watch</h2>
+<p>Three things. First, whether Anthropic's Cyber Verification Program actually extends Mythos-class access beyond Glasswing, as promised "in the coming weeks" — the first real test of scaling a vetted tier. Second, whether any regulator treats these rosters as critical-infrastructure policy rather than vendor terms of service; right now private companies are deciding which defenders get to be strong. Third, false positives: OpenAI has already warned that Astra's safeguards "may erroneously flag legitimate activity as cyber misuse." A gate that blocks the wrong defender mid-incident is not a safety control. It is an outage.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;These are agents operating inside your environment and the controls that matter follow zero trust principles... that enforcement lives in your infrastructure, not in the model.&rdquo;</blockquote><cite>&mdash; Alex Goller, Principal Solution Architect for EMEA, Illumio</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">650+</div><div class="stat-label">Partners in Google's Fairwind Program</div></div><div class="stat-cell"><div class="stat-value">95% vs 1.5%</div><div class="stat-label">Sensitive cyber requests completed, gated vs public model</div></div><div class="stat-cell"><div class="stat-value">2.6x</div><div class="stat-label">More correct Chrome patches than larger rivals</div></div><div class="stat-cell"><div class="stat-value">$35M</div><div class="stat-label">Anthropic Defender Advantage Fund credits</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thehackernews.com&amp;sz=32" alt="">The Hacker News</a><a href="https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.google&amp;sz=32" alt="">Google Blog: Fairwind</a><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.google&amp;sz=32" alt="">Google Blog: Gemini 3.8 Flash Cyber</a><a href="https://www.securityweek.com/anthropic-expands-mythos-5-access-to-more-defenders-unveils-35m-open-source-fund/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=securityweek.com&amp;sz=32" alt="">SecurityWeek</a><a href="https://www.infosecurity-magazine.com/news/openai-daybreak-blue-red-gpt-cyber/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=infosecurity-magazine.com&amp;sz=32" alt="">Infosecurity Magazine</a></div></div>
+<div class="article-nav"><a href="09-baidu-xiaodu-super-assistant-hardware.html" class="nav-prev">&larr; Baidu's Xiaodu Unveils Super Assistant Hardware Li…</a><a href="11-anthropic-model-hardware-standard-labs.html" class="nav-next">Anthropic's Model Hardware Standard Gives AI Agent… &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 8, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%";});</script>
+</body></html>
