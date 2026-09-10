@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Ships ChatGPT Images 2.5, Five Months After 2.0 &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1.2rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--accent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+<span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+<h1>OpenAI Ships ChatGPT Images 2.5, Five Months After 2.0</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1006 words</span><span>3 sources</span></div>
+</header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>ChatGPT Images 2.5 competes on edit persistence and workflow lock-in rather than raw fidelity, shipping to all tiers with two API variants and a claimed latency cut as rivals converge on output quality.</p></div>
+<div class="article-body">
+<p>Five months after ChatGPT Images 2.0 landed in April 2026, OpenAI has shipped its successor — and the pitch is no longer about whether the model can draw. It is about whether the model can be <em>directed</em>.</p>
+<p>ChatGPT Images 2.5 began rolling out on Tuesday, September 8, 2026, across ChatGPT, ChatGPT Work, and Codex on desktop, mobile, and web. Unlike the staggered releases that have characterized OpenAI's recent launches, this one went to all tiers at once — free users included. Developers received two new API models: GPT-Image-2.5 Flare, the default for high-volume work, and GPT-Image-2.5 Sunburst, aimed at premium editing workflows that trade speed for control. Both are available now.</p>
+<p>The headline number is latency. OpenAI claims generation is up to 50% faster than Images 2.0, and describes Flare as producing higher-quality output than GPT-Image-2 at half the latency. That got a second data point from a launch partner: the agent startup Manus measured Flare at two to four times the generation speed of GPT-Image-2. Adobe is bringing both models into Firefly, and Higgsfield AI and Runway also supplied early feedback.</p>
+<h2>What actually changed</h2>
+<p>The substantive upgrades are less about raw fidelity than about persistence. Images 2.5 is built to keep a subject recognizable when its setting, style, or composition changes — the reference-led generation problem that has dogged every image model since the diffusion era began. Precision editing targets only the requested element while leaving subject, background, layout, and brand treatment intact, rather than silently regenerating the whole frame. Across longer conversations, earlier edits are more likely to survive subsequent instructions, reducing the drift that makes iterative production work expensive in retries.</p>
+<p>OpenAI also says the model handles complex visual instructions more coherently and is better at transparent backgrounds — a small but commercially loaded capability for anyone producing packaging or app assets.</p>
+<p>The interface changes may matter more than the weights. Users can now type `@Sketch` to draw directly inside ChatGPT and hand that drawing to the model as a spatial guide. Image comments let a user point at a region and request a focused revision. Templates such as Poster and Merch supply a predefined format up front. Shared images can optionally carry their source prompt, so recipients can adapt a concept with their own photos.</p>
+<p>Axios' Ina Fried, who tested the model ahead of launch, reported that it "does a much better job preserving the likeness of people and pets." In one test the model's chain-of-thought notes showed it explicitly preserving a cat's "wonderfully unimpressed expression" across style transfers — a window into how identity is being reasoned about rather than merely approximated.</p>
+<p>Adele Li, OpenAI's product lead on images, framed the new controls as a deliberate move away from prompt-and-pray generation. "The sketch tool and these templates are kind of an attempt to make people more engaged in the process of creation, rather than them being a passive force," Li told Axios. She also described a goal that cuts against the flattening effect of a single dominant model: "I don't want to be able to see ChatGPT in the world. I want people to be able to generate and express their own individualism."</p>
+<p>Pricing is the one area where reporting diverges. Data Studios' analysis lists every Flare and Sunburst token rate at exactly 2x the corresponding GPT-Image-2 rate — image output moving from $15 to $30 per million tokens, image input from $4 to $8, text input from $2.50 to $5. Several other outlets have characterized the rates as unchanged. This newsletter has not independently confirmed the delta; readers running production workloads should check OpenAI's API pricing page directly before budgeting. What is not in dispute is the operational point: if the 2x figure holds, a latency-limited pipeline that doubles its throughput while paying double per token can see spend rise toward 4x if it stays saturated.</p>
+<h2>The commoditization question</h2>
+<p>Image generation is now solved in the way text summarization is solved: everybody can do it, and doing it is not a business. OpenAI says users create more than 3 billion images per week across ChatGPT Images and the GPT-Image API. That volume is precisely why the differentiation has moved elsewhere.</p>
+<p>On the Artificial Analysis Image Arena, GPT Image 2 has held the top spot, but as of September its lead had narrowed to roughly 21 points over Microsoft's MAI-Image-2.6-Preview across more than 15,000 blind comparisons. Google's Nano Banana Pro competes on price — reported around $0.027 per image at the Nano Banana 2 tier — and is the usual free-tier default. Midjourney, now at V8, remains the aesthetics specialist and has largely stopped competing on instruction-following. FLUX.2 owns the controllability niche.</p>
+<p>Read that spread and the strategy behind 2.5 is obvious. If raw output quality converges, the moat is the editing loop: whether a model can hold a face, a logo, and a layout stable across eight consecutive revisions inside a workflow the user never leaves. Sketch, comments, and templates are not features so much as switching costs. Adobe integrating both models into Firefly is the same bet from the distribution side.</p>
+<p>The ethical ledger has not moved. As Axios noted, these systems were trained on the work of real artists, usually without consent or compensation. OpenAI says 2.5 retains C2PA metadata, invisible watermarking, and prompt-and-image safety checks — provenance infrastructure that helps identify AI output but does nothing about how the model learned to produce it.</p>
+<h2>What to watch</h2>
+<p>Three things. First, whether the 2x pricing figure is confirmed — it determines whether Flare's speed gain is an economic win or a wash. Second, Google's response; the Nano Banana line iterates fast and competes on cost, not capability. Third, DevDay 2026, where OpenAI is expected to detail managed agents. An image model with reliable multi-turn edit persistence is a far more useful primitive for an autonomous agent than one that regenerates from scratch every turn. That, more than fidelity, is probably what 2.5 was built for.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;I don't want to be able to see ChatGPT in the world. I want people to be able to generate and express their own individualism.&rdquo;</blockquote><cite>&mdash; Adele Li, Product Lead, Images, OpenAI</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">50%</div><div class="stat-label">Claimed latency reduction</div></div><div class="stat-cell"><div class="stat-value">3 billion</div><div class="stat-label">Images created per week</div></div><div class="stat-cell"><div class="stat-value">2-4x</div><div class="stat-label">Flare generation speedup</div></div><div class="stat-cell"><div class="stat-value">April 2026</div><div class="stat-label">Images 2.0 debut</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.axios.com/2026/09/08/exclusive-hands-on-with-chatgpts-new-image-editor" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=axios.com&amp;sz=32" alt="">Axios</a><a href="https://www.testingcatalog.com/openai-launches-chatgpt-images-2-5-with-faster-editing/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=testingcatalog.com&amp;sz=32" alt="">TestingCatalog</a><a href="https://www.datastudios.org/post/openai-chatgpt-images-2-5-flare-sunburst-api-pricing" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=datastudios.org&amp;sz=32" alt="">Data Studios</a></div></div>
+<div class="article-nav"><a href="07-deepseek-v41-flash-endpoint-release.html" class="nav-prev">&larr; DeepSeek Opens a V4.1 Flash Endpoint That Expires </a><a href="09-xai-grok-bot-enterprise-launch.html" class="nav-next">xAI Ships Grok Bot for Enterprise as It Chases Sea &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 9, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%";});</script>
+</body></html>

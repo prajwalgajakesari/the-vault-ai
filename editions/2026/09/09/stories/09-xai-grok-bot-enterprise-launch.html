@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>xAI Ships Grok Bot for Enterprise as It Chases Seats Instead of Attention &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1.2rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--accent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+<span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+<h1>xAI Ships Grok Bot for Enterprise as It Chases Seats Instead of Attention</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1000 words</span><span>3 sources</span></div>
+</header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>xAI's Grok Bot for Enterprise gives admins org-wide deployment plus network, access and audit controls, but permissive defaults and an unresolved brand-trust problem mean the compliance checklist is complete while the enterprise business is not.</p></div>
+<div class="article-body">
+<p>xAI spent two years teaching the internet to argue about Grok. On September 3, 2026, it started asking IT administrators to install it.</p>
+<p>That was the day the company published <em>Grok Bot for Enterprise</em>, turning its agentic "Bot" product from a per-seat curiosity into something an admin can switch on across an org chart. "Grok Bot is your team of helpful AI teammates," xAI wrote. "You delegate real tasks to them and they carry the job through end to end, working autonomously around the clock inside the same tools you use."</p>
+<p>The timing was unkind. OpenAI's GPT-6 Astra shipped the same day, with president Greg Brockman telling reporters its computer-use ability might be remembered as the start of AGI. xAI's launch surfaced instead in the AI newsletter digests running through September 8 and 9 — a smaller stage, but arguably the more consequential product, because it is the first xAI release aimed at a procurement committee rather than a timeline.</p>
+<h2>What actually shipped</h2>
+<p>A Bot, in xAI's framing, is a named worker assigned to a specific job. Each runs on its own cloud computer and drives browsers, applications and development environments the way a person would. You teach it a workflow by letting it follow along once; it saves the routine, absorbs corrections, and runs it independently afterward. Bots can message one another and pass context.</p>
+<p>The enterprise layer is the news: an organization-wide enable switch, Network Controls, Team Setup, computer management, audit logs, and OpenTelemetry Export to a customer's own collector. "Enterprises need the ability to govern Bots at scale," the company wrote, "and today's release adds access, network, and audit controls that make that possible."</p>
+<p>The commercial hook is a two-week free rollout for existing Grok and Cursor Enterprise customers, who can invite their entire organization, including employees without a paid seat. Enterprise access was still a waitlist item on August 26, when Grok Bot expanded to SuperGrok, Cursor Pro and Cursor Teams. Notably, activation runs through the Cursor admin dashboard and sales inquiries route to cursor.com — an entanglement the announcement does not explain.</p>
+<p>Named customers are thin but real: xAI cites Legora, Supermicro and ServiceTitan among "thousands of organizations," a company-supplied figure not independently audited. It says the heaviest use is outside engineering — sales, recruiting, marketing, finance — and claims one procurement Bot surfaced "tens of thousands of dollars in savings" in vendor spend. Grok Business remains $30 per user per month; Enterprise pricing is still unpublished and requires a sales conversation.</p>
+<h2>The fine print administrators will read twice</h2>
+<p>Independent coverage of the launch documentation found defaults that cut against the marketing. Action Recording is off by default, and its events never reach the dashboard's Audit Log page — customers need OpenTelemetry Export to get them anywhere useful. Teams without a network policy default to allowing all destinations, and self-serve Teams cannot set an allowlist at all. Connector permissions apply to every Bot a member runs, not per Bot.</p>
+<p>The isolation boundary is the sharpest detail. xAI says "a Bot has no access by default and reaches only the accounts you sign it into," and that each user's work runs in an isolated environment. But the separation is between employees, not between one employee's Bots: all of a user's Bots share the same cloud computer, so a login or file placed there should be treated as available to all of them. The documentation recommends a separate user account when work needs separate credentials. There is also no dedicated Grok Bot spend cap today.</p>
+<h2>Can notoriety convert into trust?</h2>
+<p>xAI has the compliance artifacts: SSO, SCIM directory sync, audit logs, SOC 2 Type 2, GDPR and CCPA alignment, and an Enterprise Vault with dedicated infrastructure and customer-managed encryption keys. "Your data stays yours: no training on it, ever," the company said at the Business tier launch.</p>
+<p>The objection buyers raise is not about the questionnaire. Shashi Bellamkonda, principal research director at Info-Tech Research Group, argued in a May 2026 analysis that "for enterprise buyers, the issue is not infrastructure. It is optics," and concluded flatly: "The Grok Enterprise product exists. The enterprise business does not." His specifics are concrete — no published Fortune 500 reference case, a self-serve portal and a contact form in place of a field sales motion, and a governance stack four entities deep after SpaceX acquired xAI in February 2026.</p>
+<p>The consumer brand keeps generating the wrong kind of evidence. Trade coverage in 2026 has repeatedly tied slow institutional uptake to scrutiny over Grok's content moderation, including allegations around explicit generated imagery, and to regulatory inquiries in multiple jurisdictions. Those reports also note Grok appears in only a small number of documented federal AI use cases, mostly pilots and low-stakes drafting, despite aggressive pricing.</p>
+<p>Aggressive is an understatement. xAI holds a Department of Defense contract with a $200 million ceiling — the same ceiling awarded to Anthropic, Google and OpenAI — and a GSA OneGov agreement pricing Grok at $0.42 per agency, running 18 months through March 2027. That is a land-grab, not a revenue line, and it only pays off if pilots convert. FedRAMP High certification, which xAI has been pursuing, is the gate that would let it try.</p>
+<h2>What to watch</h2>
+<p>Three things will tell you whether this landed. First, whether xAI publishes a named enterprise logo with a real deployment size when the free window closes around September 17 — a seat count would settle more than any benchmark. Second, whether Action Recording and network allowlists become defaults rather than opt-ins, the cheapest signal xAI could send that it takes the CISO objection seriously. Third, whether the Cursor dependency in the admin path resolves into a cleanly branded enterprise surface, or stays the seam it is today.</p>
+<p>xAI has proven it can manufacture attention. Seats are a different instrument, and they are tuned by procurement lawyers who do not read timelines.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;For enterprise buyers, the issue is not infrastructure. It is optics.&rdquo;</blockquote><cite>&mdash; Shashi Bellamkonda, Principal Research Director, Info-Tech Research Group</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">$30</div><div class="stat-label">Per user per month, Grok Business</div></div><div class="stat-cell"><div class="stat-value">$200M</div><div class="stat-label">DoD contract ceiling</div></div><div class="stat-cell"><div class="stat-value">$0.42</div><div class="stat-label">GSA OneGov price per agency</div></div><div class="stat-cell"><div class="stat-value">3</div><div class="stat-label">Named enterprise customers</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://x.ai/news/grok-bot-for-enterprise" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=x.ai&amp;sz=32" alt="">xAI</a><a href="https://www.channelinsider.com/ai/llms-chatbots-and-agents/grok-enterprise-plans/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=channelinsider.com&amp;sz=32" alt="">Channel Insider</a><a href="https://www.gsa.gov/about-gsa/newsroom/news-releases/gsa-xai-partner-to-accelerate-federal-ai-adoption-09252025" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=gsa.gov&amp;sz=32" alt="">GSA</a></div></div>
+<div class="article-nav"><a href="08-openai-chatgpt-images-25-launch.html" class="nav-prev">&larr; OpenAI Ships ChatGPT Images 2.5, Five Months After</a><a href="12-mathematical-ai-safety-institute-tsimerman.html" class="nav-next">A Fields Medalist Is Building an Institute for Mat &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 9, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%";});</script>
+</body></html>

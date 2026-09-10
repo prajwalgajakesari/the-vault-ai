@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Fields Medalist Is Building an Institute for Mathematical AI Safety &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul{margin:0 0 1.3rem 1.2rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1.2rem;border-left:2px solid var(--cat-color);font-style:italic;color:var(--text-strong)}
+.article-body a{color:var(--accent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav><a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a><span class="brand">THE VAULT</span></nav>
+<header class="article-header">
+<span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+<h1>A Fields Medalist Is Building an Institute for Mathematical AI Safety</h1>
+<div class="meta-row"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 993 words</span><span>3 sources</span></div>
+</header>
+<div class="takeaway"><div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div><p>2026 Fields Medalist Jacob Tsimerman launched MAISI, an independent institute that plans to put 10 to 30 mathematicians in residence by January 2027 and up to 100 by September 2027 to build formal foundations for AI safety, though it has disclosed no funding sources.</p></div>
+<div class="article-body">
+<p>Six weeks after collecting the highest honor in mathematics, Jacob Tsimerman went looking for a harder problem. On September 8, 2026, the University of Toronto number theorist announced the founding of the Mathematical AI Safety Institute — MAISI — an independent non-profit that intends to relocate dozens of professional mathematicians to the Bay Area and point them at a question no one has yet managed to state precisely: what would it take to know an AI system will not cause a catastrophe?</p>
+<p>"AI safety needs more foundational theoretical development, and mathematicians have the skills and the mindset to help," Tsimerman wrote in the launch post on X, describing MAISI as an independent institute offering visiting positions from one semester to two years.</p>
+<p>The credentials are not in dispute. Tsimerman received the 2026 Fields Medal in July, awarded once every four years to between two and four mathematicians under 40, for recasting o-minimality as a working method in arithmetic and complex algebraic geometry and for his role in proving the Andre-Oort conjecture for Siegel modular varieties and Griffiths' conjecture on algebraicity of period map images. He shared the medal with Yu Deng, John Pardon and Hong Wang, and became the first faculty member at a Canadian university to win it. Earlier prizes include the 2023 Ostrowski Prize and the 2022 New Horizons in Mathematics Prize.</p>
+<h2>What MAISI has actually announced</h2>
+<p>The institute's public plan is specific about people and vague about money. MAISI says it is hiring 10 to 30 mathematicians as faculty for a January 2027 semester, scaling to 30 to 100 researchers for a September 2027 "Special Year." Applications are already live at maisi.org. The model is explicitly the Institute for Advanced Study or the Fields Institute: members in residence for one or two semesters, offices around a shared common area, seminar rooms, renewals possible.</p>
+<p>The named roster is unusually heavy for a week-old organization. Tsimerman is Scientific Director. Andrew Critch — a Berkeley mathematics PhD who spent five years at the Center for Human-Compatible AI and co-founded the Survival and Flourishing Fund — is Executive Director. The scientific advisory panel lists Stanford's Ravi Vakil, currently president of the American Mathematical Society; 1998 Fields Medalist Timothy Gowers; Geoffrey Irving, cofounder and chief scientist of Resolution and formerly chief scientist of the UK AI Security Institute; and Paul Christiano, director of the Alignment Research Center. The board includes Toronto mathematicians Arul Shankar and Yevgeny Liokumovich.</p>
+<p>"AI safety needs more mathematicians," Critch wrote in his own announcement. "I'm extremely proud to be joining recent Fields Medallist @Jacob_Tsimerman to found the Mathematical AI Safety Institute."</p>
+<p>What MAISI has not published is a budget, a funder list, or a headcount for staff as opposed to visiting members. The site names partnerships with alignment.org and resolution.org but attaches no dollar figures to them, and at least one commenter on the launch thread asked directly who is paying for it. As of this writing, there is no public answer. Tsimerman is also joining OpenAI's safety department this month; MAISI's materials state the institute operates independently of the company, but the arrangement is worth watching precisely because the institute's stated purpose is to evaluate whether systems like OpenAI's can be made safe at all.</p>
+<h2>Analysis: what "mathematical AI safety" is supposed to mean</h2>
+<p>The phrase covers a cluster of ideas that have circulated in alignment research for years without a home institution: formal verification of system properties, provable guarantees on behavior, and the broader "guaranteed-safe AI" agenda that asks for machine-checkable arguments rather than empirical red-teaming.</p>
+<p>MAISI's framing is blunter than most. "A central reason the safety of powerful AI systems remains in question is that we lack a rigorous understanding of what it would mean to be safe, even in theory," the institute writes. Its stated key question is "what premises would allow us to deduce with high confidence that a new AI technology will not cause a catastrophe?" The published research directions are recognizably mathematical rather than engineering-flavored: heuristic estimators, interpretability and feature manifolds, open-source game theory.</p>
+<p>The most interesting part of the pitch is that MAISI advertises the possibility of failure. The site lists three negative outcomes it would count as findings: that the current AI paradigm cannot be made existentially safe; that safe configurations exist but are provably chaotic and noise-sensitive; or that verifying safety sits in a provably intractable complexity class. Mathematics, it notes, is one of the few disciplines that can prove its own problems unsolvable — and an impossibility result would itself be information worth having.</p>
+<p>Timing explains part of the enthusiasm. The launch landed the same day OpenAI announced that an internal multi-agent system had produced a finite-time blowup result for the Navier-Stokes equations, accompanied by a formalization in the Lean proof assistant. Whatever one makes of the priority and credit disputes now surrounding that claim, the Lean artifact is the reason it can be argued about at all: a machine-checked proof does not require trusting the lab that produced it. That is the same move safety researchers want to make on systems rather than theorems, and it is a move mathematicians already know how to execute.</p>
+<p>MAISI is also explicit that it will not behave like a normal math institute. Rather than refining results into journal papers over years, it says it will publish living documents in "the earliest form that might be of benefit to AI safety as a field."</p>
+<h2>What to watch</h2>
+<p>Three things. First, funding: an institute promising 30 to 100 researchers by September 2027 needs a disclosed budget, and the absence of one is the largest gap in the announcement. Second, whether senior mathematicians actually relocate — advisory-panel names are cheap, and residencies are not. Third, whether the January 2027 cohort produces a definition of safety crisp enough to be wrong. On MAISI's own terms, that would already count as progress.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;A central reason the safety of powerful AI systems remains in question is that we lack a rigorous understanding of what it would mean to be safe, even in theory.&rdquo;</blockquote><cite>&mdash; Mathematical AI Safety Institute, Mission statement, maisi.org</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">Sept 8</div><div class="stat-label">MAISI launch date</div></div><div class="stat-cell"><div class="stat-value">10-30</div><div class="stat-label">Mathematicians sought for Jan 2027</div></div><div class="stat-cell"><div class="stat-value">30-100</div><div class="stat-label">Target for Sept 2027 Special Year</div></div><div class="stat-cell"><div class="stat-value">2026</div><div class="stat-label">Fields Medal year</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://maisi.org/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=maisi.org&amp;sz=32" alt="">MAISI</a><a href="https://www.quantamagazine.org/jacob-tsimerman-wins-2026-fields-medal-for-andre-oort-conjecture-proof-20260723/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=quantamagazine.org&amp;sz=32" alt="">Quanta Magazine</a><a href="https://cryptobriefing.com/mathematical-ai-safety-institute-tsimerman/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cryptobriefing.com&amp;sz=32" alt="">Crypto Briefing</a></div></div>
+<div class="article-nav"><a href="09-xai-grok-bot-enterprise-launch.html" class="nav-prev">&larr; xAI Ships Grok Bot for Enterprise as It Chases Sea</a><a href="13-autosota-automated-research-system.html" class="nav-next">AutoSOTA Automates the Hunt for State of the Art.  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 9, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%";});</script>
+</body></html>
