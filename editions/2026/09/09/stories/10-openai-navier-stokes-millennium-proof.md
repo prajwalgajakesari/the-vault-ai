@@ -1,0 +1,31 @@
+# OpenAI Says 10,000 Coordinating Agents Cracked Navier-Stokes in 88 Hours. Mathematicians Get the Final Word.
+
+On the morning of Tuesday, September 8, a swarm of roughly 10,000 autonomous agents running on an OpenAI model the public has never seen stopped working. Eighty-eight hours earlier they had been pointed at the Navier-Stokes existence and smoothness problem — one of seven Millennium Prize Problems posed by the Clay Mathematics Institute in 2000, each carrying a $1 million award. What they produced, OpenAI says, is an analytical proof that a fluid governed by the Navier-Stokes equations in three dimensions can develop a singularity in finite time: a blowup, where velocity races off to infinity.
+
+Whether that proof is correct is not OpenAI's call, and the company has not claimed otherwise. It is a question for a mathematics community that spent the next two days arguing about something else — how OpenAI came to be working on this problem at all.
+
+OpenAI said "nearly 100 agents worked together for approximately 50 hours" on a related Euler regularity disproof; the Navier-Stokes run used the larger swarm and, per Quanta Magazine, generated almost 5 million inter-agent messages. A separate model then spent 17 more hours formalizing and machine-checking the argument in Lean. Sébastien Bubeck, who leads OpenAI's math effort, put the compute bill at several million dollars; TechCrunch pegged the week's broader effort at 300 billion output tokens, roughly $22.5 million at published Astra rates.
+
+## A twelve-hour gap, and a dispute
+
+Twelve hours before OpenAI's announcement, just before midnight on September 7, NYU Courant mathematician Tristan Buckmaster posted a statement saying he and Levent Alpöge — a mathematician employed by Anthropic, though not working on its behalf — had Lean-verified finite-time blowup results for several related fluid systems, including a Euler result they had by August 22. Both efforts built on an unconventional analytic strategy from Diego Córdoba of Madrid's ICMAT and Luis Martínez-Zoroa of CUNEF University, who attacked the problem without the computer-assisted methods that had dominated the field since 2013.
+
+Buckmaster's statement went further than mathematics. He said word of his and Alpöge's unpublished progress reached OpenAI, and that on a September 6 call OpenAI researchers acknowledged their effort had begun only days earlier. OpenAI's post confirms the timeline, dating the push to September 1 and saying it was prompted by rumors a Millennium Problem had fallen. Buckmaster's suspicion turns on the coincidence of method: he and Alpöge had quietly chosen the smooth-forcing route through Fefferman's problem statement, and, he wrote, "It is not the direction one arrives at in a few days by giving a model the problem statement."
+
+Because the pair had run their drafts through OpenAI's Codex, Buckmaster asked whether the internal model had been trained on or had access to those sessions. He says he was told the model did not look up user data, and that his question about training went unanswered. OpenAI's post addresses it: "We (the researchers and the agents) did not see any of their work through any means until they released it publicly," it reads, adding that while it cannot rule out that de-identified usage data helped improve its models, the two proofs differ significantly.
+
+Buckmaster also alleges Bubeck proposed a compromise in which Alpöge's name would come off the paper because of his Anthropic affiliation, and that when he refused, Bubeck asked why he would ruin his career. Bubeck posted on X that "a series of false and inflammatory allegations against me are currently circulating," and told reporters: "I want to be extremely clear that we recognize the priority of Levent Alpöge and Tristan Buckmaster's work." OpenAI cedes priority on the 3D Euler result and claims it for Navier-Stokes. The accounts have not been reconciled.
+
+Charles Fefferman of Princeton, who wrote the Clay Institute's official statement of the problem, told Quanta he was thrilled it was solved and named Córdoba and Martínez-Zoroa the story's heroes.
+
+## What Lean settles, and what it doesn't
+
+The Lean formalization is doing real work, and it is worth being precise about which. Lean checks that every inferential step from stated hypotheses to stated conclusion is valid, eliminating the class of error that has historically killed big proofs: a gap in the middle nobody noticed. That is why the result is being taken seriously on day three rather than day three hundred.
+
+What Lean cannot check is whether the formal statement at the top of the file is the theorem mathematicians care about. Navier-Stokes is unusually demanding here: the Millennium version requires three-dimensional space with no boundary and a forcing function that is smooth in a specific technical sense, and earlier blowup results failed the criteria precisely because their forcing terms misbehaved when layered together. Confirming that OpenAI's formalized statement is equivalent to Fefferman's is human work, it is subtle, and it has not been done in public.
+
+A second thing formalization does not deliver is the one making senior mathematicians uneasy. Terence Tao, writing before the announcement, argued that AI increasingly produces answers without insight — labs rarely publish the approaches that failed, and those dead ends are where new techniques come from. Strip-mining open problems for solutions, he warned, could destroy the ecosystem that produces the next generation of mathematical techniques and practitioners. If a $1 million problem can be closed by a weekend of swarm compute, the question is not whether mathematics survives. It is what a mathematician's career is for.
+
+## What to watch
+
+First, whether independent specialists certify that the formalized statement matches the Millennium criteria; that verdict, not the Lean exit code, is the one that counts. Second, the Clay Institute's rules, which require publication in a refereed journal of worldwide repute and a two-year period of general acceptance before an award is considered. That clock has not started. Third, whether OpenAI pursues the prize at all — it has signaled it will not, which sidesteps the unresolved question of who a machine-produced proof would name as its author.
