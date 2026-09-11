@@ -1,5 +1,3 @@
-# OpenAI Built a Product for the Work Junior Bankers Do
-
 For two generations, the way you learned investment banking was by doing the worst job in it: pulling filings past midnight, reconciling an adjusted EBITDA figure against the footnote explaining which costs management excluded, dropping the result into PowerPoint, then walking the deck backward slide by slide to confirm every number traces to something real. On Thursday, OpenAI shipped a product built to do that in minutes.
 
 ChatGPT for Financial Services, announced September 10, 2026, is a tailored version of ChatGPT Work running on GPT-6 Astra, the frontier model OpenAI released a day earlier. It was developed with Morgan Stanley and Evercore as design partners, and it launches aimed squarely at the two functions where the grind is heaviest: investment banking and equity research.
