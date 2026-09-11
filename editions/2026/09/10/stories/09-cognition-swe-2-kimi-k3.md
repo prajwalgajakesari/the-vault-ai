@@ -1,5 +1,3 @@
-# Cognition Built a Near-Frontier Coding Model on Someone Else's Weights
-
 The most capable coding model an American application company has ever shipped did not begin in San Francisco. It began as a 2.8-trillion-parameter file that a Chinese lab posted for free.
 
 On Wednesday, Cognition — the startup behind the autonomous coding agent Devin — released SWE-2, a model it says lands within a single point of Anthropic's frontier-tier Claude Fable 5.1 on real-world software engineering work while costing 64 percent less to run at that score. SWE-2 was not trained from scratch. It is post-trained from Kimi K3, the open-weights model Moonshot AI published in July. The distance between those two sentences is the story.
