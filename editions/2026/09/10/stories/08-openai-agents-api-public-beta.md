@@ -1,5 +1,3 @@
-# OpenAI Is Renting Out the Harness It Built for Codex
-
 The model was never the hard part. Anyone who has tried to ship a long-running AI agent knows the real work lives in the unglamorous plumbing underneath: resuming a session after a crash, compacting context before the window fills, retrying a timed-out tool call, keeping a fleet of subagents from trampling each other. On September 10, OpenAI started renting that plumbing out.
 
 The company opened the public beta of its Agents API, handing every developer the same managed harness that runs Codex and ChatGPT for Work. OpenAI keeps the session alive, compacts the context as it approaches the limit, and recovers after failures. The developer supplies instructions, tools, and MCP servers, then picks where the code actually executes. Every request carries the beta header agents=v1, and the documentation samples run on gpt-6-astra. “As we’ve scaled Codex and ChatGPT for Work to millions of people around the world,” the company wrote, “we’ve learned what it takes to make long-running agents work well in practice.”
