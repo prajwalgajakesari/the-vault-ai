@@ -1,5 +1,3 @@
-# California Signed Thirteen Bills on Kids and Chatbots in One Day
-
 Maria Raine stood a few feet from the governor of California on Thursday, at a children's museum in Sausalito with the Golden Gate Bridge behind her, and watched him sign a law named for her son.
 
 Gov. Gavin Newsom signed 13 bills on Sept. 10 at the Bay Area Discovery Museum, all of them touching how minors use social media and AI. The centerpiece was Senate Bill 1119, Adam's Law, named for Adam Raine, the 16-year-old Californian who died by suicide in 2025 after months of conversations with ChatGPT. His parents sued OpenAI and chief executive Sam Altman in San Francisco Superior Court in August 2025; that case remains in pretrial discovery, with a case management conference set for Sept. 23.
