@@ -1,5 +1,3 @@
-# Anthropic Says Sophistication No Longer Tells You Who Is Behind an Operation
-
 For two decades, threat intelligence analysts treated craft as a fingerprint. A patient, multi-stage intrusion that rebuilt its own tooling when caught meant a government was paying the bills. A noisy smash-and-grab meant a teenager with a scanner. In a report published Thursday, Anthropic says that heuristic is finished.
 
 “For threat intelligence investigators, sophistication has stopped being a reliable signal of who is behind an operation,” the company wrote, noting that a lone hacktivist running on stolen API keys, a scattering of financially motivated criminals, and a state espionage operator each sustained multi-victim campaigns that a year earlier “would have required many skilled operators and specialist knowledge.”
