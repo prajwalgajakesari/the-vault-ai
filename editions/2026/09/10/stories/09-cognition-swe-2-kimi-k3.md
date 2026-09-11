@@ -1,0 +1,31 @@
+# Cognition Built a Near-Frontier Coding Model on Someone Else's Weights
+
+The most capable coding model an American application company has ever shipped did not begin in San Francisco. It began as a 2.8-trillion-parameter file that a Chinese lab posted for free.
+
+On Wednesday, Cognition — the startup behind the autonomous coding agent Devin — released SWE-2, a model it says lands within a single point of Anthropic's frontier-tier Claude Fable 5.1 on real-world software engineering work while costing 64 percent less to run at that score. SWE-2 was not trained from scratch. It is post-trained from Kimi K3, the open-weights model Moonshot AI published in July. The distance between those two sentences is the story.
+
+On FrontierCode 1.1 Main — Cognition's own benchmark, which grades whether an AI-written pull request would actually be merged by a human maintainer — SWE-2 scores 50.0 percent. Fable 5.1 scores 50.9, OpenAI's GPT-6 Astra 53.3, xAI's Grok 4.6 48.0, and Cognition's previous model SWE-1.7 a distant 42.0. On DeepSWE 1.1, SWE-2 posts 73.0 percent, ahead of Fable 5.1 at 67.4 and GPT-5.6 Sol at 72.7. On Terminal-Bench 2.1 it reaches 92.8 percent, the highest figure in Cognition's table.
+
+The number that matters most is what the training bought. Bare Kimi K3 scores 44.2, 68.5 and 88.3 percent on those same three benchmarks. Cognition's reinforcement learning run is worth roughly six points on top of a base it did not pay to pretrain. As the company put it in a launch post credited collectively to The Cognition Team rather than any individual, “our RL still finds substantial headroom, adding 5–6 points on many benchmarks and shifting K3's entire cost–performance frontier.”
+
+## How the Training Works
+
+The technical claim underneath the table is about the shape of the curve, not one point on it. Cognition says it trained all three of SWE-2's reasoning-effort levels — medium, high and max — in one pass, using a reward that subtracts a cost penalty from each rollout's success signal. “We apply a linear cost penalty per effort level in a single RL run, with each penalty tuned to the local slope of the base model's Pareto frontier,” the company wrote, adding that “with SWE-2, we scaled RL to the multi-trillion-parameter regime for the first time.”
+
+The payoff users will feel is impatience. Cognition says SWE-2 medium beats SWE-1.7 on FrontierCode 1.1 Main while taking 58 percent fewer turns and costing 81 percent less on average — 53 mean steps per task against 127. It makes its first real code edit after a median of 18 steps, versus 48 for its predecessor, a model the company concedes “tended to over-explore and overthink on simple tasks.”
+
+Not everyone is buying the headline figures. The top comment on a 184-point Hacker News thread went after an inconsistency inside Cognition's own table: SWE-2 scores 92.8 percent on Terminal-Bench 2.1 but only 27.3 percent on Terminal-Bench 4, released weeks earlier, where Fable 5.1 gets 55.8 percent and GPT-6 Astra 57.9. “If you're looking for reason to be skeptical, look no further than the massive delta,” wrote the commenter postalcoder. “More crudely: how benchmaxxed is this model?” Defenders countered that Terminal-Bench 2.1 is saturated and Sol itself falls from 90 to 37 percent across the same pair.
+
+## The Economics of a Borrowed Base
+
+What SWE-2 demonstrates is that the expensive part of building a frontier coding model — pretraining a multi-trillion-parameter base — can now be skipped by anyone willing to build on Chinese open weights, and that the post-training step left over is within reach of a company with no foundation-model ambitions at all. One Hacker News commenter, htrp, compressed the trend into a line: “why are all American AI models basically Kimi in a trench coat.”
+
+The commercial logic is not subtle. Cognition spent years reselling Anthropic and OpenAI tokens inside Devin at whatever margin was left over. “This really just exists so cognition can stop spending API tokens with Anthropic or OpenAI,” wrote the commenter notfromhere. “Basically any successful AI based service will do this because at scale the frontier models are expensive and you'll have enough data to fine tune your own.” Another user, anthonypasq, put the defense just as tersely: “they are an agent company not a model provider.”
+
+That reframing is the threat to frontier labs. Cognition's own footnotes put Fable 5.1 Medium at 50.9 percent for $3.28 per FrontierCode task, and Fable 5.1 Max at a worse 50.3 percent for $12.83. If a derivative model reaches 50.0 percent at a fraction of the cheaper tier's price, the premium tier stops being a product and becomes a rounding error on a procurement spreadsheet. Anthropic and OpenAI carry the amortized cost of pretraining plus investors expecting returns. Cognition, valued at $48 billion after a round backed by a16z and Accel, carries the cost of an RL run.
+
+The dependency cuts both ways, and the sharpest skepticism was about fragility rather than capability. Cognition will be “in big trouble if the more talented Chinese labs stop letting them repackage their work,” wrote the commenter thereitgoes456 — a risk another user sharpened by asking whether Moonshot and its peers grow stingy with their weights once they are undercut by derived models. Cognition appears aware the provenance raises a different question: it published trustworthiness evaluations showing SWE-2 passed 98.0 percent of 145 politically sensitive questions about China, including 95.2 percent asked in Simplified Chinese.
+
+## What to Watch
+
+SWE-2 is available today in Devin Desktop and the CLI, rolling out to Devin Web and Fusion, with no standalone API, no pricing sheet and no weights — a closed model built on an open one, usable only inside Cognition's harness. A Cognition employee posting as samyok said SWE-2 is free for subscribers on the CLI for a month; at least two users replied it consumed their on-demand usage instead. Watch three things: whether independent Terminal-Bench 4 results confirm or bury the generalization gap, whether Cognition ever exposes SWE-2 outside its own tooling, and whether Moonshot keeps shipping K-series weights now that its best customers are also its competitors.
