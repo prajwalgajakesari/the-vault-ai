@@ -1,5 +1,3 @@
-# Positron Raised $875 Million to Build an Inference Chip With No HBM in It
-
 The most expensive component in a modern AI accelerator is the memory bolted to it, and the world cannot make enough of it. On Thursday, a startup in Reno, Nevada raised $875 million on the premise that it does not need any.
 
 Positron AI announced a two-tranche Series C financing on September 10, 2026, closing at a $5 billion post-money valuation. The money funds the tapeout of Asimov, the company's first fully custom inference chip — a part designed from the start around commodity LPDDR5X memory instead of the high-bandwidth memory that every competitive AI accelerator depends on. Asimov tapes out on TSMC's N3P process at the end of 2026, with production targeted for the second half of 2027.
