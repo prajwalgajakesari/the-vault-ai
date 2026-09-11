@@ -1,5 +1,3 @@
-# AI Is Filing the Paperwork. Public Agencies Are Only Starting to Notice.
-
 Tom Loosemore asked an AI agent whether the council tax band on his house was fair compared with his neighbours’. It came back at once: his band was higher than every house around him, with an offer to do something about it. He stopped it there, but he could see where it was heading: neighbours’ floor areas from the Gov.uk Energy Performance Certificate API, extensions measured off Ordnance Survey, Land Registry price history, then an appeal drafted and filed with the Valuation Office Agency, unsupervised.
 
 Writing in Computer Weekly in April, Loosemore — a partner at Public Digital and a founder of the UK’s Government Digital Service — priced that operation at one click and about 12p, and noted it is the most expensive it will ever be. The friction that had quietly rationed council tax appeals for decades had evaporated.
