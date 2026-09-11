@@ -1,5 +1,3 @@
-# A Mathematician Asked Whether His Private Chats Trained Astra. He Calls OpenAI's Answer Dishonest.
-
 Andreas Thom put his question in writing, and he asked it twice over.
 
 In early August, days after OpenAI announced that its Astra model had constructed the first known non-sofic group — settling a conjecture Mikhail Gromov posed 27 years ago, and doing it through a technical step that ran directly through a 2019 paper Thom co-wrote with Gábor Kun — the TU Dresden group theorist emailed two of the company's mathematicians, Mark Sellke and Sébastien Bubeck. He and a colleague in Dresden, he told them, had spent months working through the expander matching problem and extensions of the Kun-Thom results inside ChatGPT itself. He wanted to know two things: whether those conversations had entered the model's training data, and, separately, whether they had been reachable by the system while it was solving the problem.
