@@ -1,13 +1,3 @@
----
-title: California Just Created a Licensing Regime for the People Who Audit AI
-category: policy
-story_number: 15
-slug: california-ai-auditor-registry-sb813-ab1405
-date: 2026-09-10
----
-
-# California Just Created a Licensing Regime for the People Who Audit AI
-
 For three years, nearly every safety claim made about a frontier AI model in the United States has been verified by the company that made it. On Wednesday, Sept. 9, California began dismantling that arrangement — without writing a single rule about how a model must behave.
 
 Gov. Gavin Newsom signed SB 813 and AB 1405, a deliberately interlocking pair of bills that build the country’s first legal infrastructure for independent AI auditing. Both were chaptered the same day, as Chapters 179 and 178 of the Statutes of 2026. Neither tells a developer what its model may do. Both are about the auditors: who gets designated, who may hang out a shingle, and what happens to them if they get too close to the companies they grade.
