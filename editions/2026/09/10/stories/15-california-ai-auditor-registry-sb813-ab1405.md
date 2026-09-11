@@ -1,0 +1,35 @@
+---
+title: California Just Created a Licensing Regime for the People Who Audit AI
+category: policy
+story_number: 15
+slug: california-ai-auditor-registry-sb813-ab1405
+date: 2026-09-10
+---
+
+# California Just Created a Licensing Regime for the People Who Audit AI
+
+For three years, nearly every safety claim made about a frontier AI model in the United States has been verified by the company that made it. On Wednesday, Sept. 9, California began dismantling that arrangement — without writing a single rule about how a model must behave.
+
+Gov. Gavin Newsom signed SB 813 and AB 1405, a deliberately interlocking pair of bills that build the country’s first legal infrastructure for independent AI auditing. Both were chaptered the same day, as Chapters 179 and 178 of the Statutes of 2026. Neither tells a developer what its model may do. Both are about the auditors: who gets designated, who may hang out a shingle, and what happens to them if they get too close to the companies they grade.
+
+AB 1405, from Assemblymember Rebecca Bauer-Kahan (D-Orinda), is the sharper instrument. It requires the California Government Operations Agency to stand up an AI Auditor Registry no later than Jan. 1, 2029, and — commencing that date — makes it unlawful for an unregistered person to offer, sell, or conduct a covered AI audit in the state. Registrants receive a unique state number that must appear on all advertising for audit services. The agency may investigate complaints; a violation is grounds for removal from the registry and referral to the attorney general. Fees flow into a new AI Auditors’ Registration Fund in the State Treasury.
+
+The independence language is where the accounting DNA shows. A registered auditor may not seek, negotiate for, or accept employment with an auditee while working on that audit, and may not take an engagement where a financial, business, or employment relationship would reasonably be expected to impair objectivity. Auditors must give the auditee a signed, dated report attesting the work met the statute. Retaliation against whistleblowing employees is barred. And in the clearest tell, AB 1405 partially exempts certified public accountants and CPA firms in good standing with the California Board of Accountancy — on the theory that they already live under an equivalent regime.
+
+SB 813, from Sen. Jerry McNerney (D-Pleasanton), supplies the other half. It directs the same agency, on or before Jan. 1, 2028, to establish criteria for selecting and regulating independent verification organizations: entities shown to have expertise in assessing the risks posed by an AI system or model and in identifying the metrics and methodologies behind that assessment. The agency must convene stakeholder working groups on standards and report to the Legislature; each designated IVO files an annual report. The Senate passed it 37-0, the Assembly 53-4.
+
+One provision did not survive. Earlier drafts offered developers a liability shield — certification as a partial defense, effectively a presumption of reasonable care, in injury suits. Consumer Attorneys of California objected, McNerney stripped it, and the group stood down. The enacted law carries no safe harbor at all.
+
+Anthropic endorsed the package in August; OpenAI flipped to support hours before the signing. “Some of these bills we did not endorse in the past, and are now supporting after reconsidering in light of the recent jump in capabilities we have seen,” wrote Chris Lehane, OpenAI’s chief global affairs officer, adding that California “can help establish the rules of the road for a secure, capable national independent-assessment system.” Bauer-Kahan was blunter: “We cannot expect industry to simply grade its own homework; third-party auditors are essential to ensuring AI is safe for our communities and critical infrastructure.”
+
+## Why license the referees instead of the game
+
+Model-behavior rules are brittle. They require a legislature to specify in statute what a system must not do — a drafting problem that ages badly at the pace frontier capability moves, and one that invites exactly the First Amendment and dormant-commerce-clause attacks industry lawyers have been rehearsing. Auditor regulation sidesteps that. It constrains a professional services market, which states have licensed uncontroversially for a century.
+
+The accounting analogy is the blueprint, not decoration. Securities law does not dictate what a company’s earnings must be; it requires that the numbers be attested by an independent party whose license is the collateral for its honesty. California is attempting the same trick — leave the substance to other statutes and build the attestation layer underneath them. That is why AB 1405 borrows the Board of Accountancy’s independence rules, and why the CPA carve-out exists.
+
+The collision is federal. A Dec. 11, 2025 executive order created a DOJ AI Litigation Task Force, operational from Jan. 10, 2026, to challenge state AI laws as burdens on interstate commerce or as preempted. It had filed nothing by spring; xAI sued Colorado on its own in April. An auditor-registration statute is a hard target — it reaches in-state service providers, not model outputs — but a 2029 compliance date leaves three years of litigation runway.
+
+Critics are not only in Washington. TechNet, CCIA, the Chamber of Progress, the California Chamber of Commerce and BSA argued the registry arrives before any methodology exists to measure auditors against. Researchers call the failure mode audit-washing: a certified auditor supplying the appearance of accountability without the substance.
+
+Watch three things. Whether the working groups produce methodology standards with teeth before the January 2028 deadline, or a checklist. Whether the Legislature now attaches mandatory audits to existing statutes — SB 53’s frontier disclosures, the state’s automated-decision rules for hiring, insurance and housing — since AB 1405 licenses auditors without requiring anyone to hire one. And whether other states copy the registry model, which would make a federal preemption fight far more expensive to win.

@@ -1,0 +1,31 @@
+# A Mathematician Asked Whether His Private Chats Trained Astra. He Calls OpenAI's Answer Dishonest.
+
+Andreas Thom put his question in writing, and he asked it twice over.
+
+In early August, days after OpenAI announced that its Astra model had constructed the first known non-sofic group — settling a conjecture Mikhail Gromov posed 27 years ago, and doing it through a technical step that ran directly through a 2019 paper Thom co-wrote with Gábor Kun — the TU Dresden group theorist emailed two of the company's mathematicians, Mark Sellke and Sébastien Bubeck. He and a colleague in Dresden, he told them, had spent months working through the expander matching problem and extensions of the Kun-Thom results inside ChatGPT itself. He wanted to know two things: whether those conversations had entered the model's training data, and, separately, whether they had been reachable by the system while it was solving the problem.
+
+The reply he says he received from Sellke was a single line: “Regarding your conversations with ChatGPT: that did not happen.”
+
+A month later, Thom no longer reads that as a denial. He reads it as a sentence built to sound like one.
+
+## The sentence that answers half a question
+
+On September 9, Thom published the exchange in a three-part post on Mathstodon, written in reply to NYU's Tristan Buckmaster. His objection is structural rather than mathematical. “I had explicitly asked about two different things,” he wrote, noting that the categorical answer he got “now looks as though it addressed only direct access” during the solve. No qualification, explanation or evidence accompanied it. His conclusion: “I take this as dishonesty to say the least.”
+
+What turned a months-old email into a public accusation was OpenAI's own language in a different fight. Responding to Buckmaster and Anthropic researcher Levent Alpöge, who alleged on September 8 that OpenAI had learned of their unpublished Navier-Stokes progress and raced out a competing proof, the company said no researcher or agent saw their work before publication and that no specific user data was accessed — then added a carve-out Thom was never offered. It could not rule out, it said, that de-identified data derived from their use of its products had helped improve its models.
+
+That is precisely the distinction Thom says his email drew and Sellke's reply erased. He is not asking anyone to reverse-engineer a training pipeline; he is arguing that only OpenAI holds the relevant records, and that a categorical denial ought to arrive with a disclosed basis — account settings, training checkpoints, and a plain-English definition of what de-identified data derived from usage actually covers. He notes he switched off model training on June 29, a forward-looking control users cannot audit and one that says nothing about earlier conversations. He also argues that de-identification strips a name, not an idea, which makes privacy machinery built for personal data a poor fit when the data in question is unpublished research.
+
+His mathematical point sharpens the suspicion without proving it. The Kun-Thom route was not the field's favored line of attack on soficity; approaches via quantum games looked more promising. That Astra homed in on his specific technique is, he says, what made the result surprising rather than merely impressive.
+
+OpenAI has denied the Navier-Stokes allegations forcefully. Bubeck called Buckmaster's account false and inflammatory, said he had tried to coordinate a joint release and was rebuffed, and told a September 8 press briefing that the company's model solved the Euler case by entirely different means. “We did not use their prompt or proofs to prompt our models,” he said. The company has not publicly addressed Thom's posts at all.
+
+## Analysis: an allegation no outsider can settle
+
+Strip away the personalities and what remains is an epistemic problem with no clean resolution. Direct access during a solve leaves traces — logs, retrieval calls, prompts — that a company could in principle produce. Training-set ingestion leaves almost none. Weights do not carry receipts. A mathematical idea absorbed from a private conversation six months before a run is indistinguishable, from the outside, from one the model reconstructed from the published literature. Thom cannot prove his case, and OpenAI cannot disprove it by any means a skeptic would accept. Both facts are features of the architecture, not of anyone's honesty.
+
+That asymmetry matters well beyond one group theorist. The commercial case for AI mathematical discovery rests on a counterfactual nobody can audit: that the machine got there on its own. Every time a lab claims a result built on a niche technique that a living specialist was actively discussing with the same product, the claim becomes unfalsifiable in both directions — and unfalsifiable claims are worth less than the announcements imply. OpenAI's carve-out is, read generously, candor about a real limit of its own knowledge. Read less generously, it is a permanent hedge that converts the central question into a matter of trust.
+
+It is also why the Astra announcement keeps taking damage from a second direction. Cambridge's Francesco Fournier-Facio and Yeshiva University's Steven Miller argued in August that several of the ten flagship results, the non-sofic construction among them, leaned on existing work more heavily than OpenAI's blog post suggested; Miller told Scientific American the pattern of unattributed prior art points to research misconduct. OpenAI later softened the post's claim that the problems had seen no progress for a decade. Attribution failures are checkable. Training provenance is not.
+
+Watch three things. Whether OpenAI extends its de-identified-data language to Thom, or declines to, and how it explains the difference. Whether other researchers who used ChatGPT on problems Astra later solved come forward — Thom makes the fourth named mathematician to publicly question the company's conduct in a week, after Buckmaster, Alpöge and Miller. And whether any lab volunteers the one thing that would end this class of dispute: a verifiable account of what went into a model before it announced a discovery.
