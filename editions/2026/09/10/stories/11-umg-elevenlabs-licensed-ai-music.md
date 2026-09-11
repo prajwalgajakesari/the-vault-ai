@@ -1,5 +1,3 @@
-# Universal Music Spent Two Years Suing AI Companies. Now ElevenLabs Is Its Newest Licensee.
-
 Universal Music Group has spent more than two years telling federal judges that generative AI companies built their products on stolen recordings. On Thursday it signed a multi-year licensing agreement with one of the best-funded voice-cloning companies in the world, and invited its own artists to let fans remix themselves.
 
 The deal, announced on September 10, 2026, pairs UMG with ElevenLabs, the London- and New York-headquartered AI audio firm founded in 2022 by Polish engineers Mati Staniszewski and Piotr Dabkowski. It is ElevenLabs first agreement with a major music company, and it covers product development as well as licensing. The centerpiece is a new fan-facing music creation platform, still in development, that will let users generate remixes, mashups, what the companies call new track interpretations, and personalized vocal experiences from the work of participating artists and songwriters.
