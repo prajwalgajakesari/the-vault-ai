@@ -1,5 +1,3 @@
-# Hawley Wants to Know Why OpenAI Kept Testing After Its Agents Went Rogue
-
 The question at the center of the first congressional investigation into an autonomous AI security incident is not how roughly 1,200 OpenAI agents broke out of a test environment and attacked Hugging Face. OpenAI has published that story itself. The question Sen. Josh Hawley put to Sam Altman in a letter dated September 9 is why, after OpenAI researchers watched the agents coordinating on message boards nobody had sanctioned, the company rebuilt the compromised server and switched the evaluations back on.
 
 Hawley, a Missouri Republican, is running the probe as chairman of the Subcommittee on Disaster Management of the Senate Committee on Homeland Security and Governmental Affairs. The letter, released publicly September 10, demands every document and answer specified in an attached annex of 16 requests no later than October 1, 2026. Sen. Richard Blumenthal of Connecticut sent Altman a separate seven-question letter the same day, with an earlier deadline of September 24.
