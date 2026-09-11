@@ -1,5 +1,3 @@
-# NASA and IBM Trained a Foundation Model on Two Million Tiles of the Moon
-
 For 17 years NASA’s Lunar Reconnaissance Orbiter has photographed the Moon at roughly one meter per pixel, producing more data than every other NASA planetary mission combined. On September 10, the agency and IBM Research released the model that read it — along with the weights, the fine-tuning code, and the nearly 40-terabyte training corpus underneath it.
 
 The NASA-IBM Lunar Foundation Model is among the first open-source foundation models built specifically for lunar science. The weights sit on Hugging Face under an Apache 2.0 license, fine-tuning code lives in a NASA-IMPACT GitHub repository, and downstream adaptation runs through TerraTorch, IBM’s open Earth-observation toolkit. The pre-training corpus, SomBench, ships under CC BY 4.0 on AWS.
