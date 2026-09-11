@@ -1,5 +1,3 @@
-# Adobe's AI-First ARR Grew 150 Percent. The Stock Fell Anyway.
-
 Adobe has spent two years being treated as generative AI's most obvious casualty, a design-software near-monopoly about to be commoditized by free image models. On Wednesday evening it delivered its cleanest numerical rebuttal yet, and the market sold the stock anyway.
 
 Fiscal third-quarter revenue hit a record $6.76 billion, up 13 percent as reported and 12 percent in constant currency, ahead of a consensus near $6.69 billion. Non-GAAP earnings per share came in at $6.13, up 15 percent and six cents above estimates. And the metric the bulls had circled finally moved: AI-first ending annual recurring revenue now exceeds $650 million, growing more than 150 percent year over year. Shares closed the regular session at $248.95, down 2.32 percent, then shed another 2.14 percent after hours to $243.50 — a cumulative 4.45 percent decline on a quarter Adobe beat and a year it raised.
