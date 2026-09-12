@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Hardest Math Benchmark Went From 5% to 98% in Fourteen Months &mdash; The Vault AI</title>
+<meta name="description" content="GPT-6 Astra saturated FrontierMath Tier 4 at 98% fourteen months after it launched at 5%, but the same model solves only 3% of Epoch's new Erdos benchmark, and the gap between those numbers is the real measure of AI mathematics.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.article-body hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>The Hardest Math Benchmark Went From 5% to 98% in Fourteen Months</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1010 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>GPT-6 Astra saturated FrontierMath Tier 4 at 98% fourteen months after it launched at 5%, but the same model solves only 3% of Epoch's new Erdos benchmark, and the gap between those numbers is the real measure of AI mathematics.</p>
+</div>
+<div class="article-body">
+<p>When Epoch AI launched FrontierMath Tier 4 on July 11, 2025, it was built to be unbeatable. Math professors and postdocs were each contracted to spend weeks turning a research project into a single problem. The best model in the world solved 5% of them. On September 10, 2026 — fourteen months later — Epoch announced that every remaining Tier 4 problem had fallen, with OpenAI's GPT-6 Astra taking the last one standing.</p>
+<p>“Every FrontierMath Tier 4 problem has now been solved by AI, with GPT-6 Astra solving the last problem standing,” Epoch wrote in its announcement. “Mathematicians often commented that AI found unintended shortcuts when solving their Tier 4 problems. Not so for this last one, which was created by Jay Pantone.”</p>
+<p>That second sentence is the more interesting one, and it cuts both ways.</p>
+<h2>What was actually measured</h2>
+<p>Two claims are being run together in the coverage, and they are not the same. The first is that the top Tier 4 score now sits at <strong>98%</strong>. Astra's leaderboard number is 97.6%, against 83.0% for GPT-5.6 Sol and 68.3% for GPT-5.6 Terra. Tier 4, after Epoch's June 2026 revision, contains <strong>43 problems</strong>. 97.6% is 42 of 43 — the best model in the world still misses one.</p>
+<p>The second claim is that <em>every</em> Tier 4 problem has now been solved by AI at least once. That is a union across models and runs. Astra cracked the Pantone problem that had defeated everything before it; something else, somewhere else, got the one Astra misses. Neither fact means a model sat down and solved the benchmark.</p>
+<p>The June revision matters too. Epoch's v2 update corrected errors in 42% of FrontierMath problems, rewriting 12 Tier 4 items and deleting 7 outright. The wall that just fell is seven problems shorter than the wall that was built.</p>
+<p>And Tier 4 is not a proof benchmark. Models submit a Python function returning an answer object, checked programmatically, inside a sandbox with sympy, numpy and a computer algebra stack. Getting the right number is the whole task — which is precisely what produces the shortcut problem Epoch flagged. A research-grade question with a closed-form answer can sometimes be brute-forced or numerically cornered without touching the mathematics the author had in mind.</p>
+<h2>Benchmark saturation is the story of 2025-2026</h2>
+<p>FrontierMath was supposed to be the durable one, announced in late 2024 on the reasoning that research mathematics is where reasoning genuinely bottoms out. Its hardest tier lasted fourteen months. And there is an unavoidable asterisk on the scoreboard. Epoch's own benchmark page carries the disclosure in plain text: “FrontierMath was developed with funding from OpenAI, who has exclusive access to a subset of the benchmark.” That relationship was not disclosed at launch. When it surfaced in January 2025, more than sixty contributing mathematicians learned at once that they had written problems for a test the funder could see, and several said they would not have participated had they known. Epoch's associate director said the organization had been “restricted from disclosing the partnership until around the time o3 launched.” Epoch has been far more transparent since; the structural fact has not changed.</p>
+<p>The deeper issue is what saturation tells you. If a benchmark is solved partly by reasoning and partly by exploiting the answer format, the score at 5% and the score at 98% are not measuring the same thing. Epoch's note about Pantone's problem concedes the first happened routinely and argues it did not happen at the end. Only the mathematicians who wrote the problems can adjudicate that, and most of Tier 4 remains private.</p>
+<h2>Erdős is a different kind of test</h2>
+<p>Epoch has already moved the target. FrontierMath Erdős, launched September 1, is 68 problems selected by Thomas Bloom — who maintains erdosproblems.com, cataloguing 1,217 Erdős problems, 652 still unsolved — as his favorites among the hard and significant ones. All were open as of August 2026 and all are formalized in Lean, with models required to produce a machine-checkable proof or disproof within $300 and 72 hours. There is no answer to guess at, and no shortcut that survives a Lean checker.</p>
+<p>Astra scored <strong>3%</strong>: 2 of 68 on the official run. GPT-5.6 Sol, GPT-5.5, Claude Fable 5.1 and Claude Fable 5 scored zero. It disproved problem 74 for $218, and proved problem 126 for $247. In larger-budget runs Epoch refuses to count as a score, Astra solved three more — five total, at over <strong>$220,000</strong> in compute, against roughly $20,000 for the official benchmark. On 172 further attempts, it solved nothing.</p>
+<p>Epoch's framing is deliberately unglamorous: Astra solved about 3% of significant open problems in this scaffold at this budget, a data point on AI-driven math breakthroughs that is, in its words, “real but still fairly uncommon.”</p>
+<p>Bloom's caveat on his own curation is worth keeping too: “No doubt every mathematician will see some problems on this list and think ‘why on earth did they include that?' — but as long as they also see others and think ‘naturally that should be included, it's a deep and important problem', then I think we have done a good job.”</p>
+<p>Formalization also imposes a tax unrelated to insight. When an OpenAI model resolved the Erdős unit distance conjecture, the natural-language proof ran 18 pages; formalizing it in Lean took <strong>1.2 million lines</strong> of code, mostly rebuilding a deep result the standard library lacked.</p>
+<h2>What to watch</h2>
+<p>Whether the mathematicians who authored Tier 4 problems publish assessments of Astra's solutions — the shortcut question is empirical and currently unanswered. Whether Erdős scores move off the low single digits next generation, or whether $220,000 for five proofs is the shape of the curve. And whether Epoch's contamination plan holds: the Erdős problems are public, and the measure of an honest benchmark now is how fast its own results poison it.</p>
+<p>Astra's 98% on Tier 4 and its 3% on Erdős were produced by the same model in the same month. The gap between those two numbers is the actual state of AI mathematics.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;Mathematicians often commented that AI found unintended shortcuts when solving their Tier 4 problems. Not so for this last one, which was created by Jay Pantone.&rdquo;</blockquote><cite>&mdash; Epoch AI, Benchmark announcement, September 10, 2026</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">98%</div><div class="stat-label">Top Tier 4 score, up from 5% at launch</div></div><div class="stat-cell"><div class="stat-value">42 of 43</div><div class="stat-label">Problems GPT-6 Astra solves on the revised set</div></div><div class="stat-cell"><div class="stat-value">3%</div><div class="stat-label">Astra's official FrontierMath Erdos score</div></div><div class="stat-cell"><div class="stat-value">$220,000</div><div class="stat-label">Compute spent across all Erdos attempts</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://epoch.ai/latest/announcing-frontiermath-erdos" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=epoch.ai&amp;sz=32" alt="">Epoch AI</a><a href="https://epoch.ai/benchmarks/frontiermath-tier-4-v2" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=epoch.ai&amp;sz=32" alt="">Epoch AI Benchmarks</a><a href="https://alphasignal.ai/news/openai-s-gpt-6-astra-cracks-epoch-s-hardest-math-benchmark-in-14-months" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=alphasignal.ai&amp;sz=32" alt="">AlphaSignal</a><a href="https://techcrunch.com/2025/01/19/ai-benchmarking-organization-criticized-for-waiting-to-disclose-funding-from-openai" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&amp;sz=32" alt="">TechCrunch</a></div></div>
+<div class="article-nav"><a href="10-persimmon-550b-human-simulation.html" class="nav-prev">&larr; Somebody Built a 550-Billion-Parameter Model Whose</a><a href="12-harnessdev-agent-harness-benchmark.html" class="nav-next">Asked to Improve Their Own Scaffolding, Models Got &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 11, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
