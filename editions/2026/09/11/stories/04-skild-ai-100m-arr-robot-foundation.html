@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Robot Foundation Model Hit $100M in Revenue Ten Months After Its First Deployment &mdash; The Vault AI</title>
+<meta name="description" content="Skild AI's $100M run rate makes it the first robot foundation model company with real commercial scale, but its 66% success rate on unseen tasks leaves the generalization claim underwriting a 140x revenue multiple still unproven.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.article-body hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>A Robot Foundation Model Hit $100M in Revenue Ten Months After Its First Deployment</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1005 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Skild AI's $100M run rate makes it the first robot foundation model company with real commercial scale, but its 66% success rate on unseen tasks leaves the generalization claim underwriting a 140x revenue multiple still unproven.</p>
+</div>
+<div class="article-body">
+<h2>A Robot Foundation Model Hit $100M in Revenue Ten Months After Its First Deployment</h2>
+<p>Ten months after Skild AI first loaded its software onto a robot inside a paying customer's facility, the Pittsburgh startup says that business is now running at $100 million a year.</p>
+<p>Skild disclosed the milestone to <em>Bloomberg</em> on September 10, paired with a customer count that has gone from eight companies earlier in 2026 to more than 60. Its models run on hundreds of robots across manufacturing, logistics, inspection, security and food preparation — cafes in Japan, warehouses in the United States, and a Foxconn production line where dual-arm manipulators handle high-precision assembly of NVIDIA Blackwell systems. The company declined to name customers.</p>
+<p>"This is a major milestone for us as it signifies a new chapter for robotics, moving from an era of demos to an era of deployments," said Deepak Pathak, Skild's co-founder and chief executive.</p>
+<h2>What Skild Actually Sells</h2>
+<p>The product is not a program for one task. Skild sells what it calls the Skild Brain — a single model meant to run across many robot bodies and many jobs — and its newest version, <strong>S1</strong>, launched in an August 18 research post, is the reason the company is being talked about this week.</p>
+<p>S1 is built as an <em>in-context learner</em>. An operator records a video of a person doing the task, hands it to the model as a prompt, and the robot attempts it. No retraining. No weight updates. In one plant-potting test, Skild's team went from recording the demonstration to autonomous execution on hardware in 11 minutes. The model has handled unfamiliar jobs running past ten minutes and dozens of manipulation steps: potting plants, brewing pour-over coffee, assembling kits, making pancakes.</p>
+<p>"The first time it flipped a pancake, we could not believe it," Pathak told <em>TNW</em>, describing a task absent from the training data.</p>
+<p>Skild puts S1 at <strong>96% success on tasks it has seen</strong> during pretraining and <strong>66% on tasks it has not</strong> — the latter roughly seven times better than a language-prompted baseline that managed 9%. The company also estimates that a single demonstration video does the work of about 380 hands-on training episodes, a volume it says would take a person 50 to 100 hours of teleoperation to collect.</p>
+<p>The research ran on NVIDIA infrastructure, part of a collaboration spanning synthetic data generation, simulation and real-world deployment. "Learning by experience, and not preprogramming, is the step change that has happened in robotics," Pathak said in an NVIDIA post published the same day.</p>
+<h2>The Money Behind It</h2>
+<p>Skild raised roughly <strong>$1.4 billion in January 2026</strong> at a valuation above <strong>$14 billion</strong> — more than triple the $4.5 billion it carried seven months earlier. SoftBank led the round; NVentures, Macquarie Capital, Jeff Bezos, Samsung, LG, Schneider and Salesforce Ventures participated. The company was founded by Carnegie Mellon researchers Deepak Pathak and Abhinav Gupta.</p>
+<p>Gupta, now Skild's president, told <em>TNW</em> last month that 2025 revenue was around <strong>$30 million</strong>. Skild has also been buying rather than only selling: in April it acquired Zebra Technologies' robotics automation business, a detail Bloomberg's account did not mention.</p>
+<h2>What the 96-to-66 Gap Actually Means</h2>
+<p>The headline number that matters here is not $100 million. It is 66%.</p>
+<p>That figure is the strongest public evidence to date that a robot foundation model generalizes to work it was never trained on — and it is also the reason to stay cautious. Read NVIDIA's description carefully and S1 succeeded about 66% of the time <em>at each step</em> of a new multistep task. On a twenty-step assembly, naive compounding takes that to effectively zero. Skild's answer is that the model recovers from errors and re-plans when objects move, which breaks the compounding math. But the company has not published task-level completion rates on unseen long-horizon work, and that is the number a factory buyer actually underwrites.</p>
+<p>The 30-point drop from seen to unseen is the honest measure of how far generalization has come. A 96% model on known tasks is a very good automation product. A 66% model on novel ones is a research result that is <em>becoming</em> a product. The gap is the distance the entire field still has to close, and Skild is simply the first company to put a price on it.</p>
+<p>Then there is the multiple. <strong>$100 million against a $14 billion valuation is 140x revenue</strong> — rich even by 2026 AI standards, and richer than it first looks. Run rate is an annualized snapshot, not booked revenue. S1 only shipped in August, which means most of that $100 million was earned by predecessor deployments and, plausibly, by the acquired Zebra automation business, which carries integration-services economics rather than software margins. Going from eight customers to more than 60 inside a year is genuinely fast. Whether those 60 renew and expand is the thing nobody can see yet.</p>
+<p>The competitive picture complicates it further. Physical Intelligence is shipping steadily more general vision-language-action models. Figure has raised more than $1 billion at a $39 billion post-money valuation. And NVIDIA — Skild's compute partner and, through NVentures, an investor — gives away GR00T N1.7, an openly licensed 3-billion-parameter VLA that lowers the floor for every hardware maker that might otherwise buy a brain. Skild's moat has to be deployment data, not architecture.</p>
+<h2>What to Watch</h2>
+<p>Three things. First, whether Skild publishes task-completion rates rather than per-step rates on unseen work; that disclosure alone would settle most of the generalization argument. Second, renewals — eight-to-60 is a land number, and the expansion number arrives next year. Third, Brussels. Europe's Machinery Regulation replaces the machinery directive on <strong>January 20, 2027</strong>, covering machinery with self-evolving behaviour for the first time and requiring assessment by a notified body rather than a manufacturer's own declaration. A model whose entire selling point is performing work absent from its training data sits close to the center of that definition. Nobody has been assessed under it yet. Skild has not said whether it sells into Europe.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>&ldquo;This is a major milestone for us as it signifies a new chapter for robotics, moving from an era of demos to an era of deployments.&rdquo;</blockquote><cite>&mdash; Deepak Pathak, Co-founder and CEO, Skild AI</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">$100M</div><div class="stat-label">Annual revenue run rate</div></div><div class="stat-cell"><div class="stat-value">60+</div><div class="stat-label">Customers, up from 8 earlier in 2026</div></div><div class="stat-cell"><div class="stat-value">96% / 66%</div><div class="stat-label">Success on seen vs unseen tasks</div></div><div class="stat-cell"><div class="stat-value">140x</div><div class="stat-label">Revenue multiple at a $14B valuation</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.bloomberg.com/news/articles/2026-09-10/robotics-startup-skild-ai-hits-100-million-in-revenue-run-rate" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bloomberg.com&amp;sz=32" alt="">Bloomberg</a><a href="https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blogs.nvidia.com&amp;sz=32" alt="">NVIDIA Blog</a><a href="https://skild.ai/blogs/s1" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=skild.ai&amp;sz=32" alt="">Skild AI</a><a href="https://thenextweb.com/news/skild-ai-100m-run-rate-eu-rules" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenextweb.com&amp;sz=32" alt="">The Next Web</a></div></div>
+<div class="article-nav"><a href="03-moonshot-1b-arr-kimi-k3.html" class="nav-prev">&larr; Moonshot's Revenue Went From $300M to $1B in Two M</a><a href="05-ayar-labs-150m-optical-interconnect.html" class="nav-next">Nvidia, AMD and Intel All Backed the Same Startup. &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 11, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
