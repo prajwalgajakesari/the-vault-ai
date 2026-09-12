@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Tool That Compresses Tokens Made AI Coding More Expensive, Not Less &mdash; The Vault AI</title>
+<meta name="description" content="Quesma's 1,740-attempt benchmark found RTK's bash-output compression made agentic coding 1% more expensive with Claude Code and 17% more expensive with OpenCode, because byte savings ignore the extra turns and cached-context economics that drive the bill.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.5rem;font-size:1.05rem}
+.article-body blockquote{margin:1.5rem 0;padding-left:1rem;border-left:2px solid var(--border-hover);font-style:italic;color:var(--text-strong)}
+.article-body hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
+.article-body a{color:var(--cat-color);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--cat-color) 35%,transparent)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:600px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>A Tool That Compresses Tokens Made AI Coding More Expensive, Not Less</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1005 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Quesma's 1,740-attempt benchmark found RTK's bash-output compression made agentic coding 1% more expensive with Claude Code and 17% more expensive with OpenCode, because byte savings ignore the extra turns and cached-context economics that drive the bill.</p>
+</div>
+<div class="article-body">
+<h2>A Tool That Compresses Tokens Made AI Coding More Expensive, Not Less</h2>
+<p>The pitch is irresistible and the demo is genuinely satisfying: a small Rust binary sits between your coding agent and your shell, turns eleven lines of `git status` porcelain into three, and reports that it just saved you 90 percent of your tokens. What it does not report is your invoice. A Warsaw-based startup spent several days and more than $1,500 in API spend finding out, and the invoice went up.</p>
+<p>Quesma published results on September 11 from a paired benchmark of <strong>RTK</strong> — Rust Token Killer, a CLI proxy with nearly 80,000 GitHub stars that intercepts shell commands and returns a terser version of the output. Across <strong>1,740 attempts</strong> on Terminal-Bench 2.1, RTK made Claude Code running Fable 5.0 about <strong>1 percent more expensive</strong> per task, a result statistically indistinguishable from zero, and made OpenCode running DeepSeek V4 Pro 0813 <strong>17 percent more expensive</strong>. Pass rates slipped in both arms: one point for Fable, two for DeepSeek.</p>
+<p>Authors Bartosz Kotrys and Jacek Migdal scheduled every task five times without RTK and five times with it, on the same model route, platform and task-specific timeout. After dropping four Fable security tasks that drew refusals, the comparison covered 85 Fable tasks and 89 DeepSeek tasks. They stayed on Terminal-Bench 2.1 rather than the harder 3.0 or 4.0 releases, since cost only matters on tasks that pass.</p>
+<p>The first chart looked promising. Summed across everything, the total bill fell 5 percent for Fable and rose 5 percent for DeepSeek. But totals are outlier-dominated, so Quesma reweighted to treat every task equally. Fable flipped to plus 1 percent, DeepSeek to plus 17. Almost all of Fable's apparent savings came from a single task, `winning-avg-corewars`, where the RTK arm happened to finish in roughly half as many turns. Across the other 84 tasks, savings were under 1 percent.</p>
+<p>Meanwhile RTK's own scoreboard was reporting a triumph. Across 445 DeepSeek attempts it logged <strong>349.2 million tokens saved</strong>, an 89 percent reduction, on tasks that were getting more expensive. The metric, `rtk gain`, is raw command output minus filtered output in bytes, divided by four. In one task the model ran `head -1 train.txt` twice; RTK credited itself 120.5 million tokens saved each time by measuring a one-line read against the entire file. Those two calls alone accounted for <strong>69 percent</strong> of the savings counter for the whole comparison. As Quesma puts it, the metric “counts removed output, not money saved” — and it can make a more expensive attempt look optimized.</p>
+<p>To RTK's credit, its own documentation says much of this. The README warns that cutting 90 percent of bash output “is not the same as cutting your bill by 90%”, and the savings guide calls its token counts “an order of magnitude, not an invoice line.” The gap is between RTK's docs and the discourse around them: the 313,000-view post claiming 60 percent Claude Code savings, the videos promising 90.</p>
+<h2>The metric you optimize versus the bill you pay</h2>
+<p>The structural finding is the one worth carrying beyond RTK. Terminal output was just <strong>7 percent</strong> of Fable's input tokens — 11 percent counting all tool results — and 26 percent for DeepSeek. RTK only rewrites shell calls: Claude Code's `Read`, `Grep` and `Glob` tools bypass it entirely, and roughly half the Bash calls it did see had already limited their own output with `head`, `tail` or `wc`. In practice the hook fired on 31 percent of Claude Code's terminal calls and 51 percent of OpenCode's. Compression cannot beat a ceiling it never reaches.</p>
+<p>Caching flattens what is left. Because context is cached after each turn, 94 percent of Fable's input tokens and 98 percent of DeepSeek's were cache reads, billed at a tenth and a thirtieth of regular input. The bytes RTK removes are largely the cheapest bytes in the session, while any behavioral side effect lands on the expensive part. The numbers show exactly that: DeepSeek's terminal output characters fell 9 percent, yet prompt tokens rose 9 percent. The average turn carried 7 percent less input — and there were 18 percent more turns. On 58 tasks the RTK arm took more turns, and 44 of those cost more.</p>
+<p>JetBrains reached the same conclusion by a different route in July. Denis Shiryaev ran 425 billed trials, about $320, on SkillsBench with claude-sonnet-5 and measured a median <strong>7.6 percent cost increase</strong> at low reasoning effort (p=0.004) on 13.8 percent more turns, with the penalty vanishing at high effort and task quality statistically tied throughout. RTK's dashboard claimed 96.2 million tokens saved over the same trials. His verdict was <strong>“Honest engineering, wrong counterfactual”</strong> — and the generalizable lesson that a tool's self-reported savings describe its own counterfactual, not your bill.</p>
+<p>Two independent labs, two harnesses, one pattern. That is not a verdict, and the asterisks matter. Both tested pinned builds (0.45.0 and 0.43.0), and one pathological DeepSeek failure — a rewritten `find` that looped into 339 consecutive errors at roughly 9x the baseline cost — was fixed upstream in 0.46.0 after the runs. Neither lab found a quality collapse. RTK is competent software solving a problem that has largely migrated elsewhere.</p>
+<p>Quesma’s summary is unambiguous: “We do not recommend RTK as a generic cost-saving tool.” Frontier models already reach for `head -n` and `tail -n` unprompted, so terminal verbosity is a shrinking share of the problem. RTK probably helped more a model generation ago.</p>
+<p>Three things to watch. Whether RTK reframes `rtk gain` as a byte ratio in the interface rather than a caveat buried in docs. Whether the next wave of context-compression tools — Quesma says Headroom is next on its bench — arrives with paired-bill numbers instead of self-reported diffs. And whether anyone demonstrates savings that survive a full multi-turn trajectory, because that is the only place the money actually is. Until then, the default for any AI efficiency claim should be the one both labs reached independently: measure the invoice, not the diff.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;Honest engineering, wrong counterfactual.&rdquo;</blockquote><cite>&mdash; Denis Shiryaev, AI benchmarking, JetBrains</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">1,740</div><div class="stat-label">Benchmark attempts across two agent pairs</div></div><div class="stat-cell"><div class="stat-value">+17%</div><div class="stat-label">Cost increase per task with OpenCode</div></div><div class="stat-cell"><div class="stat-value">7%</div><div class="stat-label">Share of input tokens that was terminal output</div></div><div class="stat-cell"><div class="stat-value">349.2M</div><div class="stat-label">Tokens RTK reported saving as costs rose</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://quesma.com/blog/does-rtk-make-ai-coding-cheaper/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=quesma.com&amp;sz=32" alt="">Quesma</a><a href="https://blog.jetbrains.com/ai/2026/07/rtk-claude-code-token-savings/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.jetbrains.com&amp;sz=32" alt="">JetBrains Blog</a><a href="https://github.com/rtk-ai/rtk/blob/develop/docs/guide/resources/savings-explained.md" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=32" alt="">GitHub</a><a href="https://news.ycombinator.com/item?id=49656471" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=news.ycombinator.com&amp;sz=32" alt="">Hacker News</a></div></div>
+<div class="article-nav"><a href="12-harnessdev-agent-harness-benchmark.html" class="nav-prev">&larr; Asked to Improve Their Own Scaffolding, Models Got</a><a href="14-mit-llm-election-observatory-midterms.html" class="nav-next">MIT Is Now Watching a Dozen Chatbots Answer Electi &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 11, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
