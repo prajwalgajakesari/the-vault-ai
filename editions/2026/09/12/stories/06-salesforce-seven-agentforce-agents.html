@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Salesforce Shipped Seven AI Agents With Names and Job Titles. Customers Can Rename Every One. &mdash; The Vault AI</title>
+<meta name="description" content="Salesforce&#x27;s job-ready agents package AI as headcount rather than platform — a pricing argument aimed at moving procurement off token consumption, undercut by the fact that the personas are a renameable skin.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&amp;family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>Salesforce Shipped Seven AI Agents With Names and Job Titles. Customers Can Rename Every One.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1018 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Salesforce&#x27;s job-ready agents package AI as headcount rather than platform — a pricing argument aimed at moving procurement off token consumption, undercut by the fact that the personas are a renameable skin.</p>
+</div>
+<div class="article-body">
+<p>Salesforce&#x27;s newest product line reads like a staff directory. Casey works the help desk. Paige handles IT and HR tickets. Carter works the storefront. Hunter runs outbound. Marshall watches the supply chain, Piper qualifies inbound leads, and Fin takes the customer-experience cases nobody else wants.</p>
+<p>All seven are software.</p>
+<p>Announced September 11 and pitched as &quot;job-ready,&quot; the seven agents are the clearest signal yet of where enterprise AI packaging is heading: away from platforms and toward hires. Six are generally available now; Hunter is in pilot with GA targeted for November 2026. The launch landed four days before Dreamforce opens in San Francisco on September 15.</p>
+<p>Then there is the detail buried in the announcement that undercuts the whole conceit. Customers can rename any of them. Salesforce&#x27;s own proof point for Casey is a company called Engine, whose help agent is named Eva. The names are a skin.</p>
+<h2>What is actually shipping</h2>
+<p>Strip the personas and the product is a set of pre-configured agents, each arriving with the skills, actions and data models for a specific role rather than a blank builder canvas. Casey resolves service issues across voice, SMS, WhatsApp and web chat; Paige works through Slack and internal portals; Marshall runs back-office processes with deterministic execution and an audit record of every action.</p>
+<p>Two of the seven arrived by acquisition. Piper comes out of Qualified; Fin is the agent Salesforce picked up in a $3.6 billion deal in June, per SiliconANGLE. Both keep their original names inside the lineup, which suggests the naming convention was reverse-engineered from an M&amp;A portfolio at least as much as designed.</p>
+<p>The customer numbers Salesforce published are specific, which is more than most agent launches manage: 50% of Engine&#x27;s chat inquiries fully resolved; 70% of Autism Queensland&#x27;s administrative requests handled by Paige; 60% of Perk&#x27;s sales pipeline built by Hunter; 90% of core shopper journeys at Hibbett, live in six weeks; and 79% of Anthropic&#x27;s conversations that Fin sees resolved autonomously.</p>
+<p>What the figures do not give you is denominators. &quot;50% of chat inquiries&quot; says nothing about which half, or what happens to the rest. These are containment and resolution rates, the metric class contact-center analysts have spent the year arguing is decoupled from outcomes. Keith Kirkpatrick, VP and research director for enterprise software at The Futurum Group, called them &quot;production-grade resolution rates, not pilot metrics&quot; in a same-day note — then listed, under what to watch, &quot;how broadly the 50–90% task resolution outcomes reported by early customers replicate across a wider enterprise install base.&quot;</p>
+<h2>Hunter is the technically interesting one</h2>
+<p>The agent that is not yet generally available is the one that matters. Hunter is the first to run on a new long-horizon runtime, which lets an agent pursue a goal across days and weeks rather than a single session. A seller can tell Hunter to rescue at-risk deals before quarter-end; it converts that into a plan, works it, and asks for approval at defined guardrails.</p>
+<p>Three pieces make it work, per Salesforce: memory that persists across sessions, durable execution that survives interruptions, and dynamic steering that adapts to a user&#x27;s feedback. More agents will move onto the runtime over time, the company says, and customers will eventually build their own.</p>
+<p>That is a meaningfully harder problem than a chat agent, and it is why Hunter is the one still in pilot. It is also where the persona framing does real work: a colleague who spends three weeks on your pipeline is a coherent thing to describe. A &quot;durable execution runtime&quot; is not.</p>
+<h2>The names are a pricing argument</h2>
+<p>Salesforce has changed how it charges for agents at least three times: $2 per conversation at the 2024 launch, then Flex Credits at roughly $0.10 per action, then bundled editions running to hundreds of dollars per user per month with a fixed credit allotment. Across all three it has pushed one metric — the Agentic Work Unit — and says it has delivered 7 billion of them across Agentforce and Slack, 3.2 billion in Q2 alone, up 97% sequentially.</p>
+<p>Salesforce has never published a price per AWU. It is a disclosure metric, not a rate card — which is the point. The company is trying to move the conversation off token consumption, where the unit is legible and the vendor looks like a meter.</p>
+<p>Bill Patterson — then Salesforce&#x27;s EVP of corporate strategy, now its president and chief commercial officer — made the argument to diginomica in June, using Piper as his example: &quot;How a Large Language Model provider would think of that same situation is in terms of how many tokens did that burn. What we care about is, did the lead close?&quot; He was blunter about the market&#x27;s mood. &quot;Use is not leading to yield,&quot; he said, quoting the CFO refrain he keeps hearing: &quot;No, but I&#x27;m paying for it.&quot;</p>
+<p>Naming the agents is the buyer-facing half of that strategy. A CIO signing off on Casey is approving a headcount-shaped expense, benchmarked against a support rep&#x27;s fully loaded cost rather than an API bill. It is the same move Sierra made with per-resolution pricing, and it works right up until finance asks how many AWUs Casey burned to resolve 50% of anything.</p>
+<p>The skepticism inside the ecosystem is about scope creep, not marketing. Timo Kovala, a Capgemini marketing architect writing for Salesforce Ben, warned that when everything is measured in agentic outcomes, the risk is that &quot;the tail begins to wag the dog&quot; — steering implementations toward agents even where deterministic automation fits better. Agent Script, Salesforce&#x27;s own open-source language for mixing LLM reasoning with hard rules, is a partial admission of that.</p>
+<h2>What to watch</h2>
+<p>Whether Hunter makes November, and whether the long-horizon runtime reaches the other six on any published schedule. Whether AI Skills and Agent Optimizer ship in October as promised. Whether Q3 AWU growth holds near 97% sequential now that the base is 3.2 billion. And whether any customer publicly reports what a named agent cost per resolved case — the number that turns a hiring metaphor into a procurement decision.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735">
+  <blockquote>&ldquo;How a Large Language Model provider would think of that same situation is in terms of how many tokens did that burn. What we care about is, did the lead close?&rdquo;</blockquote>
+  <cite>&mdash; Bill Patterson, President and Chief Commercial Officer, Salesforce</cite>
+</div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">7</div><div class="stat-label">named agents announced September 11; six generally available, Hunter in pilot until November</div></div><div class="stat-cell"><div class="stat-value">7 billion</div><div class="stat-label">Agentic Work Units delivered across Agentforce and Slack to date</div></div><div class="stat-cell"><div class="stat-value">3.2 billion</div><div class="stat-label">Agentic Work Units in Q2 alone, up 97% sequentially</div></div><div class="stat-cell"><div class="stat-value">$3.6B</div><div class="stat-label">price Salesforce paid in June for Fin, one of two agents acquired rather than built</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.salesforce.com/news/stories/agentforce-job-ready-ai-agents/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=salesforce.com&amp;sz=32" alt="">Salesforce Newsroom</a><a href="https://futurumgroup.com/insights/salesforces-job-ready-agents-target-enterprise-ais-biggest-gap/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=futurumgroup.com&amp;sz=32" alt="">The Futurum Group</a><a href="https://www.techedt.com/salesforce-expands-agentforce-with-seven-job-ready-ai-agents" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techedt.com&amp;sz=32" alt="">Tech Edition</a></div></div>
+<div class="article-nav"><a href="05-rubygems-openai-agents-gemstuffer.html" class="nav-prev">&larr; OpenAI&#x27;s Agents Attacked RubyGems in May. RubyGems</a><a href="07-real-swe-private-codebase-benchmark.html" class="nav-next">Eight Coding Agents Met Code They Had Never Seen.  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 12, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>

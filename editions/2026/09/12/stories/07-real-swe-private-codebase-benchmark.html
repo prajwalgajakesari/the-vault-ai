@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eight Coding Agents Met Code They Had Never Seen. The Best One Solved 38.8 Percent. &mdash; The Vault AI</title>
+<meta name="description" content="Real-SWE runs frontier agents against licensed private production codebases, and the dominant failure was not broken code but missed requirements — behavior the ticket demanded and the agent silently skipped.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&amp;family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Eight Coding Agents Met Code They Had Never Seen. The Best One Solved 38.8 Percent.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1026 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Real-SWE runs frontier agents against licensed private production codebases, and the dominant failure was not broken code but missed requirements — behavior the ticket demanded and the agent silently skipped.</p>
+</div>
+<div class="article-body">
+<p>Ten tickets. Eight attempts each. Eight frontier coding agents, every one running in its maker&#x27;s own harness. The best of them — Anthropic&#x27;s Fable 5.1 inside Claude Code — resolved 38.8%.</p>
+<p>That is the top line of Real-SWE, a benchmark Specific Labs published this month that runs agents against private production codebases licensed from their owners. The same model leads SWE-bench Pro at 81.2% on BenchLM&#x27;s September 10 snapshot. The gap between those two numbers is the point of the exercise.</p>
+<p>Behind Fable sat OpenAI&#x27;s GPT-6 Astra in Codex CLI at 33.8% and Google&#x27;s Gemini 3.8 Flash in Gemini CLI at 31.2%, then GLM 5.3 at 28.8%, Grok 4.6 and Muse Spark 1.3 at 23.8%, Kimi K3 at 18.8%, and GPT-5.6 Sol at 16.2%. Resolution rate is pass@1 averaged over eight runs per task.</p>
+<h2>The tickets are the product</h2>
+<p>Specific Labs — a two-person, Y Combinator-backed outfit founded in 2025 by Siddhant Paliwal and Janak Sunil, whose day business is turning enterprise data into agent training sets — licensed repositories from companies it describes as having &quot;substantial usage, strong engineering teams, and demanding production workloads.&quot; Among them: an events platform with 200K-plus users, and a consumer fintech that has processed over 100,000 bank statements.</p>
+<p>The work is billing, tax, and customer migration. One published sample asks an agent to fix invoice taxation in a NestJS service where each business settles tax differently — some hold a self-maintained rate, some price against the buyer&#x27;s destination through a third-party tax authority in sandbox or production, some collect nothing — while a separately exempted customer is charged nothing regardless. Rate, tax and gross go onto the issued invoice; the settled sale is filed back to the authority under that invoice number; intra-European invoices show both parties&#x27; VAT registrations.</p>
+<p>That shape shows up in the measurements. The median instruction is 1,742 characters; the median reference solution edits 11 files, against six for both FrontierCode and DeepSWE. Verifiers are injected at grading time and, per the report, are &quot;inspired by existing test suites in the codebase or use those tests verbatim.&quot;</p>
+<p>Difficulty is lumpy. Six of the ten tasks resolved below 15%. A multi-region sweep hit 67.2%; a tax jurisdiction task landed at 3.1% and an analytics stream reducer at 0.0% — zero passes in 64 attempts. No model solved every task.</p>
+<h2>Missed requirements, not broken code</h2>
+<p>The failure taxonomy is the most useful thing on the page, and it does not say what the &quot;AI writes buggy code&quot; narrative predicts. Regressions were rare: 4.1% of Fable&#x27;s 49 failed runs, 3.8% of Astra&#x27;s 53, zero for GLM 5.3, Grok and Kimi. Delivering the change to a file the application never calls was rarer still.</p>
+<p>What dominated was missed requirements: leaving out behavior the instruction demanded. It was the largest category for five of the eight configurations, and catastrophic for some. Grok 4.6 missed requirements in 41 of its 61 failures (67.2%); Kimi K3 in 35 of 65 (53.8%). Gemini 3.8 Flash failed differently — 49.1% integration errors, the right idea wired into the surrounding system wrong, plus the field&#x27;s highest regression share at 10.9%. GPT-5.6 Sol&#x27;s signature was guessing: 43.3% unverified assumptions.</p>
+<p>Fable 5.1 and GPT-6 Astra, the two strongest, had no single failure mode above 37%. Their errors spread across all three big categories — worse for anyone designing a review gate, because no single check catches them.</p>
+<p>More time did not help. Rollouts under ten minutes failed 71.4% of the time; longer ones failed 73.4%. Neither did spend: estimated cost per rollout ran from $2.50 for Gemini 3.8 Flash to $6.96 for Fable 5.1, which inverts the ranking on cost per resolved task — roughly $8 for Flash against $18 for Fable. Specific Labs does not say how it estimated cost, or whether prompt caching was counted.</p>
+<h2>The contamination argument, and its limits</h2>
+<p>Real-SWE exists because the public sets stopped discriminating. OpenAI retired SWE-bench Verified on February 23, having audited 138 problems its models consistently failed and found at least 59.4% had tests that reject functionally correct patches. It also caught GPT-5.2, Claude Opus 4.5 and Gemini 3 Flash Preview reproducing gold patches — variable names, inline comments — from memory. Its conclusion: &quot;improvements on SWE-bench Verified no longer reflect meaningful improvements in models&#x27; real-world software development abilities.&quot;</p>
+<p>Specific Labs&#x27; pitch follows directly: &quot;Tasks on private codebases are natively out of distribution.&quot; There is precedent. Scale AI&#x27;s SWE-Bench Pro carried a commercial subset of 276 instances from 18 startup codebases; Claude Opus 4.1 fell from 22.7% on the public set to 17.8% on the commercial one, GPT-5 from 23.1% to 14.9%.</p>
+<p>But privacy buys uninspectability. Nobody outside Specific Labs can check a single score, and the sample is thin: 640 rollouts across ten tasks. Fable&#x27;s 49 failures imply 31 resolved of 80; Astra 27; Flash 25. First and third are six resolved rollouts apart. Eight attempts at one task are not eight independent observations, so the true interval is wider than the naive one — which already spans the top three.</p>
+<p>&quot;So TL;DR benchmarking in a completely non-reproducible manner?&quot; asked Hacker News commenter traceroute66. Sunil replied that the team manually vets codebases and companies and intends to open-source some tasks and trajectories. And note the incentive: a benchmark showing frontier models flailing on private code is a sales argument for a company selling private-code datasets.</p>
+<h2>What to watch</h2>
+<p>Whether the tasks and trajectories actually get released, and how large the full set is — ten tasks is a demo, not an evaluation. Whether other labs adopt private-code reporting now that OpenAI has told the field to stop citing Verified and has flagged about 30% of SWE-bench Pro&#x27;s public split as broken too.</p>
+<p>And whether the failure taxonomy travels. Developer Tess Ainsley drew the operational conclusion this week: &quot;measure the acceptance rate per agent, per area of the codebase, and adjust the review depth from that, per path.&quot; If missed requirements really are the dominant frontier failure on production work, the constraint on agentic engineering is not code generation. It is whether anyone can tell, quickly, that a plausible-looking eleven-file diff quietly skipped the exemption rule.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+  <blockquote>&ldquo;improvements on SWE-bench Verified no longer reflect meaningful improvements in models&#x27; real-world software development abilities&rdquo;</blockquote>
+  <cite>&mdash; OpenAI, From its February analysis retiring SWE-bench Verified</cite>
+</div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">38.8%</div><div class="stat-label">top resolution rate, from Anthropic&#x27;s Fable 5.1 in Claude Code</div></div><div class="stat-cell"><div class="stat-value">81.2%</div><div class="stat-label">the same model’s score on public SWE-bench Pro</div></div><div class="stat-cell"><div class="stat-value">0.0%</div><div class="stat-label">pass rate on the analytics stream reducer task — zero of 64 attempts</div></div><div class="stat-cell"><div class="stat-value">640</div><div class="stat-label">total rollouts, across only ten tasks and eight agent configurations</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://thenewstack.io/real-swe-coding-benchmark/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenewstack.io&amp;sz=32" alt="">The New Stack</a><a href="https://www.ycombinator.com/launches/TpS-real-swe-a-coding-benchmark-built-from-private-company-codebases" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=ycombinator.com&amp;sz=32" alt="">Y Combinator</a><a href="https://news.ycombinator.com/item?id=49676820" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=news.ycombinator.com&amp;sz=32" alt="">Hacker News</a></div></div>
+<div class="article-nav"><a href="06-salesforce-seven-agentforce-agents.html" class="nav-prev">&larr; Salesforce Shipped Seven AI Agents With Names and </a><a href="08-sakana-fugu-max-orchestrator.html" class="nav-next">Sakana Shipped Two Models and Trained the Weights  &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 12, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>

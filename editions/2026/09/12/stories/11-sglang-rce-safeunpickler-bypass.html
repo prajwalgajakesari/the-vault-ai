@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SGLang Built SafeUnpickler to Stop Exactly This Attack. Its Allowlist Let Everything Through. &mdash; The Vault AI</title>
+<meta name="description" content="An unauthenticated remote code execution bug bypasses SGLang&#x27;s own pickle guard rail by chaining two permitted builtins, and more than two months after disclosure there is still no patch.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&amp;family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>SGLang Built SafeUnpickler to Stop Exactly This Attack. Its Allowlist Let Everything Through.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1000 words</span>
+    <span>2 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>An unauthenticated remote code execution bug bypasses SGLang&#x27;s own pickle guard rail by chaining two permitted builtins, and more than two months after disclosure there is still no patch.</p>
+</div>
+<div class="article-body">
+<p>On September 5, the SGLang project shipped v0.5.19: 786 pull requests from 214 contributors, beam search, a new DeepEP engine, ROCm 10 images. Six days later, VicOne researcher Reuel Magistrado published the details of an unauthenticated remote code execution bug he had reported to the maintainers on July 2 — and that they had acknowledged, and then not fixed. Nothing in the v0.5.19 highlights addresses it. As of disclosure, there is still no patch.</p>
+<p>CVE-2026-86793, published September 11, bypasses SGLang&#x27;s SafeUnpickler: the guard rail the project built specifically to stop this class of attack. It affects SGLang through 0.5.18, is classified CWE-94, and carries no CVSS score — NVD analysis is still pending, a small indictment of how fast the paperwork moves relative to the code.</p>
+<p>It is the fourth critical CVE to hit AI inference and agent infrastructure in a very short window. Eighteen days, precisely, from August 25 to September 11.</p>
+<h2>The allowlist that allowed everything</h2>
+<p>SGLang, the LMSYS-developed serving framework used across research labs and production GPU clusters, exposes an HTTP endpoint called `/update_weights_from_tensor` for hot-swapping model weights. It accepts pickled Python objects. That was already a problem once: CVE-2025-10164 covered the same endpoint, and the fix was SafeUnpickler, which restricts which modules a pickle stream may resolve.</p>
+<p>SafeUnpickler works off two lists — `ALLOWED_MODULE_PREFIXES` and `DENY_CLASSES`. The allowlist includes the prefix `builtins.`, which permits any name in Python&#x27;s builtins module unless the denylist explicitly blocks it. The denylist blocks the obvious ones: `eval`, `exec`, `compile`, `open`. It does not block `__import__` or `getattr`.</p>
+<p>That gap is the whole vulnerability. An attacker need not reach a forbidden function directly; they need only reach two permitted ones and let those fetch the rest. Because SafeUnpickler inspects only the module and name handed to `find_class()`, it never observes the dangerous pair being assembled at runtime. The restrictions are bypassed not by breaking the rules but by staying within them.</p>
+<p>The endpoint is marked `AuthLevel.ADMIN_OPTIONAL`. When no API key is configured — the default for a great many internal deployments — it accepts requests from anyone who can reach the port. Network access is the entire prerequisite.</p>
+<p>&quot;Secure deserialization cannot rely only on blocking known dangerous functions,&quot; Magistrado&#x27;s research concluded. Unglamorous, and correct.</p>
+<h2>This has happened to SGLang before. Repeatedly.</h2>
+<p>The uncomfortable detail is that CVE-2026-86793 is not even the first SafeUnpickler denylist bypass disclosed this year. On July 30, CERT/CC published VU#281278, documenting six SGLang vulnerabilities reported by researcher Apoorv Dayal. The first, CVE-2026-15969, is unauthenticated RCE in `/load_lora_adapter_from_tensors` — via, in CERT/CC&#x27;s words, &quot;bypass of SafeUnpickler&#x27;s incomplete denylist.&quot; Same guard rail, different endpoint, six weeks earlier. The note&#x27;s summary line: &quot;no patches are available from the project maintainers, and coordination attempts have been unsuccessful.&quot;</p>
+<p>Before that, in March, CERT/CC published VU#665416 on three more pickle bugs found by Orca Security&#x27;s Igor Stepansky and CERT/CC&#x27;s Christopher Cullen — two of them CVSS 9.8, both unauthenticated network RCE through ZeroMQ brokers bound to `tcp://*`. Orca&#x27;s timeline runs February 4 to March 11 and records no vendor response at any point, including after CERT/CC escalated to CISA. Cullen wrote a patch himself — localhost binding plus msgpack — and filed it as GHSA-wxjp-55q2-vg27. It was not merged.</p>
+<p>Counting this week&#x27;s disclosure, SGLang has accumulated at least a dozen CVEs in 2026. Orca&#x27;s audit found more than 20 unsafe deserialization calls still in the codebase.</p>
+<h2>Why pickle keeps eating ML infrastructure</h2>
+<p>Python&#x27;s own documentation has warned for years that pickle is not secure against maliciously constructed data. The reason is structural: a pickle stream does not encode data, it encodes instructions for rebuilding objects, and the `__reduce__` protocol lets those instructions name any callable at all. Stepansky&#x27;s formulation is the one worth memorizing: &quot;every `pickle.loads()` call on untrusted input is an implicit `eval()`.&quot;</p>
+<p>He also names why the industry cannot quit it. &quot;Unsafe pickle deserialization is arguably the most prevalent vulnerability class in the Python AI/ML ecosystem,&quot; he wrote. &quot;The reason is understandable: pickle is convenient. It serializes arbitrary Python objects with zero schema definition.&quot; Msgpack and Protocol Buffers require you to define what you are sending; pickle does not. For a framework optimizing tokens per second across 214 contributors, schema discipline is friction, and friction loses.</p>
+<p>CERT/CC&#x27;s guidance in VU#665416 is blunter than most vendor advisories get: &quot;It is recommended that project maintainers avoid implementing Pickle functions due to the inherent security risks.&quot;</p>
+<p>SafeUnpickler is what happens when a project declines that advice and tries to make pickle safe instead. Allowlists over a language with runtime reflection are a losing proposition — you are enumerating badness in a system explicitly designed to let you reach anything from anywhere.</p>
+<h2>The default-open problem</h2>
+<p>The other three CVEs in the eighteen-day cluster share a shape. NemoClaw (CVE-2026-65105, CVSS 8.1), disclosed August 25 by Oasis Security and Cyera, exploited an Ollama backend bound to all interfaces with Host header validation off: &quot;A single visit to an attacker-controlled webpage is all it takes to give the attacker these capabilities.&quot; DeepSeek Harness (CVE-2026-82533, CVSS 9.4) exposed an unauthenticated local API that let a sandboxed agent disable its own confinement — OX Security reported the escalation to `danger-full-access` took one command &quot;on the shipped default configuration.&quot; IBM Langflow (CVE-2026-81204, CVSS 9.8) passed return-type annotation source to `eval` past an incomplete denylist.</p>
+<p>Incomplete denylists, unauthenticated control planes, permissive default bindings. These are not novel attacks. They are 2005 attacks, shipped inside frameworks written in 2025.</p>
+<h2>What to watch</h2>
+<p>Whether SGLang merges anything. There are now four CERT/CC notes against the project and at least two externally written patches sitting unmerged; &quot;no vendor statement&quot; has appeared in three consecutive advisories. Watch for `SGLANG_USE_PICKLE_IPC` flipping to `false` by default, and for `AuthLevel.ADMIN_OPTIONAL` becoming mandatory — either would signal a posture change. Until then the practical control is segmentation: treat every inference control endpoint as internet-facing until proven otherwise, and audit which GPU nodes currently accept a weight update from anyone who can route to port 30000.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185">
+  <blockquote>&ldquo;every `pickle.loads()` call on untrusted input is an implicit `eval()`&rdquo;</blockquote>
+  <cite>&mdash; Igor Stepansky, Security researcher, Orca Security</cite>
+</div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">4</div><div class="stat-label">critical CVEs across AI inference and agent infrastructure in an 18-day window</div></div><div class="stat-cell"><div class="stat-value">786</div><div class="stat-label">pull requests in SGLang v0.5.19, none addressing the reported RCE</div></div><div class="stat-cell"><div class="stat-value">20+</div><div class="stat-label">unsafe deserialization calls Orca&#x27;s audit still found in the codebase</div></div><div class="stat-cell"><div class="stat-value">12</div><div class="stat-label">CVEs SGLang has accumulated in 2026, with four CERT/CC notes outstanding</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://app.opencve.io/cve/CVE-2026-86793" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=app.opencve.io&amp;sz=32" alt="">OpenCVE</a><a href="https://forkast.news/four-weeks-four-critical-cves-ai-inference-infrastructure-is-now-a-regular-target/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=forkast.news&amp;sz=32" alt="">Forkast</a></div></div>
+<div class="article-nav"><a href="10-accomplish-coding-agent-sandbox-leaks.html" class="nav-prev">&larr; They Turned the Sandbox On, Opened a Repo, and Wat</a><a href="12-know-your-agent-visa-mastercard-ant.html" class="nav-next">Visa, Mastercard and Ant Agreed on How to Identify &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 12, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
