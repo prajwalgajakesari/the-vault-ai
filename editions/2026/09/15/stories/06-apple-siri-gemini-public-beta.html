@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apple Shipped Siri&#x27;s Rebuild as a Beta. The Model Underneath Is Google&#x27;s. &mdash; The Vault AI</title>
+<meta name="description" content="Apple&#x27;s rebuilt Siri shipped in English beta twenty-seven months after its first demo, running partly on a custom 1.2-trillion-parameter Gemini model licensed from Google for roughly $1 billion a year.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&amp;family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Apple Shipped Siri&#x27;s Rebuild as a Beta. The Model Underneath Is Google&#x27;s.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1000 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Apple&#x27;s rebuilt Siri shipped in English beta twenty-seven months after its first demo, running partly on a custom 1.2-trillion-parameter Gemini model licensed from Google for roughly $1 billion a year.</p>
+</div>
+<div class="article-body">
+<p>Apple started pushing the rebuilt Siri to the public this week, in beta, in English only, behind a waitlist, and not at all in the European Union. The press release describes what is underneath in one sentence, two-thirds of the way down: the new capabilities are &quot;powered by the next generation of Apple Foundation Models, custom-built in collaboration with Google and its Gemini models.&quot; That is Apple announcing, in the passive voice of a footnote, that its most visible AI product runs in significant part on a competitor&#x27;s frontier model.</p>
+<p>The rollout landed on September 14 alongside iOS 27, iPadOS 27, macOS 27, watchOS 27 and visionOS 27. Siri AI — Apple&#x27;s branding, not a typo — is English-first, with French, Japanese, Korean, Portuguese and Spanish promised next month. It requires an Apple Intelligence-enabled device: iPhone 16 or later, iPhone 15 Pro and Pro Max, M1 iPads and Macs or newer, Apple Vision Pro, and Apple Watch Series 9 or later. The most advanced on-device model, driving expressive voices and improved dictation, needs at least 12GB of unified memory, narrowing it further to iPhone Duo, iPhone 18 Pro, iPhone Air, iPhone 17 Pro, M4 iPads and M3 Macs. Users under 13 are excluded. So is everyone in China, pending regulatory work.</p>
+<h2>The two-year gap</h2>
+<p>Apple demoed a personalized, context-aware Siri at WWDC in June 2024. It slipped past iOS 18.4, was formally delayed in March 2025, and at WWDC 2025 Craig Federighi told developers only that Apple would share more in the coming year. The rebuilt assistant was finally unveiled at WWDC on June 8, 2026, and shipped as a beta three months after that. From stage demo to public beta: twenty-seven months, and what closed the gap was a check to Google.</p>
+<p>Bloomberg reported in November 2025 that Apple would pay Google roughly $1 billion a year for a custom 1.2-trillion-parameter Gemini model built to power Siri. Apple and Google confirmed a multi-year partnership on January 12, 2026. For scale, Apple&#x27;s own cloud-side foundation model was reported at around 150 billion parameters — the Google model is roughly eight times larger, and uses a mixture-of-experts design so only a fraction of those parameters fire per query.</p>
+<h2>What runs where</h2>
+<p>Apple&#x27;s architecture routes requests across tiers. Simple work stays on device, handled by a system orchestrator and Apple&#x27;s own AFM Core Advanced model, which also drives the Spotlight index and App Toolbox integrations Apple says &quot;work entirely on device.&quot; Heavier requests go to Private Cloud Compute, where Apple runs AFM Cloud, AFM Cloud Pro, an image model, and a World Knowledge Service. The largest reasoning tasks reach the custom Gemini model — and that is where the interesting engineering is, because Apple did not simply hand queries to Google&#x27;s API.</p>
+<p>&quot;To bring this model to production, we worked with both Google and Nvidia to extend our private cloud compute infrastructure to Nvidia GPUs in Google&#x27;s cloud, while maintaining Apple&#x27;s unmatched privacy guarantees,&quot; said Sebastian Marineau-Mes, who runs Apple&#x27;s Apple Intelligence Experience team. In other words, Apple pushed its PCC attestation and no-retention model onto hardware sitting inside Google Cloud, so that the model runs on Google&#x27;s silicon without Google seeing the inputs. Apple&#x27;s stated guarantee is unchanged from the 2024 version: &quot;When Private Cloud Compute is handling users&#x27; requests, their personal data is not stored nor made accessible to Apple or anyone else. Outside experts can continue to verify this privacy promise at any time.&quot;</p>
+<p>That verification claim is the load-bearing one. PCC&#x27;s security researcher program and published server images are the mechanism; whether independent researchers can audit the Google-hosted nodes to the same standard as Apple&#x27;s own data centers has not been demonstrated publicly.</p>
+<p>Apple is also still insisting Siri is not a chatbot, despite shipping a dedicated Siri app with iCloud-synced conversation history. &quot;We see Siri not as a separate chatbot, an unintegrated place you go and chitchat, but rather as an integral but conversational tool that you use in the moment,&quot; Federighi said at WWDC.</p>
+<h2>Why it matters</h2>
+<p>Apple spent a decade arguing that owning the stack is the product. It now ships its flagship AI feature on a licensed model from the company that also pays it roughly $20 billion a year to be Safari&#x27;s default search engine — an arrangement already under antitrust scrutiny. The $1 billion flows the other direction, which is a rounding error against Apple&#x27;s R&amp;D budget and a meaningful signal about where Apple concluded its own frontier models stood. Apple evaluated OpenAI and Anthropic proposals and picked Google.</p>
+<p>The more durable story is architectural. If Apple can genuinely run Private Cloud Compute attestation on third-party hardware in someone else&#x27;s cloud, it has built a template for renting frontier capability without renting out user data. Every regulated industry that wants a frontier model but cannot ship data to a model vendor is watching that. If it turns out the guarantee weakens at the Google boundary, Apple has spent its most valuable asset — the privacy claim — on a catch-up feature.</p>
+<p>Meanwhile the EU gets nothing on iPhone. Federighi: &quot;We&#x27;re deeply disappointed that our EU users won&#x27;t have Siri AI on iPhone or iPad when we share our new software releases later this year.&quot; Apple blames the Digital Markets Act&#x27;s interoperability requirements; the Commission rejected its proposed Trusted System Agent workaround and an 18-month phased rollout. EU users do get Siri AI on macOS 27 and visionOS 27, which undercuts the technical-impossibility framing somewhat.</p>
+<h2>What to watch</h2>
+<p>Whether the waitlist clears in days or weeks, and what that implies about PCC capacity. Whether the October language expansion holds. Whether security researchers get audit access to the Google-hosted PCC nodes, and what they publish. Whether the $1 billion figure survives usage at iPhone scale — a per-query cost structure across a billion-plus devices does not obviously stay flat. And whether Apple ships a replacement model of its own, the only version of this story where the arrangement is temporary.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+  <blockquote>&ldquo;To bring this model to production, we worked with both Google and Nvidia to extend our private cloud compute infrastructure to Nvidia GPUs in Google&#x27;s cloud, while maintaining Apple&#x27;s unmatched privacy guarantees.&rdquo;</blockquote>
+  <cite>&mdash; Sebastian Marineau-Mes, Head of Apple Intelligence Experience, Apple</cite>
+</div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">$1B/yr</div><div class="stat-label">Reported Apple payment to Google</div></div><div class="stat-cell"><div class="stat-value">1.2T</div><div class="stat-label">Parameters in the custom Gemini model</div></div><div class="stat-cell"><div class="stat-value">27 months</div><div class="stat-label">From the WWDC 2024 demo to public beta</div></div><div class="stat-cell"><div class="stat-value">12GB</div><div class="stat-label">Unified memory for the top on-device model</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=apple.com&amp;sz=32" alt="">Apple Newsroom</a><a href="https://www.tomsguide.com/ai/apple-intelligence/craig-federighi-on-siri-ai-we-see-siri-not-as-a-separate-chatbot-but-rather-as-an-integral-but-conversational-tool-that-you-use-in-the-moment-deeply-integrated-into-your-experience" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tomsguide.com&amp;sz=32" alt="">Tom&#x27;s Guide</a><a href="https://www.bloomberg.com/news/articles/2025-11-05/apple-plans-to-use-1-2-trillion-parameter-google-gemini-model-to-power-new-siri" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bloomberg.com&amp;sz=32" alt="">Bloomberg</a></div></div>
+<div class="article-nav"><a href="05-openai-project-lily-human-review.html" class="nav-prev">&larr; Hundreds of Contractors Are Reading Real ChatGPT C</a><a href="07-zai-glm-53-flash-multimodal.html" class="nav-next">Z.ai&#x27;s First Natively Multimodal GLM-5 Claims a 17 &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 15, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
