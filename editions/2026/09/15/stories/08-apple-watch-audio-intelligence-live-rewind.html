@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apple Put an Always-Listening Buffer on Your Wrist and Called It Live Rewind &mdash; The Vault AI</title>
+<meta name="description" content="Live Rewind keeps a rolling 15-second audio buffer in a hardware-isolated Secure Exclave and never writes a playable file, but attorneys in four two-party-consent states say that may still count as interception.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&amp;family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+@media(max-width:640px){.article-header h1{font-size:1.6rem}nav{padding:.75rem 1rem}}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Apple Put an Always-Listening Buffer on Your Wrist and Called It Live Rewind</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 998 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Live Rewind keeps a rolling 15-second audio buffer in a hardware-isolated Secure Exclave and never writes a playable file, but attorneys in four two-party-consent states say that may still count as interception.</p>
+</div>
+<div class="article-body">
+<p>Six days after Apple introduced the $399 Apple Watch Series 12 and a feature set it calls Audio Intelligence, the argument has moved off the spec sheet and into state wiretapping law. On September 11, Bloomberg&#x27;s Natalie Lung put one question to attorneys in California, Massachusetts, Pennsylvania and Washington: if a watch listens continuously, turns 15 seconds of speech into on-screen text, and never produces an audio file anyone can play back, has it recorded the other person in the room? None of the lawyers she spoke to was convinced Apple&#x27;s protections would shield the wearer. On September 15 that uncertainty was still unresolved, and the watches go on sale September 18.</p>
+<p>The feature at the center of it is Live Rewind. Apple&#x27;s description is narrow and worth quoting precisely: &quot;A double press of the Digital Crown shows the previous 15 seconds of a conversation as a text snippet, so the user can catch something they may have missed or are less familiar with.&quot; To produce those 15 seconds, the microphone has to have been on for the preceding 15 seconds. Apple does not dispute this. Its 11-page Audio Intelligence privacy overview, published September 9, describes the mechanism plainly: &quot;Audio from the microphone flows into the audio buffer inside the Secure Exclave on the S11 chip. Old audio is continuously replaced by new audio, so audio doesn&#x27;t accumulate, and raw audio isn&#x27;t accessible outside this protected buffer.&quot; On the double-press, the buffered audio goes to the paired iPhone, on-device speech recognition converts it to text, and the phone discards the raw audio. The snippet disappears roughly 30 seconds after the display dims unless saved to the Siri app.</p>
+<p>The architecture is not press-release vapor. The Secure Exclave is a hardware-isolated compartment on the S11 chip, and Apple&#x27;s newsroom copy states that Audio Intelligence features &quot;do not create or store audio recordings, and raw audio used for processing is completely inaccessible to the operating systems, apps, the user, or Apple.&quot; All four features — Sound Recognition, Shazam, Live Rewind, Siri Recap — are opt-in. Live Rewind must be enabled in the Watch app and then activated deliberately, every time. It requires an iPhone 16 or later, excluding the 16e, and is barred to users under 13. It plays a chime even when the watch is silenced or headphones are connected, alongside a full-display animation and a microphone indicator. Both features ship in beta later this year, English only, and are not in the initial builds of watchOS 27 or iOS 27.</p>
+<p>Siri Recap is the harder case, and Apple&#x27;s own document concedes the asymmetry: it carries no chime, because no raw audio is retained to announce. A lightweight model on the S11 decides whether speech is happening nearby; audio then enters the protected buffer, and the watch encrypts it and hands it to the Secure Exclave on the iPhone, which alone holds the key. The phone transcribes, condenses to under half the length, strips filler and tone markers, runs a safety model, then encrypts the result to Private Cloud Compute with calendar data and coarse location labels like home or work. Recaps expire after seven days unless saved.</p>
+<h2>The consent question nobody has answered</h2>
+<p>The lawyers&#x27; objection is not that Apple is lying about the buffer. It is that interception statutes in roughly a dozen states regulate the act of capturing a private conversation, not the file format at the end of it. Phil Lauer, a defense attorney in Pennsylvania, told Bloomberg the technology is &quot;very close to being legal, because it&#x27;s not an individual who is actually receiving and using this data,&quot; then immediately drew the opposite line: the device is picking up audio and interpreting it, and &quot;the argument can be made that it&#x27;s unlawful.&quot; Mark Blair, a principal at Seattle firm Blair Kim Moeller, was blunter — a wearer should announce that the watch is listening, and &quot;absent that, it is a criminal violation.&quot; Joe Simons, a Boston criminal defense attorney, expects the issue to arrive in Massachusetts as a case of first impression.</p>
+<p>Apple&#x27;s rebuttal is that people have long carried note-taking tools, that no recording exists, and therefore nothing can be subpoenaed or forwarded. That addresses Apple&#x27;s exposure. It does not address the wearer&#x27;s, and the wearer is the one a state prosecutor would charge. Adam Schwartz, privacy litigation director at the Electronic Frontier Foundation, argued that people around the device have no practical means to consent or decline. Colin Zick, who chairs privacy and data security at Foley Hoag, noted that Zoom no longer lets users save meeting captions: &quot;What does that suggest? That they&#x27;re worried about this very issue.&quot;</p>
+<h2>Why it matters</h2>
+<p>Apple has spent a decade arguing that the correct answer to ambient AI is better hardware isolation. Live Rewind is the strongest version of that argument anyone has shipped — a rolling buffer inside a dedicated enclave, no file, no speaker attribution, an audible chime, an opt-in toggle. It is also the moment the industry&#x27;s privacy defense shifts from &quot;we don&#x27;t listen&quot; to &quot;we listen, but the listening is sealed.&quot; Every rival building always-on assistants now has a template and a price point: $399, on a device most people already wear to dinner. The same event produced the iPhone 18 Pro at $1,199 and the Pro Max at $1,299, both running the 2-nanometer A20 Pro with a 48MP Fusion camera and variable aperture. The phone is the spec race. The watch is the precedent.</p>
+<h2>What to watch</h2>
+<p>Whether the beta ships in two-party-consent states unchanged, or arrives with jurisdiction-specific gating the way Apple has handled other regulated features. Whether the first suit targets a Siri Recap user rather than a Live Rewind user, since only one of them chimes. Whether Apple extends Audio Intelligence to AirPods, where there is no display to animate. And whether the 15-second window stays at 15 seconds — the ceiling here is a buffer size, and buffer sizes are a software decision.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+  <blockquote>&ldquo;very close to being legal, because it&#x27;s not an individual who is actually receiving and using this data&rdquo;</blockquote>
+  <cite>&mdash; Phil Lauer, Defense attorney, Pennsylvania</cite>
+</div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">$399</div><div class="stat-label">Apple Watch Series 12 starting price</div></div><div class="stat-cell"><div class="stat-value">15 seconds</div><div class="stat-label">Live Rewind rolling audio buffer</div></div><div class="stat-cell"><div class="stat-value">4 states</div><div class="stat-label">Two-party-consent jurisdictions raising questions</div></div><div class="stat-cell"><div class="stat-value">$1,199</div><div class="stat-label">iPhone 18 Pro starting price, 2nm A20 Pro</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.apple.com/newsroom/2026/09/introducing-apple-watch-series-12-with-the-all-new-health-sensing-system/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=apple.com&amp;sz=32" alt="">Apple Newsroom</a><a href="https://thenextweb.com/news/apple-watch-siri-recap-live-rewind-eavesdropping-laws" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenextweb.com&amp;sz=32" alt="">The Next Web</a><a href="https://9to5mac.com/2026/09/15/new-apple-watch-features-may-require-new-legal-precedent-for-privacy/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=9to5mac.com&amp;sz=32" alt="">9to5Mac</a></div></div>
+<div class="article-nav"><a href="07-zai-glm-53-flash-multimodal.html" class="nav-prev">&larr; Z.ai&#x27;s First Natively Multimodal GLM-5 Claims a 17</a><a href="09-nvidia-groot-h-healthcare-robotics.html" class="nav-next">Nvidia&#x27;s Surgical Robotics Stack Is Six Months Old &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 15, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
