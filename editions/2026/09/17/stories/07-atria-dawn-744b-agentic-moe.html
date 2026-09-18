@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shanghai AI Lab&#x27;s Atria Dawn Preview: a 744B Agentic MoE, MIT-Licensed, Built on Someone Else&#x27;s Base Model &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.35}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Shanghai AI Lab&#x27;s Atria Dawn Preview: a 744B Agentic MoE, MIT-Licensed, Built on Someone Else&#x27;s Base Model</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 995 words</span>
+    <span>6 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Shanghai AI Lab post-trained Z.ai&#x27;s open-weight GLM-5.2 into a 744B agentic model, released it under MIT with weights on Hugging Face, and published self-reported wins on five of 16 benchmarks that no independent evaluator has yet checked.</p>
+</div>
+<div class="article-body">
+<p>The weights landed first. On September 11, Shanghai Artificial Intelligence Laboratory&#x27;s InternLM org pushed roughly 1.5TB of safetensors to Hugging Face under an MIT license, no blog post, no paper, no API. An FP8 checkpoint followed a day later. Three days after that, on September 14, a 23-page arXiv preprint appeared with more than 130 authors and a title that explains the silence rather less than it advertises it: &quot;Atria Dawn: The Dawn of Agentic Superintelligence.&quot;</p>
+<p>What the paper describes is narrower and more interesting than the branding. Atria Dawn Preview is a 744-billion-parameter mixture-of-experts agentic model that Shanghai AI Lab did not pretrain. The foundation is GLM-5.2, the open-weight MoE that Beijing&#x27;s Z.ai released in June — the Hugging Face architecture tag is `glm_moe_dsa`, the local-deployment instructions point at SGLang and vLLM recipes written for GLM-5.2, and the paper&#x27;s own citation for the base model is simply &quot;Z.ai, 2026.&quot; Atria Dawn is post-training, shipped as a full model.</p>
+<h2>What the Verifiable Experience Pipeline actually does</h2>
+<p>The training claim is the substantive one. Every task in Atria Dawn&#x27;s agentic training set is &quot;connected to a real execution environment,&quot; per the paper: the model observes state, calls tools, produces intermediate artifacts and adapts to feedback, and the final outcome is checked against external signals — &quot;executable tests, experiment metrics, file and application state, geometric checks, or source support.&quot; A curation pass then strips out trajectories that are incomplete, contradictory, duplicate or behaviorally invalid. Only experience that links a task to its trajectory, its artifacts and its verification evidence gets folded into the model.</p>
+<p>This is where the whole post-training field has been heading — GLM-5&#x27;s own report described building more than 10,000 verifiable software-engineering scenarios — but Atria pushes past code into workspace state, geometry and sourced evidence, which is where verification gets genuinely hard. The lab groups the results into four buckets: Discovery, Creation, Delivery and Cybersecurity. The model is text-only, and the card is explicit that images and PDFs get rejected outright.</p>
+<h2>The benchmark table, and how much of it to believe</h2>
+<p>Across 16 benchmarks, the paper reports Atria Dawn Preview taking the top score on five: AutomationBench (53.8), BFCL v4 (77.0), DeepSearchQA (96.0), BrowseComp (92.5) and CyberGym (86.5). It claims second place on three more — SkillsBench (66.4), Workspace-Bench (65.0) and Workspace-Bench-Lite (68.2) — each within two points of the leader.</p>
+<p>Two caveats travel with those numbers. The first is the lab&#x27;s own: Table 1 is labeled as results &quot;reported on the official release website,&quot; and the comparison columns for DeepSeek V4 Pro, Kimi K3, Qwen 3.8 Max, GLM 5.3, GPT-5.6 Sol and Claude Opus 5 are riddled with dashes. The paper concedes that &quot;rankings refer to the available entries in each row.&quot; DeepSearchQA&#x27;s 96.0 tops a field where three of six rivals have no entry at all.</p>
+<p>The second is that nobody outside the lab has checked any of it. Writing on OrcaRouter&#x27;s blog the day the paper posted, Rowan Sterling put the standard plainly: the right reading is &quot;here is how the vendor says it compares,&quot; not &quot;here is how it compares.&quot; Artificial Analysis still has no entry for the model.</p>
+<p>Where the table is unflattering, it reads as honest. Terminal-Bench 2.1 comes in at 78.3 against Claude Opus 5&#x27;s 90.2; SWE-bench Pro at 59.6 against 74.7; JobBench at 50.3, lowest in its row. The strengths cluster in search, browsing and security validation, not coding.</p>
+<h2>The 769-record study, and its limits</h2>
+<p>The paper&#x27;s second half is a case study of its own construction. The Atria team analyzed 769 task records from 56 participants alongside agent logs. Of the 739 tasks with a clear answer on AI involvement, 713 — 96.5% — used it. Among 455 completed AI-assisted tasks with a usable response, participants rated 151, or 33.2%, as infeasible without AI under fixed scope, quality and resource constraints. Those came from 27 of the 56 participants.</p>
+<p>The role split is the finding worth carrying. Across 567 recorded methods and decisions, AI proposed 64.6% but humans made the final call 85.5% of the time — 93.4% for goals and scope. In the 151 &quot;infeasible without AI&quot; tasks, humans still picked the final goal in 144 cases, 95.4%. The median ratio of agent actions to human prompts rose from 11.0 to 28.5 between August 7 and September 4.</p>
+<p>Treat all of this as what it is: retrospective self-assessment by employees rating their own project, on a counterfactual (&quot;could I have done this without AI?&quot;) that is not testable. There is no control group, roughly 40% of the 769 records drop out before the feasibility question, and the &quot;one-third infeasible&quot; figure is concentrated in under half the cohort. The paper even flags that its own headline chart shows an interquartile range, &quot;not a confidence interval.&quot; It is a useful field note, not an effect size.</p>
+<h2>Why it matters</h2>
+<p>Three things. Building on GLM-5.2 rather than from scratch is the clearest signal yet that China&#x27;s open-weight stack has become genuine shared infrastructure — Z.ai&#x27;s MIT release, which Simon Willison called &quot;probably the most powerful text-only open weights LLM,&quot; is now a base other national labs post-train on and republish, also under MIT. Second, the frontier has moved from data to environments: the scarce asset is executable, externally checkable tasks, and that is expensive infrastructure, not scraped text. Third, a frontier-adjacent agentic model with unrestricted commercial weights resets the floor for everyone selling agentic capability as a service.</p>
+<h2>What to watch</h2>
+<p>An independent evaluation is the obvious gap — BrowseComp and CyberGym claims of this size need a neutral harness. Watch too for the specs the lab still has not published: the active-parameter count is absent from the card, and the context window is listed as 256K even though the shipped config reads 1,048,576 tokens. And watch whether &quot;Preview&quot; means a full Atria release built on its own base — or whether Shanghai AI Lab&#x27;s plan is to keep riding Z.ai&#x27;s.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;here is how the vendor says it compares, not here is how it compares&rdquo;</blockquote><cite>&mdash; Rowan Sterling, Writer, OrcaRouter</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">744B</div><div class="stat-label">Total parameters in the GLM-5.2 MoE foundation Atria Dawn is built on</div></div><div class="stat-cell"><div class="stat-value">5 of 16</div><div class="stat-label">Benchmarks where the lab reports the highest score</div></div><div class="stat-cell"><div class="stat-value">33.2%</div><div class="stat-label">Completed AI-assisted tasks participants rated infeasible without AI</div></div><div class="stat-cell"><div class="stat-value">85.5%</div><div class="stat-label">Method and parameter decisions where a human made the final choice</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2609.15818" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&amp;sz=32" alt="">arXiv</a><a href="https://huggingface.co/internlm/Atria-Dawn-Preview" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&amp;sz=32" alt="">Hugging Face</a><a href="https://www.orcarouter.ai/blog/atria-dawn-preview-quiet-release" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=orcarouter.ai&amp;sz=32" alt="">OrcaRouter</a><a href="https://simonwillison.net/2026/jun/17/glm-52/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=simonwillison.net&amp;sz=32" alt="">Simon Willison</a><a href="https://pandaily.com/shanghai-ai-lab-atria-dawn-preview-744b-moe-agent" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=pandaily.com&amp;sz=32" alt="">Pandaily</a><a href="https://llm-stats.com/models/atria-dawn-preview" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=llm-stats.com&amp;sz=32" alt="">LLM Stats</a></div></div>
+<div class="article-nav"><a href="06-gemini-38-live-extended-thinking.html" class="nav-prev">&larr; Google&#x27;s &quot;Extended Thinking&quot; Ships for Voice, Not Te</a><a href="08-enterprise-model-fatigue-release-cadence.html" class="nav-next">Four Frontier Labs Shipped in One Week. Enterprise B &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 17, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
