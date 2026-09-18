@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Put Ads Inside the Agent. Tapping One No Longer Sends You to a Website. &mdash; The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:120px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem;line-height:1.35}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none;max-width:45%}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>OpenAI Put Ads Inside the Agent. Tapping One No Longer Sends You to a Website.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1026 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI&#x27;s new Sponsored Agents format turns an ad click into a second, advertiser-paid conversation inside ChatGPT — shipped as a US-only limited alpha with no disclosed pricing, measurement definition or transcript data policy.</p>
+</div>
+<div class="article-body">
+<p>For seven months, an ad inside ChatGPT has been a card at the bottom of an answer: advertiser name, favicon, short headline, link out. In a post titled &quot;Reimagining advertising with AI,&quot; published September 16 and absorbed by the trade press through the 17th, OpenAI changed what the click does. Under a format it calls Sponsored Agents, tapping the ad no longer sends you to a website. It opens a second conversation — inside ChatGPT, with an AI agent paid for by the advertiser.</p>
+<p>The format is a limited alpha, confined to the United States. OpenAI&#x27;s help documentation is blunt: &quot;Sponsored Agents are currently available only to selected advertisers in a limited alpha test,&quot; and the company is &quot;not accepting early access requests at this time.&quot; But it arrived bundled with decidedly non-experimental commitments — integrations with HubSpot and Shopify, prompt-driven campaign building, a billing change — that make the direction of travel clear.</p>
+<h2>What a Sponsored Agent actually is</h2>
+<p>After seeing a relevant ad, OpenAI says, &quot;a user can choose to start a clearly labeled conversation with a business-sponsored agent in ChatGPT,&quot; where they can ask follow-up questions &quot;and follow a link to the business&#x27;s website when they&#x27;re ready to take the next step.&quot; Its illustration is a shopper eyeing a dining table who wants to know whether it fits the room.</p>
+<p>Two boundaries are drawn explicitly. The conversation is labeled, and it is walled off: &quot;The conversation with a Sponsored Agent is distinct from ChatGPT&#x27;s independent answers and separate from the original conversation that the user started in ChatGPT.&quot; Digiday, which viewed the format on video beforehand, reported the ad carries a call-to-action button reading something like &quot;Chat with us.&quot;</p>
+<p>Wayfair confirmed it is among the testers. &quot;Yes, Wayfair is participating in OpenAI&#x27;s Sponsored Agent pilot to explore how conversational commerce can help customers make more informed, confident decisions,&quot; Morgan Brown, the retailer&#x27;s director of paid media, told Digiday, adding that it is testing &quot;at limited scale with guardrails around product accuracy, transparency and service handoffs.&quot;</p>
+<p>What OpenAI has not said is nearly as notable. No pricing or auction model has been disclosed. The post does not say which model powers the agent, who writes its instructions, what the advertiser learns from the transcript, or what counts as a conversion — the click, the number of turns, the outbound link, or a sale. OpenAI&#x27;s advertising rules state that ordinary conversations, chat history and memory are not shared with advertisers; a sponsored conversation is by construction a conversation with an advertiser&#x27;s system.</p>
+<h2>The rest of the package</h2>
+<p>Around the alpha, OpenAI shipped things advertisers can use today. Campaigns can be built and analyzed through natural-language prompts via an Ads Manager plugin in ChatGPT Work. An assistant drafts copy and imagery from a landing page and objective, though &quot;advertisers remain in control&quot; and can edit first. An opt-in setting rewrites headlines &quot;to better fit the context of a conversation&quot; and auto-translates them. An email to advertisers, published by Search Engine Roundtable, added that impression-billed conversion optimization is now generally available and is OpenAI&#x27;s &quot;recommended model for maximizing performance.&quot;</p>
+<p>HubSpot became the first CRM partner and Shopify the first ecommerce partner. &quot;Putting AI to work shouldn&#x27;t require businesses to rebuild the way they work,&quot; said Brian Landsman, OpenAI&#x27;s VP of global partnerships, in HubSpot&#x27;s release. The two are pushing an &quot;AI Growth Bundle&quot;: HubSpot Starter and credits at up to 65% off for a year, buy-one-get-one ChatGPT Business seats, and a $750 match on ad spend for new accounts opened by September 30. The free Shopify app is US-only now and goes international on September 23.</p>
+<h2>Why this matters</h2>
+<p>ChatGPT&#x27;s ad business went from nothing in February to a $1 billion annualized run rate in under 200 days, a figure CFO Sarah Friar has confirmed; Digiday reports OpenAI is chasing roughly $2.4 billion for the full year. Similarweb estimated in August that 26% of ChatGPT responses shown to Free and Go users already carried a sponsored placement. Ads run in 41 markets.</p>
+<p>Friar has been explicit that the current format is a floor. At Goldman Sachs&#x27; Communacopia conference on September 8 she called the cards under ChatGPT answers the &quot;basic starting point.&quot; &quot;This is all before we&#x27;ve really launched a format that feels truly endemic to AI,&quot; she said. She has separately described the opportunity as what you would get &quot;if Google and Meta had a baby.&quot;</p>
+<p>Every dominant ad platform has a signature unit: Google&#x27;s text link, Facebook&#x27;s feed ad, TikTok&#x27;s in-feed video. Sponsored Agents look like OpenAI&#x27;s attempt at that unit — and the closest analogue isn&#x27;t search. &quot;This is similar to Meta Ads that send people to WhatsApp,&quot; said Farhad Divecha, group CEO of Accuracast.</p>
+<p>The trust tradeoff is the unresolved half. Search advertising worked because the boundary between a blue link and a sponsored one is visually obvious. Here the boundary is a label on a chat window that looks, reads and answers exactly like the assistant a user already trusts. OpenAI has drawn that line carefully — separate thread, user-initiated. Whether users perceive it is a different question from whether it exists.</p>
+<p>The commercial case is unproven too. &quot;While they&#x27;ve been a hot new platform for advertisers, the ROI just hasn&#x27;t been there for the most part,&quot; said Shamsul Chowdhury, svp of paid media at Zeno Group, who noted retailers have their own reason to resist: they want shoppers on their own sites, where they capture the data.</p>
+<h2>What to watch</h2>
+<p>Three things. First, whether OpenAI publishes pricing, a measurement definition and a data-handling policy — without those, agencies cannot budget the format and regulators have nothing to review. Second, Europe: the Commission designated ChatGPT a very large online search engine on August 31 after OpenAI declared 159.1 million users, and ad selection there is limited to chat topic, general location and device type. A format built on the conversation sits directly on one of those signals. Third, the holiday quarter. If Wayfair&#x27;s pilot converts better than a card-and-click-out, the alpha expands fast. If not, the ad stays where it is — at the bottom of the answer.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735"><blockquote>&ldquo;This is all before we&#x27;ve really launched a format that feels truly endemic to AI.&rdquo;</blockquote><cite>&mdash; Sarah Friar, Chief Financial Officer, OpenAI</cite></div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">$1B</div><div class="stat-label">ChatGPT ad business annualized run rate, reached in under 200 days</div></div><div class="stat-cell"><div class="stat-value">26%</div><div class="stat-label">Share of ChatGPT responses to Free and Go users carrying a sponsored placement (Similarweb, August)</div></div><div class="stat-cell"><div class="stat-value">41</div><div class="stat-label">Markets where ChatGPT ads currently run</div></div><div class="stat-cell"><div class="stat-value">~$2.4B</div><div class="stat-label">Full-year 2026 ad revenue OpenAI is reportedly chasing</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/reimagining-advertising-with-ai/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&amp;sz=32" alt="">OpenAI</a><a href="https://digiday.com/marketing/openai-sponsored-agents-chatgpt-ads/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=digiday.com&amp;sz=32" alt="">Digiday</a><a href="https://www.hubspot.com/company-news/hubspot-openai-partnership" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=hubspot.com&amp;sz=32" alt="">HubSpot</a><a href="https://www.seroundtable.com/openai-chatgpt-sponsored-agents-41234.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=seroundtable.com&amp;sz=32" alt="">Search Engine Roundtable</a></div></div>
+<div class="article-nav"><a href="01-openai-deployment-company-tomoro.html" class="nav-prev">&larr; OpenAI Launched a Deployment Company With 19 Investm</a><a href="03-waymo-tokyo-2027-nihon-kotsu.html" class="nav-next">Waymo Set a Date for Tokyo. Its First Commercial Mar &rarr;</a></div>
+<footer>The Vault &mdash; AI Edition &middot; Published September 17, 2026</footer>
+<script>window.addEventListener("scroll",function(){var e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(s>0?t/s*100:0)+"%"});</script>
+</body></html>
