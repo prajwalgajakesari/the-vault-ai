@@ -1,0 +1,29 @@
+For eight months, the first decision a Claude user made was not what to ask but where to ask it: a quick answer belonged in chat, a multi-step job belonged in Cowork, and anything visual belonged in Claude Design. On Wednesday, September 16, Anthropic deleted that decision. Chat, Cowork, Artifacts and Design now share a single window, and the model — not the user — decides whether a prompt becomes a paragraph, a document, a deck or a long-running agentic task.
+
+"We built Cowork as a separate place for bigger work, and Design for visual work," Anthropic said in its announcement. "People used both, and told us the frustrating part was deciding where a task belonged."
+
+The consolidation arrives with two new products attached. Claude Docs, a collaborative document surface, and Claude Slides, a presentation builder, both launched in beta on paid plans. Claude Design, introduced in April as a standalone workspace for websites, prototypes and one-page visuals, now works from inside any conversation. The whole package began rolling out to Pro and Max subscribers on web, desktop and mobile, with Team and Free plans to follow. Enterprise customers are on a separate timeline; The New Stack reported that administrators get at least 30 days' notice before the change reaches their organizations, and Fortune reported that enterprise admins control when the Docs, Slides and Design betas are enabled at all.
+
+## What actually shipped
+
+The mechanical change is the disappearance of a toggle. Until Wednesday, users started Cowork from a button below the input box on the Claude home screen; opening the Claude in Chrome side panel started a Cowork session outright. Per background guidance Anthropic gave VentureBeat, that toggle vanishes account by account as the rollout lands. Cowork's capabilities — longer-running work, connectors and tools, task decomposition, the ability to keep working while the user is away — do not go away. They become the default architecture of Claude itself. Existing Cowork chats, projects, artifacts, connectors and skills carry over. The Cowork brand is slated to disappear entirely, though users may keep seeing it during the transition.
+
+Docs and Slides are not file exports dressed up as features. Both are web-native working documents that live at a shareable link, editable from a phone, closer to a Google Doc than to a chat attachment. Claude drafts sections, asks clarifying questions and leaves comments while human colleagues edit the same file. Documents start private and can be shared with named users or across an organization. On formats, Anthropic told VentureBeat in an emailed statement: "Claude Slides can be downloaded as PowerPoint or PDF, while Claude Docs can be exported to Microsoft Word or Google Docs, with additional export destinations planned." Slides can also be presented directly from Claude. The new Claude Slides is distinct from Claude for PowerPoint, the existing add-in that runs inside Microsoft's app.
+
+Anthropic's own worked example is a weekly pipeline report: Claude reviews movement, writes the report in an established format, flags slippage, turns the highlights into five slides, and can be scheduled to do it again the following Monday — document and deck emerging aligned from one conversation. Claude Code is explicitly excluded from the merge and remains a separate product for developers working in terminals and IDEs.
+
+## Who holds the steering wheel
+
+The routing is automatic; the autonomy is not. By default, Claude still asks before taking an action, and users can instead tell it to keep working and check in only when something needs review. Enterprise admins retain feature-level control. What Anthropic has not published is whether a user can force a request to stay in plain chat — to refuse the document, refuse the deck, refuse the agentic loop. The New Stack flagged that omission directly, along with a second one: no guidance on how the routing decision affects context windows or token consumption.
+
+That second gap has teeth. Fortune noted that a Stanford Digital Economy Lab study of coding tasks found agentic work consumed roughly 1,000 times more tokens than simple chat reasoning. Tokens are the unit AI companies bill on. If ordinary questions start getting routed through tool-calling machinery by default, the compute cost of a straightforward answer rises even when the user never asked for the heavy version.
+
+## Why this matters
+
+The industry spent 2024 and 2025 teaching users to pick a model. It is spending 2026 teaching them to stop. Intent-routing — where the system infers not just which model but which output format, which tools and which level of autonomy a request deserves — is the new competitive surface. Fortune framed Anthropic's move as part of a broader "everything app" push, noting OpenAI plans to fold ChatGPT, its Codex coding agent and potentially its Atlas browser into a single superapp. Google's advantage runs the other way: Gemini Canvas exports straight into Docs and Slides, the file formats enterprises already live in. Anthropic's answer is to make Claude the place the file is born rather than the place it gets drafted before being moved.
+
+The trade is real. A tab is a contract — you chose the output, so you knew what you were getting. A router is a guess. When the guess is right, the friction Anthropic describes genuinely disappears. When it is wrong, you get a deck you did not want, built from tokens you did pay for, and no documented way to say no.
+
+## What to watch
+
+Three things. Whether Anthropic ships an explicit "just answer me" control, or whether the router stays opaque. Whether Pro and Max usage limits hold once agentic routing becomes the default path rather than an opt-in mode. And whether Team, Free and Enterprise tiers get the same router or a more conservative one — because the cheapest way to protect margins on a free tier is to make the router shy.
