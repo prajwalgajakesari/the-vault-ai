@@ -1,0 +1,33 @@
+Google Research and Carnegie Mellon authors have published the blueprint for the agent swarm that has been quietly producing theory papers under Google's name all summer — and the striking thing is what it leaves out. Stellar Colosseum, posted to arXiv on September 14 and revised the following day, orchestrates dozens of language-model agents that propose proof strategies, try to break each other's work, and merge the survivors into one document. It reports 71.0% on TCS-Bench, a 300-problem benchmark of research-level theorem-proving tasks drawn from FOCS, STOC and SODA. It uses no proof assistant at all.
+
+That combination — frontier numbers on research mathematics, verification done entirely by other language models — is the story.
+
+## What the harness actually does
+
+The paper (arXiv:2609.15983, cs.AI) is credited to Honghao Lin, David P. Woodruff, Yuan Deng, Jieming Mao, Song Zuo and Vahab Mirrokni, with Lin and Woodruff as co-first authors and footnotes for Google Research and Carnegie Mellon University. It is blunt about why a harness is needed: "Language models can produce plausible short proofs, but may still be unreliable on long-horizon research problems, where progress depends on a sequence of uncertain and interdependent decisions."
+
+Despite the "many-agent" billing, the paper never fixes an agent count — population size is a configuration parameter. Table 1 lists tree widths of (32, 16, 8, 5, 1) with a sample size of five for benchmark exploration, and notes that open-problem runs used configurations "some with slightly over 100 leaf nodes." Named roles include an explorer, a "falser," a readiness gate, a decomposer, subproblem solvers, a global verifier and a knowledge curator.
+
+Three mechanisms carry the design. First, a **readiness gate** that blocks writing until a strategy is stable: "It tests whether the remaining uncertainty can be localized within a stable proof architecture, not whether the proof has already been completed." Second, **decomposition into a dependency graph** — each section becomes a subproblem with explicit edges, so independent sections run in parallel and a failure is retried locally while "completed work elsewhere in the dependency graph is preserved." Third, **overlapping random-sample tree aggregation**: candidates plus critiques funnel up a reduction tree whose sampling groups deliberately overlap rather than partition. That merge is not a vote. "Intermediate aggregation is constructive rather than a vote or ranking: it may merge compatible components, retain competing branches, repair a localized flaw, or declare an unresolved conflict."
+
+The adversarial layer is where the paper is most candid. Falsifiers hunt counterexamples, circularity and silently strengthened hypotheses — but the authors add a warning most write-ups will skip: "failure to find a defect does not establish correctness."
+
+## The numbers
+
+On TCS-Bench, direct-model baselines score 30.3% for Gemini 3.1 Pro, 52.0% for Gemini 3.1 DeepThink and 68.0% for GPT-5.6 Pro (max). Colosseum lifts Gemini 3.1 Pro to 54.0% and Gemini 3.7 Flash to 55.0%. The headline 71.0% comes from a cross-model selection rule: Flash generates eight critiques of the Pro proof, and if at least five judge it correct, the Pro proof is submitted. "The two individual runs have nearly identical overall accuracy, but their errors are sufficiently complementary for cross-model selection to solve 213 problems, an improvement of 48 problems over the stronger individual run." An oracle best-of-two upper bound sits at 77.3%. All scores come from an automated grader that itself reported over 90% accuracy on 100 expert-labeled proofs.
+
+On a separate Codeforces suite of 222 problems above 1500 difficulty (median 2381), the execution-enabled configuration solved 218 and scored a self-defined corpus rating of 4263, against 213 and 3918 without the execution probe.
+
+The paper also claims contributions to five research results with companion arXiv papers, including an improved coreset bound for ℓp subspace approximation (arXiv:2608.26047) and a conditional resolution of a sparse least-squares conjecture from JMLR (arXiv:2608.02588). Two case studies stand out: 46-page and 75-page proof drafts on Knuth's cycles, and an Erdős unit-distance run with internet access disabled that produced a 22-page draft "independently arriving at the central architecture of the OpenAI solution" after 15 exploration rounds.
+
+One number is absent: cost. The paper reports no token counts, dollar figures, wall-clock or agent-hours. It also has no limitations section — the word "limitation" never appears.
+
+## Why this matters
+
+Verification, not discovery, is the contested ground. OpenAI's August release of ten mathematical advances shipped each result with a machine-checkable Lean 4 certificate. Colosseum ships none, and says so, contrasting itself with Lean-based systems: "These systems ultimately require a proof that passes formal checking against a precise Lean statement. Colosseum reviews provisional strategies, intermediate claims, and natural-language proof drafts." Google's Antigravity blog, which ported the harness into its Teamwork framework as the Long Proof pattern on August 27, concedes the gap: seven results "reviewed and confirmed correct by human experts with the exception of the Knuth's Cycles result — where the 40-page proof was formally verified in Lean."
+
+Mathematicians have been arguing about exactly this seam. A preprint by Maher Kallel and Mohamed El Louadi argues that cheap proof-checking relocates rather than removes the burden: "The scarce resource in mathematical knowledge production is no longer proof. It is adjudication." Credit is the other live wire. Carnegie Mellon's Jeremy Avigad, writing in "Mathematicians in the Age of AI," describes a lab throwing compute at a community project for "a splashy result, an act which Matt Ballard has aptly described as a 'drive-by proving.'" His conclusion is less equivocal: "We have to face up to the fact that AI will soon be able to prove theorems better than we can."
+
+## What to watch
+
+Three things. Whether independent mathematicians confirm the five companion papers — Colosseum's claims rest on expert review, exactly the resource these systems consume fastest. Whether Google closes the formalization gap, since Knuth's cycles shows it can when the target is tractable. And whether 71.0% survives a grader that isn't itself a language model: the paper's own caveat, that "all benchmark accuracies below are measured by this grader," is the quiet asterisk under the number everyone will quote.
