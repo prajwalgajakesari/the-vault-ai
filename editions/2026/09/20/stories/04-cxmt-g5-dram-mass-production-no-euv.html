@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CXMT Put 11.95nm DRAM Into Mass Production Without EUV. It Still Isn't the Memory Nvidia Buys. — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#e8a735}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body a{color:var(--accent)}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+  <h1>CXMT Put 11.95nm DRAM Into Mass Production Without EUV. It Still Isn't the Memory Nvidia Buys.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1027 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>CXMT's G5 platform proves DUV quadruple patterning can reach sub-12nm DRAM without EUV, but with no yields disclosed and no HBM product, it threatens commodity DRAM pricing rather than the AI accelerator memory where Samsung and SK hynix earn their margins.</p>
+</div>
+<div class="article-body">
+<p>ChangXin Memory Technologies said on Sunday that its fifth-generation DRAM platform is in mass production, with memory-array features spaced 11.95 nanometers apart and built entirely on deep-ultraviolet lithography tools that predate the US ban on shipping ASML's EUV machines to China. Two 24-gigabit LPDDR5X chips made on the process are already inside Chinese flagship phones. What CXMT did not announce, at the World Manufacturing Convention in its home city of Hefei, is any product that goes into an AI accelerator.</p>
+<p>That distinction matters more than the nanometer figure. The G5 announcement is real evidence that export controls have slowed rather than stopped Chinese memory scaling. It is not evidence that CXMT can sell into the part of the memory market where the money now sits.</p>
+<p>"Our process capability is now on par with the most advanced mass-produced nodes out there in the industry," CXMT Vice President Luo Xiaodong, who heads the company's marketing center, told the convention.</p>
+<p>The company's own statement was more careful. G5, it said in a release carried by the Global Times, features "an active area half-pitch of 11.95 nm for memory arrays, closing the gap with the world's most advanced volume-production memory platforms." Closing, not closed.</p>
+<p>CXMT reached the 11.95nm figure with self-aligned quadruple patterning, a technique that uses four aligned DUV exposures to print features that a single EUV pass would draw directly. The company also disclosed a 45:1 aspect ratio on the array capacitor, a DRAM-tuned high-k metal gate process, and a core cell array height cut to 6,762 nanometers. On an 8Gb-equivalent basis, gross dies per wafer rise at least 50 percent over the fourth-generation platform. The two LPDDR5X parts come in 496-ball and 245-ball packages and hold 3 gigabytes per die, 50 percent more than the 16Gb parts they replace. CXMT said DDR5 is also built on the platform.</p>
+<p>Two numbers were missing. CXMT did not disclose yields, and it did not disclose monthly G5 output. The 50 percent die-count gain counts total dies before defect screening, which is not the same thing as the good dies that actually ship. Seoul Economic Daily also noted that 11.95nm measures one specific structure and is hard to line up against the "12-nanometer-class" node names Samsung, SK hynix and Micron use for their own products. Samsung and SK hynix have moved on to 10nm-class processes for their leading parts.</p>
+<p>The Eastern Herald, which was more enthusiastic than most about the achievement, still flagged that Luo's on-par claim was made at a state-organized forum in front of domestic suppliers and investors, and that no outside foundry or research institution has benchmarked the process. Quadruple patterning "is slower, more expensive per step, and more sensitive to defects than EUV," the paper wrote. "It also, apparently, works."</p>
+<p>Ma Jihua, a veteran telecom analyst quoted by the Global Times, said the global DRAM market is still dominated by Samsung, SK hynix and Micron, which is why a fourth player's progress draws scrutiny. He framed the gain as one of supply-chain resilience and sourcing options for downstream manufacturers rather than a change in the technology leader.</p>
+<h2>Why It Matters</h2>
+<p>CXMT's rise is already a market fact. TrendForce puts the company at 9.5 percent of global DRAM revenue in the second quarter, fourth behind the incumbents; Counterpoint Research has it at 10 percent, with Samsung at 38 to 39 percent, SK hynix at 25 to 26 percent and Micron at 25 percent. By Counterpoint's count that is the first time in more than a decade that the big three together hold less than 90 percent. The company's Shanghai STAR Market listing in late July raised roughly $8.6 billion at 212 times oversubscription, and Micron and SK hynix shares fell on its debut day. The IPO prospectus earmarked proceeds for G5, HBM research and capacity, which is now around 300,000 wafers a month and targeted at 350,000 to 375,000 by year-end, with Korean press reporting a 550,000 to 600,000 target by 2028, close to SK hynix's roughly 590,000.</p>
+<p>But that share is almost entirely commodity DRAM and mobile LPDDR sold into Chinese handsets. The segment where Samsung and SK hynix earn their margins is high-bandwidth memory for Nvidia and other accelerator vendors, and G5 says nothing about it. CXMT's HBM3E is reported to be in trial production, and its prospectus listed HBM as a long-term goal with no timeline. Meanwhile Samsung shipped HBM4 in volume in February, booked $1 billion in HBM sales within four months, and grew its HBM share to 33 percent in the second quarter against SK hynix's 50 percent. Citi expects DRAM demand to grow 30 percent in 2027 and 35 percent in 2028 against supply growth of 19 and 22 percent, and attributes the gap to HBM and server DDR5, not phones.</p>
+<p>Where G5 does bite is commodity pricing. Acer chairman Jason Chen said at a Taipei forum on Saturday that PC memory is no longer in short supply as Chinese capacity ramps, and that parts such as LPDDR5 and DDR5-9600 now have more sellers than buyers. If CXMT can flood DDR4, standard DDR5 and LPDDR5X while the incumbents pivot capacity to HBM, the big three lose the ability to defend commodity prices. That is the trade Samsung and SK hynix have knowingly made. The Sunday announcement was a reminder of what it costs.</p>
+<p>For Washington, G5 is the clearest case yet that the 2022 EUV cutoff, built on the assumption that DUV multipatterning would exhaust itself around this node, has a longer runway than its designers expected. CXMT remains off the Entity List; Apple lobbied the White House earlier this year to keep it off the Pentagon blacklist, and was turned down.</p>
+<h2>What to Watch</h2>
+<p>The announcement landed on a Sunday, so the first Samsung and SK hynix trading reaction comes Monday in Seoul. Beyond that, watch for any independent teardown of a G5 LPDDR5X part, for CXMT to publish yields or monthly output over the coming quarters, for a dated HBM3E ship schedule rather than a trial-production rumor, and for whether the Commerce Department responds to a Chinese fab hitting sub-12nm without EUV by tightening the DUV tool list too.</p>
+<div class="pull-quote" style="border-left:2px solid #e8a735">
+          <blockquote>"Our process capability is now on par with the most advanced mass-produced nodes out there in the industry."</blockquote>
+          <cite>— Luo Xiaodong, Vice President and Head of Marketing Center, CXMT</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #e8a73520"><div class="stat-cell"><div class="stat-value">11.95nm</div><div class="stat-label">Active-area half-pitch, via SAQP without EUV</div></div><div class="stat-cell"><div class="stat-value">50%+</div><div class="stat-label">More gross dies per wafer vs. G4</div></div><div class="stat-cell"><div class="stat-value">9.5%</div><div class="stat-label">CXMT share of global DRAM revenue, Q2 2026 (TrendForce)</div></div><div class="stat-cell"><div class="stat-value">$8.6B</div><div class="stat-label">Raised in July STAR Market IPO, 212x oversubscribed</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.globaltimes.cn/page/202609/1370944.shtml" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=globaltimes.cn&sz=32" alt="">Global Times</a><a href="https://en.sedaily.com/international/2026/09/20/chinas-cxmt-starts-mass-production-on-5th-generation-dram" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=en.sedaily.com&sz=32" alt="">Seoul Economic Daily</a><a href="https://easternherald.com/2026/09/20/cxmt-g5-dram-mass-production-china-semiconductor/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=easternherald.com&sz=32" alt="">The Eastern Herald</a><a href="https://en.sedaily.com/finance/2026/09/04/chinas-cxmt-tops-10-percent-of-dram-market-nears-sk-hynix" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=en.sedaily.com&sz=32" alt="">Seoul Economic Daily (market share)</a></div></div>
+<div class="article-nav"><a href="03-anew-labs-bytedance-spinoff-290m-drug-discovery.html" class="nav-prev">← ByteDance Spun Out Its Drug Lab, Kept 56%, and Let</a><a href="05-teram-37m-3d-sram-memory-wall.html" class="nav-next">TeRAM Raised $37 Million to Stack SRAM on Top of A →</a></div>
+<footer>The Vault — AI Edition · Published September 20, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
