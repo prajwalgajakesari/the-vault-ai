@@ -1,0 +1,29 @@
+OpenAI has quietly rewired what happens when you ask ChatGPT Voice a question it cannot answer on reflex. In a release note dated September 9, the company said Voice "can now use GPT-5.6 or GPT-6 Astra when it needs to search or reason through harder questions," with users choosing "model and reasoning effort using the same controls as text chat." In the same breath, it deleted the thing that used to do that job: "the separate Instant/Medium/High Voice intelligence levels are deprecated." The three-position dial is gone, replaced by the text picker and its five effort settings, from low to max.
+
+ChatGPT Voice is no longer one model. Since July 8, paid users have talked to GPT-Live-1, a full-duplex speech model that listens and speaks at the same time; Free users get GPT-Live-1 mini. When a question needs web search or multi-step reasoning, Live hands off to a text model in the background and keeps talking while it waits. At launch that backend was GPT-5.5. Now it is GPT-5.6 or GPT-6 Astra, at whatever effort the user has set. The Live layer is what you hear; the reasoning model is what you pick.
+
+That backend choice is not free. In the September 10 post launching GPT-Live-1 in the API, OpenAI said the model paired with GPT-6 Astra at medium effort "ranks #1 on Tau3," its end-to-end voice-agent benchmark. Note the effort level: medium, not high. Developer Dwayne Charrington, who compared Artificial Analysis effort-level data for both models, put the tradeoff bluntly: "Set it to medium and only go up on the tasks where you can show medium failing." By his read, Astra at medium reaches its first token in about 10 seconds, against 19 seconds for GPT-5.6 Sol at high and 73 at xhigh. Ten seconds is a long silence on a phone call. Seventy-three is a hang-up.
+
+## The Dial Moves to the User
+
+The usage limits shipped alongside the model change are where the tiers diverge. Go subscribers get up to 3 hours a day with GPT-Live-1 mini, losing the GPT-Live-1 access they had. Plus gets 3 hours with GPT-Live-1; the $100 Pro plan gets 15 hours; the $200 Pro plan is unlimited. Plus and Pro "no longer switch to GPT-Live mini after reaching a Voice limit," which reads as a kindness until you notice it means the conversation simply ends. Enterprise on usage pricing pays $0.05 a minute, the same rate as the API voice layer. Which reasoning model sits underneath "depend[s] on your plan." Whether a Plus user gets Astra at max effort in Voice is not spelled out; the reasonable inference is that Voice inherits whatever the text picker allows.
+
+Five days later, OpenAI retired automatic switching from Instant to Thinking in text for Plus and Pro and removed the "Higher intelligence" web setting. Together the two notes describe a company that has stopped deciding how much compute a question deserves and handed users the dial, along with responsibility for the latency and the bill.
+
+## What Astra Brings to a Phone Call
+
+GPT-6 Astra, released September 3, is OpenAI's first model built on what it calls recurrent depth, in which the same transformer blocks run multiple times so the model can reconsider a problem before acting. OpenAI's launch post says Astra can "solve problems with fewer written steps," and concedes the cost: "Our evaluations found Astra's written reasoning harder to monitor than GPT-5.6 Sol's, based on tests that explicitly asked it to evade monitoring." At the launch event, chief scientist Jakub Pachocki said, "We will not accept degradation in our ability to monitor model alignment beyond a certain level."
+
+For voice, that cuts two ways. Fewer written steps plausibly means less time to first token, which a duplex conversation needs; OpenAI's latency simulation on OSWorld 2.0 has Astra finishing tasks in about 47 percent less time than Sol. But a voice interface already hides the chain of thought from the user, and Astra hides more of it from OpenAI. Oleksandr Yaremchuk, co-founder and CTO at Manifold Security, told TechRadar: "A model that explains itself less isn't more aligned, it's just harder to catch when it goes wrong." That was said about agents on laptops. It applies equally to a model answering spoken questions.
+
+Users, meanwhile, have spent the fortnight arguing over whether Astra is as good as it was on launch day. Decrypt catalogued a wave of "nerf" complaints on X, noting that during Sol's identical cycle in July, OpenAI's Tibo Sottiaux confirmed the company had been experimenting with reasoning effort. In Voice, any such experiment shows up as a longer pause before the assistant speaks.
+
+## Why It Matters
+
+Google shipped its answer six days later. Gemini 3.8 Live Extended Thinking, announced September 15, is a single audio-to-audio model that "reasons and speaks simultaneously," covering silence with cues like "Let me check that." Google claims the top spot on Artificial Analysis' Speech to Speech Quality Index at 82.6 and 68.6 percent on τ-Voice. OpenAI's architecture is the opposite bet: a thin duplex front end delegating to a text model the user selects. Google hides the handoff; OpenAI exposes it as a setting. Neither has published latency for the moment the hard question lands, which is the only number a voice user feels.
+
+The deprecation of Instant/Medium/High is the tell. Those labels existed because voice needed its own latency budget. Collapsing them into the text controls says one dial can serve a typed prompt and a spoken one, even though a 10-second wait is invisible in a chat window and excruciating in an earbud.
+
+## What to Watch
+
+Whether OpenAI publishes per-plan detail on which models and effort levels Voice can reach, and whether it caps Voice effort below the text ceiling to protect latency. Whether Live starts narrating its waits, Gemini-style, once Astra at high is on the other end. And whether the launch-versus-now comparisons extend to Voice, where a quietly lowered effort setting would be heard before it is measured.
