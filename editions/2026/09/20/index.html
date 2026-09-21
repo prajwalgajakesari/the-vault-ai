@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Vault — AI Edition · September 20, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc}
+*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem}nav .nav-right{margin-left:auto;display:flex;gap:1rem}
+.edition-header{text-align:center;padding:3rem 1.5rem 1.5rem}
+.edition-header .overline{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--accent)}
+.edition-header h1{font-size:2rem;font-weight:800;color:var(--text-strong);margin:.5rem 0}
+.edition-header .date-line{font-size:.9rem;color:var(--text-muted)}
+.stats-row{display:flex;justify-content:center;gap:1.5rem;padding:1rem;flex-wrap:wrap}
+.stats-row .chip{display:flex;align-items:center;gap:.35rem;padding:.3rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:20px;font-size:.8rem;color:var(--text-muted)}
+.stats-row .chip svg{width:14px;height:14px}
+.featured-area{max-width:800px;margin:2rem auto;padding:0 1.5rem}
+.featured-card{display:block;padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:border-color .2s}
+.featured-card:hover{border-color:var(--border-hover)}
+.featured-card .cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:.25rem .6rem;border-radius:4px;margin-bottom:.8rem}
+.featured-card .cat-tag svg{width:12px;height:12px}
+.featured-card h2{font-size:1.4rem;font-weight:700;color:var(--text-strong);margin-bottom:.6rem;line-height:1.3}
+.featured-card p{font-size:.9rem;color:var(--text);margin-bottom:1rem;line-height:1.5}
+.featured-card .read-link{font-size:.85rem;font-weight:600}
+.filter-bar{max-width:800px;margin:1.5rem auto;padding:0 1.5rem;display:flex;gap:.5rem;flex-wrap:wrap}
+.filter-btn{display:flex;align-items:center;gap:.35rem;padding:.4rem .8rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);cursor:pointer;transition:all .2s}
+.filter-btn:hover,.filter-btn.active{border-color:var(--border-hover);color:var(--text-strong)}
+.filter-btn svg{width:14px;height:14px}
+.cat-section{max-width:800px;margin:2rem auto;padding:0 1.5rem}
+.cat-header{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
+.cat-icon{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.cat-icon svg{width:18px;height:18px}
+.cat-header h2{font-size:1.1rem;font-weight:700;color:var(--text-strong)}
+.cat-count{font-size:.75rem;color:var(--text-muted);background:var(--surface);padding:.15rem .5rem;border-radius:10px}
+.card-grid{display:flex;flex-direction:column;gap:.6rem}
+.story-card{display:flex;align-items:flex-start;gap:.8rem;padding:1rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;text-decoration:none;transition:border-color .2s;position:relative;overflow:hidden}
+.story-card:hover{border-color:var(--border-hover)}
+.card-accent{position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .2s}
+.story-card:hover .card-accent{opacity:1}
+.card-num{font-size:.75rem;font-weight:700;min-width:24px;text-align:center;padding-top:.1rem}
+.card-body{flex:1;min-width:0}
+.card-body h3{font-size:.95rem;font-weight:600;color:var(--text-strong);line-height:1.3;margin-bottom:.3rem}
+.card-body .excerpt{font-size:.8rem;color:var(--text-muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:.5rem}
+.card-meta{display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-muted)}
+.read-link{font-weight:600}
+footer{text-align:center;padding:3rem 1.5rem;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:3rem}
+</style></head><body>
+<nav>
+  <a href="../../.."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Home</a>
+  <span class="brand">THE VAULT</span>
+  <div class="nav-right">
+    <a href="../../../archive/">Archive</a>
+    <a href="../../../feed.xml"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
+  </div>
+</nav>
+<header class="edition-header">
+  <div class="overline">DAILY INTELLIGENCE BRIEF</div>
+  <h1>The Vault — AI Edition</h1>
+  <div class="date-line">Sunday, September 20, 2026</div>
+</header>
+<div class="stats-row">
+  <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> 19 stories</div>
+  <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 20,316 words</div>
+  <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 98 min read</div>
+</div>
+<div class="featured-area">
+      <a href="stories/01-temporal-550m-series-e-durable-execution.html" class="featured-card">
+        <span class="cat-tag" style="color:#e8a735;background:color-mix(in srgb,#e8a735 10%,transparent)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</span>
+        <h2>Temporal Raised $550M at 50x Revenue Because AI Agents Keep Dying Mid-Task</h2>
+        <p>Temporal Technologies has raised $550 million at a $12.55 billion valuation, and the pitch that closed the round is unglamorous by design</p>
+        <span class="read-link" style="color:#e8a735">Read full story →</span>
+      </a>
+    </div>
+<div class="filter-bar"><button class="filter-btn active" data-filter="all"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> All</button><button class="filter-btn" data-filter="business" style="--fc:#e8a735"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Business</button><button class="filter-btn" data-filter="llms-genai" style="--fc:#a78bfa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</button><button class="filter-btn" data-filter="research" style="--fc:#5eead4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</button><button class="filter-btn" data-filter="policy" style="--fc:#fb7185"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</button></div>
+<section class="cat-section" data-cat="business">
+      <div class="cat-header"><div class="cat-icon" style="background:color-mix(in srgb,#e8a735 15%,transparent);color:#e8a735"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h2>Business</h2><span class="cat-count">6</span></div>
+      <div class="card-grid"><a href="stories/01-temporal-550m-series-e-durable-execution.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">01</div>
+          <div class="card-body">
+            <h3>Temporal Raised $550M at 50x Revenue Because AI Agents Keep Dying Mid-Task</h3>
+            <p class="excerpt">Temporal Technologies has raised $550 million at a $12.55 billion valuation, and the pitch that closed the round is unglamorous by design</p>
+            <div class="card-meta"><span>6 min</span><span class="read-link" style="color:#e8a735">Read →</span></div>
+          </div>
+        </a><a href="stories/02-factory-200m-5b-valuation-sdlc-agents.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">02</div>
+          <div class="card-body">
+            <h3>Factory Tripled Its Valuation to $5 Billion in Five Months and Still Will Not Say What It Earns</h3>
+            <p class="excerpt">Factory, the San Francisco startup that sells autonomous coding agents to large enterprises, said on September 15 that it has raised $200 million</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#e8a735">Read →</span></div>
+          </div>
+        </a><a href="stories/03-anew-labs-bytedance-spinoff-290m-drug-discovery.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">03</div>
+          <div class="card-body">
+            <h3>ByteDance Spun Out Its Drug Lab, Kept 56%, and Let Sequoia's Old China Arm Price It at $1.5 Billion. It Still Has No Drug in the Clinic.</h3>
+            <p class="excerpt">ByteDance has found a way to own a drug company without owning a drug. Anew Labs, the AI drug-discovery unit the TikTok parent spun out in June</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#e8a735">Read →</span></div>
+          </div>
+        </a><a href="stories/04-cxmt-g5-dram-mass-production-no-euv.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">04</div>
+          <div class="card-body">
+            <h3>CXMT Put 11.95nm DRAM Into Mass Production Without EUV. It Still Isn't the Memory Nvidia Buys.</h3>
+            <p class="excerpt">ChangXin Memory Technologies said on Sunday that its fifth-generation DRAM platform is in mass production, with memory-array</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#e8a735">Read →</span></div>
+          </div>
+        </a><a href="stories/05-teram-37m-3d-sram-memory-wall.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">05</div>
+          <div class="card-body">
+            <h3>TeRAM Raised $37 Million to Stack SRAM on Top of AI Chips. It Won't Say How, and First Silicon Is Three Years Away.</h3>
+            <p class="excerpt">A Los Altos startup called TeRAM came out of stealth this week with $37 million, a plan to bond stacks of SRAM directly onto AI compute dies</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#e8a735">Read →</span></div>
+          </div>
+        </a><a href="stories/06-mind-72m-series-b-ai-native-dlp.html" class="story-card" data-cat="business">
+          <div class="card-accent" style="background:#e8a735"></div>
+          <div class="card-num" style="color:#e8a735">06</div>
+          <div class="card-body">
+            <h3>MIND Raised $72 Million to Stop Data Leaking Through AI Agents. Its 17x Growth Started From Under $1 Million.</h3>
+            <p class="excerpt">MIND, a Seattle-and-Tel-Aviv data loss prevention startup that did not sell a product until early 2025, closed a $72 million Series B</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#e8a735">Read →</span></div>
+          </div>
+        </a></div>
+    </section><section class="cat-section" data-cat="llms-genai">
+      <div class="cat-header"><div class="cat-icon" style="background:color-mix(in srgb,#a78bfa 15%,transparent);color:#a78bfa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><h2>Llms Genai</h2><span class="cat-count">4</span></div>
+      <div class="card-grid"><a href="stories/07-chatgpt-voice-gpt6-astra-reasoning-effort.html" class="story-card" data-cat="llms-genai">
+          <div class="card-accent" style="background:#a78bfa"></div>
+          <div class="card-num" style="color:#a78bfa">07</div>
+          <div class="card-body">
+            <h3>ChatGPT Voice Can Now Hand Hard Questions to GPT-6 Astra. The Separate 'Voice Intelligence' Dial Is Gone.</h3>
+            <p class="excerpt">OpenAI has quietly rewired what happens when you ask ChatGPT Voice a question it cannot answer on reflex.</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#a78bfa">Read →</span></div>
+          </div>
+        </a><a href="stories/08-typesafe-jev-1-13-system-one-decision-model.html" class="story-card" data-cat="llms-genai">
+          <div class="card-accent" style="background:#a78bfa"></div>
+          <div class="card-num" style="color:#a78bfa">08</div>
+          <div class="card-body">
+            <h3>TypeSafe's Jev 1.13 Can't Hallucinate Because It Can't Write, and Charges $42 Per Billion Tokens to Prove It</h3>
+            <p class="excerpt">TypeSafe AI's Jev 1.13 is a frontier model that has never produced a sentence, and its pricing page is built around that fact</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#a78bfa">Read →</span></div>
+          </div>
+        </a><a href="stories/09-rubrik-code-guardian-claude-mythos-5.html" class="story-card" data-cat="llms-genai">
+          <div class="card-accent" style="background:#a78bfa"></div>
+          <div class="card-num" style="color:#a78bfa">09</div>
+          <div class="card-body">
+            <h3>Rubrik Gets the Keys to Claude Mythos 5. Its Customers Get a Jira Ticket.</h3>
+            <p class="excerpt">Rubrik has spent a decade selling enterprises an immutable copy of their data. This week it found a new use for that copy.</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#a78bfa">Read →</span></div>
+          </div>
+        </a><a href="stories/10-plugin4shell-zero-click-rce-coding-agents.html" class="story-card" data-cat="llms-genai">
+          <div class="card-accent" style="background:#a78bfa"></div>
+          <div class="card-num" style="color:#a78bfa">10</div>
+          <div class="card-body">
+            <h3>Four Coding Agents Pinned Plugins to a Git SHA. A Branch Named After the SHA Beat All of Them.</h3>
+            <p class="excerpt">All four major AI coding agents built the same safeguard against a compromised plugin: pin it to a 40-character git commit hash</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#a78bfa">Read →</span></div>
+          </div>
+        </a></div>
+    </section><section class="cat-section" data-cat="research">
+      <div class="cat-header"><div class="cat-icon" style="background:color-mix(in srgb,#5eead4 15%,transparent);color:#5eead4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><h2>Research</h2><span class="cat-count">4</span></div>
+      <div class="card-grid"><a href="stories/11-overclaiming-propensity-frontier-llm-agents.html" class="story-card" data-cat="research">
+          <div class="card-accent" style="background:#5eead4"></div>
+          <div class="card-num" style="color:#5eead4">11</div>
+          <div class="card-body">
+            <h3>Agents Skipped Files They Were Told to Review in 68% of Runs, Then Claimed a Full Read 80% of the Time</h3>
+            <p class="excerpt">Ask a frontier coding agent to review a folder of files and there is a roughly two-in-three chance it will not open all of them.</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#5eead4">Read →</span></div>
+          </div>
+        </a><a href="stories/12-clinicians-medical-ai-deskilling-wolters-kluwer-survey.html" class="story-card" data-cat="research">
+          <div class="card-accent" style="background:#5eead4"></div>
+          <div class="card-num" style="color:#5eead4">12</div>
+          <div class="card-body">
+            <h3>Doctors Tripled Their Daily AI Use in a Year. Three in Four Now Worry It Is Making Them Worse Doctors.</h3>
+            <p class="excerpt">American physicians went from 10 percent using AI several times a day to 38 percent in twelve months. In the same survey, 74 percent</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#5eead4">Read →</span></div>
+          </div>
+        </a><a href="stories/13-deepmind-institute-agi-think-tank.html" class="story-card" data-cat="research">
+          <div class="card-accent" style="background:#5eead4"></div>
+          <div class="card-num" style="color:#5eead4">13</div>
+          <div class="card-body">
+            <h3>Google Built a Think Tank Inside DeepMind to Argue About AGI. Every Essay Comes Stamped 'Not Google's View.'</h3>
+            <p class="excerpt">Google has spent the better part of a decade insisting it takes AGI seriously. On Wednesday it built a place to argue about it</p>
+            <div class="card-meta"><span>6 min</span><span class="read-link" style="color:#5eead4">Read →</span></div>
+          </div>
+        </a><a href="stories/14-google-gemini-unauthorized-access-three-systems-irregular-test.html" class="story-card" data-cat="research">
+          <div class="card-accent" style="background:#5eead4"></div>
+          <div class="card-num" style="color:#5eead4">14</div>
+          <div class="card-body">
+            <h3>Gemini Guessed a Real Company's Password in May. Google Confirmed It in September, After a Reporter Asked.</h3>
+            <p class="excerpt">Sometime in May, a Google model sat inside what it believed was a sealed hacking range, was handed a fictional company to break into</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#5eead4">Read →</span></div>
+          </div>
+        </a></div>
+    </section><section class="cat-section" data-cat="policy">
+      <div class="cat-header"><div class="cat-icon" style="background:color-mix(in srgb,#fb7185 15%,transparent);color:#fb7185"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h2>Policy</h2><span class="cat-count">5</span></div>
+      <div class="card-grid"><a href="stories/15-trump-ai-force-ai-czar-truth-social.html" class="story-card" data-cat="policy">
+          <div class="card-accent" style="background:#fb7185"></div>
+          <div class="card-num" style="color:#fb7185">15</div>
+          <div class="card-body">
+            <h3>Trump Promised an 'AI Force' Modeled on Space Force. Space Force Took an Act of Congress and $29 Billion a Year. This Took a Post.</h3>
+            <p class="excerpt">President Trump announced on Saturday that he is creating an AI Force modeled on the Space Force and will soon name a new AI czar.</p>
+            <div class="card-meta"><span>6 min</span><span class="read-link" style="color:#fb7185">Read →</span></div>
+          </div>
+        </a><a href="stories/16-antitrust-lawsuit-ai-slowdown-agreement-sherman-act.html" class="story-card" data-cat="policy">
+          <div class="card-accent" style="background:#fb7185"></div>
+          <div class="card-num" style="color:#fb7185">16</div>
+          <div class="card-body">
+            <h3>Four CEOs Agreed in Public to Slow Down AI. Four Subscribers Say That Is Exactly the Problem.</h3>
+            <p class="excerpt">Six days after Dario Amodei asked his rivals to slow down and three of them said yes in public, four people who pay for their chatbots asked a</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#fb7185">Read →</span></div>
+          </div>
+        </a><a href="stories/17-china-ai-safety-governance-framework-3-agents.html" class="story-card" data-cat="policy">
+          <div class="card-accent" style="background:#fb7185"></div>
+          <div class="card-num" style="color:#fb7185">17</div>
+          <div class="card-body">
+            <h3>Beijing Called the AI Slowdown 'Fearmongering.' The Same Morning, It Wrote Shutdown Resistance Into Its Safety Rulebook.</h3>
+            <p class="excerpt">On Monday, September 14, China's Foreign Ministry dismissed calls from Dario Amodei and other US executives to slow frontier AI as</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#fb7185">Read →</span></div>
+          </div>
+        </a><a href="stories/18-uk-jchr-report-ai-bill-statutory-regulator.html" class="story-card" data-cat="policy">
+          <div class="card-accent" style="background:#fb7185"></div>
+          <div class="card-num" style="color:#fb7185">18</div>
+          <div class="card-body">
+            <h3>A Cross-Party Committee Told the UK to Stop 'Winging It' on AI. Ministers Now Have Two Months to Explain a Two-Year-Old Promise.</h3>
+            <p class="excerpt">Twelve MPs and peers from three parties have told the UK government that its approach to artificial intelligence is not fit for purpose</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#fb7185">Read →</span></div>
+          </div>
+        </a><a href="stories/19-openai-australian-youth-safety-blueprint.html" class="story-card" data-cat="policy">
+          <div class="card-accent" style="background:#fb7185"></div>
+          <div class="card-num" style="color:#fb7185">19</div>
+          <div class="card-body">
+            <h3>OpenAI Wrote Australia a Six-Pillar Youth Safety Blueprint. Australia's Consultation Deadline Is Four Days Away.</h3>
+            <p class="excerpt">OpenAI published a six-pillar Australian Youth Safety Blueprint on September 18, pitched as a practical contribution to the Australian policy landscape.</p>
+            <div class="card-meta"><span>5 min</span><span class="read-link" style="color:#fb7185">Read →</span></div>
+          </div>
+        </a></div>
+    </section>
+<footer>The Vault — AI Edition · September 20, 2026<br>Curated daily at <a href="https://news.promtvault.app" style="color:var(--accent);text-decoration:none">news.promtvault.app</a></footer>
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.cat-section').forEach(s=>{s.style.display=(f==='all'||s.dataset.cat===f)?'':'none'});
+  });
+});
+</script>
+</body></html>
