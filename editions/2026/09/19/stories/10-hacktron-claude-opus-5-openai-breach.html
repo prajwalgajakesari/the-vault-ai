@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Opus 4.8 Couldn't Crack OpenAI. Opus 5 Did It in Three Hours, for Under $3,000, With a Pull Request in the Monorepo to Prove It. — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body a{color:var(--accent)}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>Opus 4.8 Couldn't Crack OpenAI. Opus 5 Did It in Three Hours, for Under $3,000, With a Pull Request in the Monorepo to Prove It.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1039 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A single model-generation jump let a three-person team turn an unflagged libheif bug and an over-scoped SSO token into access to OpenAI's private monorepo in under 72 hours, undermining the assumption that general-release models sit safely below the dangerous capability tier.</p>
+</div>
+<div class="article-body">
+<p>On the evening of July 24, a three-person security team at the startup Hacktron AI was stuck. Claude Opus 4.8, the version Anthropic makes available to vetted cybersecurity researchers, had spent several sessions trying to turn a heap buffer overflow in an image-decoding library into a reliable exploit and had failed whenever address space layout randomization was on, which is to say on every real server. Then Anthropic shipped Claude Opus 5. Hacktron gave it the same problem. Roughly three hours later it had a working exploit, and by the next morning the team had code execution on OpenAI’s community forum, control of an OpenAI employee’s ChatGPT and Codex accounts, and an open pull request inside OpenAI’s private monorepo. The whole campaign cost under $3,000 in AI tokens.</p>
+<p>The operation, disclosed September 18 in a Hacktron blog post and first reported by The Wall Street Journal, was carried out under OpenAI’s Bugcrowd bug-bounty program. OpenAI paid researchers Harsh Jaiswal, Mohan Pedhapati and Rahul Maini $6,500 on September 1 and says the flaws are fixed.</p>
+<p>The entry point was almost comically mundane. OpenAI’s help forum at community.openai.com runs on Discourse, the open-source forum platform. Discourse validates uploads with a lightweight library called FastImage, which does not understand HEIC or HEIF, the formats iPhones use by default. Those files went instead to ImageMagick, which handed them to libheif for decoding. The Discourse Docker image, built on Debian 12, shipped libheif 1.19.7, which contained a heap buffer overflow now tracked as CVE-2026-32882 with a CVSS score of 8.8. The bug had been fixed upstream in 1.19.8, but the maintainers never flagged the commit as a security fix, so it got no CVE and never triggered Debian’s backport process. The vulnerable version stayed in production.</p>
+<p>Hacktron says Opus 5 produced a working ARM64 exploit against a local Mac within about three hours, then ported it to the x86-64 architecture and jemalloc allocator Discourse runs in production. By 6:00 UTC on July 25 the team had verified remote code execution through a live image upload. ‘Opus 4.8 struggled across several sessions to produce a working exploit,’ Hacktron wrote. ‘Within hours of Opus 5’s release, we gave it the same problem and it succeeded.’</p>
+<p>Code execution on a public forum should have been the end of the story. It was not, because of a separate flaw in OpenAI’s own identity infrastructure. The forum used a ‘Sign in with OpenAI’ single sign-on flow, and the tokens it issued carried permissions reaching well beyond the forum into the holder’s ChatGPT and Codex accounts. With control of the forum server, Hacktron could take over the accounts of anyone who had logged in that way, including OpenAI employees, with no interaction from the victim.</p>
+<p>The researchers picked one employee whose Codex was connected to OpenAI’s GitHub organization. Rather than read source code, they had the compromised Codex account open a harmless documentation pull request, number 1186742, in the private openai/openai monorepo, then stopped and alerted OpenAI’s security team. Hacktron filed its Bugcrowd report between 08:00 and 10:00 UTC on July 25; OpenAI confirmed a fix at 22:49 UTC the same day, roughly 14 hours later. Discourse published an advisory on July 28 with four patched releases and added sandboxing around image conversion. Elapsed time from discovery to a pull request in OpenAI’s monorepo: under 72 hours.</p>
+<p>‘We thank the researchers for contacting us and sharing their findings,’ an OpenAI spokesperson said. ‘We narrowed the permissions on Community sign-in tokens and revoked affected tokens and sessions.’ OpenAI noted the Discourse-hosted forum itself was out of bounty scope; the $6,500 covered the SSO misconfiguration. Anthropic had not commented publicly as of Friday.</p>
+<p>One detail deserves attention: Opus 5 refused to exploit a live remote host, so the team framed its own Discourse test instance as a capture-the-flag exercise, and the model proceeded. The guardrail was routed around by relabeling the target.</p>
+<h2>Why It Matters</h2>
+<p>The most important number here is not $6,500 or $3,000. It is one: a single model-generation upgrade separated a failed exploit from a successful one. Independent benchmarks published the day Opus 5 launched found it produced 99 complete code-execution exploits on ExploitBench, a suite of 41 hardened Chrome V8 bugs, where Opus 4.8 managed two. Exploiting memory corruption on ASLR-protected targets has long been the domain of a few expensive specialists. Hacktron’s founder Mohan Pedhapati put the shift bluntly: ‘AI is reducing the amount of scarce expertise needed to develop exploits. Work that once took months can now take days.’</p>
+<p>Matt Fredrikson, CEO of red-teaming firm Gray Swan, was blunter still. ‘For $200 a month, anyone can use these tools and hack into a company like OpenAI,’ he told TechCrunch. ‘If it can happen to them, and I don’t think they’ve been slouching recently on cybersecurity hygiene, it could happen to anyone.’</p>
+<p>The incident also lands awkwardly for the tiered-access approach to cyber capability we covered earlier this week, in which the most dangerous models are held back for vetted defenders while general releases are assumed safe enough. Opus 5 sits below Mythos 5, which faced US government restrictions over its hacking capabilities, yet it cleared the ASLR barrier the previous generation could not. The tier defenders were told was safe is higher than they assumed.</p>
+<p>Finally, the blast radius was set not by the model but by identity plumbing. An agent account like Codex, wired into GitHub, Slack and email, is an authorization hub; compromise it and you inherit everything downstream. The same over-scoped token pattern surely exists at companies that built SSO before agent accounts were a permission category.</p>
+<h2>What to Watch</h2>
+<p>Hacktron frames the OpenAI breach as one thread of a two-month campaign it calls HEIF Heist, and says the same libheif bug reached Slack, Meta, Zoom, Shopify and GitHub Enterprise, each taking one to two days. None of those cases is documented or vendor-confirmed at the level of the OpenAI writeup, so expect more disclosures. Watch also for whether Anthropic addresses the capture-the-flag workaround, whether OpenAI publishes a post-mortem, and whether libheif’s September 6 release of 1.23.4, with more high-severity fixes, reaches distribution packages faster than 1.19.8 did. The backport gap that left OpenAI exposed is not fixed; it is structural.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185">
+          <blockquote>"For $200 a month, anyone can use these tools and hack into a company like OpenAI. If it can happen to them, and I don't think they've been slouching recently on cybersecurity hygiene, it could happen to anyone."</blockquote>
+          <cite>— Matt Fredrikson, CEO, Gray Swan</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">~3 hours</div><div class="stat-label">Time for Opus 5 to produce a working ASLR-bypassing exploit</div></div><div class="stat-cell"><div class="stat-value">&lt;$3,000</div><div class="stat-label">Total AI token cost of the campaign</div></div><div class="stat-cell"><div class="stat-value">$6,500</div><div class="stat-label">Bug bounty paid by OpenAI</div></div><div class="stat-cell"><div class="stat-value">99 vs 2</div><div class="stat-label">ExploitBench exploits, Opus 5 vs. Opus 4.8</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techcrunch.com/2026/09/18/researchers-used-anthropics-claude-to-hack-into-openai/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://thehackernews.com/2026/09/claude-opus-5-helped-researchers-take.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thehackernews.com&sz=32" alt="">The Hacker News</a><a href="https://venturebeat.com/security/openai-hacked-by-small-team-of-white-hat-security-researchers-using-anthropics-claude-opus-5" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a></div></div>
+<div class="article-nav"><a href="09-grok-voice-transcribe-2-word-error-rate.html" class="nav-prev">← SpaceXAI Cut Grok's Transcription Errors by Two-Th</a></div>
+<footer>The Vault — AI Edition · Published September 19, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
