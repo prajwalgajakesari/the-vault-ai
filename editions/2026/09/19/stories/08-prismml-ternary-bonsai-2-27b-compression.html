@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A 27B Model Now Fits in 6GB. PrismML Says You Lose Under Two Points to Get There, Except on Agentic Work, Where You Lose 25. — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body a{color:var(--accent)}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>A 27B Model Now Fits in 6GB. PrismML Says You Lose Under Two Points to Get There, Except on Agentic Work, Where You Lose 25.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 988 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>PrismML's ternary compression squeezes Qwen3.8 27B into 5.93GB with 98.2% average benchmark retention, but the losses concentrate on long-horizon agentic tasks and the model still requires forked inference runtimes.</p>
+</div>
+<div class="article-body">
+<p>A 27-billion-parameter multimodal model that needs 53.8GB of memory at full precision now fits in 5.93GB, and PrismML says you give up less than two points of benchmark performance to get there. The Pasadena startup released Ternary Bonsai 2 27B on September 17 under an Apache 2.0 license, storing every weight in Alibaba's Qwen3.8 27B as one of three values (minus one, zero or plus one) and claiming 98.2% retention of the parent model's average across a 20-benchmark suite. The result is a 27B-class reasoning model with a 262K-token context window that runs on a 16GB laptop, a single 24GB consumer GPU, or, via a WebGPU demo, inside a browser tab.</p>
+<p>The headline number is the compression ratio. Each ternary value carries roughly 1.585 bits of information, and PrismML adds one FP16 scale factor per group of 128 weights, which works out to about 1.71 bits per weight. Counting the 26.2 million parameters (0.0976% of the language model) that stay in higher precision brings the whole model to 1.72 bits per weight; the densest shipped GGUF packing, PTQ1_0, lands at 1.76 bits and 5.93GB, or about 9.1x smaller than FP16. The trick that keeps the model coherent at that bit depth is a blockwise Hadamard rotation with a block size of 1,024, applied to each weight matrix before ternary assignment so that no single weight carries too much information. The rotation is folded into the stored weights offline, but the runtime must apply the matching transform to activations, which is why stock llama.cpp either rejects the files or, for one packing, loads them and produces garbage. Users need PrismML's own llama.cpp fork, its MLX fork for Apple Silicon, or the Bonsai-demo repository that pins tested binaries.</p>
+<p>“Bonsai 27B proved that powerful models do not have to be confined to cloud infrastructure,” said Babak Hassibi, PrismML's founder and CEO, in the launch announcement. “With Bonsai 2 27B, we are closing the quality gap while keeping the same deployment advantages: a dramatically smaller footprint, strong local performance, and the ability to support more demanding workflows such as agentic coding, multimodal understanding, and long-horizon task execution.”</p>
+<p>The benchmark story is strongest exactly where conventional low-bit quantization tends to fall apart. PrismML evaluated everything in thinking mode with EvalScope and vLLM on H100s. On its 20-benchmark suite the ternary model scores 83.9 against 85.4 for full-precision Qwen3.8 27B. Math retains 99.5% (96.57 versus 97.06 across AIME 2025, AIME 2026, GSM8K and MATH-500), coding retains 99.3% (81.58 versus 82.17), and instruction following actually edges ahead at 82.66 versus 81.25. The comparison to a conventional IQ2_XXS build of the same base model is stark: that quant averages 75.2 at 7.3GB, scores 78.6 on AIME 2026 where Bonsai 2 scores 95.83, and 70.05 on LiveCodeBench v6 where Bonsai 2 scores 90.07.</p>
+<p>Throughput figures, measured September 16 on PrismML's custom kernels at batch size one, put the model at 142.5 tokens per second on an RTX 5090 (0.582 mWh per token), 96.7 on an RTX 4090, 32.1 on a 72-watt L4, 46.8 on an Apple M5 Max and 27.7 on an M5 Pro. Hugging Face lists 1.5 million downloads of the GGUF repository in the past month, a figure that includes the prior Bonsai 27B generation from July, which retained about 95% of its own parent.</p>
+<h2>Why It Matters</h2>
+<p>The 98.2% figure is an average, and the losses are uneven in ways that matter for how people will actually use this model. Knowledge and reasoning retains 96.9% and vision 96.3%, but the sharper drops sit outside the headline suite entirely. On Terminal-Bench 2.1 the ternary model scores 52.8 against 69.7 for full precision; on SWE-bench Verified it scores 60.8 against 80.6. That is roughly 75% retention on exactly the long-horizon agentic work PrismML's demos showcase, where small errors compound over many steps. At medium reasoning effort the gap widens (79.3 versus 82.6). All numbers are PrismML's own and have not been independently reproduced.</p>
+<p>Early hands-on testing backs up that caveat. MindStudio ran the model through a planted-bug hunt in a multi-service Docker application, a single-file HTML animation task, an image-description task and a multilingual translation prompt. Vision description was the clear pass. The debugging run reasoned its way to the correct time-zone mismatch and then talked itself out of the answer; the HTML task failed to produce a working reset button across three rounds of correction; and the translation task fell into a repetitive reasoning loop on Tamil and never finished, which the reviewers called a regression from the previous Bonsai release. MindStudio also measured over 12GB of VRAM with default llama.cpp settings, dropping to roughly 8GB with a single parallel slot.</p>
+<p>Still, the direction is hard to dismiss. Ion Stoica, the UC Berkeley professor who advises PrismML, put it this way: “What is compelling about Bonsai 2 27B is how little capability is lost despite such a dramatic reduction in footprint. If that gap continues to close, it can fundamentally expand where highly capable models can be deployed.” The retention gap closed from 5 points to under 2 in two months. If sub-2-bit models keep converging on full precision for reasoning and code, the memory-bandwidth bottleneck that governs local inference, single-GPU serving and datacenter batching shifts all at once. PrismML, a Caltech spinout backed by Khosla Ventures, Cerberus, Google and Samsung, is betting the industry's scarce resource becomes memory and watts rather than parameters.</p>
+<h2>What to Watch</h2>
+<p>Independent reproductions of the 20-benchmark suite are the obvious next step, along with whether PrismML publishes how it assigns ternary values (the whitepaper describes the rotation but not the quantization algorithm itself). Watch for upstream llama.cpp support for the PTQ1_0 and PQ2_0 types, since the fork requirement is the biggest adoption friction today, and for whether the multilingual and self-correction gaps seen in early testing get patched in a point release or turn out to be structural costs of 1.7 bits per weight.
+EOF    1055 /Users/prajwalp/Projects/the-vault-ai/editions/2026/09/19/stories/08-prismml-ternary-bonsai-2-27b-compression.md</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+          <blockquote>"What is compelling about Bonsai 2 27B is how little capability is lost despite such a dramatic reduction in footprint. If that gap continues to close, it can fundamentally expand where highly capable models can be deployed."</blockquote>
+          <cite>— Ion Stoica, UC Berkeley professor and PrismML advisor</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">5.93GB</div><div class="stat-label">Model size, down from 53.8GB at FP16</div></div><div class="stat-cell"><div class="stat-value">98.2%</div><div class="stat-label">Retention of parent model's 20-benchmark average</div></div><div class="stat-cell"><div class="stat-value">1.72</div><div class="stat-label">Effective bits per weight</div></div><div class="stat-cell"><div class="stat-value">60.8 vs 80.6</div><div class="stat-label">SWE-bench Verified, ternary vs. full precision</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://prismml.com/news/bonsai-2-27b" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=prismml.com&sz=32" alt="">PrismML</a><a href="https://www.prnewswire.com/news-releases/prismml-launches-bonsai-2-27b-its-most-capable-model-yet-302882228.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=prnewswire.com&sz=32" alt="">PR Newswire</a><a href="https://www.marktechpost.com/2026/09/18/prismml-releases-ternary-bonsai-2-27b-a-5-9-gb-apache-2-0-model-retaining-98-2-of-qwen3-8-27b-performance/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=marktechpost.com&sz=32" alt="">MarkTechPost</a></div></div>
+<div class="article-nav"><a href="07-qwen3-8-omni-flash-1m-context-omnimodal.html" class="nav-prev">← Qwen Just Shipped a 1M-Token Omnimodal Model at $0</a><a href="09-grok-voice-transcribe-2-word-error-rate.html" class="nav-next">SpaceXAI Cut Grok's Transcription Errors by Two-Th →</a></div>
+<footer>The Vault — AI Edition · Published September 19, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
