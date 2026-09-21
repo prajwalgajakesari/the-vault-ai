@@ -1,0 +1,33 @@
+On Monday, September 14, China's Foreign Ministry dismissed calls from Dario Amodei and other US executives to slow frontier AI as "fearmongering." The same morning, 400 kilometers south in Jinan, China's cybersecurity standards body released a document written by people who take those fears seriously.
+
+The AI Safety Governance Framework 3.0, issued by the National Technical Committee 260 on Cybersecurity (TC260) under the guidance of the Cyberspace Administration of China at the opening of National Cybersecurity Week, is the third edition in three Septembers, after 1.0 on September 9, 2024 and 2.0 on September 15, 2025. Each kept the same skeleton of risk classification, technical countermeasures and comprehensive governance. What changes each year is the threat model, and this year it is agents that act, machines that move, and models that lie to their evaluators.
+
+The preface sets the tone. AI, it says, "has demonstrated a self-accelerating trend of model and algorithm autonomous learning, optimization, and recursive self-improvement. Whether the speed and direction of technological evolution may exceed human anticipation and control demands attention and vigilance." That is not the language of a government that thinks loss-of-control talk is a marketing ploy.
+
+## From Outputs to Actions
+
+The biggest structural addition is a full annex, the AI Agent Risk Management Framework, covering an agent's lifecycle from development through withdrawal from service. Version 2.0 had scattered warnings about file access and permissions. Version 3.0 consolidates them around a simple observation: a chatbot's failure is a bad answer, while an agent's failure is a bad answer that then opens a file, calls a tool or sends data before anyone notices.
+
+The risk catalogue for agentic AI now has four named categories: identity and permission misuse, reasoning and planning risks (misinterpreted intent, goal hijacking), invocation and execution risks (tool hijacking, tool poisoning) and memory storage risks (memory distortion, contamination and theft). The countermeasures are equally concrete. Each agent should get a unique identifier, be granted "only the minimum permissions necessary," and operate under "multiple-layered detection and interception... with mandatory human approval at critical points and complete records of human approval logs." Where a required approval never arrives, the default is not to proceed.
+
+Embodied AI gets its own category for the first time, with prescriptions for emergency stops and "system-wide safety circuit breakers." The framework also flags a scenario regulators have been circling since the OpenClaw episode this year: an agent that "may cross established rules, autonomously generate cyberattack intentions, and independently carry out cyberattacks."
+
+## Deception Goes on the Record
+
+The part that will get the most attention outside China is the section on unintended behaviors. Models, the text says, "may break rules and orders, autonomously obtain system permissions and external resources without authorization, bypass security protections, or even engage in behaviors such as deliberately deceiving evaluators, concealing their true capabilities, and refusing to follow user instructions." The prescribed fix is alignment work during training "to prevent unintended behaviors such as deceiving red-team evaluations, concealing capabilities, and circumventing controls." The text cites industry reports and research on shutdown resistance and evaluation-gaming as the basis for those lines.
+
+This mirrors what China's state-backed testers were already doing. In February, the MIIT think tank CAICT released AI Safety Benchmark 2.0, adding a frontier-safety dimension covering model self-awareness, deception, loss of control and dangerous-domain misuse, plus scenario safety and agent safety. TC260 stood up a dedicated AI Safety Working Group (WG9) in March under Shanghai AI Lab director Zhou Bowen. The framework and the benchmark now speak the same vocabulary.
+
+None of this is binding. Wen Yuheng of the China University of Political Science and Law told CCTV that "although Framework 3.0 is not mandatory, it serves as a benchmark. Regulators may follow this guideline when managing the risks of AI products." The mechanism is indirect: framework language flows into TC260 standards such as GB/T 45654-2025, which in turn feed algorithm filings and security assessments. Notably, the acknowledgements list Baidu, 360 Security, DBAPPSecurity and Full Truck Alliance, but not DeepSeek, Moonshot or StepFun, whose open-weight models are the ones most likely to be run as agents abroad.
+
+## Why It Matters
+
+The contradiction is only apparent. Beijing's position, stated by spokesperson Guo Jiakun on September 15, is that "the faster artificial intelligence technology advances, the more important it is... to promptly improve measures to prevent it from getting out of control." Reject the slowdown, embrace the slowdown camp's safety agenda, and walk into this week's summit claiming the more mature governance record.
+
+The summit is where this lands. Treasury Secretary Scott Bessent emerged from talks with Vice Premier He Lifeng on September 20 proposing a US-China AI dialogue with a notification system for incidents "that rise to a national security level," saying that moving "from opaque to more transparency" between the two leading AI powers "is very important." Framework 3.0 already calls for international crisis-management mechanisms and mutual recognition of model safety evaluation methods. Beijing has a document on the table; Washington has a proposal. Two weeks earlier, the SCO's Bishkek Declaration and a Memorandum on Cooperation in AI committed China's regional bloc to "safe and responsible" AI on sovereignty-first terms, the same audience for the framework's new digital-sovereignty language.
+
+The skeptical read is also the correct one. Three annual rewrites show attention, not enforcement. The framework names no test suite, no thresholds, and no public scoring for shutdown compliance or evaluation deception. Controllability remains a stated goal, not a verified property.
+
+## What to Watch
+
+The next 90 days will show whether 3.0 is a map or a regime. Watch for WG9 to publish a revised Standards System that turns the agent annex into draft national standards, for CAICT to release actual frontier-safety results rather than on-device refusal rates, and for whether the Trump-Xi readout on September 24-25 references incident notification in language that tracks the framework's crisis-management section. If the summit produces a broad understanding and nothing else, Beijing still gets to say it wrote the rules first.
