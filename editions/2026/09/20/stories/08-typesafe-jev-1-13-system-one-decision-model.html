@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TypeSafe's Jev 1.13 Can't Hallucinate Because It Can't Write, and Charges $42 Per Billion Tokens to Prove It — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body a{color:var(--accent)}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>TypeSafe's Jev 1.13 Can't Hallucinate Because It Can't Write, and Charges $42 Per Billion Tokens to Prove It</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1056 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Jev 1.13 is a $40M-backed hosted classifier that returns typed probabilities instead of text at $0.042/M input tokens, but its 200x-faster and 400x-cheaper claims rest entirely on vendor-run evals, and its zero-hallucination figure is a schema guarantee rather than a measurement.</p>
+</div>
+<div class="article-body">
+<p>TypeSafe AI's Jev 1.13 is a frontier model that has never produced a sentence, and its pricing page is built around that fact: $0.042 per million input tokens, $0 per million output tokens, 32,000 tokens of context. The output column is free because there is effectively nothing to meter. Send Jev a block of program state and a set of typed questions, and it returns a choice, a score, or a yes-or-no probability, all in a single parallel pass. OpenRouter lists the model as released September 18; TypeSafe's own launch post is dated September 15, and Netlify and Vercel wired it into their gateways on September 17. The version string is the only thing anyone can confidently call new. TypeSafe has published no changelog describing what 1.13 changed versus any earlier build, and no public 1.12 exists.</p>
+<p>The company calls Jev a "System One" model, borrowing Daniel Kahneman's split between fast intuition and slow deliberation. Founder Diogo Almeida, a former OpenAI researcher who worked on RLHF, frames it as a primitive rather than a chatbot. "Think of Jev as a frontier-intelligence function call: unstructured state in, typed probabilistic decisions out," he wrote in the launch post. The model is trained with what TypeSafe calls Reinforcement Learning for Calibrated Decisions, and the company says it uses a new architecture and a parallel sampler, neither of which it has described in any detail. There are no published weights, no parameter count, and no self-hosting option. Access runs through TypeSafe's API, OpenRouter's Decisions endpoint, Netlify AI Gateway, Vercel AI Gateway, and a LangChain integration.</p>
+<p>The money behind it is real. TypeSafe emerged from stealth the same day with a $40 million seed round led by DCVC, an unusually large check for a company founded in 2024 by Almeida, Erik Gafni, and Sasha Sheng. "TypeSafe is approaching one of the biggest remaining challenges in AI: turning increasingly capable models into technology that developers can reliably build into products at scale," said James Hardiman, general partner at DCVC. LangChain's Sydney Runkle and Hunter Lovell, who shipped a TypeSafeClassifier and two experimental middlewares for model routing and tool-risk gating, put it more bluntly: "New models drop every week at this point, but this one had a pretty outsized response."</p>
+<p>The headline performance claims come from TypeSafe's own four-workflow benchmark, and the fine print matters. On tasks spanning incident response, agent-trace observability, invoice processing, and customer service, Jev agrees with a reference answer 67.8 percent of the time at roughly $0.0004 per case and 0.4 seconds of latency. GPT-5.6 Terra scores 67.9 percent at $0.0304 and 10.1 seconds. GPT-5.6 Sol reaches 74.1 percent and Claude Opus 5 hits 73.1 percent, so the best LLMs keep a five-to-six point accuracy edge. The 193.6x-faster and 444.6x-cheaper figures on TypeSafe's homepage come from this eval, and the company concedes they sit "on the higher end of real world gains." The reference answers are averages of GPT-6 Astra and Anthropic's Fable 5.1 outputs, the workflows were written by TypeSafe's own capabilities team, and the LLMs were run through TypeSafe's adapter, which the company acknowledges is slower and pricier than letting a model answer without probabilities. Nobody has independently reproduced the numbers.</p>
+<p>The much-repeated "zero hallucination" line deserves the same scrutiny. TypeSafe's 0 percent structured-output error rate is not a measurement. It is a property of a model that can only emit values from a schema you declared in advance. The company says so itself: "Our number is not empirical." A wrong choice with a confident probability attached is still a wrong choice. TypeSafe also says it cannot prove its pricing is not subsidized, which is the honest way of saying the $42-per-billion-tokens figure is a bet on future demand, not a cost sheet.</p>
+<p>TypeSafe's own "jaggedness" page for 1.13, last reviewed September 17, is the most useful document it has published. The model does not count reliably, reads dates as text rather than ordered quantities, treats adversarial content as data rather than hostile input, and degrades as irrelevant state grows. Its outputs are not internally consistent either. Asking "is the customer requesting a refund" as a Noul returned 0.22 on one ticket while the equivalent yes-or-no Choice returned 0.01 for yes. On another ticket, a refund question and its negation summed to 1.19. For a model whose entire pitch is calibration, the calibration is question-shape dependent, and TypeSafe tells developers not to carry a threshold from one primitive to another.</p>
+<p>Early adopters are mostly reporting on speed, not accuracy. Vercel CEO Guillermo Rauch reported Jev up to 18x faster at p95 than GPT Luna on command-safety checks. Bryo AI CTO Nikhil Mudholkar found Gemini slightly more accurate on email triage but 10 to 20 times more expensive. On OpenRouter, the top consumer is a Naver rubric-judging pipeline that has already pushed 9.18 billion tokens through it, with a 0.24-second average latency and 99.98 percent availability over three days.</p>
+<h2>Why It Matters</h2>
+<p>Strip away the Kahneman branding and Jev is a hosted classifier with calibrated probabilities and a decisions-only API. Fine-tuned BERT-class encoders have delivered typed classification with probabilities for six years, at latencies well under 100 milliseconds and at the cost of a small GPU. What TypeSafe is actually selling is the removal of the fine-tuning step: zero-shot instruction-following on arbitrary schemas, at prices that make per-row scoring of 50-million-row tables cost about $20. If the accuracy holds outside the vendor's eval, that is a real product. The pieces most likely to be durable are the ones competitors can copy quickly: OpenAI and Anthropic already offer structured outputs and logprobs, and a cheap decisions endpoint is a pricing decision, not a research breakthrough. The piece least likely to be durable is the price itself, which TypeSafe openly cannot defend as unsubsidized.</p>
+<h2>What to Watch</h2>
+<p>The next meaningful data point is not from TypeSafe. Watch for an independent harness that runs Jev 1.13 against a fine-tuned small encoder and a cheap LLM with logprobs on the same classification set, with calibration curves rather than agreement percentages. Watch whether the counting, date, and adversarial-content failure modes get closed in a 1.14, and whether TypeSafe ever explains what 1.13 changed. And watch the price. A model that charges $42 per billion tokens and gives output away can only be judged once someone has to pay for the GPUs.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"Think of Jev as a frontier-intelligence function call: unstructured state in, typed probabilistic decisions out."</blockquote>
+          <cite>— Diogo Almeida, Founder and CEO, TypeSafe AI</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">$0.042</div><div class="stat-label">Per million input tokens; output tokens are free</div></div><div class="stat-cell"><div class="stat-value">67.8%</div><div class="stat-label">Agreement with reference answers on TypeSafe's own eval, vs 67.9% for GPT-5.6 Terra</div></div><div class="stat-cell"><div class="stat-value">$40M</div><div class="stat-label">Seed round led by DCVC, announced the same day as Jev</div></div><div class="stat-cell"><div class="stat-value">1.19</div><div class="stat-label">Sum of a refund question and its negation on one ticket, per TypeSafe's own docs</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=typesafe.ai&sz=32" alt="">TypeSafe AI</a><a href="https://openrouter.ai/typesafe/jev-1.13" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openrouter.ai&sz=32" alt="">OpenRouter</a><a href="https://www.langchain.com/blog/building-a-harness-with-jev" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=langchain.com&sz=32" alt="">LangChain</a><a href="https://docs.typesafe.ai/model-jaggedness/jev-1.13" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=docs.typesafe.ai&sz=32" alt="">TypeSafe AI Docs</a><a href="https://techstartups.com/2026/09/16/typesafe-ai-an-ai-startup-founded-by-chatgpt-co-inventor-emerges-from-stealth-with-40m-to-build-ai-thats-100x-faster-and-cheaper/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techstartups.com&sz=32" alt="">Tech Startups</a></div></div>
+<div class="article-nav"><a href="07-chatgpt-voice-gpt6-astra-reasoning-effort.html" class="nav-prev">← ChatGPT Voice Can Now Hand Hard Questions to GPT-6</a><a href="09-rubrik-code-guardian-claude-mythos-5.html" class="nav-next">Rubrik Gets the Keys to Claude Mythos 5. Its Custo →</a></div>
+<footer>The Vault — AI Edition · Published September 20, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
