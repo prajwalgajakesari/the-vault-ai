@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Xiaomi Put an MIT-Licensed Trillion-Parameter Model on Hugging Face and Says It Nearly Matches Opus 5. Most of the Scores Come From Its Own Harness. — The Vault AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Xiaomi Put an MIT-Licensed Trillion-Parameter Model on Hugging Face and Says It Nearly Matches Opus 5. Most of the Scores Come From Its Own Harness.</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 975 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Xiaomi’s MIT-licensed MiMo-V2.6-Pro is now the top open-weight model on Artificial Analysis’ independent index at 46, but its headline agent benchmark claims against Claude Opus 5 and GPT-5.6 Sol rest entirely on Xiaomi’s own unreproduced harness.</p>
+</div>
+<div class="article-body">
+<p>Xiaomi, a company most people still associate with phones and electric cars, pushed two frontier-class models onto Hugging Face on Monday under the MIT license and claimed the best score any open-weight model has ever posted on Artificial Analysis’ Intelligence Index. The catch, as with most Chinese lab launches this year, is that the most impressive numbers on the launch page were produced by Xiaomi itself.</p>
+<p>The MiMo-V2.6 series arrived on September 21 as two checkpoints: MiMo-V2.6-Pro, a sparse mixture-of-experts model with 1.02 trillion total parameters and 42 billion active per token, and MiMo-V2.6-Flash, a 309-billion-parameter MoE that activates just 15 billion. Both are omnimodal, accepting text, images, audio and video, and both model cards list a 1-million-token context window with up to 128,000 output tokens. Xiaomi shipped them alongside a technical report, more than 7,000 reinforcement-learning task environments, its end-to-end RL framework, a set of composable mini-harnesses and a distilled MiMo-V2.6-Distill-Qwen-9B. A hosted UltraSpeed variant of Pro, which Xiaomi says generates up to 20 times faster at the same quality, sits in the paid tier of the MiMo Open Platform.</p>
+<p>The headline number is the one Xiaomi did not produce. Artificial Analysis, the third-party benchmarking firm, scored MiMo-V2.6-Pro at 46 on its Intelligence Index, the highest mark for any open-weight model and a tie with xAI’s new Grok 4.7, which launched the same day. That puts it ahead of Grok 4.6 at 44, Gemini 3.8 Flash at 41, and DeepSeek V4.1 Flash and Pro at 39 and 36.</p>
+<p>The agentic benchmarks are a different story. Xiaomi reports that Pro scored 72.57 on DeepSWE v1.1 and Flash 65.68, up from 58.4 and 48.8 before the reinforcement-learning stage. Pro also posted 53.1 on AutomationBench, 76.9 on Toolathlon-Verified, 89.9 on Terminal Bench 2.1 and 94.0 on CyberGym. Every one of those figures comes from Xiaomi’s internal evaluation harness, and none has yet been independently reproduced. Xiaomi’s own tables also concede that Claude Opus 5 remains ahead on DeepSWE v1.1, ProgramBench and Terminal Bench 4.0, and that GPT-5.6 Sol leads on the cybersecurity evaluations ExploitBench and SEC Bench Pro. The claim, more precisely stated, is that an open model got close, not that it won.</p>
+<p>What Xiaomi is really selling is the reinforcement-learning run behind those scores. According to the technical report, Pro and Flash each went through 30 large RL steps covering roughly 750,000 trajectories in under six days, at a reported cost of about $2.62 million for Pro and $850,000 for Flash. Each step started with 1,568 prompts and 16 rollouts apiece, and the resulting trajectories averaged 110,000 to 150,000 tokens, meaning Xiaomi was reinforcing entire multi-hour agent workflows rather than short answers. The company calls the approach You Only RL Once: coding, computer use, visual work and cybersecurity tasks are mixed into a single run instead of trained separately. It also froze the MoE router during RL to reduce drift, and built two groupwise grading systems that compare passing solutions against each other so that a clean, minimal patch earns more reward than a sprawling one that merely satisfies the tests.</p>
+<p>Fuli Luo, the former DeepSeek researcher who now leads the MiMo team, framed the run as a deliberate bet on X. “In an era when compute is brutally scarce, we still chose to dedicate a team of several dozen people to one goal over an extended period: scaling up RL.” She said the engineering challenges exceeded those she faced while contributing to DeepSeek R1.</p>
+<p>Early outside reactions have focused on the smaller model. Tim Dettmers, the Carnegie Mellon professor and Ai2 researcher behind bitsandbytes, wrote on X: “The flash model has really good vibes. Feels like the best model in the 300B to 550B class. Better than DeepSeek v4.1 and GLM 5.3 Flash...”</p>
+<p>Pricing reinforces that positioning. Xiaomi is holding V2.6 at V2.5 rates: $0.435 per million uncached input tokens and $0.87 per million output for Pro, and $0.14 and $0.28 for Flash. Both models are already listed on OpenRouter, and OpenCode said it would offer Flash free for a week.</p>
+<h2>Why it matters</h2>
+<p>The MIT license is the load-bearing detail. DeepSeek and Qwen normalized open weights, but an omnimodal trillion-parameter model with a million-token context, downloadable with no usage restrictions and no gating, is a new ceiling for what enterprises can self-host. The RL stack is arguably more consequential than the weights: 7,000 environments, the grading code and a report that spends dozens of pages on reward hacking and asynchronous rollouts give smaller labs a blueprint they have never had. Xiaomi says confirmed reward-hacking trajectories stayed under 2 percent in the final run.</p>
+<p>The skepticism is equally load-bearing. Vendor-run agent benchmarks have a poor track record of surviving contact with independent harnesses, and Xiaomi’s launch chart even reports DeepSWE as 71.9 in one place and 72.57 in another. The Artificial Analysis score is real and third-party, but it measures a composite of academic tasks, not the long-horizon software work that Xiaomi is advertising. A model that ties Grok 4.7 on an index and trails Opus 5 on terminal work is a very good open model, not a replacement for the closed frontier.</p>
+<h2>What to watch</h2>
+<p>The first independent SWE-bench Verified, Terminal Bench and Toolathlon runs on the open checkpoints will settle whether the harness gap is a few points or a chasm; expect Artificial Analysis and the OpenRouter usage leaderboard to be the early signals. Watch, too, whether anyone outside Xiaomi actually runs the released RL environments end to end, and whether Hugging Face inference providers pick up a 1.02-trillion-parameter model that Xiaomi’s own deployment recipe says needs multi-node serving. If the Flash model holds up in the wild at $0.28 per million output tokens, it may be the cheapest credible agent backbone on the market, and that, more than the leaderboard, is what the closed labs should be worried about.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>“In an era when compute is brutally scarce, we still chose to dedicate a team of several dozen people to one goal over an extended period: scaling up RL.”</blockquote>
+          <cite>— Fuli Luo, Head of MiMo team, Xiaomi</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">46</div><div class="stat-label">Artificial Analysis Intelligence Index, highest for any open-weight model</div></div><div class="stat-cell"><div class="stat-value">1.02T / 42B</div><div class="stat-label">Total / active parameters, MiMo-V2.6-Pro</div></div><div class="stat-cell"><div class="stat-value">72.57</div><div class="stat-label">DeepSWE v1.1 score for Pro on Xiaomi’s internal harness</div></div><div class="stat-cell"><div class="stat-value">$2.62M</div><div class="stat-label">Reported RL training cost for Pro (six-day run)</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://mimo.xiaomi.com/mimo-v2-6" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=mimo.xiaomi.com&sz=32" alt="">Xiaomi MiMo</a><a href="https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Hugging Face</a><a href="https://venturebeat.com/technology/better-than-deepseek-xiaomis-mimo-v2-6-pro-debuts-as-the-top-open-weights-model-in-the-world-alongside-cheaper-v2-6-flash" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://runtimewire.com/article/xiaomi-open-sources-mimo-v2-6-rl-cost-3-47m" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=runtimewire.com&sz=32" alt="">RuntimeWire</a><a href="https://pandaily.com/xiaomi-mimo-v2-6-pro-flash-open-weights-rl-environments" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=pandaily.com&sz=32" alt="">Pandaily</a></div></div>
+<div class="article-nav"><a href="06-grok-4-7-launch-pricing-benchmarks.html" class="nav-prev">← SpaceXAI Shipped Grok 4.7 at $2 In, $6 Out. On Har</a><a href="08-qwen-image-2-1-research-license-switch.html" class="nav-next">Qwen-Image-2.1 Renders Native 2048x2048. It Is Als →</a></div>
+<footer>The Vault — AI Edition · Published September 21, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
