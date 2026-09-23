@@ -1,0 +1,29 @@
+# Unreal Labs Open-Sources Unreal Agent, Claiming 40% Savings Over Codex
+
+The fastest way to make an AI coding agent cheaper may not be a cheaper model. Unreal Labs, a Sequoia- and First Round-backed startup, on Tuesday open-sourced Unreal Agent, a Go-based agent harness that it says delivers "up to 40% cost savings compared to Codex on production workloads and coding/science benchmarks, without any negative performance impact." The company ran the same frontier model, GPT-6 Astra at its highest reasoning setting, under different harnesses. On Terminal-Bench 4.0, Unreal Agent matched the Codex leaderboard pass rate of 57.9% for $1,428 in total spend. The Codex figure cost $2,350, about 39% more.
+
+The release lands in an increasingly loud argument about whether the scaffolding around a model now matters as much as the model itself. Unreal Labs has taken a clear side. "We believe harness design is a research area in its own right, with many promising ideas still to be researched and implemented," the team wrote in its launch post, citing HarnessTax, a 2026 study from researchers including Ion Stoica and Matei Zaharia that measured how much the harness alone moves coding-agent results.
+
+## Async by default
+
+Unreal Agent is built around one core idea: the model should never have to babysit its tools. "We've noticed that agents spend a lot of time and tokens managing tool calls," the company wrote. The harness handles tool calls "in a completely asynchronous way, relieving the underlying model of the need to manage waits, polls, and heartbeats for tools."
+
+In practice, each time the agent issues a tool call, the harness immediately logs that the tool is in progress and keeps running it in the background. The model is called again only when a result actually lands. That lets an agent kick off a dev-environment setup that takes minutes while it explores the codebase and searches the web in parallel. It also means a user can steer the agent mid-task without waiting for a heavy command to finish. Keeping this pattern compatible with prompt caching was not trivial. "Making this work without breaking cache was an interesting engineering challenge in itself," the post notes, and a footnote adds that the Responses API does not clearly specify how two results for one tool call should appear in a single context, and that some non-OpenAI inference providers rejected the format.
+
+The rest of the savings come from restraint. According to the launch post and an AlphaSignal summary, Unreal Agent ships simple prompts, token-optimized tool output, and no sub-agents or workflows. Its built-in tool registry is limited to Bash, an image viewer, and skill use. Sessions are append-only, versioned, forkable, and recoverable after crashes, and the operation manager can be swapped out. The GitHub README gives one example: a proxy that forwards serialized operations to a remote sandbox so tools run there. The code is MIT-licensed and includes a Go library, a command-line runner comparable to claude -p or codex exec, and a benchmark runner compatible with the Harbor evaluation framework.
+
+## The numbers
+
+Unreal Labs published results on four benchmarks, all using GPT-6 Astra at xhigh effort and compared against Codex and the open-source Pi harness. On SWE-Atlas Codebase QnA, Unreal Agent scored 65.8% versus 63.3% for Codex and cost $936 against $1,303, while using about 898,000 input tokens per trial compared with 1.69 million. On DeepSWE 1.1 it posted 72.4% against 69.0% for Codex, at $1,367 versus $1,633. On the CLI track of Agents' Last Exam, it reached a 30.0% full-pass rate against 29.0% for both rivals, spending $217 compared with $292 for Codex. The company says the harness is up to 20% cheaper than Pi on real workloads, and on Terminal-Bench it needed 28 turns per trial to Pi's 44.
+
+Brett Berson, a partner at First Round, summed up the investor view on X: "The same quality at a fraction of the cost." The company itself is more cautious about the accuracy gains. It says the pass-rate differences are marginal and attributes them to benchmark variance.
+
+## Why It Matters
+
+Agent bills are now a serious line item for teams running coding agents in production. Most of that spend is input tokens re-sent turn after turn. If Unreal Labs' numbers hold up, a harness change that cuts turns and context size is essentially a free discount on any frontier model, with no fine-tuning or model switch required. It also backs the thesis, advanced by HarnessTax and a growing number of practitioners, that the orchestration layer is where much of the remaining efficiency lies. The team behind it, which the company says comes from CERN, Meta, Snap, Bloomberg, and DeepMind, is also making a pointed argument against vendor SDKs. It says CLI-oriented kits such as Claude's Agent SDK make assumptions about local sessions and subprocesses that don't carry over cleanly to production, and that security is better enforced by sandbox and network constraints than by harness hooks.
+
+The caveats are real, though. The headline 39% Terminal-Bench figure compares Unreal's own run with a Codex leaderboard entry, not a head-to-head run under identical conditions. The other benchmarks show more modest savings of roughly 16% to 28%. All results come from a single model, and every number so far is self-reported.
+
+## What to Watch
+
+The key test is independent reproduction. Most runs are linked to public Harbor job pages, which makes that easier than usual. Watch whether the savings hold with Claude and open-weight models, and whether inference providers standardize the in-progress tool-result pattern Unreal Labs had to work around. Security scrutiny of a young codebase is also worth tracking now that anyone can run it. Unreal Labs is plainly using the release to win customers who want frontier cost efficiency, so the next signal is whether production teams, not just benchmark charts, confirm the savings.
