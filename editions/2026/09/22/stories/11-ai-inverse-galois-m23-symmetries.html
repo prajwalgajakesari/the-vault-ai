@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mathematicians and AI Crack the Last Holdout in a Decades-Old Inverse Galois Problem — The Vault AI</title>
+<meta name="description" content="A six-mathematician team using AI agents built an explicit degree-23 polynomial with Galois group M23, the last of the 26 sporadic simple groups to be realized over the rationals, while a crowdsourced contest found polynomials for all 25,000 transitive groups on 24 letters.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Mathematicians and AI Crack the Last Holdout in a Decades-Old Inverse Galois Problem</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 990 words</span>
+    <span>6 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A six-mathematician team using AI agents built an explicit degree-23 polynomial with Galois group M23, the last of the 26 sporadic simple groups to be realized over the rationals, while a crowdsourced contest found polynomials for all 25,000 transitive groups on 24 letters.</p>
+</div>
+<div class="article-body">
+<p>For nearly four decades, one stubborn symmetry group refused to show up where number theorists expected it. Now a six-person team, working with AI agents, has produced an explicit polynomial whose hidden symmetries form the Mathieu group M23, the last of the 26 sporadic simple groups that had never been realized as a Galois group over the rational numbers. The result, posted to arXiv on August 9 and profiled by Scientific American on September 22, completes a program begun in the 1980s.</p>
+<p>It is worth being precise about what was solved. The team did not settle the full inverse Galois problem, which asks whether every finite group arises this way and remains wide open. They settled one famous case of it: M23. A separate crowdsourced effort run by the Foundation for Science and AI Research (SAIR) found polynomials for all 25,000 transitive groups acting on 24 roots. The two are easy to conflate but are distinct achievements.</p>
+<h2>The problem Galois left behind</h2>
+<p>A polynomial's roots can often be shuffled without breaking any algebraic truth about them. The simplest example is x^2 + 1 = 0, whose roots are i and -i. Swapping them everywhere leaves every equation intact, so that swap, together with doing nothing, forms the polynomial's Galois group. Going from a polynomial to its group is routine; computer algebra systems do it in seconds. The inverse direction is the hard part: given a group of symmetries, can you always find a polynomial that has exactly those symmetries?</p>
+<p>Most finite simple groups come in tidy infinite families, but 26 do not. These sporadic groups follow no pattern, and the first five discovered were the Mathieu groups M11, M12, M22, M23 and M24. According to the team's paper, researchers realized 25 of the 26 sporadics as Galois groups over the rationals between 1984 and 1989. M23 would not budge. "There's this one last holdout," Bjorn Poonen of MIT told Scientific American. "I think some people were even wondering whether there might be no polynomial giving M23." Terence Tao, writing in June, noted that of the 4,953 transitive permutation groups on 23 or fewer letters, polynomials had been found for 4,952; M23 was the lone exception.</p>
+<h2>A sprint, a stall and a lucky agent</h2>
+<p>The effort began in May at an American Institute of Mathematics sprint at Caltech seeking problems suited to AI-scale search. Rachel Pries of Colorado State University pitched M23. "This problem had been open for a very, very long time," she said. Pries and Poonen were joined by Xiaoyu Huang of Temple University, Blake Jackson of the Institute for Computer-Aided Reasoning in Mathematics, Kyu-Hwan Lee of the University of Connecticut and Caltech Ph.D. student Shaowu Zhang, a group that had never worked together before.</p>
+<p>The team used AI to search M23 for suitable combinations of symmetries, then took the smallest resulting collection, seven candidate surfaces, and asked the AI to approximate their equations numerically. The decimals refused to resolve into exact numbers, and at 90 digits of precision the computation ran out of memory. After Huang suspected the coordinate system was the culprit, the group set a fleet of AI agents searching for better coordinates. Most failed. One, according to Huang, came back excited about one of the seven surfaces: "This might work!" The paper calls what followed "miraculous." The mathematicians converted the approximation into an exact equation and ultimately a family of degree-23 integer polynomials whose Galois group is M23.</p>
+<p>"We could do it very efficiently," Lee told Scientific American. "That wasn't really possible five years ago." Epoch AI, which had listed M23 as an open problem in its FrontierMath benchmark, has since relabeled it "Solved (human + AI)," a new status it created after the authors made clear that AI was instrumental, and it lists Claude Fable 5, Claude Opus 4.8 and ChatGPT 5.6 Sol as the models involved.</p>
+<p>Meanwhile, the SAIR challenge, co-organized by Tao and Jen Paulhus of Mount Holyoke College with the LMFDB database, asked contestants to find polynomials for every one of the 25,000 transitive groups on 24 letters. When it launched, the LMFDB held examples for just 286 of them. By the end of the first phase in August, all 25,000 had been realized. "I was a little surprised that we got all the groups that we were looking for in the first pass," Paulhus said. Notably, the winners, a pair of German mathematicians, used AI only to write an upload script.</p>
+<h2>Why It Matters</h2>
+<p>The M23 result is a genuine, verifiable piece of mathematics, and that distinguishes it from much of this year's AI-math noise. Anyone with a computer algebra system can check that the published polynomial has Galois group M23. That matters as AI companies' math claims come under fire. On September 22, an MIT Technology Review opinion piece by Timnit Gebru and Emily Bender argued that mathematicians had disputed several recent corporate breakthrough claims, including accusations that OpenAI failed to credit prior human work on a Navier-Stokes result.</p>
+<p>The M23 story offers a different template: credited human authors, a public preprint, and AI described as a tool rather than an author. It also shows where AI helps most today, as a tireless search engine that unblocks humans who already know which question to ask. The SAIR outcome is a useful counterweight: in an open contest where AI was explicitly allowed, human expertise still won.</p>
+<h2>What to Watch</h2>
+<p>The arXiv preprint has not yet passed formal peer review, though the explicit polynomial makes the core claim unusually easy to verify. Watch for journal publication and for independent confirmations of the Galois group computation. SAIR has promised a second, more human-driven stage in which, Tao wrote, AI tools may play a more secondary role. And Epoch's new "human + AI" label may become a template for how the field credits machine assistance.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+  <blockquote>&ldquo;There&#x27;s this one last holdout. I think some people were even wondering whether there might be no polynomial giving M23.&rdquo;</blockquote>
+  <cite>&mdash; Bjorn Poonen, Mathematician, MIT</cite>
+</div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">26 of 26</div><div class="stat-label">Sporadic groups now realized over Q</div></div><div class="stat-cell"><div class="stat-value">1984-1989</div><div class="stat-label">When the other 25 were realized</div></div><div class="stat-cell"><div class="stat-value">25,000</div><div class="stat-label">Degree-24 groups realized in SAIR contest</div></div><div class="stat-cell"><div class="stat-value">90 digits</div><div class="stat-label">Precision reached before memory ran out</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.scientificamerican.com/article/mathematicians-use-ai-to-find-mysterious-symmetries-solving-decades-old-problem/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=scientificamerican.com&sz=32" alt="">Scientific American</a><a href="https://arxiv.org/abs/2608.08538" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://epoch.ai/frontiermath/open-problems/inverse-galois" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=epoch.ai&sz=32" alt="">Epoch AI</a><a href="https://terrytao.wordpress.com/2026/06/16/third-sair-competition-inverse-galois-challenge/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=terrytao.wordpress.com&sz=32" alt="">Terence Tao</a><a href="https://math.uconn.edu/2026/08/12/kyu-hwan-lee-and-collaborators-solve-outstanding-problem-in-galois-theory/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=math.uconn.edu&sz=32" alt="">UConn Mathematics</a><a href="https://www.technologyreview.com/2026/09/22/1144867/dont-be-fooled-summer-ai-hype/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=technologyreview.com&sz=32" alt="">MIT Technology Review</a></div></div>
+<div class="article-nav"><a href="10-openai-fires-contractors-ai-rating-chatgpt.html" class="nav-prev">&larr; OpenAI Fires Contractors Caught Using AI to Rate C</a><a href="12-cisco-talos-closedquorum-autonomous-ai-malware.html" class="nav-next">Cisco Talos Flags First Fully Autonomous AI-Driven &rarr;</a></div>
+<footer>The Vault — AI Edition · Published September 22, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
