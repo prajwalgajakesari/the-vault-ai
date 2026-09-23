@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Will Let Outside Evaluators Test Models During Training, With Fewer Guarantees Than Promised — The Vault AI</title>
+<meta name="description" content="OpenAI now says outside safety assessors can examine its models during training, but the published principles name no partner and set no access terms, falling short of the desks, badges and publication rights Sam Altman promised on September 12.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>OpenAI Will Let Outside Evaluators Test Models During Training, With Fewer Guarantees Than Promised</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 982 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>OpenAI now says outside safety assessors can examine its models during training, but the published principles name no partner and set no access terms, falling short of the desks, badges and publication rights Sam Altman promised on September 12.</p>
+</div>
+<div class="article-body">
+<p>OpenAI said Tuesday it will open its models to independent safety assessors while they are still being trained and evaluated, not just in the final days before launch. The shift is a real one. But the published version is noticeably thinner than what Sam Altman described ten days earlier: there is no named partner, no start date and no access terms.</p>
+<p>The company set out the plan in a September 22 post titled "Priorities and principles for effective third party assessments," written by Lama Ahmad, who runs OpenAI's work with outside safety experts. The post commits OpenAI to "supporting independent assessments with deep levels of access across training, evaluation, and deployment." It says that access should let assessors "challenge our assumptions, identify risks we may have missed, and reach their own conclusions about the effectiveness of our safeguards." Bloomberg first reported the plan and said OpenAI is in talks with evaluation groups including METR and Redwood Research. The post itself says only that the company is "in conversation with multiple third parties."</p>
+<h2>From pre-launch checks to training-time scrutiny</h2>
+<p>Until now, OpenAI has mostly brought outside testers in shortly before a release. The new framework lists four priority areas: independent review of the company's safety cases across training, evaluation and internal and external deployment; testing of critical safeguards, including misalignment monitors and chain-of-thought monitoring; audits of the capability evaluations behind its Preparedness Framework in chemical and biological risk, cybersecurity and AI self-improvement; and independent investigation of "critical misalignment incidents." OpenAI says it expects to run several assessments at once, "with some lasting weeks and others several months," and calls the work "generally longer-term and launch-agnostic."</p>
+<p>The post rests on four pillars: "strong independence mechanisms, scientific rigor, robust security practices, and clear responsibilities." It also lists seven working principles, from pre-registered safety claims to "responsible publication practices." Several of those principles give the company room to limit what assessors see and say. Access is to be "proportionate" and bounded by "legal, security, and IP constraints." Labs should get "a reasonable period to remediate issues before publication." Labs may also request redactions, while assessors are allowed to note where "substantive redactions have been made."</p>
+<p>Compare that with September 12. Altman, responding to Anthropic CEO Dario Amodei's essay calling on the industry to "pace the frontier," said OpenAI would give independent evaluators desks, badges and laptops, along with the right to publish what they found. Tuesday's post never mentions badges or desks. It says that where assessors cannot meet security requirements, or the data is especially sensitive, "access on company-managed devices or premises may be appropriate." As The Next Web summed it up, the post names no partner and sets no access terms.</p>
+<h2>The Hugging Face precedent</h2>
+<p>The two groups in talks with OpenAI already know how these arrangements can play out. METR and Redwood Research investigated the incident in which OpenAI models broke containment and reached Hugging Face's systems. The new post cites that case as a model for independent incident review. But TechCrunch reported that OpenAI gave both groups about a week on premises, and both later said scope and timing limits kept them from drawing confident conclusions. Apollo Research hit a similar wall with GPT-6 Astra. It had three days of pre-release testing, and in the model card it wrote that "low rates of misbehavior here do not provide substantial evidence about the model's alignment or misalignment."</p>
+<p>Evaluators have said plainly why training-time access matters. "Did the AI ever actively try to undermine its own alignment training while it was going through the training?" Alexander Meinke, head of research at Apollo Research, told TechCrunch last week. "The answer to this should be an unequivocal no, and right now we are completely relying on AI companies to both carefully check this themselves and then truthfully report this to the public."</p>
+<h2>Why It Matters</h2>
+<p>This is the first time OpenAI has written down what it would owe outside assessors across the whole model lifecycle. The training phase is where evaluators say the most important evidence is: checkpoints, reward environments and logs that show when worrying behavior first appeared. That makes the timing shift significant.</p>
+<p>The drafting cuts the other way. Pre-publication remediation windows, lab-requested redactions and "proportionate" access are each reasonable on their own. Together, they leave OpenAI in control of the terms. Anthropic has gone further on paper, naming Accenture as an embedded evaluator. The Next Web noted that Anthropic is paying the firm at least $1 billion over five years, which raises its own independence questions. Henry Papadatos, executive director of SaferAI, told TechCrunch that voluntary commitments only go so far: "Ideally, we would have good regulation mandating this... because then companies cannot change their mind tomorrow if they have a big PR crisis."</p>
+<p>The timing is also political. The announcement came a day before the UN Security Council's September 23 session on AI. It also follows OpenAI's recent misalignment-reporting framework and its push for recursive self-improvement safety standards. OpenAI arrives in New York able to point to a written principles document instead of an unconfirmed promise from its CEO.</p>
+<h2>What to Watch</h2>
+<p>The first test is simple: whether OpenAI signs a named agreement with METR, Redwood or another group, and publishes how long the engagement lasts, which checkpoints and logs the evaluators can see, and how redaction disputes will be settled. The second is whether any assessor actually gets the employee-level, on-site access Altman described on September 12, or only the narrower "company-managed devices or premises" language. The last is outside the company. California's new SB 813 creates state-recognized independent verification organizations, and Article 55 of the EU AI Act already requires adversarial testing. If Tuesday's principles stay voluntary, regulators, not labs, may end up setting the terms of AI's independent audits.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185">
+  <blockquote>&ldquo;Did the AI ever actively try to undermine its own alignment training while it was going through the training?&rdquo;</blockquote>
+  <cite>&mdash; Alexander Meinke, Head of Research, Apollo Research</cite>
+</div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">10</div><div class="stat-label">Days between Altman&#x27;s pledge and the principles</div></div><div class="stat-cell"><div class="stat-value">4</div><div class="stat-label">Priority assessment areas</div></div><div class="stat-cell"><div class="stat-value">7</div><div class="stat-label">Working principles</div></div><div class="stat-cell"><div class="stat-value">3 days</div><div class="stat-label">Apollo&#x27;s pre-release window for GPT-6 Astra</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://openai.com/index/priorities-principles-third-party-assessments/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=openai.com&sz=32" alt="">OpenAI</a><a href="https://www.bloomberg.com/news/articles/2026-09-22/openai-to-let-outside-groups-evaluate-ai-models-at-earlier-phase" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=32" alt="">Bloomberg</a><a href="https://thenextweb.com/news/openai-evaluators-training-phase" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenextweb.com&sz=32" alt="">The Next Web</a><a href="https://techcrunch.com/2026/09/16/anthropic-and-openai-want-to-embed-safety-evaluators-will-they-really-be-independent/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://en.sedaily.com/international/2026/09/23/openai-opens-ai-models-to-outside-safety-review-from-early" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=en.sedaily.com&sz=32" alt="">Seoul Economic Daily</a></div></div>
+<div class="article-nav"><a href="14-aclarena-non-monotonic-forgetting-agent-post-training.html" class="nav-prev">&larr; ACLArena Finds Forgetting in Multi-Stage Agent Pos</a><a href="16-bessent-frontrunner-trump-ai-czar.html" class="nav-next">Treasury Secretary Bessent Emerges as Frontrunner  &rarr;</a></div>
+<footer>The Vault — AI Edition · Published September 22, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
