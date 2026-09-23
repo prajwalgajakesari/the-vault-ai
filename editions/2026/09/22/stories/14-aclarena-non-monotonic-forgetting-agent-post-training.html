@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ACLArena Finds Forgetting in Multi-Stage Agent Post-Training Is Non-Monotonic — The Vault AI</title>
+<meta name="description" content="Training an agent one skill at a time makes earlier skills fall and partly come back rather than decline steadily, and a frozen SDFT backbone with routed per-domain RL LoRA experts gets close to single-domain expert scores.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>ACLArena Finds Forgetting in Multi-Stage Agent Post-Training Is Non-Monotonic</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 958 words</span>
+    <span>3 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Training an agent one skill at a time makes earlier skills fall and partly come back rather than decline steadily, and a frozen SDFT backbone with routed per-domain RL LoRA experts gets close to single-domain expert scores.</p>
+</div>
+<div class="article-body">
+<p>Teach an AI agent math, then web search, then online shopping, then how to follow instructions, and you might expect each new skill to stack on top of the last. A new paper says that is not what happens. When researchers put a Qwen3-8B model through that four-stage curriculum, its score on the AIME26 math benchmark rose to 25.83 after the math stage, held at 23.33 after search, fell to 6.04 after the e-commerce stage, and then climbed partway back to 10.21 once instruction-following training was done.</p>
+<p>The paper, ACLArena: Agent Continue Learning in Multi-stage Post-training (arXiv:2609.23989), was posted on September 21 and was among the papers featured on Hugging Face's daily papers page. Haixin Wang is the lead author. The 12-person author list also includes Xiaoxuan Wang, Junkai Zhang, Alexander K. Taylor, Chenguang Wang, Jason Cong, Yizhou Sun and Wei Wang. The team frames its subject as a practical gap in how agents are built today. "Building general-purpose agents for industrial deployment requires integrating multiple capabilities, each typically acquired at a distinct stage of training," the authors write. "Yet there is currently no well-established recipe for Agent Continual Learning (ACL), with little understanding of the trade-offs among existing integration paradigms."</p>
+<h2>A forgetting curve that goes up and down</h2>
+<p>Catastrophic forgetting, where new training overwrites old skills, is one of the oldest problems in neural networks. The usual picture is a steady loss: every new task costs a bit more of the old ones. ACLArena finds something messier. "Sequential training exhibits non-monotonic capability evolution," the paper states. Later stages can damage an earlier skill and then partly restore it, and the pattern differs from task to task. In the math example, the e-commerce stage did the most damage. The instruction-following stage that came after it gave back about four points.</p>
+<p>The authors look at forgetting from two angles, the whole model and individual tokens. At the token level they find that most of the model's output barely changes from stage to stage. "Low-entropy tokens: ~95% remain stable across stages," the paper reports. The tokens that do get rewritten are the high-entropy ones, the uncertain decision points where the model picks between very different next steps. That suggests forgetting in agents is concentrated in a fairly small set of choices, not spread evenly across everything the model knows.</p>
+<p>With that diagnosis in hand, the team tested three existing ways of combining skills learned at different stages: multi-teacher on-policy distillation, self-distilled fine-tuning (SDFT) and model merging. They compared how well each one recovers earlier capabilities while keeping new ones. Then they proposed their own recipe, which the abstract describes as combining "offline replay over high-quality trajectories with a routed network of multiple LoRA experts each specialized via RL."</p>
+<h2>Mixture of Low-Rank Experts</h2>
+<p>The method, called Mixture of Low-Rank Experts (MLE), works in two steps. First, a shared backbone is built with SDFT, replaying high-quality trajectories from every domain, and then frozen. Second, a small LoRA adapter is trained with reinforcement learning for each stage. At inference time, an environment tag picks which expert gets attached to the backbone. Because each domain's reinforcement learning happens in its own adapter, a new stage cannot overwrite the weights an earlier stage depends on.</p>
+<p>On the numbers reported, MLE comes close to independently trained single-domain experts, which are the ceiling the paper measures against. It scores 49.7 on Natural Questions against the expert's 49.9, 57.7 on single-hop search against 56.0, and 32.9 on the tau-cubed Retail e-commerce benchmark against 33.2. It also reaches 85.0 on IF-Eval. On AIME26 it scores 21.04, about the same as the paper's multi-teacher mixed on-policy distillation baseline at 21.25, and roughly double the 10.21 the plain sequential pipeline ended with. Training used the Slime RL framework on NVIDIA H200 nodes.</p>
+<h2>Why It Matters</h2>
+<p>Multi-stage post-training is now standard practice for building agents. Labs add tool use, browsing, coding and domain workflows in separate stages, often run by separate teams and tuned on separate reward signals. ACLArena's main finding is a warning about how those pipelines are evaluated. If forgetting goes up and down instead of steadily down, a checkpoint that looks fine on an earlier benchmark after one stage could look very different after the next. Order matters, and a benchmark check at a single point in the curriculum can miss regressions that only show up later.</p>
+<p>The token-entropy finding also points to a cheaper fix than retraining everything. If about 95 percent of low-entropy behavior stays stable, protecting a model mostly means protecting a small number of high-stakes decision points. MLE takes a blunter approach: it keeps each domain's RL updates in their own adapters so they never touch shared weights. For teams already serving LoRA adapters, a frozen backbone with routed per-domain experts is a fairly small change to their infrastructure.</p>
+<p>There is a cost. Routing by environment tag assumes the system knows which domain a request belongs to. That is easy in a benchmark suite and harder in a general-purpose assistant, where a single task might mix search, arithmetic and a shopping cart.</p>
+<h2>What to Watch</h2>
+<p>The authors describe the work as limited to Qwen3-8B-Base and a fixed four-stage curriculum, so it is still an open question whether the non-monotonic pattern holds for other model families, bigger models or different stage orders. The next tests will be whether other labs see the same up-and-down behavior when they report results after every stage, and whether MLE's routing still works when an agent has to switch domains in the middle of a task. The paper is 25 pages long and marked as under review, so a revised version may add some of those experiments.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4">
+  <blockquote>&ldquo;Sequential training exhibits non-monotonic capability evolution.&rdquo;</blockquote>
+  <cite>&mdash; Haixin Wang et al., Authors, ACLArena (arXiv:2609.23989)</cite>
+</div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">25.8 to 6.0</div><div class="stat-label">AIME26 drop before partial recovery to 10.2</div></div><div class="stat-cell"><div class="stat-value">~95%</div><div class="stat-label">Low-entropy tokens stable across stages</div></div><div class="stat-cell"><div class="stat-value">49.7 vs 49.9</div><div class="stat-label">MLE vs expert on Natural Questions</div></div><div class="stat-cell"><div class="stat-value">32.9 vs 33.2</div><div class="stat-label">MLE vs expert on tau-cubed Retail</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/abs/2609.23989" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://huggingface.co/papers/2609.23989" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Hugging Face Papers</a><a href="https://aiweekly.co/alerts/aclarena-diagnoses-non-monotonic-forgetting-in-agent-post-training" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=aiweekly.co&sz=32" alt="">AI Weekly</a></div></div>
+<div class="article-nav"><a href="13-intrinsic-core-open-source-robotics-roscon.html" class="nav-prev">&larr; Alphabet&#x27;s Intrinsic Open-Sources Its Robotics Sta</a><a href="15-openai-third-party-evaluators-during-training.html" class="nav-next">OpenAI Will Let Outside Evaluators Test Models Dur &rarr;</a></div>
+<footer>The Vault — AI Edition · Published September 22, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
