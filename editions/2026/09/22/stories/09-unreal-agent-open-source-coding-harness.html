@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unreal Labs Open-Sources Unreal Agent, Claiming 40% Savings Over Codex — The Vault AI</title>
+<meta name="description" content="Unreal Labs says its MIT-licensed, async-first Go harness gets the same GPT-6 Astra model to match Codex-level scores for up to 40% less, strengthening the case that harness design, not only model choice, drives agent costs.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Unreal Labs Open-Sources Unreal Agent, Claiming 40% Savings Over Codex</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 970 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Unreal Labs says its MIT-licensed, async-first Go harness gets the same GPT-6 Astra model to match Codex-level scores for up to 40% less, strengthening the case that harness design, not only model choice, drives agent costs.</p>
+</div>
+<div class="article-body">
+<p>The fastest way to make an AI coding agent cheaper may not be a cheaper model. Unreal Labs, a Sequoia- and First Round-backed startup, on Tuesday open-sourced Unreal Agent, a Go-based agent harness that it says delivers "up to 40% cost savings compared to Codex on production workloads and coding/science benchmarks, without any negative performance impact." The company ran the same frontier model, GPT-6 Astra at its highest reasoning setting, under different harnesses. On Terminal-Bench 4.0, Unreal Agent matched the Codex leaderboard pass rate of 57.9% for $1,428 in total spend. The Codex figure cost $2,350, about 39% more.</p>
+<p>The release lands in an increasingly loud argument about whether the scaffolding around a model now matters as much as the model itself. Unreal Labs has taken a clear side. "We believe harness design is a research area in its own right, with many promising ideas still to be researched and implemented," the team wrote in its launch post, citing HarnessTax, a 2026 study from researchers including Ion Stoica and Matei Zaharia that measured how much the harness alone moves coding-agent results.</p>
+<h2>Async by default</h2>
+<p>Unreal Agent is built around one core idea: the model should never have to babysit its tools. "We've noticed that agents spend a lot of time and tokens managing tool calls," the company wrote. The harness handles tool calls "in a completely asynchronous way, relieving the underlying model of the need to manage waits, polls, and heartbeats for tools."</p>
+<p>In practice, each time the agent issues a tool call, the harness immediately logs that the tool is in progress and keeps running it in the background. The model is called again only when a result actually lands. That lets an agent kick off a dev-environment setup that takes minutes while it explores the codebase and searches the web in parallel. It also means a user can steer the agent mid-task without waiting for a heavy command to finish. Keeping this pattern compatible with prompt caching was not trivial. "Making this work without breaking cache was an interesting engineering challenge in itself," the post notes, and a footnote adds that the Responses API does not clearly specify how two results for one tool call should appear in a single context, and that some non-OpenAI inference providers rejected the format.</p>
+<p>The rest of the savings come from restraint. According to the launch post and an AlphaSignal summary, Unreal Agent ships simple prompts, token-optimized tool output, and no sub-agents or workflows. Its built-in tool registry is limited to Bash, an image viewer, and skill use. Sessions are append-only, versioned, forkable, and recoverable after crashes, and the operation manager can be swapped out. The GitHub README gives one example: a proxy that forwards serialized operations to a remote sandbox so tools run there. The code is MIT-licensed and includes a Go library, a command-line runner comparable to claude -p or codex exec, and a benchmark runner compatible with the Harbor evaluation framework.</p>
+<h2>The numbers</h2>
+<p>Unreal Labs published results on four benchmarks, all using GPT-6 Astra at xhigh effort and compared against Codex and the open-source Pi harness. On SWE-Atlas Codebase QnA, Unreal Agent scored 65.8% versus 63.3% for Codex and cost $936 against $1,303, while using about 898,000 input tokens per trial compared with 1.69 million. On DeepSWE 1.1 it posted 72.4% against 69.0% for Codex, at $1,367 versus $1,633. On the CLI track of Agents' Last Exam, it reached a 30.0% full-pass rate against 29.0% for both rivals, spending $217 compared with $292 for Codex. The company says the harness is up to 20% cheaper than Pi on real workloads, and on Terminal-Bench it needed 28 turns per trial to Pi's 44.</p>
+<p>Brett Berson, a partner at First Round, summed up the investor view on X: "The same quality at a fraction of the cost." The company itself is more cautious about the accuracy gains. It says the pass-rate differences are marginal and attributes them to benchmark variance.</p>
+<h2>Why It Matters</h2>
+<p>Agent bills are now a serious line item for teams running coding agents in production. Most of that spend is input tokens re-sent turn after turn. If Unreal Labs' numbers hold up, a harness change that cuts turns and context size is essentially a free discount on any frontier model, with no fine-tuning or model switch required. It also backs the thesis, advanced by HarnessTax and a growing number of practitioners, that the orchestration layer is where much of the remaining efficiency lies. The team behind it, which the company says comes from CERN, Meta, Snap, Bloomberg, and DeepMind, is also making a pointed argument against vendor SDKs. It says CLI-oriented kits such as Claude's Agent SDK make assumptions about local sessions and subprocesses that don't carry over cleanly to production, and that security is better enforced by sandbox and network constraints than by harness hooks.</p>
+<p>The caveats are real, though. The headline 39% Terminal-Bench figure compares Unreal's own run with a Codex leaderboard entry, not a head-to-head run under identical conditions. The other benchmarks show more modest savings of roughly 16% to 28%. All results come from a single model, and every number so far is self-reported.</p>
+<h2>What to Watch</h2>
+<p>The key test is independent reproduction. Most runs are linked to public Harbor job pages, which makes that easier than usual. Watch whether the savings hold with Claude and open-weight models, and whether inference providers standardize the in-progress tool-result pattern Unreal Labs had to work around. Security scrutiny of a young codebase is also worth tracking now that anyone can run it. Unreal Labs is plainly using the release to win customers who want frontier cost efficiency, so the next signal is whether production teams, not just benchmark charts, confirm the savings.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+  <blockquote>&ldquo;We believe harness design is a research area in its own right, with many promising ideas still to be researched and implemented.&rdquo;</blockquote>
+  <cite>&mdash; Unreal Labs team, Unreal Agent launch post</cite>
+</div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">39%</div><div class="stat-label">Lower cost than Codex on Terminal-Bench 4.0</div></div><div class="stat-cell"><div class="stat-value">57.9%</div><div class="stat-label">Terminal-Bench 4.0 pass rate, equal to Codex</div></div><div class="stat-cell"><div class="stat-value">898K</div><div class="stat-label">Input tokens per trial vs 1.69M for Codex</div></div><div class="stat-cell"><div class="stat-value">72.4%</div><div class="stat-label">DeepSWE 1.1 vs 69.0% for Codex</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://unreallabs.ai/blog/unreal-agent/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=unreallabs.ai&sz=32" alt="">Unreal Labs</a><a href="https://github.com/unreallabsai/unreal-agent" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=32" alt="">GitHub</a><a href="https://alphasignal.ai/news/unreal-labs-unreal-agent-cuts-ai-coding-costs-39-without-losing-performance" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=alphasignal.ai&sz=32" alt="">AlphaSignal</a><a href="https://x.com/brettberson/status/2102442440787669313" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=x.com&sz=32" alt="">Brett Berson on X</a></div></div>
+<div class="article-nav"><a href="08-meta-muse-heavily-inspired-openclaw.html" class="nav-prev">&larr; Meta&#x27;s Nat Friedman Admits Muse Was &#x27;Heavily Inspi</a><a href="10-openai-fires-contractors-ai-rating-chatgpt.html" class="nav-next">OpenAI Fires Contractors Caught Using AI to Rate C &rarr;</a></div>
+<footer>The Vault — AI Edition · Published September 22, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
