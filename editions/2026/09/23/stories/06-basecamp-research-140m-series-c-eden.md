@@ -1,0 +1,31 @@
+# Basecamp Research Closes $140M Series C to Push AI-Designed Therapeutics
+
+Basecamp Research spent its early years sending scientists to glaciers, rainforests and hydrothermal vents to collect DNA that no one else had. On Wednesday, September 23, the London-based company said that bet has paid off. It closed an oversubscribed **$140 million Series C** to train a new generation of its EDEN biology models and to move a pipeline of AI-designed medicines toward the clinic.
+
+The round was led by **S32**, the Palo Alto venture firm founded by Bill Maris, who previously founded Alphabet's venture arm GV. Backers include Anthropic's Anthology Fund (run with Menlo Ventures), NVIDIA, the NATO Innovation Fund, Catalio Capital Management, The Rockefeller Foundation, True Ventures, King Philanthropies and the UK's Sovereign AI fund, among others. André Hoffmann, vice-chairman of Roche, also invested personally. Tech.eu reports that Basecamp has now raised **$225 million** in total. According to GEN, that follows a $60 million Series B in 2024 and a $20 million Series A two years before that. Endpoints News reported that the new round values the company at close to $1 billion.
+
+"We believe the future of medicine lies in reprogramming the body to repair itself. We design the models and the medicines to teach it how," said Glen Gowers, Basecamp's co-founder and chief executive. He added that the funding "brings this technology closer to those who need it most."
+
+## From ice caps to a trillion genes
+
+Gowers and co-founder Oliver Vince started the company in 2019. Its roots go back to an expedition to Iceland's Vatnajökull ice cap, where the two set up what they describe as the first off-grid DNA sequencing operation. That scrappy fieldwork has since grown into the **Trillion Gene Atlas**. Basecamp calls it the world's largest proprietary biological AI training dataset. It was built with partners including NVIDIA, Anthropic, PacBio and Ultima Genomics, and draws on data gathered through access and benefit-sharing agreements in more than **30 countries** on all seven continents. SiliconANGLE reports that the Atlas holds information on more than 100 billion genes, and that the flagship EDEN model has **28 billion parameters**.
+
+Most scientific AI systems are built for one narrow task. Basecamp says EDEN is different because it is trained to learn how DNA works across all of life. As a result, the company says, EDEN can generate therapeutic candidates directly from a description of a disease, including cell and gene therapies, enzymes and peptides. Basecamp says it has already shown this through its collaboration with Anthropic on Claude Science. That research workbench launched in June and includes Basecamp's models for designing antibiotics and predicting vaccine targets.
+
+Some performance claims are already public. In a January 12 bioRxiv preprint co-authored with researchers from NVIDIA and Microsoft, EDEN achieved a **63.2% functional hit rate** across diverse DNA prompts when given only 30 base pairs of sequence from outside its training data. Half of the large serine recombinases (LSRs) it generated were active in human cells. They reached therapeutically relevant levels of chimeric antigen receptor insertion in primary human T cells, the core step in making CAR-T therapies.
+
+## Betting on in-vivo cell therapy
+
+The new money is aimed mainly at *in vivo* cell therapy, which means reprogramming a patient's cells inside the body rather than extracting, editing and reinfusing them. Basecamp argues that today's cell therapies are limited in how complex a payload they can deliver, and that manufacturing costs hundreds of thousands of dollars per patient. Its answer is to pair EDEN's ability to design long, complex DNA sequences with large serine recombinases, enzymes that can write those sequences into precise locations in the genome. The goal, the company says, is to make cell therapies "more sophisticated, more customisable and simpler to administer," with cancer and autoimmune disease as the first targets.
+
+Endpoints News reported that Basecamp used the raise to unveil a **six-program pipeline**, including CAR-T work and a therapy for phenylketonuria. Basecamp itself says it has shown strong preclinical results across several modalities and disease areas. To land more pharma deals, it hired former Biogen dealmaker Richard Pearce as chief business officer in April. S32 general partner Andy Conrad, the former chief executive of Google's Verily, joins the board.
+
+Hoffmann framed the investment in historical terms. "The biotechnology revolution that began fifty years ago transformed how we make medicines. Personalised, AI-designed therapeutics represent the next transformation of that journey," he said, adding that Basecamp "has built the full platform to deliver it, from biological data to trained models to designed therapies."
+
+## Why It Matters
+
+This round is a clear sign of where capital in AI-for-biology is heading: toward companies that own the whole stack. Many AI drug-discovery startups license public protein databases and compete on model design. Basecamp's pitch is that its data moat, gathered in the field under benefit-sharing agreements, is the hard part to copy. Investors from both frontier AI and big pharma now seem to agree. Anthropic's involvement also matters. Basecamp is not only a portfolio company but also a showcase partner for Claude Science, which ties a general-purpose AI lab more closely to specialized biology models. NATO's innovation fund and the UK's Sovereign AI fund add a geopolitical angle, marking biological AI as strategic infrastructure and not just a commercial bet. Still, the $140 million is a wager on preclinical promise. No EDEN-designed therapy has yet been dosed in a human.
+
+## What to Watch
+
+The key test is whether Basecamp can turn a 63% hit rate in the lab into its first clinical candidate, and how soon. Watch for pharma partnerships announced under Pearce, details on which of the six programs moves first toward an IND filing, and the release of next-generation EDEN models trained with this round's compute budget. Also watch whether Claude Science users begin producing candidates that Basecamp or its partners take forward, the strongest evidence yet that text-to-therapy design works beyond a press release.
