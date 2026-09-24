@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Black Forest Labs Moves Into Robotics With Open-Weight FLUX 3 Action World-Action Model — The Vault AI</title>
+<meta name="description" content="Black Forest Labs released FLUX 3 Action, a 7B open-weight world action model that tops RoboLab with less than half the parameters of NVIDIA&#x27;s Cosmos 3 Nano, marking the image-generation lab&#x27;s move into physical AI.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</span>
+  <h1>Black Forest Labs Moves Into Robotics With Open-Weight FLUX 3 Action World-Action Model</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 953 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Black Forest Labs released FLUX 3 Action, a 7B open-weight world action model that tops RoboLab with less than half the parameters of NVIDIA&#x27;s Cosmos 3 Nano, marking the image-generation lab&#x27;s move into physical AI.</p>
+</div>
+<div class="article-body">
+<p>Black Forest Labs built its name on pictures. Now the Freiburg-based startup wants its models to pick things up. On Wednesday the company released <strong>FLUX 3 Action</strong>, a 7-billion-parameter, open-weight "world action model" that looks at camera feeds, reads a robot's joint state and a plain-language instruction, and then predicts both what the robot should do next and what the scene will look like after it does it. BFL says the model now tops NVIDIA's RoboLab-120 simulation leaderboard with less than half the parameters of the previous best open model.</p>
+<p>The model comes from the same multimodal FLUX 3 backbone BFL launched in July for image, video and audio generation. In its technical report, the company explains the bet in one line: "Training across these modalities lets us build on a much broader source of data than action demonstrations alone, resulting in more generalization." At inference, FLUX 3 Action returns a chunk of <strong>32 actions</strong>, about 2.13 seconds of motion, denoised together with predicted future video frames. The robot carries out part of that plan, takes a fresh look and plans again. Pi0.5, by comparison, predicts a 1-second horizon.</p>
+<h2>The Numbers</h2>
+<p>On RoboLab-120, NVIDIA's 120-task benchmark covering visual understanding, relational reasoning and procedural skills, FLUX 3 Action's leaderboard entry is <strong>42.92%</strong>. NVIDIA's 16B Cosmos 3 Nano scores 36.8% and Physical Intelligence's pi0.5, which BFL calls the strongest open vision-language-action model, scores 28.0%. BFL's report is more cautious about its headline variants. Averaged across seeds, the guidance-distilled checkpoint lands at 42.2%, and a faster single-step checkpoint reaches 38.3%. The company claims <strong>56% fewer parameters</strong> than Cosmos 3 Nano and runtimes up to <strong>3.95x faster</strong>. It also says the single-step model moves 1.45x to 1.66x more robot motion per second of compute than pi0.5 while still generating video. VentureBeat noted that NVIDIA's public leaderboard had not been updated with the FLUX result when it checked before launch.</p>
+<p>According to BFL, the speed comes from two changes. Its Self-Flow multimodal pretraining allows a much smaller backbone, and distillation removes the extra classifier-free guidance pass and cuts four sampling steps down to one. The report frames the problem this way: "When you choose a WAM you pay in latency and hardware costs; when you choose a VLA you give up on almost a quarter of successful rollouts."</p>
+<p>Real hardware results are thinner but promising. Release partner Positronic Robotics ran ten DROID tasks on a Franka arm, three attempts each, with the operator blinded to which policy was running. FLUX 3 Action succeeded on <strong>28 of 30</strong> attempts (93.3%). Cosmos 3 Nano managed 27, DreamZero 20 and pi0.5 13. AlphaSignal pointed out that 30 attempts from a launch partner is a small sample. BFL also says it fine-tuned an SO-101 policy on a small teleoperated dataset and showed it generalizing to new objects, containers and camera positions.</p>
+<p>The Hugging Face collection includes a base checkpoint with shared, frozen video and text encoders, an SO-101 policy with a LoRA fine-tuning recipe, and a DROID policy with guidance- and step-distilled variants. BFL says it worked with NVIDIA on native LeRobot integration and Jetson edge deployment. "In robotics, the fine-tuning recipe is just as important as the weights," the company wrote, which is why it published the full pretraining, midtraining and fine-tuning details along with the checkpoints.</p>
+<p>BFL puts the economics bluntly. On an H200 rented at $3 an hour, a single rollout costs about <strong>$0.087 per successful task</strong>. Because the policy sits idle while the arm moves, serving many environments in parallel drops that to roughly <strong>$0.0018 per success</strong>. BFL also paired the model with a frontier reasoning model, GPT 6 Astra, as a supervisor. That hybrid solved 90% of long-horizon tasks at $8.77 per success, compared with $13.47 for the reasoner working alone. "The better the fast policy is, the less the system has to reason," the report says.</p>
+<h2>Why It Matters</h2>
+<p>Image-generation labs have been saying for some time that video pretraining teaches models physics. FLUX 3 Action is one of the clearest attempts yet to prove it with a real robot. BFL raised a $300 million Series B at a $3.25 billion valuation last December, and it now has a product aimed directly at physical AI, a market where NVIDIA's Cosmos and GR00T, Physical Intelligence's pi models, Google DeepMind's Gemini Robotics and Ai2's MolmoAct 2 are all competing.</p>
+<p>The strategic move is the release format more than the benchmark. Google's Gemini Robotics On-Device 2 is still limited to trusted testers. BFL is shipping open weights that teams can fine-tune on their own demonstrations and run inside their own infrastructure. The company is also extending the same pixel-to-action approach to games and drones. According to VentureBeat, task-specific policies flew real drones and beat <em>Doom</em> without an in-game death. If that works out, BFL is positioning itself as a general "visual intelligence" company rather than an image-generation vendor.</p>
+<p>The caveats are real, though. Robotics still has no single benchmark that settles which model is best. RoboLab is a simulation, MolmoAct 2 and GR00T are evaluated on different task mixes, and the strongest real-world numbers come from a partner running 30 trials.</p>
+<h2>What to Watch</h2>
+<p>Three things will decide whether FLUX 3 Action matters beyond a leaderboard. The first is the license. VentureBeat reported that BFL had not published final commercial terms for the weights or announced an Action API. The second is whether independent labs can reproduce the Franka and SO-101 results on their own robots with modest demonstration data. The third is how fast NVIDIA and Physical Intelligence respond, because once a video-generation company is competitive on their benchmark, the next rounds of world-model releases will focus on inference speed and cost per successful task.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;The better the fast policy is, the less the system has to reason.&rdquo;</blockquote><cite>&mdash; Black Forest Labs, FLUX 3 Action technical report</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">42.92%</div><div class="stat-label">RoboLab-120 score (Cosmos 3 Nano 36.8%)</div></div><div class="stat-cell"><div class="stat-value">28/30</div><div class="stat-label">Blinded Franka arm DROID successes</div></div><div class="stat-cell"><div class="stat-value">3.95x</div><div class="stat-label">Max speedup with 56% fewer parameters</div></div><div class="stat-cell"><div class="stat-value">$0.0018</div><div class="stat-label">Cost per successful task on an H200 in parallel</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://bfl.ai/models/flux-3-action" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=bfl.ai&sz=32" alt="">Black Forest Labs</a><a href="https://huggingface.co/collections/black-forest-labs/flux-3-action" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Hugging Face</a><a href="https://venturebeat.com/infrastructure/black-forest-labs-debuts-flux-3-action-an-open-weights-ai-robotics-model-that-tops-the-leaderboard-at-half-the-size-of-its-competition" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a><a href="https://alphasignal.ai/news/black-forest-labs-flux-3-action-beats-pi0-5-at-robot-control-by-1-66x" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=alphasignal.ai&sz=32" alt="">AlphaSignal</a><a href="https://x.com/bfl_ai/status/2102816874782241174" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=x.com&sz=32" alt="">Black Forest Labs on X</a></div></div>
+<div class="article-nav"><a href="10-qwen-audio-3-1-five-model-stack-price-cuts.html" class="nav-prev">&larr; Alibaba&#x27;s Qwen Audio-3.1 Arrives as a Five-Model S</a><a href="12-hle-diamond-benchmark-cais-scale.html" class="nav-next">HLE-Diamond: A Cleaned-Up Humanity&#x27;s Last Exam Put &rarr;</a></div>
+<footer>The Vault — AI Edition · Published September 23, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
