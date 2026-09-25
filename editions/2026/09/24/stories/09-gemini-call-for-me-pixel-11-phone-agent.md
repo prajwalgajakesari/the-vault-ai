@@ -1,0 +1,29 @@
+Phone calls are one of the last errands chatbots haven't taken over, and the fight over them is now in the open. On September 24, Google began testing **Call for Me**, a Gemini feature that calls a business from a Pixel 11 owner's own number, works through the automated menu, waits on hold and then talks to whoever answers. It can book a patio table, ask a hardware store whether a part is in stock, or move a haircut to next Thursday while the user does something else.
+
+The preview is deliberately small. It covers only U.S. owners of the four Pixel 11 models (the Pixel 11, 11 Pro, 11 Pro XL and 11 Pro Fold) who pay for a Gemini subscription and have joined the public beta of the Phone by Google app. Google calls it an early experiment and says it is starting small because “real-world conversations are nuanced.”
+
+## How the calls work
+
+Users start in the Gemini app by describing what they need. Gemini then places the call, introduces itself as an AI assistant calling for the user, and handles the conversation. Most of the plumbing comes from Pixel's existing Call Assist tools. According to Android Authority, Call for Me uses **Direct My Call** to get through phone menus and **Hold for Me** to sit through hold music, the two features Google has offered for years that still required a person to do the actual talking.
+
+The new part is autonomy. Gemini can now share personal details the user approves during a call, which Google says lets it “take a broader set of actions” than earlier versions. Android Central reports that Google's updated terms describe these as agentic calls placed from the user's own number with an AI-generated voice. A live transcript runs on screen for the whole call, and the user can take over or hang up at any time.
+
+Google is presenting the feature as one it built with caution. “Asking AI to speak on your behalf is a big step that requires genuine trust. That's why we built this experience around user control,” the company said in its announcement, as quoted by 9to5Google. It also said Gemini would “respect the time of the neighborhood shops and front-desk staff answering the phone,” noting that the calls “represent real customers conducting real transactions.”
+
+## A crowded line
+
+Google is not the first to do this, even this month. In the week of September 16, two of the most talked-about consumer agents added outbound calling. “Your Instinct can now handle phone calls,” wrote **Noah Shinn**, founder of Instinct, introducing Instinct Concierge, a service that books restaurants without online reservations, joins dentists' cancellation lists and disputes cable bills. Instinct raised $350 million at a $2.5 billion valuation in August and is reportedly in talks to raise $1 billion at a $10 billion valuation. At Meta, **Ryan Fox** said the Muse beta had expanded to outbound calls to U.S. businesses, adding that “phone calling was one of our top requests.” Muse had more than 730,000 U.S. downloads in its first five days, according to Sensor Tower, ahead of the Meta AI app's 707,000.
+
+Meta's rollout has also shown how hard this is. Reuters reported that Meta tested a human concierge service in which call-center contractors took over some Muse calls. Internal tests reportedly found human agents raised call success rates to between 95% and 98%, partly because some businesses hang up once they realize they are talking to an AI. After employees raised privacy concerns and a contractor made a racist remark on one call, a Meta executive acknowledged that adding human operators without clear disclosure was a mistake. The feature was rolled back. Meta spokesperson Daniel Roberts said any public version would ship only with appropriate disclosures and safeguards.
+
+## Why It Matters
+
+Google has tried this before. At I/O in 2018, its Duplex demo showed Google Assistant booking a salon appointment, complete with human-sounding filler words, and drew an immediate backlash over whether callers would know they were talking to a machine. In 2025, Google shipped **Ask for Me**, which let Gemini call businesses to ask about prices and services but not complete transactions. Call for Me goes further: it can act, share personal details and commit the user to a reservation or a hold.
+
+Distribution is Google's biggest advantage. Instinct and Muse run as separate apps and route calls through their own infrastructure. Google owns the dialer, the Android phone stack and the user's actual number, so a restaurant sees a real customer's caller ID, not an unknown line. The on-screen transcript and the Gemini disclosure at the start of each call also put Google on the opposite side of the transparency question from Meta, which is currently apologizing for hidden humans on its calls.
+
+Regulation is the other factor. In 2024 the FCC ruled that AI-generated voices count as “artificial” under the Telephone Consumer Protection Act, the main U.S. robocall law. One-off calls a customer starts to a business are very different from mass robocalls, but as millions of phones gain agents that can call on their own, the line between a personal call and an automated one will get harder to draw. State laws that require every party's consent to record a call add another open question for any feature that transcribes the other side of the conversation.
+
+## What to Watch
+
+The key question is whether businesses keep picking up. If front-desk staff start hanging up on Gemini the way some reportedly hang up on Muse, Google's disclosure-first approach will be tested against Meta's much higher success rate with human agents. Also watch whether Google opens Call for Me beyond the Pixel 11 beta and the U.S., whether it publishes completion rates, and whether regulators or state attorneys general weigh in before AI callers become as common as spam calls.
