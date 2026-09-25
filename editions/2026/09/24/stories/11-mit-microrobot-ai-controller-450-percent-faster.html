@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MIT&#x27;s Insect-Sized Flying Robot Gets 450% Faster With a Two-Part AI Controller — The Vault AI</title>
+<meta name="description" content="MIT distilled a slow robust MPC planner into a fast imitation-learned neural policy, giving a 750 mg flapping-wing robot insect-level agility, though it still flies only under lab motion capture.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>MIT&#x27;s Insect-Sized Flying Robot Gets 450% Faster With a Two-Part AI Controller</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 961 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>MIT distilled a slow robust MPC planner into a fast imitation-learned neural policy, giving a 750 mg flapping-wing robot insect-level agility, though it still flies only under lab motion capture.</p>
+</div>
+<div class="article-body">
+<p>A robot that weighs about 750 milligrams, less than a paperclip, just strung together 10 back-to-back somersaults in 11 seconds while researchers blew wind at it. For a class of machines that until recently could barely hover along a gentle curve, that is the aerial equivalent of a toddler landing a backflip. The trick was not new wings or stronger muscles. It was a new brain.</p>
+<p>Researchers at MIT have shown that a two-part AI controller can push an insect-scale flapping-wing robot to roughly <strong>447 percent</strong> higher speed and <strong>255 percent</strong> greater acceleration than the team's previous best, bringing its flight performance into the range of real insects. The work, published in <em>Science Advances</em> under the title “Aerobatic maneuvers in insect-scale flapping-wing aerial robots via deep-learned robust tube model predictive control,” is circulating widely this week after ScienceDaily republished MIT's account of the study.</p>
+<p>“We want to be able to use these robots in scenarios that more traditional quadcopter robots would have trouble flying into, but that insects could navigate,” said <strong>Kevin Chen</strong>, an associate professor in MIT's Department of Electrical Engineering and Computer Science and head of the Soft and Micro Robotics Laboratory. “Now, with our bioinspired control framework, the flight performance of our robot is comparable to insects in terms of speed, acceleration, and the pitching angle.”</p>
+<h2>An Expensive Teacher, a Fast Student</h2>
+<p>Chen's group has spent more than five years building robotic insects. Its latest airframe is roughly the size of a microcassette, with enlarged flapping wings driven by soft artificial muscles that contract fast enough to produce extremely rapid wingbeats. The hardware had outgrown its software: earlier controllers were tuned by hand, and the aerodynamics of something this light are so messy that a controller robust enough for aggressive flight would normally be too computationally heavy to run in real time.</p>
+<p>To break that bind, Chen teamed up with <strong>Jonathan P. How</strong>, the Ford Professor of Engineering in MIT's Department of Aeronautics and Astronautics. Their answer splits the job in two. The first component is a robust tube model-predictive controller (MPC), a planner that uses a dynamic model of the robot to forecast its behavior and compute the best sequence of actions to follow a trajectory, all while respecting hard limits on the force and torque the tiny machine can generate. It is powerful enough to plan flips, sharp turns and steep changes in body angle, but far too slow to fly the robot directly.</p>
+<p>So the team used the MPC as an expert teacher. Through imitation learning, they distilled its behavior into a deep-learning policy that runs fast enough for real-time flight, converting position information into moment-by-moment commands for thrust and torque. The hard part, How said, was generating enough of the right training data to cover aggressive maneuvers without bloating the dataset. “The robust training method is the secret sauce of this technique,” he said.</p>
+<p>Repeated flips are where robustness pays off. To launch each somersault correctly, the robot must decelerate in exactly the right way after the last one. “If small errors creep in, and you try to repeat that flip 10 times with those small errors, the robot will just crash,” How said. In tests, the robot completed its 10 flips while staying within about 4 to 5 centimeters of its planned path. It also executed a body saccade, the insect move of pitching sharply, darting to a new spot and pitching back to brake, which real insects use to stabilize their vision.</p>
+<p>The paper's co-lead authors are EECS graduate student Yi-Hsuan Hsiao, Andrea Tagliabue PhD '24, and AeroAstro graduate student Owen Matteson, joined by Suhan Kim and Tong Zhao MEng '23. The work was funded in part by the National Science Foundation, the Office of Naval Research, the Air Force Office of Scientific Research, MathWorks and the Zakhartchenko Fellowship.</p>
+<h2>Why It Matters</h2>
+<p>The architecture here, an expensive optimization-based controller distilled into a cheap neural policy, is not unique to microrobots, but this is one of its most demanding showcases. At sub-gram scale there is almost no margin for onboard computation, weight or error, and the result shows that learned controllers can inherit the safety constraints of classical control rather than replacing them with a black box. That combination of guarantees and speed is exactly what robotics teams working on drones, legged machines and manipulators have been chasing.</p>
+<p>“This work demonstrates that soft and microrobots, traditionally limited in speed, can now leverage advanced control algorithms to achieve agility approaching that of natural insects and larger robots,” said Hsiao. Chen framed it more broadly: “For the micro-robotics community, I hope this paper signals a paradigm shift by showing that we can develop a new control architecture that is high-performing and efficient at the same time.”</p>
+<p>The long-term payoff is search and rescue. Insect-sized fliers could slip through gaps in earthquake rubble that conventional quadcopters cannot enter, dodging debris along the way. But the caveats are real: every flight so far has relied on an external motion-capture system in a controlled lab, and the robot carries no cameras or sensors of its own.</p>
+<h2>What to Watch</h2>
+<p>The next milestone is onboard sensing. Chen's team wants to mount cameras and sensors on the robot so it can fly outdoors without motion capture, and to explore whether that sensing lets swarms of the machines avoid collisions and coordinate. Chen has acknowledged that added payload will strain the soft wings and tiny actuators, and that battery life, dust and moisture resistance, and communications all need work. Watch whether the imitation-learned policy holds up once it has to fly on its own noisy perception instead of perfect external tracking; that transition, more than any somersault count, will determine whether these robots ever reach a collapsed building.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;If small errors creep in, and you try to repeat that flip 10 times with those small errors, the robot will just crash.&rdquo;</blockquote><cite>&mdash; Jonathan P. How, Ford Professor of Engineering, MIT</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">447%</div><div class="stat-label">Speed increase over previous best</div></div><div class="stat-cell"><div class="stat-value">255%</div><div class="stat-label">Acceleration increase</div></div><div class="stat-cell"><div class="stat-value">10 in 11s</div><div class="stat-label">Back-to-back somersaults</div></div><div class="stat-cell"><div class="stat-value">750 mg</div><div class="stat-label">Robot mass</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.sciencedaily.com/releases/2026/09/260921081114.htm" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=sciencedaily.com&sz=32" alt="">ScienceDaily</a><a href="https://www.science.org/doi/10.1126/sciadv.aea8716" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=science.org&sz=32" alt="">Science Advances</a><a href="https://www.thebrighterside.news/post/tiny-flapping-drone-matches-insect-speed-with-an-ai-brain/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thebrighterside.news&sz=32" alt="">The Brighter Side of News</a><a href="https://news.mit.edu/2025/mit-engineers-design-aerial-microrobot-fly-like-bumblebee-1203" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=news.mit.edu&sz=32" alt="">MIT News</a></div></div>
+<div class="article-nav"><a href="10-transluce-agents-sql-injection-public-sites.html" class="nav-prev">&larr; Transluce Report Catches AI Agents Probing Public </a><a href="12-blue-cross-ai-documentation-942m-billing-study.html" class="nav-next">Blue Cross Study Finds AI Documentation Tools Adde &rarr;</a></div>
+<footer>The Vault — AI Edition · Published September 24, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
