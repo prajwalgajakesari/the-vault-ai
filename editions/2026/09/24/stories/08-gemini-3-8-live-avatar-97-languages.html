@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google Gives Gemini 3.8 Live a Face: Live Avatar Lip-Syncs Across 97 Languages — The Vault AI</title>
+<meta name="description" content="Google made Live Avatar generally available in Gemini Enterprise, giving its real-time voice agents an animated face that lip-syncs across 97 languages and taking on avatar startups like HeyGen and Synthesia.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</span>
+  <h1>Google Gives Gemini 3.8 Live a Face: Live Avatar Lip-Syncs Across 97 Languages</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 910 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Google made Live Avatar generally available in Gemini Enterprise, giving its real-time voice agents an animated face that lip-syncs across 97 languages and taking on avatar startups like HeyGen and Synthesia.</p>
+</div>
+<div class="article-body">
+<p>Google's real-time voice agent now has a face. On Wednesday the company made <strong>Gemini 3.8 Live with Live Avatar</strong> generally available in Gemini Enterprise. The feature pairs Gemini's native live-dialogue models with near-real-time video generation, so an enterprise agent can appear as an animated persona that talks, listens, watches through a user's camera, and keeps its lip-sync and facial expressions in step across <strong>97 languages</strong>.</p>
+<p>The launch comes one week after Google introduced Gemini 3.8 Live and its Extended Thinking variant. That reasoning mode is still in private preview. Live Avatar, first previewed at Google Cloud Next 2026, has skipped ahead of it into production, with <strong>US and EU endpoints</strong>, provisioned throughput, and the compliance and data-governance commitments large buyers look for.</p>
+<h2>A talking head built on a speech-to-speech core</h2>
+<p>Google describes Live Avatar as an extension of its speech-to-speech stack, not a video layer added on top. “By pairing near real-time video generation with speech, the Live Avatar feature creates an experience that listens, sees, and speaks with a dynamic visual persona,” wrote research scientist <strong>Shuo-yiin Chang</strong> and software engineer <strong>CJ Zheng</strong> of the Gemini Audio Team in the announcement post. They framed the pitch around how people actually talk: “Conversation is inherently multimodal: we listen, look, speak, and use facial expressions to communicate.”</p>
+<p>The headline figure is multilingual. Google says the avatar handles speech-to-speech synchronization natively and can switch languages in the middle of a conversation, adjusting lip movements and expressions <em>without degrading video fidelity or introducing visual drift</em>. Visual drift, where a generated face slowly loses its likeness or falls out of sync over a long session, is the typical failure of streaming avatar systems. The underlying model detects which of the 97 languages a user is speaking on its own.</p>
+<p>Google also stresses what the avatar can do while it is talking. With <strong>asynchronous tool execution</strong>, the agent can start API calls and fetch data in the background and keep the conversation going. One demo shows it checking a guest into a hotel without pausing. The model can also take in live camera feeds and screen shares at the same time as audio. In a second demo, an insurance-claims intake agent looks at damage shown on camera and fills in a claim record while an Agent Development Kit (ADK) agent team checks the policy and assembles the adjuster packet in the background.</p>
+<p>Customers can pick from a library of preset avatars. They can also generate a fully animated custom persona from one high-quality reference image, and Google's Cloud demo adds an audio sample to clone the voice. That custom path is available only through <strong>enterprise allowlisting and verification</strong>, and every audio and video stream carries an imperceptible <strong>SynthID</strong> watermark.</p>
+<h2>Early customers</h2>
+<p>Google named several early adopters. Cox Automotive built a conversational shopping assistant for Autotrader that highlights parts of the screen and calls tools to guide buyers through search, comparison, and financing. “Shoppers increasingly expect to describe what they need in their own words rather than work through filters and menus,” said <strong>Marianne Johnson</strong>, EVP and Chief Product Officer at Cox Automotive.</p>
+<p>Equal AI, an Indian consumer-assistant startup, already runs Gemini Live at large scale. “Today, it handles over a million live calls daily across nine Indian languages,” said CEO <strong>Akhilesh Damaraju</strong>, who credited Gemini 3.8 Live with better interruption handling, multilingual conversation, and tool-call reliability. Salesforce says it is exploring the model alongside Agentforce for customer service.</p>
+<h2>Why It Matters</h2>
+<p>Talking-head video avatars have mostly belonged to startups like HeyGen, Synthesia, and D-ID. Their core product has been pre-rendered presenter video, with interactive, real-time avatars added more recently. Google is now shipping the whole stack in one API call: the reasoning model, the voice, the vision, the tool-use layer, and the rendered face, all sold through the same Gemini Enterprise contract a company may already have. For a CIO building a customer-service kiosk or onboarding flow, that removes an integration step and a vendor. Avatar specialists will have to compete on customization, creative tooling, and price instead of on having real-time video at all.</p>
+<p>The launch also shows how the big labs expect agents to be judged. Google's Cloud post, written by Group Product Manager Fabien Blanc-paques, says enterprise voice AI is moving past simple speed and cost metrics toward interaction quality. A face that keeps its lip-sync in Hindi, Portuguese, and Japanese within one call is a clear way to show that quality, and it is hard for a text-first competitor to match quickly.</p>
+<p>The identity safeguards matter as much as the features. Real-time, photoreal, multilingual avatars that can be built from one photo are exactly what regulators worry about in deepfake fraud. By gating custom avatars behind allowlisting and watermarking every frame with SynthID, Google is trying to show that a hyperscaler can offer this capability responsibly. Whether that holds up depends on how strictly the allowlist is run and on whether anyone outside Google routinely checks for the watermark.</p>
+<h2>What to Watch</h2>
+<p>Watch three things: pricing per avatar-minute compared with HeyGen and Synthesia's enterprise tiers, whether Google opens custom avatars beyond the allowlist, and whether Live Extended Thinking reaches general availability so the avatar can reason more deeply without breaking the conversation. Also expect a response from OpenAI and Microsoft, whose real-time voice APIs have no native face yet, and from the avatar startups, which now face their largest competitor inside the cloud accounts of their own customers.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Conversation is inherently multimodal: we listen, look, speak, and use facial expressions to communicate.&rdquo;</blockquote><cite>&mdash; Shuo-yiin Chang and CJ Zheng, Gemini Audio Team, Google</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">97</div><div class="stat-label">Languages with lip-sync</div></div><div class="stat-cell"><div class="stat-value">1M+</div><div class="stat-label">Daily live calls at Equal AI</div></div><div class="stat-cell"><div class="stat-value">2</div><div class="stat-label">Regional endpoints at launch</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-with-live-avatar/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=blog.google&sz=32" alt="">Google Blog</a><a href="https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-8-live-with-live-avatar-is-now-generally-available" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cloud.google.com&sz=32" alt="">Google Cloud Blog</a><a href="https://www.androidheadlines.com/2026/09/google-gemini-3-8-live-avatar.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=androidheadlines.com&sz=32" alt="">Android Headlines</a><a href="https://thetechportal.com/2026/09/24/google-launches-gemini-3-8-live-avatar-an-ai-that-speaks-lip-syncs-and-switches-between-97-languages-in-real-time" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thetechportal.com&sz=32" alt="">The Tech Portal</a></div></div>
+<div class="article-nav"><a href="07-alibaba-qwen-4-family-10-trillion-roadmap.html" class="nav-prev">&larr; Alibaba Previews Qwen 4 Family and a 5-to-10-Trill</a><a href="09-gemini-call-for-me-pixel-11-phone-agent.html" class="nav-next">Google Tests &#x27;Call for Me,&#x27; Letting Gemini Phone B &rarr;</a></div>
+<footer>The Vault — AI Edition · Published September 24, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
