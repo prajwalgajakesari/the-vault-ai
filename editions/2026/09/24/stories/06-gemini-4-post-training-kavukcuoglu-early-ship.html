@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gemini 4 Enters Post-Training as DeepMind&#x27;s Kavukcuoglu Targets an Early Release — The Vault AI</title>
+<meta name="description" content="In his first public appearance as DeepMind chief, Koray Kavukcuoglu said Gemini 4 is in early post-training and could ship well before year-end, an answer to this week&#x27;s GPT-6 and Claude Opus 5.5 launches.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</span>
+  <h1>Gemini 4 Enters Post-Training as DeepMind&#x27;s Kavukcuoglu Targets an Early Release</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 977 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>In his first public appearance as DeepMind chief, Koray Kavukcuoglu said Gemini 4 is in early post-training and could ship well before year-end, an answer to this week&#x27;s GPT-6 and Claude Opus 5.5 launches.</p>
+</div>
+<div class="article-body">
+<p>Google's next flagship model is no longer a training run. It is a product in finishing school. Gemini 4 has entered the early phase of post-training, and Koray Kavukcuoglu, the new head of Google DeepMind, told an audience at The Information's AI Agenda Live Summit that he hopes to ship it “much earlier” than the end of the year — a pointed promise in a week when OpenAI, Anthropic and Alibaba all put new frontier models on the board.</p>
+<p>“Our intention is to roll out an early post-training version as soon as possible, because we've already seen promising results and are very excited,” Kavukcuoglu said. He gave no date. But the phrasing, an <em>early</em> post-training version followed by fast iterations, signals that Google intends to get something in developers' hands first and polish in public afterward.</p>
+<h2>A New Chief, and a Faster Clock</h2>
+<p>The appearance was Kavukcuoglu's first public outing in the top DeepMind job. Alphabet reshuffled its AI leadership on August 12, 2026, moving Demis Hassabis into the roles of Alphabet chief scientist and chair of Google DeepMind, and handing day-to-day control of the lab to Kavukcuoglu, previously its chief technology officer and Google's chief AI architect. He holds a senior vice president title rather than the CEO title and reports directly to Sundar Pichai, with responsibility for Gemini model development, frontier research, and the Gemini app and developer teams. Over 13 years at DeepMind he built its deep-learning group and worked on systems including WaveNet and DQN.</p>
+<p>The tempo he described is aggressive. Google only announced the start of its largest-ever pre-training run for Gemini 4 on July 21. Roughly nine weeks later, the base model has moved into post-training, the stage where raw capability is shaped into reliable, instruction-following behavior. According to The Decoder, Google is still working through safeguards and safety testing, but engineers are already using Gemini 4 internally inside Antigravity, the company's agentic coding tool.</p>
+<p>Kavukcuoglu also addressed the gap in Google's roadmap. Gemini 3.5 Pro, which Pichai announced at I/O in May for a June release, never shipped; the Financial Times reported that the project missed three deadlines. Kavukcuoglu said Google took “a little bit of a step back,” adding: “For us, what was important is to maximize the speed of learning at the time.” He did not say whether 3.5 Pro has been formally cancelled. If Gemini 4 lands as planned, it would be Google's first new flagship since Gemini 3 late last year, after a stretch filled by the Gemini 3.1 update in February and a steady drip of cheaper Flash models.</p>
+<h2>Crowded Week at the Frontier</h2>
+<p>The timing is not subtle. On September 22, Anthropic released Claude Opus 5.5 and OpenAI shipped GPT-6 Sol and Luna; Alibaba followed with a Qwen 4 preview. Google's own releases this week, Gemini 3.8 Flash TTS and Gemini 3.8 Live Avatar, are useful expansions of voice and multimodal tooling but do not answer the flagship question. The Information framed Gemini 4 explicitly as Google's reply to rival models from OpenAI and Anthropic that have outperformed its current lineup.</p>
+<p>Kavukcuoglu insisted he is not rattled. He said he is “a hundred percent confident” in what he called an “insanely strong team,” and added: “In my mind, it's a certainty that we are always gonna be at the frontier.”</p>
+<p>Investors were less certain going in. Alphabet shares fell 3.8% in Wednesday's regular session before the summit remarks landed, then traded up about 0.6% overnight afterward, according to AI Weekly.</p>
+<h2>Why It Matters</h2>
+<p>The substance of the announcement is a timeline, not a benchmark, and that is itself the story. Google is telling developers and enterprise buyers not to commit to a rival stack yet. With GPT-6 and Opus 5.5 both landing this week, every week Gemini 4 stays internal is a week of customer evaluations run without it.</p>
+<p>The remarks also mark a philosophical turn at DeepMind. Asked about artificial general intelligence, long the lab's defining goal, Kavukcuoglu was blunt: “The conversation of [whether] we achieved AGI or not is not the right conversation. The conversation is more about are we able to build intelligent agents that we can trust?” That is a sharp contrast with Hassabis, who wrote in his farewell memo just weeks ago: “I've been working towards AGI my whole life and now, like many of you, I feel it is close at hand.” Under Kavukcuoglu, DeepMind reads less like a research institute and more like Google's Gemini engine room, with Gemini development consolidating in the Bay Area.</p>
+<p>There is a talent subplot too. Fortune reported that DeepMind's ratio of new hires to departures fell from about 12-to-1 in the second quarter of 2023 to roughly 2-to-1 in the third quarter of 2026, after high-profile exits including Noam Shazeer to OpenAI and John Jumper to Anthropic. Shipping a competitive Gemini 4 quickly is as much a retention argument as a product one. Kavukcuoglu also tied model work to Google's TPU business, now sold directly to customers, saying new models inform how engineers design the “next two or three generations” of chips.</p>
+<p>The risk is plain. An “early” post-training release invites comparisons against rivals' finished products, and a rushed safety process would be scrutinized in a month when Anthropic CEO Dario Amodei and others have been calling for labs to pace frontier capability gains.</p>
+<h2>What to Watch</h2>
+<p>The first signal will be an early-access or preview label on Gemini 4 in AI Studio, Vertex AI or Antigravity, likely well before a consumer rollout in the Gemini app. Watch whether Google publishes a model card and safety evaluations alongside it, how it scores head-to-head against GPT-6 Sol and Claude Opus 5.5 on coding and agentic benchmarks, and whether the ship date holds. If Gemini 4 slips past December, Kavukcuoglu's debut promise becomes the benchmark he is judged against.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Our intention is to roll out an early post-training version as soon as possible, because we&#x27;ve already seen promising results and are very excited.&rdquo;</blockquote><cite>&mdash; Koray Kavukcuoglu, Head, Google DeepMind</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">Jul 21</div><div class="stat-label">Gemini 4 pre-training announced</div></div><div class="stat-cell"><div class="stat-value">Aug 12</div><div class="stat-label">Kavukcuoglu takes over DeepMind</div></div><div class="stat-cell"><div class="stat-value">-3.8%</div><div class="stat-label">GOOGL drop before remarks</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.theinformation.com/articles/google-nears-release-flagship-gemini-4-ai-model" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=theinformation.com&sz=32" alt="">The Information</a><a href="https://the-decoder.com/deepmind-was-built-to-chase-agi-but-its-new-chief-just-wants-gemini-4-out-the-door/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&sz=32" alt="">The Decoder</a><a href="https://www.cnbc.com/2026/08/12/google-deepmind-koray-kavukcuoglu.html" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=cnbc.com&sz=32" alt="">CNBC</a><a href="https://aiweekly.co/alerts/deepminds-kavukcuoglu-targets-pre-year-end-gemini-4-ship" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=aiweekly.co&sz=32" alt="">AI Weekly</a></div></div>
+<div class="article-nav"><a href="05-thore-graepel-metis-reasoning-startup.html" class="nav-prev">&larr; AlphaGo Co-Creator Thore Graepel Raises Funds for </a><a href="07-alibaba-qwen-4-family-10-trillion-roadmap.html" class="nav-next">Alibaba Previews Qwen 4 Family and a 5-to-10-Trill &rarr;</a></div>
+<footer>The Vault — AI Edition · Published September 24, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
