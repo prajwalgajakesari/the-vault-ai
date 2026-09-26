@@ -1,0 +1,29 @@
+Microsoft spent three years renaming Copilot. On Friday it rebuilt it. The company's biggest overhaul of its AI assistant organizes it into three destinations, Home, Code and Autopilot, and changes who pays for what. Satya Nadella calls the result "a new OS for work," and the pitch comes with a bet: agents that keep working after their human colleagues log off, billed by how much they do rather than by who uses them.
+
+The centerpiece for enterprise buyers is Autopilot, the new name for Scout, the always-on personal agent Microsoft introduced in June. It is built on a hardened version of the open-source OpenClaw framework. Each Autopilot instance gets its own identity, memory, cloud computer and workspace inside the customer's Microsoft 365 tenant. Users give it a name, a role and a goal, then @mention it in Teams, Outlook or a document the way they would a coworker. Jared Spataro, chief marketing officer of Microsoft's AI at Work division, described it in the company's announcement as a "digital teammate" that "keeps working while you sleep or your attention is elsewhere—no constant monitoring required." In one demo, an Autopilot named Dot tracked Black Friday preparations across email, Teams, Dynamics 365 inventory records and spreadsheets, found a shipment problem affecting 18 stores, and pulled employees in to fix it.
+
+## Three tabs, one tenant
+
+Home merges quick Chat with Cowork, the longer delegated-task mode that became generally available on June 16, and embeds Word, Excel and PowerPoint directly inside Copilot. Documents stay in sync with colleagues editing in the standalone Office apps. Microsoft says it will eventually add automatic routing, so users describe an outcome and Copilot picks the mode. A related feature called Today gathers signals from email, calendar and Teams into a single dashboard and enters private preview in October.
+
+Code extends app-building to non-developers. Employees describe a tracker, dashboard, widget or workflow in plain language, and Copilot builds it on the same technology as GitHub Copilot. The bigger change is underneath. A new Copilot Managed Runtime hosts those apps inside the organization's Microsoft 365 boundary, with Entra identity, Git version control and an SDK that opens the same deployment path to outside developer tools. "What this means at its core is hosting and sharing an application literally becomes as simple as saving and sharing a Word document," said Jacob Andreou, Microsoft's executive vice president for Copilot, in a pre-briefing reported by VentureBeat.
+
+Governance runs through Agent 365, which provides permissions, audit logs and admin controls. "Every agent has to have an identity. Everything it does needs to be observed," Nadella said at a September 23 presentation.
+
+The rollout is staggered. Home and Office integration reach Frontier program participants over the coming weeks. Code arrives for Frontier at the end of September and reaches Microsoft 365 Premium and Pro subscribers later in 2026. Autopilot expands to private preview at month's end, and the managed runtime and SDK enter public preview.
+
+## The billing shift
+
+The less flashy news may matter more to CFOs. The $30-per-user monthly enterprise Copilot license is unchanged, but it now covers only everyday chat and Office work. Cowork, Code, Autopilot, advanced SharePoint features and frontier models such as OpenAI's GPT-6 Astra and Anthropic's Claude 5.1 Fable are billed in Copilot Credits on top of the subscription. Pay-as-you-go credits cost $0.01 each. Microsoft's own modeling shows how the bill can grow: a workload of 20 everyday tasks plus five complex Cowork jobs comes to $73 a month on Opus 5, or $69 on GPT-5.6 Sol. Microsoft has not published usage rates for Code or Autopilot.
+
+To manage those costs, Microsoft is extending its FinOps controls. Admins can set budgets, alerts and department-level billing, restrict which model families specific groups can use, and track balances through Microsoft Graph. Metered services stay off until an admin creates a spending policy. Copilot Studio agents come under the same controls in October.
+
+## Why It Matters
+
+This is Microsoft admitting that flat-rate AI subsidies can't last once agents run for days at a time. By charging a stable seat price for chat and metering the work that actually burns compute, Microsoft is making Copilot look more like Azure. Nadella wants investors to see it that way too. He told Alex Heath on the Sources podcast that in the enterprise, agents will make the market bigger than cloud "by orders of magnitude." He also pointed to Microsoft's 100 million-plus consumer subscribers and said "Autopilot should also go to the consumer side."
+
+The model mix carries a real risk. Nadella said Microsoft's in-house models already run in Copilot's Auto mode, and that "Copilot will still have all the other models, because customers will expect that." The Decoder noted that the auto-router will likely favor Microsoft's cheaper, efficiency-tuned models, which don't match frontier quality. Power users have long complained that Copilot quietly hands them weaker answers than ChatGPT or Claude. If routing continues to push them toward the cheaper models by default, the frontier options become a paid upsell rather than the standard experience. The timing is competitive too. Anthropic merged Claude chat and Cowork on September 16, and OpenAI folded Codex into ChatGPT in July.
+
+## What to Watch
+
+The private preview will show whether Autopilot behaves as well in real tenants as Dot did on stage, and whether Agent 365's audit trail holds up when agents start contacting suppliers and customers on their own. Also watch whether Microsoft publishes per-task credit rates for Code and Autopilot before broad availability, how often Auto mode sends heavy users to in-house models, and whether Nadella's consumer Autopilot shows up on the Microsoft 365 Premium roadmap in 2027.
