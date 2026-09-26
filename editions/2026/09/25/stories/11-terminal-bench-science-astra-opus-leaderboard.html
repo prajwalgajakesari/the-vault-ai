@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GPT-6 Astra Edges Opus 5.5 on Independent Terminal-Bench-Science Leaderboard — The Vault AI</title>
+<meta name="description" content="Artificial Analysis reran Terminal-Bench-Science 0.1 under one shared harness and found GPT-6 Astra (63.3%) only 1.4 points ahead of Claude Opus 5.5 (61.9%), while open-weight models trail by more than 50 points.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</span>
+  <h1>GPT-6 Astra Edges Opus 5.5 on Independent Terminal-Bench-Science Leaderboard</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 986 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Artificial Analysis reran Terminal-Bench-Science 0.1 under one shared harness and found GPT-6 Astra (63.3%) only 1.4 points ahead of Claude Opus 5.5 (61.9%), while open-weight models trail by more than 50 points.</p>
+</div>
+<div class="article-body">
+<p>Only two AI models can finish more than half of the real scientific research workflows in Terminal-Bench-Science, and on an independent rerun there is little to separate them. Artificial Analysis this week published its own leaderboard for the Stanford-led benchmark. OpenAI's GPT-6 Astra at maximum reasoning effort passed 63.3% of tasks, and Anthropic's Claude Opus 5.5 at xhigh adaptive reasoning passed 61.9%. That is a 1.4-point gap on a 70-task test, which is well inside the range where one or two tasks change the ranking.</p>
+<p>The benchmark isn't new. The Terminal-Bench team released Terminal-Bench-Science 0.1 on August 27. The news is that someone other than the labs and the benchmark authors has now measured the frontier models under a single, controlled setup. That matters because the numbers the vendors published look different. In their launch materials, Astra was listed at 64.6% on Terminal-Bench Science 0.1 and Opus 5.5 at 58.7%, a gap of almost six points. Under Artificial Analysis's harness, most of that gap disappears.</p>
+<h2>A harness built to remove the scaffolding</h2>
+<p>Artificial Analysis ran every model through mini-swe-agent, a deliberately minimal agent scaffold, rather than each lab's own tooling such as Claude Code or Codex. Each of the 70 tasks was attempted three times, and scores are pass@1 averaged across those runs. Grading is all-or-nothing. The agent works in a sandboxed terminal with the task's data and software, pytest-based verifier checks written by the task author inspect the resulting files and calculations, and a task passes only if every test passes. Each run can use up to 28,800 seconds, or eight hours, of wall time. Pulling existing annotations or online solutions is not allowed.</p>
+<p>The tasks are real research work. Examples from the release include reconstructing ten winters of lake freeze-up and ice-off dates from raw satellite imagery, tracking every cell division across an 800-frame recording of mouse myoblasts, and computing the geocentric state vector of an unknown near-Earth asteroid from raw Minor Planet Center astrometry, with position tolerances measured in kilometres. The 0.1 release contains 19 life-science tasks, 17 physical-science tasks, 17 mathematical-science tasks, 9 engineering tasks and 8 earth-science tasks. Out of 920 proposals from 376 contributors in 22 countries, only 70 tasks made it into the release.</p>
+<p>"Scientists, not model developers or data vendors, set the bar for scientific capability in AI," Stanford's Steven Dillmann wrote in the August announcement. In a post on X he added that "it's time science gets as much attention in agentic evals as coding."</p>
+<h2>Behind the top two</h2>
+<p>Below Astra and Opus 5.5 the scores drop off sharply. Anthropic's Claude Fable 5.1 finishes roughly 20 points behind the leaders. Qwen3.8 Max is the strongest closed model from outside OpenAI and Anthropic at 12%. The best open-weight entrants, GLM-5.3 at max effort and DeepSeek V4.1 Flash, score 10% and 9%, more than 50 points behind Astra.</p>
+<p>The leaderboard also shows how much reasoning effort changes the result, and what it costs. Opus 5.5 goes from about 24% at low effort to 61.9% at xhigh, while average cost per task rises roughly fivefold. OpenAI's GPT-6 Sol gains 27 points between low and max effort at about 7.5 times the cost. More compute does not always help. Opus 5.5 at max effort scores 59.0%, 2.9 points below its xhigh result. Results by domain follow a similar pattern for most models: mathematics is the strongest area and life science the weakest. Opus 5.5 at xhigh passes 71% of the math tasks and 46% of the life-science tasks. The benchmark authors caution that domain samples of 8 to 19 tasks make those comparisons noisy.</p>
+<p>The progress in one month is large. When the benchmark launched, its authors' own leaderboard had Claude Opus 5 on top with a 30.0% resolution rate, followed by GPT-5.6 Sol at 22.4%. Today's leaders have roughly doubled that. The authors said the 0.1 tasks were calibrated specifically to challenge Opus 5 and GPT-5.6 Sol.</p>
+<h2>Why It Matters</h2>
+<p>Scientific AI benchmarks have mostly tested knowledge through isolated questions. This one checks whether an agent can carry a messy computational workflow through to the end, keep track of intermediate state, recover from tool errors, and produce outputs that pass deterministic checks. It has quickly become a benchmark labs cite: both OpenAI and Anthropic reported scores for their new flagships within weeks of release. That is also why an independent rerun is important. Vendor figures come from different harnesses and settings, and in this case they overstated the gap between the two leaders several times over.</p>
+<p>The cost numbers are just as useful for buyers. Opus 5.5 lists at $4 per million input tokens and $20 per million output tokens, compared with $10 and $50 for Astra. But at maximum effort Opus 5.5 uses far more tokens, and on Artificial Analysis's broader Intelligence Index it costs about $5.98 per task versus $3.26 for Astra. For teams building science agents, the practical conclusion from the effort curves is that the highest setting is not automatically the best choice. Xhigh beats max on Opus 5.5 while costing less.</p>
+<p>Open models are clearly far behind on this kind of work. A 50-point gap on end-to-end research tasks is much wider than the gaps usually seen on coding benchmarks, and it suggests that long-horizon scientific tool use is still mostly limited to frontier closed models.</p>
+<h2>What to Watch</h2>
+<p>The benchmark's maintainers are collecting tasks for Terminal-Bench-Science 0.2, with a pull-request deadline of October 5. They plan to retire saturated tasks and recalibrate against today's leaders, which should push scores back down once Astra- and Opus 5.5-level systems become the calibration target. Also watch whether Artificial Analysis adds this benchmark to its Intelligence Index, how Anthropic's upcoming Sonnet 5.5 and OpenAI's wider GPT-6 Sol rollout score on the mini-swe-agent harness, and whether the life-science results, the weakest domain for most leading models, improve fastest as labs target the benchmark's failure cases.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Scientists, not model developers or data vendors, set the bar for scientific capability in AI.&rdquo;</blockquote><cite>&mdash; Steven Dillmann, Terminal-Bench-Science lead, Stanford University</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">63.3%</div><div class="stat-label">GPT-6 Astra (max)</div></div><div class="stat-cell"><div class="stat-value">61.9%</div><div class="stat-label">Claude Opus 5.5 (xhigh)</div></div><div class="stat-cell"><div class="stat-value">70</div><div class="stat-label">Tasks, chosen from 920 proposals</div></div><div class="stat-cell"><div class="stat-value">~5x</div><div class="stat-label">Opus 5.5 cost increase, low to xhigh effort</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://artificialanalysis.ai/evaluations/terminal-bench-science" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=artificialanalysis.ai&sz=32" alt="">Artificial Analysis</a><a href="https://alphasignal.ai/news/stanford-s-terminal-bench-science-exposes-gpt-6-astra-leading-at-63-on-real" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=alphasignal.ai&sz=32" alt="">AlphaSignal</a><a href="https://www.terminal-bench-science.ai/announcement" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=terminal-bench-science.ai&sz=32" alt="">Terminal-Bench-Science</a><a href="https://www.tbench.ai/news/terminal-bench-science-0-1" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=tbench.ai&sz=32" alt="">Terminal-Bench Blog</a></div></div>
+<div class="article-nav"><a href="10-perceptron-mk1-5-embodied-agent-model.html" class="nav-prev">&larr; Perceptron Mk1.5 Aims to Be One Model for Drones, </a><a href="12-claude-tag-slack-threads-team-enterprise.html" class="nav-next">Claude Tag Now Writes Over Half of Claude Code Lea &rarr;</a></div>
+<footer>The Vault — AI Edition · Published September 25, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
