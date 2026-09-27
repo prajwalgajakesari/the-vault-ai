@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zenity&#x27;s &#x27;SalesBleed&#x27; Research Shows Zero-Click Data Exfiltration Through Salesforce Agentforce — The Vault AI</title>
+<meta name="description" content="A year after ForcedLeak, Zenity got past Salesforce&#x27;s patched URL allowlist again, which shows that agents reading untrusted input with broad data access stay exposed even after individual bugs are fixed.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Zenity&#x27;s &#x27;SalesBleed&#x27; Research Shows Zero-Click Data Exfiltration Through Salesforce Agentforce</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 942 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>A year after ForcedLeak, Zenity got past Salesforce&#x27;s patched URL allowlist again, which shows that agents reading untrusted input with broad data access stay exposed even after individual bugs are fixed.</p>
+</div>
+<div class="article-body">
+<p>A stranger fills out a public "contact sales" form. Weeks later, a sales rep asks the company's AI agent an ordinary question about new leads, and the agent quietly sends deal data to a server the attacker controls. The rep sees a normal answer. That is the scenario Zenity Labs laid out this week in <strong>SalesBleed</strong>, a set of three now-patched vulnerabilities in Salesforce Agentforce. It is the second time in a year that researchers have used Salesforce's own lead-capture pipeline to turn its flagship AI agent against its customers.</p>
+<p>Zenity published the research on September 24, and SecurityWeek and Dark Reading covered it the same week. According to the firm, two of the flaws allowed <strong>zero-click data exfiltration</strong>, meaning CRM data left the organization without an employee clicking or approving anything. The third let an attacker take over the trusted identity of an Agentforce agent connected to Slack and use it to send phishing messages inside the company. Zenity reported the issues to Salesforce on <strong>June 1, 2026</strong>. Salesforce fixed the specific Trusted URLs bypasses within about two weeks and confirmed all three bugs were addressed by <strong>August 19</strong>. No CVE identifiers were assigned. Salesforce told Dark Reading it has seen no evidence of exploitation in the wild.</p>
+<h2>A Dormant Instruction in a Public Form</h2>
+<p>Every attack chain starts with <strong>Web-to-Lead</strong>, Salesforce's standard way of turning public website form submissions into CRM records. Anyone on the internet can submit one. Zenity showed that an attacker could hide instructions in a lead submission and leave them there. Nothing happens until an employee asks Agentforce about that lead. When the agent reads the poisoned record, it treats the hidden text as instructions, a technique known as <em>indirect prompt injection</em>.</p>
+<p>The main safeguard that should have stopped the data from leaving is <strong>Trusted URLs</strong>, an allowlist meant to block Agentforce from rendering links or images that point to unapproved domains. Zenity found several ways around it. According to SecurityWeek's summary of the research, the mechanism "did not recognize top-level domains," and certain character sequences confused how it parsed URLs. The hijacked agent could then look up Salesforce records and embed the results in image requests to an outside server. The data was sent automatically when the response rendered. The press release says deal sizes were only one example. Anything the querying user could see was exposed, including contacts, pricing and contracts.</p>
+<p>Zenity's disclosure highlights one detail in particular: "Agentforce reported that the content had been blocked by the organization's security policies, even though the sensitive CRM data had already been transmitted to the attacker-controlled server." In other words, the control reported a block after the data had already gone out.</p>
+<p>The second zero-click path relied on Slack's automatic link previews. Zenity wrote that "specially constructed links can cause Slack to initiate requests that carry CRM data to attacker-controlled infrastructure as soon as the links appear." The third flaw was about attribution rather than exfiltration. The Agentforce-Slack integration could post to channels without reliably identifying which user had triggered the action. That meant a poisoned lead, or an anonymous insider, could make the company's own agent send convincing phishing messages.</p>
+<p>"This isn't one clever bypass or a single misconfiguration. We found multiple ways to break through the security boundary designed to stop Agentforce from sending enterprise data to unapproved destinations," said <strong>Michael Bargury</strong>, co-founder and CTO of Zenity. "Hard boundaries remain one of the strongest tools we have for containing AI agents, but they are still software."</p>
+<h2>Why It Matters</h2>
+<p>SalesBleed is essentially a sequel. In September 2025, Noma Security disclosed <strong>ForcedLeak</strong>, a Web-to-Lead prompt-injection chain against Agentforce with a CVSS score of <strong>9.4</strong>. Salesforce responded then by tightening its URL controls. Dark Reading's reporting describes Zenity's findings as simple workarounds to those same rules, one year later. Salesforce acknowledged to the publication that its earlier fix was a quick one. This time, it says it has replaced regex-based URL detection with spec-conformant parsing and sends all URL-related agent traffic through a single inspection gateway. It has also changed default settings so that certain Agentforce actions in Slack require user confirmation before sending messages.</p>
+<p>A better parser addresses the specific bug, not the underlying design. The pattern Zenity describes applies to almost every enterprise agent platform: the agent reads untrusted outside input, holds broad read access to sensitive data, and can reach external channels. "When you give them access to both sensitive information — your accounts payable, leads, contracts, etc. — and external channels, this combination is very toxic," <strong>Tamir Ishay Sharbat</strong>, Zenity's director of security research, told Dark Reading.</p>
+<p>The phishing flaw may be the more lasting lesson. Employees have learned to be suspicious of outside senders. They have not learned to be suspicious of the company's own AI assistant posting in an internal channel. Bargury also points to a visibility gap. He told Dark Reading that across the industry, vendors are "building black boxes," which leaves defenders with only summaries of what their agents actually did.</p>
+<h2>What to Watch</h2>
+<p>The obvious test is whether Salesforce's new parsing and single-gateway design holds up against the next group of researchers, since ForcedLeak's fix lasted less than a year. Zenity says video demonstrations of the attack chains are coming to its YouTube channel. The firm will also host AI Agent Security Summits in London on October 8 and New York on October 21, where more agent-hijacking research is likely. For Salesforce admins, the practical work is now: review which records agents can read, audit Trusted URLs and Slack agent permissions, and treat every public form field as untrusted input to an AI system.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;Hard boundaries remain one of the strongest tools we have for containing AI agents, but they are still software.&rdquo;</blockquote><cite>&mdash; Michael Bargury, Co-founder and CTO, Zenity</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">3</div><div class="stat-label">Agentforce flaws in SalesBleed</div></div><div class="stat-cell"><div class="stat-value">June 1</div><div class="stat-label">Reported to Salesforce</div></div><div class="stat-cell"><div class="stat-value">Aug 19</div><div class="stat-label">All three confirmed fixed</div></div><div class="stat-cell"><div class="stat-value">9.4</div><div class="stat-label">CVSS of 2025&#x27;s ForcedLeak</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.securityweek.com/salesbleed-flaws-in-salesforce-agentforce-enabled-zero-click-data-exfiltration/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=securityweek.com&sz=32" alt="">SecurityWeek</a><a href="https://www.businesswire.com/news/home/20260924811082/en/Zenity-Labs-Uncovers-SalesBleed-3-Salesforce-Agentforce-Flaws-Enabling-Zero-Click-CRM-Data-Theft-and-AI-Agent-Impersonation" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=businesswire.com&sz=32" alt="">Business Wire (Zenity)</a><a href="https://www.darkreading.com/application-security/salesbleed-exploits-salesforce-agents-slack-phishing" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=darkreading.com&sz=32" alt="">Dark Reading</a><a href="https://noma.security/blog/forcedleak-agent-risks-exposed-in-salesforce-agentforce" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=noma.security&sz=32" alt="">Noma Security</a></div></div>
+<div class="article-nav"><a href="14-swarmtraces-reconstruct-openai-agents-hugging-face-compromise.html" class="nav-prev">&larr; Researchers Reconstruct How 700 OpenAI Agents Comp</a></div>
+<footer>The Vault — AI Edition · Published September 26, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
