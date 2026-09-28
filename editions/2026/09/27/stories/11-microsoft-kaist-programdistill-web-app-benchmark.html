@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Microsoft and KAIST&#x27;s ProgramDistill Finds Frontier Agents Still Fail Most Full Web-App Workflows — The Vault AI</title>
+<meta name="description" content="Asked to rebuild full web apps from a live reference, even the best coding agent, GPT-6 Astra, passes only 49.2% of end-to-end workflows, and most failures come from agents never exploring the behavior in the first place.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#5eead4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Research</span>
+  <h1>Microsoft and KAIST&#x27;s ProgramDistill Finds Frontier Agents Still Fail Most Full Web-App Workflows</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 970 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Asked to rebuild full web apps from a live reference, even the best coding agent, GPT-6 Astra, passes only 49.2% of end-to-end workflows, and most failures come from agents never exploring the behavior in the first place.</p>
+</div>
+<div class="article-body">
+<p>Give the best coding agent available a working web app, a bare scaffold and a browser, and ask it to rebuild the product. It will get about half of the end-to-end workflows right. That is the result of <strong>ProgramDistill</strong>, a new benchmark from KAIST, Microsoft Research Montréal and Microsoft AI. When agents had to rebuild whole applications, OpenAI's GPT-6 Astra passed <strong>49.2%</strong> of cumulative workflows. Anthropic's Claude Opus 5 passed <strong>28.8%</strong>.</p>
+<p>The paper, <em>ProgramDistill: From Interactive Web Apps to Verifiable Reference-Guided SWE Tasks</em>, is led by KAIST's Jeonghye Kim, who did the work as a research intern at MSR Montréal. Co-authors include Minseon Kim, Matheus Pereira, Marc-Alexandre Côté, Alessandro Sordoni, Xingdi Yuan and Zhengyan Shi of Microsoft Research Montréal, and Young Jin Kim of Microsoft AI. It targets a gap in how coding agents are tested today.</p>
+<p>"Coding agents are typically evaluated with desired behavior specified through issues or instructions," the authors write in the abstract. "In practical web development, however, agents may need to infer behavior from working software and implement it in an incomplete application."</p>
+<h2>How the Benchmark Works</h2>
+<p>In ProgramDistill, the agent can click through a live reference app but cannot see its source code. It then has to reproduce the same behavior in an editable copy. Grading looks only at behavior, not code. The rebuilt app passes if it does the same thing as the reference when the same browser actions are replayed, even if its code looks nothing like the original.</p>
+<p>The tasks are built automatically by a multi-agent pipeline the team calls <strong>mine-craft-patch</strong>. In the <em>mine</em> stage, LLM agents explore a working app and record replayable traces of browser actions and success signals. In the <em>craft</em> stage, other agents delete the code behind selected behaviors. Build and replay checks then confirm three things: earlier behaviors still work, the target behavior now fails, and the original "gold patch" fixes it. In the <em>patch</em> stage, the coding agent under test tries to repair the app. The team's blog post says the same replay mechanism checks the original app, the masked app and the repair "without LLM intervention."</p>
+<p>Across 26 open-source applications, the pipeline found <strong>1,975 replay-verified behaviors</strong> and built <strong>4,063 tasks</strong> "without human intervention," according to the paper. Of those, 2,862 are atomic tasks that remove a single behavior. The other 1,201 are cumulative tasks that remove a chain of dependent behaviors. For example, a card has to exist before it can be moved, and a board has to exist before the card. The number of chained behaviors is called restoration depth, and it is the benchmark's difficulty setting.</p>
+<h2>The Results</h2>
+<p>The team tested nine frontier models from OpenAI, Anthropic, Google DeepMind and xAI on <strong>ProgramDistill-300</strong>, a 300-task suite at depths 1 through 8. Scoring is binary: a cumulative task passes only if every target in the chain passes.</p>
+<p>Astra led with <strong>84.3%</strong> overall, ahead of Opus 5 at 68.7% and Sol at 60.7%. Performance fell steeply with depth. Astra solved every depth-1 task but only <strong>64.0%</strong> at depth 8. Opus 5 dropped from 96% to <strong>32%</strong>, and Sol from 92% to 32%.</p>
+<p>The harder test is rebuilding a whole application. Here the agent gets only a minimal scaffold, a product-level description of what the app should do, and browser access to the reference. Across 12 apps, each agent was scored on 590 individual behaviors and 413 cumulative workflows. Astra recovered 58.98% of behaviors and 49.15% of workflows. Opus 5 recovered 42.03% and 28.81%, and Sol 33.39% and 21.07%. These runs averaged about 700 agent steps and went as high as 1,921.</p>
+<p>The researchers also studied why agents fail. They looked at 977 failed behaviors across 36 reconstruction runs. In <strong>59.2%</strong> of cases, the agent never observed the behavior in the reference app at all. In 27.9%, it produced the wrong state, route or result, and in 11.1%, the output had the wrong observable form. Only 1.8% were behaviors the agent saw but never built. "An application that runs is not necessarily an application that matches the reference," the team writes.</p>
+<p>How the agents worked also mattered. Astra checked far more and edited far less than the others, averaging 96.3 observations of its own app per task but only 9.9 edit or write steps. Claude Opus 5 got more browser-state feedback than Astra yet recovered fewer behaviors, suggesting that what counts is re-checking the right workflow after the final change.</p>
+<h2>Why It Matters</h2>
+<p>Most well-known coding benchmarks give an agent a written issue and a test suite. ProgramDistill measures something closer to how software actually gets built. Developers often work from a prototype, an earlier version or a competitor's product, not a complete spec. By that measure, today's best agents still come up short. Building individual features that work is much easier than getting those features to work together as a whole product.</p>
+<p>The failure breakdown shows where to improve: most misses come from shallow exploration of the reference, not from an inability to write code. From depth 1 to depth 8, the code to restore grows more than 9x, yet agents spend less observation and editing effort per behavior.</p>
+<p>Because tasks are generated automatically and difficulty can be tuned, ProgramDistill can also be used to train agents, not just test them. Restoration depth gives a natural curriculum, and replay checks give a reward signal that does not depend on an LLM judge.</p>
+<h2>What to Watch</h2>
+<p>The team links a Hugging Face dataset under Microsoft's organization and a public leaderboard, though the abstract says a full public release is still in progress. The authors plan depth-based curriculum training with replay-based rewards, and an extension to multimodal agents graded on visual accuracy as well as behavior. The next frontier model launches will show whether the 49.2% ceiling on full-app workflows starts to move.</p>
+<div class="pull-quote" style="border-left:2px solid #5eead4"><blockquote>&ldquo;An application that runs is not necessarily an application that matches the reference.&rdquo;</blockquote><cite>&mdash; Jeonghye Kim et al., ProgramDistill authors, KAIST and Microsoft</cite></div>
+<div class="data-strip" style="border-top:1px solid #5eead420"><div class="stat-cell"><div class="stat-value">4,063</div><div class="stat-label">Tasks from 1,975 replay-verified behaviors across 26 web apps</div></div><div class="stat-cell"><div class="stat-value">49.2%</div><div class="stat-label">GPT-6 Astra success on cumulative workflows</div></div><div class="stat-cell"><div class="stat-value">28.8%</div><div class="stat-label">Claude Opus 5 success on cumulative workflows</div></div><div class="stat-cell"><div class="stat-value">59.2%</div><div class="stat-label">Failed behaviors the agent never observed in the reference</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://arxiv.org/html/2609.18805v1" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=arxiv.org&sz=32" alt="">arXiv</a><a href="https://huggingface.co/papers/2609.18805" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Hugging Face Papers</a><a href="https://microsoft.github.io/debug-gym/blog/2026/09/programdistill/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=microsoft.github.io&sz=32" alt="">Microsoft Research Blog</a><a href="https://huggingface.co/datasets/microsoft/ProgramDistill" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Hugging Face Dataset</a><a href="https://aiweekly.co/alerts/gpt-6-astra-leads-programdistill-app-cloning-bench-at-492" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=aiweekly.co&sz=32" alt="">AI Weekly</a></div></div>
+<div class="article-nav"><a href="10-snowflake-kimi-k3-cortex-ai.html" class="nav-prev">&larr; Snowflake Opens Private Preview of Moonshot&#x27;s Kimi</a><a href="12-deepseek-dsec-3m-sandboxes-per-day.html" class="nav-next">DeepSeek&#x27;s DSec Paper Reveals a Sandbox Fabric Run &rarr;</a></div>
+<footer>The Vault — AI Edition · Published September 27, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
