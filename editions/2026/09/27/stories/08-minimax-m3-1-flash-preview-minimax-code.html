@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MiniMax Ships M3.1-Flash-Preview to MiniMax Code for High-Volume Everyday Development — The Vault AI</title>
+<meta name="description" content="MiniMax quietly launched M3.1-Flash-Preview inside MiniMax Code on existing flat-rate Token Plans, with no public API, price or benchmarks, in a bid to become the default model for high-volume daily coding.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</span>
+  <h1>MiniMax Ships M3.1-Flash-Preview to MiniMax Code for High-Volume Everyday Development</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 937 words</span>
+    <span>6 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>MiniMax quietly launched M3.1-Flash-Preview inside MiniMax Code on existing flat-rate Token Plans, with no public API, price or benchmarks, in a bid to become the default model for high-volume daily coding.</p>
+</div>
+<div class="article-body">
+<p>MiniMax has put the first piece of its next model generation into developers' hands, and it did so in an unusual way. There was no model card, no benchmark chart and no public API price. On September 27 the Shanghai lab switched on <strong>M3.1-Flash-Preview</strong> inside MiniMax Code, its own coding agent, and pitched it as the fast default for routine engineering work. Developers already paying for a MiniMax Token Plan can use it now.</p>
+<p>The company's MiniMax_Agent account announced that the model "debuts today on MiniMax Code," describing it as "built for everyday development, it's fast, reliable, and ready for real work, from quick bug fixes to full features." That post was essentially the whole launch. PANews and APIMaster.AI both reported the same positioning: the model is meant for speed and stability on routine development, from single bug fixes to complete feature builds.</p>
+<h2>What Actually Shipped</h2>
+<p>The preview is only available inside MiniMax Code. MiniMax's main corporate account said the model runs on the existing Token Plan with no extra setup, so subscribers can pick it in the model selector without new keys or billing changes. Token Plan pricing is listed on MiniMax's developer platform. Annual Plus, Max and Ultra tiers cost <strong>$220</strong>, <strong>$550</strong> and <strong>$1,320</strong>, and include roughly <strong>1.7 billion</strong>, <strong>5.1 billion</strong> and <strong>12.5 billion</strong> M3 tokens per month.</p>
+<p>MiniMax also added a few temporary incentives. It reset Token Plan quotas, and from September 28 through October 7 (UTC+8) users who check in daily get double credits. APIMaster.AI reports that the double credits apply to M3.1-Flash-Preview as well as H3 and H3 Max, MiniMax's video generation models.</p>
+<p>According to reporting from Startup Fortune and APIMaster.AI, MiniMax Code offers five reasoning-effort levels with the new model: low, medium, high, xhigh and a new max tier. Startup Fortune also reports a context window of up to 1 million tokens, which matches what M3 offers. MiniMax has not published specifications for the preview itself.</p>
+<p>The tooling around the model is open. The MiniMax Code command-line client, now at version <strong>0.4.12</strong>, is published on GitHub under the permissive MIT license. That means teams can inspect, fork and embed the agent harness even though the model behind it is only reachable through MiniMax's service.</p>
+<p>APIMaster.AI warned developers against assuming there is an API route. "The UI's M3.1-Flash-Preview label is not a verified API request ID," the marketplace wrote. It added that the full M3.1 tier and the larger M3 Pro "have not been released through a public API."</p>
+<h2>The Stealth Prelude</h2>
+<p>The launch came after a stretch of detective work by the developer community. Startup Fortune reports that four days before the release, an anonymous model called Space Bunny Alpha appeared free on OpenRouter. Developers used tokenizer comparisons to fingerprint it, and one test found a 24-out-of-24 token match with MiniMax's model family. MiniMax has not confirmed any link between the two.</p>
+<p>Startup Fortune's Walter Schulze summed up the approach bluntly. "It's iteration speed treated as the product," he wrote, arguing that MiniMax is letting the model prove itself before worrying about the usual launch paperwork.</p>
+<h2>The M3 Baseline</h2>
+<p>The preview builds on MiniMax-M3, the open-weight flagship released June 1. According to VentureBeat and other outlets, M3 scored <strong>59.0%</strong> on SWE-Bench Pro, just ahead of GPT-5.5 at 58.6% and Gemini 3.1 Pro at 54.2%, and <strong>80.5%</strong> on SWE-bench Verified. Several reviewers noted that M3 still trailed Anthropic's Claude Opus 4.8 by about 10 to 13 points on comparable agent evaluations. M3's API launch pricing is $0.30 per million input tokens and $1.20 per million output tokens, half of the standard $0.60 and $2.40 rates.</p>
+<h2>Why It Matters</h2>
+<p>Speed-tier coding models are where the money is. Most agentic coding sessions are made up of many small edits, test runs and retries rather than rare hard problems. The vendor that makes those calls cheap and fast ends up with the daily usage. Putting a Flash-class model on a flat-rate annual plan measured in billions of tokens is an attempt to become the default engine for that work. It targets developers who have gotten used to watching per-token bills from Western frontier labs.</p>
+<p>MiniMax can afford to be aggressive. The company listed in Hong Kong in January, raising $619 million, and Startup Fortune reports that its annualized revenue grew from about $100 million at the end of 2025 to $800 million by its August 26 first-half results. First-half revenue from open platform services, its API business, rose 703% to $74 million. Mainland investors put about $1.4 billion into the stock through Stock Connect in August. MiniMax now needs its developer products to justify that valuation, and a fast coding model tied to a subscription is a direct way to do it.</p>
+<p>The quiet launch has a cost, though. Without published benchmarks, pricing or an API identifier, enterprise buyers can't easily compare M3.1-Flash-Preview with other models, and the Space Bunny Alpha episode raises questions about how openly MiniMax runs its evaluations.</p>
+<h2>What to Watch</h2>
+<p>The next milestone is a public API release. That would bring a real model identifier, per-token pricing and a model card that confirms or corrects the community's numbers. The double-credit promotion runs through October 7, and whether usage holds up after it ends will show how much of the early adoption came from the free credits. MiniMax has also named M3.1, M3 Pro and H3.1 as separate items on its roadmap, and APIMaster.AI notes unconfirmed community reports that M3 Pro could reach roughly 3 trillion parameters. Independent benchmarks of the Flash preview, especially on SWE-Bench Pro, will decide whether MiniMax's fast release strategy gains developer trust.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;Built for everyday development, it&#x27;s fast, reliable, and ready for real work, from quick bug fixes to full features.&rdquo;</blockquote><cite>&mdash; MiniMax, Official launch announcement</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">$220</div><div class="stat-label">Entry annual Token Plan, about 1.7B M3 tokens per month</div></div><div class="stat-cell"><div class="stat-value">12.5B</div><div class="stat-label">Monthly M3 tokens on the $1,320 Ultra plan</div></div><div class="stat-cell"><div class="stat-value">59.0%</div><div class="stat-label">M3 score on SWE-Bench Pro</div></div><div class="stat-cell"><div class="stat-value">$800M</div><div class="stat-label">MiniMax annualized revenue at H1 2026 results</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://x.com/MiniMaxAgent/status/2104079819881517400" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=x.com&sz=32" alt="">MiniMax Agent on X</a><a href="https://platform.minimax.io/subscribe/token-plan" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=platform.minimax.io&sz=32" alt="">MiniMax Token Plan</a><a href="https://github.com/MiniMax-AI/minimax-code" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=32" alt="">GitHub</a><a href="https://startupfortune.com/minimax-slips-a-new-coding-model-into-its-agent-tool-without-a-price-tag/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=startupfortune.com&sz=32" alt="">Startup Fortune</a><a href="https://panews.io/articles/01a0e2ed-01aa-7711-bf7e-f9e01395eaf7" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=panews.io&sz=32" alt="">PANews</a><a href="https://venturebeat.com/technology/minimax-m3-debuts-eclipsing-gpt-5-5-and-gemini-3-1-pro-on-key-benchmark-performance-for-just-5-10-of-the-cost" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=venturebeat.com&sz=32" alt="">VentureBeat</a></div></div>
+<div class="article-nav"><a href="07-openai-gpt-6-image-encoding-bug-fix.html" class="nav-prev">&larr; OpenAI Fixes Image-Encoding Bug That Was Quietly D</a><a href="09-xiaomi-mimo-v2-6-rl-oss-environments.html" class="nav-next">Xiaomi Open-Sources 7,780 Reinforcement-Learning E &rarr;</a></div>
+<footer>The Vault — AI Edition · Published September 27, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
