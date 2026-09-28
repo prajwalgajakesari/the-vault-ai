@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI Fixes Image-Encoding Bug That Was Quietly Degrading GPT-6 Sol and Luna Vision — The Vault AI</title>
+<meta name="description" content="For their first five days in the API, OpenAI&#x27;s GPT-6 models had a hidden image-encoding bug that hit the budget Luna model hardest, so any launch-week vision evaluations need to be run again.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</span>
+  <h1>OpenAI Fixes Image-Encoding Bug That Was Quietly Degrading GPT-6 Sol and Luna Vision</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 977 words</span>
+    <span>6 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>For their first five days in the API, OpenAI&#x27;s GPT-6 models had a hidden image-encoding bug that hit the budget Luna model hardest, so any launch-week vision evaluations need to be run again.</p>
+</div>
+<div class="article-body">
+<p>For the first five days of their public life, OpenAI's newest models were partly blind, and almost nobody could tell. On Saturday, September 27, OpenAI said it had fixed a bug in image encoding that had been degrading image understanding in GPT-6 Sol and GPT-6 Luna. The flagship and budget reasoning models went live in the API only on September 22. Independent benchmarks re-run after the patch show the cheaper Luna was hit hardest, with double-digit gains on several vision tasks once the fix went in.</p>
+<p>The announcement came first from the OpenAI Developers account on X and was then written into the API changelog. The changelog entry, tagged against both the gpt-6-sol and gpt-6-luna model IDs, says the update "improves results on visual tasks in the API and Codex, including computer use." It also asks customers to recheck their own work: "If your use cases involve image inputs, we recommend rerunning your evaluations and retrying workflows affected by the issue."</p>
+<p>The fix was applied on OpenAI's servers. It is live on the existing model IDs, so developers do not need to change code or migrate anything. OpenAI has not said what caused the bug, exactly when it started, or how much traffic it affected. The changelog names image encoding, the step that turns an image into something the model can process, as the broken layer.</p>
+<h2>The Numbers Behind the Fix</h2>
+<p>The clearest public measure of the damage comes from Roboflow's open-source VLM-exam benchmark, maintained by Piotr Skalski. Within hours of OpenAI's post, Skalski merged a pull request that threw out every earlier result for the two models and re-ran the full protocol from scratch. That meant 72 result files: six vision tasks, two reasoning-effort settings and three repeats each. The prompts, judges and configuration were the same as before, and the old runs from September 22 stayed in the repository history so anyone can compare them.</p>
+<p>His summary of the Luna results was blunt: "GPT-6 Luna improved on every task at both efforts." On high effort, Luna's accuracy on structured text extraction rose from 66.7 to 84.9, a gain of 18.2 points. Visual reasoning went from 60.7 to 71.1, and counting from 64.4 to 72.1. On low effort, reasoning gained 12.1 points and object detection (mAP@50) gained 8.8. Skalski also found that the three new runs for each setting agreed with each other more closely than the old runs had, which points to less erratic behavior after the fix.</p>
+<p>Luna also became cheaper to run. For one complete high-effort pass through the benchmark, output tokens dropped from about 1.05 million to 841,000, cost fell from $0.63 to $0.52, and wall-clock time dropped from 11,562 seconds to 8,714. On X, Skalski put the gains at roughly 17 percent lower estimated cost, 25 percent lower average latency and 20 percent fewer output tokens, and wrote that "GPT-6 Luna got faster, cheaper and more accurate." One of his examples was a license-plate reading that came back one character short before the fix and complete after it.</p>
+<p>The flagship barely moved. "GPT-6 Sol is roughly unchanged," Skalski wrote. Sol's changes ranged from -0.2 to +3.8 points, mostly within normal run-to-run variation. The largest was a 3.8-point gain in low-effort extraction. There, all three pre-fix runs had scored exactly 80.4, and the new runs landed between 83.5 and 84.5.</p>
+<p>Aggregator HuggingNews, which tracked the posts, reported that before the fix Luna had been scoring below its predecessor from the GPT 5.6 generation on some of Skalski's tests. It also said OpenAI shipped the fix over the weekend after public benchmarking drew attention to the problem.</p>
+<h2>Why It Matters</h2>
+<p>The timing hurts. OpenAI priced these models aggressively: $2 per million input tokens and $10 per million output tokens for Sol, and $0.10 and $0.50 for Luna. Teams that ran bake-offs in the first week to decide whether to switch vision, document-processing or computer-use pipelines to the new models were measuring a broken system. Under OpenAI's own advice, those results now need to be redone. Anyone who picked a rival model because Luna looked weak at reading receipts or screenshots made that call on bad data.</p>
+<p>This also looks like an industry-wide problem. In September 2025, Anthropic published a detailed postmortem on three separate infrastructure bugs, including a context-window routing error and a TPU compiler miscompilation, that had intermittently degraded Claude's answers from early August into September. At its worst hour, the routing bug alone affected 16 percent of Sonnet 4 requests. Anthropic's statement, "We never reduce model quality due to demand, time of day, or server load," was aimed at users who suspected quiet throttling. Both episodes show the same weak point. The model weights can be fine while the code that serves them, meaning preprocessing, routing and sampling, silently makes answers worse. Ordinary evaluations often miss it until outside users notice.</p>
+<p>The response is also a reminder of who is doing the checking. OpenAI's fix came with a two-sentence changelog note. The detailed before-and-after numbers came from an independent benchmark maintainer who kept his old results in version control.
+## What to Watch</p>
+<p>The first thing to watch is whether OpenAI publishes a fuller explanation: the root cause, when the bug was introduced, and whether ChatGPT and Codex users were affected on the same dates as API customers. Anthropic set a precedent last year with its postmortem, and developers who lost a week of evaluations will want the same level of detail. The second is whether public leaderboards that tested Sol and Luna during launch week update their scores, since several published rankings are probably now out of date. The third is whether OpenAI adds continuous vision checks on its production systems. That is the kind of monitoring Anthropic committed to after its own incident, and the only reliable way to catch the next silent regression before customers do.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;GPT-6 Luna improved on every task at both efforts.&rdquo;</blockquote><cite>&mdash; Piotr Skalski, Maintainer, Roboflow vlm-exam benchmark</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">+18.2 pts</div><div class="stat-label">GPT-6 Luna text extraction (66.7 to 84.9)</div></div><div class="stat-cell"><div class="stat-value">+10.4 pts</div><div class="stat-label">GPT-6 Luna visual reasoning (60.7 to 71.1)</div></div><div class="stat-cell"><div class="stat-value">17%</div><div class="stat-label">Lower Luna cost after fix</div></div><div class="stat-cell"><div class="stat-value">5 days</div><div class="stat-label">Time the bug was live in the API</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=developers.openai.com&sz=32" alt="">OpenAI API Changelog</a><a href="https://x.com/OpenAIDevs/status/2104252306447544447" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=x.com&sz=32" alt="">OpenAI Developers on X</a><a href="https://github.com/roboflow/vlm-exam/pull/51" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=32" alt="">Roboflow vlm-exam</a><a href="https://huggingnews.com/ai/openai-fixes-gpt-6-vision-bug-to-raise-lunas-text-extraction-to-85percen-1573fdc2" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingnews.com&sz=32" alt="">HuggingNews</a><a href="https://community.openai.com/t/openai-fix-for-gpt-6-luna-sol-image-understanding/1401333" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=community.openai.com&sz=32" alt="">OpenAI Developer Community</a><a href="https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" alt="">Anthropic Engineering</a></div></div>
+<div class="article-nav"><a href="06-naiveai-n0-5-flash-309b-open-weight.html" class="nav-prev">&larr; NaiveAI Open-Sources Naive-N0.5-Flash, a 309B MoE </a><a href="08-minimax-m3-1-flash-preview-minimax-code.html" class="nav-next">MiniMax Ships M3.1-Flash-Preview to MiniMax Code f &rarr;</a></div>
+<footer>The Vault — AI Edition · Published September 27, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
