@@ -1,0 +1,30 @@
+# OpenAI Fixes Image-Encoding Bug That Was Quietly Degrading GPT-6 Sol and Luna Vision
+
+For the first five days of their public life, OpenAI's newest models were partly blind, and almost nobody could tell. On Saturday, September 27, OpenAI said it had fixed a bug in image encoding that had been degrading image understanding in GPT-6 Sol and GPT-6 Luna. The flagship and budget reasoning models went live in the API only on September 22. Independent benchmarks re-run after the patch show the cheaper Luna was hit hardest, with double-digit gains on several vision tasks once the fix went in.
+
+The announcement came first from the OpenAI Developers account on X and was then written into the API changelog. The changelog entry, tagged against both the gpt-6-sol and gpt-6-luna model IDs, says the update "improves results on visual tasks in the API and Codex, including computer use." It also asks customers to recheck their own work: "If your use cases involve image inputs, we recommend rerunning your evaluations and retrying workflows affected by the issue."
+
+The fix was applied on OpenAI's servers. It is live on the existing model IDs, so developers do not need to change code or migrate anything. OpenAI has not said what caused the bug, exactly when it started, or how much traffic it affected. The changelog names image encoding, the step that turns an image into something the model can process, as the broken layer.
+
+## The Numbers Behind the Fix
+
+The clearest public measure of the damage comes from Roboflow's open-source VLM-exam benchmark, maintained by Piotr Skalski. Within hours of OpenAI's post, Skalski merged a pull request that threw out every earlier result for the two models and re-ran the full protocol from scratch. That meant 72 result files: six vision tasks, two reasoning-effort settings and three repeats each. The prompts, judges and configuration were the same as before, and the old runs from September 22 stayed in the repository history so anyone can compare them.
+
+His summary of the Luna results was blunt: "GPT-6 Luna improved on every task at both efforts." On high effort, Luna's accuracy on structured text extraction rose from 66.7 to 84.9, a gain of 18.2 points. Visual reasoning went from 60.7 to 71.1, and counting from 64.4 to 72.1. On low effort, reasoning gained 12.1 points and object detection (mAP@50) gained 8.8. Skalski also found that the three new runs for each setting agreed with each other more closely than the old runs had, which points to less erratic behavior after the fix.
+
+Luna also became cheaper to run. For one complete high-effort pass through the benchmark, output tokens dropped from about 1.05 million to 841,000, cost fell from $0.63 to $0.52, and wall-clock time dropped from 11,562 seconds to 8,714. On X, Skalski put the gains at roughly 17 percent lower estimated cost, 25 percent lower average latency and 20 percent fewer output tokens, and wrote that "GPT-6 Luna got faster, cheaper and more accurate." One of his examples was a license-plate reading that came back one character short before the fix and complete after it.
+
+The flagship barely moved. "GPT-6 Sol is roughly unchanged," Skalski wrote. Sol's changes ranged from -0.2 to +3.8 points, mostly within normal run-to-run variation. The largest was a 3.8-point gain in low-effort extraction. There, all three pre-fix runs had scored exactly 80.4, and the new runs landed between 83.5 and 84.5.
+
+Aggregator HuggingNews, which tracked the posts, reported that before the fix Luna had been scoring below its predecessor from the GPT 5.6 generation on some of Skalski's tests. It also said OpenAI shipped the fix over the weekend after public benchmarking drew attention to the problem.
+
+## Why It Matters
+
+The timing hurts. OpenAI priced these models aggressively: $2 per million input tokens and $10 per million output tokens for Sol, and $0.10 and $0.50 for Luna. Teams that ran bake-offs in the first week to decide whether to switch vision, document-processing or computer-use pipelines to the new models were measuring a broken system. Under OpenAI's own advice, those results now need to be redone. Anyone who picked a rival model because Luna looked weak at reading receipts or screenshots made that call on bad data.
+
+This also looks like an industry-wide problem. In September 2025, Anthropic published a detailed postmortem on three separate infrastructure bugs, including a context-window routing error and a TPU compiler miscompilation, that had intermittently degraded Claude's answers from early August into September. At its worst hour, the routing bug alone affected 16 percent of Sonnet 4 requests. Anthropic's statement, "We never reduce model quality due to demand, time of day, or server load," was aimed at users who suspected quiet throttling. Both episodes show the same weak point. The model weights can be fine while the code that serves them, meaning preprocessing, routing and sampling, silently makes answers worse. Ordinary evaluations often miss it until outside users notice.
+
+The response is also a reminder of who is doing the checking. OpenAI's fix came with a two-sentence changelog note. The detailed before-and-after numbers came from an independent benchmark maintainer who kept his old results in version control.
+## What to Watch
+
+The first thing to watch is whether OpenAI publishes a fuller explanation: the root cause, when the bug was introduced, and whether ChatGPT and Codex users were affected on the same dates as API customers. Anthropic set a precedent last year with its postmortem, and developers who lost a week of evaluations will want the same level of detail. The second is whether public leaderboards that tested Sol and Luna during launch week update their scores, since several published rankings are probably now out of date. The third is whether OpenAI adds continuous vision checks on its production systems. That is the kind of monitoring Anthropic committed to after its own incident, and the only reliable way to catch the next silent regression before customers do.
