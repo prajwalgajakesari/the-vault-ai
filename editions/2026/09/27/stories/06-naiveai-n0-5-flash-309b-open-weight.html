@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NaiveAI Open-Sources Naive-N0.5-Flash, a 309B MoE Built for Coding at 2,000 Tokens per Second — The Vault AI</title>
+<meta name="description" content="NaiveAI&#x27;s first release reworks Xiaomi&#x27;s MiMo-V2.5 into a model with no full-attention layers and a 1M-token context, sold at $0.40 per million output tokens, but its speed and benchmark claims have not yet been independently verified.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> LLMs &amp; GenAI</span>
+  <h1>NaiveAI Open-Sources Naive-N0.5-Flash, a 309B MoE Built for Coding at 2,000 Tokens per Second</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 973 words</span>
+    <span>6 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>NaiveAI&#x27;s first release reworks Xiaomi&#x27;s MiMo-V2.5 into a model with no full-attention layers and a 1M-token context, sold at $0.40 per million output tokens, but its speed and benchmark claims have not yet been independently verified.</p>
+</div>
+<div class="article-body">
+<p>A week after reports that Tencent and a group of top Chinese investors had valued it at $1.42 billion before it shipped anything, Beijing startup NaiveAI has put its first real product on the table. On September 27 the lab released Naive-N0.5-Flash, an open-weight 309-billion-parameter mixture-of-experts model with 15.5 billion parameters active per token. It targets coding and AI research work, supports a native 1-million-token context window, and ships under the permissive MIT license. The release also answers the question the Vault raised last week: which open base model NaiveAI chose to build on. The answer is Xiaomi's MiMo-V2.5.</p>
+<p>The company's pitch goes beyond the weights. NaiveAI says AI systems did much of the research and engineering behind the model, and its model card carries the tagline "Building Frontier AI with AI." According to the company's technical write-up, as summarized by RuntimeWire, models wrote code, ran experiments, monitored results and proposed iterations, while human researchers set objectives, constraints and evaluation standards and made the key decisions.</p>
+<h2>A long-context model with no full attention</h2>
+<p>The most distinctive engineering choice is what the model leaves out. Naive-N0.5-Flash has no full-attention layers. Its 48 transformer layers are arranged as eight six-layer modules, each pairing five Sliding-Window Attention layers with one DeepSeek Sparse Attention layer, for a total of 39 SWA and 9 DSA layers. The sliding window covers just 128 tokens, while the sparse layers select the top 2,048 tokens from the full history for backbone attention. NaiveAI also replaced the multi-head latent attention used in DeepSeek's original sparse-attention design with grouped-query attention using four KV groups.</p>
+<p>"The entire network remains local or sparse, with no full-attention layers," the model card states. The company explains that in the MiMo base, a small number of global-attention layers "account for much of the decoding overhead" at million-token lengths, which is why it swapped them for sparse attention. The card is candid about the limits of that trade: the sparse indexer still scans the full history, and the full key-value cache is still retained.</p>
+<p>To adapt the base to the new structure, NaiveAI ran 3.25 trillion tokens of multi-stage training at native 1M context. That breaks down into a 50-billion-token indexer warmup, 3 trillion tokens of sparse-attention training and a 200-billion-token learning-rate decay. The acknowledgments credit Xiaomi's MiMo team, DeepSeek's sparse-attention work and the SGLang inference community.</p>
+<h2>The 2,000 tokens-per-second claim</h2>
+<p>The speed headline comes from NaiveRT, an inference system the company says was "built and optimized through AI-centered R&amp;D." It combines mega-kernel fusion, Programmatic Dependent Launch and speculative decoding. The model card promises 50 tokens per second per user in Standard mode and up to 2,000 tokens per second in Ultrafast mode.</p>
+<p>The conditions behind that number deserve attention. RuntimeWire reported that the company's longer write-up cites a peak of 2,122 tokens per second on eight GPUs in a single-stream test, taken from the best one-second window across 41 HTML and SVG generation requests, and excluding prompt processing. "NaiveAI's headline speed figure needs its test conditions attached," wrote RuntimeWire's Ryan Merket. The company also reports a full speculative-decoding cycle of 3.4 milliseconds, against 12.3 milliseconds for SGLang on the same system.</p>
+<p>Running the model yourself is not a hobbyist project. The weights occupy about 315 GB and require FP8-capable NVIDIA GPUs. For everyone else, NaiveAI lists API pricing of $0.10 per million input tokens, $0.40 per million output tokens and $0.01 per million cached reads. RuntimeWire noted that the Chinese write-up lists yuan prices of 0.60, 2.60 and 0.07 per million tokens.</p>
+<p>On capability, the model card charts results across seven coding and agentic tasks, including SWE-Bench Pro, Terminal-Bench 2.1 and DeepSWE, and across AI R&amp;D evaluations such as PostTrainBench, MLE-bench-30, PaperBench and NanoGPT SpeedRun. It compares the model with GLM-5.3, Kimi-K3, Qwen-3.8-Max, DeepSeek-V4.1-Flash and several closed frontier systems. All evaluations were run by NaiveAI in a Claude Code harness limited to basic file and Bash tools, and none have been independently reproduced.</p>
+<h2>Why It Matters</h2>
+<p>Last week's coverage framed NaiveAI as the purest bet on the idea that the most valuable work in AI now happens after pretraining. Naive-N0.5-Flash is the first test of that thesis, and it is a more ambitious one than a simple fine-tune. NaiveAI did not just apply reinforcement learning to Xiaomi's base. It removed the base's global attention, grafted on DeepSeek's sparse mechanism and retrained on trillions of tokens. If the long-context quality holds up, that shows a lab with fewer than 100 people can do substantial architectural work on someone else's pretrained model and ship it back to the community under MIT terms.</p>
+<p>The pricing matters as much as the architecture. At $0.40 per million output tokens, with 15.5 billion active parameters and a sparse attention stack designed to keep million-token decoding cheap, the model is aimed directly at agentic coding workloads, where long context and heavy output volume quickly drive up bills on closed models. The "AI built this" story is harder to judge. As RuntimeWire pointed out, NaiveAI has not said how it measured AI's contribution or whether the approach actually lowers development costs.</p>
+<h2>What to Watch</h2>
+<p>Independent benchmarking comes first. Teams will want to know whether a stack with no full attention can really retrieve and reason across a million tokens, and whether the 2,000 tokens-per-second figure holds up on ordinary coding workloads rather than HTML and SVG generation. Watch for third-party inference providers adding the model; at release, Hugging Face listed none. Also watch whether NaiveAI publishes enough detail on its AI-driven research process for outsiders to evaluate it, and whether the unresolved MiroMind dispute over founder Dai Jifeng resurfaces now that the lab has a product in the market. With a $1.42 billion valuation to justify, the "N0.5" name makes clear that NaiveAI considers this a first step, not the finished product.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa"><blockquote>&ldquo;The entire network remains local or sparse, with no full-attention layers.&rdquo;</blockquote><cite>&mdash; NaiveAI Team, Naive-N0.5-Flash model card</cite></div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">309B / 15.5B</div><div class="stat-label">Total and active parameters in the MoE</div></div><div class="stat-cell"><div class="stat-value">2,122 tok/s</div><div class="stat-label">Company-reported peak decode speed on eight GPUs</div></div><div class="stat-cell"><div class="stat-value">3.25T</div><div class="stat-label">Training tokens used to adapt the base to sparse attention</div></div><div class="stat-cell"><div class="stat-value">$0.40/M</div><div class="stat-label">API price per million output tokens</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://x.com/naiveailab/status/2104247060186951725" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=x.com&sz=32" alt="">NaiveAI on X</a><a href="https://huggingface.co/NaiveAI/Naive-N0.5-Flash" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=32" alt="">Hugging Face</a><a href="https://github.com/NaiveAI-Labs/Naive-N0.5-Flash" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=32" alt="">GitHub</a><a href="https://naive.ai/en/research/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=naive.ai&sz=32" alt="">NaiveAI Research</a><a href="https://runtimewire.com/article/naiveai-naive-n05-flash-ai-model-development" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=runtimewire.com&sz=32" alt="">RuntimeWire</a><a href="https://aiweekly.co/alerts/naiveai-open-weights-309b-naive-n05-flash-with-no-full-attention" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=aiweekly.co&sz=32" alt="">AI Weekly</a></div></div>
+<div class="article-nav"><a href="05-google-gemini-ai-mode-flipkart-checkout-india.html" class="nav-prev">&larr; Google Tests Direct Flipkart Checkout Inside Gemin</a><a href="07-openai-gpt-6-image-encoding-bug-fix.html" class="nav-next">OpenAI Fixes Image-Encoding Bug That Was Quietly D &rarr;</a></div>
+<footer>The Vault — AI Edition · Published September 27, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
