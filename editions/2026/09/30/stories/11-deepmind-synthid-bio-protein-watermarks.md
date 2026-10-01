@@ -1,0 +1,33 @@
+# DeepMind's SynthID Bio Watermarks AI-Designed Proteins Without Hurting Binding, in a Nature Paper Aimed at Biosecurity
+
+A protein designed by a machine, shipped as a string of amino acids to a synthesis provider, grown in a lab and tested against a human target can now carry a hidden signature saying where it came from. Google DeepMind published that result in Nature on September 30, calling them the first watermarked, biologically functional protein binders. The point is not elegance. It is that DNA synthesis screening, the chokepoint biosecurity leans on hardest, has been losing its grip on AI-designed sequences.
+
+The paper, "Function-preserving watermarking of AI-generated proteins," lists David Stutz and Alexander I. Cowen-Rivers as joint first authors, with Demis Hassabis and Pushmeet Kohli among the co-authors. DeepMind is releasing code, in vitro data and model weights alongside it.
+
+"Biosecurity is one of the most urgent challenges for the AI era," Hassabis wrote on X. "Bringing SynthID to biology so AI-generated proteins can be watermarked is a critical step - and we're open sourcing SynthID Bio tools so the research community can build on this work."
+
+## Two watermarks, one in the sequence and one in the shape
+
+SynthID Bio is really two methods. The sequence version plugs into ProteinMPNN, a widely used sequence design model, and biases its choices during sampling in a way borrowed from SynthID's text watermarking: when several roughly equivalent amino acids are available at a position, the watermark nudges the model toward a statistically detectable pattern. Nothing is appended and nothing sits in a header; the mark lives in the protein, which is why it survives physical synthesis.
+
+DeepMind paired that with AlphaProteo and ran wet-lab tests against three targets: VEGF-A, which drives blood vessel formation; the receptor-binding domain of the SARS-CoV-2 spike protein; and PD-L1, the immune checkpoint. Across all three, watermarked designs matched unwatermarked ones on hit rate, binding affinity and natural sequence diversity, with the published violin plots showing the binding distributions sitting almost on top of each other. One representative watermarked VEGF-A binder is reported at a dissociation constant of 0.344 micromolar.
+
+Detection is calibrated rather than absolute. The paper calls watermarked sequences at a sequence-level average g-value of 0.545, a threshold set for a false-positive rate of 0.1 percent, and under that filter the marked and unmarked distributions separate cleanly across fifteen backbone structures. The caption is candid about what the filter does: without a g-value threshold, the true-positive rate "is not guaranteed to be 100% but depends on how well the designs can be watermarked." Near-perfect detectability is measured on designs selected for being markable.
+
+The second method goes after structures. DeepMind fine-tuned part of AlphaFold 3's diffusion and confidence modules so the watermark lives in the model weights, embedded as tiny shifts in atomic coordinates. Anyone who runs that model gets predicted structures carrying the signature, with accuracy preserved and the signal holding up against digital noise and small coordinate perturbations. Detectability is described as near-perfect. Verification requires a secret key, which DeepMind says would go only to trusted partners such as synthesis providers.
+
+## Why synthesis screeners care
+
+Synthesis companies already screen orders against reference databases of known toxins and pathogen proteins. The failure mode DeepMind is targeting is specific: a generative model can produce a sequence that performs the same function as something dangerous while bearing almost no resemblance to anything in those databases. The screener sees an unfamiliar string and cannot tell whether it is an undiscovered natural protein or a machine-made one. Resolving that by hand stalls research.
+
+A watermark does not solve that; it inverts it. A present mark tells a screener the order came from a model with safeguards attached, and can be fast-tracked. James Diggans, VP of policy and biosecurity at Twist Bioscience, who gave early feedback on the paper, described the value as a way to "strengthen screening, focus resources on sequences that warrant closer review and make biosecurity more efficient." That is triage, and triage is useful. No synthesis provider has announced adoption.
+
+## The asymmetry problem
+
+The structural weakness is that an absent watermark is unreadable. It could mean a natural sequence, an unwatermarked model, or a mark deliberately removed, and the three look identical. Removal is not hypothetical: as Nature's news coverage notes, a watermarked design can in many cases be run through another tool to yield a sequence that keeps the structure and function while shedding the signature. DeepMind lists robustness against tampering as an open challenge and says no single biosecurity intervention is a silver bullet.
+
+Tessa Alexanian, a biosecurity researcher formerly at the International Biosecurity and Biosafety Initiative for Science, framed it as one layer in a stack rather than a barrier, telling Nature, "We're in a wild new world." She also noted why providers want it anyway: "The synthesis providers I've talked to have been kind of like, 'Any information you can give us to make sense of these orders is good'." Steph Guerra, a biosecurity scholar at RAND, saw appeal in an approach that supports reproducibility and, as she put it, can "at the same time, have a security benefit."
+
+Adoption is the other open question. SynthID Bio is voluntary, with no regulatory hook, and its value scales with how many design models embed it. The near-term win may be less adversarial: the Protein Data Bank, UniProt and GenBank all accept submissions, and AI-designed sequences filed as natural ones distort later biosecurity judgments. Mislabeling there is usually accidental, so a mark that survives ordinary handling is enough.
+
+Kohli told Nature his team "stress-tested the approach on a number of challenging problems." Watch three things from here: whether any synthesis provider or database operator commits to checking the mark, whether tamper-resistance yields to anything better than open-sourcing and hoping, and whether watermarking spreads past proteins. DeepMind has already integrated SynthID Bio into Evo 2 with the Hie lab at Stanford and the Arc Institute, watermarking the genome of an AI-designed bacteriophage; early testing in bacterial cultures showed those phages still functional. A technical manuscript, the company says, is coming.
