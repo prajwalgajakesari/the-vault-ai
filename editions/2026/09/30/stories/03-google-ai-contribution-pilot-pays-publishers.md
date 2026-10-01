@@ -1,0 +1,30 @@
+# Google Quietly Pays About 100 Publishers Based on How Much Their Pages Shape AI Overviews and Gemini
+
+For almost a year, Google has been sending checks to a small group of websites whose pages help write its AI answers. It has not explained to them how those checks are worked out. The company's "AI contribution pilot" now pays about 100 digital publishers for content used in AI Overviews, AI Mode and the Gemini chatbot, The Information reported on Wednesday. The payments vary enormously. Some small sites have earned less than $1,000 over several months, while one early participant earns more than $1 million a year.
+
+The program runs inside Google Search Console. Invited publishers accept a set of terms there and then see a monthly earnings figure in a new widget. According to Google's help documentation, seen in screenshots published by Digiday, a site earns money only when its content "contributes significantly to the creation of AI-generated responses." Payment applies only to the generation stage, when a page actually shapes the answer. Pages that are merely linked in a response, or used to check a fact after the answer is written, do not qualify. Publishers can leave whenever they want. Google has confirmed the effort to Digiday and described it as an early-stage learning pilot that tests how to reward high-quality content on top of the traffic and tools it already provides.
+
+## Real money, opaque math
+
+The Information's reporting gives the first look at how much is being paid. For several small and midsize blogs and websites, the payments come to less than 0.1 percent of their advertising revenue. One publisher that joined a few months ago has earned roughly $50,000 to $60,000. A participant that joined early earns more than $1 million a year, which is a much larger share of its revenue. Content on niche topics with strong followings, such as anime and gaming, appears to earn more. Participants told The Information that their payments can change from month to month without explanation, and that they cannot see how Google arrives at the numbers.
+
+Publishers inside the program describe it as worth joining but hard to read. "It's quite black box," one executive with knowledge of the program told Digiday. Another participating publisher said: "Do I wish they were more transparent? Definitely. But I'm hopeful that the fact that they're setting a precedent for exploring paying publishers directly for content through this is meaningful." Others are staying out. Some larger publishers are refusing to join so they can push Google toward higher rates, The Information reported. One executive outside the pilot told Digiday that the "lowball numbers" offered to their company and several peers were not worth opting in for.
+
+Google signaled the move in June. In a policy blog post, Markham Erikson, vice president of government affairs and public policy, wrote that the company is "exploring new types of partnership and value-exchange models that can further improve our products and deepen our relationships across the ecosystem."
+## Why it matters: a price tag on the answer layer
+
+Since AI Overviews launched, Google has argued that it still sends billions of clicks to the web. Publishers have seen their traffic fall anyway, and that dispute is now in courts and regulators' offices. Penske Media, owner of Rolling Stone, sued Google in September 2025 over lost traffic and ad revenue. The European Commission opened an antitrust investigation in December 2025 into whether Google uses publishers' content for AI features without adequate payment or a real way to opt out. Notably, opting out of the payment pilot does not stop Google from using a site's content in its AI features.
+
+That backdrop is why some observers read the pilot as a defensive move. "Publishers have relatively little leverage over how AI changes content discovery and distribution," Luke Stillman, managing director of Madison and Wall, told Digiday. He added that publishers "are better served creating a new revenue stream while they still can." David Buttle, founder of the publisher AI coalition Spur, was more skeptical. He argued that Google does not want a market where it pays every time it uses journalism. "What this sounds to me like is a kind of hedge against that world, a bit of experimentation in the event that that world comes to pass and they do actually have to pay," Buttle said.
+
+Under this model, Google decides what counts as a contribution and what it is worth, and each site negotiates alone.
+
+## Cloudflare offers a different template
+
+On the same day the pilot's scale came to light, Cloudflare moved its "Pay Per Use" product into beta. It is a third-party marketplace that pays publishers when AI companies report using their content after retrieving it. In Cloudflare's model, the roles are split differently. "Each AI company defines the use it will pay for and sets a price," the company wrote. "Publishers decide which offers to accept, and then can see how often their content is used and what it has earned." Buyers self-report each use, and Cloudflare bills them and pays publishers monthly. Cloudflare has not named the AI companies buying through the program, and neither of its announcements reports transaction counts or payouts.
+
+The two systems differ in one important way. Google judges contribution inside its own products and sets the price. Cloudflare lets buyers make offers that publishers can accept or refuse, and it plans to let publishers counter on price and charge different rates for different uses.
+
+## What to watch
+
+The key questions now are whether Google opens the pilot to more sites, whether it publishes the formula behind the payouts, and whether larger publishers holding out get better terms. The European Commission's investigation and the Penske lawsuit could decide whether payments like these stay voluntary. For Cloudflare, the test is whether it names its buyers and whether the amounts paid ever approach the advertising revenue publishers say AI answers have taken from them.
