@@ -1,0 +1,30 @@
+# Ataraxos Beats the World's Best Stratego Player on an Under-$8,000 Training Budget by Reasoning About Hidden Information
+
+For years Stratego has been the board game AI couldn't crack. Its pieces stay face down, so neither player knows what the other is holding. DeepMind's DeepNash, unveiled in 2022, cost millions of dollars to train and still was not strong enough to beat the best humans. Now a team from MIT, Carnegie Mellon University, New York University and Stanford says it has done what DeepNash could not, at a sliver of the cost. Their system, Ataraxos, beat the strongest Stratego player in the world 15 wins to 1 loss with 4 draws. The results were published in Nature on September 30.
+
+The opponent was Pim Niemeijer, whom the paper calls "the most decorated human Stratego player of all time." The 20-game series ran over three weeks. Ataraxos also went 39-2 against top players at the annual Stratego World Championship.
+The cost is just as striking as the scores. According to the paper, Ataraxos was trained for under $8,000 on Nvidia H100 GPUs. The authors estimate that DeepNash would cost roughly $3 million to $4.5 million to train at today's prices. A preprint version from November 2025 puts it bluntly: superhuman Stratego "requires not an industrial budget, but merely a few thousand dollars."
+
+## Why Stratego is so hard, and how Ataraxos plays it
+
+Stratego looks like a military version of chess. Each player sets up 40 pieces on their side of the board and tries to capture the opponent's flag. The catch is that a piece's identity stays secret until it collides with an enemy piece, and the lower-ranked piece is then removed. The researchers put the number of possible piece configurations at more than 10 to the 66th power, far more than in chess.
+"The more you bluff, the more your opponent expects it, and the less each bluff is worth. It's not obvious how to reason about that," said lead author Samuel Sokota, a graduate student at Carnegie Mellon. "It's very different from a setting like chess, where the best move is still the best move no matter how often you've played it."
+
+Ataraxos works in two stages. First, it learns a "blueprint strategy" through self-play reinforcement learning, meaning it plays against itself over and over. Learning by self-play tends to be unstable in games with hidden information, where strategies can chase each other in circles. The team designed training algorithms that keep it on track, and that efficiency is where the headline numbers come from. "Our system reaches strictly higher playing strength than DeepNash (DeepMind's system) while using less than one hundredth of the training examples and less than one thirtieth of the self-play games, indicating a massive improvement in efficiency," said senior author Gabriele Farina, an assistant professor in MIT's Department of Electrical Engineering and Computer Science and a principal investigator at the Laboratory for Information and Decision Systems.
+
+The second stage happens during play. Before each move, Ataraxos refines the blueprint with decision-time planning, also called test-time search. A generative model estimates how likely each identity is for the opponent's hidden pieces and samples plausible versions of the board. The system then looks ahead from those versions before choosing a move. The researchers call this belief-guided search the missing piece that pushed Ataraxos to superhuman play.
+
+"Rather than just guessing blindly, we use decision-time planning to find the most plausible state of the board. Using this generative model allows us to really zoom in on the specific board and opponent we are facing," Farina said.
+Farina also described how the system behaves under pressure. "A human might start freaking out if their most valuable piece is exposed, but the bot can be surprisingly composed. It doesn't overcorrect and give away its secrets," he said. The name fits: Ataraxos is a Greek word for someone free from anxiety.
+
+## Why hidden-information reasoning matters beyond the board
+
+The bigger claim is about generality. The team used the same approach on three more imperfect-information games: Barrage Stratego, a faster variant with fewer pieces; Hanabi, a cooperative card game with many players; and Dou dizhu, in which two players team up against a third. MIT reports superhuman performance in all three. The paper describes the method as "a design pattern for reinforcement learning and search that is effective under large amounts of hidden information."
+
+That matters because most real strategic problems look more like Stratego than chess. In negotiations, procurement and markets, each side knows things the others don't, and what a party chooses not to do can reveal as much as what it does. Cybersecurity is similar. Defenders rarely see an attacker's full position, and attackers probe while hiding what they intend. The work was funded in part by the Office of Naval Research, and the MIT team names military planning, business negotiation and cybersecurity as possible applications.
+
+It also matters for AI agents. As they start negotiating and transacting for people, they will meet counterparts that hold private information and may bluff. An agent that samples likely hidden states and plans across them is better placed than one that assumes it can see everything. "In the kind of imperfect information tasks you would face in reality, you often don't have the luxury of enumerating through all the possibilities. There are just too many," Farina said.
+
+## What to watch
+
+The researchers say interpretability comes next: they want Ataraxos to explain its choices in terms a person can check. "Humans must have the final say in whether a recommendation is followed, so before adoption can happen, we need a way to audit the model's decisions," Farina said. The other test is independent reproduction. At under $8,000, outside labs can now afford to check the results. If the method holds up on a messy real-world task such as an automated negotiation or a security simulation, Stratego may be remembered as a turning point rather than just another trophy.
