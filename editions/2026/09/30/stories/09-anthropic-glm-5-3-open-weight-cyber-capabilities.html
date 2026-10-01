@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anthropic Flags Z.ai&#x27;s GLM-5.3 as the Most Cyber-Capable Open-Weight Model Yet, Four Months Behind the U.S. Frontier — The Vault AI</title>
+<meta name="description" content="Anthropic and NIST&#x27;s CAISI found that Zhipu&#x27;s freely downloadable GLM-5.3 can build exploits nearly as well as Claude Mythos Preview and that its safeguards are easy to strip, while Zhipu points to more than 4,000 bugs the model has found for open-source maintainers.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body a{color:var(--cat-color)}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Llms Genai</span>
+  <h1>Anthropic Flags Z.ai&#x27;s GLM-5.3 as the Most Cyber-Capable Open-Weight Model Yet, Four Months Behind the U.S. Frontier</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 1002 words</span>
+    <span>5 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Anthropic and NIST&#x27;s CAISI found that Zhipu&#x27;s freely downloadable GLM-5.3 can build exploits nearly as well as Claude Mythos Preview and that its safeguards are easy to strip, while Zhipu points to more than 4,000 bugs the model has found for open-source maintainers.</p>
+</div>
+<div class="article-body">
+<p>Five months after Anthropic decided its Claude Mythos Preview was too dangerous for a general release, it says a model with a similar skill set can now be downloaded by anyone. In an analysis published Tuesday, Anthropic's Frontier Red Team reports that GLM-5.3, from the Chinese lab Zhipu AI (which operates as Z.ai outside China), can build working cyber exploits end to end with little human help. It also says the model's built-in safeguards fall apart under basic pressure. Zhipu's response is that the same capability is already finding thousands of bugs for open-source maintainers.</p>
+<h2>What the tests found</h2>
+<p>The headline figures come from ExploitBench, which asks models to turn known bugs in Chrome's V8 JavaScript engine into working attacks. GLM-5.3 produced end-to-end exploits in 50 of 410 attempts. Claude Mythos Preview managed 56. On Anthropic's internal binary exploitation benchmark, drawn from open-source projects in Google's OSS-Fuzz program, GLM-5.3 achieved full control-flow hijacks in 4% of trials, against 6% for Mythos Preview. Claude Opus 4.6 and GLM-5.2, the previous generation, scored zero. Anthropic says this shows "a meaningful threshold has clearly been crossed."</p>
+<p>The hands-on tests were more striking. In one session, a researcher spent less than an hour of focused attention over about a day, and in that time GLM-5.3 found several previously unknown flaws in a popular browser's JavaScript engine. It chained them into a webpage that reads arbitrary files from a visitor's machine; in the demonstration it took an SSH private key. Anthropic says it disclosed the bugs to the maintainer. In a second test, the smaller GLM-5.3-Flash combined a recently patched Chrome vulnerability with another known flaw to build a reliable exploit chain for ARM64 that bypassed pointer-authentication hardening. That took 20 minutes of human attention and eight hours of model time, which Anthropic puts at $20.40 at Zhipu's API prices.</p>
+<p>Anthropic then tested the model's safety guardrails. GLM-5.3 refused every overtly malicious attack order when asked directly. When the request was framed as a red-team exercise, it engaged 64% of the time. With prefilled reasoning it engaged 92% of the time, and an "abliterated" copy, with refusal behavior stripped from the weights, engaged 100% of the time. Anthropic estimates an experienced team could abliterate the model for about $1,200 in compute. Refusal rates dropped from above 90% to between 2% and 12% across three harmful-request benchmarks, with almost no loss of capability. Anthropic notes that several abliterated versions appeared publicly within days of release.</p>
+<p>The independent benchmark comes from the U.S. government. On September 17, NIST's Center for AI Standards and Innovation (CAISI) called GLM-5.3 "the most cyber-capable open-weight model released to date." It also said the model's capabilities are "significantly lower than those of current U.S. frontier models," about four months behind on an aggregate index. The gap is wide on individual tests. GLM-5.3 solved 40.4% of SEC-Bench Pro tasks versus 90.2% for the best U.S. model, and 7.7% of CAISI's private OSS-Fuzz set versus 23.2%. Both CAISI and Anthropic note that the U.S. models in that comparison were tested with cyber safeguards disabled, and that the frontier includes models available only to vetted users.</p>
+<h2>The case for the defense</h2>
+<p>Zhipu has been promoting the model as a defensive tool. This week, Z.ai researcher Zixuan Li said the company's free OpenVuln service, which runs GLM-5.3 against public GitHub repositories, has reported 4,249 potential vulnerabilities across 389 open-source projects. Findings go privately to maintainers and are not published. At the August 14 launch, the reported tally was 2,436 vulnerabilities across 269 projects.</p>
+<p>SemiAnalysis, in a technical teardown this week, focused on efficiency rather than danger. It describes GLM-5.3 as a 744-billion-parameter mixture-of-experts model with about 40 billion parameters active per token. It uses DeepSeek-style sparse attention, and serving stacks like SGLang's HiSparse move KV cache from GPU memory into host DRAM. The firm cautions that "sparse attention doesn't eliminate the memory capacity bottleneck." It also suggests the attention design may be tuned for Chinese accelerators from Moore Threads. Cheap serving, freely downloadable weights and possible compatibility with domestic Chinese chips are a big part of why this model draws more scrutiny than a benchmark result alone would.</p>
+<h2>Analysis: an open-weights fight with a U.S.-China edge</h2>
+<p>Anthropic's argument is that GLM-5.3 itself is less important than the fact that anyone can get it. "A critical threshold in freely accessible capabilities has now been crossed," the company writes. It asks for three things: governments should safety-test GLM-5.3's successors, open-weight developers should "appropriately safeguard these capabilities," and defenders should get access to stronger closed systems. "We believe defenders should be equipped with frontier models that are at least as good as those their adversaries are using," Anthropic argues.</p>
+<p>The critics' point is that Anthropic has a stake in the outcome. The report presents closed weights as a security advantage, and its policy conclusions would steer defenders toward Anthropic's own trusted-access programs, including Claude Mythos 5.1. Writing in The Decoder, Maximilian Schreiner noted the risk of regulatory capture. He also noted that CAISI's independent numbers back up the capability claims. The four-month lag cuts both ways. It suggests U.S. frontier models are still well ahead. It also means that whatever the best restricted models can do today, a freely downloadable model may do by early next year. The UK's AI Security Institute recently estimated the open-model gap at four to seven months.</p>
+<h2>What to watch</h2>
+<p>The next tests come soon. CAISI has now assessed GLM-5.2 and GLM-5.3 in consecutive months, and Anthropic is explicitly asking for the same treatment for GLM-5.3's successors. Watch whether Washington turns these evaluations into release-gating rules for Chinese open-weight models, whether Zhipu responds with stronger safeguards or more OpenVuln disclosures, and whether the browser, driver and device bugs Anthropic says it is still reviewing turn into public CVEs. The open question is whether defenders can patch faster than abliterated copies of the model spread.</p>
+<div class="pull-quote" style="border-left:2px solid #a78bfa">
+          <blockquote>"A critical threshold in freely accessible capabilities has now been crossed."</blockquote>
+          <cite>— Anthropic Frontier Red Team, Research team, Anthropic</cite>
+        </div>
+<div class="data-strip" style="border-top:1px solid #a78bfa20"><div class="stat-cell"><div class="stat-value">50 of 410</div><div class="stat-label">ExploitBench end-to-end exploits (Mythos Preview: 56)</div></div><div class="stat-cell"><div class="stat-value">64%-100%</div><div class="stat-label">Safeguard bypass rate with simple techniques</div></div><div class="stat-cell"><div class="stat-value">~4 months</div><div class="stat-label">Lag behind U.S. frontier on CAISI&#x27;s cyber index</div></div><div class="stat-cell"><div class="stat-value">4,249</div><div class="stat-label">Potential vulns reported via OpenVuln across 389 projects</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=32" alt="">Anthropic Frontier Red Team</a><a href="https://www.nist.gov/news-events/news/2026/09/caisis-assessment-zais-glm-53-cyber-capabilities" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=nist.gov&sz=32" alt="">NIST CAISI</a><a href="https://newsletter.semianalysis.com/p/sparse-savings-persistent-demand-inside-glm53" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=newsletter.semianalysis.com&sz=32" alt="">SemiAnalysis</a><a href="https://the-decoder.com/anthropic-says-zhipus-open-weight-glm-5-3-nearly-matches-claude-mythos-preview-at-building-exploits/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=the-decoder.com&sz=32" alt="">The Decoder</a><a href="https://www.kucoin.com/news/flash/zhipu-glm-5-3-identifies-4-249-potential-vulnerabilities-in-389-open-source-projects" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=kucoin.com&sz=32" alt="">KuCoin News</a></div></div>
+<div class="article-nav"><a href="08-claude-for-government-ga-fedramp-high.html" class="nav-prev">← Claude for Government Goes GA in FedRAMP High, Wit</a><a href="10-deepseek-deepgemm-ascend-950-tilelang.html" class="nav-next">DeepSeek Open-Sources DeepGEMM-Ascend and TileLang →</a></div>
+<footer>The Vault — AI Edition · Published September 30, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
