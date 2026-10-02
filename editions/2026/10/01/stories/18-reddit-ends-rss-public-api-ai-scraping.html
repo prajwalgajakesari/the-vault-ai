@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reddit Kills RSS Feeds and Public API Access, Blaming AI Scrapers — The Vault AI</title>
+<meta name="description" content="Reddit is shutting down RSS on Nov 13 and public API access by March 2027, citing AI scraping, while its AI data-licensing revenue grows, so open access to its content increasingly runs through paid deals.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#101014;--surface:#18181c;--surface-2:#1f1f24;--border:rgba(255,255,255,.07);--border-hover:rgba(255,255,255,.14);--text:#b8b8bf;--text-strong:#ececef;--text-muted:#5a5a63;--accent:#c084fc;--cat-color:#fb7185}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(16,16,20,.85);border-bottom:1px solid var(--border);padding:.75rem 2rem;display:flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif}
+nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.35rem}
+nav a:hover{color:var(--text-strong)}
+nav svg{width:16px;height:16px}
+nav .brand{color:var(--text-strong);font-weight:700;letter-spacing:.08em;font-size:.85rem;margin-left:auto}
+.article-header{max-width:720px;margin:3rem auto 0;padding:0 1.5rem}
+.cat-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 10%,transparent);padding:.3rem .7rem;border-radius:4px}
+.cat-tag svg{width:14px;height:14px}
+.article-header h1{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--text-strong);line-height:1.2;margin:.8rem 0}
+.meta-row{display:flex;flex-wrap:wrap;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);margin:1rem 0 2rem;align-items:center}
+.meta-row span{display:flex;align-items:center;gap:.3rem}
+.meta-row svg{width:14px;height:14px}
+.takeaway{max-width:720px;margin:0 auto 2rem;padding:1rem 1.5rem;background:color-mix(in srgb,var(--cat-color) 5%,var(--surface));border-radius:8px;border:1px solid color-mix(in srgb,var(--cat-color) 15%,transparent);font-family:'DM Sans',sans-serif}
+.takeaway .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cat-color);display:flex;align-items:center;gap:.35rem;margin-bottom:.4rem}
+.takeaway .label svg{width:14px;height:14px}
+.takeaway p{font-size:.9rem;color:var(--text-strong)}
+.article-body{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.article-body p{margin-bottom:1.3rem;font-size:1.05rem}
+.article-body p:first-of-type::first-letter{font-size:3.2em;float:left;line-height:.8;margin:.05em .12em 0 0;font-weight:700;color:var(--text-strong)}
+.article-body h2{font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text-strong);margin:2rem 0 .8rem}
+.article-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--text-strong);margin:1.5rem 0 .6rem}
+.article-body a{color:var(--cat-color)}
+.article-body ul,.article-body ol{margin:0 0 1.3rem 1.4rem}
+.article-body li{margin-bottom:.4rem}
+.article-body blockquote{border-left:2px solid var(--cat-color);padding-left:1rem;margin:0 0 1.3rem;font-style:italic;color:var(--text-strong)}
+.pull-quote{margin:2rem 0;padding:1rem 1.5rem;border-radius:6px;background:var(--surface)}
+.pull-quote blockquote{font-style:italic;font-size:1.1rem;color:var(--text-strong);margin-bottom:.4rem}
+.pull-quote cite{font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text-muted);font-style:normal}
+.data-strip{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0;padding:1rem 0}
+.stat-cell{flex:1;min-width:100px;text-align:center;padding:.8rem;background:var(--surface);border-radius:6px}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-strong)}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:var(--text-muted);margin-top:.2rem}
+.sources{max-width:720px;margin:2rem auto;padding:1.5rem;border-top:1px solid var(--border)}
+.sources h3{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--text-strong);margin-bottom:.8rem}
+.source-list{display:flex;flex-wrap:wrap;gap:.6rem}
+.source-list a{display:flex;align-items:center;gap:.4rem;padding:.35rem .7rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--text);text-decoration:none}
+.source-list a:hover{border-color:var(--border-hover);color:var(--text-strong)}
+.source-list img{width:16px;height:16px;border-radius:2px}
+.article-nav{max-width:720px;margin:2rem auto;padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--border)}
+.article-nav a{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-muted);text-decoration:none}
+.article-nav a:hover{color:var(--text-strong)}
+footer{text-align:center;padding:2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:2rem}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--cat-color);z-index:200;transition:width .1s}
+
+</style></head><body>
+<div class="progress-bar" id="pb"></div>
+<nav>
+  <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</a>
+  <span class="brand">THE VAULT</span>
+</nav>
+<header class="article-header">
+  <span class="cat-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Policy</span>
+  <h1>Reddit Kills RSS Feeds and Public API Access, Blaming AI Scrapers</h1>
+  <div class="meta-row">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min read</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> 976 words</span>
+    <span>4 sources</span>
+  </div>
+</header>
+<div class="takeaway">
+  <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> KEY TAKEAWAY</div>
+  <p>Reddit is shutting down RSS on Nov 13 and public API access by March 2027, citing AI scraping, while its AI data-licensing revenue grows, so open access to its content increasingly runs through paid deals.</p>
+</div>
+<div class="article-body">
+<p>Reddit is shutting two of the oldest ways to read its content from outside the site. On Wednesday, September 30, the company said RSS feeds will stop working on Friday, November 13, 2026, and that public access to its API will close by March 2027. Its stated reason is AI-era scraping. Reddit says RSS has become a "common surface for large-scale scraping and automated abuse," and it is closing that route along with the open API that third-party tools have used for more than a decade.</p>
+<p>The timing stands out. The same company that is cutting off free, open access to its data is also selling that data. In its most recent quarter, Reddit's "other revenue" line, which includes AI data licensing, grew 24% year over year to $43 million.</p>
+<h2>What Is Changing, and When</h2>
+<p>Reddit announced the changes in a post to moderators on r/modnews and in a separate post for developers on r/redditdev. It presented them as the next phase of an infrastructure overhaul it previewed over the summer. "In August, we shared plans to modernize Reddit's infrastructure, build better mod tools, and make it harder for bad actors to scrape Reddit and abuse communities. Today, we have specifics on what's changing, when, and how to plan ahead," the company wrote, according to Decrypt.</p>
+<p>The schedule has several stages. Reddit stops accepting new public API requests on October 31. RSS ends on November 13. Developers of approved third-party apps and bots have to register with Reddit before January 12, 2027, and unregistered apps start losing access after that date. All remaining public API access closes in March 2027.</p>
+<p>Reddit wants developers to rebuild on Devvit, its in-house Developer Platform. To help, it is offering a $1 million App Migration Program that pays $1,000 to each eligible app that completes the move and includes free hosting. Applications are due November 30. The Next Web reports that more than 14,000 apps and bots have registered to migrate so far. According to Decrypt, Reddit says well-known utilities such as RemindMeBot, DeltaBot and MagicEyeBot have finished or nearly finished migrating.</p>
+<p>Old Reddit, the text-heavy classic interface many longtime users still prefer, is getting tighter limits too. It already requires a login. Over the coming months, access will be limited to moderators and to users who have visited Old Reddit in the past six months. Reddit says logged-out traffic was the biggest source of abusive scraping on that version of the site.</p>
+<h2>No Off-Ramp for Most RSS Users</h2>
+<p>Moderators who rely on RSS for alerts can switch to Discord Relay, a Devvit app that sends notifications to Discord. Everyone else gets nothing. That includes people who follow subreddits in feed readers, researchers tracking discussions, and newsrooms watching for breaking posts. "If you use RSS for feeds outside of a community you moderate, there is no replacement," Reddit wrote.</p>
+<p>Moderators pushed back in the replies. "RSS is the only way I find out about posts in subs like this one," one moderator wrote, as quoted by The Next Web. Others were worried about separate changes to Automod: new communities, and communities that have never used it, will lose Automod's ability to remove, filter or approve posts, with Reddit's Rules Hub and Automations becoming the default. Some moderators warned this would lead to more bans. When Reddit first hinted at the RSS change, users said the site would become "unmanageable" for them, according to coverage of the announcement.</p>
+<h2>Why It Matters</h2>
+<p>This is less a technical cleanup than a decision about who controls access to one of the internet's largest collections of human conversation. Years of people comparing products, troubleshooting software and describing symptoms are exactly the kind of text AI developers want. Reddit has turned that into a licensing business. It signed a deal reported at roughly $60 million a year with Google in early 2024, followed by one with OpenAI. Companies without deals have ended up in court: Reddit sued Anthropic in June 2025 and Perplexity, along with three data-scraping firms, in October 2025. Perplexity and SerpApi have disputed the claims.</p>
+<p>Seen that way, RSS and the public API are leaks in a paywall. Both are open, machine-readable channels that let anyone take in Reddit content without signing a contract. Reddit's account is believable: scrapers have gotten better at posing as ordinary browsers, and Cloudflare's chief executive said this week that bot traffic could reach 1,000 times human traffic. But shutting down open protocols outright, rather than rate-limiting or authenticating them, also strengthens Reddit's position with paying AI customers. The cost lands on the people who never scraped anything at scale: hobbyist developers, academic researchers, accessibility tools and users who simply want to read Reddit outside Reddit's own apps.</p>
+<p>The move also fits a wider pattern. Platforms that once treated openness as a growth engine are now treating it as a liability. The 2023 API pricing fight, when thousands of subreddits went dark in protest, ended with Reddit getting its way. This time the change goes further: there is no paid tier for RSS, only an end date. If other large user-generated content sites follow, the open web's syndication layer could shrink into a set of licensed pipes, with access decided by commercial agreements rather than by public standards.</p>
+<h2>What to Watch</h2>
+<p>The first test comes on November 13, when feed readers and monitoring tools that depend on Reddit RSS go dark. Watch the developer registration count before the January 12 cutoff, and how many popular bots quietly disappear instead of migrating to Devvit. Moderator reaction could still harden into organized protest, as it did in 2023. Reddit's next earnings report will show whether shutting off open access goes along with faster growth in AI licensing revenue. That would be the clearest sign that this decision is as much about the business as about abuse.</p>
+<div class="pull-quote" style="border-left:2px solid #fb7185"><blockquote>&ldquo;If you use RSS for feeds outside of a community you moderate, there is no replacement.&rdquo;</blockquote><cite>&mdash; Reddit, Announcement post to moderators, r/modnews</cite></div>
+<div class="data-strip" style="border-top:1px solid #fb718520"><div class="stat-cell"><div class="stat-value">Nov 13</div><div class="stat-label">RSS feeds shut down</div></div><div class="stat-cell"><div class="stat-value">Jan 12, 2027</div><div class="stat-label">App and bot registration deadline</div></div><div class="stat-cell"><div class="stat-value">14,000+</div><div class="stat-label">Apps and bots registered to migrate</div></div><div class="stat-cell"><div class="stat-value">$43M</div><div class="stat-label">Other revenue incl. AI licensing, up 24% YoY</div></div></div>
+</div>
+<div class="sources"><h3>Sources</h3><div class="source-list"><a href="https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=techcrunch.com&sz=32" alt="">TechCrunch</a><a href="https://thenextweb.com/news/reddit-rss-feeds-shut-down-old-reddit-ai-scraping" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=thenextweb.com&sz=32" alt="">The Next Web</a><a href="https://decrypt.co/379892/reddit-killing-rss-feeds-public-api-access-ai-scrapers" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=decrypt.co&sz=32" alt="">Decrypt</a><a href="https://dataconomy.com/2026/10/01/reddit-ends-rss-support-november-13-scraping-abuse/" target="_blank" rel="noopener"><img src="https://www.google.com/s2/favicons?domain=dataconomy.com&sz=32" alt="">Dataconomy</a></div></div>
+<div class="article-nav"><a href="17-america-gov-ai-chatbot-launch-contradicts-white-house.html" class="nav-prev">&larr; America.gov&#x27;s AI Chatbot Contradicts the White Hou</a></div>
+<footer>The Vault — AI Edition · Published October 1, 2026</footer>
+<script>window.addEventListener("scroll",()=>{let e=document.documentElement,t=e.scrollTop,s=e.scrollHeight-e.clientHeight;document.getElementById("pb").style.width=(t/s*100)+"%"});</script>
+</body></html>
